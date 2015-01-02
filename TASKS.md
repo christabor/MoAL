@@ -100,17 +100,17 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Unique Games Conjecture and its relation to optimality of approximation algorithms.
 + Programming Paradigms:
  + functional programming
-  + Haskell
-  + OCaml
-  + Lisp
-  + Clojure
+    + Haskell
+    + OCaml
+    + Lisp
+    + Clojure
  + logic programming
-  + Prolog
+    + Prolog
  + OOP
-  + java
-  + python
+    + java
+   + python
  + array programming
-  + J
+   + J
  + metaprogramming
  + template metaprogramming
  + automatic programming
