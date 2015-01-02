@@ -86,7 +86,44 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + linear programming/duality
 + advanced data structures (ex. persistent data structures)
  + approximation algorithms
-+ Databases/Distributed Systems
++ Databases
+  + Relational
+    + Mysql
+    + Postgresql
+  + Key/value
+    + Redis (doc + k/v)
+  + Document
+    + ElasticSearch
+    + Solr
+    + MongoDB
+    + CouchDB
+  + Cache
+    + Memcached
+  + Graph
+    + Neo4j
+  + WideColumn
+    + HBase
+    + BigTable
++ Apps/Services
+  + Architecture
+    + MVC/N-Tier
+    + SOA
+    + Microservices
+    + RESTful API
+      + Full HATEOAS
+  + Protocols
+    + JSONRPC
+    + XMLRPC
+  + Caching
+    + Varnish
++ Distributed Systems
+  + CAP Theorem
+  + Big Data
+    + Hadoop file system
+    + Hadoop MapReduce
+    + PIG
+    + ZooKeeper
+    + Lucene
 + Machine learning/Artificial Intelligence/Robotics
 + Theory of Computation
 + (various) automata
@@ -143,3 +180,4 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 #### Other resources
 http://en.wikipedia.org/wiki/Analysis#Computer_science
 http://en.wikipedia.org/wiki/Programming_paradigm
+http://en.wikipedia.org/wiki/NoSQL
