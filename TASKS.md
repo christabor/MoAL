@@ -17,75 +17,81 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 
 + Try building a larger OOP-style project involving multiple classes.
 + Become familiar with some basic data structures/algorithms:
- + arrays
- + linked lists
+ + Arrays
+ + Linked lists
  + Binary Search Trees
- + balanced Binary Search Trees 
-  + (ex. Red-black trees
-  + AVL trees)
- + heaps
- + sorting algorithms
-   + insertion sort
-    + merge sort
-    + quick sort
-+ discrete math: 
- + basic probability
- + basic number theory
- + set theory (notions of countably infinite vs. non-countably infinite)
- + automata theory/finite state machines
+ + Balanced Binary Search Trees
+  + Red-black trees
+  + AVL trees
+ + Heaps
+ + Sorting algorithms
+   + Insertion sort
+    + Merge sort
+    + Quick sort
++ Discrete math:
+ + Basic probability
+ + Basic number theory
+ + Set theory (notions of countably infinite vs. non-countably infinite)
+ + Automata theory/finite state machines
++ Engineering
+  + Testing
+    + Test matrices
+    + Testing libraries
+  + Problem solving
+    + Decomposition
 
 ### Algorithms
 
 + Greedy algorithms
-+ dynamic programming
-+ divide and conquer
-+ standard graph algorithms 
- + shortest path
- + max flow
++ Dynamic programming
++ Divide and conquer
++ Standard graph algorithms
+ + Shortest path
+ + Max flow
  + MST
  + DFS/BFS
 
-*Optional: Introduction to Algorithm Design by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).*
+*Optional reading: Introduction to Algorithm Design by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).*
 
 ### Computer Organization
 
-+ how a computer works
- + starting with transistors
- + logic gates
++ How a computer works
+ + Starting with transistors
+ + Logic gates
  + ALU
- + a basic CPU
- + caches
- + memory hierarchy
- + virtual memory
- + synchronization primitives
- + assembly languages
- + virtual memory
- + memory mapped I/O
+ + A basic CPU
+ + Caches
+ + Memory hierarchy
+ + Virtual memory
+ + Synchronization primitives
+ + Assembly languages
+ + Virtual memory
+ + Memory mapped I/O
 
 ### Operating Systems
 
-+ concurrency
- + primitives
- + scheduling
- + single reader multiple writer
- + barrier
- + dining philosophers
-+ memory management
-+ networking
++ Concurrency
+ + Primitives
+ + Scheduling
+ + Single reader multiple writer
+ + Barrier
+ + Dining philosophers
++ Memory management
++ Networking
  + Ethernet
  + IP/TCP
  + UDP
  + SSH
-+ file systems
-+ security
++ File systems
++ Security
 
 ### Advanced
 
 + More algorithms/data structures
- + spectral graph theory
- + linear programming/duality
-+ advanced data structures (ex. persistent data structures)
- + approximation algorithms
+ + Spectral graph theory
+ + Linear programming/duality
++ Advanced data structures (ex. persistent data structures)
+ + Approximation algorithms
 + Databases
   + Relational
     + Mysql
@@ -127,49 +133,49 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Machine learning/Artificial Intelligence/Robotics
 + Theory of Computation
 + (various) automata
-+ context-free languages
-+ complexity classes (P, NP, #P, BPP, PSPACE)
++ Context-free languages
++ Complexity classes (P, NP, #P, BPP, PSPACE)
 + PCPs,
-+ circuit lower bounds
-+ arithmetic complexity
-+ quantum complexity
-+ communication complexity
++ Circuit lower bounds
++ Arithmetic complexity
++ Quantum complexity
++ Communication complexity
 + Unique Games Conjecture and its relation to optimality of approximation algorithms.
 + Programming Paradigms:
- + functional programming
+ + Functional programming
     + Haskell
     + OCaml
     + Lisp
     + Clojure
- + logic programming
+ + Logic programming
     + Prolog
  + OOP
     + java
    + python
- + array programming
+ + Array programming
    + J
- + metaprogramming
- + template metaprogramming
- + automatic programming
- + reactive programming
- + dataflow programming
-+ theorem provers
-+ verified computation
-+ type systems
-+ concurrency languages
+ + Metaprogramming
+ + Template metaprogramming
+ + Automatic programming
+ + Reactive programming
+ + Dataflow programming
++ Theorem provers
++ Verified computation
++ Type systems
++ Concurrency languages
  + GO
  + Rust
-+ language based security
-+ software defined networking.
++ Language based security
++ Software defined networking.
 + Compilers:
- + building one
+ + Building one
 + Computer Graphics
-+ computational geometry
++ Computational geometry
 + Scientific Computation
 + Cryptography and security
  + Diffie-Hellman
  + RSA
- + zero-knowledge proofs.
+ + Zero-knowledge proofs.
 
 
 ### Other resources / references
