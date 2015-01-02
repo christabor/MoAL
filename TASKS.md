@@ -1,12 +1,12 @@
 ## Long term engineering learning path aka “MOAL” - Mother of All Learning
 
-Mostly taken from: http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1
+Mostly taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1
 
 **THIS SHOULD ALL BE DONE IN PYTHON, EXCEPT FOR SPECIFIC LANGUAGE GOALS!
 Also: things that are math oriented, should still be done IN an actual language -- utilize tools like numpy, scipy to do different types of math.**
 
 ## Strategy: "20 minutes a day"
-mostly taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1
+Taken from: http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1
 
 # Specific tasks
 
