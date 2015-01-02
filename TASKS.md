@@ -100,12 +100,22 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Unique Games Conjecture and its relation to optimality of approximation algorithms.
 + Programming Paradigms:
  + functional programming
- + Haskell
- + OCaml
- + Lisp
- + Clojure
-+ logic programming
- + Prolog
+  + Haskell
+  + OCaml
+  + Lisp
+  + Clojure
+ + logic programming
+  + Prolog
+ + OOP
+  + java
+  + python
+ + array programming
+  + J
+ + metaprogramming
+ + template metaprogramming
+ + automatic programming
+ + reactive programming
+ + dataflow programming
 + theorem provers
 + verified computation
 + type systems
@@ -129,5 +139,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 
 #### Requirements list for BCS
 http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
-http://en.wikipedia.org/wiki/Analysis#Computer_science
 
+#### Other resources
+http://en.wikipedia.org/wiki/Analysis#Computer_science
+http://en.wikipedia.org/wiki/Programming_paradigm
