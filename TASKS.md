@@ -129,4 +129,5 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 
 #### Requirements list for BCS
 http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
+http://en.wikipedia.org/wiki/Analysis#Computer_science
 
