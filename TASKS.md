@@ -9,6 +9,7 @@ Also: things that are math oriented, should still be done IN an actual language 
 Taken from: http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1
 
 # Specific tasks
+_Note:_ *completed tasks will be ~~crossed out~~*
 
 ### Fundamentals
 
