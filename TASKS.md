@@ -5,6 +5,8 @@ Mostly taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-
 **THIS SHOULD ALL BE DONE IN PYTHON, EXCEPT FOR SPECIFIC LANGUAGE GOALS!
 Also: things that are math oriented, should still be done IN an actual language -- utilize tools like numpy, scipy to do different types of math.**
 
+**This should be considered a living document, that may grow in size as new details and fields of study are added**
+
 ## Strategy: "20 minutes a day"
 Taken from: http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1
 
@@ -121,3 +123,10 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Diffie-Hellman
  + RSA
  + zero-knowledge proofs.
+
+
+### Other resources / references
+
+#### Requirements list for BCS
+http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
+
