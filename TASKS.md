@@ -21,8 +21,8 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 ~~+ Try building a larger OOP-style project involving multiple classes.~~
 + Become familiar with some basic data structures/algorithms:
  + Data structures
-   + Arrays
-   + Linked lists
+   ~~+ Arrays~~
+   ~~+ Linked lists~~
    + Binary Search Trees
      + Fractal Tree Index
    + Balanced Binary Search Trees
