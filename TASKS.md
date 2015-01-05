@@ -34,6 +34,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
    + Priority queues
    + Splay trees
    + Skip list
+   + Trie
  + Sorting algorithms
    + Insertion sort
     + Merge sort
