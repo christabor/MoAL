@@ -91,10 +91,16 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 ### Operating Systems
 
 + Concurrency
+ + Futures/Promises
+ + Semaphores
  + Primitives
+  + Co-routines
+  + Fibers
+  + Green threads
  + Scheduling
  + Single reader multiple writer
  + Barrier
+ + Producer / consumer
  + Dining philosophers
 + Memory management
 + Networking
@@ -135,6 +141,20 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + MVC/N-Tier
     + SOA
     + Microservices
+    + Message queuing
+      + RabbitMQ
+      + ZeroMQ
+    + HTTP Servers
+      + Gunicorn
+      + UWGSGI
+    + FTP Server
+      + Twisted FTP
+    + UDP
+      + Twisted UDP
+    + Load balancing
+      + NGINX
+      + Apache
+      + HAProxy
     + RESTful API
       + Full HATEOAS
   + Protocols
