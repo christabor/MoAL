@@ -228,3 +228,4 @@ http://en.wikipedia.org/wiki/Analysis#Computer_science
 http://en.wikipedia.org/wiki/Programming_paradigm
 http://en.wikipedia.org/wiki/NoSQL
 http://en.wikipedia.org/wiki/Evaluation_strategy
+http://www.fullstackpython.com/table-of-contents.html
