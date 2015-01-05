@@ -20,17 +20,25 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 
 ~~+ Try building a larger OOP-style project involving multiple classes.~~
 + Become familiar with some basic data structures/algorithms:
- + Arrays
- + Linked lists
- + Binary Search Trees
- + Balanced Binary Search Trees
-  + Red-black trees
-  + AVL trees
- + Heaps
+ + Data structures
+   + Arrays
+   + Linked lists
+   + Binary Search Trees
+   + Balanced Binary Search Trees
+    + Red-black trees
+    + AVL trees
+   + Heaps
+   + Stack frames
+   + Stacks
+   + Queues
+   + Priority queues
+   + Splay trees
+   + Skip list
  + Sorting algorithms
    + Insertion sort
     + Merge sort
     + Quick sort
+    + Radix sort
 + Discrete math:
  + Basic probability
  + Basic number theory
@@ -61,6 +69,15 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + How a computer works
  + Starting with transistors
  + Logic gates
+ + Data(types)
+   + Hexadecimal
+   + Octal
+   + Binary
+   + Ternary
+   + N-ary
+ + Math
+  + Boolean logic
+ + Bitwise operations
  + ALU
  + A basic CPU
  + Caches
