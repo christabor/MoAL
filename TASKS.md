@@ -183,6 +183,11 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Quantum complexity
 + Communication complexity
 + Unique Games Conjecture and its relation to optimality of approximation algorithms.
++ Syntactic sugar (format: Language - feature)
+  + Python - yield
+  + Python - decorator
+  + Python - context manager
+  + Python - variable packing/unpacking
 + Programming Paradigms:
  + Functional programming
     + Haskell
