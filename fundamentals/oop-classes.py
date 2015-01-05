@@ -144,6 +144,13 @@ class ColonelMeow(InernetHouseCats):
 
 
 """
+    Class methods example
+"""
+
+print Cat.meow()
+print Cat.custom_classmethod()
+
+"""
     Examples of actual usage of class instances
 """
 
