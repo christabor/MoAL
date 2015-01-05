@@ -187,3 +187,4 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 http://en.wikipedia.org/wiki/Analysis#Computer_science
 http://en.wikipedia.org/wiki/Programming_paradigm
 http://en.wikipedia.org/wiki/NoSQL
+http://en.wikipedia.org/wiki/Evaluation_strategy
