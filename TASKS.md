@@ -5,6 +5,9 @@ Mostly taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-
 **THIS SHOULD ALL BE DONE IN PYTHON, EXCEPT FOR SPECIFIC LANGUAGE GOALS!
 Also: things that are math oriented, should still be done IN an actual language -- utilize tools like numpy, scipy to do different types of math.**
 
+Some examples are taken and recreated from other sites. To learn, you should still manually
+recreate each example, so you can get a better intuition and memorization of how it works and how to do it.
+
 **This should be considered a living document, that may grow in size as new details and fields of study are added**
 
 ## Strategy: "20 minutes a day"
