@@ -24,6 +24,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
    + Arrays
    + Linked lists
    + Binary Search Trees
+     + Fractal Tree Index
    + Balanced Binary Search Trees
     + Red-black trees
     + AVL trees
