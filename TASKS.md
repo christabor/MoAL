@@ -15,7 +15,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 
 ### Fundamentals
 
-+ Try building a larger OOP-style project involving multiple classes.
+~~+ Try building a larger OOP-style project involving multiple classes.~~
 + Become familiar with some basic data structures/algorithms:
  + Arrays
  + Linked lists
