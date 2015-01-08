@@ -1,6 +1,6 @@
 MOAL
 ====
 
-Mother of All Learning - a super duper big list of Comp Sci / Engineering tasks and the actual implementations taken from Quora notes to increase learning.
+Mother of All Learning - an uber list of Comp Science / Engineering tasks and the actual implementations taken from Quora notes or manually compiled to master computer science.
 
 See [the tasks](TASKS.md) for more details 
