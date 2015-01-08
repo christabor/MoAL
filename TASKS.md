@@ -8,6 +8,8 @@ Also: things that are math oriented, should still be done IN an actual language 
 Some examples are taken and recreated from other sites. To learn, you should still manually
 recreate each example, so you can get a better intuition and memorization of how it works and how to do it.
 
+In some cases, direct programming makes little sense, since a given subject may be high level. However, to better understand and cement the idea, it's important to try and recreate it in code. For example, you can learn about memory, but to "grok" it, you could write a module that acts as if it was memory - with the same kind of properties.
+
 **This should be considered a living document, that may grow in size as new details and fields of study are added**
 
 ## Strategy: "20 minutes a day"
@@ -18,12 +20,12 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 
 ### Fundamentals
 
-~~+ Try building a larger OOP-style project involving multiple classes.~~
++ ~~Try building a larger OOP-style project involving multiple classes.~~
 + Become familiar with some basic data structures/algorithms:
  + Data structures
-   ~~+ Arrays~~
-   ~~+ Linked lists~~
-   + Binary Search Trees
+   + ~~Arrays~~
+   + ~~Linked lists~~
+   + ~~Binary Search Trees~~
      + Fractal Tree Index
    + Balanced Binary Search Trees
     + Red-black trees
@@ -87,6 +89,10 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Virtual memory
  + Synchronization primitives
  + Assembly languages
+  + ARM
+  + MIPS
+  + x86
+  + 6502
  + Virtual memory
  + Memory mapped I/O
 
@@ -236,3 +242,5 @@ http://en.wikipedia.org/wiki/Programming_paradigm
 http://en.wikipedia.org/wiki/NoSQL
 http://en.wikipedia.org/wiki/Evaluation_strategy
 http://www.fullstackpython.com/table-of-contents.html
+http://interactivepython.org/
+http://refactoring.com/catalog/
