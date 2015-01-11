@@ -147,8 +147,11 @@ class ColonelMeow(InernetHouseCats):
     Class methods example
 """
 
+print
 print Cat.meow()
 print Cat.custom_classmethod()
+print Cat.custom_classmethod
+print
 
 """
     Examples of actual usage of class instances
@@ -165,18 +168,22 @@ print calico.meow()
 print repr(calico)
 
 print 'Classmethod: {}'.format(Cat.custom_classmethod())
+print Cat.custom_classmethod
 print 'Staticmethod: {}'.format(Cat.custom_staticmethod())
+print Cat.custom_staticmethod
 print 'Staticmethod instance: {}'.format(leopard.custom_staticmethod())
 print 'Comparison: {} {} {}'.format(
     leopard, calico, (hash(leopard) == hash(calico)))
-
+print
 abstract_leopard = CatTwo()
 
 # Not implement error
 try:
+    print abstract_leopard.custom_abstractmethod
     abstract_leopard.custom_abstractmethod()
 except NotImplementedError:
     print ('This exception is an example of the second '
            'abstract method strategy: simply raising a NotImplemented'
            'exception rather than going through the rigamorale of '
            'using a traditional ABC decorator.')
+print
