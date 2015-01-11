@@ -29,7 +29,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
      + Fractal Tree Index
    + Balanced Binary Search Trees
     + Red-black trees
-    + AVL trees
+    + ~~AVL trees~~
    + Heaps
    + Stack frames
    + Stacks

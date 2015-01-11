@@ -4,6 +4,8 @@ from string import ascii_letters
 # Mostly taken from
 # interactivepython.org/runestone/static/pythonds/Trees/bst.html#lst-bst1
 
+DEBUG = False
+
 
 class BinarySearchTree:
 
@@ -220,7 +222,7 @@ class BinarySearchTree:
         elif current_node.has_both_children():
             # If it has left and right children,
             # find the successor from either branch,
-            # and then re-assign it's values
+            # and then re-assign its values
             successor = current_node.find_successor()
             successor.splice_out()
             current_node.key = successor.key
@@ -262,6 +264,7 @@ class Node:
         self.left_child = left
         self.right_child = right
         self.parent = parent
+        self.balance_factor = 0
 
     def __iter__(self):
         # This method seemingly iterates over one node only, but since
@@ -295,7 +298,7 @@ class Node:
         return self.parent and self.parent.right_child == self
 
     def is_root(self):
-        # See if it's the top. By default, root is set to None.
+        # See if it's the top node. By default, root is set to None.
         return self.parent is None
 
     def is_leaf(self):
@@ -324,8 +327,9 @@ class Node:
             self.right_child.parent = self
 
 
-# Testing
+# Testing/Experimenting
 def recurse_bst(node, lastkey):
+    char = None
     if node is None:
         return
     offset = node.key / 2
@@ -335,10 +339,9 @@ def recurse_bst(node, lastkey):
         char = ' /'
     else:
         char = '\\'
+
     if lastkey is not None:
         diff = abs(lastkey - node.key) / 2
-        if lastkey > node.key:
-            diff -= 2
         connector = ('.' * diff)
         if diff > 2:
             if lastkey < node.key:
@@ -365,8 +368,9 @@ def populate_bst(bst, count=1):
         bst.put(randrange(1, 100), _gibberish())
 
 
-bst = BinarySearchTree()
-populate_bst(bst, count=20)
-print
-recurse_bst(bst.root, None)
-print
+if DEBUG:
+    bst = BinarySearchTree()
+    populate_bst(bst, count=5)
+    print
+    recurse_bst(bst.root, None)
+    print
