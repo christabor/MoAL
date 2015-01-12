@@ -1,6 +1,10 @@
+if __name__ == '__main__':
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+
 from random import randrange
-from random import choice
-from string import ascii_letters
+from generic_helpers import _gibberish
 # Mostly taken from
 # interactivepython.org/runestone/static/pythonds/Trees/bst.html#lst-bst1
 
@@ -356,11 +360,6 @@ def recurse_bst(node, lastkey):
         recurse_bst(node.left_child, node.key)
     if node.right_child is not None:
         recurse_bst(node.right_child, node.key)
-
-
-def _gibberish(length=10):
-    return ''.join([choice(
-        ascii_letters).replace(' ', '') for _ in range(length)])
 
 
 def populate_bst(bst, count=1):

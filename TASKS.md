@@ -43,14 +43,14 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + Merge sort
     + Quick sort
     + Radix sort
- + Big O analysis
-  + O(1)
-  + O(logN)
-  + O(n)
-  + O(n logN)
-  + O(n^2)
-  + O(2^n)
-  + O(n!)
+ + ~~Big O analysis~~
+  + ~~O(1)~~
+  + ~~O(logN)~~
+  + ~~O(n)~~
+  + ~~O(n logN)~~
+  + ~~O(n^2)~~
+  + ~~O(2^n)~~
+  + ~~O(n!)~~
 + Discrete math:
  + Basic probability
  + Basic number theory

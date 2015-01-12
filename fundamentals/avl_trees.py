@@ -1,6 +1,10 @@
 # Mostly taken from
 # interactivepython.org/runestone/static/pythonds/Trees/balanced.html
 
+if __name__ == '__main__':
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
 import binary_search_trees as bst
 
 DEBUG = True
