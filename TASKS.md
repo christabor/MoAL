@@ -32,8 +32,8 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~AVL trees~~
    + Heaps
    + Stack frames
-   + Stacks
-   + Queues
+   + ~~Stacks~~
+   + Queues/Deques
    + Priority queues
    + Splay trees
    + Skip list
