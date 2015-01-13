@@ -10,7 +10,7 @@ arr = []
 # a linked list and will be the primary source of inspiration here...
 
 
-class Node():
+class Node:
     """A node represents a point in the linked list."""
 
     def __init__(self, pk, cargo=None, next=None):
