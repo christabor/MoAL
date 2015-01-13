@@ -186,7 +186,16 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + PIG
     + ZooKeeper
     + Lucene
-+ Machine learning/Artificial Intelligence/Robotics
++ Machine learning
+  + Supervised learning
+    + Decision trees
+    + Perceptrons
+    + Support vector machines
+    + K-means clustering
+    + Bayesian probability
+    + Neural networks
+      + Recurrent neural networks
++ Robotics
 + Theory of Computation
 + (various) automata
 + Context-free languages
@@ -249,6 +258,7 @@ http://en.wikipedia.org/wiki/Analysis#Computer_science
 http://en.wikipedia.org/wiki/Programming_paradigm
 http://en.wikipedia.org/wiki/NoSQL
 http://en.wikipedia.org/wiki/Evaluation_strategy
+http://en.wikipedia.org/wiki/Machine_learning
 http://www.fullstackpython.com/table-of-contents.html
 http://interactivepython.org/
 http://refactoring.com/catalog/
