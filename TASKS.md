@@ -27,6 +27,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
    + ~~Linked lists~~
    + ~~Binary Search Trees~~
     + Heaps
+    + Hash table
     + Fractal Tree Index
     + Red-black trees
     + ~~AVL trees~~
@@ -35,6 +36,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
    + ~~Stacks~~
    + Queues/Deques
    + Splay trees
+   + Graph
    + Skip list
    + Trie
  + Sorting algorithms
@@ -42,6 +44,10 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + Merge sort
     + Quick sort
     + Radix sort
+    + Bubble Sort
+    + Selection Sort
+    + Insertion Sort
+    + Shell Sort
  + ~~Big O analysis~~
   + ~~O(1)~~
   + ~~O(logN)~~
@@ -71,7 +77,17 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Shortest path
  + Max flow
  + MST
+ + Shortest Path Problems
+ + Dijkstra’s Algorithm
+ + Knight’s Tour Problem
+ + The Word Ladder Problem
  + DFS/BFS
+ + An Adjacency Matrix
+ + An Adjacency List
+ + Prim’s Spanning Tree Algorithm
+ + Building the Word Ladder Graph
+ + Topological Sorting
+ + Strongly Connected Components
 
 *Optional reading: Introduction to Algorithm Design by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).*
 
@@ -204,7 +220,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Arithmetic complexity
 + Quantum complexity
 + Communication complexity
-+ Unique Games Conjecture and its relation to optimality of approximation algorithms.
++ Unique Games Conjecture and its relation to optimality of approximation algorithms
 + Syntactic sugar (format: Language - feature)
   + Python - yield
   + Python - decorator
@@ -235,7 +251,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + GO
  + Rust
 + Language based security
-+ Software defined networking.
++ Software defined networking
 + Compilers:
  + Building one
 + Computer Graphics
@@ -244,7 +260,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Cryptography and security
  + Diffie-Hellman
  + RSA
- + Zero-knowledge proofs.
+ + Zero-knowledge proofs
 
 ### Other resources / references
 
