@@ -26,15 +26,14 @@ _Note:_ *completed tasks will be ~~crossed out~~*
    + ~~Arrays~~
    + ~~Linked lists~~
    + ~~Binary Search Trees~~
-     + Fractal Tree Index
-   + Balanced Binary Search Trees
+    + Heaps
+    + Fractal Tree Index
     + Red-black trees
     + ~~AVL trees~~
-   + Heaps
+    + Priority queues
    + Stack frames
    + ~~Stacks~~
    + Queues/Deques
-   + Priority queues
    + Splay trees
    + Skip list
    + Trie
@@ -246,7 +245,6 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Diffie-Hellman
  + RSA
  + Zero-knowledge proofs.
-
 
 ### Other resources / references
 
