@@ -28,6 +28,9 @@ class Queue(Stack):
 
 class Dequeue(Queue):
 
+    """Represents a 'double ended' queue -- a queue that can use either
+    direction as the head/tail, but works the same way."""
+
     def __init__(self, direction):
         self.direction = direction
         super(Dequeue, self).__init__()
