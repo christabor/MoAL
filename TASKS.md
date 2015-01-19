@@ -31,13 +31,13 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + Fractal Tree Index
     + Red-black trees
     + ~~AVL trees~~
-    + Priority queues
+    + ~~Priority queues~~
    + Stack frames
    + ~~Stacks~~
    + ~~Queues/Deques~~
    + Splay trees
    + Graph
-   + Skip list
+   + ~~Skip list~~
    + Trie
  + Sorting algorithms
    + Insertion sort
@@ -250,6 +250,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Concurrency languages
  + GO
  + Rust
+ + Nimrod
 + Language based security
 + Software defined networking
 + Compilers:
