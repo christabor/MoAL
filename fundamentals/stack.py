@@ -8,6 +8,7 @@ if __name__ == '__main__':
 
 from random import randrange
 from generic_helpers import _gibberish
+from generic_helpers import section
 from pprint import pprint as ppr
 
 
@@ -43,6 +44,7 @@ class Stack(object):
 
 STACK_COUNT = 10
 
+section('BEGIN - Stacks')
 stack = Stack()
 print
 print 'First in push'
@@ -61,6 +63,7 @@ for _ in range(STACK_COUNT):
 
 print
 print stack.size(), stack.view()
+section('END - Stacks')
 
 
 # Example 'real world usage'
@@ -92,7 +95,7 @@ class Logger(Stack):
     def get_first_message(self):
         return self.tail()
 
-
+section('BEGIN - Logger')
 logger = Logger()
 for _ in range(STACK_COUNT):
     logger.add_message(_gibberish(length=10), priority=randrange(0, 10))
@@ -100,7 +103,7 @@ print logger.view_messages()
 print logger.get_by_priority(4)
 print logger.get_last_message()
 print logger.get_first_message()
-
+section('END - Logger')
 
 # Example 'real world usage' with extensions, OOP
 
@@ -118,6 +121,7 @@ class NetworkLogger(Logger):
         return super(NetworkLogger, self).add_message(
             '[NETWORK] - ' + message, priority=priority)
 
+section('BEGIN - Loggers (continued)')
 wl = WebLogger()
 nl = NetworkLogger()
 
@@ -129,3 +133,5 @@ for _ in range(STACK_COUNT):
 
 print wl.view_messages()
 print nl.view_messages()
+
+section('END - Loggers (continued)')

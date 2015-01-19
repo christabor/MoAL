@@ -1,3 +1,6 @@
+if __name__ == '__main__':
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 # Arrays are simple: []. Nothing special here.
 
@@ -8,6 +11,8 @@ arr = []
 # http://greenteapress.com/thinkpython/html/chap17.html is a great resource
 # for understanding all the fundamentals and how to use/access/create
 # a linked list and will be the primary source of inspiration here...
+
+from generic_helpers import section
 
 
 class Node:
@@ -59,6 +64,7 @@ class List():
         print 'NODES: ', self.nodes
 
 
+section('BEGIN - Arrays & Linked Lists')
 a_node1 = Node(1, cargo=100, next=10)
 a_node2 = Node(2, cargo=10, next=20)
 print a_node1 + a_node2, a_node1 * a_node2
@@ -98,3 +104,4 @@ not_singleton = [1, 2]
 node = Node(9999)
 linked_list = List(node)
 cargo = node.cargo
+section('END - Arrays & Linked Lists')

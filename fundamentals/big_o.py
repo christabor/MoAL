@@ -5,6 +5,7 @@ if __name__ == '__main__':
 from generic_helpers import _gibberish
 from generic_helpers import _test_speed
 from generic_helpers import run_trials
+from generic_helpers import section
 
 
 dict_test = {_gibberish(length=10): x for x in range(1000)}
@@ -77,6 +78,7 @@ def O_n_factorial(factor=10):
 
 
 def run_all():
+    section('BEGIN - Big O Notation')
     O_1()
     O_n()
     O_n2()
@@ -85,5 +87,6 @@ def run_all():
     run_trials(O_log_n, trials=10)
     O_n_factorial()
     O_2n(10)
+    section('END - Big O Notation')
 
 run_all()

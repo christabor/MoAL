@@ -6,6 +6,7 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 import binary_search_trees as bst
+from generic_helpers import section
 
 DEBUG = True
 
@@ -166,5 +167,7 @@ class AVLTree(bst.BinarySearchTree):
 
 
 if DEBUG:
+    section('BEGIN - AVL Tree')
     avl = AVLTree()
     bst.populate_bst(avl, count=5)
+    section('END - AVL Tree')

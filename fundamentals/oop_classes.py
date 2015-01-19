@@ -1,3 +1,8 @@
+if __name__ == '__main__':
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+from generic_helpers import section
 import inspect
 import abc
 
@@ -147,6 +152,7 @@ class ColonelMeow(InernetHouseCats):
     Class methods example
 """
 
+section('BEGIN - OOP Class types / examples')
 print
 print Cat.meow()
 print Cat.custom_classmethod()
@@ -187,3 +193,4 @@ except NotImplementedError:
            'exception rather than going through the rigamorale of '
            'using a traditional ABC decorator.')
 print
+section('END - OOP Class types / examples')

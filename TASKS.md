@@ -26,7 +26,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
    + ~~Arrays~~
    + ~~Linked lists~~
    + ~~Binary Search Trees~~
-    + Heaps
+    + ~~Heaps~~
     + Hash table
     + Fractal Tree Index
     + Red-black trees
@@ -34,7 +34,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + Priority queues
    + Stack frames
    + ~~Stacks~~
-   + Queues/Deques
+   + ~~Queues/Deques~~
    + Splay trees
    + Graph
    + Skip list

@@ -27,3 +27,9 @@ def _test_speed(func, *args, **kwargs):
         print 'function took {}s'.format(end - start)
         print divider
     return _inner
+
+
+def section(title):
+    print
+    print '================== {} ==================='.format(title)
+    print
