@@ -27,7 +27,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
    + ~~Linked lists~~
    + ~~Binary Search Trees~~
     + ~~Heaps~~
-    + Hash table
+    + ~~Hash table~~
     + Fractal Tree Index
     + Red-black trees
     + ~~AVL trees~~
