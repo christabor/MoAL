@@ -164,7 +164,7 @@ print
 """
 
 classes = ' <= '.join([c.__name__ for c in inspect.getmro(Species)])
-print 'Classes for most derived class {} are {}:'.format(Species, classes)
+print 'Classes for most derived class {} are: {}'.format(Species, classes)
 
 leopard = Cat('leopard')
 print repr(leopard)
