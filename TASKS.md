@@ -32,7 +32,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + Red-black trees
     + ~~AVL trees~~
     + ~~Priority queues~~
-   + Stack frames
+   + ~~Stack frames~~
    + ~~Stacks~~
    + ~~Queues/Deques~~
    + Splay trees
