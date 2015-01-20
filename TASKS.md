@@ -12,39 +12,42 @@ In some cases, direct programming makes little sense, since a given subject may 
 
 **This should be considered a living document, that may grow in size as new details and fields of study are added**
 
-## Strategy: "20 minutes a day"
+### Strategy: "20 minutes a day"
 Taken from: http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1
 
-# Specific tasks
+## Specific tasks
 _Note:_ *completed tasks will be ~~crossed out~~*
 
 ### Fundamentals
 
 + ~~Try building a larger OOP-style project involving multiple classes.~~
 + Become familiar with some basic data structures/algorithms:
- + Data structures
-   + ~~Arrays~~
-   + ~~Linked lists~~
-   + ~~Binary Search Trees~~
+  + Data structures
+    + ~~Arrays~~
+    + ~~Linked lists~~
+    + ~~Binary Search Trees~~
     + ~~Heaps~~
     + ~~Hash table~~
     + Fractal Tree Index
     + Red-black trees
     + ~~AVL trees~~
     + ~~Priority queues~~
-   + ~~Stack frames~~
-   + ~~Stacks~~
-   + ~~Queues/Deques~~
-   + Splay trees
-   + Graph
-   + ~~Skip list~~
-   + Trie
- + Sorting algorithms
-   + Insertion sort
+    + ~~Stack frames~~
+    + ~~Stacks~~
+    + ~~Queues/Deques~~
+    + Splay trees
+    + Graph
+    + Judy array
+    + Concurrent Trie (Ctrie)
+    + ~~Skip list~~
+    + ~~Trie~~
+  + Sorting algorithms
+    + Insertion sort
     + Merge sort
     + Quick sort
     + Radix sort
     + Bubble Sort
+    + Burst sort
     + Selection Sort
     + Insertion Sort
     + Shell Sort
@@ -61,6 +64,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Basic number theory
  + Set theory (notions of countably infinite vs. non-countably infinite)
  + Automata theory/finite state machines
+ + Markov chain
 + Engineering
   + Testing
     + Test matrices
@@ -88,8 +92,6 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Building the Word Ladder Graph
  + Topological Sorting
  + Strongly Connected Components
-
-*Optional reading: Introduction to Algorithm Design by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).*
 
 ### Computer Organization
 
@@ -269,11 +271,14 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 
 #### Other resources
-http://en.wikipedia.org/wiki/Analysis#Computer_science
-http://en.wikipedia.org/wiki/Programming_paradigm
-http://en.wikipedia.org/wiki/NoSQL
-http://en.wikipedia.org/wiki/Evaluation_strategy
-http://en.wikipedia.org/wiki/Machine_learning
-http://www.fullstackpython.com/table-of-contents.html
-http://interactivepython.org/
-http://refactoring.com/catalog/
++ http://en.wikipedia.org/wiki/Analysis#Computer_science
++ http://en.wikipedia.org/wiki/Programming_paradigm
++ http://en.wikipedia.org/wiki/NoSQL
++ http://en.wikipedia.org/wiki/Evaluation_strategy
++ http://en.wikipedia.org/wiki/Machine_learning
++ http://www.fullstackpython.com/table-of-contents.html
++ http://interactivepython.org/
++ http://refactoring.com/catalog/
+
+#### Optional reading:
++ *Introduction to Algorithm Design* by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).

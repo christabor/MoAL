@@ -84,6 +84,7 @@ class Producer:
     def __iter__(self):
         for record in self.items:
             yield record
+        raise StopIteration
 
     def add(self):
         self.items.append(self.make())
