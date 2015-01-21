@@ -3,6 +3,9 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from generic_helpers import section
+from string import ascii_lowercase
+from string import punctuation
+from random import choice
 from binary_search_trees import BinarySearchTree
 
 # Inspired by:
@@ -11,12 +14,15 @@ from binary_search_trees import BinarySearchTree
 
 class NaiveTrie(BinarySearchTree):
 
-    def __init__(self):
-        self.path = {}
+    def __init__(self, is_root=False, alphabet=None):
+        if is_root and alphabet is not None:
+            self.path = {token: NaiveTrie() for token in alphabet}
+        else:
+            self.path = {}
+        self.is_root = is_root
         self.is_terminal = True
 
     def add(self, string):
-        print 'Adding string {}'.format(string)
         char = string[0]
         if char in self.path:
             # If the character exists in the path,
@@ -41,6 +47,8 @@ class NaiveTrie(BinarySearchTree):
             remains = string[1:]
             # Add the remains to the node in question - important!
             node.add(remains)
+        if self.is_terminal:
+            self.path['_'] = NaiveTrie()
 
     def view(self, node=None, spacer=1):
         """A quick and dirty way to view the nested nature of the tree"""
@@ -48,26 +56,33 @@ class NaiveTrie(BinarySearchTree):
             node = self
         for letter, _node in node.path.iteritems():
             print '-{}> {} {}'.format(
-                '-' * spacer, letter,
-                '<>' if _node.is_terminal else '')
+                '.' * spacer, letter,
+                'NULL' if _node.is_terminal else '')
             self.view(node=_node, spacer=spacer + 2)
 
 
-section('BEGIN - Naive Trie structure')
+section('BEGIN - Naive Trie structure - basic')
 
 trie = NaiveTrie()
+trie2 = NaiveTrie(is_root=True, alphabet=ascii_lowercase)
+trie3 = NaiveTrie(is_root=True, alphabet=punctuation)
 
-for _ in range(2):
-    trie.add('dad')
-    trie.add('data')
-    trie.add('cat')
-    trie.add('cathartic')
-    trie.add('data')
-    trie.add('mountain')
-    trie.add('hoe')
-    trie.add('ho')
-    trie.add('house')
+words = ['data', 'dad', 'dada', 'dadism', 'cat', 'cathartic', 'ho', 'house']
+
+# Traditional setup + full width nodes for entire alphabet
+for word in words:
+    trie.add(word)
+    trie2.add(word)
+    trie3.add(''.join([choice(punctuation) for _ in range(5)]))
 
 trie.view()
+
+section('BEGIN - Naive Trie structure - N-ary , N = alphabet')
+
+trie2.view()
+
+section('BEGIN - Naive Trie structure - N-ary , N = alphabet, new alphabet')
+
+trie3.view()
 
 section('END - Naive Trie structure')
