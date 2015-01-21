@@ -36,7 +36,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~Stacks~~
     + ~~Queues/Deques~~
     + Splay trees
-    + Graph
+    + ~~Graph~~
     + Judy array
     + Concurrent Trie (Ctrie)
     + ~~Skip list~~
