@@ -7,17 +7,29 @@ if __name__ == '__main__':
 from generic_helpers import section
 from generic_helpers import _test_speed
 from generic_helpers import run_sorting_trials
-from generic_helpers import get_random_number_sets
+from random import randrange as rr
 from pprint import pprint as ppr
 
 
 @_test_speed
 def bogo_sort(items):
+    num_items = len(items)
+    # Cheating :)
+    correct = sorted(items)
+    while correct != items:
+        rand_swap_a = rr(0, num_items)
+        rand_swap_b = rr(0, num_items)
+        if items[rand_swap_a] > items[rand_swap_b]:
+            copy_a = items[rand_swap_a]
+            copy_b = items[rand_swap_b]
+            items[rand_swap_a] = copy_b
+            items[rand_swap_b] = copy_a
+    print items
     return items
 
 
 section('BEGIN - Bogo Sort (LOL)')
 
-run_sorting_trials(bogo_sort, magnitudes=[5, 20, 40])
+ppr(run_sorting_trials(bogo_sort, magnitudes=[3, 5, 10]))
 
 section('END - Bogo Sort (LOL)')

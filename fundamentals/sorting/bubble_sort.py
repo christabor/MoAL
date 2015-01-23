@@ -7,7 +7,6 @@ if __name__ == '__main__':
 from generic_helpers import section
 from generic_helpers import _test_speed
 from generic_helpers import run_sorting_trials
-from generic_helpers import get_random_number_sets
 from pprint import pprint as ppr
 
 
@@ -34,6 +33,6 @@ def bubble_sort(items):
 
 section('BEGIN - Bubble Sort')
 
-ppr(run_sorting_trials(bubble_sort, magnitudes=[5, 20, 40], test_output=True))
+ppr(run_sorting_trials(bubble_sort, test_output=True))
 
 section('END - Bubble Sort')
