@@ -44,7 +44,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
   + Sorting algorithms
     + ~~Insertion sort~~
     + ~~Merge sort~~
-    + Quick sort
+    + ~~Quick sort~~
     + Radix sort
     + ~~Bubble Sort~~
     + ~~Bogo Sort (anti-pattern)~~
