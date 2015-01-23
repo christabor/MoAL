@@ -42,14 +42,14 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~Skip list~~
     + ~~Trie~~
   + Sorting algorithms
-    + Insertion sort
-    + Merge sort
+    + ~~Insertion sort~~
+    + ~~Merge sort~~
     + Quick sort
     + Radix sort
-    + Bubble Sort
+    + ~~Bubble Sort~~
+    + ~~Bogo Sort (anti-pattern)~~
     + Burst sort
     + Selection Sort
-    + Insertion Sort
     + Shell Sort
  + ~~Big O analysis~~
   + ~~O(1)~~
