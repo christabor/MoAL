@@ -26,7 +26,10 @@ def run_sorting_trials(
     """Runs a bunch of trials of various magnitudes with a given
     func, using randomly generated numbers.
     Returns a dict of results for later inspection."""
-    results = {'function': sorting_func.func_name}
+    results = {
+        'function': sorting_func.func_name if hasattr(
+            sorting_func, 'func_name') else 'builtin'
+    }
     for magnitude in magnitudes:
         start = time.time()
         items = [rr(0, 999) for _ in range(magnitude)]
