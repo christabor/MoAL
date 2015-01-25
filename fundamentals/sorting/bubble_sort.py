@@ -5,12 +5,10 @@ if __name__ == '__main__':
 
 
 from generic_helpers import section
-from generic_helpers import _test_speed
 from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
 
 
-@_test_speed
 def bubble_sort(items):
     num_items = len(items)
     if num_items < 2:

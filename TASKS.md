@@ -50,7 +50,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~Bogo Sort (anti-pattern)~~
     + Burst sort
     + Selection Sort
-    + Shell Sort
+    + ~~Shell Sort~~
  + ~~Big O analysis~~
   + ~~O(1)~~
   + ~~O(logN)~~
