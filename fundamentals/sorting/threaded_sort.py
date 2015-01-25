@@ -7,7 +7,6 @@ if __name__ == '__main__':
 from generic_helpers import section
 from generic_helpers import divide_groups
 from generic_helpers import random_number_set
-from generic_helpers import run_sorting_trials
 from quick_sort import quick_sort
 from pprint import pprint as ppr
 from Queue import Queue
@@ -30,7 +29,7 @@ class ThreadSort:
         self.sorting_queue = Queue()
         self.sorted_items = []
 
-    def _disperse_to(self):
+    def _disperse(self):
         for _ in range(self.threads):
             t = Thread(target=self._worker, kwargs={
                 'sorted_items': self.sorted_items})
@@ -52,9 +51,6 @@ class ThreadSort:
             self.sorting_queue.put(group)
         return self
 
-    def get_results(self):
-        return self.sorted_items
-
     def run(self, items):
         # Make sure thread number is never greater than the number of items.
         num_items = len(items)
@@ -65,7 +61,7 @@ class ThreadSort:
         # Prevent passing in div by zero errors.
         if self.threads == 0:
             self.threads = 1
-        self._disperse_to()._enqueue(items)
+        self._disperse()._enqueue(items)
         # Block until complete.
         self.sorting_queue.join()
         # Perform the second sort on already sorted sublists.
