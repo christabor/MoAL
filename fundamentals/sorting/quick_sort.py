@@ -10,6 +10,8 @@ from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
 
 
+# Based off algorithm from http://en.wikipedia.org/wiki/Quicksort
+
 @_test_speed
 def quick_sort(items, low=None, high=None):
 
