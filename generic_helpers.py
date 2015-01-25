@@ -17,12 +17,19 @@ def run_trials(func, trials=3):
         print
 
 
+def swap_item(items, a, b):
+    copy = items[a]
+    items[a] = items[b]
+    items[b] = copy
+    return items
+
+
 def get_random_number_sets(sets=2, max_random=50):
     return [[rr(1, 9999) for _ in range(max_random)] for _ in range(sets)]
 
 
 def run_sorting_trials(
-        sorting_func, magnitudes=[1, 10, 100, 1000], test_output=True):
+        sorting_func, magnitudes=[10, 100, 1000], test_output=True):
     """Runs a bunch of trials of various magnitudes with a given
     func, using randomly generated numbers.
     Returns a dict of results for later inspection."""

@@ -5,6 +5,7 @@ if __name__ == '__main__':
 
 
 from generic_helpers import section
+from generic_helpers import swap_item
 from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
 
@@ -13,22 +14,16 @@ from pprint import pprint as ppr
 
 def quick_sort(items, low=None, high=None):
 
-    def _swap(items, a, b):
-        copy = items[a]
-        items[a] = items[b]
-        items[b] = copy
-        return items
-
     def partition(items, low, high):
         pivot_index = (low + high) / 2
         pivot_value = items[pivot_index]
-        items = _swap(items, pivot_index, high)
+        items = swap_item(items, pivot_index, high)
         store_index = low
         for k in range(low, high):
             if items[k] < pivot_value:
-                items = _swap(items, k, store_index)
+                items = swap_item(items, k, store_index)
                 store_index += 1
-        items = _swap(items, store_index, high)
+        items = swap_item(items, store_index, high)
         return store_index
 
     num_items = len(items)

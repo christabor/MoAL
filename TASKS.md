@@ -49,7 +49,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~Bubble Sort~~
     + ~~Bogo Sort (anti-pattern)~~
     + Burst sort
-    + Selection Sort
+    + ~~Selection Sort~~
     + ~~Shell Sort~~
  + ~~Big O analysis~~
   + ~~O(1)~~
