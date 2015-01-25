@@ -17,6 +17,20 @@ def run_trials(func, trials=3):
         print
 
 
+def divide_groups(items, divisions=2):
+    groups = []
+    num_items = len(items)
+    last_offset = 0
+    sections = num_items // divisions
+    for i in range(num_items):
+        sub_group = items[last_offset:last_offset + sections]
+        if sub_group:
+            groups.append(sub_group)
+        # Update the last offset for the next index.
+        last_offset += sections
+    return groups
+
+
 def swap_item(items, a, b):
     copy = items[a]
     items[a] = items[b]
@@ -24,8 +38,12 @@ def swap_item(items, a, b):
     return items
 
 
+def random_number_set(min_rand=0, max_rand=9999, max_range=100):
+    return [rr(min_rand, max_rand) for _ in range(max_range)]
+
+
 def get_random_number_sets(sets=2, max_random=50):
-    return [[rr(1, 9999) for _ in range(max_random)] for _ in range(sets)]
+    return [random_number_set(0, 9999, max_random) for _ in range(sets)]
 
 
 def run_sorting_trials(

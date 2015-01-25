@@ -9,6 +9,8 @@ from generic_helpers import swap_item
 from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
 
+# Based off of algorithm from http://en.wikipedia.org/wiki/Selection_sort
+
 
 def selection_sort(items):
     num_items = len(items)

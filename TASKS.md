@@ -46,6 +46,10 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~Merge sort~~
     + ~~Quick sort~~
     + Radix sort
+      + MSD
+      + Adaptive
+      + MBM
+      + Forward
     + ~~Bubble Sort~~
     + ~~Bogo Sort (anti-pattern)~~
     + Burst sort
