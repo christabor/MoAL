@@ -35,7 +35,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~Stack frames~~
     + ~~Stacks~~
     + ~~Queues/Deques~~
-    + Splay trees
+    + ~~Splay trees~~
     + ~~Graph~~
     + Judy array
     + Concurrent Trie (Ctrie)
@@ -45,6 +45,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + ~~Insertion sort~~
     + ~~Merge sort~~
     + ~~Quick sort~~
+    + Splay sort
     + Radix sort
       + MSD
       + Adaptive

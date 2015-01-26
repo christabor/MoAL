@@ -16,7 +16,7 @@ from pprint import pprint as ppr
 def shell_sort(items, maxgaps=5):
     """Shell sort is described as a generalization of insertion
     and quick sort, so we use the gap strategy to divide the list
-    into sub groups that are then sorted using traditional insertion sort."""
+    into sub groups that are then sorted using traditional sorts."""
     num_items = len(items)
     sub_groups = []
     last_offset = 0

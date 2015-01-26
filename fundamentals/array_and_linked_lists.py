@@ -23,8 +23,8 @@ class Node:
         self.next = next
         self.cargo = cargo
 
-    """These magic methods are not necessary
-    -- just messing around with Python internals."""
+    # These magic methods are not necessary;
+    # just messing around with Python internals.
 
     def __del__(self):
         del self.cargo
@@ -85,7 +85,7 @@ print l.view()
 def print_nodes(node):
     space_size = 5
     path = ''
-    """Follows a node along it's next target, until next is None."""
+    # Follows a node along it's next target, until next is None.
     print '==== Showing nodes...'
     while node is not None:
         path += ' {}> [{}]'.format((space_size * '-'), node.next)
@@ -97,7 +97,7 @@ print_nodes(node1)
 
 print node1.remove(node2)
 
-"""Glossary practice"""
+# Glossary practice
 
 singleton = [1]
 not_singleton = [1, 2]

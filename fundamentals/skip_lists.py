@@ -102,7 +102,6 @@ class SkipList:
         # Add the new element if it doesn't already exist.
         if self.find(elem, updated=updated) is None:
             for i, _ in enumerate(node.next):
-                #
                 node.next[i] = updated[i].next[i]
                 updated[i].next[i] = node
 
