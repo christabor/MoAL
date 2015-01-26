@@ -20,47 +20,47 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 
 ### Fundamentals
 
-+ ~~Try building a larger OOP-style project involving multiple classes.~~
++ [~~Try building a larger OOP-style project involving multiple classes.~~](fundamentals/oop_classes.py)
 + Become familiar with some basic data structures/algorithms:
   + Data structures
-    + ~~Arrays~~
+    + [~~Arrays~~](fundamentals/array_and_linked_lists.py)
       + Suffix arrays
       + Judy arrays
-    + ~~Linked lists~~
+    + [~~Linked lists~~](fundamentals/arrays_and_linked_lists.py)
     + Doubly-connected edge list
     + Disjoint-set/union-find/merge-find ADT
     + Winged edge
     + Quad edge
-    + ~~Heaps~~
-    + ~~Hash table~~
+    + [~~Heaps~~](fundamentals/heaps.py)
+    + [~~Hash table~~](fundamentals/hashtable.py)
     + Bloom filters
-    + ~~Stacks~~
-      + ~~Stack frames~~
-    + ~~Queue~~
-      + ~~Double-ended queue~~
-      + ~~Priority queue~~
+    + [~~Stacks~~](fundamentals/stack.py)
+      + [~~Stack frames~~](fundamentals/stack_frame.py)
+    + [~~Queue~~](fundamentals/queues.py)
+      + [~~Double-ended queue~~](fundamentals/queues.py)
+      + [~~Priority queue~~](fundamentals/queues.py), ([stdlib](fundamentals/queues_stdlib.py))
     + Trees
       + BSP Tree
         + K-dimensional tree
       + Fractal tree index
       + Interval tree
-      + ~~Binary search tree~~
+      + [~~Binary search tree~~](fundamentals/binary_search_trees.py)
       + Binary indexed tree
-      + ~~Splay tree~~
+      + [~~Splay tree~~](fundamentals/splay_trees.py)
       + vEB tree
       + Red-black tree
-      + ~~AVL tree~~
-    + ~~Graph~~
+      + [~~AVL tree~~](fundamentals/avl_trees.py)
+    + [~~Graph~~](fundamentals/graphs.py)
       + DAWG/DAFSA
     + Concurrent trie (Ctrie)
-    + ~~Skip lists~~
-    + ~~Trie~~
+    + [~~Skip lists~~](fundamentals/skip_lists.py)
+    + [~~Trie~~](fundamentals/trie.py)
       + Suffix tree
       + Hash array mapped tries (HAMT)
   + Sorting algorithms
-    + ~~Insertion sort~~
-    + ~~Merge sort~~
-    + ~~Quick sort~~
+    + [~~Insertion sort~~](fundamentals/sorting/insertion_sort.py)
+    + [~~Merge sort~~](fundamentals/sorting/merge_sort.py)
+    + [~~Quick sort~~](fundamentals/sorting/quick_sort.py)
     + Splay sort
     + Heap sort
     + Radix sort
@@ -68,23 +68,23 @@ _Note:_ *completed tasks will be ~~crossed out~~*
       + Adaptive
       + MBM
       + Forward
-    + ~~Bubble Sort~~
-    + ~~Bogo Sort (anti-pattern)~~
+    + [~~Bubble Sort~~](fundamentals/sorting/bubble_sort.py)
+    + [~~Bogo Sort (anti-pattern)~~](fundamentals/sorting/bogo_sort.py)
     + Burst sort
-    + ~~Selection Sort~~
-    + ~~Shell Sort~~
- + ~~Big O analysis~~
-  + ~~O(1)~~
-  + ~~O(logN)~~
-  + ~~O(n)~~
-  + ~~O(n logN)~~
-  + ~~O(n^2)~~
-  + ~~O(2^n)~~
-  + ~~O(n!)~~
+    + [~~Selection Sort~~](fundamentals/sorting/selection_sort.py)
+    + [~~Shell Sort~~](fundamentals/sorting/shell_sort.py)
+ + Big O analysis
+  + [~~O(1)~~](fundamentals/big_o.py)
+  + [~~O(logN)~~](fundamentals/big_o.py)
+  + [~~O(n)~~](fundamentals/big_o.py)
+  + [~~O(n logN)~~](fundamentals/big_o.py)
+  + [~~O(n^2)~~](fundamentals/big_o.py)
+  + [~~O(2^n)~~](fundamentals/big_o.py)
+  + [~~O(n!)~~](fundamentals/big_o.py)
 + Discrete math:
  + Basic probability
  + Basic number theory
- + Set theory (notions of countably infinite vs. non-countably infinite)
+ + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
  + Automata theory/finite state machines
  + Markov chain
 + Engineering
