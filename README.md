@@ -3,7 +3,7 @@ MOAL
 
 Mother of All Learning - an uber list of Comp Science / Engineering tasks and the actual implementations taken from Quora notes or manually compiled to master computer science.
 
-See [the tasks](TASKS.md) for more details 
+__See [the tasks](TASKS.md) for more details__
 
 Originally taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1, but greatly expanded/edited.
 
@@ -19,6 +19,3 @@ In some cases, direct programming makes little sense, since a given subject may 
 
 ### Strategy: "20 minutes a day"
 Taken from: http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1
-
-## Specific tasks
-_Note:_ *completed tasks will be ~~crossed out~~*
