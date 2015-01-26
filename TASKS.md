@@ -24,28 +24,45 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + Become familiar with some basic data structures/algorithms:
   + Data structures
     + ~~Arrays~~
+      + Suffix arrays
+      + Judy arrays
     + ~~Linked lists~~
-    + ~~Binary Search Trees~~
+    + Doubly-connected edge list
+    + Disjoint-set/union-find/merge-find ADT
+    + Winged edge
+    + Quad edge
     + ~~Heaps~~
     + ~~Hash table~~
-    + Fractal Tree Index
-    + Red-black trees
-    + ~~AVL trees~~
-    + ~~Priority queues~~
-    + ~~Stack frames~~
+    + Bloom filters
     + ~~Stacks~~
-    + ~~Queues/Deques~~
-    + ~~Splay trees~~
+      + ~~Stack frames~~
+    + ~~Queue~~
+      + ~~Double-ended queue~~
+      + ~~Priority queue~~
+    + Trees
+      + BSP Tree
+        + K-dimensional tree
+      + Fractal tree index
+      + Interval tree
+      + ~~Binary search tree~~
+      + Binary indexed tree
+      + ~~Splay tree~~
+      + vEB tree
+      + Red-black tree
+      + ~~AVL tree~~
     + ~~Graph~~
-    + Judy array
-    + Concurrent Trie (Ctrie)
-    + ~~Skip list~~
+      + DAWG/DAFSA
+    + Concurrent trie (Ctrie)
+    + ~~Skip lists~~
     + ~~Trie~~
+      + Suffix tree
+      + Hash array mapped tries (HAMT)
   + Sorting algorithms
     + ~~Insertion sort~~
     + ~~Merge sort~~
     + ~~Quick sort~~
     + Splay sort
+    + Heap sort
     + Radix sort
       + MSD
       + Adaptive
@@ -210,7 +227,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
     + Lucene
 + Machine learning
   + Supervised learning
-    + Decision trees
+    + Decision tree
     + Perceptrons
     + Support vector machines
     + K-means clustering
@@ -287,3 +304,6 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 
 #### Optional reading:
 + *Introduction to Algorithm Design* by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).
+
+#### Notes, Q/A, research
++ http://stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
