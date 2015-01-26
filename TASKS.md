@@ -1,24 +1,6 @@
-## Long term engineering learning path aka “MOAL” - Mother of All Learning
+# Tasks
 
-Mostly taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1
-
-**THIS SHOULD ALL BE DONE IN PYTHON, EXCEPT FOR SPECIFIC LANGUAGE GOALS!
-Also: things that are math oriented, should still be done IN an actual language -- utilize tools like numpy, scipy to do different types of math.**
-
-Some examples are taken and recreated from other sites. To learn, you should still manually
-recreate each example, so you can get a better intuition and memorization of how it works and how to do it.
-
-In some cases, direct programming makes little sense, since a given subject may be high level. However, to better understand and cement the idea, it's important to try and recreate it in code. For example, you can learn about memory, but to "grok" it, you could write a module that acts as if it was memory - with the same kind of properties.
-
-**This should be considered a living document, that may grow in size as new details and fields of study are added**
-
-### Strategy: "20 minutes a day"
-Taken from: http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1
-
-## Specific tasks
-_Note:_ *completed tasks will be ~~crossed out~~*
-
-### Fundamentals
+## Fundamentals
 
 + [~~Try building a larger OOP-style project involving multiple classes.~~](fundamentals/oop_classes.py)
 + Become familiar with some basic data structures/algorithms:
@@ -94,7 +76,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
   + Problem solving
     + Decomposition
 
-### Algorithms
+## Algorithms
 
 + Greedy algorithms
 + Dynamic programming
@@ -115,7 +97,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Topological Sorting
  + Strongly Connected Components
 
-### Computer Organization
+## Computer Organization
 
 + How a computer works
  + Starting with transistors
@@ -143,7 +125,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + Virtual memory
  + Memory mapped I/O
 
-### Operating Systems
+## Operating Systems
 
 + Concurrency
  + Futures/Promises
@@ -166,7 +148,7 @@ _Note:_ *completed tasks will be ~~crossed out~~*
 + File systems
 + Security
 
-### Advanced
+## Advanced
 
 + More algorithms/data structures
  + Spectral graph theory
@@ -287,12 +269,12 @@ _Note:_ *completed tasks will be ~~crossed out~~*
  + RSA
  + Zero-knowledge proofs
 
-### Other resources / references
+## Other resources / references
 
-#### Requirements list for BCS
+### Requirements list for BCS
 http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 
-#### Other resources
+### Other resources
 + http://en.wikipedia.org/wiki/Analysis#Computer_science
 + http://en.wikipedia.org/wiki/Programming_paradigm
 + http://en.wikipedia.org/wiki/NoSQL
@@ -302,8 +284,8 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://interactivepython.org/
 + http://refactoring.com/catalog/
 
-#### Optional reading:
+### Optional reading:
 + *Introduction to Algorithm Design* by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).
 
-#### Notes, Q/A, research
+### Notes, Q/A, research
 + http://stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
