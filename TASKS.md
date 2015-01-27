@@ -1,6 +1,6 @@
 # Tasks
 
-_Note:_ *completed tasks will be ~~crossed out~~*
+_Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file.
 
 ## Fundamentals
 
