@@ -80,6 +80,16 @@ def _test_speed(func, *args, **kwargs):
     return _inner
 
 
+# Display utilities
+
+
+def _print(words, result):
+    print
+    print words
+    print result
+    print
+
+
 def section(title):
     print
     print '================== {} ==================='.format(title)

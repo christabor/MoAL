@@ -41,6 +41,12 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + [~~Trie~~](fundamentals/trie.py)
       + Suffix tree
       + Hash array mapped tries (HAMT)
+  + String seaerch algorithms
+    + Knuth-Morris-Pratt
+    + Boyer-Moore-Horspool
+    + Apostolico-Giancarlo
+    + Aho-Corasick multi-pattern
+    + Rabin-Karp multi-pattern
   + Sorting algorithms
     + [~~Insertion sort~~](fundamentals/sorting/insertion_sort.py)
     + [~~Merge sort~~](fundamentals/sorting/merge_sort.py)
@@ -67,7 +73,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + [~~O(n!)~~](fundamentals/big_o.py)
 + Discrete math:
  + Basic probability
- + Basic number theory
+ + [~~Basic number theory~~](math/number_theory.py)
  + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
  + Automata theory/finite state machines
  + Markov chain
@@ -219,21 +225,33 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Neural networks
       + Recurrent neural networks
 + Robotics
-+ Theory of Computation
-+ (various) automata
+
+## Theory of Computation
+
++ Automata
+  + Cellular automata
 + Context-free languages
 + Complexity classes (P, NP, #P, BPP, PSPACE)
-+ PCPs,
++ PCPs
 + Circuit lower bounds
 + Arithmetic complexity
 + Quantum complexity
 + Communication complexity
 + Unique Games Conjecture and its relation to optimality of approximation algorithms
-+ Syntactic sugar (format: Language - feature)
++ Interesting language features / Syntactic sugar (format: Language - feature)
   + Python - yield
+    + recursive yield
   + Python - decorator
-  + Python - context manager
+  + Python - context manager (with)
   + Python - variable packing/unpacking
+  + Python - index slicing
+  + Python - comprehensions
+  + Rust - de-structuring
+  + Rust - pattern matching
+  + Haskell - pattern matching
+  + Haskell - monads
+  + Haskell - guards
+  + Haskell - comprehensions
 + Programming Paradigms:
  + Functional programming
     + Haskell
