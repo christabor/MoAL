@@ -54,7 +54,8 @@ class Aleph(Set):
 
     def run_until(self, maximum):
         print ('I am an aleph set of elements'
-               ' with cardinality {}').format(self.cardinality)
+               ' with cardinality {}').format(
+                   super(Aleph, self).cardinality())
         curr = 0
         for item in self:
             if curr >= maximum:
@@ -136,9 +137,9 @@ section('BEGIN - Set theory - cardinality of the continuum examples')
 
 all_squares = AllSquares()
 # Limit the count, without limiting the implementation of an 'infinite set'
-all_squares.run_until(1000)
+all_squares.run_until(10)
 
 all_odds = AllOdds()
-all_odds.run_until(1000)
+all_odds.run_until(10)
 
 section('END - Set theory')
