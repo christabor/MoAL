@@ -10,7 +10,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + [~~Arrays~~](fundamentals/array_and_linked_lists.py)
       + Suffix arrays
       + Judy arrays
-    + [~~Linked lists~~](fundamentals/arrays_and_linked_lists.py)
+    + [~~Linked lists~~](fundamentals/array_and_linked_lists.py)
     + Doubly-connected edge list
     + Disjoint-set/union-find/merge-find ADT
     + Winged edge
