@@ -75,8 +75,17 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
  + Basic probability
  + [~~Basic number theory~~](math/number_theory.py)
  + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
- + Automata theory/finite state machines
- + Markov chain
+ + Automata theory
+  + Abstract machine
+    + Turing machine
+    + Register machine
+      + Counter machine
+      + Pointer machine
+      + Random-access stored-program machine
+      + Random access machine
+  + Finite State Machines (FSM)
+    + Markov chain
+    + Regular expressions
 + Engineering
   + Testing
     + Test matrices
@@ -224,6 +233,20 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Bayesian probability
     + Neural networks
       + Recurrent neural networks
+        + Boltzmann machine
+        + Hopfield network
+        + Elman network
+        + Jordan network
+        + Echo state network
+        + Long short term memory network
+        + Bi-directional RNN
+        + Continuous-time RNN
+        + Hierarchical RNN
+        + Recurrent multilayer perceptron
+        + Second Order Recurrent Neural Network
+        + Pollack’s sequential cascaded networks
+        + Neural Turing Machines
+        + Bidirectional Associative Memory (BAM)
 + Robotics
 
 ## Theory of Computation
@@ -300,6 +323,8 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://en.wikipedia.org/wiki/NoSQL
 + http://en.wikipedia.org/wiki/Evaluation_strategy
 + http://en.wikipedia.org/wiki/Machine_learning
++ http://en.wikipedia.org/wiki/Recurrent_neural_network
++ http://en.wikipedia.org/wiki/Register_machine
 + http://www.fullstackpython.com/table-of-contents.html
 + http://interactivepython.org/
 + http://refactoring.com/catalog/
