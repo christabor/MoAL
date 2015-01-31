@@ -162,7 +162,7 @@ def exercise_2_8(max_nums):
 # http://en.wikipedia.org/wiki/Least_common_multiple#Lattice-theoretic
 
 
-def commutative_lmc_laws(a, b):
+def commutative_lcm_laws(a, b):
     assert lcm(a, b) == lcm(b, a)
     assert gcd(a, b) == gcd(b, a)
 
@@ -232,7 +232,7 @@ test_number(exercise_1_2, 20)
 test_number(exercise_2_8, 20)
 
 # Should raise no errors
-commutative_lmc_laws(10, 320)
+commutative_lcm_laws(10, 320)
 associative_lcm_laws(10, 320, 999)
 idempotent_lcm_laws(10, 320)
 absorption_lcm_laws(10, 320)
