@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Mostly taken from:
 # http://interactivepython.org/runestone/static/pythonds/Trees/heap.html
 

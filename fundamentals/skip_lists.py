@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Based on code from
 # https://kunigami.wordpress.com/2012/09/25/skip-lists-in-python/
 

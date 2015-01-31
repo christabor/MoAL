@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Inspired by
 # http://stackoverflow.com/questions/10057443/explain-the-concept-of-a-stack-frame-in-a-nutshell
 

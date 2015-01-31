@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Concepts/learning from:
 # http://inventwithpython.com/blog/2013/04/22/multithreaded-python-tutorial-with-threadworms/
 from Queue import Queue

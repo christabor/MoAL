@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Mostly taken from
 # interactivepython.org/runestone/static/pythonds/Trees/balanced.html
 
