@@ -2,6 +2,9 @@ import time
 from random import randrange as rr
 from random import choice
 from string import ascii_letters
+from blessings import Terminal
+
+term = Terminal()
 
 
 def _gibberish(length=10):
@@ -85,12 +88,13 @@ def _test_speed(func, *args, **kwargs):
 
 def _print(words, result):
     print
-    print words
+    print '{t.green}{t.underline}{}{t.normal}'.format(words, t=term)
     print result
     print
 
 
 def section(title):
     print
-    print '================== {} ==================='.format(title)
+    print '{t.blue}{t.reverse}{sep} {t.bold}{} {sep}{t.normal}'.format(
+        title, t=term, sep='=' * 10)
     print
