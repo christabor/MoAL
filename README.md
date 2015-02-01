@@ -22,4 +22,4 @@ As mentioned before, in some cases, direct programming makes little sense since 
 ## Accomplishing these tasks
 
 ### Strategy: "20 minutes a day"
-Whatever works best for you. but the '20 minute a day' approach is a good place to start. Specifically, [you can read about it here](http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1). I find this approach helps get you motivated when the task seems daunting or your strapped for time -- 20 minutes is something anyone can commit to, and you'll be surprised how much can be accomplished when taken in aggregate.
+Whatever works best for you. but the '20 minute a day' approach is a good place to start. Specifically, [you can read about it here](http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1). I find this approach helps get you motivated when the task seems daunting or you're strapped for time -- 20 minutes is something anyone can commit to, and you'll be surprised how much can be accomplished when taken in aggregate.
