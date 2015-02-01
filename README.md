@@ -1,7 +1,7 @@
 MOAL
 ====
 
-Mother of All Learning - an uber list of Comp Science / Engineering tasks and the actual implementations taken from Quora notes or manually compiled to master computer science. The goal here is to represent atomic tasks that can be easily recreated and implemented in real code, since the goal is to learn both theory and practice, while practicing the entire time (and thus cementing the concepts better).
+Mother of All Learning - an uber list of Comp Science / Engineering tasks, taken from Quora notes or manually compiled, designed to help one "master" computer science (insomuch as that can be done). The goal here is to represent atomic tasks that can be easily recreated and implemented in real code, since the goal is to learn both theory and practice, while practicing the entire time (and thus cementing the concepts better).
 
 Each task is meant to be simple and atomic, so there is freedom to approach it however is most comfortable for a given learning style. Think of it like a jigsaw puzzle; while it's important to get the breadth and depth that makes a degree worthwhile, pieces are constantly being filled in, and this can be done line by line (linearly), or in a completely random fashion (or anything in-between).
 
