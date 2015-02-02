@@ -15,13 +15,16 @@ arr = []
 # a linked list and will be the primary source of inspiration here...
 
 from generic_helpers import section
+from generic_helpers import _gibberish
+from generic_helpers import _cmd_title
 
 
 class Node:
     """A node represents a point in the linked list."""
 
-    def __init__(self, pk, cargo=None, next=None):
-        self.pk = pk
+    def __init__(self, title, cargo=None, next=None):
+        self.title = title
+        self.prev = None
         self.next = next
         self.cargo = cargo
 
@@ -33,7 +36,12 @@ class Node:
         del self.next
 
     def __len__(self):
-        return self.cargo
+        count = 1  # Inclusive, head is 0
+        node = self
+        while node.next is not None:
+            count += 1
+            node = node.next
+        return count
 
     def __add__(self, other):
         return 10 + len(other)
@@ -41,69 +49,73 @@ class Node:
     def __mul__(self, other):
         return 10 * len(other)
 
+    def length(self):
+        return self.__len__()
+
     def remove(self, node):
         print ('Removing node `{}`, new node is `{}` which '
-               'links to node `{}`').format(self.pk, node.pk, node.next.pk)
+               'links to node `{}`').format(
+                   self.next, node.next, node.next.next)
         self.next = node.next
         return node
 
 
-class List():
-    """Implements a pseudo-list by using a collection of nodes."""
+def print_nodes(node):
+    def _fmt(_node):
+        return '[{}: {}]\n'.format(_node.title.upper(), _node.cargo)
 
-    def __init__(self, node):
-        # Kind of pointless since we're just using a real list
-        # behind-the-scenes, but it will suffice for demonstration.
-        self.nodes = [node]
+    path = ''
+    space_size = 4
+    count = 0
+    # Follows a node along it's next target, until next is None.
+    _cmd_title('Printing Nodes')
+    if node is not None:
+        path += _fmt(node)
+    while node is not None:
+        if node.next is not None:
+            pre = ' |{}'.format(space_size * '_')
+            path += (count * '    ') + pre + _fmt(node.next)
+            count += 1
+        node = node.next
+    print path
+    print
 
-    def __len__(self):
-        return len(self.nodes)
 
-    def add(self, node):
-        self.nodes += [node]
-
-    def view(self):
-        print 'NODES: ', self.nodes
+def build_list(length):
+    head = Node('head', cargo=_gibberish())
+    node = head
+    curr = 1  # head = 0
+    while curr < length:
+        if curr == length - 1:
+            title = 'tail'
+        else:
+            title = 'node-{}'.format(curr)
+        node.next = Node(title, cargo=_gibberish())
+        node = node.next
+        curr += 1
+    return head
 
 
 section('BEGIN - Arrays & Linked Lists')
-a_node1 = Node(1, cargo=100, next=10)
-a_node2 = Node(2, cargo=10, next=20)
-print a_node1 + a_node2, a_node1 * a_node2
 
-node3 = Node(3, cargo=30)
-node2 = Node(2, next=node3, cargo=20)
-node1 = Node(1, next=node2, cargo=10)
-# ...and so on...
+# [head]--->[next]--->[next]--->[next]--->[tail]
 
-l = List(node1)
-l.add(node2)
-l.add(node3)
+head = Node(
+    'head', cargo=_gibberish(), next=Node(
+        'n1', cargo=_gibberish(), next=Node(
+            'n2', cargo=_gibberish(), next=Node(
+                'tail', cargo=_gibberish()))))
 
-print '{} is of length: {}'.format(l, len(l))
-print l.view()
+print_nodes(head)
+print 'Length:', head.length()
 
-
-def print_nodes(node):
-    space_size = 5
-    path = ''
-    # Follows a node along it's next target, until next is None.
-    print '==== Showing nodes...'
-    while node is not None:
-        path += ' {}> [{}]'.format((space_size * '-'), node.next)
-        node = node.next
-    print path
-    print '===='
-
-print_nodes(node1)
-
-print node1.remove(node2)
+l = build_list(40)
+print_nodes(l)
+print 'Length big list:', l.length()
 
 # Glossary practice
 
 singleton = [1]
 not_singleton = [1, 2]
-node = Node(9999)
-linked_list = List(node)
-cargo = node.cargo
+
 section('END - Arrays & Linked Lists')
