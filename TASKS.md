@@ -72,12 +72,12 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + [~~O(2^n)~~](fundamentals/big_o.py)
   + [~~O(n!)~~](fundamentals/big_o.py)
 + Discrete math:
- + [~~Basic probability~~](math/probability.py)
- + [~~Basic number theory~~](math/number_theory.py)
- + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
- + Automata theory
+  + [~~Basic probability~~](math/probability.py)
+  + [~~Basic number theory~~](math/number_theory.py)
+  + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
++ Automata theory
   + Abstract machine
-    + Turing machine
+    + [~~Turing machine~~](automata_theory/turing_machine.py)
     + Register machine
       + Counter machine
       + Pointer machine

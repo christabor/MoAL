@@ -98,3 +98,9 @@ def section(title):
     print '{t.blue}{t.reverse}{sep} {t.bold}{} {sep}{t.normal}'.format(
         title, t=term, sep='=' * 10)
     print
+
+
+def _cmd_title(msg):
+    print
+    print '{t.red}{t.reverse}[{msg}]{t.normal}'.format(msg=msg, t=term)
+    print
