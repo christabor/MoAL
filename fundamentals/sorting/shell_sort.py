@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import run_sorting_trials
 from insertion_sort import insertion_sort
 from quick_sort import quick_sort
@@ -43,12 +43,10 @@ def shell_sort(items, maxgaps=5):
     return quick_sort(sub_groups)
 
 
-section('BEGIN - Shell Sort')
-
-TEST_MAGNITUDES = [4, 10, 50, 100, 500, 1000, 10000]
-# Compare helper sorting functions in isolation to the hybrid shell function
-ppr(run_sorting_trials(shell_sort, magnitudes=TEST_MAGNITUDES))
-ppr(run_sorting_trials(quick_sort, magnitudes=TEST_MAGNITUDES))
-ppr(run_sorting_trials(insertion_sort, magnitudes=TEST_MAGNITUDES))
-
-section('END - Shell Sort')
+with Section('Shell Sort'):
+    TEST_MAGNITUDES = [4, 10, 50, 100, 500, 1000, 10000]
+    # Compare helper sorting functions
+    # in isolation to the hybrid shell function
+    ppr(run_sorting_trials(shell_sort, magnitudes=TEST_MAGNITUDES))
+    ppr(run_sorting_trials(quick_sort, magnitudes=TEST_MAGNITUDES))
+    ppr(run_sorting_trials(insertion_sort, magnitudes=TEST_MAGNITUDES))

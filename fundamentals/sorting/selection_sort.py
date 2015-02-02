@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import swap_item
 from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
@@ -36,8 +36,5 @@ def selection_sort(items):
     return items
 
 
-section('BEGIN - Selection Sort')
-
-ppr(run_sorting_trials(selection_sort, magnitudes=[10, 100, 1000, 5000]))
-
-section('END - Selection Sort')
+with Section('Selection Sort'):
+    ppr(run_sorting_trials(selection_sort, magnitudes=[10, 100, 1000, 5000]))

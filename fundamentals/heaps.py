@@ -8,7 +8,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import section
+from generic_helpers import Section
 from random import randrange as rr
 import binary_search_trees as bst
 
@@ -89,10 +89,9 @@ class BinHeap(bst.BinarySearchTree):
             i = min_child_index
 
 
-section('BEGIN - Binary Heaps')
-print
-my_heap = BinHeap([rr(1, 100) for _ in range(30)])
-print
+with Section('Binary Heaps'):
+    my_heap = BinHeap([rr(1, 100) for _ in range(30)])
+    print my_heap
 
 
 # Example implementations
@@ -103,9 +102,9 @@ class PriorityQueue(BinHeap, object):
     def __init__(self, *args, **kwargs):
         super(PriorityQueue, self).__init__(*args, **kwargs)
 
-print
-pq = PriorityQueue([rr(1, 100) for _ in range(30)])
-print
-for _ in range(10):
-    pq.insert(rr(1, 100))
-section('END - Binary Heaps')
+
+with Section('Priority Queue'):
+    pq = PriorityQueue([rr(1, 100) for _ in range(30)])
+    print
+    for _ in range(10):
+        pq.insert(rr(1, 100))

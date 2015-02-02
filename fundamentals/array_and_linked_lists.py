@@ -14,7 +14,7 @@ arr = []
 # for understanding all the fundamentals and how to use/access/create
 # a linked list and will be the primary source of inspiration here...
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import _gibberish
 from generic_helpers import _cmd_title
 
@@ -95,26 +95,23 @@ def build_list(length):
     return head
 
 
-section('BEGIN - Arrays & Linked Lists')
-
 # [head]--->[next]--->[next]--->[next]--->[tail]
 
-head = Node(
-    'head', cargo=_gibberish(), next=Node(
-        'n1', cargo=_gibberish(), next=Node(
-            'n2', cargo=_gibberish(), next=Node(
-                'tail', cargo=_gibberish()))))
+with Section('Arrays & Linked Lists') as ctx:
+    head = Node(
+        'head', cargo=_gibberish(), next=Node(
+            'n1', cargo=_gibberish(), next=Node(
+                'n2', cargo=_gibberish(), next=Node(
+                    'tail', cargo=_gibberish()))))
 
-print_nodes(head)
-print 'Length:', head.length()
+    print_nodes(head)
+    print 'Length:', head.length()
 
-l = build_list(40)
-print_nodes(l)
-print 'Length big list:', l.length()
+    l = build_list(40)
+    print_nodes(l)
+    print 'Length big list:', l.length()
 
 # Glossary practice
 
 singleton = [1]
 not_singleton = [1, 2]
-
-section('END - Arrays & Linked Lists')

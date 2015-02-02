@@ -8,7 +8,7 @@ from avl_trees import AVLTree
 from binary_search_trees import Node
 from binary_search_trees import recurse_bst
 from binary_search_trees import populate_bst
-from generic_helpers import section
+from generic_helpers import Section
 
 DEBUG = True
 
@@ -228,7 +228,6 @@ class SplayTree(AVLTree):
                 self.right_rotate(node.parent)
 
 
-section('BEGIN - Splay Tree')
-splay = SplayTree()
-populate_bst(splay, count=10)
-section('END - Splay Tree')
+with Section('Splay Tree'):
+    splay = SplayTree()
+    populate_bst(splay, count=10)

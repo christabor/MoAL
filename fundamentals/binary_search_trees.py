@@ -7,11 +7,9 @@ if __name__ == '__main__':
 
 from random import randrange
 from generic_helpers import _gibberish
-from generic_helpers import section
+from generic_helpers import Section
 # Mostly taken from
 # interactivepython.org/runestone/static/pythonds/Trees/bst.html#lst-bst1
-
-DEBUG = False
 
 
 class BinarySearchTree:
@@ -370,11 +368,9 @@ def populate_bst(bst, count=1):
         bst.put(randrange(1, 100), _gibberish())
 
 
-if DEBUG:
-    section('BEGIN - Binary Search Trees')
+with Section('Binary Search Trees'):
     bst = BinarySearchTree()
     populate_bst(bst, count=5)
     print
     recurse_bst(bst.root, None)
     print
-    section('END - Binary Search Trees')

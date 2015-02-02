@@ -93,14 +93,25 @@ def _print(words, result):
     print
 
 
-def section(title):
-    print
-    print '{t.blue}{t.reverse}{sep} {t.bold}{} {sep}{t.normal}'.format(
-        title, t=term, sep='=' * 10)
-    print
-
-
 def _cmd_title(msg):
     print
     print '{t.red}{t.reverse}[{msg}]{t.normal}'.format(msg=msg, t=term)
     print
+
+
+class Section:
+
+    def __init__(self, content):
+        self.separator = '=' * 10
+        self.content = content
+
+    def _print(self, prefix):
+        print
+        print '{t.cyan}\n= [{}]: {t.bold}"{}" {sep} \n{t.normal}'.format(
+            prefix, self.content, t=term, sep=self.separator)
+
+    def __enter__(self):
+        self._print('BEGIN')
+
+    def __exit__(self, exception_type, excetpion_value, traceback):
+        self._print('END')

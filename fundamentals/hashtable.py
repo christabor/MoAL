@@ -5,7 +5,7 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from generic_helpers import _gibberish
-from generic_helpers import section
+from generic_helpers import Section
 from random import randrange as rr
 from pprint import pprint as ppr
 
@@ -25,23 +25,20 @@ class NaiveHashTable:
         self.items[self.hash(key)].append(value)
 
 
-section('BEGIN - Naive hash tables')
-
-nht = NaiveHashTable()
-keys = [rr(0, 30) for k in range(5)]
-print keys
-
-
 def fill_blocks_to(x):
     for _ in range(x):
         nht.insert(rr(0, x), _gibberish(length=6))
 
-for k in keys:
-    fill_blocks_to(40)
 
-for k in keys:
-    print 'Reading...', nht.items[k]
+with Section('Naive hash tables'):
+    nht = NaiveHashTable()
+    keys = [rr(0, 30) for k in range(5)]
+    print keys
 
-print ppr(nht.items)
+    for k in keys:
+        fill_blocks_to(40)
 
-section('END - Naive hash tables')
+    for k in keys:
+        print 'Reading...', nht.items[k]
+
+    print ppr(nht.items)

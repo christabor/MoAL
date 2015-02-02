@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import divide_groups
 from generic_helpers import random_number_set
 from quick_sort import quick_sort
@@ -71,14 +71,10 @@ class ThreadSort:
         return self.sorting_func(self.sorted_items)
 
 
-section('BEGIN - Threaded Sorts')
+with Section('Threaded Sorts'):
+    threaded_quicksort = ThreadSort(quick_sort, threads=4)
 
-threaded_quicksort = ThreadSort(quick_sort, threads=4)
-
-rand = random_number_set(max_range=20)
-res = threaded_quicksort.run(rand)
-print 'Is valid?', res == sorted(rand)
-ppr(res)
-
-
-section('END - Threaded Sorts')
+    rand = random_number_set(max_range=20)
+    res = threaded_quicksort.run(rand)
+    print 'Is valid?', res == sorted(rand)
+    ppr(res)

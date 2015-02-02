@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import run_sorting_trials
 from random import randrange as rr
 from random import random
@@ -55,13 +55,12 @@ def merge_sort(items, iteration=0, side=None):
         merge_sort(right, iteration=iteration + 1, side='right'))
 
 
-section('BEGIN - Merge Sort')
+with Section('Merge Sort'):
+    results = run_sorting_trials(merge_sort)
+    ppr(results)
 
-results = run_sorting_trials(merge_sort)
-ppr(results)
-section('BEGIN - Merge Sort - integers')
-ppr(merge_sort([rr(1, 9999) for _ in range(20)]))
-section('BEGIN - Merge Sort - floating point integers')
-ppr(merge_sort([random() * float(rr(1, 9999)) for _ in range(20)]))
+with Section('Merge Sort - integers'):
+    ppr(merge_sort([rr(1, 9999) for _ in range(20)]))
 
-section('END - Merge Sort')
+with Section('Merge Sort - floating point integers'):
+    ppr(merge_sort([random() * float(rr(1, 9999)) for _ in range(20)]))

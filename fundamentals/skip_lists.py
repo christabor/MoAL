@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
 from random import randrange as rr
 from generic_helpers import _gibberish
-from generic_helpers import section
+from generic_helpers import Section
 
 
 class SkipNode:
@@ -108,16 +108,13 @@ class SkipList:
                 updated[i].next[i] = node
 
 
-section('BEGIN - Skip Lists')
+with Section('Skip Lists'):
+    gibs = [{'name': _gibberish(), 'value': rr(10, 1000)} for _ in range(10)]
+    sl = SkipList()
+    for gib in gibs:
+        sl.insert(elem=gib)
 
-gibs = [{'name': _gibberish(), 'value': rr(10, 1000)} for _ in range(10)]
-sl = SkipList()
-for gib in gibs:
-    sl.insert(elem=gib)
+    for gib in gibs:
+        sl.find(gib)
 
-for gib in gibs:
-    sl.find(gib)
-
-sl.view()
-
-section('END - Skip Lists')
+    sl.view()

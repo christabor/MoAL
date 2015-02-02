@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import run_sorting_trials
 from random import randrange as rr
 from pprint import pprint as ppr
@@ -28,8 +28,5 @@ def bogo_sort(items):
     return items
 
 
-section('BEGIN - Bogo Sort (LOL)')
-
-ppr(run_sorting_trials(bogo_sort, magnitudes=[3, 5, 10]))
-
-section('END - Bogo Sort (LOL)')
+with Section('Bogo Sort (LOL)'):
+    ppr(run_sorting_trials(bogo_sort, magnitudes=[3, 5, 10]))

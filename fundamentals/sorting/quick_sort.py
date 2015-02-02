@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import swap_item
 from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
@@ -42,8 +42,5 @@ def quick_sort(items, low=None, high=None):
     return items
 
 
-section('BEGIN - Quick Sort')
-
-ppr(run_sorting_trials(quick_sort, magnitudes=[10, 100, 1000]))
-
-section('END - Quick Sort')
+with Section('Quick Sort'):
+    ppr(run_sorting_trials(quick_sort, magnitudes=[10, 100, 1000]))

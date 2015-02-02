@@ -4,7 +4,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import _print
 from random import randrange as rr
 from pprint import pprint as ppr
@@ -192,47 +192,46 @@ def test_number(*args):
         _print(func.func_name, func(*args))
 
 
-section('BEGIN - Number theory')
+with Section('Number theory'):
+    test_number(odd, 10)
+    test_number(even, 10)
+    test_number(exp, 10)
+    [test_number(exp_custom, 10, n) for n in range(10)]
+    test_number(lg, 10)
+    [test_number(lg_custom, 10, n) for n in range(10)]
+    test_number(square, 10)
+    test_number(fibo, 10)
+    test_number(cube, 10)
+    test_number(rand, 10)
+    test_number(triangle, 10)
+    [test_number(gcd, rr(999, 9999), rr(999, 9999)) for _ in range(4)]
 
-test_number(odd, 10)
-test_number(even, 10)
-test_number(exp, 10)
-[test_number(exp_custom, 10, n) for n in range(10)]
-test_number(lg, 10)
-[test_number(lg_custom, 10, n) for n in range(10)]
-test_number(square, 10)
-test_number(fibo, 10)
-test_number(cube, 10)
-test_number(rand, 10)
-test_number(triangle, 10)
-[test_number(gcd, rr(999, 9999), rr(999, 9999)) for _ in range(4)]
+    funcs = [
+        lambda x: x ** 2,
+        lambda x: x * 2,
+        lambda x: x // 2,
+        lambda x: x * x - x // x + x
+    ]
 
-funcs = [
-    lambda x: x ** 2,
-    lambda x: x * 2,
-    lambda x: x // 2,
-    lambda x: x * x - x // x + x
-]
+    [_print(
+        'Series of series with: {}'.format(getsource(f)),
+        [map(f, (n for n in range(1, _))) for _ in fibo(8)]) for f in funcs]
 
-[_print(
-    'Series of series with: {}'.format(getsource(f)),
-    [map(f, (n for n in range(1, _))) for _ in fibo(8)]) for f in funcs]
+    [_print(
+        'Factor {}'.format(n),
+        [f for f in factor(rr(100, 9999))][0]) for n in range(4)]
 
-[_print(
-    'Factor {}'.format(n),
-    [f for f in factor(rr(100, 9999))][0]) for n in range(4)]
+    _print('Factorial', [f for f in factorials(10)])
 
-_print('Factorial', [f for f in factorials(10)])
+    [f for f in factor_factorials(10)]
 
-[f for f in factor_factorials(10)]
+    # Misc. exercises
 
-# Misc. exercises
+    test_number(exercise_1_2, 20)
+    test_number(exercise_2_8, 20)
 
-test_number(exercise_1_2, 20)
-test_number(exercise_2_8, 20)
-
-# Should raise no errors
-commutative_lcm_laws(10, 320)
-associative_lcm_laws(10, 320, 999)
-idempotent_lcm_laws(10, 320)
-absorption_lcm_laws(10, 320)
+    # Should raise no errors
+    commutative_lcm_laws(10, 320)
+    associative_lcm_laws(10, 320, 999)
+    idempotent_lcm_laws(10, 320)
+    absorption_lcm_laws(10, 320)

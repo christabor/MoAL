@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 # Inspired by
-# http://stackoverflow.com/questions/10057443/explain-the-concept-of-a-stack-frame-in-a-nutshell
+# http://stackoverflow.com/questions/10057443/
+#   explain-the-concept-of-a-stack-frame-in-a-nutshell
 
 if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import section
+from generic_helpers import Section
 from stack import Stack
 
 
@@ -55,13 +56,9 @@ def init():
         if name is not 'tracer':
             func()
             tracer.call(func, name=name)
-    section('BEGIN - Call stack')
-    tracer.view()
-    section('END - Call stack')
+    with Section('Call Stack'):
+        tracer.view()
 
 
-section('BEGIN - Stack frame examples')
-
-init()
-
-section('END - Stack frame examples')
+with Section('Stack frame examples'):
+    init()

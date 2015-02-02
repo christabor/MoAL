@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
 from random import choice
 from generic_helpers import _gibberish
-from generic_helpers import section
+from generic_helpers import Section
 from stack import Stack
 
 
@@ -50,21 +50,18 @@ class Dequeue(Queue):
             super(Dequeue, self).enqueue()
 
 
-section('BEGIN - Queues')
+with Section('Queues'):
+    q = Queue()
+    for _ in range(5):
+        print 'en-queuing new item...'
+        q.enqueue(_gibberish())
 
-q = Queue()
-for _ in range(5):
-    print 'en-queuing new item...'
-    q.enqueue(_gibberish())
 
-section('BEGIN - Double ended queue')
-
-dq = Dequeue('backwards')
-for _ in range(5):
-    print 'en-queuing (dequeue) new item...'
-    dq.enqueue(_gibberish())
-
-section('BEGIN - Queue rotation example')
+with Section('Double ended queue'):
+    dq = Dequeue('backwards')
+    for _ in range(5):
+        print 'en-queuing (dequeue) new item...'
+        dq.enqueue(_gibberish())
 
 
 class HotPotatoSimulator(Queue):
@@ -91,14 +88,12 @@ class HotPotatoSimulator(Queue):
         print self.items
         self.move_to_end()
 
-hps = HotPotatoSimulator(
-    ['Tuvok', 'Neelix', 'Kim', 'Paris', 'Seven', 'Chakotay'], 20)
+with Section('Queue rotation example'):
+    hps = HotPotatoSimulator(
+        ['Tuvok', 'Neelix', 'Kim', 'Paris', 'Seven', 'Chakotay'], 20)
 
-for _ in range(7):
-    hps.move()
-
-
-section('BEGIN - Printer queue example')
+    for _ in range(7):
+        hps.move()
 
 
 class PrinterQueue(Queue):
@@ -110,14 +105,13 @@ class PrinterQueue(Queue):
     def print_job(self):
         print 'Printing... {}'.format(self.head()['name'])
 
-pq = PrinterQueue()
-for _ in range(10):
-    pq.add_job('My_doc_{}.{}'.format(
-        _gibberish(), choice(
-            ['doc', 'docx', 'rtf', 'pdf', 'jpg', '.png'])),
-        '<DOC CONTENTS...>')
+with Section('Printer queue example'):
+    pq = PrinterQueue()
+    for _ in range(10):
+        pq.add_job('My_doc_{}.{}'.format(
+            _gibberish(), choice(
+                ['doc', 'docx', 'rtf', 'pdf', 'jpg', '.png'])),
+            '<DOC CONTENTS...>')
 
-for _ in range(10):
-    pq.print_job()
-
-section('END - All queue examples')
+    for _ in range(10):
+        pq.print_job()

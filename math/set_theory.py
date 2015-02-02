@@ -4,7 +4,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import section
+from generic_helpers import Section
 from random import randrange as rr
 
 
@@ -122,26 +122,22 @@ class BethOne(Aleph):
     pass
 
 
-section('BEGIN - Set theory')
+with Section('Set theory'):
+    set_series = Set([1, 2, 3, 4])
+    print set_series
+    print 'is series?', set_series.is_series().next()  # True
+    print
+    set_nonseries = Set([1, 22, 103, 4])
+    for _ in range(50):
+        set_nonseries.add(rr(1, 9999))
+    print set_nonseries
+    print
+    print 'is series?', set_nonseries.is_series().next()  # False
 
-set_series = Set([1, 2, 3, 4])
-print set_series
-print 'is series?', set_series.is_series().next()  # True
-print
-set_nonseries = Set([1, 22, 103, 4])
-for _ in range(50):
-    set_nonseries.add(rr(1, 9999))
-print set_nonseries
-print
-print 'is series?', set_nonseries.is_series().next()  # False
+with Section('Set theory - cardinality of the continuum examples'):
+    all_squares = AllSquares()
+    # Limit the count, without limiting the implementation of an 'infinite set'
+    all_squares.run_until(10)
 
-section('BEGIN - Set theory - cardinality of the continuum examples')
-
-all_squares = AllSquares()
-# Limit the count, without limiting the implementation of an 'infinite set'
-all_squares.run_until(10)
-
-all_odds = AllOdds()
-all_odds.run_until(10)
-
-section('END - Set theory')
+    all_odds = AllOdds()
+    all_odds.run_until(10)

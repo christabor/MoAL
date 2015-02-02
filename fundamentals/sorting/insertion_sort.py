@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
 
@@ -32,10 +32,7 @@ def insertion_sort(items):
     return items
 
 
-section('BEGIN - Insertion Sort')
-
-results = run_sorting_trials(insertion_sort)
-print 'Insertion sort results:'
-ppr(results)
-
-section('END - Insertion Sort')
+with Section('Insertion Sort'):
+    results = run_sorting_trials(insertion_sort)
+    print 'Insertion sort results:'
+    ppr(results)

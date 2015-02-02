@@ -4,7 +4,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import section
+from generic_helpers import Section
 from random import choice
 from string import ascii_uppercase
 
@@ -107,40 +107,36 @@ def _seed_choice(choices, times):
 def _rand_path(length=4):
     return _seed_choice(ascii_uppercase, length)
 
-section('BEGIN - Basic graph')
+with Section('Basic graph'):
+    vertices = ['A', 'B', 'C', 'D', 'E']
+    graph = Graph()
+    for _ in range(10):
+        graph[choice(vertices)] = _seed_choice(vertices, 2)
 
-vertices = ['A', 'B', 'C', 'D', 'E']
-graph = Graph()
-for _ in range(10):
-    graph[choice(vertices)] = _seed_choice(vertices, 2)
+    # __getitem__ style
+    print graph[('A', 'B')]
 
-# __getitem__ style
-print graph[('A', 'B')]
+    # Function call style
+    for _ in range(10):
+        print
+        graph.view_path((choice(vertices), choice(vertices)))
+        print
 
-# Function call style
-for _ in range(10):
-    print
-    graph.view_path((choice(vertices), choice(vertices)))
-    print
+    for node in graph:
+        print 'node (iter):', node
+        print 'Node {} has degree {}'.format(node, graph.get_degree(node))
 
-for node in graph:
-    print 'node (iter):', node
-    print 'Node {} has degree {}'.format(node, graph.get_degree(node))
+    graph.view()
+    print 'Has multiple degrees?', graph.has_multiple_degrees()
 
-graph.view()
-print 'Has multiple degrees?', graph.has_multiple_degrees()
+with Section('Directed Graph'):
+    digraph = DirectedGraph()
+    for _ in range(MAX_VERTICES):
+        digraph[choice(ascii_uppercase)] = {
+            'key': _rand_path(),
+            'direction': choice(['to', 'from', 'bi-directional'])
+        }
 
-section('BEGIN - Directed Graph')
-
-digraph = DirectedGraph()
-for _ in range(MAX_VERTICES):
-    digraph[choice(ascii_uppercase)] = {
-        'key': _rand_path(),
-        'direction': choice(['to', 'from', 'bi-directional'])
-    }
-
-print 'digraph'
-digraph.view()
-digraph.view_path((choice(vertices), choice(vertices)))
-
-section('END - Graphs')
+    print 'digraph'
+    digraph.view()
+    digraph.view_path((choice(vertices), choice(vertices)))

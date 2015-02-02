@@ -8,7 +8,7 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 import binary_search_trees as bst
-from generic_helpers import section
+from generic_helpers import Section
 
 DEBUG = True
 
@@ -50,14 +50,16 @@ class AVLTree(bst.BinarySearchTree):
             else:
                 # Otherwise, create a brand new left node, making
                 # this the parent, and then re-balance them.
-                current_node.left_child = bst.Node(key, val, parent=current_node)
+                current_node.left_child = bst.Node(
+                    key, val, parent=current_node)
                 self._update_balance(current_node.left_child)
         # Same as above, for the right side.
         else:
             if current_node.has_right_child():
                 self._put(key, val, current_node.right_child)
             else:
-                current_node.right_child = bst.Node(key, val, parent=current_node)
+                current_node.right_child = bst.Node(
+                    key, val, parent=current_node)
                 self._update_balance(current_node.right_child)
 
     def _update_balance(self, node):
@@ -113,11 +115,13 @@ class AVLTree(bst.BinarySearchTree):
         # Update all the balance factors:
         # rotation root should no longer be root, so its BF is subtracted
         # by the minimum balance factor of the new root.
-        rotation_root.balance_factor = rotation_root.balance_factor + 1 - min(new_root.balance_factor, 0)
+        rotation_root.balance_factor = rotation_root.balance_factor + 1 - min(
+            new_root.balance_factor, 0)
         # The new root is now the root node, so it should be updated to
         # account for all nodes now underneath it, by finding the maximum
         # of the rotation roots' balance factor.
-        new_root.balance_factor = new_root.balance_factor + 1 + max(rotation_root.balance_factor, 0)
+        new_root.balance_factor = new_root.balance_factor + 1 + max(
+            rotation_root.balance_factor, 0)
 
     def _rotate_right(self, rotation_root):
         print 'rotating right...'
@@ -135,8 +139,10 @@ class AVLTree(bst.BinarySearchTree):
                 rotation_root.parent.left_child = new_root
         new_root.right_child = rotation_root
         rotation_root.parent = new_root
-        rotation_root.balance_factor = rotation_root.balance_factor + 1 - min(new_root.balance_factor, 0)
-        new_root.balance_factor = new_root.balance_factor + 1 + max(rotation_root.balance_factor, 0)
+        rotation_root.balance_factor = rotation_root.balance_factor + 1 - min(
+            new_root.balance_factor, 0)
+        new_root.balance_factor = new_root.balance_factor + 1 + max(
+            rotation_root.balance_factor, 0)
 
     def _rebalance(self, node):
         print 'rebalancing... node with value {}, current BF = {}'.format(
@@ -168,8 +174,6 @@ class AVLTree(bst.BinarySearchTree):
         bst.recurse_bst(self.root, None)
 
 
-if DEBUG:
-    section('BEGIN - AVL Tree')
+with Section('AVL Trees'):
     avl = AVLTree()
     bst.populate_bst(avl, count=5)
-    section('END - AVL Tree')

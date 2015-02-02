@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # Concepts/learning from:
-# http://inventwithpython.com/blog/2013/04/22/multithreaded-python-tutorial-with-threadworms/
+# http://inventwithpython.com/blog/2013/04/22/
+#   multithreaded-python-tutorial-with-threadworms/
 from Queue import Queue
 import threading
 
@@ -11,13 +12,12 @@ if __name__ == '__main__':
 
 # from random import choice
 from generic_helpers import _gibberish
-from generic_helpers import section
+from generic_helpers import Section
 
-
-section('BEGIN - Python stdlib Queue and multi-threading examples')
 
 COUNT_LOCK = threading.Lock()
 TOTAL = 1
+
 
 class CountThread(threading.Thread):
 
@@ -42,15 +42,17 @@ class CountThread(threading.Thread):
         print 'Total processed by {}: {}:'.format(self.name, TOTAL)
 
 
-counter_one = CountThread()
-counter_two = CountThread()
-counter_three = CountThread()
-counter_one.start('one')
-counter_two.start('two')
-counter_three.start('three')
+with Section('Python stdlib Queue and multi-threading examples'):
+    counter_one = CountThread()
+    counter_two = CountThread()
+    counter_three = CountThread()
+    counter_one.start('one')
+    counter_two.start('two')
+    counter_three.start('three')
 
-print '** these dividers will not work right since the threads are ND and the end of this line is not guaranteed to come before the end of the thread processes! **'
-section('END - Python stdlib Queue and multi-threading examples')
+    print ('** these dividers will not work right since the threads '
+           'are ND and the end of this line is not guaranteed to '
+           'come before the end of the thread processes! **')
 
 # Some basic code taken from https://docs.python.org/2/library/queue.html
 
@@ -94,23 +96,24 @@ class Producer:
     def make(self):
         return _gibberish()
 
-section('BEGIN - Python stdlib Queue and multi-threading examples 2')
 
-work_queue = Queue()
-bot = Worker(work_queue)
-producer = Producer()
+with Section('Python stdlib Queue and multi-threading examples 2'):
+    work_queue = Queue()
+    bot = Worker(work_queue)
+    producer = Producer()
 
-for _ in range(10):
-    producer.add()
+    for _ in range(10):
+        producer.add()
 
-for record in producer:
-    print 'Putting record {} into queue.'.format(record)
-    work_queue.put(record)
+    for record in producer:
+        print 'Putting record {} into queue.'.format(record)
+        work_queue.put(record)
 
-bot.process_all()
+    bot.process_all()
 
-# Block until done
-work_queue.join()
+    # Block until done
+    work_queue.join()
 
-print '** these dividers will not work right since the threads are ND and the end of this line is not guaranteed to come before the end of the thread processes! **'
-section('END - Python stdlib Queue and multi-threading examples 2')
+    print ('** these dividers will not work right since the threads '
+           'are ND and the end of this line is not guaranteed to '
+           'come before the end of the thread processes! **')

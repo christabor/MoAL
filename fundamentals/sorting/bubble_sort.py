@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import run_sorting_trials
 from pprint import pprint as ppr
 
@@ -31,8 +31,5 @@ def bubble_sort(items):
     return items
 
 
-section('BEGIN - Bubble Sort')
-
-ppr(run_sorting_trials(bubble_sort, test_output=True))
-
-section('END - Bubble Sort')
+with Section('Bubble Sort'):
+    ppr(run_sorting_trials(bubble_sort, test_output=True))

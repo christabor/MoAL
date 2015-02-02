@@ -4,7 +4,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import section
+from generic_helpers import Section
 from generic_helpers import _cmd_title
 from pprint import pprint as ppr
 from random import choice
@@ -108,9 +108,6 @@ class TuringMachine:
         _cmd_title('HALTING')
 
 
-section('BEGIN - Probability')
-
-tm = TuringMachine()
-tm.run()
-
-section('END - Probability')
+with Section('Turing Machines'):
+    tm = TuringMachine()
+    tm.run()
