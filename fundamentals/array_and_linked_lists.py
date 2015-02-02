@@ -24,7 +24,6 @@ class Node:
 
     def __init__(self, title, cargo=None, next=None):
         self.title = title
-        self.prev = None
         self.next = next
         self.cargo = cargo
 
