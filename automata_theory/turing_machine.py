@@ -59,7 +59,6 @@ class TuringMachine:
         print
 
     def new_state(self, next):
-        """k0 = next state, k1 = tape value, k2 = left, right position"""
         return {
             'next': next,
             'value': choice([0, 1])
