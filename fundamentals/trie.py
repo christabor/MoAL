@@ -68,7 +68,8 @@ with Section('Naive Trie structure - basic'):
     trie2 = NaiveTrie(is_root=True, alphabet=ascii_lowercase)
     trie3 = NaiveTrie(is_root=True, alphabet=punctuation)
 
-    words = ['data', 'dad', 'dada', 'dadism', 'cat', 'cathartic', 'ho', 'house']
+    words = [
+        'data', 'dad', 'dada', 'dadism', 'cat', 'cathartic', 'ho', 'house', ]
 
     # Traditional setup + full width nodes for entire alphabet
     for word in words:
