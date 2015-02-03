@@ -95,7 +95,7 @@ def _print(words, result):
 
 def _cmd_title(msg):
     print
-    print '{t.red}{t.reverse}[{msg}]{t.normal}'.format(msg=msg, t=term)
+    print '{t.red}{t.reverse}[{msg}]{t.normal}'.format(msg=msg.upper(), t=term)
     print
 
 

@@ -79,7 +79,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Abstract machine
     + [~~Turing machine~~](automata_theory/turing_machine.py)
     + Register machine
-      + Counter machine
+      + [~~Counter machine~~](automata_theory/counter_machine.py)
       + Pointer machine
       + Random-access stored-program machine
       + Random access machine
