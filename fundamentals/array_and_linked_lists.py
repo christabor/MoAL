@@ -10,9 +10,6 @@ arr = []
 
 # Python doesn't have Linked Lists in the traditional sense,
 # so you can manually recreate the idea behind them using classes.
-# http://greenteapress.com/thinkpython/html/chap17.html is a great resource
-# for understanding all the fundamentals and how to use/access/create
-# a linked list and will be the primary source of inspiration here...
 
 from generic_helpers import Section
 from generic_helpers import _gibberish
