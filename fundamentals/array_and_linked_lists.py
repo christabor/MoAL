@@ -41,13 +41,16 @@ class Node:
             node = node.next
             yield node
 
+    def __setitem__(self, key, value):
+        node = self.__getitem__(key)
+        if node is not None:
+            node.cargo = value
+
     def __getitem__(self, key):
-        if self.title == key:
-            return self
         node = self
         while node is not None:
-            if node.next.title == key:
-                return node.next
+            if node.title == key:
+                return node
             node = node.next
         return node
 
@@ -56,8 +59,11 @@ class Node:
             node = self
         else:
             node = self.__getitem__(key)
-        node.prev.next = node.next
-        node.prev.prev = node.prev.next
+
+        if node.prev is not None:
+            node.prev.next = node.next
+        if node.next is not None:
+            node.next.prev = node.prev
 
         if self.DEBUG:
             print
@@ -137,6 +143,17 @@ with Section('Arrays & Linked Lists'):
         print
         print 'Testing iteration - post delete:'
         print
+        for node in linked_list:
+            print node
+
+        linked_list['head'] = 'FOO'
+        linked_list['node-3'] = 'BAR'
+        linked_list['node-5'] = 'BIM'
+
+        print
+        print 'Testing value update'
+        print
+
         for node in linked_list:
             print node
 
