@@ -17,22 +17,55 @@ arr = []
 from generic_helpers import Section
 from generic_helpers import _gibberish
 from generic_helpers import _cmd_title
+from generic_helpers import _print
 
 
 class Node:
-    """A node represents a point in the linked list."""
+    """A node represents a connection in the linked list."""
 
-    def __init__(self, title, cargo=None, next=None):
+    def __init__(self, title, cargo=None, prev=None, next=None):
+        self.DEBUG = True
         self.title = title
         self.next = next
-        self.cargo = cargo
+        self.prev = prev
+        self.cargo = cargo or _gibberish(length=5)
 
-    # These magic methods are not necessary;
-    # just messing around with Python internals.
+    def __str__(self):
+        return 'Node: {}'.format(self.__repr__())
 
-    def __del__(self):
-        del self.cargo
-        del self.next
+    def __repr__(self):
+        return '<_{title}_._{cargo}_>'.format(
+            title=self.title, cargo=self.cargo)
+
+    def __iter__(self):
+        node = self
+        yield node
+        while node.next is not None:
+            node = node.next
+            yield node
+
+    def __getitem__(self, key):
+        if self.title == key:
+            return self
+        node = self
+        while node is not None:
+            if node.next.title == key:
+                return node.next
+            node = node.next
+        return node
+
+    def __delitem__(self, key):
+        if self.title == key:
+            node = self
+        else:
+            node = self.__getitem__(key)
+        node.prev.next = node.next
+        node.prev.prev = node.prev.next
+
+        if self.DEBUG:
+            print
+            print 'DELETING...', node.title, node.cargo
+        del node
 
     def __len__(self):
         count = 1  # Inclusive, head is 0
@@ -42,74 +75,73 @@ class Node:
             node = node.next
         return count
 
-    def __add__(self, other):
-        return 10 + len(other)
-
-    def __mul__(self, other):
-        return 10 * len(other)
-
-    def length(self):
-        return self.__len__()
-
-    def remove(self, node):
-        print ('Removing node `{}`, new node is `{}` which '
-               'links to node `{}`').format(
-                   self.next, node.next, node.next.next)
-        self.next = node.next
-        return node
-
 
 def print_nodes(node):
-    def _fmt(_node):
-        return '[{}: {}]\n'.format(_node.title.upper(), _node.cargo)
 
-    path = ''
-    space_size = 4
-    count = 0
-    # Follows a node along it's next target, until next is None.
+    def _fmt(node):
+        return '[<{}.{}>] {divider} '.format(
+            node.title,
+            node.cargo,
+            divider='....' if node.next is not None else '') \
+            if node is not None else ''
+    path, count = '', 0
     _cmd_title('Printing Nodes')
-    if node is not None:
-        path += _fmt(node)
+    # Follows a node along it's next target, until next is None.
     while node is not None:
-        if node.next is not None:
-            pre = ' |{}'.format(space_size * '_')
-            path += (count * '    ') + pre + _fmt(node.next)
-            count += 1
+        path += _fmt(node)
+        count += 1
         node = node.next
-    print path
-    print
+    _print('Linked List\n', path)
 
 
 def build_list(length):
-    head = Node('head', cargo=_gibberish())
-    node = head
-    curr = 1  # head = 0
-    while curr < length:
+    # Start from the beginning with a new node.
+    head = Node('head', prev=None)
+    curr_node = head
+    curr = 0  # Head starts at 0
+    while curr_node is not None:
         if curr == length - 1:
             title = 'tail'
         else:
             title = 'node-{}'.format(curr)
-        node.next = Node(title, cargo=_gibberish())
-        node = node.next
+
+        if curr > 0:
+            curr_node.title = title
+
+        curr_node.next = None if (curr == length - 1) \
+            else Node(title, prev=curr_node)
+
+        # Advance to the next node, for the next iteration
+        curr_node = curr_node.next
         curr += 1
     return head
 
 
-# [head]--->[next]--->[next]--->[next]--->[tail]
+with Section('Arrays & Linked Lists'):
+    DEBUG = True
+    MAX_NODES = 10
+    linked_list = build_list(MAX_NODES)
+    print_nodes(linked_list)
+    print 'Length of linked list:', len(linked_list)
 
-with Section('Arrays & Linked Lists') as ctx:
-    head = Node(
-        'head', cargo=_gibberish(), next=Node(
-            'n1', cargo=_gibberish(), next=Node(
-                'n2', cargo=_gibberish(), next=Node(
-                    'tail', cargo=_gibberish()))))
+    if DEBUG:
+        print
+        print 'Testing iteration'
+        print
+        for node in linked_list:
+            print node
 
-    print_nodes(head)
-    print 'Length:', head.length()
+        del linked_list['node-1']
+        del linked_list['node-4']
+        del linked_list['node-2']
+        del linked_list['node-6']
+        del linked_list['tail']
 
-    l = build_list(40)
-    print_nodes(l)
-    print 'Length big list:', l.length()
+        print
+        print 'Testing iteration - post delete:'
+        print
+        for node in linked_list:
+            print node
 
 # Glossary practice
 
