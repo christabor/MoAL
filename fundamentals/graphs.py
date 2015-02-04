@@ -9,6 +9,11 @@ from random import choice
 from string import ascii_uppercase
 
 MAX_VERTICES = 10
+DEBUG = False
+
+
+class InvalidGraphRepresentation(Exception):
+    pass
 
 
 class Graph:
@@ -42,18 +47,25 @@ class Graph:
     def __iter__(self):
         return iter(self.nodes)
 
+    def __str__(self):
+        return self.view()
+
     def view_path(self, *args, **kwargs):
         vertices = self.__getitem__(*args, **kwargs)
         if len(vertices) > 2:
-            print '({}) -> {} -> ({})'.format(
+            return '({}) -> {} -> ({})'.format(
                 vertices[0], ' -> '.join(vertices[1:-1]), vertices[-1])
+        else:
+            raise InvalidGraphRepresentation('Need more than 2 vertices.')
 
     def view(self):
+        display = []
         for vertex, nodes in self.nodes.iteritems():
             sub_nodes = ''
             for node in nodes:
                 sub_nodes += ' --> {}'.format(node)
-            print '({}){}'.format(vertex, sub_nodes)
+            display.append('({}){}'.format(vertex, sub_nodes))
+        return ',\n'.join(display)
 
     def get_vertices(self):
         vertices = [] + self.nodes.keys()
@@ -91,13 +103,18 @@ class DirectedGraph(Graph):
         vertex, info = args
         self.nodes[vertex] = info
 
+    def __str__(self):
+        return self.view()
+
     def view(self):
+        display = []
         arrows = {'to': '-->', 'from': '<--', 'bi-directional': '<-->'}
         for vertex, nodes in self.nodes.iteritems():
             for sub_node in nodes['key']:
                 sub_nodes = ' {} {}'.format(
                     arrows[nodes['direction']], sub_node)
-                print '({}){}'.format(vertex, sub_nodes)
+                display.append('({}){}'.format(vertex, sub_nodes))
+        return ',\n'.join(display)
 
 
 def _seed_choice(choices, times):
@@ -105,38 +122,44 @@ def _seed_choice(choices, times):
 
 
 def _rand_path(length=4):
+    if length > 4:
+        length = 4
     return _seed_choice(ascii_uppercase, length)
 
-with Section('Basic graph'):
-    vertices = ['A', 'B', 'C', 'D', 'E']
-    graph = Graph()
-    for _ in range(10):
-        graph[choice(vertices)] = _seed_choice(vertices, 2)
 
-    # __getitem__ style
-    print graph[('A', 'B')]
+if DEBUG:
+    with Section('Basic graph'):
+        vertices = ['A', 'B', 'C', 'D', 'E']
+        graph = Graph()
+        # Initial seeding
+        for _ in range(10):
+            graph[choice(vertices)] = _seed_choice(vertices, 4)
+        print 'Graph', graph[('A', 'B')]
 
-    # Function call style
-    for _ in range(10):
-        print
-        graph.view_path((choice(vertices), choice(vertices)))
-        print
+        for _ in range(10):
+            try:
+                print '\n', graph.view_path(
+                    (choice(vertices), choice(vertices)))
+            except InvalidGraphRepresentation:
+                print 'Invalid graph was generated'
 
-    for node in graph:
-        print 'node (iter):', node
-        print 'Node {} has degree {}'.format(node, graph.get_degree(node))
+        for node in graph:
+            print 'Node {} has degree {}'.format(node, graph.get_degree(node))
 
-    graph.view()
-    print 'Has multiple degrees?', graph.has_multiple_degrees()
+        graph.view()
+        print 'Has multiple degrees?', graph.has_multiple_degrees()
 
-with Section('Directed Graph'):
-    digraph = DirectedGraph()
-    for _ in range(MAX_VERTICES):
-        digraph[choice(ascii_uppercase)] = {
-            'key': _rand_path(),
-            'direction': choice(['to', 'from', 'bi-directional'])
-        }
 
-    print 'digraph'
-    digraph.view()
-    digraph.view_path((choice(vertices), choice(vertices)))
+if DEBUG:
+    with Section('Directed Graph'):
+        digraph = DirectedGraph()
+        for _ in range(MAX_VERTICES):
+            digraph[choice(ascii_uppercase)] = {
+                'key': _rand_path(),
+                'direction': choice(['to', 'from', 'bi-directional'])
+            }
+        print 'digraph', digraph
+        try:
+            print digraph.view_path((choice(vertices), choice(vertices)))
+        except InvalidGraphRepresentation:
+            print 'Invalid graph was generated'
