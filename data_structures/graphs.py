@@ -5,12 +5,13 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from generic_helpers import Section
+from random import randrange
 from random import choice
 from pprint import pprint as ppr
 
 MAX_VERTICES = 6
 MAX_EDGES = MAX_VERTICES / 2
-DEBUG = False
+DEBUG = True
 all_vertices = [_ for _ in range(MAX_VERTICES)]
 
 
@@ -29,8 +30,10 @@ class Graph:
     def __delitem__(self, node):
         del self.nodes[node]
 
-    def __getitem__(self, points, path=[]):
-        start, end = points
+    def __getitem__(self, node):
+        return self.nodes[node]
+
+    def tour(self, start, end, path=[]):
         path, paths = path + [start], []
         if start == end:
             return path
@@ -41,7 +44,7 @@ class Graph:
                 # Add new node if it's not in the list already.
                 if node not in path:
                     # Get new path from this node
-                    sub_paths = self.__getitem__((node, end), path=path)
+                    sub_paths = self.tour(node, end, path=path)
                     for sub_path in sub_paths:
                         paths.append(sub_path)
         return paths
@@ -58,7 +61,7 @@ class Graph:
             display.append('({}){}'.format(vertex, sub_nodes))
         return ',\n'.join(display)
 
-    def view_path(self, node):
+    def connections(self, node):
         try:
             return '({})--{}'.format(node, self.nodes[node])
         except KeyError:
@@ -70,7 +73,7 @@ class Graph:
             vertices = vertices + vals
         return vertices
 
-    def get_degree(self, vertex_name):
+    def get_degree(self, vertex):
         slots = {}
         nodes = self.get_vertices()
         for node in nodes:
@@ -78,7 +81,13 @@ class Graph:
                 slots[node] += 1
             except KeyError:
                 slots[node] = 0
-        return slots[vertex_name]
+        return slots[vertex]
+
+    def has_degree(self, degrees, vertex=None):
+        try:
+            return self.get_degree(vertex) == degrees
+        except KeyError:
+            return False
 
     def has_multiple_degrees(self):
         nodes = self.get_vertices()
@@ -106,12 +115,6 @@ class DirectedGraph(Graph):
     def __delitem__(self, node):
         del self.nodes[node]
 
-    def __getitem__(self, node):
-        return self.nodes[node]
-
-    def __iter__(self):
-        return iter(self.nodes)
-
     def __str__(self):
         display = []
         for vertex, nodes in self.nodes.iteritems():
@@ -127,17 +130,34 @@ def _rand_edges(num_edges):
     return [choice(all_vertices) for _ in range(num_edges)]
 
 
+def _test_tour_valid(graph):
+    valid = False
+    while not valid:
+        start = choice(all_vertices)
+        end = choice(all_vertices)
+        res = graph.tour(start, end)
+        if len(res) > 0:
+            return 'Tour of {}, {}:\n{}'.format(start, end, res)
+            valid = True
+
 if DEBUG:
     with Section('Basic graph'):
         graph = Graph()
-        # Initial seeding
-        for _ in range(10):
+        # # Initial seeding
+        for _ in range(5):
             graph[choice(all_vertices)] = _rand_edges(MAX_EDGES)
-        print 'Graph\n', graph
 
-        for _ in range(10):
+        print 'Generated graph\n', ppr(graph.nodes)
+
+        print _test_tour_valid(graph)
+
+        deg, ver = randrange(0, MAX_EDGES), choice(all_vertices)
+        print 'Has degree {} ... {}? {}'.format(
+            deg, ver, graph.has_degree(deg, vertex=ver))
+
+        for _ in range(5):
             try:
-                print '\n', graph.view_path(choice(all_vertices))
+                print '\n', graph.connections(choice(all_vertices))
             except InvalidGraphRepresentation:
                 print (
                     'Invalid graph was generated -- need more than 2 vertices')
@@ -157,3 +177,5 @@ if DEBUG:
         print 'Get item:\n', digraph[4]
         del digraph[2]
         print 'Del item:\n', digraph
+
+        print _test_tour_valid(digraph)
