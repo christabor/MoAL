@@ -100,28 +100,26 @@ class DirectedGraph(Graph):
         node, directions = args
         # Prevent duplicated in/outgoing edges.
         self.nodes[node] = {
-            'in': [set(directions[0])], 'out': [set(directions[1])]
+            'in': set(directions[0]), 'out': set(directions[1])
         }
 
-    def __getitem__(self, points, path=[]):
-        start, end = points
-        path, paths = path + [start], []
-        if start == end:
-            return path
-        if start in self.nodes:
-            # {'start': [], '...': [], '...': []}
-            for node in self.nodes[start]:
-                # {'start': ['...', '...', '...']}
-                # Add new node if it's not in the list already.
-                if node not in path:
-                    # Get new path from this node
-                    sub_paths = self.__getitem__((node, end), path=path)
-                    for sub_path in sub_paths:
-                        paths.append(sub_path)
-        return paths
+    def __delitem__(self, node):
+        del self.nodes[node]
+
+    def __getitem__(self, node):
+        return self.nodes[node]
 
     def __iter__(self):
         return iter(self.nodes)
+
+    def __str__(self):
+        display = []
+        for vertex, nodes in self.nodes.iteritems():
+            display.append('{outbound} <-- ({vertex}) --> {inbound}'.format(
+                vertex=vertex,
+                inbound=list(nodes['in']),
+                outbound=list(nodes['out'])))
+        return ',\n'.join(display)
 
 
 def _rand_edges(num_edges):
@@ -156,3 +154,6 @@ if DEBUG:
             digraph[n] = [_rand_edges(MAX_EDGES), _rand_edges(MAX_EDGES)]
         print 'Generated directed-graph\n', ppr(digraph.nodes)
         print digraph
+        print 'Get item:\n', digraph[4]
+        del digraph[2]
+        print 'Del item:\n', digraph
