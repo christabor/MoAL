@@ -46,7 +46,7 @@ class CounterMachine:
         6               1   10          6       <- Jump-to instruction
 
         """
-        self.DEBUG = False
+        self.DEBUG = True
         # Time delay, only used for only demonstration effect.
         self.DELAY = 0
         if self.DEBUG:
@@ -164,7 +164,7 @@ class CounterMachine:
     def run(self):
         while not self.halted:
             # For testing generated programs halting errors
-            if self._step == 200:
+            if self._step == 100:
                 self.halt()
             self.run_instruction(self.program[self.curr_instruction])
 

@@ -6,10 +6,12 @@ if __name__ == '__main__':
 
 from generic_helpers import Section
 from random import choice
-from string import ascii_uppercase
+from pprint import pprint as ppr
 
-MAX_VERTICES = 10
+MAX_VERTICES = 6
+MAX_EDGES = MAX_VERTICES / 2
 DEBUG = False
+all_vertices = [_ for _ in range(MAX_VERTICES)]
 
 
 class InvalidGraphRepresentation(Exception):
@@ -24,8 +26,8 @@ class Graph:
     def __setitem__(self, node, edges):
         self.nodes[node] = edges
 
-    def __delitem__(self, edge):
-        del self.nodes[edge]
+    def __delitem__(self, node):
+        del self.nodes[node]
 
     def __getitem__(self, points, path=[]):
         start, end = points
@@ -48,24 +50,19 @@ class Graph:
         return iter(self.nodes)
 
     def __str__(self):
-        return self.view()
-
-    def view_path(self, *args, **kwargs):
-        vertices = self.__getitem__(*args, **kwargs)
-        if len(vertices) > 2:
-            return '({}) -> {} -> ({})'.format(
-                vertices[0], ' -> '.join(vertices[1:-1]), vertices[-1])
-        else:
-            raise InvalidGraphRepresentation('Need more than 2 vertices.')
-
-    def view(self):
         display = []
         for vertex, nodes in self.nodes.iteritems():
             sub_nodes = ''
             for node in nodes:
-                sub_nodes += ' --> {}'.format(node)
+                sub_nodes += '--({})'.format(node)
             display.append('({}){}'.format(vertex, sub_nodes))
         return ',\n'.join(display)
+
+    def view_path(self, node):
+        try:
+            return '({})--{}'.format(node, self.nodes[node])
+        except KeyError:
+            raise InvalidGraphRepresentation
 
     def get_vertices(self):
         vertices = [] + self.nodes.keys()
@@ -99,67 +96,63 @@ class Graph:
 
 class DirectedGraph(Graph):
 
-    def __setitem__(self, *args, **kwargs):
-        vertex, info = args
-        self.nodes[vertex] = info
+    def __setitem__(self, *args):
+        node, directions = args
+        # Prevent duplicated in/outgoing edges.
+        self.nodes[node] = {
+            'in': [set(directions[0])], 'out': [set(directions[1])]
+        }
 
-    def __str__(self):
-        return self.view()
+    def __getitem__(self, points, path=[]):
+        start, end = points
+        path, paths = path + [start], []
+        if start == end:
+            return path
+        if start in self.nodes:
+            # {'start': [], '...': [], '...': []}
+            for node in self.nodes[start]:
+                # {'start': ['...', '...', '...']}
+                # Add new node if it's not in the list already.
+                if node not in path:
+                    # Get new path from this node
+                    sub_paths = self.__getitem__((node, end), path=path)
+                    for sub_path in sub_paths:
+                        paths.append(sub_path)
+        return paths
 
-    def view(self):
-        display = []
-        arrows = {'to': '-->', 'from': '<--', 'bi-directional': '<-->'}
-        for vertex, nodes in self.nodes.iteritems():
-            for sub_node in nodes['key']:
-                sub_nodes = ' {} {}'.format(
-                    arrows[nodes['direction']], sub_node)
-                display.append('({}){}'.format(vertex, sub_nodes))
-        return ',\n'.join(display)
+    def __iter__(self):
+        return iter(self.nodes)
 
 
-def _seed_choice(choices, times):
-    return [choice(choices) for _ in range(times)]
-
-
-def _rand_path(length=4):
-    if length > 4:
-        length = 4
-    return _seed_choice(ascii_uppercase, length)
+def _rand_edges(num_edges):
+    global all_vertices
+    return [choice(all_vertices) for _ in range(num_edges)]
 
 
 if DEBUG:
     with Section('Basic graph'):
-        vertices = ['A', 'B', 'C', 'D', 'E']
         graph = Graph()
         # Initial seeding
         for _ in range(10):
-            graph[choice(vertices)] = _seed_choice(vertices, 4)
-        print 'Graph', graph[('A', 'B')]
+            graph[choice(all_vertices)] = _rand_edges(MAX_EDGES)
+        print 'Graph\n', graph
 
         for _ in range(10):
             try:
-                print '\n', graph.view_path(
-                    (choice(vertices), choice(vertices)))
+                print '\n', graph.view_path(choice(all_vertices))
             except InvalidGraphRepresentation:
-                print 'Invalid graph was generated'
-
+                print (
+                    'Invalid graph was generated -- need more than 2 vertices')
         for node in graph:
             print 'Node {} has degree {}'.format(node, graph.get_degree(node))
-
-        graph.view()
+        print graph
         print 'Has multiple degrees?', graph.has_multiple_degrees()
 
 
 if DEBUG:
     with Section('Directed Graph'):
         digraph = DirectedGraph()
-        for _ in range(MAX_VERTICES):
-            digraph[choice(ascii_uppercase)] = {
-                'key': _rand_path(),
-                'direction': choice(['to', 'from', 'bi-directional'])
-            }
-        print 'digraph', digraph
-        try:
-            print digraph.view_path((choice(vertices), choice(vertices)))
-        except InvalidGraphRepresentation:
-            print 'Invalid graph was generated'
+        for n in range(MAX_VERTICES):
+            digraph[n] = [_rand_edges(MAX_EDGES), _rand_edges(MAX_EDGES)]
+        print 'Generated directed-graph\n', ppr(digraph.nodes)
+        print digraph

@@ -1,6 +1,8 @@
-# Tasks
+# Introduction
 
 _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file.
+
+# Tasks
 
 ## Fundamentals
 
@@ -75,21 +77,12 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + [~~Basic probability~~](math/probability.py)
   + [~~Basic number theory~~](math/number_theory.py)
   + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
-+ Automata theory
-  + Abstract machine
-    + [~~Turing machine~~](automata_theory/turing_machine.py)
-    + Register machine
-      + [~~Counter machine~~](automata_theory/counter_machine.py)
-      + Pointer machine
-      + Random-access stored-program machine
-      + Random access machine
-  + Finite State Machines (FSM)
-    + Markov chain
-    + Regular expressions
 + Engineering
   + Testing
     + Test matrices
     + Testing libraries
+  + Refactoring
+    + Martin Fowler refactoring.com patterns
   + Problem solving
     + Decomposition
 
@@ -99,20 +92,20 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Dynamic programming
 + Divide and conquer
 + Standard graph algorithms
- + Shortest path
- + Max flow
- + MST
- + Shortest Path Problems
- + Dijkstra’s Algorithm
- + Knight’s Tour Problem
- + The Word Ladder Problem
- + DFS/BFS
- + An Adjacency Matrix
- + An Adjacency List
- + Prim’s Spanning Tree Algorithm
- + Building the Word Ladder Graph
- + Topological Sorting
- + Strongly Connected Components
+  + Shortest path
+  + Max flow
+  + MST
+  + Shortest Path Problems
+  + Dijkstra’s Algorithm
+  + Knight’s Tour Problem
+  + The Word Ladder Problem
+  + DFS/BFS
+  + An Adjacency Matrix
+  + An Adjacency List
+  + Prim’s Spanning Tree Algorithm
+  + Building the Word Ladder Graph
+  + Topological Sorting
+  + Strongly Connected Components
 
 ## Computer Organization
 
@@ -251,8 +244,23 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 
 ## Theory of Computation
 
-+ Automata
++ Automata theory
+  + Continuous spatial automata
   + Cellular automata
+    + Reversible
+    + Totalistic
+    + Von Neumann cellular automaton
+    + Nobili cellular automata
+  + Abstract machine
+    + [~~Turing machine~~](automata_theory/turing_machine.py)
+    + Register machine
+      + [~~Counter machine~~](automata_theory/counter_machine.py)
+      + Pointer machine
+      + Random-access stored-program machine
+      + Random access machine
+  + Finite State Machines (FSM)
+    + Markov chain
+    + Regular expressions
 + Context-free languages
 + Complexity classes (P, NP, #P, BPP, PSPACE)
 + PCPs
@@ -318,6 +326,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 
 ### Other resources
+
+*Wikipedia*
 + http://en.wikipedia.org/wiki/Analysis#Computer_science
 + http://en.wikipedia.org/wiki/Programming_paradigm
 + http://en.wikipedia.org/wiki/NoSQL
@@ -325,6 +335,9 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://en.wikipedia.org/wiki/Machine_learning
 + http://en.wikipedia.org/wiki/Recurrent_neural_network
 + http://en.wikipedia.org/wiki/Register_machine
++ http://en.wikipedia.org/wiki/Cellular_automaton
+
+*Misc*
 + http://www.fullstackpython.com/table-of-contents.html
 + http://interactivepython.org/
 + http://refactoring.com/catalog/
