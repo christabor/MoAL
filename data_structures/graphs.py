@@ -5,13 +5,13 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from generic_helpers import Section
+from generic_helpers import _print
 from random import randrange
 from random import choice
-from pprint import pprint as ppr
 
 MAX_VERTICES = 6
 MAX_EDGES = MAX_VERTICES / 2
-DEBUG = True
+DEBUG = False
 all_vertices = [_ for _ in range(MAX_VERTICES)]
 
 
@@ -107,10 +107,8 @@ class DirectedGraph(Graph):
 
     def __setitem__(self, *args):
         node, directions = args
-        # Prevent duplicated in/outgoing edges.
-        self.nodes[node] = {
-            'in': set(directions[0]), 'out': set(directions[1])
-        }
+        # Use a set to prevent duplicated in/outgoing edges.
+        self.nodes[node] = directions
 
     def __delitem__(self, node):
         del self.nodes[node]
@@ -137,7 +135,7 @@ def _test_tour_valid(graph):
         end = choice(all_vertices)
         res = graph.tour(start, end)
         if len(res) > 0:
-            return 'Tour of {}, {}:\n{}'.format(start, end, res)
+            return '{}, {}: Tour results: {}'.format(start, end, res)
             valid = True
 
 if DEBUG:
@@ -147,9 +145,8 @@ if DEBUG:
         for _ in range(5):
             graph[choice(all_vertices)] = _rand_edges(MAX_EDGES)
 
-        print 'Generated graph\n', ppr(graph.nodes)
-
-        print _test_tour_valid(graph)
+        _print('Generated graph', graph.nodes, is_ppr=True)
+        _print('Tour of...', _test_tour_valid(graph))
 
         deg, ver = randrange(0, MAX_EDGES), choice(all_vertices)
         print 'Has degree {} ... {}? {}'.format(
@@ -157,25 +154,29 @@ if DEBUG:
 
         for _ in range(5):
             try:
-                print '\n', graph.connections(choice(all_vertices))
+                _print('connections', graph.connections(choice(all_vertices)))
             except InvalidGraphRepresentation:
                 print (
                     'Invalid graph was generated -- need more than 2 vertices')
         for node in graph:
             print 'Node {} has degree {}'.format(node, graph.get_degree(node))
-        print graph
-        print 'Has multiple degrees?', graph.has_multiple_degrees()
+        _print('graph', graph)
+        _print('Has multiple degrees?', graph.has_multiple_degrees())
 
 
-if DEBUG:
+if True:
     with Section('Directed Graph'):
         digraph = DirectedGraph()
         for n in range(MAX_VERTICES):
-            digraph[n] = [_rand_edges(MAX_EDGES), _rand_edges(MAX_EDGES)]
-        print 'Generated directed-graph\n', ppr(digraph.nodes)
-        print digraph
-        print 'Get item:\n', digraph[4]
+            digraph[n] = {
+                'in': [_rand_edges(MAX_EDGES)],
+                'out': [_rand_edges(MAX_EDGES)]
+            }
+        _print('Generated directed-graph', digraph.nodes, is_ppr=True)
+        _print('Digraph', digraph)
+        _print('Get item:', digraph[4])
+        digraph[3] = {'in': [1, 2, 4], 'out': [3, 2, 5]}
+        _print('Set item:', digraph[3])
         del digraph[2]
-        print 'Del item:\n', digraph
-
-        print _test_tour_valid(digraph)
+        _print('Del item:', digraph)
+        _print('Tour of...', _test_tour_valid(digraph))
