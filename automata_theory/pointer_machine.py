@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+#
+raise NotImplemented('WIP')
 
 if __name__ == '__main__':
     from os import sys, path
@@ -6,8 +8,7 @@ if __name__ == '__main__':
 
 from generic_helpers import Section
 from generic_helpers import _cmd_title
-from fundamentals.graphs import Graph
-from fundamentals.graphs import DirectedGraph
+from data_structures.graphs import DirectedGraph
 import time
 
 # Definition, variations and example instruction set
@@ -22,7 +23,7 @@ class PointerMachine(object):
     def __repr__(self):
         return type(self).__name__
 
-    def __init__(self, program=None):
+    def __init__(self):
         self.DEBUG = False
         # Time delay, only used for only demonstration effect.
         self.DELAY = 0
@@ -45,12 +46,7 @@ class PointerMachine(object):
         self._step += 1
 
     def run(self):
-        while not self.halted:
-            # For testing generated programs halting errors
-            if self._step == 200:
-                self.halt()
-            self._step += 1
-            self.run_instruction(self.program[self.curr_instruction])
+        raise NotImplementedError
 
 
 # Wikipedia:
@@ -74,13 +70,13 @@ class SchonhageStorageModification(PointerMachine):
 
     def __init__(self, *args, **kwargs):
         super(SchonhageStorageModification, self).__init__(*args, **kwargs)
-        self.state_graph = Graph()
-        print 'GRAPH states'
-        print self.state_graph
+        self.state_graph = DirectedGraph()
         self.state_graph[1] = [1, 3, 4, 10]
         self.state_graph[0] = [1, 2, 3]
+
+    def run(self):
         print self.state_graph.nodes
-        print self.state_graph.view()
+        print self.state_graph
 
 
 class AtomisticPureLISP(PointerMachine):
@@ -105,9 +101,12 @@ class JonesITwo(PointerMachine):
 
 with Section('Pointer Machines'):
     classes = [
-        KolmogorovUspenskii, KnuthLinking, SchonhageStorageModification,
-        AtomisticPureLISP, AtomisticFullLISP, GeneralAtomistic,
-        JonesIOne, JonesITwo,
+        # KolmogorovUspenskii,
+        # KnuthLinking,
+        SchonhageStorageModification,
+        # AtomisticPureLISP, AtomisticFullLISP,
+        # GeneralAtomistic,
+        # JonesIOne, JonesITwo,
     ]
 
     for klass in classes:
