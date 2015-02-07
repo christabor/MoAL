@@ -164,7 +164,7 @@ if DEBUG:
         _print('Has multiple degrees?', graph.has_multiple_degrees())
 
 
-if True:
+if DEBUG:
     with Section('Directed Graph'):
         digraph = DirectedGraph()
         for n in range(MAX_VERTICES):
