@@ -108,13 +108,14 @@ class SkipList:
                 updated[i].next[i] = node
 
 
-with Section('Skip Lists'):
-    gibs = [{'name': _gibberish(), 'value': rr(10, 1000)} for _ in range(10)]
-    sl = SkipList()
-    for gib in gibs:
-        sl.insert(elem=gib)
+if __name__ == '__main__':
+    with Section('Skip Lists'):
+        gibs = [{'name': _gibberish(), 'value': rr(10, 1000)} for _ in range(10)]
+        sl = SkipList()
+        for gib in gibs:
+            sl.insert(elem=gib)
 
-    for gib in gibs:
-        sl.find(gib)
+        for gib in gibs:
+            sl.find(gib)
 
-    sl.view()
+        sl.view()

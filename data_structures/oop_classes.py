@@ -154,44 +154,45 @@ class ColonelMeow(InernetHouseCats):
     Class methods example
 """
 
-with Section('OOP Class types / examples'):
-    print
-    print Cat.meow()
-    print Cat.custom_classmethod()
-    print Cat.custom_classmethod
-    print
+if __name__ == '__main__':
+    with Section('OOP Class types / examples'):
+        print
+        print Cat.meow()
+        print Cat.custom_classmethod()
+        print Cat.custom_classmethod
+        print
 
-    """
-        Examples of actual usage of class instances
-    """
+        """
+            Examples of actual usage of class instances
+        """
 
-    classes = ' <= '.join([c.__name__ for c in inspect.getmro(Species)])
-    print 'Classes for most derived class {} are: {}'.format(Species, classes)
+        classes = ' <= '.join([c.__name__ for c in inspect.getmro(Species)])
+        print 'Classes for most derived class {} are: {}'.format(Species, classes)
 
-    leopard = Cat('leopard')
-    print repr(leopard)
+        leopard = Cat('leopard')
+        print repr(leopard)
 
-    calico = HouseCat('calico')
-    print calico.meow()
-    print repr(calico)
+        calico = HouseCat('calico')
+        print calico.meow()
+        print repr(calico)
 
-    print 'Classmethod: {}'.format(Cat.custom_classmethod())
-    print Cat.custom_classmethod
-    print 'Staticmethod: {}'.format(Cat.custom_staticmethod())
-    print Cat.custom_staticmethod
-    print 'Staticmethod instance: {}'.format(leopard.custom_staticmethod())
-    print 'Comparison: {} {} {}'.format(
-        leopard, calico, (hash(leopard) == hash(calico)))
-    print
-    abstract_leopard = CatTwo()
+        print 'Classmethod: {}'.format(Cat.custom_classmethod())
+        print Cat.custom_classmethod
+        print 'Staticmethod: {}'.format(Cat.custom_staticmethod())
+        print Cat.custom_staticmethod
+        print 'Staticmethod instance: {}'.format(leopard.custom_staticmethod())
+        print 'Comparison: {} {} {}'.format(
+            leopard, calico, (hash(leopard) == hash(calico)))
+        print
+        abstract_leopard = CatTwo()
 
-    # Not implement error
-    try:
-        print abstract_leopard.custom_abstractmethod
-        abstract_leopard.custom_abstractmethod()
-    except NotImplementedError:
-        print ('This exception is an example of the second '
-               'abstract method strategy: simply raising a NotImplemented'
-               'exception rather than going through the rigamorale of '
-               'using a traditional ABC decorator.')
-    print
+        # Not implement error
+        try:
+            print abstract_leopard.custom_abstractmethod
+            abstract_leopard.custom_abstractmethod()
+        except NotImplementedError:
+            print ('This exception is an example of the second '
+                   'abstract method strategy: simply raising a NotImplemented'
+                   'exception rather than going through the rigamorale of '
+                   'using a traditional ABC decorator.')
+        print

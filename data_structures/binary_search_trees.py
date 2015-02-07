@@ -368,9 +368,10 @@ def populate_bst(bst, count=1):
         bst.put(randrange(1, 100), _gibberish())
 
 
-with Section('Binary Search Trees'):
-    bst = BinarySearchTree()
-    populate_bst(bst, count=5)
-    print
-    recurse_bst(bst.root, None)
-    print
+if __name__ == '__main__':
+    with Section('Binary Search Trees'):
+        bst = BinarySearchTree()
+        populate_bst(bst, count=5)
+        print
+        recurse_bst(bst.root, None)
+        print

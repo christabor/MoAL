@@ -31,5 +31,6 @@ def bubble_sort(items):
     return items
 
 
-with Section('Bubble Sort'):
-    ppr(run_sorting_trials(bubble_sort, test_output=True))
+if __name__ == '__main__':
+    with Section('Bubble Sort'):
+        ppr(run_sorting_trials(bubble_sort, test_output=True))

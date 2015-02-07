@@ -36,5 +36,6 @@ def selection_sort(items):
     return items
 
 
-with Section('Selection Sort'):
-    ppr(run_sorting_trials(selection_sort, magnitudes=[10, 100, 1000, 5000]))
+if __name__ == '__main__':
+    with Section('Selection Sort'):
+        ppr(run_sorting_trials(selection_sort, magnitudes=[10, 100, 1000, 5000]))

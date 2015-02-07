@@ -228,6 +228,7 @@ class SplayTree(AVLTree):
                 self.right_rotate(node.parent)
 
 
-with Section('Splay Tree'):
-    splay = SplayTree()
-    populate_bst(splay, count=10)
+if __name__ == '__main__':
+    with Section('Splay Tree'):
+        splay = SplayTree()
+        populate_bst(splay, count=10)

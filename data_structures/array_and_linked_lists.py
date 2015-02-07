@@ -120,42 +120,38 @@ def build_list(length):
     return head
 
 
-with Section('Arrays & Linked Lists'):
-    DEBUG = True
-    MAX_NODES = 10
-    linked_list = build_list(MAX_NODES)
-    print_nodes(linked_list)
-    print 'Length of linked list:', len(linked_list)
+if __name__ == '__main__':
+    with Section('Arrays & Linked Lists'):
+        DEBUG = True
+        MAX_NODES = 10
+        linked_list = build_list(MAX_NODES)
+        print_nodes(linked_list)
+        _print('Length of linked list:', len(linked_list))
 
-    if DEBUG:
-        print
-        print 'Testing iteration'
-        print
-        for node in linked_list:
-            print node
+        if DEBUG:
+            _print('Testing iteration', '')
+            for node in linked_list:
+                print node
 
-        del linked_list['node-1']
-        del linked_list['node-4']
-        del linked_list['node-2']
-        del linked_list['node-6']
-        del linked_list['tail']
+            del linked_list['node-1']
+            del linked_list['node-4']
+            del linked_list['node-2']
+            del linked_list['node-6']
+            del linked_list['tail']
 
-        print
-        print 'Testing iteration - post delete:'
-        print
-        for node in linked_list:
-            print node
+            _print('Testing iteration - post delete:', '')
 
-        linked_list['head'] = 'FOO'
-        linked_list['node-3'] = 'BAR'
-        linked_list['node-5'] = 'BIM'
+            for node in linked_list:
+                print node
 
-        print
-        print 'Testing value update'
-        print
+            linked_list['head'] = 'FOO'
+            linked_list['node-3'] = 'BAR'
+            linked_list['node-5'] = 'BIM'
 
-        for node in linked_list:
-            print node
+            _print('Testing value update', '')
+
+            for node in linked_list:
+                print node
 
 # Glossary practice
 

@@ -108,6 +108,7 @@ class TuringMachine:
         _cmd_title('HALTING')
 
 
-with Section('Turing Machines'):
-    tm = TuringMachine()
-    tm.run()
+if __name__ == '__main__':
+    with Section('Turing Machines'):
+        tm = TuringMachine()
+        tm.run()

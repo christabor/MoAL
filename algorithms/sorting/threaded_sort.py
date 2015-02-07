@@ -71,10 +71,11 @@ class ThreadSort:
         return self.sorting_func(self.sorted_items)
 
 
-with Section('Threaded Sorts'):
-    threaded_quicksort = ThreadSort(quick_sort, threads=4)
+if __name__ == '__main__':
+    with Section('Threaded Sorts'):
+        threaded_quicksort = ThreadSort(quick_sort, threads=4)
 
-    rand = random_number_set(max_range=20)
-    res = threaded_quicksort.run(rand)
-    print 'Is valid?', res == sorted(rand)
-    ppr(res)
+        rand = random_number_set(max_range=20)
+        res = threaded_quicksort.run(rand)
+        print 'Is valid?', res == sorted(rand)
+        ppr(res)

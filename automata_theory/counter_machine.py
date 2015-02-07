@@ -5,6 +5,7 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from generic_helpers import Section
+from generic_helpers import _print
 from generic_helpers import _cmd_title
 from pprint import pprint as ppr
 from random import choice
@@ -216,27 +217,24 @@ class ElgotRobinsonRASP(CounterMachine):
     pass
 
 
-with Section('Counter Machines'):
-    classes = [
-        SheperdsonSturgis, Minsky, Program, Abacus, Lambek,
-        Successor, SuccessorRAM, ElgotRobinsonRASP,
-    ]
+if __name__ == '__main__':
+    with Section('Counter Machines'):
+        classes = [
+            SheperdsonSturgis, Minsky, Program, Abacus, Lambek,
+            Successor, SuccessorRAM, ElgotRobinsonRASP,
+        ]
 
-    for klass in classes:
-        print
-        print 'Testing machine...', repr(klass)
-        klass().run()
+        for klass in classes:
+            _print('Testing machine...', klass, func=repr)
+            klass().run()
 
-    DEBUG = True
-
-    if DEBUG:
-        _cmd_title('New program')
-        singleton = CounterMachine()
-        singleton._generate_program()
-        ppr(singleton.program)
-        try:
-            singleton.run()
-        except TypeError:
-            print 'Inoperable program was generated :('
-        finally:
-            singleton.halt()
+            _cmd_title('New program')
+            singleton = CounterMachine()
+            singleton._generate_program()
+            ppr(singleton.program)
+            try:
+                singleton.run()
+            except TypeError:
+                print 'Inoperable program was generated :('
+            finally:
+                singleton.halt()

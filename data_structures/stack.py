@@ -123,15 +123,16 @@ class NetworkLogger(Logger):
             '[NETWORK] - ' + message, priority=priority)
 
 
-with Section('Loggers [continued]'):
-    wl = WebLogger()
-    nl = NetworkLogger()
+if __name__ == '__main__':
+    with Section('Loggers [continued]'):
+        wl = WebLogger()
+        nl = NetworkLogger()
 
-    for _ in range(STACK_COUNT):
-        wl.add_message(_gibberish(length=10), priority=randrange(0, 10))
+        for _ in range(STACK_COUNT):
+            wl.add_message(_gibberish(length=10), priority=randrange(0, 10))
 
-    for _ in range(STACK_COUNT):
-        nl.add_message(_gibberish(length=10), priority=randrange(0, 10))
+        for _ in range(STACK_COUNT):
+            nl.add_message(_gibberish(length=10), priority=randrange(0, 10))
 
-    print wl.view_messages()
-    print nl.view_messages()
+        print wl.view_messages()
+        print nl.view_messages()

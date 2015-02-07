@@ -105,13 +105,14 @@ class PrinterQueue(Queue):
     def print_job(self):
         print 'Printing... {}'.format(self.head()['name'])
 
-with Section('Printer queue example'):
-    pq = PrinterQueue()
-    for _ in range(10):
-        pq.add_job('My_doc_{}.{}'.format(
-            _gibberish(), choice(
-                ['doc', 'docx', 'rtf', 'pdf', 'jpg', '.png'])),
-            '<DOC CONTENTS...>')
+if __name__ == '__main__':
+    with Section('Printer queue example'):
+        pq = PrinterQueue()
+        for _ in range(10):
+            pq.add_job('My_doc_{}.{}'.format(
+                _gibberish(), choice(
+                    ['doc', 'docx', 'rtf', 'pdf', 'jpg', '.png'])),
+                '<DOC CONTENTS...>')
 
-    for _ in range(10):
-        pq.print_job()
+        for _ in range(10):
+            pq.print_job()

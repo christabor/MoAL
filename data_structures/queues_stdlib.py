@@ -97,23 +97,24 @@ class Producer:
         return _gibberish()
 
 
-with Section('Python stdlib Queue and multi-threading examples 2'):
-    work_queue = Queue()
-    bot = Worker(work_queue)
-    producer = Producer()
+if __name__ == '__main__':
+    with Section('Python stdlib Queue and multi-threading examples 2'):
+        work_queue = Queue()
+        bot = Worker(work_queue)
+        producer = Producer()
 
-    for _ in range(10):
-        producer.add()
+        for _ in range(10):
+            producer.add()
 
-    for record in producer:
-        print 'Putting record {} into queue.'.format(record)
-        work_queue.put(record)
+        for record in producer:
+            print 'Putting record {} into queue.'.format(record)
+            work_queue.put(record)
 
-    bot.process_all()
+        bot.process_all()
 
-    # Block until done
-    work_queue.join()
+        # Block until done
+        work_queue.join()
 
-    print ('** these dividers will not work right since the threads '
-           'are ND and the end of this line is not guaranteed to '
-           'come before the end of the thread processes! **')
+        print ('** these dividers will not work right since the threads '
+               'are ND and the end of this line is not guaranteed to '
+               'come before the end of the thread processes! **')

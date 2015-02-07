@@ -10,8 +10,6 @@ if __name__ == '__main__':
 import binary_search_trees as bst
 from generic_helpers import Section
 
-DEBUG = True
-
 """
 
     AVL tree nodes all calculate a balance factor to determine rotations
@@ -174,6 +172,7 @@ class AVLTree(bst.BinarySearchTree):
         bst.recurse_bst(self.root, None)
 
 
-with Section('AVL Trees'):
-    avl = AVLTree()
-    bst.populate_bst(avl, count=5)
+if __name__ == '__main__':
+    with Section('AVL Trees'):
+        avl = AVLTree()
+        bst.populate_bst(avl, count=5)

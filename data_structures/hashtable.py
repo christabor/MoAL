@@ -30,15 +30,16 @@ def fill_blocks_to(x):
         nht.insert(rr(0, x), _gibberish(length=6))
 
 
-with Section('Naive hash tables'):
-    nht = NaiveHashTable()
-    keys = [rr(0, 30) for k in range(5)]
-    print keys
+if __name__ == '__main__':
+    with Section('Naive hash tables'):
+        nht = NaiveHashTable()
+        keys = [rr(0, 30) for k in range(5)]
+        print keys
 
-    for k in keys:
-        fill_blocks_to(40)
+        for k in keys:
+            fill_blocks_to(40)
 
-    for k in keys:
-        print 'Reading...', nht.items[k]
+        for k in keys:
+            print 'Reading...', nht.items[k]
 
-    print ppr(nht.items)
+        print ppr(nht.items)

@@ -77,22 +77,23 @@ def _test(*args):
     ppr(get_results(values))
 
 
-with Section('Probability'):
-    values_rand = [rr(1, 999) for d in range(rr(1, 20))]
-    _print(
-        ('Probability of a given value:', values_rand),
-        Probability.of_single(values_rand))
+if __name__ == '__main__':
+    with Section('Probability'):
+        values_rand = [rr(1, 999) for d in range(rr(1, 20))]
+        _print(
+            ('Probability of a given value:', values_rand),
+            Probability.of_single(values_rand))
 
-    run_trials(_test)
+        run_trials(_test)
 
-    _print(
-        ('Probability of multiple given values:',
-            values_rand, values_rand[:2]),
-        Probability.of_group(values_rand, values_rand[:2], are_equal=True))
+        _print(
+            ('Probability of multiple given values:',
+                values_rand, values_rand[:2]),
+            Probability.of_group(values_rand, values_rand[:2], are_equal=True))
 
-    _print(
-        ('Probability of multiple given values:',
-            values_rand, values_rand[:4]),
-        Probability.of_group(values_rand, values_rand[:4], are_equal=True))
+        _print(
+            ('Probability of multiple given values:',
+                values_rand, values_rand[:4]),
+            Probability.of_group(values_rand, values_rand[:4], are_equal=True))
 
-    run_trials(test_coin_flip)
+        run_trials(test_coin_flip)

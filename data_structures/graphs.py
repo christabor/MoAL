@@ -6,12 +6,12 @@ if __name__ == '__main__':
 
 from generic_helpers import Section
 from generic_helpers import _print
+from pprint import pprint as ppr
 from random import randrange
 from random import choice
 
 MAX_VERTICES = 6
 MAX_EDGES = MAX_VERTICES / 2
-DEBUG = False
 all_vertices = [_ for _ in range(MAX_VERTICES)]
 
 
@@ -138,14 +138,14 @@ def _test_tour_valid(graph):
             return '{}, {}: Tour results: {}'.format(start, end, res)
             valid = True
 
-if DEBUG:
+if __name__ == '__main__':
     with Section('Basic graph'):
         graph = Graph()
         # # Initial seeding
         for _ in range(5):
             graph[choice(all_vertices)] = _rand_edges(MAX_EDGES)
 
-        _print('Generated graph', graph.nodes, is_ppr=True)
+        _print('Generated graph', graph.nodes, func=ppr)
         _print('Tour of...', _test_tour_valid(graph))
 
         deg, ver = randrange(0, MAX_EDGES), choice(all_vertices)
@@ -163,8 +163,6 @@ if DEBUG:
         _print('graph', graph)
         _print('Has multiple degrees?', graph.has_multiple_degrees())
 
-
-if DEBUG:
     with Section('Directed Graph'):
         digraph = DirectedGraph()
         for n in range(MAX_VERTICES):
@@ -172,7 +170,7 @@ if DEBUG:
                 'in': [_rand_edges(MAX_EDGES)],
                 'out': [_rand_edges(MAX_EDGES)]
             }
-        _print('Generated directed-graph', digraph.nodes, is_ppr=True)
+        _print('Generated directed-graph', digraph.nodes, func=ppr)
         _print('Digraph', digraph)
         _print('Get item:', digraph[4])
         digraph[3] = {'in': [1, 2, 4], 'out': [3, 2, 5]}

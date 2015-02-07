@@ -43,10 +43,11 @@ def shell_sort(items, maxgaps=5):
     return quick_sort(sub_groups)
 
 
-with Section('Shell Sort'):
-    TEST_MAGNITUDES = [4, 10, 50, 100, 500, 1000, 10000]
-    # Compare helper sorting functions
-    # in isolation to the hybrid shell function
-    ppr(run_sorting_trials(shell_sort, magnitudes=TEST_MAGNITUDES))
-    ppr(run_sorting_trials(quick_sort, magnitudes=TEST_MAGNITUDES))
-    ppr(run_sorting_trials(insertion_sort, magnitudes=TEST_MAGNITUDES))
+if __name__ == '__main__':
+    with Section('Shell Sort'):
+        TEST_MAGNITUDES = [4, 10, 50, 100, 500, 1000, 10000]
+        # Compare helper sorting functions
+        # in isolation to the hybrid shell function
+        ppr(run_sorting_trials(shell_sort, magnitudes=TEST_MAGNITUDES))
+        ppr(run_sorting_trials(quick_sort, magnitudes=TEST_MAGNITUDES))
+        ppr(run_sorting_trials(insertion_sort, magnitudes=TEST_MAGNITUDES))

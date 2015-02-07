@@ -55,12 +55,13 @@ def merge_sort(items, iteration=0, side=None):
         merge_sort(right, iteration=iteration + 1, side='right'))
 
 
-with Section('Merge Sort'):
-    results = run_sorting_trials(merge_sort)
-    ppr(results)
+if __name__ == '__main__':
+    with Section('Merge Sort'):
+        results = run_sorting_trials(merge_sort)
+        ppr(results)
 
-with Section('Merge Sort - integers'):
-    ppr(merge_sort([rr(1, 9999) for _ in range(20)]))
+    with Section('Merge Sort - integers'):
+        ppr(merge_sort([rr(1, 9999) for _ in range(20)]))
 
-with Section('Merge Sort - floating point integers'):
-    ppr(merge_sort([random() * float(rr(1, 9999)) for _ in range(20)]))
+    with Section('Merge Sort - floating point integers'):
+        ppr(merge_sort([random() * float(rr(1, 9999)) for _ in range(20)]))

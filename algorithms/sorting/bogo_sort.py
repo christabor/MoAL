@@ -28,5 +28,6 @@ def bogo_sort(items):
     return items
 
 
-with Section('Bogo Sort (LOL)'):
-    ppr(run_sorting_trials(bogo_sort, magnitudes=[3, 5, 10]))
+if __name__ == '__main__':
+    with Section('Bogo Sort (LOL)'):
+        ppr(run_sorting_trials(bogo_sort, magnitudes=[3, 5, 10]))

@@ -42,5 +42,6 @@ def quick_sort(items, low=None, high=None):
     return items
 
 
-with Section('Quick Sort'):
-    ppr(run_sorting_trials(quick_sort, magnitudes=[10, 100, 1000]))
+if __name__ == '__main__':
+    with Section('Quick Sort'):
+        ppr(run_sorting_trials(quick_sort, magnitudes=[10, 100, 1000]))

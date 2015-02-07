@@ -103,8 +103,9 @@ class PriorityQueue(BinHeap, object):
         super(PriorityQueue, self).__init__(*args, **kwargs)
 
 
-with Section('Priority Queue'):
-    pq = PriorityQueue([rr(1, 100) for _ in range(30)])
-    print
-    for _ in range(10):
-        pq.insert(rr(1, 100))
+if __name__ == '__main__':
+    with Section('Priority Queue'):
+        pq = PriorityQueue([rr(1, 100) for _ in range(30)])
+        print
+        for _ in range(10):
+            pq.insert(rr(1, 100))

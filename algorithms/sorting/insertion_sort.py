@@ -32,7 +32,8 @@ def insertion_sort(items):
     return items
 
 
-with Section('Insertion Sort'):
-    results = run_sorting_trials(insertion_sort)
-    print 'Insertion sort results:'
-    ppr(results)
+if __name__ == '__main__':
+    with Section('Insertion Sort'):
+        results = run_sorting_trials(insertion_sort)
+        print 'Insertion sort results:'
+        ppr(results)

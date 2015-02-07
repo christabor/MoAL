@@ -79,7 +79,7 @@ def O_n_factorial(factor=10):
     pass
 
 
-def run_all():
+if __name__ == '__main__':
     with Section('BIG O Notation'):
         O_1()
         O_n()
@@ -89,5 +89,3 @@ def run_all():
         run_trials(O_log_n, trials=10)
         O_n_factorial()
         O_2n(10)
-
-run_all()

@@ -63,24 +63,25 @@ class NaiveTrie(BinarySearchTree):
             self.view(node=_node, spacer=spacer + 2)
 
 
-with Section('Naive Trie structure - basic'):
-    trie = NaiveTrie()
-    trie2 = NaiveTrie(is_root=True, alphabet=ascii_lowercase)
-    trie3 = NaiveTrie(is_root=True, alphabet=punctuation)
+if __name__ == '__main__':
+    with Section('Naive Trie structure - basic'):
+        trie = NaiveTrie()
+        trie2 = NaiveTrie(is_root=True, alphabet=ascii_lowercase)
+        trie3 = NaiveTrie(is_root=True, alphabet=punctuation)
 
-    words = [
-        'data', 'dad', 'dada', 'dadism', 'cat', 'cathartic', 'ho', 'house', ]
+        words = [
+            'data', 'dad', 'dada', 'dadism', 'cat', 'cathartic', 'ho', 'house', ]
 
-    # Traditional setup + full width nodes for entire alphabet
-    for word in words:
-        trie.add(word)
-        trie2.add(word)
-        trie3.add(''.join([choice(punctuation) for _ in range(5)]))
+        # Traditional setup + full width nodes for entire alphabet
+        for word in words:
+            trie.add(word)
+            trie2.add(word)
+            trie3.add(''.join([choice(punctuation) for _ in range(5)]))
 
-    trie.view()
+        trie.view()
 
-with Section('Naive Trie structure - N-ary , N = alphabet'):
-    trie2.view()
+    with Section('Naive Trie structure - N-ary , N = alphabet'):
+        trie2.view()
 
-with Section('Naive Trie structure - N-ary , N = alphabet, new alphabet'):
-    trie3.view()
+    with Section('Naive Trie structure - N-ary , N = alphabet, new alphabet'):
+        trie3.view()

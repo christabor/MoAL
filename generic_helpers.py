@@ -2,7 +2,6 @@ import time
 from random import randrange as rr
 from random import choice
 from string import ascii_letters
-from pprint import pprint as ppr
 from blessings import Terminal
 
 term = Terminal()
@@ -87,11 +86,11 @@ def _test_speed(func, *args, **kwargs):
 # Display utilities
 
 
-def _print(words, result, is_ppr=False):
+def _print(words, result, func=None):
     print
     print '{t.green}{t.underline}{}{t.normal}'.format(words, t=term)
-    if is_ppr:
-        ppr(result)
+    if func is not None:
+        func(result)
     else:
         print result
     print
