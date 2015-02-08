@@ -2,10 +2,6 @@
 
 _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file.
 
-## Goals
-
-The primary goal of this project is to synthesize an extremely large set of concepts and ideas into crucial components, allowing one to learn a typically unfathomable breadth of topics in the field, doing so in a shorter amount of time. The trade off of **depth** is acceptable as it stresses basic competencies across all aspects, **which can later be translated into more detailed understanding**.
-
 # Tasks
 
 ## Data structures

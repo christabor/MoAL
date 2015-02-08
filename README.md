@@ -1,8 +1,6 @@
 MOAL
 ====
 
-Mother of All Learning - an uber list of Comp Science / Engineering tasks, taken from Quora notes or manually compiled, designed to help one "master" computer science (insomuch as that can be done). The goal here is to represent atomic tasks that can be easily recreated and implemented in real code, since the goal is to learn both theory and practice, while practicing the entire time (and thus cementing the concepts better).
-
 Each task is meant to be simple and atomic, so there is freedom to approach it however is most comfortable for a given learning style. Think of it like a jigsaw puzzle; while it's important to get the breadth and depth that makes a degree worthwhile, pieces are constantly being filled in, and this can be done line by line (linearly), or in a completely random fashion (or anything in-between).
 
 **This should be considered a living document. It will grow in size, becoming better organized as new details and fields of study are integrated**
@@ -13,7 +11,10 @@ __Enough talk! See [the tasks](TASKS.md) for more details__
 The very first list was originally taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1, but it has been greatly expanded and re-organized. This will probably continue to change, which is why the atomic, containerization approach for each task is so important.
 
 ## Goals
-**To my end,** this should all be done in python, except for specific language goals. Things that are math/theory oriented, should still be done IN an actual language -- utilize tools like numpy, scipy to do different types of math if necessary.
+
+The primary goal of this project is to synthesize an extremely large set of concepts and ideas into crucial components, allowing one to learn a typically unfathomable breadth of topics in the field, doing so in a shorter amount of time. The trade off of **depth** is acceptable as it stresses basic competencies across all aspects, **which can later be translated into more detailed understanding**.
+
+**To that end,** my goal is to do as much as can be done in python, except for specific language requirements. Things that are math, theory, or concept oriented should still be done in Python -- utilizing tools like numpy, scipy to do different types of computation.
 
 Some examples are taken and/or recreated from other sites. In these cases, they are not copy-pasted verbatim; they are re-typed, character-by-character, modified, and heavily commented; the goal is not rote memorization. The goal is a genuine understanding and better intuition of how it works and how to do it. You may find it useful to recreate, modify, or start from scratch -- it is recommended to start from scratch when possible, but if you are honest with yourself, you will "know" when you comprehend it.
 
