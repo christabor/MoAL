@@ -9,10 +9,21 @@ The primary goal of this project is to synthesize an extremely large set of conc
 # Tasks
 
 ## Data structures
+
++ Persistent
+  + Partial
+      + Fat node
+      + Path copying
+      + Fat/Path combination
+  + Full
+    + [~~Linked lists~~](data_structures/array_and_linked_lists.py)
+  + Confluent
++ Retroactive
+  + Partial
+  + Full
 + [~~Arrays~~](data_structures/array_and_linked_lists.py)
   + Suffix arrays
   + Judy arrays
-+ [~~Linked lists~~](data_structures/array_and_linked_lists.py)
 + Doubly-connected edge list
 + Disjoint-set/union-find/merge-find ADT
 + Winged edge
@@ -32,6 +43,8 @@ The primary goal of this project is to synthesize an extremely large set of conc
   + Fractal tree index
   + Interval tree
   + [~~Binary search tree~~](data_structures/binary_search_trees.py)
+    + Treap
+    + Randomized BST
   + Binary indexed tree
   + [~~Splay tree~~](data_structures/splay_trees.py)
   + vEB tree
@@ -99,10 +112,12 @@ The primary goal of this project is to synthesize an extremely large set of conc
       + [~~O(n^2)~~](data_structures/big_o.py)
       + [~~O(2^n)~~](data_structures/big_o.py)
       + [~~O(n!)~~](data_structures/big_o.py)
-+ Discrete math:
++ Discrete
   + [~~Basic probability~~](math/probability.py)
   + [~~Basic number theory~~](math/number_theory.py)
   + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
+  + Graph theory
+    + Spectral graph theory
 
 ## Algorithms
 
@@ -128,9 +143,10 @@ The primary goal of this project is to synthesize an extremely large set of conc
   + Burst sort
   + [~~Selection Sort~~](algorithms/sorting/selection_sort.py)
   + [~~Shell Sort~~](algorithms/sorting/shell_sort.py)
-+ Greedy algorithms
++ Approximation
++ Greedy
 + Dynamic programming
-+ Divide and conquer
++ Divide & conquer
 + Standard graph algorithms
   + Shortest path
   + Max flow
@@ -191,16 +207,28 @@ The primary goal of this project is to synthesize an extremely large set of conc
 
 + Ethernet
 + Protocols
+  + RPC
+    + JSONRPC
+    + XMLRPC
   + Bluetooth
   + Fibre channel
   + TCP/IP
   + RTPS
   + SSH
++ Load balancing
+  + NGINX
+  + Apache
+  + HAProxy
   + UDP
+    + Twisted UDP
   + FTP/sFTP
+    + Twisted FTP
   + SMTP
   + Telnet
   + HTTP/HTTPS
+    + HTTP Servers
+      + Gunicorn
+      + uWSGI
   + SSL
   + TLS
   + POP
@@ -212,13 +240,8 @@ The primary goal of this project is to synthesize an extremely large set of conc
   + Bitcoin
   + Custom (make one!)
 
-## Advanced - to be categorized!
+## Data Storage
 
-+ More algorithms/data structures
- + Spectral graph theory
- + Linear programming/duality
-+ Advanced data structures (ex. persistent data structures)
- + Approximation algorithms
 + Databases
   + Relational
     + Mysql
@@ -237,40 +260,33 @@ The primary goal of this project is to synthesize an extremely large set of conc
   + WideColumn
     + HBase
     + BigTable
-+ Apps/Services
-  + Architecture
-    + MVC/N-Tier
-    + SOA
-    + Microservices
-    + Message queuing
-      + RabbitMQ
-      + ZeroMQ
-    + HTTP Servers
-      + Gunicorn
-      + UWGSGI
-    + FTP Server
-      + Twisted FTP
-    + UDP
-      + Twisted UDP
-    + Load balancing
-      + NGINX
-      + Apache
-      + HAProxy
-    + RESTful API
-      + Full HATEOAS
-  + Protocols
-    + JSONRPC
-    + XMLRPC
-  + Caching
-    + Varnish
+
+## Systems Engineering
+
++ Architecture
+  + MVC/N-Tier
+  + SOA
+    + Micro-services
+  + RESTful API
+    + Basic
+    + HATEOAS
 + Distributed Systems
   + CAP Theorem
-  + Big Data
+  + "Big Data" processing
     + Hadoop file system
     + Hadoop MapReduce
     + PIG
     + ZooKeeper
     + Lucene
++ Message queuing
+  + RabbitMQ
+  + ZeroMQ
++ Performance
+  + Caching
+    + Varnish
+
+## Artifical Intelligence
+
 + Machine learning
   + Supervised learning
     + Decision tree
@@ -279,22 +295,26 @@ The primary goal of this project is to synthesize an extremely large set of conc
     + K-means clustering
     + Bayesian probability
     + Neural networks
-      + Recurrent neural networks
+      + Recurrent neural networks (RNNs)
         + Boltzmann machine
         + Hopfield network
         + Elman network
         + Jordan network
         + Echo state network
         + Long short term memory network
-        + Bi-directional RNN
-        + Continuous-time RNN
-        + Hierarchical RNN
+        + Bi-directional
+        + Continuous-time
+        + Hierarchical
         + Recurrent multilayer perceptron
-        + Second Order Recurrent Neural Network
-        + Pollack’s sequential cascaded networks
+        + Second Order
+        + Pollack’s sequential cascaded
         + Neural Turing Machines
         + Bidirectional Associative Memory (BAM)
-+ Robotics
+
+## Robotics
+
++ Arduino
++ Raspberry Pi
 
 ## Theory of Computation
 
@@ -354,7 +374,7 @@ The primary goal of this project is to synthesize an extremely large set of conc
   + Object-oriented
     + Features
       + [~~Class hierarchy~~](data_structures/oop_classes.py)
-      + [~~Static, class, and abstract methods~~](data_structures/oop_classes.py)
+      + [~~Static, class, & abstract methods~~](data_structures/oop_classes.py)
       + Overloading
       + Polymorphism
         + Single dispatch
@@ -403,6 +423,7 @@ The primary goal of this project is to synthesize an extremely large set of conc
 
 ## Uncategorized [WIP]
 
++ Linear programming/duality
 + Language based security
 + Software defined networking
 + Compilers
@@ -450,6 +471,11 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://en.wikipedia.org/wiki/Software_testing#Testing_methods
 + http://en.wikipedia.org/wiki/Cipher
 + http://en.wikipedia.org/wiki/Type_theory
++ http://en.wikipedia.org/wiki/Remote_procedure_call
++ http://en.wikipedia.org/wiki/Inter-process_communication
++ http://en.wikipedia.org/wiki/Performance_engineering
++ http://en.wikipedia.org/wiki/Persistent_data_structure
++ http://en.wikipedia.org/wiki/Retroactive_data_structures
 
 *Misc*
 + http://www.fullstackpython.com/table-of-contents.html
@@ -457,7 +483,8 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://refactoring.com/catalog/
 
 ### Optional reading:
-+ *Introduction to Algorithm Design* by Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).
++ *Introduction to Algorithm Design* - Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).
++ *Purely functional data structures* - Chris Okasaki
 
 ### Notes, Q/A, research
 + http://stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
