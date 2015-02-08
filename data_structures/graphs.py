@@ -116,7 +116,7 @@ class DirectedGraph(Graph):
     def __str__(self):
         display = []
         for vertex, nodes in self.nodes.iteritems():
-            display.append('{outbound} <-- ({vertex}) --> {inbound}'.format(
+            display.append('{outbound} <-- ({vertex}) <-- {inbound}'.format(
                 vertex=vertex,
                 inbound=list(nodes['in']),
                 outbound=list(nodes['out'])))

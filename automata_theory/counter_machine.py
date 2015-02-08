@@ -225,7 +225,7 @@ if __name__ == '__main__':
         ]
 
         for klass in classes:
-            _print('Testing machine...', klass, func=repr)
+            _print('Testing machine...', repr(klass))
             klass().run()
 
             _cmd_title('New program')

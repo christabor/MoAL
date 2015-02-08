@@ -50,20 +50,6 @@ class Dequeue(Queue):
             super(Dequeue, self).enqueue()
 
 
-with Section('Queues'):
-    q = Queue()
-    for _ in range(5):
-        print 'en-queuing new item...'
-        q.enqueue(_gibberish())
-
-
-with Section('Double ended queue'):
-    dq = Dequeue('backwards')
-    for _ in range(5):
-        print 'en-queuing (dequeue) new item...'
-        dq.enqueue(_gibberish())
-
-
 class HotPotatoSimulator(Queue):
 
     def __init__(self, names, num):
@@ -88,13 +74,6 @@ class HotPotatoSimulator(Queue):
         print self.items
         self.move_to_end()
 
-with Section('Queue rotation example'):
-    hps = HotPotatoSimulator(
-        ['Tuvok', 'Neelix', 'Kim', 'Paris', 'Seven', 'Chakotay'], 20)
-
-    for _ in range(7):
-        hps.move()
-
 
 class PrinterQueue(Queue):
 
@@ -105,7 +84,27 @@ class PrinterQueue(Queue):
     def print_job(self):
         print 'Printing... {}'.format(self.head()['name'])
 
+
 if __name__ == '__main__':
+    with Section('Queues'):
+        q = Queue()
+        for _ in range(5):
+            print 'en-queuing new item...'
+            q.enqueue(_gibberish())
+
+    with Section('Double ended queue'):
+        dq = Dequeue('backwards')
+        for _ in range(5):
+            print 'en-queuing (dequeue) new item...'
+            dq.enqueue(_gibberish())
+
+    with Section('Queue rotation example'):
+        hps = HotPotatoSimulator(
+            ['Tuvok', 'Neelix', 'Kim', 'Paris', 'Seven', 'Chakotay'], 20)
+
+        for _ in range(7):
+            hps.move()
+
     with Section('Printer queue example'):
         pq = PrinterQueue()
         for _ in range(10):

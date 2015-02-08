@@ -89,13 +89,7 @@ class BinHeap(bst.BinarySearchTree):
             i = min_child_index
 
 
-with Section('Binary Heaps'):
-    my_heap = BinHeap([rr(1, 100) for _ in range(30)])
-    print my_heap
-
-
 # Example implementations
-
 
 class PriorityQueue(BinHeap, object):
 
@@ -104,6 +98,10 @@ class PriorityQueue(BinHeap, object):
 
 
 if __name__ == '__main__':
+    with Section('Binary Heaps'):
+        my_heap = BinHeap([rr(1, 100) for _ in range(30)])
+        print my_heap
+
     with Section('Priority Queue'):
         pq = PriorityQueue([rr(1, 100) for _ in range(30)])
         print
