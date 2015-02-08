@@ -288,7 +288,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 
 ## Programming Paradigms / Features
 
-+ Interesting language features / Syntactic sugar (format: Language - feature)
++ Interesting language features / syntactic sugar (format: Language - feature)
   + Python - yield
     + recursive yield
   + Python - decorator
@@ -303,23 +303,33 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Haskell - guards
   + Haskell - comprehensions
 + Programming Paradigms:
-  + Functional programming
-    + Haskell
-    + OCaml
-    + Lisp
-    + Clojure
-  + Logic programming
+  + Functional
+    + Languages:
+      + Haskell
+      + OCaml
+      + Lisp
+      + Clojure
+    + Features
+      + Parametric polymorphism
+  + Logic
     + Prolog
-  + OOP
-    + java
-    + [~~python~~](data_structures/oop_classes.py)
+  + Object-oriented
+    + Features
+      + [~~Class hierarchy~~](data_structures/oop_classes.py)
+      + [~~Static, class, and abstract methods~~](data_structures/oop_classes.py)
+      + Overloading
+      + Polymorphism
+        + Single dispatch
+        + Dynamic dispatch
+        + Multiple dispatch
+        + Static binding
   + Array programming
     + J
   + Metaprogramming
   + Template metaprogramming
-  + Automatic programming
-  + Reactive programming
-  + Dataflow programming
+  + Automatic
+  + Reactive
+  + Dataflow
 + Theorem provers
 + Verified computation
 + Type systems
