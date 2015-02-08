@@ -78,6 +78,8 @@ The primary goal of this project is to synthesize an extremely large set of conc
     + TBD
 + Deployment
 + Formal verification
+  + Theorem provers
+  + Verified computation
   + Hoare logic
   + Process-calculus
 + Refactoring
@@ -147,31 +149,25 @@ The primary goal of this project is to synthesize an extremely large set of conc
 
 ## Computer Organization
 
-+ How a computer works
- + Starting with transistors
- + Logic gates
- + Data(types)
-   + Hexadecimal
-   + Octal
-   + Binary
-   + Ternary
-   + N-ary
- + Math
++ Transistors
++ Logic gates
++ Data (types)
+  + Hexadecimal
+  + Octal
+  + Binary
+  + Ternary
+  + N-ary
++ Math
   + Boolean logic
- + Bitwise operations
- + ALU
- + A basic CPU
- + Caches
- + Memory hierarchy
- + Virtual memory
- + Synchronization primitives
- + Assembly languages
-  + ARM
-  + MIPS
-  + x86
-  + 6502
- + Virtual memory
- + Memory mapped I/O
+  + Bitwise operations
++ ALU
+  + A basic CPU
+  + Caches
++ Memory
+  + Memory hierarchy
+  + Virtual memory
+  + Memory mapped I/O
++ Synchronization primitives
 
 ## Operating Systems
 
@@ -378,20 +374,59 @@ The primary goal of this project is to synthesize an extremely large set of conc
       + Rust
       + Nimrod
       + Mozart
-+ Theorem provers
-+ Verified computation
+  + Assembly
+    + ARM
+    + MIPS
+    + x86
+    + 6502
+
+## Type theory
+
 + Type systems
+  + Type safety
+  + Type checking
+      + Dynamic
+      + Static
+  + Inferred
+  + Manifest
+  + Nominal
+  + Structural
+  + Dependent
+  + Duck
+  + Gradual
+  + Latent
+  + Sub-structural
+  + Uniqueness
+  + Strong
+  + weak
++ Lambda calculus
+
+## Uncategorized [WIP]
+
 + Language based security
 + Software defined networking
-+ Compilers:
++ Compilers
   + Building one
 + Computer Graphics
-  + Computational geometry
++ Computational geometry
 + Scientific computation
-+ Cryptography and security
++ Cryptography
   + Diffie-Hellman
   + RSA
   + Zero-knowledge proofs
+  + Ciphers
+    + Historical
+      + Substitution
+        + ROT13
+      + Transposition
+        + Rail fence
+    + Modern
+      + Key type
+        + Symmetric
+        + Asymmetric
+      + Input type
+        + Block
+        + Stream
 
 ## Other resources / references
 
@@ -413,6 +448,8 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://en.wikipedia.org/wiki/Communications_protocol
 + http://en.wikipedia.org/wiki/Software_development_process
 + http://en.wikipedia.org/wiki/Software_testing#Testing_methods
++ http://en.wikipedia.org/wiki/Cipher
++ http://en.wikipedia.org/wiki/Type_theory
 
 *Misc*
 + http://www.fullstackpython.com/table-of-contents.html
