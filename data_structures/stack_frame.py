@@ -8,7 +8,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import Section
+from helpers.generic import Section
 from stack import Stack
 
 

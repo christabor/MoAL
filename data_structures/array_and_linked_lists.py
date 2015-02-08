@@ -11,10 +11,10 @@ arr = []
 # Python doesn't have Linked Lists in the traditional sense,
 # so you can manually recreate the idea behind them using classes.
 
-from generic_helpers import Section
-from generic_helpers import _gibberish
-from generic_helpers import _cmd_title
-from generic_helpers import _print
+from helpers.generic import Section
+from helpers.generic import _gibberish
+from helpers.generic import _cmd_title
+from helpers.generic import _print
 
 
 class Node:

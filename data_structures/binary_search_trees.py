@@ -6,8 +6,8 @@ if __name__ == '__main__':
 
 
 from random import randrange
-from generic_helpers import _gibberish
-from generic_helpers import Section
+from helpers.generic import _gibberish
+from helpers.generic import Section
 # Mostly taken from
 # interactivepython.org/runestone/static/pythonds/Trees/bst.html#lst-bst1
 

@@ -6,9 +6,9 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from generic_helpers import Section
-from generic_helpers import divide_groups
-from generic_helpers import random_number_set
+from helpers.generic import Section
+from helpers.generic import divide_groups
+from helpers.generic import random_number_set
 from quick_sort import quick_sort
 from pprint import pprint as ppr
 from Queue import Queue

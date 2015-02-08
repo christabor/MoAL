@@ -8,8 +8,8 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from random import randrange as rr
-from generic_helpers import _gibberish
-from generic_helpers import Section
+from helpers.generic import _gibberish
+from helpers.generic import Section
 
 
 class SkipNode:

@@ -4,8 +4,8 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from generic_helpers import Section
-from generic_helpers import _print
+from helpers.generic import Section
+from helpers.generic import _print
 from pprint import pprint as ppr
 from random import randrange
 from random import choice
