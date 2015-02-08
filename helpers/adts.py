@@ -133,17 +133,23 @@ if __name__ == '__main__':
         _print('ADT - int', (il, il.mul(100), il.add(10).div(4)))
 
         strs = strlist(['a', 'b', 'c'])
-        _print('ADT - int', (strs, strs.up(), strs.copy(2).add('!!')))
+
+        _print('ADT - str up, copy, add', (
+            strs, strs.up(), strs.copy(2).add('!!')))
+
         strs2 = strlist(['cat', 'dog', 'monkey'])
 
-        _print('ADT - str', (
+        _print('ADT - str up, shuffle, copy, reverse', (
             strs2, strs2.up(), strs2.copy(3).reverse().shuffle()))
 
-        _print('ADT - str mix', (
+        _print('ADT - str add, copy, up, add, shuffle', (
             strs2, strs2.add(' ').copy(3).up().add(':D').shuffle()))
 
         print 'Testing strictness'
+
         strs3 = strlist([1, 2])  # Should be empty
         _print('ADT - str len 0', len(strs3))  # 0
+
         strs3 = strlist(['foo', 'bar', 'bim'])
+
         _print('ADT - str len 3', len(strs3))  # 3

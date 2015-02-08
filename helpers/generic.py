@@ -116,5 +116,5 @@ class Section:
     def __enter__(self):
         self._print('BEGIN')
 
-    def __exit__(self, exception_type, excetpion_value, traceback):
+    def __exit__(self, exception_type, exception_value, traceback):
         self._print('END')
