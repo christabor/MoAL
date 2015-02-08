@@ -2,6 +2,10 @@
 
 _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file.
 
+## Goals
+
+The primary goal of this project is to synthesize an extremely large set of concepts and ideas into crucial components, allowing one to learn a typically unfathomable breadth of topics in the field, doing so in a shorter amount of time. The trade off of **depth** is acceptable as it stresses basic competencies across all aspects, **which can later be translated into more detailed understanding**.
+
 # Tasks
 
 ## Data structures
@@ -41,16 +45,45 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Suffix tree
   + Hash array mapped tries (HAMT)
 
-## Engineering
+## Engineering / Software Development
 
-+ Engineering
-  + Testing
-    + Test matrices
-    + Testing libraries
-  + Refactoring
-    + Martin Fowler refactoring.com patterns
-  + Problem solving
-    + Decomposition
++ Requirements analysis
++ Debugging
++ Development
+  + Methodologies
+    + Test driven (TDD)
+      + Creating test matrices
+      + Testing libraries
+        + Nose
+    + Behavior driven (BDD)
+    + Model driven (MDD)
+    + Feature driven (FDD)
+    + Domain driven (DDD)
++ Testing
+  + Black box
+    + Decision table testing
+    + All-pairs testing
+    + State transition analysis
+    + Equivalence partitioning
+    + Boundary value analysis
+    + Cause–effect graph
+    + Error guessing
+  + White box
+    + API testing
+    + Code coverage
+    + Fault injection
+    + Mutation testing
+    + Static testing
+  + Gray box
+    + TBD
++ Deployment
++ Formal verification
+  + Hoare logic
+  + Process-calculus
++ Refactoring
+  + Martin Fowler refactoring.com patterns
++ Problem solving
+  + Decomposition
 
 ## Mathematics
 
@@ -183,7 +216,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Bitcoin
   + Custom (make one!)
 
-## Advanced
+## Advanced - to be categorized!
 
 + More algorithms/data structures
  + Spectral graph theory
@@ -339,21 +372,22 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Automatic
   + Reactive
   + Dataflow
+  + Concurrent
+    + Languages
+      + GO
+      + Rust
+      + Nimrod
+      + Mozart
 + Theorem provers
 + Verified computation
 + Type systems
-+ Concurrency languages
-  + GO
-  + Rust
-  + Nimrod
-  + Mozart
 + Language based security
 + Software defined networking
 + Compilers:
   + Building one
 + Computer Graphics
-+ Computational geometry
-+ Scientific Computation
+  + Computational geometry
++ Scientific computation
 + Cryptography and security
   + Diffie-Hellman
   + RSA
@@ -377,6 +411,8 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://en.wikipedia.org/wiki/Cellular_automaton
 + http://en.wikipedia.org/wiki/Lists_of_network_protocols
 + http://en.wikipedia.org/wiki/Communications_protocol
++ http://en.wikipedia.org/wiki/Software_development_process
++ http://en.wikipedia.org/wiki/Software_testing#Testing_methods
 
 *Misc*
 + http://www.fullstackpython.com/table-of-contents.html
