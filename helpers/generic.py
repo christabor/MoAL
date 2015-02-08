@@ -110,7 +110,7 @@ class Section:
 
     def _print(self, prefix):
         print
-        print '{t.cyan}\n= [{}]: {t.bold}"{}" {sep} \n{t.normal}'.format(
+        print '{t.cyan}\n= [{}]: {t.bold} {} {sep} \n{t.normal}'.format(
             prefix, self.content, t=term, sep=self.separator)
 
     def __enter__(self):
