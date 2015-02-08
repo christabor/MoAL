@@ -20,7 +20,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + [~~Stack frames~~](data_structures/stack_frame.py)
 + [~~Queue~~](data_structures/queues.py)
   + [~~Double-ended queue~~](data_structures/queues.py)
-  + [~~Priority queue~~](data_structures/queues.py), ([stdlib](data_structures/queues_stdlib.py))
+  + [~~Priority queue~~](data_structures/queues.py)
+    + [~~Using stdlib~~](data_structures/queues_stdlib.py)
 + Trees
   + BSP Tree
     + K-dimensional tree
@@ -39,18 +40,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + [~~Trie~~](data_structures/trie.py)
   + Suffix tree
   + Hash array mapped tries (HAMT)
- + Big O analysis
-  + [~~O(1)~~](data_structures/big_o.py)
-  + [~~O(logN)~~](data_structures/big_o.py)
-  + [~~O(n)~~](data_structures/big_o.py)
-  + [~~O(n logN)~~](data_structures/big_o.py)
-  + [~~O(n^2)~~](data_structures/big_o.py)
-  + [~~O(2^n)~~](data_structures/big_o.py)
-  + [~~O(n!)~~](data_structures/big_o.py)
-+ Discrete math:
-  + [~~Basic probability~~](math/probability.py)
-  + [~~Basic number theory~~](math/number_theory.py)
-  + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
+
+## Engineering
+
 + Engineering
   + Testing
     + Test matrices
@@ -59,6 +51,23 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Martin Fowler refactoring.com patterns
   + Problem solving
     + Decomposition
+
+## Mathematics
+
++ Performance analysis
+  + Asymptotic notation
+    + Big O
+      + [~~O(1)~~](data_structures/big_o.py)
+      + [~~O(logN)~~](data_structures/big_o.py)
+      + [~~O(n)~~](data_structures/big_o.py)
+      + [~~O(n logN)~~](data_structures/big_o.py)
+      + [~~O(n^2)~~](data_structures/big_o.py)
+      + [~~O(2^n)~~](data_structures/big_o.py)
+      + [~~O(n!)~~](data_structures/big_o.py)
++ Discrete math:
+  + [~~Basic probability~~](math/probability.py)
+  + [~~Basic number theory~~](math/number_theory.py)
+  + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
 
 ## Algorithms
 
