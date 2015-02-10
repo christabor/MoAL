@@ -18,6 +18,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Partial
   + Full
 + [~~Arrays~~](data_structures/array_and_linked_lists.py)
+  + [~~Overloaded arrays~~](helpers/adts.py)
   + Suffix arrays
   + Judy arrays
 + Doubly-connected edge list
@@ -114,6 +115,16 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
   + Graph theory
     + Spectral graph theory
+    + Euler graph
+    + Hamiltonian graph
+  + Logic
+    + Formal systems
+      + First-order logic
+      + Predicate calculus
+      + Hilbert system
+  + Recursion
+  + Category theory
+  + Group theory
 
 ## Algorithms
 
@@ -211,10 +222,6 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + TCP/IP
   + RTPS
   + SSH
-+ Load balancing
-  + NGINX
-  + Apache
-  + HAProxy
   + UDP
     + Twisted UDP
   + FTP/sFTP
@@ -235,6 +242,10 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + IMAP
   + Bitcoin
   + Custom (make one!)
++ Load balancing
+  + NGINX
+  + Apache
+  + HAProxy
 
 ## Data Storage
 
@@ -304,7 +315,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + Recurrent multilayer perceptron
         + Second Order
         + Pollack’s sequential cascaded
-        + Neural Turing Machines
+        + Neural turing machines
         + Bidirectional Associative Memory (BAM)
 
 ## Robotics
@@ -319,15 +330,26 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Cellular automata
     + Reversible
     + Totalistic
-    + Von Neumann cellular automaton
-    + Nobili cellular automata
-  + Abstract machine
+    + Von Neumann
+    + Nobili
+    + Abstract machine
+      + Pushdown automata
+        + Generalized
     + [~~Turing machine~~](automata_theory/turing_machine.py)
+      + Universal
+      + Alternating
+      + Quantum
+      + Non-deterministic
+      + Read-only
+      + Read-only right moving s
+      + Probabilistic
+      + Multi-tape
+      + Multi-track
     + Register machine
       + [~~Counter machine~~](automata_theory/counter_machine.py)
-      + Pointer machine
-      + Random-access stored-program machine
-      + Random access machine
+      + Pointer
+      + Random-access stored-program
+      + Random access
   + Finite State Machines (FSM)
     + Markov chain
     + Regular expressions
@@ -379,8 +401,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + Static binding
   + Array programming
     + J
-  + Metaprogramming
-  + Template metaprogramming
+  + Meta-programming
+  + Template meta-programming
   + Automatic
   + Reactive
   + Dataflow
@@ -461,6 +483,7 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://en.wikipedia.org/wiki/Recurrent_neural_network
 + http://en.wikipedia.org/wiki/Register_machine
 + http://en.wikipedia.org/wiki/Cellular_automaton
++ http://en.wikipedia.org/wiki/Turing_machine
 + http://en.wikipedia.org/wiki/Lists_of_network_protocols
 + http://en.wikipedia.org/wiki/Communications_protocol
 + http://en.wikipedia.org/wiki/Software_development_process
