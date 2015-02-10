@@ -11,8 +11,8 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 # from random import choice
-from helpers.generic import _gibberish
-from helpers.generic import Section
+from helpers.generic import gibberish
+from helpers.display import Section
 
 
 COUNT_LOCK = threading.Lock()
@@ -94,7 +94,7 @@ class Producer:
         self.items.append(self.make())
 
     def make(self):
-        return _gibberish()
+        return gibberish()
 
 
 if __name__ == '__main__':

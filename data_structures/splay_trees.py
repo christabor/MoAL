@@ -8,7 +8,7 @@ from avl_trees import AVLTree
 from binary_search_trees import Node
 from binary_search_trees import recurse_bst
 from binary_search_trees import populate_bst
-from helpers.generic import Section
+from helpers.display import Section
 
 DEBUG = True
 

@@ -6,9 +6,9 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from helpers.generic import Section
+from helpers.display import Section
 from helpers.generic import swap_item
-from helpers.generic import run_sorting_trials
+from helpers.trials import run_sorting_trials
 from pprint import pprint as ppr
 
 

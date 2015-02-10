@@ -6,8 +6,8 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from helpers.generic import Section
-from helpers.generic import run_sorting_trials
+from helpers.display import Section
+from helpers.trials import run_sorting_trials
 from insertion_sort import insertion_sort
 from quick_sort import quick_sort
 from pprint import pprint as ppr

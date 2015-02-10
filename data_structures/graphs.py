@@ -4,8 +4,8 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from helpers.generic import Section
-from helpers.generic import _print
+from helpers.display import Section
+from helpers.display import _print
 from pprint import pprint as ppr
 from random import randrange
 from random import choice
@@ -20,6 +20,9 @@ class InvalidGraphRepresentation(Exception):
 
 
 class Graph:
+
+    def __len__(self):
+        return len(self.nodes.keys())
 
     def __init__(self, nodes=None):
         self.nodes = nodes or {}

@@ -1,26 +1,36 @@
-import time
-from random import randrange as rr
 from random import choice
 from string import ascii_letters
-from blessings import Terminal
-
-term = Terminal()
 
 
-def _gibberish(length=10):
+def gibberish(length=10):
     return ''.join([choice(
         ascii_letters).replace(' ', '') for _ in range(length)])
 
 
-def run_trials(func, trials=3):
-    for num in range(trials):
-        print 'Running trial #{}'.format(num)
-        func(num)
-        print '------------------------'
-        print
+def gibberish2(length=3):
+    """Returns somewhat normal looking gibberish"""
+    _letters = list(ascii_letters)
+    vowels = list('aeiou')
+    if length < 3:
+        length = 3
+
+    def token():
+        first, middle, last = choice(
+            _letters), choice(vowels), choice(_letters)
+        return first + middle + last
+    return ''.join([token() for _ in range(length)])
 
 
 def divide_groups(items, divisions=2):
+    """Divides a list of items up into subdivisions based on `divisions`.
+    For example, [1, 2, 3, 4] with 2 divisions
+        becomes [[1, 2], [3, 4]]
+    And [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] with 5 divisions
+        becomes [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]].
+
+    Numbers that cannot be distributed equally will
+    have the remainder added to the last group.
+    """
     groups = []
     num_items = len(items)
     last_offset = 0
@@ -41,80 +51,15 @@ def swap_item(items, a, b):
     return items
 
 
+def pick_until(options, maximum):
+    """Return an array of random choices, seeded from `options`
+    from 0 until `maximum`"""
+    return [choice(options) for _ in range(maximum)]
+
+
 def random_number_set(min_rand=0, max_rand=9999, max_range=100):
     return [rr(min_rand, max_rand) for _ in range(max_range)]
 
 
 def get_random_number_sets(sets=2, max_random=50):
     return [random_number_set(0, 9999, max_random) for _ in range(sets)]
-
-
-def run_sorting_trials(
-        sorting_func, magnitudes=[10, 100, 1000], test_output=True):
-    """Runs a bunch of trials of various magnitudes with a given
-    func, using randomly generated numbers.
-    Returns a dict of results for later inspection."""
-    results = {
-        'function': sorting_func.func_name if hasattr(
-            sorting_func, 'func_name') else 'builtin'
-    }
-    for magnitude in magnitudes:
-        start = time.time()
-        items = [rr(0, 999) for _ in range(magnitude)]
-        sorted_res = sorting_func(items)
-        end = time.time()
-        results[magnitude] = {'time': end - start}
-        if test_output:
-            results[magnitude]['correct'] = sorted(items) == sorted_res
-    return results
-
-
-def _test_speed(func, *args, **kwargs):
-    def _inner(*args, **kwargs):
-        divider = '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-        print divider
-        print 'starting... {}'.format(func)
-        start = time.time()
-        res = func(*args, **kwargs)
-        end = time.time()
-        print 'function took {}s'.format(end - start)
-        print divider
-        return res
-    return _inner
-
-
-# Display utilities
-
-
-def _print(words, result, func=None):
-    print
-    print '{t.green}{t.underline}{}{t.normal}'.format(words, t=term)
-    if func is not None:
-        func(result)
-    else:
-        print result
-    print
-
-
-def _cmd_title(msg):
-    print
-    print '{t.red}{t.reverse}[{msg}]{t.normal}'.format(msg=msg.upper(), t=term)
-    print
-
-
-class Section:
-
-    def __init__(self, content):
-        self.separator = '=' * 10
-        self.content = content
-
-    def _print(self, prefix):
-        print
-        print '{t.cyan}\n= [{}]: {t.bold} {} {sep} \n{t.normal}'.format(
-            prefix, self.content, t=term, sep=self.separator)
-
-    def __enter__(self):
-        self._print('BEGIN')
-
-    def __exit__(self, exception_type, exception_value, traceback):
-        self._print('END')

@@ -6,8 +6,8 @@ if __name__ == '__main__':
 
 
 from random import randrange
-from helpers.generic import _gibberish
-from helpers.generic import Section
+from helpers.generic import gibberish
+from helpers.display import Section
 # Mostly taken from
 # interactivepython.org/runestone/static/pythonds/Trees/bst.html#lst-bst1
 
@@ -365,7 +365,7 @@ def recurse_bst(node, lastkey):
 
 def populate_bst(bst, count=1):
     for _ in range(count):
-        bst.put(randrange(1, 100), _gibberish())
+        bst.put(randrange(1, 100), gibberish())
 
 
 if __name__ == '__main__':

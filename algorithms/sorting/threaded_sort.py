@@ -6,7 +6,7 @@ if __name__ == '__main__':
         path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
 
 
-from helpers.generic import Section
+from helpers.display import Section
 from helpers.generic import divide_groups
 from helpers.generic import random_number_set
 from quick_sort import quick_sort

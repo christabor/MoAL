@@ -8,8 +8,8 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from random import randrange as rr
-from helpers.generic import _gibberish
-from helpers.generic import Section
+from helpers.generic import gibberish
+from helpers.display import Section
 
 
 class SkipNode:
@@ -110,7 +110,7 @@ class SkipList:
 
 if __name__ == '__main__':
     with Section('Skip Lists'):
-        gibs = [{'name': _gibberish(), 'value': rr(10, 1000)} for _ in range(10)]
+        gibs = [{'name': gibberish(), 'value': rr(10, 1000)} for _ in range(10)]
         sl = SkipList()
         for gib in gibs:
             sl.insert(elem=gib)

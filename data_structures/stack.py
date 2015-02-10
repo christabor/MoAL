@@ -9,8 +9,8 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from random import randrange
-from helpers.generic import _gibberish
-from helpers.generic import Section
+from helpers.generic import gibberish
+from helpers.display import Section
 from pprint import pprint as ppr
 
 
@@ -52,7 +52,7 @@ with Section('Stacks'):
     print 'First in push'
     print
     for _ in range(STACK_COUNT):
-        stack.push('{} ... [ {} ]'.format(_, _gibberish()))
+        stack.push('{} ... [ {} ]'.format(_, gibberish()))
         print stack.head()
 
     print
@@ -100,7 +100,7 @@ class Logger(Stack):
 with Section('Loggers'):
     logger = Logger()
     for _ in range(STACK_COUNT):
-        logger.add_message(_gibberish(length=10), priority=randrange(0, 10))
+        logger.add_message(gibberish(length=10), priority=randrange(0, 10))
     print logger.view_messages()
     print logger.get_by_priority(4)
     print logger.get_last_message()
@@ -129,10 +129,10 @@ if __name__ == '__main__':
         nl = NetworkLogger()
 
         for _ in range(STACK_COUNT):
-            wl.add_message(_gibberish(length=10), priority=randrange(0, 10))
+            wl.add_message(gibberish(length=10), priority=randrange(0, 10))
 
         for _ in range(STACK_COUNT):
-            nl.add_message(_gibberish(length=10), priority=randrange(0, 10))
+            nl.add_message(gibberish(length=10), priority=randrange(0, 10))
 
         print wl.view_messages()
         print nl.view_messages()

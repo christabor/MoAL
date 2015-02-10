@@ -8,7 +8,7 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 import binary_search_trees as bst
-from helpers.generic import Section
+from helpers.display import Section
 
 """
 

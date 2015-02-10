@@ -4,13 +4,13 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from helpers.generic import _gibberish
-from helpers.generic import _test_speed
-from helpers.generic import run_trials
-from helpers.generic import Section
+from helpers.generic import gibberish
+from helpers.trials import _test_speed
+from helpers.trials import run_trials
+from helpers.display import Section
 
 
-dict_test = {_gibberish(length=10): x for x in range(1000)}
+dict_test = {gibberish(length=10): x for x in range(1000)}
 dict_test['foo'] = 'bar'
 
 

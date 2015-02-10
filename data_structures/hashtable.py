@@ -4,8 +4,8 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from helpers.generic import _gibberish
-from helpers.generic import Section
+from helpers.generic import gibberish
+from helpers.display import Section
 from random import randrange as rr
 from pprint import pprint as ppr
 
@@ -27,7 +27,7 @@ class NaiveHashTable:
 
 def fill_blocks_to(x):
     for _ in range(x):
-        nht.insert(rr(0, x), _gibberish(length=6))
+        nht.insert(rr(0, x), gibberish(length=6))
 
 
 if __name__ == '__main__':

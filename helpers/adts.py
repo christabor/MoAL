@@ -1,6 +1,6 @@
 import operator
-from generic import Section
-from generic import _print
+from display import Section
+from display import _print
 from random import shuffle
 
 
@@ -19,6 +19,9 @@ class strictlist(list):
         if self._valid(value):
             super(strictlist, self).__setitem__(index, value)
         return self
+
+    def __iter__(self):
+        return iter(self.items)
 
     def __getitem__(self, index):
         return self.items[index]

@@ -4,7 +4,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from helpers.generic import Section
+from helpers.display import Section
 from random import randrange as rr
 
 
@@ -137,7 +137,8 @@ if __name__ == '__main__':
 
     with Section('Set theory - cardinality of the continuum examples'):
         all_squares = AllSquares()
-        # Limit the count, without limiting the implementation of an 'infinite set'
+        # Limit the count, without limiting
+        # the implementation of an 'infinite set'
         all_squares.run_until(10)
 
         all_odds = AllOdds()

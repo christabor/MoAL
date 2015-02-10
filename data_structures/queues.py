@@ -5,8 +5,8 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from random import choice
-from helpers.generic import _gibberish
-from helpers.generic import Section
+from helpers.generic import gibberish
+from helpers.display import Section
 from stack import Stack
 
 
@@ -90,13 +90,13 @@ if __name__ == '__main__':
         q = Queue()
         for _ in range(5):
             print 'en-queuing new item...'
-            q.enqueue(_gibberish())
+            q.enqueue(gibberish())
 
     with Section('Double ended queue'):
         dq = Dequeue('backwards')
         for _ in range(5):
             print 'en-queuing (dequeue) new item...'
-            dq.enqueue(_gibberish())
+            dq.enqueue(gibberish())
 
     with Section('Queue rotation example'):
         hps = HotPotatoSimulator(
@@ -109,7 +109,7 @@ if __name__ == '__main__':
         pq = PrinterQueue()
         for _ in range(10):
             pq.add_job('My_doc_{}.{}'.format(
-                _gibberish(), choice(
+                gibberish(), choice(
                     ['doc', 'docx', 'rtf', 'pdf', 'jpg', '.png'])),
                 '<DOC CONTENTS...>')
 
