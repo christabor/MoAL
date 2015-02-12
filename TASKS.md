@@ -50,6 +50,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + [~~AVL tree~~](data_structures/avl_trees.py)
 + [~~Graph~~](data_structures/graphs.py)
   + DAWG/DAFSA
+  + PDAG
+  + AHO tree (for AHO algorithm)
 + Concurrent trie (Ctrie)
 + [~~Skip lists~~](data_structures/skip_lists.py)
 + [~~Trie~~](data_structures/trie.py)
@@ -849,3 +851,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + research.microsoft.com/en-us/um/people/gurevich/Opera/78.pdf
 + symbolicanalysis.wordpress.com/category/other-methodologies/turing-machine-and-related-automata/
 + https://github.com/boyers/theorem_prover
++ https://symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
