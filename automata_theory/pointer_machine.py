@@ -27,7 +27,7 @@ class PointerMachine(object):
     def __init__(self, word=None):
         self.DEBUG = False
         # Time delay, only used for only demonstration effect.
-        self.DELAY = 0.4
+        self.DELAY = 0.2
         self._step = 0
         self.halted = False
         self.word = word
@@ -51,7 +51,7 @@ class PointerMachine(object):
         raise NotImplementedError
 
 
-"""Wikipedia:
+"""[From Wikipedia:]
 "At least three major varieties exist in the literature:
     * Kolmogorov-Uspenskii model (KUM, KU-machine),
     * Knuth linking automaton
@@ -62,21 +62,16 @@ http://en.wikipedia.org/wiki/Pointer_machine#Types_of_.22Pointer_Machines.22
 """
 
 
-class KolmogorovUspenskii(PointerMachine):
-    pass
-
-
-class KnuthLinking(PointerMachine):
-    pass
-
-
 class SchonhageStorageModification(PointerMachine):
 
-    def __init__(self, *args):
-        super(SchonhageStorageModification, self).__init__(*args)
+    def __init__(self, *args, **kwargs):
+        super(SchonhageStorageModification, self).__init__(*args, **kwargs)
         self.DEBUG = False
         self.graph = DirectedGraph()
-        self.TEST_WORD = 'Schonhage'
+        if 'word' in kwargs:
+            self.TEST_WORD = kwargs['word']
+        else:
+            self.TEST_WORD = 'Schonhage'
         self.word = strlist(list(self.TEST_WORD))  # TEST
 
         self.curr_key = 0
@@ -105,6 +100,11 @@ class SchonhageStorageModification(PointerMachine):
                     return node
             except KeyError:
                 continue
+
+    def _show_edges(self, node):
+        """A debug method to nicely show all edges for a given node key"""
+        for state, edge in self.graph[node]['edges'].iteritems():
+            '[SHOW EDGE] {} ... {} --> {}'.format(node, state, edge['to'])
 
     def recalculate(self):
         """Draws/redraws the graph, taking the current value
@@ -205,6 +205,9 @@ class SchonhageStorageModification(PointerMachine):
     def set(self, node, val):
         """Sets a nodes value to the new value."""
         self.graph[node]['val'] = val
+        # Recalculation to determine where nodes
+        # point is done in one place, using the same technique
+        # as when the graph is initially created.
         self.recalculate()
 
     def _update_state(self):
@@ -243,6 +246,73 @@ class SchonhageStorageModification(PointerMachine):
         self.traverse_word()
 
 
+class KolmogorovUspenskii(SchonhageStorageModification):
+    """[From Wikipedia:]
+    "KUM differs from SMM in allowing only invertible pointers:
+       [for every pointer from a node x to a node y, an inverse pointer
+        from y to x must be present. Since outgoing pointers must be labeled
+        by distinct symbols of the alphabet, both KUM and SMM graphs
+        have O(1) outdegree. However, KUM pointers' invertibility restricts
+        the in-degree to O(1), as well.]
+
+    An additional difference is that the KUM was intended
+    as a generalization of the Turing machine, and so it allows
+    the currently "active" node to be moved around the graph.
+    Accordingly, nodes can be specified by individual characters
+    instead of words, and the action to be taken can be determined
+    by a state table instead of a fixed list of instructions." """
+
+    def __init__(self, *args, **kwargs):
+        super(KolmogorovUspenskii, self).__init__(
+            *args, word='KolmogorovUspenskii')
+
+    def recalculate(self):
+        end = len(self.word)
+        # Special case for single nodes.
+        if end == 1:
+            self.graph[0] = {
+                'key': 0,
+                'val': self.word,  # guaranteed to only be one character
+                # KUM always has both 0, and 1-edges, on all nodes.
+                'edges': {0: {'to': 0}, 1: {'to': 0}}
+            }
+        else:
+            for key, val in enumerate(self.word):
+                self.graph[key] = {
+                    'key': key,
+                    'val': val,
+                    'edges': {}
+                }
+                # The first nodes 0-edge points to itself,
+                # and the 1-edge points to the next node.
+                if key == 0:
+                    self.graph[key]['edges'] = {
+                        0: {'to': 0},
+                        1: {'to': key + 1}}
+                # The last nodes 0 and 1 edges
+                # BOTH point to the previous node.
+                elif key == end - 1:
+                    self.graph[key]['edges'] = {
+                        0: {'to': key - 1},
+                        1: {'to': key - 1}}
+                # All others; 0-edge points to the previous,
+                # 1-edge points to the next.
+                else:
+                    self.graph[key]['edges'] = {
+                        0: {'to': key - 1},
+                        1: {'to': key + 1}}
+
+                if not self.DEBUG:
+                    self._show_edges(key)
+
+
+class KnuthLinking(PointerMachine):
+    """[From Wikipedia:]
+    "According to Schoenhage, Knuth noted that the SMM model
+    coincides with a special type of "linking automata"
+    briefly explained in volume one of 'The Art of Computer Programming'" """
+
+
 class AtomisticPureLISP(PointerMachine):
     pass
 
@@ -266,14 +336,18 @@ class JonesITwo(PointerMachine):
 if __name__ == '__main__':
     with Section('Pointer Machines'):
         classes = [
-            # KolmogorovUspenskii,
+            KolmogorovUspenskii,
             # KnuthLinking,
-            SchonhageStorageModification,
+            # SchonhageStorageModification,
             # AtomisticPureLISP, AtomisticFullLISP,
             # GeneralAtomistic,
             # JonesIOne, JonesITwo,
         ]
 
         for _class in classes:
-            _cmd_title('Testing machine... {}'.format(repr(_class)))
-            _class().run()
+            # Decouple abstract class / stubbing from demo by suppression.
+            try:
+                _cmd_title('Testing machine... {}'.format(repr(_class)))
+                _class().run()
+            except NotImplementedError:
+                continue

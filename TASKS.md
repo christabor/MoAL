@@ -1,6 +1,6 @@
 # Introduction
 
-_Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file.
+_Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file. Each task and child task/category is designed to be as true to the hierarchy of understanding as possible; duplicate labels are thus removed for child elements, so that relationships are derived by simply mentally "traversing the tree", to build out the specific name.
 
 # Tasks
 
@@ -10,7 +10,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Partial
       + Fat node
       + Path copying
-      + Fat/Path combination
+      + Fat / path combination
   + Full
     + [~~Linked lists~~](data_structures/array_and_linked_lists.py)
   + Confluent
@@ -22,7 +22,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Suffix arrays
   + Judy arrays
 + Doubly-connected edge list
-+ Disjoint-set/union-find/merge-find ADT
++ Disjoint-set / union-find / merge-find ADT
 + Winged edge
 + Quad edge
 + [~~Heaps~~](data_structures/heaps.py)
@@ -112,29 +112,55 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Discrete
   + [~~Basic probability~~](math/probability.py)
   + [~~Basic number theory~~](math/number_theory.py)
-  + [~~Set theory (notions of countably infinite vs. non-countably infinite)~~](math/set_theory.py)
   + Graph theory
     + Spectral graph theory
     + Euler graph
     + Hamiltonian graph
   + Logic
-    + Formal systems
-      + First-order logic
-      + Predicate calculus
+    + [~~Set theory~~](math/set_theory.py)
+      + Axiomatic
+      + Combinatorial
+      + Descriptive
+      + Fuzzy
+      + Inner model
+      + Large cardinal
+      + Determinacy
+      + Forcing
+      + Cardinal invariants
+      + Set-theoretic topology
+    + Model theory
+      + Classical
+      + Applied to groups and fields
+      + Geometric
+      + Finite
+      + Infinite
+    + Recursion theory / Computability theory
+      + Lambda calculus
+    + Proof theory
       + Hilbert system
-  + Recursion
+    + First-order
+    + Predicate
+    + Computational
+    + Modal
+    + Algebraic
   + Category theory
   + Group theory
 
 ## Algorithms
 
-+ String search algorithms
++ String search
   + Knuth-Morris-Pratt
   + Boyer-Moore-Horspool
   + Apostolico-Giancarlo
   + Aho-Corasick multi-pattern
   + Rabin-Karp multi-pattern
-+ Sorting algorithms
++ Multiplication
+  + Gauss's complex
+  + Karatsuba
+  + Schonhage-Strassen
+  + Toom-Cook
+  + Fourier transform
++ Sorting
   + [~~Insertion sort~~](algorithms/sorting/insertion_sort.py)
   + [~~Merge sort~~](algorithms/sorting/merge_sort.py)
   + [~~Quick sort~~](algorithms/sorting/quick_sort.py)
@@ -154,7 +180,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Greedy
 + Dynamic programming
 + Divide & conquer
-+ Standard graph algorithms
++ Standard graph
   + Shortest path
   + Max flow
   + MST
@@ -162,7 +188,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Dijkstra’s Algorithm
   + Knight’s Tour Problem
   + The Word Ladder Problem
-  + DFS/BFS
+  + DFS / BFS
   + An Adjacency Matrix
   + An Adjacency List
   + Prim’s Spanning Tree Algorithm
@@ -219,7 +245,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + XMLRPC
   + Bluetooth
   + Fibre channel
-  + TCP/IP
+  + TCP / IP
   + RTPS
   + SSH
   + UDP
@@ -230,7 +256,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Telnet
   + HTTP/HTTPS
     + HTTP Servers
-      + Gunicorn
+      + G-Unicorn
       + uWSGI
   + SSL
   + TLS
@@ -241,6 +267,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + NNTP
   + IMAP
   + Bitcoin
+  + Recursive network architecture (RNA)
   + Custom (make one!)
 + Load balancing
   + NGINX
@@ -251,8 +278,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 
 + Databases
   + Relational
-    + Mysql
-    + Postgresql
+    + MySql
+    + PostgreSql
   + Key/value
     + Redis (doc + k/v)
   + Document
@@ -261,12 +288,21 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + MongoDB
     + CouchDB
   + Cache
-    + Memcached
+    + MemCached
   + Graph
     + Neo4j
   + WideColumn
     + HBase
     + BigTable
++ Data serialization
+  + Apache Avro
+  + CSV
+  + JSON
+  + MessagePack
+  + Protocol Buffers
+  + S-expressions
+  + YAML
+  + Custom (make one!)
 
 ## Systems Engineering
 
@@ -302,21 +338,21 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + K-means clustering
     + Bayesian probability
     + Neural networks
-      + Recurrent neural networks (RNNs)
+      + Recurrent (RNNs)
         + Boltzmann machine
-        + Hopfield network
-        + Elman network
-        + Jordan network
-        + Echo state network
-        + Long short term memory network
+        + Hopfield
+        + Elman
+        + Jordan
+        + Echo state
+        + Long short term memory
         + Bi-directional
         + Continuous-time
         + Hierarchical
-        + Recurrent multilayer perceptron
-        + Second Order
+        + Recurrent multilayer Perceptron
+        + Second order
         + Pollack’s sequential cascaded
         + Neural turing machines
-        + Bidirectional Associative Memory (BAM)
+        + Bidirectional associative memory (BAM)
 
 ## Robotics
 
@@ -345,16 +381,30 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Probabilistic
       + Multi-tape
       + Multi-track
-    + Register machine
+    + Register machine / Wang b-machine
       + [~~Counter machine~~](automata_theory/counter_machine.py)
       + Pointer
+        + [~~Schonhage Storage Modification~~](automata_theory/pointer_machine.py)
+        + [~~Kolmogorov-Uspenskii~~](automata_theory/pointer_machine.py)
+        + Knuth's Linking Automaton
+        + Atomistic Pure-LISP (APLM)
+        + Atomistic Full-LISP (AFLM)
+        + General atomistic
+        + Jone's I Language 1
+        + Jone's I Language 2
       + Random-access stored-program
       + Random access
   + Finite State Machines (FSM)
     + Markov chain
     + Regular expressions
 + Context-free languages
-+ Complexity classes (P, NP, #P, BPP, PSPACE)
++ Computational complexity
+  + Classes
+    + P
+    + NP
+    + #P
+    + BPP
+    + PSPACE
 + PCPs
 + Circuit lower bounds
 + Arithmetic complexity
@@ -437,11 +487,10 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Uniqueness
   + Strong
   + weak
-+ Lambda calculus
 
 ## Uncategorized [WIP]
 
-+ Linear programming/duality
++ Linear programming / duality
 + Language based security
 + Software defined networking
 + Compilers
@@ -495,6 +544,13 @@ http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://en.wikipedia.org/wiki/Performance_engineering
 + http://en.wikipedia.org/wiki/Persistent_data_structure
 + http://en.wikipedia.org/wiki/Retroactive_data_structures
++ http://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats
++ http://en.wikipedia.org/wiki/Logic#Types_of_logic
++ http://en.wikipedia.org/wiki/Mathematical_logic
+  + http://en.wikipedia.org/wiki/Set_theory#Areas_of_study
+  + http://en.wikipedia.org/wiki/Proof_theory
+  + http://en.wikipedia.org/wiki/Computability_theory#Areas_of_research
+  + http://en.wikipedia.org/wiki/Model_theory
 
 *Misc*
 + http://www.fullstackpython.com/table-of-contents.html
