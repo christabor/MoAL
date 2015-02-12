@@ -35,6 +35,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + [~~Priority queue~~](data_structures/queues.py)
     + [~~Using stdlib~~](data_structures/queues_stdlib.py)
 + Trees
+  + UB-tree
   + BSP Tree
     + K-dimensional tree
   + Fractal tree index
@@ -67,8 +68,11 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + Nose
     + Behavior driven (BDD)
     + Model driven (MDD)
+      + Model transformation
     + Feature driven (FDD)
     + Domain driven (DDD)
++ Design Patterns
+  + /TBD/
 + Testing
   + Black box
     + Decision table testing
@@ -83,14 +87,30 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Code coverage
     + Fault injection
     + Mutation testing
-    + Static testing
+    + Static analysis
+      + Shape analysis
+      + Effect systems
+      + Control-flow graph (CFG)
+      + Model checking
+        + TuLiP
+      + Static program analysis
+        + Pylint
+      + Data-flow analysis
+      + Hoare logic
+      + Type checking
+      + Type inference
+      + Symbolic simulation
+      + Symbolic execution
+      + Abstract interpretation
+        + Sound
+        + Unsound
   + Gray box
-    + TBD
+    + /TBD/
 + Deployment
 + Formal verification
   + Theorem provers
+    + Automated
   + Verified computation
-  + Hoare logic
   + Process-calculus
 + Refactoring
   + Martin Fowler refactoring.com patterns
@@ -99,23 +119,88 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 
 ## Mathematics
 
-+ Performance analysis
-  + Asymptotic notation
-    + Big O
-      + [~~O(1)~~](data_structures/big_o.py)
-      + [~~O(logN)~~](data_structures/big_o.py)
-      + [~~O(n)~~](data_structures/big_o.py)
-      + [~~O(n logN)~~](data_structures/big_o.py)
-      + [~~O(n^2)~~](data_structures/big_o.py)
-      + [~~O(2^n)~~](data_structures/big_o.py)
-      + [~~O(n!)~~](data_structures/big_o.py)
-+ Discrete
-  + [~~Basic probability~~](math/probability.py)
-  + [~~Basic number theory~~](math/number_theory.py)
++ Quantity
+  + Numbers
+    + Natural
+      + [~~Transfinite~~](math/set_theory.py)
+    + Integers
+    + Rational
+    + Real
+    + Complex
+    + Quaternions
+    + Octonions
+    + [~~Cardinals~~](math/set_theory.py)
++ Structure
+  + Combinatorics
+  + [~~Number theory~~](math/number_theory.py)
+  + Group theory
+  + Category theory
   + Graph theory
     + Spectral graph theory
     + Euler graph
     + Hamiltonian graph
+  + Order theory
+  + Representation theory
+  + Algebra
++ Space
+  + Geometry
+  + Trigonometry
+  + Differential geometry
+  + Topology
+  + Fractal geometry
+  + Measure theory
++ Change
+  + Calculus
+  + Vector calculus
+  + Differential equations
+  + Dynamical systems
+  + Chaos theory
+  + Complex analysis
++ Applied
+  + Computational
+    + Mathematical physics
+    + Fluid dynamics
+    + Numerical analysis
+      + Asymptotic notation
+        + Big O
+          + [~~O(1)~~](data_structures/big_o.py)
+          + [~~O(logN)~~](data_structures/big_o.py)
+          + [~~O(n)~~](data_structures/big_o.py)
+          + [~~O(n logN)~~](data_structures/big_o.py)
+          + [~~O(n^2)~~](data_structures/big_o.py)
+          + [~~O(2^n)~~](data_structures/big_o.py)
+          + [~~O(n!)~~](data_structures/big_o.py)
+    + Optimization
+    + Probability theory
+    + Statistics
+      + [~~Probability~~](math/probability.py)
+    + Cryptography
+      + Diffie-Hellman
+      + RSA
+      + Zero-knowledge proofs
+      + Ciphers
+        + Historical
+          + Substitution
+            + ROT13
+          + Transposition
+            + Rail fence
+        + Modern
+          + Key type
+            + Symmetric
+            + Asymmetric
+          + Input type
+            + Block
+            + Stream
+    + Mathematical finance
+    + Mathematical biology
+    + Mathematical chemistry
+    + Mathematical economics
++ Discrete
+  + Game theory
+  + Control theory
+  + Decision theory
+  + Utility theory
+  + Social choice theory
   + Logic
     + [~~Set theory~~](math/set_theory.py)
       + Axiomatic
@@ -143,8 +228,6 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Computational
     + Modal
     + Algebraic
-  + Category theory
-  + Group theory
 
 ## Algorithms
 
@@ -154,6 +237,12 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Apostolico-Giancarlo
   + Aho-Corasick multi-pattern
   + Rabin-Karp multi-pattern
++ Mutual exclusion management
+  + Szymanski's
+  + Taubenfeld's black-white bakery
+  + Lamport's bakery
+  + Peterson's
+  + Dekker's
 + Multiplication
   + Gauss's complex
   + Karatsuba
@@ -206,12 +295,10 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Binary
   + Ternary
   + N-ary
+  + Endianness
 + Math
   + Boolean logic
   + Bitwise operations
-+ ALU
-  + A basic CPU
-  + Caches
 + Memory
   + Memory hierarchy
   + Virtual memory
@@ -221,20 +308,40 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 ## Operating Systems
 
 + Concurrency
-  + Futures/Promises
-  + Semaphores
+  + Multi-tasking
+    + Dining philosophers
+    + Race condition
+    + Futures / Promises
+    + Deadlock
+    + Lock
+    + Barrier
+    + Single reader multiple writer
+    + Turnstile
+    + Mutual exclusion (mutex)
+    + Starvation
+    + Priority inversion
+    + Semaphores
   + Primitives
-    + Co-routines
-    + Fibers
-    + Green threads
-  + Scheduling
-  + Single reader multiple writer
-  + Barrier
+    + Process
+    + Threads
+      + Kernel
+      + Green
+      + POSIX
+      + Models
+        + Kernel level (1:1)
+        + User level (N:1)
+        + Hybrid (M:N)
+    + Co-routines [language]
+    + Fibers [system]
+  + Schedulers
   + Producer / consumer
-  + Dining philosophers
 + Memory management
 + File systems
 + Security
+  + Protection ring
+  + Supervisor
+  + Hypervisor
++ System on a chip (SoC)
 
 ## Networking
 
@@ -274,9 +381,10 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Apache
   + HAProxy
 
-## Data Storage
+## Data Storage / Transmission
 
-+ Databases
++ Storage
+  + Databases
   + Relational
     + MySql
     + PostgreSql
@@ -294,7 +402,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + WideColumn
     + HBase
     + BigTable
-+ Data serialization
++ Serialization
   + Apache Avro
   + CSV
   + JSON
@@ -303,16 +411,36 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + S-expressions
   + YAML
   + Custom (make one!)
++ Modeling
+  + SPICE
+  + CMMI
+  + Data model
+  + ER model
+  + Function model
+  + Information model
+  + Meta modeling
+  + Object model
+  + Systems model
+  + View model
++ Transformation
+  + Migration
+  + Conversion
+  + Metadata
+    + Descriptive
+    + Structural
 
 ## Systems Engineering
 
 + Architecture
-  + MVC/N-Tier
+  + Model driven (MDA)
+  + MVC / N-Tier
   + SOA
     + Micro-services
   + RESTful API
     + Basic
     + HATEOAS
+  + API design
+    + Fluent interface
 + Distributed Systems
   + CAP Theorem
   + "Big Data" processing
@@ -354,10 +482,14 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + Neural turing machines
         + Bidirectional associative memory (BAM)
 
-## Robotics
+## Robotics & Electronics
 
 + Arduino
 + Raspberry Pi
++ HDLs
+  + Analog
+  + Digital circuit
+    + Verilog
 
 ## Theory of Computation
 
@@ -366,11 +498,11 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Cellular automata
     + Reversible
     + Totalistic
-    + Von Neumann
+    + Von Neumann universal constructor
     + Nobili
-    + Abstract machine
-      + Pushdown automata
-        + Generalized
+  + Abstract machine
+    + Pushdown automata
+      + Generalized
     + [~~Turing machine~~](automata_theory/turing_machine.py)
       + Universal
       + Alternating
@@ -381,8 +513,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Probabilistic
       + Multi-tape
       + Multi-track
+    + Stack machine
     + Register machine / Wang b-machine
-      + [~~Counter machine~~](automata_theory/counter_machine.py)
       + Pointer
         + [~~Schonhage Storage Modification~~](automata_theory/pointer_machine.py)
         + [~~Kolmogorov-Uspenskii~~](automata_theory/pointer_machine.py)
@@ -392,12 +524,20 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + General atomistic
         + Jone's I Language 1
         + Jone's I Language 2
+      + [~~Counter machine~~](automata_theory/counter_machine.py)
       + Random-access stored-program
       + Random access
+      + Cell probe
   + Finite State Machines (FSM)
+    + Transducers
+    + Acceptors
+    + Classifiers
+    + Sequencers
     + Markov chain
     + Regular expressions
-+ Context-free languages
+    + Richards controller
+    + Moore
+    + Mealy
 + Computational complexity
   + Classes
     + P
@@ -412,7 +552,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Communication complexity
 + Unique Games Conjecture and its relation to optimality of approximation algorithms
 
-## Programming Paradigms / Features
+## Languages
 
 + Interesting language features / syntactic sugar (format: Language - feature)
   + Python - yield
@@ -428,9 +568,29 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Haskell - monads
   + Haskell - guards
   + Haskell - comprehensions
-+ Programming Paradigms:
++ Formal language theory
+  + Modeling language
+    + Algebraic
+    + Behavioral
+    + Discipline-Specific
+    + Domain-specific
+    + Framework-specific
+    + Object-oriented
+    + reality
+    + Others
+  + Formal grammars
+    + Recursive
+    + Regular
+    + Analytic
+    + Context-free
+      + Stochastic
+      + Adaptive
+      + Ambiguous
+      + Backus–Naur Form (BFN)
+        + Extended
++ Paradigms
   + Functional
-    + Languages:
+    + Languages
       + Haskell
       + OCaml
       + Lisp
@@ -438,6 +598,11 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Features
       + Parametric polymorphism
   + Logic
+    + Abductive
+    + Answer set
+    + Constraint
+    + Functional
+    + Inductive
     + Prolog
   + Object-oriented
     + Features
@@ -452,21 +617,32 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Array programming
     + J
   + Meta-programming
+    + Languages
+      + Racket
   + Template meta-programming
   + Automatic
-  + Reactive
+    + Program synthesis
   + Dataflow
+    + Flow based
+    + Cell-oriented
+    + Ractive
+    + Hartmann pipeline
+  + Stream processing
   + Concurrent
     + Languages
       + GO
       + Rust
       + Nimrod
       + Mozart
-  + Assembly
-    + ARM
-    + MIPS
-    + x86
-    + 6502
+  + Domain Specific (DSL)
+    + Metalinguistic abstraction
+    + Embeddable
+    + Macros
+      + Hygienic
+      + Anaphoric
+      + Text Substitution
+        + Sublime plugin
+    + Templating language (make one!)
 
 ## Type theory
 
@@ -488,78 +664,183 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Strong
   + weak
 
+## Program Execution
+
++ Emulator
+  + Binary translation
+  + Hardware
+  + In-circuit
+  + Server
+  + Terminal
+  + Network
+  + Instruction set
+  + Video game console
+  + Semulation
+  + Logic simulation
++ Processing units
+  + CPU
+    + Architectures
+      + Very long instruction word (VLIW)
+      + Complex instruction set computing (CISC)
+      + Fetch
+      + Decode
+      + Execute
+  + Control unit
+  + ALU
+  + AGU
+  + APU
+  + Vector processor
+  + Field Programmable Gate Array (FPGA)
+  + Microprocessor
+    + Reduced instruction set computing (RISC)
++ Runtime system
+  + Specific runtimes
+    + Android Runtime (ART)
+    + crt0
+    + Common Language Runtime (CLR)
+    + Dalvik
+    + Java virtual machine (JVM)
++ Runtime library
++ Executable
++ Compilation
+  + Assembler
+  + Linker
+  + Compile farm
+    + GCC Compile farm
++ Compiler
+  + Software
+    + Semantics encoding
+    + Meta-compilation
+    + Source-to-source (transpiler)
+    + Binary recompiler
+    + One pass
+    + Multi pass
+    + Front end
+    + Back end
+    + Implementations
+      + PL/0
+      + Psyco
+      + Cython
+      + PyPy
+      + GCC
+      + Clang
+    + Custom (make one!)
+    + Symbol table
+    + Abstract Syntax Tree (AST)
+    + Abstract semantic graph
+    + Components
+      + Parser
+        + Top down
+            + LL(1)
+            + LL(k)
+              + Simple
+              + Look-Ahead
+        + Bottom up
+          + Backtracking
+          + Shift-reduce
+        + Recursive descent
+      + Lexer
+        + Tokenizer
+        + Lexical grammar generation
+        + Scanner
+        + Evaluator
+        + Lexer generator
++ Interpreter
+  + Bytecode interpreters
+  + Abstract Syntax Tree interpreters
+  + Just-in-time compilation
+  + Self-interpreter
++ Virtual machine
+  + Process
+  + System
+  + Dynamic recompilation
+  + Hardware-assisted virtualization
+  + p-code machine
++ Source code
++ Object code
++ Bytecode
++ Machine code
+  + Opcode
+  + Assembly language
+    + Assembler concept
+    + Languages
+      + ARM
+      + MIPS
+      + x86
+      + 6502
+
 ## Uncategorized [WIP]
 
 + Linear programming / duality
 + Language based security
 + Software defined networking
-+ Compilers
-  + Building one
 + Computer Graphics
 + Computational geometry
-+ Scientific computation
-+ Cryptography
-  + Diffie-Hellman
-  + RSA
-  + Zero-knowledge proofs
-  + Ciphers
-    + Historical
-      + Substitution
-        + ROT13
-      + Transposition
-        + Rail fence
-    + Modern
-      + Key type
-        + Symmetric
-        + Asymmetric
-      + Input type
-        + Block
-        + Stream
 
 ## Other resources / references
 
 ### Requirements list for BCS
-http://en.wikipedia.org/wiki/Bachelor_of_Computer_Science
+wikipedia.org/wiki/Bachelor_of_Computer_Science
 
 ### Other resources
 
 *Wikipedia*
-+ http://en.wikipedia.org/wiki/Analysis#Computer_science
-+ http://en.wikipedia.org/wiki/Programming_paradigm
-+ http://en.wikipedia.org/wiki/NoSQL
-+ http://en.wikipedia.org/wiki/Evaluation_strategy
-+ http://en.wikipedia.org/wiki/Machine_learning
-+ http://en.wikipedia.org/wiki/Recurrent_neural_network
-+ http://en.wikipedia.org/wiki/Register_machine
-+ http://en.wikipedia.org/wiki/Cellular_automaton
-+ http://en.wikipedia.org/wiki/Turing_machine
-+ http://en.wikipedia.org/wiki/Lists_of_network_protocols
-+ http://en.wikipedia.org/wiki/Communications_protocol
-+ http://en.wikipedia.org/wiki/Software_development_process
-+ http://en.wikipedia.org/wiki/Software_testing#Testing_methods
-+ http://en.wikipedia.org/wiki/Cipher
-+ http://en.wikipedia.org/wiki/Type_theory
-+ http://en.wikipedia.org/wiki/Remote_procedure_call
-+ http://en.wikipedia.org/wiki/Inter-process_communication
-+ http://en.wikipedia.org/wiki/Performance_engineering
-+ http://en.wikipedia.org/wiki/Persistent_data_structure
-+ http://en.wikipedia.org/wiki/Retroactive_data_structures
-+ http://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats
-+ http://en.wikipedia.org/wiki/Logic#Types_of_logic
-+ http://en.wikipedia.org/wiki/Mathematical_logic
-  + http://en.wikipedia.org/wiki/Set_theory#Areas_of_study
-  + http://en.wikipedia.org/wiki/Proof_theory
-  + http://en.wikipedia.org/wiki/Computability_theory#Areas_of_research
-  + http://en.wikipedia.org/wiki/Model_theory
++ wikipedia.org/wiki/List_of_important_publications_in_computer_science
++ wikipedia.org/wiki/Analysis#Computer_science
++ wikipedia.org/wiki/Central_processing_unit
++ wikipedia.org/wiki/System_on_a_chip
++ wikipedia.org/wiki/Programming_paradigm
++ wikipedia.org/wiki/NoSQL
++ wikipedia.org/wiki/Evaluation_strategy
++ wikipedia.org/wiki/Machine_learning
++ wikipedia.org/wiki/Recurrent_neural_network
++ wikipedia.org/wiki/Register_machine
++ wikipedia.org/wiki/Cellular_automaton
++ wikipedia.org/wiki/Turing_machine
++ wikipedia.org/wiki/Static_program_analysis
++ wikipedia.org/wiki/Lists_of_network_protocols
++ wikipedia.org/wiki/Communications_protocol
++ wikipedia.org/wiki/Software_development_process
++ wikipedia.org/wiki/Software_testing#Testing_methods
++ wikipedia.org/wiki/Cipher
++ wikipedia.org/wiki/Type_theory
++ wikipedia.org/wiki/Remote_procedure_call
++ wikipedia.org/wiki/Inter-process_communication
++ wikipedia.org/wiki/Performance_engineering
++ wikipedia.org/wiki/Persistent_data_structure
++ wikipedia.org/wiki/Software_design_pattern
++ wikipedia.org/wiki/Category:Formal_languages
++ wikipedia.org/wiki/Retroactive_data_structures
++ wikipedia.org/wiki/Modeling_language
++ wikipedia.org/wiki/Formal_grammar#The_Chomsky_hierarchy
++ wikipedia.org/wiki/LL_parser
++ wikipedia.org/wiki/List_of_programming_languages_by_type#Machine_languages
++ wikipedia.org/wiki/Comparison_of_data_serialization_formats
++ wikipedia.org/wiki/Thread_(computing)#Processes.2C_kernel_threads.2C_user_threads.2C_and_fibers
++ wikipedia.org/wiki/List_of_compilers
++ wikipedia.org/wiki/Logic#Types_of_logic
++ wikipedia.org/wiki/Discrete_mathematics
++ wikipedia.org/wiki/Hardware_description_language
++ wikipedia.org/wiki/Symbol_table
++ wikipedia.org/wiki/Mathematics#Fields_of_mathematics
++ wikipedia.org/wiki/Lexical_analysis
++ wikipedia.org/wiki/Mathematical_logic
+  + wikipedia.org/wiki/Set_theory#Areas_of_study
+  + wikipedia.org/wiki/Proof_theory
+  + wikipedia.org/wiki/Computability_theory#Areas_of_research
+  + wikipedia.org/wiki/Model_theory
 
 *Misc*
-+ http://www.fullstackpython.com/table-of-contents.html
-+ http://interactivepython.org/
-+ http://refactoring.com/catalog/
++ www.fullstackpython.com/table-of-contents.html
++ interactivepython.org/
++ refactoring.com/catalog/
 
 ### Optional reading:
 + *Introduction to Algorithm Design* - Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).
 + *Purely functional data structures* - Chris Okasaki
 
 ### Notes, Q/A, research
-+ http://stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
++ stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
++ research.microsoft.com/en-us/um/people/gurevich/Opera/78.pdf
++ symbolicanalysis.wordpress.com/category/other-methodologies/turing-machine-and-related-automata/
++ https://github.com/boyers/theorem_prover
