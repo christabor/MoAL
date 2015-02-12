@@ -158,6 +158,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Complex analysis
 + Applied
   + Computational
+    + Geometry
     + Mathematical physics
     + Fluid dynamics
     + Numerical analysis
@@ -171,6 +172,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
           + [~~O(2^n)~~](data_structures/big_o.py)
           + [~~O(n!)~~](data_structures/big_o.py)
     + Optimization
+      + Linear programming
+        + Augmented form
+        + Duality
     + Probability theory
     + Statistics
       + [~~Probability~~](math/probability.py)
@@ -191,10 +195,11 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
           + Input type
             + Block
             + Stream
-    + Mathematical finance
-    + Mathematical biology
-    + Mathematical chemistry
-    + Mathematical economics
+    + Modeling
+      + Finance
+      + Biology
+      + Chemistry
+      + Economics
 + Discrete
   + Game theory
   + Control theory
@@ -341,6 +346,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Protection ring
   + Supervisor
   + Hypervisor
+  + Language based
 + System on a chip (SoC)
 
 ## Networking
@@ -380,6 +386,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + NGINX
   + Apache
   + HAProxy
++ Administration
+  + Software defined
 
 ## Data Storage / Transmission
 
@@ -490,6 +498,10 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Analog
   + Digital circuit
     + Verilog
+
+## Graphics
+
++ /TBD/
 
 ## Theory of Computation
 
@@ -769,14 +781,6 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + x86
       + 6502
 
-## Uncategorized [WIP]
-
-+ Linear programming / duality
-+ Language based security
-+ Software defined networking
-+ Computer Graphics
-+ Computational geometry
-
 ## Other resources / references
 
 ### Requirements list for BCS
@@ -811,6 +815,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + wikipedia.org/wiki/Software_design_pattern
 + wikipedia.org/wiki/Category:Formal_languages
 + wikipedia.org/wiki/Retroactive_data_structures
++ wikipedia.org/wiki/Linear_programming
 + wikipedia.org/wiki/Modeling_language
 + wikipedia.org/wiki/Formal_grammar#The_Chomsky_hierarchy
 + wikipedia.org/wiki/LL_parser
