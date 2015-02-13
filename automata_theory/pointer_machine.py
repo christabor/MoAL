@@ -337,11 +337,11 @@ if __name__ == '__main__':
     with Section('Pointer Machines'):
         classes = [
             KolmogorovUspenskii,
-            # KnuthLinking,
-            # SchonhageStorageModification,
-            # AtomisticPureLISP, AtomisticFullLISP,
-            # GeneralAtomistic,
-            # JonesIOne, JonesITwo,
+            KnuthLinking,
+            SchonhageStorageModification,
+            AtomisticPureLISP, AtomisticFullLISP,
+            GeneralAtomistic,
+            JonesIOne, JonesITwo,
         ]
 
         for _class in classes:
