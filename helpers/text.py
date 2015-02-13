@@ -26,7 +26,7 @@ def words_unix_dict(min_length=8):
     if platform.system() == 'Windows':
         yield None
     # Gets a new word from the unix file system dict `/usr/share/dict/words`,
-    # available in Mac and Unix! Sorry Windows.
+    # available in Unix systems! Sorry Windows.
     with open('/usr/share/dict/words') as words:
         for word in words:
             if len(word) >= min_length:
