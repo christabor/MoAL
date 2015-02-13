@@ -52,7 +52,7 @@ class InfixArray(SuffixArray):
     """This is a weird experiment, not totally relevant."""
 
     @classmethod
-    def infixes(self, string, bisector=3):
+    def infixes(self, string, bisector=2):
         """Returns something like
             [[ca], [t], [do], [g], [bi], [rd]]
             where the first list is the bisector slice from the left,
