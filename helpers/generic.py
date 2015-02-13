@@ -1,24 +1,5 @@
 from random import choice
-from string import ascii_letters
-
-
-def gibberish(length=10):
-    return ''.join([choice(
-        ascii_letters).replace(' ', '') for _ in range(length)])
-
-
-def gibberish2(length=3):
-    """Returns somewhat normal looking gibberish"""
-    _letters = list(ascii_letters)
-    vowels = list('aeiou')
-    if length < 3:
-        length = 3
-
-    def token():
-        first, middle, last = choice(
-            _letters), choice(vowels), choice(_letters)
-        return first + middle + last
-    return ''.join([token() for _ in range(length)])
+from random import randrange as rr
 
 
 def divide_groups(items, divisions=2):

@@ -19,7 +19,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Full
 + [~~Arrays~~](data_structures/array_and_linked_lists.py)
   + [~~Overloaded arrays~~](helpers/adts.py)
-  + Suffix arrays
+  + [~~Suffix arrays~~](data_structures/suffix_arrays.py)
   + Judy arrays
 + Doubly-connected edge list
 + Disjoint-set / union-find / merge-find ADT
@@ -458,6 +458,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Hadoop MapReduce
     + PIG
     + ZooKeeper
+      + Kazoo
     + Lucene
 + Message queuing
   + RabbitMQ
@@ -569,8 +570,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 ## Languages
 
 + Interesting language features / syntactic sugar (format: Language - feature)
-  + Python - yield
-    + recursive yield
+  + Python - generator
+    + recursive
+    + expression
   + Python - decorator
   + Python - context manager (with)
   + Python - variable packing/unpacking
@@ -841,6 +843,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + www.fullstackpython.com/table-of-contents.html
 + interactivepython.org/
 + refactoring.com/catalog/
++ anandology.com/python-practice-book
 
 ### Optional reading:
 + *Introduction to Algorithm Design* - Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).

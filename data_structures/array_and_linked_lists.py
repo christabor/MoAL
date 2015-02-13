@@ -12,7 +12,7 @@ arr = []
 # so you can manually recreate the idea behind them using classes.
 
 from helpers.display import Section
-from helpers.generic import gibberish
+from helpers.text import gibberish
 from helpers.display import _cmd_title
 from helpers.display import _print
 

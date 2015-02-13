@@ -9,7 +9,7 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from random import randrange
-from helpers.generic import gibberish
+from helpers.text import gibberish
 from helpers.display import Section
 from pprint import pprint as ppr
 

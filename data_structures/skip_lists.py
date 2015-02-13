@@ -8,7 +8,7 @@ if __name__ == '__main__':
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from random import randrange as rr
-from helpers.generic import gibberish
+from helpers.text import gibberish
 from helpers.display import Section
 
 

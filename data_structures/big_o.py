@@ -4,7 +4,7 @@ if __name__ == '__main__':
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from helpers.generic import gibberish
+from helpers.text import gibberish
 from helpers.trials import _test_speed
 from helpers.trials import run_trials
 from helpers.display import Section
