@@ -23,6 +23,7 @@ class NaiveTrie(BinarySearchTree):
             self.path = {}
         self.is_root = is_root
         self.is_terminal = True
+        self.NULL_CHAR = 'NULL'
 
     def add(self, string):
         char = string[0]
@@ -59,7 +60,7 @@ class NaiveTrie(BinarySearchTree):
         for letter, _node in node.path.iteritems():
             print '-{}> {} {}'.format(
                 '.' * spacer, letter,
-                'NULL' if _node.is_terminal else '')
+                self.NULL_CHAR if _node.is_terminal else '')
             self.view(node=_node, spacer=spacer + 2)
 
 
@@ -70,7 +71,9 @@ if __name__ == '__main__':
         trie3 = NaiveTrie(is_root=True, alphabet=punctuation)
 
         words = [
-            'data', 'dad', 'dada', 'dadism', 'cat', 'cathartic', 'ho', 'house', ]
+            'data', 'dad', 'dada', 'dadism', 'cat',
+            'cathartic', 'ho', 'house',
+        ]
 
         # Traditional setup + full width nodes for entire alphabet
         for word in words:

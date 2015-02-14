@@ -15,20 +15,20 @@ dict_test['foo'] = 'bar'
 
 
 @_test_speed
-def O_1():
+def o_1():
     print 'I am a O(1) function'
     print dict_test['foo']
 
 
 @_test_speed
-def O_n():
+def o_n():
     print 'I am a O(n) function'
     for x in range(10, 1000):
         print x * x
 
 
 @_test_speed
-def O_n2():
+def o_n2():
     print 'I am a O(n^2) function'
     for x in range(10, 100):
         for y in range(10, 100):
@@ -36,13 +36,13 @@ def O_n2():
 
 
 @_test_speed
-def O_n_comprehension():
+def o_n_comprehension():
     print 'I am a O(n) comprehension function'
     print [x * x for x in range(10, 1000)]
 
 
 @_test_speed
-def O_n3(max_amt=30):
+def o_n3(max_amt=30):
     _ = 0
     print 'I am a O(n^3) function'
     for x in range(max_amt):
@@ -54,7 +54,7 @@ def O_n3(max_amt=30):
 
 
 @_test_speed
-def O_2n(num):
+def o_2n(num):
     print 'I am a O(2^n) function'
 
     def fibo(num):
@@ -66,7 +66,7 @@ def O_2n(num):
 
 
 @_test_speed
-def O_log_n(max_amt=1000):
+def o_log_n(max_amt=1000):
     foo = max_amt
     print 'I am a O(log n) function'
     while foo > 0:
@@ -74,18 +74,18 @@ def O_log_n(max_amt=1000):
 
 
 @_test_speed
-def O_n_factorial(factor=10):
+def o_n_factorial(factor=10):
     # Basically a for loop nested `factor` times.
     pass
 
 
 if __name__ == '__main__':
     with Section('BIG O Notation'):
-        O_1()
-        O_n()
-        O_n2()
-        O_n_comprehension()
-        run_trials(O_n3, trials=20)
-        run_trials(O_log_n, trials=10)
-        O_n_factorial()
-        O_2n(10)
+        o_1()
+        o_n()
+        o_n2()
+        o_n_comprehension()
+        run_trials(o_n3, trials=20)
+        run_trials(o_log_n, trials=10)
+        o_n_factorial()
+        o_2n(10)
