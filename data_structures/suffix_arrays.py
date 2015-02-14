@@ -27,32 +27,27 @@ class SuffixArray:
         del self.strings[string]
 
     @classmethod
-    def suffixes(self, string):
+    def make_substring(cls, string):
         return [string[k:] + '$' for k, char in enumerate(reversed(string))]
 
     def make_superstring(self, strings=None):
         if strings is None:
             strings = self.strings
-        self.strings = [[self.suffixes(string)] for string in strings]
+        self.strings = [[self.make_substring(string)] for string in strings]
 
 
 class PrefixArray(SuffixArray):
 
     @classmethod
-    def prefixes(self, string):
+    def make_substring(cls, string):
         return [string[k:] + '$' for k, char in enumerate(string)]
-
-    def make_superstring(self, strings=None):
-        if strings is None:
-            strings = self.strings
-        self.strings = [[self.prefixes(string)] for string in strings]
 
 
 class InfixArray(SuffixArray):
     """This is a weird experiment, not totally relevant."""
 
     @classmethod
-    def infixes(self, string, bisector=2):
+    def make_substring(cls, string, bisector=2):
         """Returns something like
             [[ca], [t], [do], [g], [bi], [rd]]
             where the first list is the bisector slice from the left,
@@ -64,11 +59,6 @@ class InfixArray(SuffixArray):
         for k, char in enumerate(string):
             ia.append([string[bisector:] + '$', string[:bisector]])
         return ia
-
-    def make_superstring(self, strings=None):
-        if strings is None:
-            strings = self.strings
-        self.strings = [[self.infixes(string)] for string in strings]
 
 
 class SuperSuffixArray(SuffixArray):
