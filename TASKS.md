@@ -55,7 +55,10 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Concurrent trie (Ctrie)
 + [~~Skip lists~~](data_structures/skip_lists.py)
 + [~~Trie~~](data_structures/trie.py)
-  + Suffix tree
+  + [~~Suffix tree~~](data_structures/suffix_tree.py)
+    + [~~Generalized~~](data_structures/suffix_tree.py)
+    + Ukkonen's
+    + McCreight's
   + Hash array mapped tries (HAMT)
 
 ## Engineering / Software Development
@@ -165,14 +168,14 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Fluid dynamics
     + Numerical analysis
       + Asymptotic notation
-        + Big O
-          + [~~O(1)~~](data_structures/big_o.py)
-          + [~~O(logN)~~](data_structures/big_o.py)
-          + [~~O(n)~~](data_structures/big_o.py)
-          + [~~O(n logN)~~](data_structures/big_o.py)
-          + [~~O(n^2)~~](data_structures/big_o.py)
-          + [~~O(2^n)~~](data_structures/big_o.py)
-          + [~~O(n!)~~](data_structures/big_o.py)
+        + [~~Big O~~](math/big_o.py)
+          + [~~O(1)~~](math/big_o.py)
+          + [~~O(logN)~~](math/big_o.py)
+          + [~~O(n)~~](math/big_o.py)
+          + [~~O(n logN)~~](math/big_o.py)
+          + [~~O(n^2)~~](math/big_o.py)
+          + [~~O(2^n)~~](math/big_o.py)
+          + [~~O(n!)~~](math/big_o.py)
     + Optimization
       + Linear programming
         + Augmented form
@@ -281,13 +284,13 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Max flow
   + MST
   + Shortest Path Problems
-  + Dijkstra’s Algorithm
-  + Knight’s Tour Problem
+  + Dijkstra's Algorithm
+  + Knight's Tour Problem
   + The Word Ladder Problem
   + DFS / BFS
   + An Adjacency Matrix
   + An Adjacency List
-  + Prim’s Spanning Tree Algorithm
+  + Prim's Spanning Tree Algorithm
   + Building the Word Ladder Graph
   + Topological Sorting
   + Strongly Connected Components
@@ -489,7 +492,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + Hierarchical
         + Recurrent multilayer Perceptron
         + Second order
-        + Pollack’s sequential cascaded
+        + Pollack's sequential cascaded
         + Neural turing machines
         + Bidirectional associative memory (BAM)
 
@@ -624,6 +627,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Features
       + [~~Class hierarchy~~](data_structures/oop_classes.py)
       + [~~Static, class, & abstract methods~~](data_structures/oop_classes.py)
+        + Abstract Base Classes
       + Overloading
       + Polymorphism
         + Single dispatch
