@@ -3,8 +3,6 @@ MOAL
 
 Each task is meant to be simple and atomic, so there is freedom to approach it however is most comfortable for a given learning style. Think of it like a jigsaw puzzle; while it's important to get the breadth and depth that makes a degree worthwhile, pieces are constantly being filled in, and this can be done line by line (linearly), or in a completely random fashion (or anything in-between).
 
-**This should be considered a living document. It will grow in size, becoming better organized as new details and fields of study are integrated**
-
 __Enough talk! See [the tasks](TASKS.md) for more details__
 
 ## Motivations

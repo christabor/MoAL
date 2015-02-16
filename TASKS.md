@@ -1,5 +1,7 @@
 # Introduction
 
+**This should be considered a living document. It will grow in size, becoming better organized as new details and fields of study are integrated**
+
 _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file. Each task and child task/category is designed to be as true to the hierarchy of understanding as possible; duplicate labels are thus removed for child elements, so that relationships are derived by simply mentally "traversing the tree", to build out the specific name.
 
 # Tasks
