@@ -534,7 +534,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Multi-tape
       + Multi-track
     + Stack machine
-    + Register machine / Wang b-machine
+    + Register machine / Wang-b machine
       + Pointer
         + [~~Schonhage Storage Modification~~](automata_theory/pointer_machine.py)
         + [~~Kolmogorov-Uspenskii~~](automata_theory/pointer_machine.py)
@@ -544,7 +544,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + General atomistic
         + Jone's I Language 1
         + Jone's I Language 2
-      + [~~Counter machine~~](automata_theory/counter_machine.py)
+      + [~~Counter~~](automata_theory/counter_machine.py)
         + [~~SheperdsonSturgis~~](automata_theory/counter_machine.py)
         + [~~Minsky~~](automata_theory/counter_machine.py)
         + Program
