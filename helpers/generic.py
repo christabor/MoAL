@@ -75,7 +75,6 @@ def substring_dict(string):
 
 
 def powerset_tree(lst, initial=True, terminator=''):
-    print 'TERMINATOR = ', terminator
     """Creates nested powersets of the word list for each key
     -- effectively a suffix tree generator.
     `terminator` is a string value that can be passed in to terminate
