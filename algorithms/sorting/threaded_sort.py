@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
 
 from helpers.display import Section
-from helpers.generic import divide_groups
+from helpers.generic import subdivide_groups
 from helpers.generic import random_number_set
 from quick_sort import quick_sort
 from pprint import pprint as ppr
@@ -47,7 +47,7 @@ class ThreadSort:
 
     def _enqueue(self, items):
         # Get the number of thread groups to run based on length and threads.
-        groups = divide_groups(items, divisions=self.threads)
+        groups = subdivide_groups(items, divisions=self.threads)
         # For each sub group, sort on a separate thread.
         for group in groups:
             self.sorting_queue.put(group)
