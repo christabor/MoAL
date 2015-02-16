@@ -88,7 +88,7 @@ class BaseSuffixTree(object):
 
 class ShallowSuffixTree(BaseSuffixTree):
     """Shallow:
-    substrings(s) = [
+    substrings(string) = [
         'banana', # s[0:]
         'anana', # s[1:]
         'nana', # s[2:]
@@ -106,13 +106,11 @@ class ShallowSuffixTree(BaseSuffixTree):
 class DeepSuffixTree(BaseSuffixTree):
 
     """The deeper tree can be up to `l` levels deep and `l` levels wide
-    -- where l is the length of the initial string. For each sub-group,
-    we can just copy the previous value and omit the last key,
-    since it will be previous lists's length - 1."""
+    -- where l is the length of the initial string."""
 
     @_test_speed
     def _populate(self):
-        """banana_tree = {
+        """Example: banana_tree = {
             # [banana]
             0: {
             ....
@@ -142,10 +140,10 @@ class DeepSuffixTree(BaseSuffixTree):
                      ..
                      .
 
-        I'm not sure what the use of what I might call the
-        "Recursive SuperSet(TM)" is, but I'm sure it has some interesting
+        I'm not sure what the use of the above, (what I might call the
+        "Recursive SuperSet(TM)") is, but I'm sure it has some interesting
         mathematical properties, like the fact that each subset has exactly
-        1 less number of values than the parent -- but I suppose that
+        1 less number of values than the previous sublist -- but I suppose that
         is a pedestrian fact for many recursive structures.
 
         Another (preferably) visual way to represent this,
@@ -158,6 +156,8 @@ class DeepSuffixTree(BaseSuffixTree):
 
         In this representation, each node is spaced by the len(subst) + 4)
         ... and the 'dimensions' for each node are = (depth, breadth)
+
+        (B, D) represents the breadth, and depth.
 
         (1, 6)   (5, 5)  (4, 4)  (3, 3)  (2, 2)(1, 1)
         banana    anana    nana    ana    na   n$
