@@ -545,6 +545,14 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
         + Jone's I Language 1
         + Jone's I Language 2
       + [~~Counter machine~~](automata_theory/counter_machine.py)
+        + [~~SheperdsonSturgis~~](automata_theory/counter_machine.py)
+        + [~~Minsky~~](automata_theory/counter_machine.py)
+        + Program
+        + [~~Abacus~~](automata_theory/counter_machine.py)
+        + Lambek
+        + Successor
+        + SuccessorRAM
+        + ElgotRobinsonRASP
       + Random-access stored-program
       + Random access
       + Cell probe
