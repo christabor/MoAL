@@ -3,9 +3,6 @@
 if __name__ == '__main__':
     from os import getcwd
     from os import sys
-    print __file__
-    print getcwd()
-    print sys.path.append(getcwd())
     sys.path.append(getcwd())
 
 from helpers.display import Section
