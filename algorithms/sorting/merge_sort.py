@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(
-        path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
-
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 from helpers.display import Section
 from helpers.trials import run_sorting_trials

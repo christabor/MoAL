@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(
-        path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 
 from helpers.display import Section
 from helpers.generic import subdivide_groups
 from helpers.generic import random_number_set
-from quick_sort import quick_sort
+from algorithms.sorting.quick_sort import quick_sort
 from pprint import pprint as ppr
 from Queue import Queue
 from threading import Lock
