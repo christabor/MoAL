@@ -128,11 +128,13 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 
 + Quantity
   + Numbers
-    + Natural
+    + [~~Natural~~](maths/numbers/basic.py)
       + [~~Transfinite~~](maths/set_theory.py)
-    + Integers
-    + Rational
-    + Real
+    + [~~Integers~~](maths/numbers/basic.py)
+    + [~~Rational~~](maths/numbers/basic.py)
+    + [~~Irrational~~](maths/numbers/basic.py)
+    + [~~Real~~](maths/numbers/basic.py)
+    + Imaginary
     + Complex
     + Quaternions
     + Octonions
@@ -255,6 +257,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Lamport's bakery
   + Peterson's
   + Dekker's
++ Number series generation/discovery
+  + Spigot
+  + Sieve of Eratosthenese
 + Multiplication
   + Gauss's complex
   + Karatsuba
