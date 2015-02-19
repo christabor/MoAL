@@ -87,7 +87,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + State transition analysis
     + Equivalence partitioning
     + Boundary value analysis
-    + Cause–effect graph
+    + Cause-effect graph
     + Error guessing
   + White box
     + API testing
@@ -129,17 +129,17 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Quantity
   + Numbers
     + Natural
-      + [~~Transfinite~~](math/set_theory.py)
+      + [~~Transfinite~~](maths/set_theory.py)
     + Integers
     + Rational
     + Real
     + Complex
     + Quaternions
     + Octonions
-    + [~~Cardinals~~](math/set_theory.py)
+    + [~~Cardinals~~](maths/set_theory.py)
 + Structure
   + Combinatorics
-  + [~~Number theory~~](math/number_theory.py)
+  + [~~Number theory~~](maths/number_theory.py)
   + Group theory
   + Category theory
   + Graph theory
@@ -170,21 +170,21 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Fluid dynamics
     + Numerical analysis
       + Asymptotic notation
-        + [~~Big O~~](math/big_o.py)
-          + [~~O(1)~~](math/big_o.py)
-          + [~~O(logN)~~](math/big_o.py)
-          + [~~O(n)~~](math/big_o.py)
-          + [~~O(n logN)~~](math/big_o.py)
-          + [~~O(n^2)~~](math/big_o.py)
-          + [~~O(2^n)~~](math/big_o.py)
-          + [~~O(n!)~~](math/big_o.py)
+        + [~~Big O~~](maths/big_o.py)
+          + [~~O(1)~~](maths/big_o.py)
+          + [~~O(logN)~~](maths/big_o.py)
+          + [~~O(n)~~](maths/big_o.py)
+          + [~~O(n logN)~~](maths/big_o.py)
+          + [~~O(n^2)~~](maths/big_o.py)
+          + [~~O(2^n)~~](maths/big_o.py)
+          + [~~O(n!)~~](maths/big_o.py)
     + Optimization
       + Linear programming
         + Augmented form
         + Duality
     + Probability theory
     + Statistics
-      + [~~Probability~~](math/probability.py)
+      + [~~Probability~~](maths/probability.py)
     + Cryptography
       + Diffie-Hellman
       + RSA
@@ -214,7 +214,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Utility theory
   + Social choice theory
   + Logic
-    + [~~Set theory~~](math/set_theory.py)
+    + [~~Set theory~~](maths/set_theory.py)
       + Axiomatic
       + Combinatorial
       + Descriptive
@@ -535,7 +535,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Multi-track
     + Stack machine
     + Register machine / Wang-b machine
-      + Pointer
+      + [~~Pointer~~](automata_theory/pointer_machine.py)
         + [~~Schonhage Storage Modification~~](automata_theory/pointer_machine.py)
         + [~~Kolmogorov-Uspenskii~~](automata_theory/pointer_machine.py)
         + Knuth's Linking Automaton
@@ -615,7 +615,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Stochastic
       + Adaptive
       + Ambiguous
-      + Backus–Naur Form (BFN)
+      + [~~Backus-Naur Form (BFN)~~](languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms
   + Functional
