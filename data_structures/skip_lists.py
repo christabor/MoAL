@@ -4,8 +4,9 @@
 # https://kunigami.wordpress.com/2012/09/25/skip-lists-in-python/
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 from random import randrange as rr
 from helpers.text import gibberish
@@ -24,7 +25,8 @@ class SkipNode:
     def view(self):
         res = ''
         for el in self.next:
-            res += '[{}] --> '.format(el.elem['value'] if el is not None else el)
+            res += '[{}] --> '.format(
+                el.elem['value'] if el is not None else el)
         print res
 
 
@@ -46,7 +48,8 @@ class SkipList:
         # the nodes with each pass.
         # for i, el in enumerate(reversed(self.head.next)):
         for i in reversed(range(len(self.head.next))):
-            while x.next[i] is not None and x.next[i].elem['value'] < elem['value']:
+            while x.next[i] is not None and \
+                    x.next[i].elem['value'] < elem['value']:
                 # Continue updating x to the next grater elements' index
                 x = x.next[i]
             updated[i] = x
@@ -110,7 +113,9 @@ class SkipList:
 
 if __name__ == '__main__':
     with Section('Skip Lists'):
-        gibs = [{'name': gibberish(), 'value': rr(10, 1000)} for _ in range(10)]
+        gibs = [{
+            'name': gibberish(), 'value': rr(10, 1000)
+        } for _ in range(10)]
         sl = SkipList()
         for gib in gibs:
             sl.insert(elem=gib)

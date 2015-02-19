@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 from random import choice
 from helpers.text import gibberish
 from helpers.display import Section
-from stack import Stack
+from data_structures.stack import Stack
 
 
 class Queue(Stack):

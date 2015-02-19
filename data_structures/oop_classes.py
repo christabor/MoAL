@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 from helpers.display import Section
 import inspect
@@ -103,11 +104,11 @@ class Cat(AbstractCat):
         return 'I am a static method with no instance.'
 
     @classmethod
-    def custom_classmethod(self):
+    def custom_classmethod(cls):
         return 'I am a class method.'
 
     @classmethod
-    def meow(self):
+    def meow(cls):
         return 'Meowwwww'
 
 
@@ -167,7 +168,8 @@ if __name__ == '__main__':
         """
 
         classes = ' <= '.join([c.__name__ for c in inspect.getmro(Species)])
-        print 'Classes for most derived class {} are: {}'.format(Species, classes)
+        print 'Classes for most derived class {} are: {}'.format(
+            Species, classes)
 
         leopard = Cat('leopard')
         print repr(leopard)

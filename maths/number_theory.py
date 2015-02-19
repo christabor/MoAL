@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 from helpers.display import Section
 from helpers.display import _print
 from random import randrange as rr
 from pprint import pprint as ppr
-from fractions import Fraction as frac
+from fractions import Fraction
 from inspect import getsource
 from math import log
 
@@ -154,7 +155,7 @@ def exercise_1_2(max_nums):
 def exercise_2_8(max_nums):
     # http://www.math.brown.edu/~jhs/frint.html
     for n in range(1, max_nums):
-        yield frac(1, n) + frac(1, n + 2)
+        yield Fraction(1, n) + Fraction(1, n + 2)
     raise StopIteration
 
 
@@ -216,7 +217,8 @@ if __name__ == '__main__':
 
         [_print(
             'Series of series with: {}'.format(getsource(f)),
-            [map(f, (n for n in range(1, _))) for _ in fibo(8)]) for f in funcs]
+            [map(f, (n for n in range(1, _)))
+                for _ in fibo(8)]) for f in funcs]
 
         [_print(
             'Factor {}'.format(n),

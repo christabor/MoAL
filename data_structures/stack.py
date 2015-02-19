@@ -5,8 +5,9 @@
 # static/pythonds/BasicDS/ImplementingaStackinPython.html
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 from random import randrange
 from helpers.text import gibberish

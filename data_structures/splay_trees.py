@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
-from avl_trees import AVLTree
-from binary_search_trees import Node
-from binary_search_trees import recurse_bst
-from binary_search_trees import populate_bst
+from data_structure.avl_trees import AVLTree
+from data_structure.binary_search_trees import Node
+from data_structure.binary_search_trees import recurse_bst
+from data_structure.binary_search_trees import populate_bst
 from helpers.display import Section
 
 DEBUG = True

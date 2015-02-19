@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    print __file__
+    print getcwd()
+    print sys.path.append(getcwd())
+    sys.path.append(getcwd())
 
 from helpers.display import Section
 from helpers.display import _print

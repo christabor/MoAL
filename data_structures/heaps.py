@@ -3,14 +3,14 @@
 # Mostly taken from:
 # http://interactivepython.org/runestone/static/pythonds/Trees/heap.html
 
-
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
 from helpers.display import Section
 from random import randrange as rr
-import binary_search_trees as bst
+import data_structures.binary_search_trees as bst
 
 
 class BinHeap(bst.BinarySearchTree):

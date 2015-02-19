@@ -4,10 +4,11 @@
 # interactivepython.org/runestone/static/pythonds/Trees/balanced.html
 
 if __name__ == '__main__':
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    from os import getcwd
+    from os import sys
+    sys.path.append(getcwd())
 
-import binary_search_trees as bst
+import data_structures.binary_search_trees as bst
 from helpers.display import Section
 
 """
