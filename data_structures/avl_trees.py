@@ -11,9 +11,9 @@ if __name__ == '__main__':
 import data_structures.binary_search_trees as bst
 from helpers.display import Section
 
-"""
 
-    AVL tree nodes all calculate a balance factor to determine rotations
+class AVLTree(bst.BinarySearchTree):
+    """AVL tree nodes all calculate a balance factor to determine rotations
     and keep tree in balance for best performance:
 
     bf = height(left_sub_tree) - height(right_sub_tree)
@@ -33,10 +33,7 @@ from helpers.display import Section
                     \
                     (0)
 
-"""
-
-
-class AVLTree(bst.BinarySearchTree):
+    """
 
     def _put(self, key, val, current_node):
         print('putting new node: {} {}'.format(key, val))

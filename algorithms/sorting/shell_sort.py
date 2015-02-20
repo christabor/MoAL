@@ -9,7 +9,7 @@ if __name__ == '__main__':
 from helpers.display import Section
 from helpers.trials import run_sorting_trials
 from algorithms.sorting.insertion_sort import insertion_sort
-from quick_sort import quick_sort
+from algorithms.sorting.quick_sort import quick_sort
 from pprint import pprint as ppr
 
 

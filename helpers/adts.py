@@ -1,6 +1,6 @@
 import operator
-from display import Section
-from display import _print
+from helpers.display import Section
+from helpers.display import _print
 from random import shuffle
 
 
