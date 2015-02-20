@@ -593,7 +593,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + expression
   + Python - decorator
   + Python - context manager (with)
-  + Python - variable packing/unpacking
+  + [~~Python - variable packing/unpacking~~](languages/features/python/packing_unpacking.py)
   + Python - index slicing
   + Python - comprehensions
   + Rust - de-structuring
