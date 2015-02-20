@@ -69,7 +69,7 @@ def test_coin_flip(*args):
         res[side][0] += 1
     res['heads'][1] = '~{}%'.format(res['heads'][0] // 10.0)
     res['tails'][1] = '~{}%'.format(res['tails'][0] // 10.0)
-    print res
+    print(res)
     return res
 
 

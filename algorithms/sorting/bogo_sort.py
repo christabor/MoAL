@@ -24,7 +24,7 @@ def bogo_sort(items):
             copy_b = items[rand_swap_b]
             items[rand_swap_a] = copy_b
             items[rand_swap_b] = copy_a
-    print items
+    print(items)
     return items
 
 

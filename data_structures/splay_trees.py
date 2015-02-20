@@ -196,9 +196,9 @@ class SplayTree(AVLTree):
                 (2)
 
         """
-        print
-        print 'Splaying node with value: {}'.format(node.key)
-        print
+        print('\n')
+        print('Splaying node with value: {}'.format(node.key))
+        print('\n')
         recurse_bst(self.root, None)
         while node.parent:
             if not self.has_grandparent(node):

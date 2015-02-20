@@ -59,7 +59,7 @@ class HotPotatoSimulator(Queue):
         self.items = names
 
     def adjust_position(self):
-        print 'Out of range... adjusting position to a valid index.'
+        print('Out of range... adjusting position to a valid index.')
         # If `self.num` is greater than the length of the list,
         # keep adjusting until it's in range.
         while self.out_of_range():
@@ -68,11 +68,11 @@ class HotPotatoSimulator(Queue):
 
     def move(self):
         if self.out_of_range():
-            print 'No items in the queue to move!'
+            print('No items in the queue to move!')
             return self.adjust_position()
         person = self.items[self.num]
-        print 'Moving around circle {} times to: {}'.format(self.num, person)
-        print self.items
+        print('Moving around circle {} times to: {}'.format(self.num, person))
+        print(self.items)
         self.move_to_end()
 
 
@@ -80,23 +80,23 @@ class PrinterQueue(Queue):
 
     def add_job(self, name, doc):
         self.push({'name': name, 'doc': doc})
-        print 'Adding {} to queue for printing...'.format(name)
+        print('Adding {} to queue for printing...'.format(name))
 
     def print_job(self):
-        print 'Printing... {}'.format(self.head()['name'])
+        print('Printing... {}'.format(self.head()['name']))
 
 
 if __name__ == '__main__':
     with Section('Queues'):
         q = Queue()
         for _ in range(5):
-            print 'en-queuing new item...'
+            print('en-queuing new item...')
             q.enqueue(gibberish())
 
     with Section('Double ended queue'):
         dq = Dequeue('backwards')
         for _ in range(5):
-            print 'en-queuing (dequeue) new item...'
+            print('en-queuing (dequeue) new item...')
             dq.enqueue(gibberish())
 
     with Section('Queue rotation example'):

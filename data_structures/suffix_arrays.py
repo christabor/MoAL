@@ -69,9 +69,9 @@ class SuperSuffixArray(SuffixArray):
         for k, substr in enumerate(suffixes):
             max_width = (len(suffixes[:-1]) + 30)
             spaces = '~' * max_width
-            print spaces
-            print ' {}{} {}... k={}'.format(
-                substr, ' ' * (max_width - len(substr) - 12), len(substr), k)
+            print(spaces)
+            print(' {}{} {}... k={}'.format(
+                substr, ' ' * (max_width - len(substr) - 12), len(substr), k))
 
     def __repr__(self):
         for suffix_group in self.strings:

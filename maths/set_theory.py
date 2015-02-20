@@ -56,14 +56,13 @@ class Aleph(Set):
         super(Aleph, self).__init__(self.items)
 
     def run_until(self, maximum):
-        print ('I am an aleph set of elements'
-               ' with cardinality {}').format(
-                   super(Aleph, self).cardinality())
+        print('I am an aleph set of elements with cardinality {}').format(
+            super(Aleph, self).cardinality())
         curr = 0
         for item in self:
             if curr >= maximum:
                 break
-            print 'continuum item:', item
+            print('continuum item: {}'.format(item))
             curr += 1
 
 
@@ -126,15 +125,15 @@ class BethOne(Aleph):
 if __name__ == '__main__':
     with Section('Set theory'):
         set_series = Set([1, 2, 3, 4])
-        print set_series
-        print 'is series?', set_series.is_series().next()  # True
-        print
+        print(set_series)
+        print('is series? {}'.format(set_series.is_series().next()))  # True
+        print('\n')
         set_nonseries = Set([1, 22, 103, 4])
         for _ in range(50):
             set_nonseries.add(rr(1, 9999))
-        print set_nonseries
-        print
-        print 'is series?', set_nonseries.is_series().next()  # False
+        print(set_nonseries)
+        print('\n')
+        print('is series? {}'.format(set_nonseries.is_series().next()))  # False
 
     with Section('Set theory - cardinality of the continuum examples'):
         all_squares = AllSquares()

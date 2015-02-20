@@ -111,12 +111,12 @@ class CounterMachine:
         # Reset register 2 after transferring contents to register #3
         self.registers['c'] = self.default_register_count
         if self.DEBUG:
-            print 'Final contents of all registers:', self.registers
+            print('Final contents of all registers: {}'.format(self.registers))
 
     def run_instruction(self, instruction):
         if self.DEBUG:
-            print 'Step ... #{} with instruction {} in register {}'.format(
-                self._step, instruction['code'], self.curr_register)
+            print('Step ... #{} with instruction {} in register {}'.format(
+                self._step, instruction['code'], self.curr_register))
             time.sleep(self.DELAY)
         # Prevent running if halted.
         if self.halted:
@@ -236,6 +236,6 @@ if __name__ == '__main__':
             try:
                 singleton.run()
             except TypeError:
-                print 'Inoperable program was generated :('
+                print('Inoperable program was generated :(')
             finally:
                 singleton.halt()

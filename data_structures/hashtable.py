@@ -21,8 +21,8 @@ class NaiveHashTable:
         return key % self.max
 
     def insert(self, key, value):
-        print 'Inserting {} = {} under key {}'.format(
-            key, value, self.hash(key))
+        print('Inserting {} = {} under key {}'.format(
+            key, value, self.hash(key)))
         self.items[self.hash(key)].append(value)
 
 
@@ -35,12 +35,12 @@ if __name__ == '__main__':
     with Section('Naive hash tables'):
         nht = NaiveHashTable()
         keys = [rr(0, 30) for k in range(5)]
-        print keys
+        print(keys)
 
         for k in keys:
             fill_blocks_to(40)
 
         for k in keys:
-            print 'Reading...', nht.items[k]
+            print('Reading... {}'.format(nht.items[k]))
 
-        print ppr(nht.items)
+        ppr(nht.items)

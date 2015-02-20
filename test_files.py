@@ -53,5 +53,5 @@ if __name__ == '__main__':
                 continue
             except UNEXPECTED_EXCEPTIONS:
                 test_results.append(_result(filepath, sys.exc_info()))
-    print '\nTEST RESULTS:'
+    print('\nTEST RESULTS:')
     ppr(test_results)

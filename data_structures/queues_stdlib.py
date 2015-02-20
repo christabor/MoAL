@@ -40,7 +40,7 @@ class CountThread(threading.Thread):
             COUNT_LOCK.acquire()
             TOTAL += 1
             COUNT_LOCK.release()
-        print 'Total processed by {}: {}:'.format(self.name, TOTAL)
+        print('Total processed by {}: {}:'.format(self.name, TOTAL))
 
 
 with Section('Python stdlib Queue and multi-threading examples'):
@@ -51,9 +51,9 @@ with Section('Python stdlib Queue and multi-threading examples'):
     counter_two.start('two')
     counter_three.start('three')
 
-    print ('** these dividers will not work right since the threads '
-           'are ND and the end of this line is not guaranteed to '
-           'come before the end of the thread processes! **')
+    print('** these dividers will not work right since the threads '
+          'are ND and the end of this line is not guaranteed to '
+          'come before the end of the thread processes! **')
 
 # Some basic code taken from https://docs.python.org/2/library/queue.html
 
@@ -65,7 +65,7 @@ class Worker:
         self.queue = queue
 
     def do_work(self, item):
-        print 'Working on item... {}\n'.format(item)
+        print('Working on item... {}\n'.format(item))
 
     def worker(self):
         while True:
@@ -74,7 +74,7 @@ class Worker:
             self.queue.task_done()
 
     def process_all(self):
-        print 'Starting all process threads...'
+        print('Starting all process threads...')
         for _ in range(self.NUM_THREADS):
             t = threading.Thread(target=self.worker)
             t.daemon = True
@@ -108,7 +108,7 @@ if __name__ == '__main__':
             producer.add()
 
         for record in producer:
-            print 'Putting record {} into queue.'.format(record)
+            print('Putting record {} into queue.'.format(record))
             work_queue.put(record)
 
         bot.process_all()
@@ -116,6 +116,6 @@ if __name__ == '__main__':
         # Block until done
         work_queue.join()
 
-        print ('** these dividers will not work right since the threads '
-               'are ND and the end of this line is not guaranteed to '
-               'come before the end of the thread processes! **')
+        print('** these dividers will not work right since the threads '
+              'are ND and the end of this line is not guaranteed to '
+              'come before the end of the thread processes! **')

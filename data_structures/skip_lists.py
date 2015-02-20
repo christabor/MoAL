@@ -27,7 +27,7 @@ class SkipNode:
         for el in self.next:
             res += '[{}] --> '.format(
                 el.elem['value'] if el is not None else el)
-        print res
+        print(res)
 
 
 class SkipList:
@@ -56,9 +56,9 @@ class SkipList:
         return updated
 
     def view(self):
-        print 'Viewing entire skip list:'
+        print('Viewing entire skip list:')
         for node in self.head.next:
-            print self.head.elem, '-->', node.view()
+            print('{} --> {}'.format(self.head.elem, node.view()))
 
     def find(self, elem, updated=None):
         """Finds an item in the list. Allows the optional `updated`
@@ -99,7 +99,7 @@ class SkipList:
     def insert(self, elem):
         # Create a new node with random height
         node = SkipNode(height=self.random_height(), elem=elem)
-        print 'Adding {} node to the list:'.format(elem)
+        print('Adding {} node to the list:'.format(elem))
 
         # Balance length before inserting to avoid issues with indices.
         self._balance_length(node)

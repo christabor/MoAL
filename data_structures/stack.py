@@ -49,23 +49,23 @@ STACK_COUNT = 10
 
 with Section('Stacks'):
     stack = Stack()
-    print
-    print 'First in push'
-    print
+    print('\n')
+    print('First in push')
+    print('\n')
     for _ in range(STACK_COUNT):
         stack.push('{} ... [ {} ]'.format(_, gibberish()))
-        print stack.head()
+        print(stack.head())
 
-    print
-    print stack.size(), stack.view()
-    print
-    print 'First out pop'
-    print
+    print('\n')
+    print(stack.size(), stack.view())
+    print('\n')
+    print('First out pop')
+    print('\n')
     for _ in range(STACK_COUNT):
-        print stack.pop()
+        print(stack.pop())
 
-    print
-    print stack.size(), stack.view()
+    print('\n')
+    print('{} {}'.format(stack.size(), stack.view()))
 
 
 # Example 'real world usage'
@@ -102,10 +102,10 @@ with Section('Loggers'):
     logger = Logger()
     for _ in range(STACK_COUNT):
         logger.add_message(gibberish(length=10), priority=randrange(0, 10))
-    print logger.view_messages()
-    print logger.get_by_priority(4)
-    print logger.get_last_message()
-    print logger.get_first_message()
+    print(logger.view_messages())
+    print(logger.get_by_priority(4))
+    print(logger.get_last_message())
+    print(logger.get_first_message())
 
 # Example 'real world usage' with extensions, OOP
 
@@ -135,5 +135,5 @@ if __name__ == '__main__':
         for _ in range(STACK_COUNT):
             nl.add_message(gibberish(length=10), priority=randrange(0, 10))
 
-        print wl.view_messages()
-        print nl.view_messages()
+        print(wl.view_messages())
+        print(nl.view_messages())

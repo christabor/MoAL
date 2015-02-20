@@ -40,8 +40,8 @@ class PointerMachine(object):
 
     def run_instruction(self, instruction):
         if self.DEBUG:
-            print 'Step ... #{} with instruction {} in register {}'.format(
-                self._step, instruction['code'], self.curr_register)
+            print('Step ... #{} with instruction {} in register {}'.format(
+                self._step, instruction['code'], self.curr_register))
             time.sleep(self.DELAY)
         # Prevent running if halted.
         if self.halted:
@@ -180,7 +180,7 @@ class SchonhageStorageModification(PointerMachine):
             # Adjust edges to / from each node
             self.recalculate()
         if self.DEBUG:
-            print 'word with new item(s)', self.word
+            print('word with new item(s) {}'.format(self.word))
         # Make this one chain-able.
         return self
 
@@ -200,8 +200,8 @@ class SchonhageStorageModification(PointerMachine):
             self.curr_node = jump_node
             self._run_step()
             if self.DEBUG:
-                print '{} {} paths are equal. Jumping to node {}'.format(
-                    word1, word2, jump_node)
+                print('{} {} paths are equal. Jumping to node {}'.format(
+                    word1, word2, jump_node))
 
     def set(self, node, val):
         """Sets a nodes value to the new value."""
@@ -238,8 +238,8 @@ class SchonhageStorageModification(PointerMachine):
         while start < end:
             # Print must come before next step,
             # otterwise it will print the letters shifted.
-            print 'Counter: {}, Output: {}, Curr val: {}, Curr key: {}'.format(
-                start, self.output, self.curr_val, self.curr_key)
+            print('Counter: {}, Output: {}, Curr val: {}, Curr key: {}'.format(
+                start, self.output, self.curr_val, self.curr_key))
             self._run_step()
             start += 1
 

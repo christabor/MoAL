@@ -145,7 +145,7 @@ def _test_tour_valid(graph):
 if __name__ == '__main__':
     with Section('Basic graph'):
         graph = Graph()
-        # # Initial seeding
+        # Initial seeding
         for _ in range(5):
             graph[choice(all_vertices)] = _rand_edges(MAX_EDGES)
 
@@ -153,17 +153,17 @@ if __name__ == '__main__':
         _print('Tour of...', _test_tour_valid(graph))
 
         deg, ver = randrange(0, MAX_EDGES), choice(all_vertices)
-        print 'Has degree {} ... {}? {}'.format(
-            deg, ver, graph.has_degree(deg, vertex=ver))
+        print('Has degree {} ... {}? {}'.format(
+            deg, ver, graph.has_degree(deg, vertex=ver)))
 
         for _ in range(5):
             try:
                 _print('connections', graph.connections(choice(all_vertices)))
             except InvalidGraphRepresentation:
-                print (
+                print(
                     'Invalid graph was generated -- need more than 2 vertices')
         for node in graph:
-            print 'Node {} has degree {}'.format(node, graph.get_degree(node))
+            print('Node {} has degree {}'.format(node, graph.get_degree(node)))
         _print('graph', graph)
         _print('Has multiple degrees?', graph.has_multiple_degrees())
 

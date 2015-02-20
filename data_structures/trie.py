@@ -59,9 +59,9 @@ class NaiveTrie(BinarySearchTree):
         if node is None:
             node = self
         for letter, _node in node.path.iteritems():
-            print '-{}> {} {}'.format(
+            print('-{}> {} {}'.format(
                 '.' * spacer, letter,
-                self.NULL_CHAR if _node.is_terminal else '')
+                self.NULL_CHAR if _node.is_terminal else ''))
             self.view(node=_node, spacer=spacer + 2)
 
 

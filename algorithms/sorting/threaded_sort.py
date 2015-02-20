@@ -67,7 +67,6 @@ class ThreadSort:
         # Block until complete.
         self.sorting_queue.join()
         # Perform the second sort on already sorted sublists.
-        # print self.sorting_func(self.sorted_items)
         return self.sorting_func(self.sorted_items)
 
 
@@ -77,5 +76,5 @@ if __name__ == '__main__':
 
         rand = random_number_set(max_range=20)
         res = threaded_quicksort.run(rand)
-        print 'Is valid?', res == sorted(rand)
+        print('Is valid? {}'.format(res == sorted(rand)))
         ppr(res)

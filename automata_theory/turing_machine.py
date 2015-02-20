@@ -34,15 +34,15 @@ class TuringMachine:
         _cmd_title('STARTING')
         self._get_tape_visualization()
         if self.DEBUG:
-            print (
+            print(
                 'Starting with current state:', self.current_state,
                 'and tape index:', self.tape_index)
 
     def _show_states(self):
-        print 'States:', self.states_list
+        print('States: {}'.format(self.states_list))
 
     def _get_tape_visualization(self):
-        print ' '.join(['[{}]'.format(value) for value in self.tape])
+        print(' '.join(['[{}]'.format(value) for value in self.tape]))
         idx = self.tape_index + 1 if self.tape_index == 0 else self.tape_index
         # 5 = 2 spaces, 2 brackets and number
         head_dist = idx * 5
@@ -55,9 +55,9 @@ class TuringMachine:
         left = track_active if _dir == 0 else track
         right = track if _dir == 0 else track_active
         # Print the "head" pointer
-        print
-        print (left * head_dist) + '^' + (right * (full_dist - head_dist))
-        print
+        print('\n')
+        print((left * head_dist) + '^' + (right * (full_dist - head_dist)))
+        print('\n')
 
     def new_state(self, next):
         return {
@@ -71,10 +71,10 @@ class TuringMachine:
             k: self.new_state(val) for val, k in enumerate(self.states_list)
         }
         if self.DEBUG:
-            print
-            print 'New states'
+            print('\n')
+            print('New states')
             ppr(self.transitions)
-            print
+            print('\n')
 
     def run(self):
         while self.running:
@@ -82,14 +82,14 @@ class TuringMachine:
                 # Sleep so that each step is delayed, for effect.
                 time.sleep(self.DELAY)
                 if self.DEBUG:
-                    print 'Old state', self.current_state
+                    print('Old state {}'.format(self.current_state))
                 self.transition()
                 if self.DEBUG:
-                    print 'New state', self.current_state
+                    print('New state {}'.format(self.current_state))
                     self._show_states()
                 self._get_tape_visualization()
             if self.DEBUG:
-                print 'Ending with state:', self.current_state
+                print('Ending with state: {}'.format(self.current_state))
             # Eventually time out, since it can't really run forever.
             self.halt()
 

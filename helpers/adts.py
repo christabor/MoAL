@@ -148,7 +148,7 @@ if __name__ == '__main__':
         _print('ADT - str add, copy, up, add, shuffle', (
             strs2, strs2.add(' ').copy(3).up().add(':D').shuffle()))
 
-        print 'Testing strictness'
+        print('Testing strictness')
 
         strs3 = strlist([1, 2])  # Should be empty
         _print('ADT - str len 0', len(strs3))  # 0

@@ -16,7 +16,7 @@ import data_structures.binary_search_trees as bst
 class BinHeap(bst.BinarySearchTree):
 
     def __init__(self, new_list):
-        print 'Original list:', new_list
+        print('Original list: {}'.format(new_list))
         i = len(new_list)
         self.size = len(new_list)
         # Shallow copy of the list handed over, plus the root node `[0]`
@@ -27,7 +27,7 @@ class BinHeap(bst.BinarySearchTree):
         while i > 0:
             self.swap_down(i)
             i -= 1
-        print 'New list:', self.heap_list
+        print('New list: {}'.format(self.heap_list))
 
     def insert(self, item):
         # This is just a normal insert, except it re-balances
@@ -63,7 +63,7 @@ class BinHeap(bst.BinarySearchTree):
                 return i * 2 + 1
 
     def swap_up(self, i):
-        print 'Swapping up index: {}'.format(i)
+        print('Swapping up index: {}'.format(i))
         while i // 2 > 0:
             # Run while current heap node is less than node // 2
             # (which is the node before it)
@@ -76,7 +76,7 @@ class BinHeap(bst.BinarySearchTree):
             i = i // 2
 
     def swap_down(self, i):
-        print 'Swapping down index: {}'.format(i)
+        print('Swapping down index: {}'.format(i))
         # Like swap up, but moves down the list.
         while (i * 2) <= self.size:
             # Find the minimum child for the subtree
@@ -100,10 +100,10 @@ class PriorityQueue(BinHeap, object):
 if __name__ == '__main__':
     with Section('Binary Heaps'):
         my_heap = BinHeap([rr(1, 100) for _ in range(30)])
-        print my_heap
+        print(my_heap)
 
     with Section('Priority Queue'):
         pq = PriorityQueue([rr(1, 100) for _ in range(30)])
-        print
+        print('\n')
         for _ in range(10):
             pq.insert(rr(1, 100))

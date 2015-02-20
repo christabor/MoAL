@@ -17,59 +17,59 @@ dict_test['foo'] = 'bar'
 
 @_test_speed
 def o_1():
-    print 'I am a O(1) function'
-    print dict_test['foo']
+    print('I am a O(1) function')
+    print(dict_test['foo'])
 
 
 @_test_speed
 def o_n():
-    print 'I am a O(n) function'
+    print('I am a O(n) function')
     for x in range(10, 1000):
-        print x * x
+        print(x * x)
 
 
 @_test_speed
 def o_n2():
-    print 'I am a O(n^2) function'
+    print('I am a O(n^2) function')
     for x in range(10, 100):
         for y in range(10, 100):
-            print '{} + {} = {}'.format(x, y, x + y)
+            print('{} + {} = {}'.format(x, y, x + y))
 
 
 @_test_speed
 def o_n_comprehension():
-    print 'I am a O(n) comprehension function'
-    print [x * x for x in range(10, 1000)]
+    print('I am a O(n) comprehension function')
+    print([x * x for x in range(10, 1000)])
 
 
 @_test_speed
 def o_n3(max_amt=30):
     _ = 0
-    print 'I am a O(n^3) function'
+    print('I am a O(n^3) function')
     for x in range(max_amt):
         for y in range(max_amt):
             for z in range(max_amt):
                 _ = x + y + z
-                # print '{} + {} + {} = {}'.format(x, y, z, x + y + z)
-    print 'Result:', _
+                # print('{} + {} + {} = {}'.format(x, y, z, x + y + z))
+    print('Result: {}'.format(_))
 
 
 @_test_speed
 def o_2n(num):
-    print 'I am a O(2^n) function'
+    print('I am a O(2^n) function')
 
     def fibo(num):
         if num <= 1:
             return num
         else:
             return fibo(num - 1) + fibo(num - 2)
-    print fibo(num)
+    print(fibo(num))
 
 
 @_test_speed
 def o_log_n(max_amt=1000):
     foo = max_amt
-    print 'I am a O(log n) function'
+    print('I am a O(log n) function')
     while foo > 0:
         foo = foo / 2
 

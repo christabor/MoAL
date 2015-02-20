@@ -351,12 +351,13 @@ def recurse_bst(node, lastkey):
         connector = ('.' * diff)
         if diff > 2:
             if lastkey < node.key:
-                print ''.ljust(offset - diff), connector
+                print('{} {}'.format(''.ljust(offset - diff), connector))
             else:
-                print ''.ljust(offset - (diff / 8) + 2), connector
+                print('{} {}'.format(
+                    ''.ljust(offset - (diff / 8) + 2), connector))
 
-    print ''.ljust(offset), char
-    print ''.ljust(offset), node.key
+    print('{} {}'.format(''.ljust(offset), char))
+    print('{} {}'.format(''.ljust(offset), node.key))
 
     if node.left_child is not None:
         recurse_bst(node.left_child, node.key)
@@ -373,6 +374,6 @@ if __name__ == '__main__':
     with Section('Binary Search Trees'):
         bst = BinarySearchTree()
         populate_bst(bst, count=5)
-        print
+        print('\n')
         recurse_bst(bst.root, None)
-        print
+        print('\n')

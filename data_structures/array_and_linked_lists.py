@@ -67,8 +67,7 @@ class Node:
             node.next.prev = node.prev
 
         if self.DEBUG:
-            print
-            print 'DELETING...', node.title, node.cargo
+            print('\nDELETING... {} {}'.format(node.title, node.cargo))
         del node
 
     def __len__(self):
@@ -132,7 +131,7 @@ if __name__ == '__main__':
         if DEBUG:
             _print('Testing iteration', '')
             for node in linked_list:
-                print node
+                print(node)
 
             del linked_list['node-1']
             del linked_list['node-4']
@@ -143,7 +142,7 @@ if __name__ == '__main__':
             _print('Testing iteration - post delete:', '')
 
             for node in linked_list:
-                print node
+                print(node)
 
             linked_list['head'] = 'FOO'
             linked_list['node-3'] = 'BAR'
@@ -152,7 +151,7 @@ if __name__ == '__main__':
             _print('Testing value update', '')
 
             for node in linked_list:
-                print node
+                print(node)
 
 # Glossary practice
 

@@ -58,7 +58,7 @@ def reals(max_nums):
 
     def _range(generator):
         for n in generator:
-            print n
+            print(n)
 
     yield (_range(wholes(max_nums)),
            _range(naturals(max_nums)),
@@ -73,20 +73,20 @@ if __name__ == '__main__':
 
         _print('Naturals', '')
         for n in naturals(MAX_NUMS_PER_EXAMPLE):
-            print n
+            print(n)
 
         _print('Integers', '')
         for n in integers(MAX_NUMS_PER_EXAMPLE):
-            print n
+            print(n)
 
         _print('Rationals', '')
         for n in rationals(MAX_NUMS_PER_EXAMPLE):
-            print n
+            print(n)
 
         _print('Irrationals', '')
         for n in irrationals(MAX_NUMS_PER_EXAMPLE):
-            print n
+            print(n)
 
         _print('Reals', '')
         for n in reals(MAX_NUMS_PER_EXAMPLE):
-            print n
+            print(n)

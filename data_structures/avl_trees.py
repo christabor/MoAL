@@ -39,7 +39,7 @@ from helpers.display import Section
 class AVLTree(bst.BinarySearchTree):
 
     def _put(self, key, val, current_node):
-        print 'putting new node:', key, val
+        print('putting new node: {} {}'.format(key, val))
         if key < current_node.key:
             # Recursively check the current node
             # for a child, until we get to an empty spot to a leaf
@@ -62,7 +62,7 @@ class AVLTree(bst.BinarySearchTree):
                 self._update_balance(current_node.right_child)
 
     def _update_balance(self, node):
-        print 'updating balance...'
+        print('updating balance...')
         bst.recurse_bst(self.root, None)
         # Updates the balance factor for all nodes if necessary
         bf = node.balance_factor
@@ -86,7 +86,7 @@ class AVLTree(bst.BinarySearchTree):
                 self._update_balance(node.parent)
 
     def _rotate_left(self, rotation_root):
-        print 'rotating left...'
+        print('rotating left...')
         # Rotation root is the node this transformation rotates about.
         new_root = rotation_root.right_child
         # Store a copy of the rotation root, make the rotation roots' right
@@ -123,7 +123,7 @@ class AVLTree(bst.BinarySearchTree):
             rotation_root.balance_factor, 0)
 
     def _rotate_right(self, rotation_root):
-        print 'rotating right...'
+        print('rotating right...')
         new_root = rotation_root.left_child
         rotation_root.left_child = new_root.right_child
         if new_root.right_child is not None:
@@ -144,8 +144,8 @@ class AVLTree(bst.BinarySearchTree):
             rotation_root.balance_factor, 0)
 
     def _rebalance(self, node):
-        print 'rebalancing... node with value {}, current BF = {}'.format(
-            node.key, node.balance_factor)
+        print('rebalancing... node with value {}, current BF = {}'.format(
+            node.key, node.balance_factor))
         bst.recurse_bst(self.root, None)
 
         if node.balance_factor < 0:
@@ -168,8 +168,8 @@ class AVLTree(bst.BinarySearchTree):
                     self._rotate_right(node)
                 else:
                     self._rotate_right(node)
-        print 'New BF for node with value {} is {}'.format(
-            node.key, node.balance_factor)
+        print('New BF for node with value {} is {}'.format(
+            node.key, node.balance_factor))
         bst.recurse_bst(self.root, None)
 
 

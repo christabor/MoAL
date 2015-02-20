@@ -193,7 +193,7 @@ class GeneralizedSuffixTree(DeepSuffixTree):
 
     def __str__(self):
         for k, tree in enumerate(self.forest):
-            print self.forest[k]
+            print(self.forest[k])
         return ''
 
 
