@@ -140,7 +140,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Octonions
     + [~~Cardinals~~](maths/set_theory.py)
 + Structure
-  + Combinatorics
+  + [~~Combinatorics~~](maths/combinatorics/basic.py)
   + [~~Number theory~~](maths/number_theory.py)
   + Group theory
   + Category theory

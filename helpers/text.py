@@ -1,6 +1,7 @@
 import platform
 from random import choice
 from string import ascii_letters
+from string import ascii_uppercase as uppers
 
 
 def gibberish(length=10):
@@ -20,6 +21,23 @@ def gibberish2(length=3):
             _letters), choice(vowels), choice(_letters)
         return first + middle + last
     return ''.join([token() for _ in range(length)])
+
+
+def randchars(c):
+    return [choice(uppers) for _ in range(c)]
+
+
+def uniqchars(count):
+    def newchars(c):
+        return ''.join(list(set(randchars(c))))
+
+    if count < 2:
+        count = 2
+
+    string = newchars(count)
+    while len(string) < count:
+        string = newchars(count)
+    return string
 
 
 def words_unix_dict(min_length=8):
