@@ -19,26 +19,26 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Partial
   + Full
 + Abstract data types
-  + [~~Arrays~~](data_structures/array_and_linked_lists.py)
+  + [~~Arrays~~](data_structures/abstract/array_and_linked_lists.py)
   + Container
   + Map/Associative array/Dictionary
   + Multimap
   + List
   + Set
   + Multiset/Bag
-  + [~~Queue~~](data_structures/queues.py)
-    + [~~Double-ended queue~~](data_structures/queues.py)
-    + [~~Priority queue~~](data_structures/queues.py)
-      + [~~Using stdlib~~](data_structures/queues_stdlib.py)
-  + [~~Stacks~~](data_structures/stack.py)
-    + [~~Stack frames~~](data_structures/stack_frame.py)
+  + [~~Queue~~](data_structures/abstract/queues.py)
+    + [~~Double-ended queue~~](data_structures/abstract/queues.py)
+    + [~~Priority queue~~](data_structures/abstract/queues.py)
+      + [~~Using stdlib~~](data_structures/abstract/queues_stdlib.py)
+  + [~~Stacks~~](data_structures/abstract/stack.py)
+    + [~~Stack frames~~](data_structures/abstract/stack_frame.py)
   + String
   + Tree
-  + [~~Graph~~](data_structures/graphs.py)
+  + [~~Graph~~](data_structures/graphs/graphs.py)
 + Linear
-  + [~~Arrays~~](data_structures/array_and_linked_lists.py)
+  + [~~Arrays~~](data_structures/abstract/array_and_linked_lists.py)
     + [~~Overloaded arrays~~](helpers/adts.py)
-    + [~~Suffix arrays~~](data_structures/suffix_arrays.py)
+    + [~~Suffix arrays~~](data_structures/linear/array/suffix_arrays.py)
     + Bidirectional map
     + Bit
     + Bit field
@@ -62,9 +62,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Lists
     + Doubly linked
     + Array list
-    + [~~Linked~~](data_structures/array_and_linked_lists.py)
+    + [~~Linked~~](data_structures/abstract/array_and_linked_lists.py)
     + Self-organizing
-    + [~~Skip lists~~](data_structures/skip_lists.py)
+    + [~~Skip lists~~](data_structures/linear/lists/skip_lists.py)
     + Unrolled linked
     + VList
     + Xor linked
@@ -80,7 +80,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Dynamic perfect hash table
   + Hash array mapped trie (HAMT)
   + Hash list
-  + [~~Hash table~~](data_structures/hashtable.py)
+  + [~~Hash table~~](data_structures/hashes/hashtable.py)
   + Hash tree
   + Hash trie
   + Koorde

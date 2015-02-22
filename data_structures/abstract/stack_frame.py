@@ -10,7 +10,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from data_structures.stack import Stack
+from data_structures.abstract.stack import Stack
 
 
 class StackFrame:

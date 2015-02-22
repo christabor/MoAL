@@ -10,7 +10,7 @@ from helpers.display import _print
 from helpers.display import _cmd_title
 from pprint import pprint as ppr
 from helpers.adts import strlist
-from data_structures.graphs import DirectedGraph
+from data_structures.graphs.graphs import DirectedGraph
 import time
 
 # Definition, variations and example instruction set

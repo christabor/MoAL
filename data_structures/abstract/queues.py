@@ -8,7 +8,7 @@ if __name__ == '__main__':
 from random import choice
 from helpers.text import gibberish
 from helpers.display import Section
-from data_structures.stack import Stack
+from data_structures.abstract.stack import Stack
 
 
 class Queue(Stack):
