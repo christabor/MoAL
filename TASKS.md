@@ -122,7 +122,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Fusion
     + Bx
     + AList
-  + [~~Heaps~~](data_structures/heaps.py)
+  + [~~Heaps~~](data_structures/trees/heaps.py)
     + Binary
     + Weak
     + Binomial
@@ -143,7 +143,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Binary indexed tree
   + vEB tree
   + Red-black tree
-  + [~~Trie~~](data_structures/trie.py)
+  + [~~Trie~~](data_structures/trees/trie.py)
     + Radix tree
     + [~~Suffix tree~~](data_structures/trees/suffix_tree.py)
       + [~~Generalized~~](data_structures/trees/suffix_tree.py)
