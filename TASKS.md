@@ -91,8 +91,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Trees
   + Binary
     + AA
-    + [~~AVL tree~~](data_structures/avl_trees.py)
-    + [~~Binary search tree~~](data_structures/binary_search_trees.py)
+    + [~~AVL tree~~](data_structures/trees/avl_trees.py)
+    + [~~Binary search tree~~](data_structures/trees/binary_search_trees.py)
     + Binary
     + Cartesian
     + Order statistic
@@ -102,7 +102,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Rope
     + Scapegoat
     + Self-balancing binary search
-    + [~~Splay tree~~](data_structures/splay_trees.py)
+    + [~~Splay tree~~](data_structures/trees/splay_trees.py)
     + T-tree
     + Tango
     + Threaded binary
@@ -145,8 +145,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Red-black tree
   + [~~Trie~~](data_structures/trie.py)
     + Radix tree
-    + [~~Suffix tree~~](data_structures/suffix_tree.py)
-      + [~~Generalized~~](data_structures/suffix_tree.py)
+    + [~~Suffix tree~~](data_structures/trees/suffix_tree.py)
+      + [~~Generalized~~](data_structures/trees/suffix_tree.py)
       + Ukkonen's
       + McCreight's
     + Suffix array
@@ -809,8 +809,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Prolog
   + Object-oriented
     + Features
-      + [~~Class hierarchy~~](data_structures/oop_classes.py)
-      + [~~Static, class, & abstract methods~~](data_structures/oop_classes.py)
+      + [~~Class hierarchy~~](languages/paradigms/oop_classes.py)
+      + [~~Static, class, & abstract methods~~](languages/paradigms/oop_classes.py)
         + Abstract Base Classes
       + Overloading
       + Polymorphism

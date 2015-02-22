@@ -9,7 +9,7 @@ from helpers.display import Section
 from string import ascii_lowercase
 from string import punctuation
 from random import choice
-from data_structures.binary_search_trees import BinarySearchTree
+from data_structures.trees.binary_search_trees import BinarySearchTree
 
 # Inspired by:
 # http://www.toptal.com/java/the-trie-a-neglected-data-structure

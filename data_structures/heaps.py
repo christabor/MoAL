@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from random import randrange as rr
-import data_structures.binary_search_trees as bst
+import data_structures.trees.binary_search_trees as bst
 
 
 class BinHeap(bst.BinarySearchTree):

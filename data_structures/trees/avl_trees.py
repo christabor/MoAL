@@ -8,7 +8,7 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-import data_structures.binary_search_trees as bst
+import data_structures.trees.binary_search_trees as bst
 from helpers.display import Section
 
 
