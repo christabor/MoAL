@@ -6,7 +6,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 
 # Tasks
 
-## Data structures
+## Data structures / types
 
 + Persistent
   + Partial
@@ -14,54 +14,225 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Path copying
       + Fat / path combination
   + Full
-    + [~~Linked lists~~](data_structures/array_and_linked_lists.py)
   + Confluent
 + Retroactive
   + Partial
   + Full
-+ [~~Arrays~~](data_structures/array_and_linked_lists.py)
-  + [~~Overloaded arrays~~](helpers/adts.py)
-  + [~~Suffix arrays~~](data_structures/suffix_arrays.py)
-  + Judy arrays
-+ Doubly-connected edge list
-+ Disjoint-set / union-find / merge-find ADT
-+ Winged edge
-+ Quad edge
-+ [~~Heaps~~](data_structures/heaps.py)
-+ [~~Hash table~~](data_structures/hashtable.py)
-+ Bloom filters
-+ [~~Stacks~~](data_structures/stack.py)
-  + [~~Stack frames~~](data_structures/stack_frame.py)
-+ [~~Queue~~](data_structures/queues.py)
-  + [~~Double-ended queue~~](data_structures/queues.py)
-  + [~~Priority queue~~](data_structures/queues.py)
-    + [~~Using stdlib~~](data_structures/queues_stdlib.py)
++ Abstract data types
+  + [~~Arrays~~](data_structures/array_and_linked_lists.py)
+  + Container
+  + Map/Associative array/Dictionary
+  + Multimap
+  + List
+  + Set
+  + Multiset/Bag
+  + [~~Queue~~](data_structures/queues.py)
+    + [~~Double-ended queue~~](data_structures/queues.py)
+    + [~~Priority queue~~](data_structures/queues.py)
+      + [~~Using stdlib~~](data_structures/queues_stdlib.py)
+  + [~~Stacks~~](data_structures/stack.py)
+    + [~~Stack frames~~](data_structures/stack_frame.py)
+  + String
+  + Tree
+  + [~~Graph~~](data_structures/graphs.py)
++ Linear
+  + [~~Arrays~~](data_structures/array_and_linked_lists.py)
+    + [~~Overloaded arrays~~](helpers/adts.py)
+    + [~~Suffix arrays~~](data_structures/suffix_arrays.py)
+    + Bidirectional map
+    + Bit
+    + Bit field
+    + Bitboard
+    + Bitmap
+    + Circular buffer
+    + Control table
+    + Image
+    + Dynamic
+    + Gap buffer
+    + Hashed array tree
+    + Heightmap
+    + Lookup table
+    + Matrix
+    + Parallel
+    + Sorted
+    + Sparse
+    + Sparse matrix
+    + Iliffe vector
+    + Variable-length
+  + Lists
+    + Doubly linked
+    + Array list
+    + [~~Linked~~](data_structures/array_and_linked_lists.py)
+    + Self-organizing
+    + [~~Skip lists~~](data_structures/skip_lists.py)
+    + Unrolled linked
+    + VList
+    + Xor linked
+    + Zipper
+    + Doubly connected edge
+    + Difference
+    + Free
++ Hashes
+  + Bloom filter
+  + Count-Min sketch
+  + Distributed hash table
+  + Double Hashing
+  + Dynamic perfect hash table
+  + Hash array mapped trie (HAMT)
+  + Hash list
+  + [~~Hash table~~](data_structures/hashtable.py)
+  + Hash tree
+  + Hash trie
+  + Koorde
+  + Prefix hash tree
+  + Rolling hash
+  + MinHash
+  + Quotient filter
 + Trees
-  + UB-tree
-  + BSP Tree
-    + K-dimensional tree
-  + Fractal tree index
-  + Interval tree
-  + [~~Binary search tree~~](data_structures/binary_search_trees.py)
+  + Binary
+    + AA
+    + [~~AVL tree~~](data_structures/avl_trees.py)
+    + [~~Binary search tree~~](data_structures/binary_search_trees.py)
+    + Binary
+    + Cartesian
+    + Order statistic
+    + Pagoda
+    + Randomized binary search
+    + Red-black
+    + Rope
+    + Scapegoat
+    + Self-balancing binary search
+    + [~~Splay tree~~](data_structures/splay_trees.py)
+    + T-tree
+    + Tango
+    + Threaded binary
+    + Top
     + Treap
-    + Randomized BST
+    + Weight-balanced
+    + Binary data structure
+  + B
+    + B
+    + B+
+    + B*
+    + B sharp
+    + Dancing
+    + 2-3
+    + 2-3-4
+    + Queap
+    + Fusion
+    + Bx
+    + AList
+  + [~~Heaps~~](data_structures/heaps.py)
+    + Binary
+    + Weak
+    + Binomial
+    + Fibonacci
+      + AF
+    + Leonardo
+    + 2-3
+    + Soft
+    + Pairing
+    + Leftist
+    + Beap
+    + Skew
+    + Ternary
+    + D-ary
+    + Brodal queue
+  + Fractal
+  + Interval tree
   + Binary indexed tree
-  + [~~Splay tree~~](data_structures/splay_trees.py)
   + vEB tree
   + Red-black tree
-  + [~~AVL tree~~](data_structures/avl_trees.py)
+  + [~~Trie~~](data_structures/trie.py)
+    + Radix tree
+    + [~~Suffix tree~~](data_structures/suffix_tree.py)
+      + [~~Generalized~~](data_structures/suffix_tree.py)
+      + Ukkonen's
+      + McCreight's
+    + Suffix array
+    + Compressed suffix array
+    + FM-index
+    + B-trie
+    + Judy array
+    + X-fast
+    + Y-fast
+    + Concurrent trie (Ctrie)
+  + Space-partitioning
+    + Segment
+    + Interval
+    + Range
+    + Bin
+    + Kd-tree
+    + Implicit kd-tree
+    + Min/max kd-tree
+    + Adaptive k-d
+    + Quad
+    + Oc
+    + Linear oc
+    + Z-order
+    + UB
+    + R
+    + R+
+    + R*
+    + Hilbert R
+    + X
+    + Metric
+    + Cover
+    + M
+    + VP
+    + BK
+    + Bounding interval hierarchy
+    + BSP
+      + K-dimensional tree
+    + Rapidly exploring random
+  + Multiway
+    + Ternary
+    + K-ary
+    + And–or
+    + (a,b)
+    + Link/cut
+    + SPQR
+    + Spaghetti stack
+    + Disjoint-set / union-find / merge-find ADT
+    + Fusion
+    + Enfilade
+    + Exponential
+    + Fenwick
+    + Van Emde Boas
+    + Rose
+  + Application specific
+    + Abstract syntax
+    + Parse
+    + Decision
+    + Alternating decision
+    + Minimax
+    + Expectiminimax
+    + Finger
+    + Expression
+    + Log-structured merge
+    + AHO tree (for AHO algorithm)
 + [~~Graph~~](data_structures/graphs.py)
-  + DAWG/DAFSA
-  + PDAG
-  + AHO tree (for AHO algorithm)
-+ Concurrent trie (Ctrie)
-+ [~~Skip lists~~](data_structures/skip_lists.py)
-+ [~~Trie~~](data_structures/trie.py)
-  + [~~Suffix tree~~](data_structures/suffix_tree.py)
-    + [~~Generalized~~](data_structures/suffix_tree.py)
-    + Ukkonen's
-    + McCreight's
-  + Hash array mapped tries (HAMT)
+  + Adjacency list
+  + Adjacency matrix
+  + Graph-structured stack
+  + Scene
+  + Binary decision diagram
+  + Zero-suppressed decision diagram
+  + And-inverter
+  + Directed
+    + DAWG/DAFSA
+      + Sparse
+      + Compacted
+    + Acyclic
+      + Propositional
+  + Multigraph
+  + Hypergraph
++ Other
+  + Lightmap
+  + Winged edge
+  + Quad-edge
+  + Routing table
+  + Symbol table
 
 ## Engineering / Software Development
 
@@ -295,8 +466,6 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Knight's Tour Problem
   + The Word Ladder Problem
   + DFS / BFS
-  + An Adjacency Matrix
-  + An Adjacency List
   + Prim's Spanning Tree Algorithm
   + Building the Word Ladder Graph
   + Topological Sorting
@@ -857,6 +1026,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
   + wikipedia.org/wiki/Proof_theory
   + wikipedia.org/wiki/Computability_theory#Areas_of_research
   + wikipedia.org/wiki/Model_theory
++ wikipedia.org/wiki/List_of_data_structures
 
 *Misc*
 + www.fullstackpython.com/table-of-contents.html
