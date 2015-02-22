@@ -211,7 +211,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Expression
     + Log-structured merge
     + AHO tree (for AHO algorithm)
-+ [~~Graph~~](data_structures/graphs.py)
++ [~~Graph~~](data_structures/graphs/graphs.py)
   + Adjacency list
   + Adjacency matrix
   + Graph-structured stack
