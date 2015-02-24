@@ -13,7 +13,7 @@ from random import choice
 
 MAX_VERTICES = 6
 MAX_EDGES = MAX_VERTICES / 2
-all_vertices = [_ for _ in range(MAX_VERTICES)]
+all_vertices = range(0, MAX_VERTICES)
 
 
 class InvalidGraphRepresentation(Exception):
