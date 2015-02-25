@@ -12,7 +12,7 @@ from pprint import pprint as ppr
 class AbstractGraphList(object):
 
     def __init__(self):
-        # We're using a dict since the vertices are labeled, but the lists
+        # We're using a dictionary since the vertices are labeled, but the lists
         # are contained within: "a collection of unordered lists."
         self.nodes = {}
 

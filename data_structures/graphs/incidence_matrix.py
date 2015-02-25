@@ -26,7 +26,7 @@ class IncidenceMatrix(GraphMatrix):
 
     def __init__(self):
         """Here, we keep track of edges/edge count just like
-        vertices/vertex count in the adjacency matrix."""
+        vertices/vertex in the adjacency matrix."""
         super(IncidenceMatrix, self).__init__()
         self.vertex_count = 0
         self.edges = set()

@@ -128,7 +128,7 @@ class GraphMatrix(object):
 
     def _reorder_dict_indices(self, vals):
         """Generic reordering function for resetting
-        indices of a givne dictionary."""
+        indices of a given dictionary."""
         for new_index, index in enumerate(vals):
             vals[index] = new_index
         return vals
