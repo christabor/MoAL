@@ -212,8 +212,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Log-structured merge
     + AHO tree (for AHO algorithm)
 + [~~Graph~~](data_structures/graphs/graphs.py)
-  + Adjacency list
-  + Adjacency matrix
+  + [~~Adjacency list~~](data_structures/graphs/adjacency_list.py)
+  + [~~Adjacency matrix~~](data_structures/graphs/adjacency_matrix.py)
+  + [~~Incidence matrix~~](data_structures/graphs/incidence_matrix.py)
   + Graph-structured stack
   + Scene
   + Binary decision diagram
