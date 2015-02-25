@@ -2,7 +2,7 @@
 
 **This should be considered a living document. It will grow in size, becoming better organized as new details and fields of study are integrated**
 
-_Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file. Each task and child task/category is designed to be as true to the hierarchy of understanding as possible; duplicate labels are thus removed for child elements, so that relationships are derived by simply mentally "traversing the tree", to build out the specific name.
+_Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file. Each task and child task/category is designed to be as true to the hierarchy of understanding as possible; duplicate labels are thus removed for child elements, so that relationships are derived by simply mentally "traversing the tree", to build out the specific name.
 
 # Tasks
 
@@ -19,26 +19,26 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Partial
   + Full
 + Abstract data types
-  + [~~Arrays~~](data_structures/abstract/array_and_linked_lists.py)
+  + [Arrays](data_structures/abstract/array_and_linked_lists.py)
   + Container
   + Map/Associative array/Dictionary
   + Multimap
   + List
   + Set
   + Multiset/Bag
-  + [~~Queue~~](data_structures/abstract/queues.py)
-    + [~~Double-ended queue~~](data_structures/abstract/queues.py)
-    + [~~Priority queue~~](data_structures/abstract/queues.py)
-      + [~~Using stdlib~~](data_structures/abstract/queues_stdlib.py)
-  + [~~Stacks~~](data_structures/abstract/stack.py)
-    + [~~Stack frames~~](data_structures/abstract/stack_frame.py)
+  + [Queue](data_structures/abstract/queues.py)
+    + [Double-ended queue](data_structures/abstract/queues.py)
+    + [Priority queue](data_structures/abstract/queues.py)
+      + [Using stdlib](data_structures/abstract/queues_stdlib.py)
+  + [Stacks](data_structures/abstract/stack.py)
+    + [Stack frames](data_structures/abstract/stack_frame.py)
   + String
   + Tree
-  + [~~Graph~~](data_structures/graphs/graphs.py)
+  + [Graph](data_structures/graphs/graphs.py)
 + Linear
-  + [~~Arrays~~](data_structures/abstract/array_and_linked_lists.py)
-    + [~~Overloaded arrays~~](helpers/adts.py)
-    + [~~Suffix arrays~~](data_structures/linear/array/suffix_arrays.py)
+  + [Arrays](data_structures/abstract/array_and_linked_lists.py)
+    + [Overloaded arrays](helpers/adts.py)
+    + [Suffix arrays](data_structures/linear/array/suffix_arrays.py)
     + Bidirectional map
     + Bit
     + Bit field
@@ -62,9 +62,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Lists
     + Doubly linked
     + Array list
-    + [~~Linked~~](data_structures/abstract/array_and_linked_lists.py)
+    + [Linked](data_structures/abstract/array_and_linked_lists.py)
     + Self-organizing
-    + [~~Skip lists~~](data_structures/linear/lists/skip_lists.py)
+    + [Skip lists](data_structures/linear/lists/skip_lists.py)
     + Unrolled linked
     + VList
     + Xor linked
@@ -80,7 +80,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Dynamic perfect hash table
   + Hash array mapped trie (HAMT)
   + Hash list
-  + [~~Hash table~~](data_structures/hashes/hashtable.py)
+  + [Hash table](data_structures/hashes/hashtable.py)
   + Hash tree
   + Hash trie
   + Koorde
@@ -91,8 +91,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 + Trees
   + Binary
     + AA
-    + [~~AVL tree~~](data_structures/trees/avl_trees.py)
-    + [~~Binary search tree~~](data_structures/trees/binary_search_trees.py)
+    + [AVL tree](data_structures/trees/avl_trees.py)
+    + [Binary search tree](data_structures/trees/binary_search_trees.py)
     + Binary
     + Cartesian
     + Order statistic
@@ -102,7 +102,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Rope
     + Scapegoat
     + Self-balancing binary search
-    + [~~Splay tree~~](data_structures/trees/splay_trees.py)
+    + [Splay tree](data_structures/trees/splay_trees.py)
     + T-tree
     + Tango
     + Threaded binary
@@ -122,7 +122,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Fusion
     + Bx
     + AList
-  + [~~Heaps~~](data_structures/trees/heaps.py)
+  + [Heaps](data_structures/trees/heaps.py)
     + Binary
     + Weak
     + Binomial
@@ -143,10 +143,10 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Binary indexed tree
   + vEB tree
   + Red-black tree
-  + [~~Trie~~](data_structures/trees/trie.py)
+  + [Trie](data_structures/trees/trie.py)
     + Radix tree
-    + [~~Suffix tree~~](data_structures/trees/suffix_tree.py)
-      + [~~Generalized~~](data_structures/trees/suffix_tree.py)
+    + [Suffix tree](data_structures/trees/suffix_tree.py)
+      + [Generalized](data_structures/trees/suffix_tree.py)
       + Ukkonen's
       + McCreight's
     + Suffix array
@@ -208,13 +208,14 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Minimax
     + Expectiminimax
     + Finger
+    + Bounding volume hierarchy
     + Expression
     + Log-structured merge
     + AHO tree (for AHO algorithm)
-+ [~~Graph~~](data_structures/graphs/graphs.py)
-  + [~~Adjacency list~~](data_structures/graphs/adjacency_list.py)
-  + [~~Adjacency matrix~~](data_structures/graphs/adjacency_matrix.py)
-  + [~~Incidence matrix~~](data_structures/graphs/incidence_matrix.py)
++ [Graph](data_structures/graphs/graphs.py)
+  + [Adjacency list](data_structures/graphs/adjacency_list.py)
+  + [Adjacency matrix](data_structures/graphs/adjacency_matrix.py)
+  + [Incidence matrix](data_structures/graphs/incidence_matrix.py)
   + Graph-structured stack
   + Scene
   + Binary decision diagram
@@ -300,20 +301,20 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
 
 + Quantity
   + Numbers
-    + [~~Natural~~](maths/numbers/basic.py)
-      + [~~Transfinite~~](maths/set_theory.py)
-    + [~~Integers~~](maths/numbers/basic.py)
-    + [~~Rational~~](maths/numbers/basic.py)
-    + [~~Irrational~~](maths/numbers/basic.py)
-    + [~~Real~~](maths/numbers/basic.py)
+    + [Natural](maths/numbers/basic.py)
+      + [Transfinite](maths/set_theory.py)
+    + [Integers](maths/numbers/basic.py)
+    + [Rational](maths/numbers/basic.py)
+    + [Irrational](maths/numbers/basic.py)
+    + [Real](maths/numbers/basic.py)
     + Imaginary
     + Complex
     + Quaternions
     + Octonions
-    + [~~Cardinals~~](maths/set_theory.py)
+    + [Cardinals](maths/set_theory.py)
 + Structure
-  + [~~Combinatorics~~](maths/combinatorics/basic.py)
-  + [~~Number theory~~](maths/number_theory.py)
+  + [Combinatorics](maths/combinatorics/basic.py)
+  + [Number theory](maths/number_theory.py)
   + Group theory
   + Category theory
   + Graph theory
@@ -344,21 +345,21 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Fluid dynamics
     + Numerical analysis
       + Asymptotic notation
-        + [~~Big O~~](maths/big_o.py)
-          + [~~O(1)~~](maths/big_o.py)
-          + [~~O(logN)~~](maths/big_o.py)
-          + [~~O(n)~~](maths/big_o.py)
-          + [~~O(n logN)~~](maths/big_o.py)
-          + [~~O(n^2)~~](maths/big_o.py)
-          + [~~O(2^n)~~](maths/big_o.py)
-          + [~~O(n!)~~](maths/big_o.py)
+        + [Big O](maths/big_o.py)
+          + [O(1)](maths/big_o.py)
+          + [O(logN)](maths/big_o.py)
+          + [O(n)](maths/big_o.py)
+          + [O(n logN)](maths/big_o.py)
+          + [O(n^2)](maths/big_o.py)
+          + [O(2^n)](maths/big_o.py)
+          + [O(n!)](maths/big_o.py)
     + Optimization
       + Linear programming
         + Augmented form
         + Duality
     + Probability theory
     + Statistics
-      + [~~Probability~~](maths/probability.py)
+      + [Probability](maths/probability.py)
     + Cryptography
       + Diffie-Hellman
       + RSA
@@ -388,7 +389,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Utility theory
   + Social choice theory
   + Logic
-    + [~~Set theory~~](maths/set_theory.py)
+    + [Set theory](maths/set_theory.py)
       + Axiomatic
       + Combinatorial
       + Descriptive
@@ -439,9 +440,9 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Toom-Cook
   + Fourier transform
 + Sorting
-  + [~~Insertion sort~~](algorithms/sorting/insertion_sort.py)
-  + [~~Merge sort~~](algorithms/sorting/merge_sort.py)
-  + [~~Quick sort~~](algorithms/sorting/quick_sort.py)
+  + [Insertion sort](algorithms/sorting/insertion_sort.py)
+  + [Merge sort](algorithms/sorting/merge_sort.py)
+  + [Quick sort](algorithms/sorting/quick_sort.py)
   + Splay sort
   + Heap sort
   + Radix sort
@@ -449,11 +450,11 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Adaptive
     + MBM
     + Forward
-  + [~~Bubble Sort~~](algorithms/sorting/bubble_sort.py)
-  + [~~Bogo Sort (anti-pattern)~~](algorithms/sorting/bogo_sort.py)
+  + [Bubble Sort](algorithms/sorting/bubble_sort.py)
+  + [Bogo Sort (anti-pattern)](algorithms/sorting/bogo_sort.py)
   + Burst sort
-  + [~~Selection Sort~~](algorithms/sorting/selection_sort.py)
-  + [~~Shell Sort~~](algorithms/sorting/shell_sort.py)
+  + [Selection Sort](algorithms/sorting/selection_sort.py)
+  + [Shell Sort](algorithms/sorting/shell_sort.py)
 + Approximation
 + Greedy
 + Dynamic programming
@@ -698,7 +699,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
   + Abstract machine
     + Pushdown automata
       + Generalized
-    + [~~Turing machine~~](automata_theory/turing_machine.py)
+    + [Turing machine](automata_theory/turing_machine.py)
       + Universal
       + Alternating
       + Quantum
@@ -710,20 +711,20 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Multi-track
     + Stack machine
     + Register machine / Wang-b machine
-      + [~~Pointer~~](automata_theory/pointer_machine.py)
-        + [~~Schonhage Storage Modification~~](automata_theory/pointer_machine.py)
-        + [~~Kolmogorov-Uspenskii~~](automata_theory/pointer_machine.py)
+      + [Pointer](automata_theory/pointer_machine.py)
+        + [Schonhage Storage Modification](automata_theory/pointer_machine.py)
+        + [Kolmogorov-Uspenskii](automata_theory/pointer_machine.py)
         + Knuth's Linking Automaton
         + Atomistic Pure-LISP (APLM)
         + Atomistic Full-LISP (AFLM)
         + General atomistic
         + Jone's I Language 1
         + Jone's I Language 2
-      + [~~Counter~~](automata_theory/counter_machine.py)
-        + [~~SheperdsonSturgis~~](automata_theory/counter_machine.py)
-        + [~~Minsky~~](automata_theory/counter_machine.py)
+      + [Counter](automata_theory/counter_machine.py)
+        + [SheperdsonSturgis](automata_theory/counter_machine.py)
+        + [Minsky](automata_theory/counter_machine.py)
         + Program
-        + [~~Abacus~~](automata_theory/counter_machine.py)
+        + [Abacus](automata_theory/counter_machine.py)
         + Lambek
         + Successor
         + SuccessorRAM
@@ -763,7 +764,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + expression
   + Python - decorator
   + Python - context manager (with)
-  + [~~Python - variable packing/unpacking~~](languages/features/python/packing_unpacking.py)
+  + [Python - variable packing/unpacking](languages/features/python/packing_unpacking.py)
   + Python - index slicing
   + Python - comprehensions
   + Rust - de-structuring
@@ -790,7 +791,7 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
       + Stochastic
       + Adaptive
       + Ambiguous
-      + [~~Backus-Naur Form (BFN)~~](languages/formal_language_theory/grammars/backus_naur.py)
+      + [Backus-Naur Form (BFN)](languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms
   + Functional
@@ -810,8 +811,8 @@ _Note:_ *completed tasks will be ~~crossed out with a [link](#)~~*. Tasks are ge
     + Prolog
   + Object-oriented
     + Features
-      + [~~Class hierarchy~~](languages/paradigms/oop_classes.py)
-      + [~~Static, class, & abstract methods~~](languages/paradigms/oop_classes.py)
+      + [Class hierarchy](languages/paradigms/oop_classes.py)
+      + [Static, class, & abstract methods](languages/paradigms/oop_classes.py)
         + Abstract Base Classes
       + Overloading
       + Polymorphism
