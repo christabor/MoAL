@@ -148,7 +148,7 @@ if __name__ == '__main__':
         })
         print(test_graph.walk(1, 2))
         assert len(test_graph.walk(0, 3)) == 0  # non-existent node
-        assert len(test_graph.walk(2, 1)) == 3  # directions are enforced
+        assert len(test_graph.walk(2, 1)) == 3
         assert not test_graph.is_closed(1, 2)
         assert test_graph.is_closed(0, 0)
 
