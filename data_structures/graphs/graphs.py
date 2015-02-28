@@ -269,3 +269,18 @@ if __name__ == '__main__':
             3: [1, 2, 3]
         })
         assert dcg.is_cyclic()
+        # Add another more complex example for testing.
+        # see upload.wikimedia.org/wikipedia/commons/thumb/3/39
+        #   /Directed_acyclic_graph_3.svg
+        #   /356px-Directed_acyclic_graph_3.svg.png
+        dcg_wikipedia = DirectedCyclicGraph({
+            2: [],
+            3: [8, 10],
+            5: [11],
+            7: [8, 11],
+            8: [9],
+            9: [],
+            10: [],
+            11: [2, 9, 10]
+        })
+        assert dcg_wikipedia.is_acyclic()
