@@ -9,9 +9,11 @@ from helpers.display import Section
 from helpers.display import _print
 from pprint import pprint as ppr
 from random import randrange
+from copy import deepcopy
 from random import choice
 
 # wikipedia.org/wiki/Glossary_of_graph_theory
+# and cs.hmc.edu/~keller/courses/cs60/s98/examples/acyclic
 
 MAX_VERTICES = 6
 MAX_EDGES = MAX_VERTICES / 2
@@ -22,7 +24,7 @@ class InvalidGraphRepresentation(Exception):
     pass
 
 
-class Graph:
+class Graph(object):
 
     def __len__(self):
         return len(self.vertices.keys())
@@ -30,14 +32,24 @@ class Graph:
     def __init__(self, vertices=None):
         self.vertices = vertices or {}
 
-    def __setitem__(self, node, edges):
-        self.vertices[node] = edges
+    def __contains__(self, vertex):
+        return vertex in self.vertices
 
-    def __delitem__(self, node):
-        del self.vertices[node]
+    def __setitem__(self, vertex, edges):
+        self.vertices[vertex] = edges
 
-    def __getitem__(self, node):
-        return self.vertices[node]
+    def __delitem__(self, vertex):
+        # Remove entire node
+        if vertex not in self.vertices:
+            return
+        del self.vertices[vertex]
+        # Remove other references.
+        for _vertex in self.vertices:
+            if vertex in self.vertices[_vertex]:
+                self.vertices[_vertex].remove(vertex)
+
+    def __getitem__(self, vertex):
+        return self.vertices[vertex]
 
     def __iter__(self):
         return iter(self.vertices)
@@ -46,59 +58,124 @@ class Graph:
         display = []
         for vertex, vertices in self.vertices.iteritems():
             display.append('{outbound} <-- ({vertex})'.format(
-                vertex=vertex,
-                outbound=vertices))
+                vertex=vertex, outbound=vertices))
         return ',\n'.join(display)
 
-    def walk(self, start, end, path=[]):
-        path = path + [start]
-        paths = []
-        if start == end:
-            return path
-        if start in self.vertices:
-            for node in self.vertices[start]:
-                # Add new node if it's not in the list already.
-                if node not in path:
-                    # Get new path from this node
-                    paths += self.walk(node, end, path=path)
-        return paths
-
-    def connections(self, node):
-        try:
-            return '({})--{}'.format(node, self.vertices[node])
-        except KeyError:
-            raise InvalidGraphRepresentation
-
-    def all_vertices(self):
+    def all_vertices(self, unique=True):
+        """Return all vertices in the graph, including duplicate
+        references; remove duplicates if `unique` is true."""
         vertices = self.vertices.keys()
         for vals in self.vertices.values():
             vertices = vertices + vals
-        return list(set(vertices))
+        return list(set(vertices)) if unique else vertices
 
-    def degree(self, node):
-        return len(self.vertices[node]) if node in self.vertices else 0
+    def degree(self, vertex):
+        """Return the number of edges for a given vertex.
+        Only allows string/integer/tuple vertices."""
+        if isinstance(vertex, int) \
+                or isinstance(vertex, str) \
+                or isinstance(vertex, tuple):
+            return len(self.vertices[vertex]) if vertex in self.vertices else 0
+        return 0
 
-    def has_degree(self, node, degrees):
-        return self.degree(node) == degrees
+    def has_degree(self, vertex, degrees):
+        return self.degree(vertex) == degrees
 
-    def has_multiple_degrees(self, node):
-        return self.degree(node) > 1
+    def has_multiple_degrees(self, vertex):
+        return self.degree(vertex) > 1
 
     def is_open(self, start, end):
         return not self.is_closed(start, end)
 
     def is_closed(self, start, end):
         """A walk is considered closed if the first and last
-        vertices are the same, open if not."""
+        vertices are the same, open if not. This is also known as a cycle."""
         if start == end:
             return True
-        res = self.walk(start, end)
+        res = self.walk(start, end, test_cycle=True)
+        if len(res) == 0:
+            return True
         return res[0] == res[::-1]
+
+    def is_leaf(self, vertex):
+        """A leaf vertex is a vertex with no outbound edges."""
+        return self.degree(vertex) == 0
+
+    def walk(self, start, end, path=[], test_cycle=False):
+        path = path + [start]
+        paths = []
+
+        if test_cycle:
+            end = start
+
+        if start == end and not test_cycle:
+            return path
+
+        if test_cycle and path[::-1] == start:
+            return paths
+
+        if start in self.vertices.keys():
+            for vertex in self.vertices[start]:
+                # Add new vertex if it's not in the list already.
+                if vertex not in path:
+                    # Get new path from this vertex
+                    paths += self.walk(
+                        vertex, end, path=path, test_cycle=test_cycle)
+        return paths
+
+    def is_cycle(self, vertex):
+        return self.walk(vertex, None, test_cycle=True)
+
+    def is_acycle(self, vertex):
+        return not self.is_cycle(vertex)
+
+    def is_cyclic(self):
+        return not self.is_acyclic()
+
+    def is_acyclic(self):
+        """A graph is acyclic if:
+        * It has no vertices to begin with.
+            [OR]
+        * If continual removal of leaf nodes and
+            updating of arcs leaves no vertices.
+        If there is a non-leaf node left, the graph IS cyclic.
+        """
+        # A graph with no vertices is automatically acyclic.
+        if len(self.vertices) == 0:
+            return True
+        # A graph with NO leaf nodes is cyclic.
+        leaves = len([self.is_leaf(vertex) for vertex in self.vertices])
+        # Keep a backup of the original graph.
+        graph_copy = deepcopy(self.vertices)
+        if leaves == 0:
+            return False
+        _print('Directed Acyclic graph check', '')
+        while len(self.vertices.keys()) > 1:
+            vertices = self.vertices.keys()
+            # Skip ahead if there's only one vertex left.
+            start = choice(vertices)
+            print('Checking cycle... start={}, {}'.format(start, self.vertices))
+            # Otherwise, keep checking cycles and deleting nodes.
+            if self.is_cycle(start):
+                return False
+            else:
+                self.__delitem__(start)
+        # Restore backup
+        nodes_left = len(self.vertices.values()[0])
+        acyclic = True if nodes_left == 0 else False
+        print('All cycles checked. Graph {} acyclicity = {}'.format(
+            self.vertices, acyclic))
+        self.vertices = graph_copy
+        # If a cycle wasn't already found above, it's guaranteed to be acyclic.
+        return acyclic
 
     def is_trail(self, start, end):
         """A trail is a walk in which all the edges are distinct."""
         res = self.walk(start, end)
         return len(res) == len(set(res))
+
+    def is_bipartite(self, start, end):
+        pass
 
     def tour_hamiltonian(self):
         pass
@@ -108,6 +185,18 @@ class Graph:
 
 
 class DirectedGraph(Graph):
+    pass
+
+
+class CyclicGraph(Graph):
+    pass
+
+
+class DirectedCyclicGraph(DirectedGraph, CyclicGraph):
+    pass
+
+
+class DirectedAcyclicGraph(DirectedGraph, CyclicGraph):
     pass
 
 
@@ -124,49 +213,27 @@ def _rand_edges(num_edges):
     return list(edges)
 
 
-def _test_walk_valid(graph):
-    valid = False
-    while not valid:
-        start = choice(all_vertices)
-        end = choice(all_vertices)
-        res = graph.walk(start, end)
-        if len(res) > 0:
-            return 'walk of {}, {} = {}'.format(start, end, res)
-            valid = True
-
 if __name__ == '__main__':
     with Section('Basic graph'):
-        graph = Graph()
-        # Initial seeding
-        for _ in range(5):
-            graph[choice(all_vertices)] = _rand_edges(MAX_EDGES)
-
-        test_graph = Graph({
+        graph = Graph({
             0: [1, 2],
             1: [2, 0],
             2: [0]
         })
-        print(test_graph.walk(1, 2))
-        assert len(test_graph.walk(0, 3)) == 0  # non-existent node
-        assert len(test_graph.walk(2, 1)) == 3
-        assert not test_graph.is_closed(1, 2)
-        assert test_graph.is_closed(0, 0)
+        assert len(graph.walk(0, 3)) == 0  # non-existent node
+        assert len(graph.walk(2, 1)) == 3  # unreachable node
+        assert graph.is_closed(1, 2)  # Cycle
+        assert graph.is_closed(0, 0)  # Trivial cycle
+        assert graph.is_closed(2, 1)  # Cycle
 
         _print('Generated graph', graph.vertices, func=ppr)
-        _print('walk of...', _test_walk_valid(graph))
-
         deg, vertex = randrange(0, MAX_EDGES), choice(all_vertices)
         print('Has degree {} ... {}? {}'.format(
             deg, vertex, graph.has_degree(deg, vertex)))
 
-        for _ in range(5):
-            try:
-                _print('connections', graph.connections(choice(all_vertices)))
-            except InvalidGraphRepresentation:
-                print(
-                    'Invalid graph was generated -- need more than 2 vertices')
-        for node in graph:
-            print('Node {} has degree {}'.format(node, graph.degree(node)))
+        for vertex in graph:
+            print('Vertex {} has degree {}'.format(
+                vertex, graph.degree(vertex)))
         _print('graph', graph)
         _print('Has multiple degrees?', graph.has_multiple_degrees(1))
 
@@ -181,11 +248,24 @@ if __name__ == '__main__':
         _print('Set item:', digraph[3])
         del digraph[2]
         _print('Del item:', digraph)
-        _print('walk of...', _test_walk_valid(digraph))
-
-        test_digraph = DirectedGraph({
-            0: [1, 2],
-            1: [2, 0],
-            2: [0]
+        digraph = DirectedGraph({
+            1: [2],
+            2: [3, 4],
+            3: [],  # intentionally empty
+            4: [5, 6],
+            5: [6],
+            6: [3]
         })
-        print(test_digraph)
+        deg_test = [(1, 1), (2, 2), (3, 0), (4, 2), (5, 1), (6, 1)]
+        for degs in deg_test:
+            assert digraph.has_degree(*degs)
+        assert digraph.is_acyclic()
+        digraph[6] = [3, 4]  # Create cyclic graph
+        digraph[4] = [5]
+
+        dcg = DirectedCyclicGraph({
+            1: [2, 3, 1],
+            2: [1, 3, 2],
+            3: [1, 2, 3]
+        })
+        assert dcg.is_cyclic()
