@@ -124,7 +124,7 @@ class Graph(object):
         return paths
 
     def is_cycle(self, vertex):
-        return self.walk(vertex, None, test_cycle=True)
+        return self.walk(vertex, None, test_cycle=True)[::-1] == vertex
 
     def is_acycle(self, vertex):
         return not self.is_cycle(vertex)
@@ -149,7 +149,7 @@ class Graph(object):
         graph_copy = deepcopy(self.vertices)
         if leaves == 0:
             return False
-        _print('Directed Acyclic graph check', '')
+        _print('Directed Acyclic Graph (DAG) check', '')
         while len(self.vertices.keys()) > 1:
             vertices = self.vertices.keys()
             # Skip ahead if there's only one vertex left.
