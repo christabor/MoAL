@@ -221,11 +221,11 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Binary decision diagram
   + Zero-suppressed decision diagram
   + And-inverter
-  + Directed
+  + [Directed](data_structures/graphs/graphs.py)
     + DAWG/DAFSA
       + Sparse
       + Compacted
-    + Acyclic
+    + [Acyclic](data_structures/graphs/graphs.py)
       + Propositional
   + Multigraph
   + Hypergraph
