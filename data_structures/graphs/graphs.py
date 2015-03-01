@@ -12,8 +12,8 @@ from random import randrange
 from copy import deepcopy
 from random import choice
 
-# wikipedia.org/wiki/Glossary_of_graph_theory
-# and cs.hmc.edu/~keller/courses/cs60/s98/examples/acyclic
+# Terminology from wikipedia.org/wiki/Glossary_of_graph_theory
+# and base algorithm from cs.hmc.edu/~keller/courses/cs60/s98/examples/acyclic
 
 MAX_VERTICES = 6
 MAX_EDGES = MAX_VERTICES / 2
@@ -31,6 +31,7 @@ class Graph(object):
 
     def __init__(self, vertices=None):
         self.vertices = vertices or {}
+        self.DEBUG = True
 
     def __contains__(self, vertex):
         return vertex in self.vertices
@@ -57,7 +58,7 @@ class Graph(object):
     def __str__(self):
         display = []
         for vertex, vertices in self.vertices.iteritems():
-            display.append('{outbound} <-- ({vertex})'.format(
+            display.append('({vertex}) --> {outbound}'.format(
                 vertex=vertex, outbound=vertices))
         return ',\n'.join(display)
 
@@ -68,6 +69,9 @@ class Graph(object):
         for vals in self.vertices.values():
             vertices = vertices + vals
         return list(set(vertices)) if unique else vertices
+
+    def has_vertex(self, vertex, verts):
+        return vertex in verts
 
     def degree(self, vertex):
         """Return the number of edges for a given vertex.
@@ -145,29 +149,31 @@ class Graph(object):
             return True
         # A graph with NO leaf nodes is cyclic.
         leaves = len([self.is_leaf(vertex) for vertex in self.vertices])
-        # Keep a backup of the original graph.
-        graph_copy = deepcopy(self.vertices)
         if leaves == 0:
             return False
-        _print('Directed Acyclic Graph (DAG) check', '')
+        # Keep a backup of the original graph.
+        graph_copy = deepcopy(self.vertices)
         while len(self.vertices.keys()) > 1:
             vertices = self.vertices.keys()
             # Skip ahead if there's only one vertex left.
             start = choice(vertices)
-            print('Checking cycle... start={}, {}'.format(start, self.vertices))
+            if self.DEBUG:
+                print('Checking cycle... start={}, vertices={}'.format(
+                    start, self.vertices))
             # Otherwise, keep checking cycles and deleting nodes.
             if self.is_cycle(start):
                 return False
             else:
                 self.__delitem__(start)
+        nodes_left = len(self.vertices.values()[0])  # Only one vertex left.
+        is_acyclic = True if nodes_left == 0 else False
+        if self.DEBUG:
+            print('All cycles checked. Graph {} acyclicity = {}'.format(
+                self.vertices, is_acyclic))
         # Restore backup
-        nodes_left = len(self.vertices.values()[0])
-        acyclic = True if nodes_left == 0 else False
-        print('All cycles checked. Graph {} acyclicity = {}'.format(
-            self.vertices, acyclic))
         self.vertices = graph_copy
         # If a cycle wasn't already found above, it's guaranteed to be acyclic.
-        return acyclic
+        return is_acyclic
 
     def is_trail(self, start, end):
         """A trail is a walk in which all the edges are distinct."""
@@ -214,7 +220,7 @@ def _rand_edges(num_edges):
 
 
 if __name__ == '__main__':
-    with Section('Basic graph'):
+    with Section('Graph'):
         graph = Graph({
             0: [1, 2],
             1: [2, 0],
@@ -248,6 +254,8 @@ if __name__ == '__main__':
         _print('Set item:', digraph[3])
         del digraph[2]
         _print('Del item:', digraph)
+
+    with Section('Directed Cyclic / Acyclic Graph (DAG)'):
         digraph = DirectedGraph({
             1: [2],
             2: [3, 4],
@@ -273,7 +281,7 @@ if __name__ == '__main__':
         # see upload.wikimedia.org/wikipedia/commons/thumb/3/39
         #   /Directed_acyclic_graph_3.svg
         #   /356px-Directed_acyclic_graph_3.svg.png
-        dcg_wikipedia = DirectedCyclicGraph({
+        dcg_wikipedia = DirectedAcyclicGraph({
             2: [],
             3: [8, 10],
             5: [11],
