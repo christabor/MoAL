@@ -136,7 +136,25 @@ class Graph(object):
     def is_cyclic(self):
         return not self.is_acyclic()
 
-    def is_acyclic(self):
+    def _check_cyclic(self):
+        while len(self.vertices.keys()) > 1:
+            verts = self.vertices.keys()
+            # Skip ahead if there's only one vertex left.
+            start = choice(verts)
+            if self.DEBUG:
+                print('Checking cycle... start={}, vertices={}'.format(
+                    start, verts))
+            # Otherwise, keep checking cycles and deleting nodes.
+            if self.is_cycle(start):
+                return False
+            else:
+                self.__delitem__(start)
+        nodes_left = len(self.vertices.values()[0])  # Only one vertex left.
+        is_acyclic = True if nodes_left == 0 else False
+        print('Graph {} acyclicity = {}'.format(self.vertices, is_acyclic))
+        return is_acyclic
+
+    def is_acyclic(self, restore=True):
         """A graph is acyclic if:
         * It has no vertices to begin with.
             [OR]
@@ -152,26 +170,12 @@ class Graph(object):
         if leaves == 0:
             return False
         # Keep a backup of the original graph.
-        graph_copy = deepcopy(self.vertices)
-        while len(self.vertices.keys()) > 1:
-            vertices = self.vertices.keys()
-            # Skip ahead if there's only one vertex left.
-            start = choice(vertices)
-            if self.DEBUG:
-                print('Checking cycle... start={}, vertices={}'.format(
-                    start, self.vertices))
-            # Otherwise, keep checking cycles and deleting nodes.
-            if self.is_cycle(start):
-                return False
-            else:
-                self.__delitem__(start)
-        nodes_left = len(self.vertices.values()[0])  # Only one vertex left.
-        is_acyclic = True if nodes_left == 0 else False
-        if self.DEBUG:
-            print('All cycles checked. Graph {} acyclicity = {}'.format(
-                self.vertices, is_acyclic))
+        if restore:
+            graph_copy = deepcopy(self.vertices)
+        is_acyclic = self._check_cyclic()
         # Restore backup
-        self.vertices = graph_copy
+        if restore:
+            self.vertices = graph_copy
         # If a cycle wasn't already found above, it's guaranteed to be acyclic.
         return is_acyclic
 
@@ -256,7 +260,7 @@ if __name__ == '__main__':
         _print('Del item:', digraph)
 
     with Section('Directed Cyclic / Acyclic Graph (DAG)'):
-        digraph = DirectedGraph({
+        dag = DirectedAcyclicGraph({
             1: [2],
             2: [3, 4],
             3: [],  # intentionally empty
@@ -266,10 +270,10 @@ if __name__ == '__main__':
         })
         deg_test = [(1, 1), (2, 2), (3, 0), (4, 2), (5, 1), (6, 1)]
         for degs in deg_test:
-            assert digraph.has_degree(*degs)
-        assert digraph.is_acyclic()
-        digraph[6] = [3, 4]  # Create cyclic graph
-        digraph[4] = [5]
+            assert dag.has_degree(*degs)
+        assert dag.is_acyclic()
+        dag[6] = [3, 4]  # Create cyclic graph
+        dag[4] = [5]
 
         dcg = DirectedCyclicGraph({
             1: [2, 3, 1],
