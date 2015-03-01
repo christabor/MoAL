@@ -136,7 +136,9 @@ class Graph(object):
     def is_cyclic(self):
         return not self.is_acyclic()
 
-    def _check_cyclic(self):
+    def _prune_all(self):
+        """The pruning function of `is_acyclic`. Continue deleting
+        vertices and checking if a cycle exists on any current vertex."""
         while len(self.vertices.keys()) > 1:
             verts = self.vertices.keys()
             # Skip ahead if there's only one vertex left.
@@ -144,39 +146,47 @@ class Graph(object):
             if self.DEBUG:
                 print('Checking cycle... start={}, vertices={}'.format(
                     start, verts))
-            # Otherwise, keep checking cycles and deleting nodes.
+            # Otherwise, keep checking cycles and deleting vertices.
             if self.is_cycle(start):
                 return False
             else:
                 self.__delitem__(start)
-        nodes_left = len(self.vertices.values()[0])  # Only one vertex left.
-        is_acyclic = True if nodes_left == 0 else False
-        print('Graph {} acyclicity = {}'.format(self.vertices, is_acyclic))
+
+    def _is_acyclic(self):
+        """A small method for the acyclic check that can be overridden,
+        primarily for customer filtering behavior to override the return value
+        of `is_acyclic`, depending on the inheriting data structure."""
+        last_key = self.vertices.keys()[0]  # Only one vertex left.
+        vertices_left = len(self.vertices[last_key])
+        is_acyclic = True if vertices_left == 0 else False
+        if self.DEBUG:
+            print('Graph {} acyclicity = {}'.format(self.vertices, is_acyclic))
         return is_acyclic
 
     def is_acyclic(self, restore=True):
         """A graph is acyclic if:
         * It has no vertices to begin with.
             [OR]
-        * If continual removal of leaf nodes and
+        * If continual removal of leaf vertices and
             updating of arcs leaves no vertices.
         If there is a non-leaf node left, the graph IS cyclic.
         """
         # A graph with no vertices is automatically acyclic.
         if len(self.vertices) == 0:
             return True
-        # A graph with NO leaf nodes is cyclic.
+        # A graph with NO leaf vertices is cyclic.
         leaves = len([self.is_leaf(vertex) for vertex in self.vertices])
         if leaves == 0:
             return False
         # Keep a backup of the original graph.
         if restore:
             graph_copy = deepcopy(self.vertices)
-        is_acyclic = self._check_cyclic()
+        self._prune_all()
+        # If a cycle wasn't found while pruning, it's guaranteed to be acyclic.
+        is_acyclic = self._is_acyclic()
         # Restore backup
         if restore:
             self.vertices = graph_copy
-        # If a cycle wasn't already found above, it's guaranteed to be acyclic.
         return is_acyclic
 
     def is_trail(self, start, end):
