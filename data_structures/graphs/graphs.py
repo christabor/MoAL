@@ -27,7 +27,10 @@ class InvalidGraphRepresentation(Exception):
 class Graph(object):
 
     def __len__(self):
-        return len(self.vertices.keys())
+        _len = []
+        for key in self.vertices:
+            _len += self.vertices[key]['edges']
+        return len(set(_len))
 
     def __init__(self, vertices=None):
         self.vertices = vertices or {}
@@ -38,8 +41,8 @@ class Graph(object):
         return vertex in self.vertices
 
     def __setitem__(self, *args):
-        key, vertex = args
-        self.vertices[key] = vertex
+        key, vertices = args
+        self.vertices[key] = vertices
         self.node_count += 1
 
     def __delitem__(self, vertex):
@@ -65,6 +68,15 @@ class Graph(object):
             display.append('({vertex}) --> {outbound}'.format(
                 vertex=vertex, outbound=vertices))
         return ',\n'.join(display)
+
+    def _add_inbound_edges(self):
+        for k, v in self.vertices.iteritems():
+            self._add_inbound_edge(k)
+
+    def _add_inbound_edge(self, key):
+        verts = self.vertices[key]
+        if key not in verts['edges']:
+            verts['edges'].append(key)
 
     def all_vertices(self, unique=True):
         """Return all vertices in the graph, including duplicate
@@ -203,6 +215,18 @@ class Graph(object):
         pass
 
 
+class UndirectedGraph(Graph):
+
+    def __init__(self, *args, **kwargs):
+        super(UndirectedGraph, self).__init__(*args, **kwargs)
+        self._add_inbound_edges()
+
+    def __setitem__(self, *args):
+        key, _ = args
+        super(UndirectedGraph, self).__setitem__(*args)
+        self._add_inbound_edge(key)
+
+
 class DirectedGraph(Graph):
     pass
 
@@ -234,7 +258,7 @@ def _rand_edges(num_edges):
 
 if __name__ == '__main__':
     with Section('Graph'):
-        graph = Graph({
+        graph = UndirectedGraph({
             0: {'edges': [1, 2], 'val': 'A'},
             1: {'edges': [2, 0], 'val': 'B'},
             2: {'edges': [0], 'val': 'C'},
@@ -245,6 +269,7 @@ if __name__ == '__main__':
         assert graph.is_closed(0, 0)  # Trivial cycle
         assert graph.is_closed(2, 1)  # Cycle
 
+        graph[3] = {'edges': [], 'val': 'D'}
         graph.all_vertices()
         _print('Generated graph', graph.vertices, func=ppr)
         deg, vertex = randrange(0, MAX_EDGES), choice(all_vertices)
@@ -289,10 +314,13 @@ if __name__ == '__main__':
         dag[4] = {'edges': [5], 'val': ''}
 
         dcg = DirectedCyclicGraph({
-            1: {'edges': [2, 3, 1], 'val': 'A'},
-            2: {'edges': [1, 3, 2], 'val': 'B'},
-            3: {'edges': [1, 2, 3], 'val': 'C'}
+            1: {'edges': [2, 3, 1]},
+            2: {'edges': [1, 3, 2]},
+            3: {'edges': [1, 2, 3]}
         })
+        for k in dcg.vertices:
+            assert len(dcg.vertices[k]['edges']) > 0
+        assert not dcg.is_acyclic()
         assert dcg.is_cyclic()
         # Add another more complex example for testing.
         # see upload.wikimedia.org/wikipedia/commons/thumb/3/39
