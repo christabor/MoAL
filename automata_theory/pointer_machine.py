@@ -169,7 +169,7 @@ class SchonhageStorageModification(PointerMachine):
                         0: {'to': key - 1},
                         1: {'to': key + 1}}
         if self.DEBUG:
-            _print('Graph', self.graph.nodes, func=ppr)
+            _print('Graph', self.graph.vertices, func=ppr)
 
     def new(self, val):
         """Adds a new value to the word"""
@@ -233,7 +233,7 @@ class SchonhageStorageModification(PointerMachine):
             self.output += self.curr_val
 
     def traverse_word(self):
-        _print('Graph nodes beginning', self.graph.nodes, func=ppr)
+        _print('Graph nodes beginning', self.graph.vertices, func=ppr)
         start, end = 0, len(self.word)
         while start < end:
             # Print must come before next step,
@@ -303,7 +303,7 @@ class KolmogorovUspenskii(SchonhageStorageModification):
                         0: {'to': key - 1},
                         1: {'to': key + 1}}
 
-                if not self.DEBUG:
+                if self.DEBUG:
                     self._show_edges(key)
 
 

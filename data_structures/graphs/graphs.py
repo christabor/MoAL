@@ -31,13 +31,16 @@ class Graph(object):
 
     def __init__(self, vertices=None):
         self.vertices = vertices or {}
-        self.DEBUG = True
+        self.node_count = 0
+        self.DEBUG = False
 
     def __contains__(self, vertex):
         return vertex in self.vertices
 
-    def __setitem__(self, vertex, edges):
-        self.vertices[vertex] = edges
+    def __setitem__(self, *args):
+        key, vertex = args
+        self.vertices[key] = vertex
+        self.node_count += 1
 
     def __delitem__(self, vertex):
         # Remove entire node
@@ -45,9 +48,10 @@ class Graph(object):
             return
         del self.vertices[vertex]
         # Remove other references.
-        for _vertex in self.vertices:
-            if vertex in self.vertices[_vertex]:
-                self.vertices[_vertex].remove(vertex)
+        for vert in self.vertices:
+            if vertex in self.vertices[vert]['edges']:
+                self.vertices[vert]['edges'].remove(vertex)
+        self.node_count -= 1
 
     def __getitem__(self, vertex):
         return self.vertices[vertex]
@@ -67,7 +71,7 @@ class Graph(object):
         references; remove duplicates if `unique` is true."""
         vertices = self.vertices.keys()
         for vals in self.vertices.values():
-            vertices = vertices + vals
+            vertices = vertices + vals['edges']
         return list(set(vertices)) if unique else vertices
 
     def has_vertex(self, vertex, verts):
@@ -76,11 +80,10 @@ class Graph(object):
     def degree(self, vertex):
         """Return the number of edges for a given vertex.
         Only allows string/integer/tuple vertices."""
-        if isinstance(vertex, int) \
-                or isinstance(vertex, str) \
-                or isinstance(vertex, tuple):
-            return len(self.vertices[vertex]) if vertex in self.vertices else 0
-        return 0
+        try:
+            return len(self.vertices[vertex]['edges'])
+        except KeyError:
+            return 0
 
     def has_degree(self, vertex, degrees):
         return self.degree(vertex) == degrees
@@ -108,18 +111,14 @@ class Graph(object):
     def walk(self, start, end, path=[], test_cycle=False):
         path = path + [start]
         paths = []
-
         if test_cycle:
             end = start
-
         if start == end and not test_cycle:
             return path
-
         if test_cycle and path[::-1] == start:
             return paths
-
         if start in self.vertices.keys():
-            for vertex in self.vertices[start]:
+            for vertex in self.vertices[start]['edges']:
                 # Add new vertex if it's not in the list already.
                 if vertex not in path:
                     # Get new path from this vertex
@@ -154,10 +153,10 @@ class Graph(object):
 
     def _is_acyclic(self):
         """A small method for the acyclic check that can be overridden,
-        primarily for customer filtering behavior to override the return value
+        primarily for filtering behavior to override the return value
         of `is_acyclic`, depending on the inheriting data structure."""
         last_key = self.vertices.keys()[0]  # Only one vertex left.
-        vertices_left = len(self.vertices[last_key])
+        vertices_left = len(self.vertices[last_key]['edges'])
         is_acyclic = True if vertices_left == 0 else False
         if self.DEBUG:
             print('Graph {} acyclicity = {}'.format(self.vertices, is_acyclic))
@@ -236,9 +235,9 @@ def _rand_edges(num_edges):
 if __name__ == '__main__':
     with Section('Graph'):
         graph = Graph({
-            0: [1, 2],
-            1: [2, 0],
-            2: [0]
+            0: {'edges': [1, 2], 'val': 'A'},
+            1: {'edges': [2, 0], 'val': 'B'},
+            2: {'edges': [0], 'val': 'C'},
         })
         assert len(graph.walk(0, 3)) == 0  # non-existent node
         assert len(graph.walk(2, 1)) == 3  # unreachable node
@@ -246,6 +245,7 @@ if __name__ == '__main__':
         assert graph.is_closed(0, 0)  # Trivial cycle
         assert graph.is_closed(2, 1)  # Cycle
 
+        graph.all_vertices()
         _print('Generated graph', graph.vertices, func=ppr)
         deg, vertex = randrange(0, MAX_EDGES), choice(all_vertices)
         print('Has degree {} ... {}? {}'.format(
@@ -259,36 +259,39 @@ if __name__ == '__main__':
 
     with Section('Directed Graph'):
         digraph = DirectedGraph()
+        digraph.DEBUG = True
         for n in range(MAX_VERTICES):
-            digraph[n] = _rand_edges(MAX_EDGES)
+            digraph[n] = {'edges': _rand_edges(MAX_EDGES), 'val': n}
         _print('Generated directed-graph', digraph.vertices, func=ppr)
         _print('Digraph', digraph)
         _print('Get item:', digraph[4])
-        digraph[3] = [3, 2, 5]
+        digraph[3] = {'edges': [3, 2, 5], 'val': ''}
         _print('Set item:', digraph[3])
         del digraph[2]
         _print('Del item:', digraph)
 
-    with Section('Directed Cyclic / Acyclic Graph (DAG)'):
+    with Section('Directed Cyclic / Acyclic Graph (DCG / DAG)'):
         dag = DirectedAcyclicGraph({
-            1: [2],
-            2: [3, 4],
-            3: [],  # intentionally empty
-            4: [5, 6],
-            5: [6],
-            6: [3]
+            1: {'edges': [2], 'val': 'A'},
+            2: {'edges': [3, 4], 'val': 'B'},
+            3: {'edges': [], 'val': 'C'},  # intentionally empty
+            4: {'edges': [5, 6], 'val': 'D'},
+            5: {'edges': [6], 'val': 'E'},
+            6: {'edges': [3], 'val': 'F'}
         })
-        deg_test = [(1, 1), (2, 2), (3, 0), (4, 2), (5, 1), (6, 1)]
-        for degs in deg_test:
+        dag.DEBUG = True
+        degr_test = [(1, 1), (2, 2), (3, 0), (4, 2), (5, 1), (6, 1)]
+        for degs in degr_test:
+            assert dag.is_trail(*degs)
             assert dag.has_degree(*degs)
         assert dag.is_acyclic()
-        dag[6] = [3, 4]  # Create cyclic graph
-        dag[4] = [5]
+        dag[6] = {'edges': [3, 4], 'val': ''}  # Create cyclic graph
+        dag[4] = {'edges': [5], 'val': ''}
 
         dcg = DirectedCyclicGraph({
-            1: [2, 3, 1],
-            2: [1, 3, 2],
-            3: [1, 2, 3]
+            1: {'edges': [2, 3, 1], 'val': 'A'},
+            2: {'edges': [1, 3, 2], 'val': 'B'},
+            3: {'edges': [1, 2, 3], 'val': 'C'}
         })
         assert dcg.is_cyclic()
         # Add another more complex example for testing.
@@ -296,13 +299,17 @@ if __name__ == '__main__':
         #   /Directed_acyclic_graph_3.svg
         #   /356px-Directed_acyclic_graph_3.svg.png
         dcg_wikipedia = DirectedAcyclicGraph({
-            2: [],
-            3: [8, 10],
-            5: [11],
-            7: [8, 11],
-            8: [9],
-            9: [],
-            10: [],
-            11: [2, 9, 10]
+            2: {'edges': [], 'val': 'A'},
+            3: {'edges': [8, 10], 'val': 'B'},
+            5: {'edges': [11], 'val': 'C'},
+            7: {'edges': [8, 11], 'val': 'D'},
+            8: {'edges': [9], 'val': 'E'},
+            9: {'edges': [], 'val': 'F'},
+            10: {'edges': [], 'val': 'G'},
+            11: {'edges': [2, 9, 10], 'val': 'H'},
         })
+        dcg_wikipedia.DEBUG = True
+        for k, vert in enumerate(dcg_wikipedia.vertices):
+            assert not dcg_wikipedia.is_cycle(k)
+            assert dcg_wikipedia.is_acycle(k)
         assert dcg_wikipedia.is_acyclic()
