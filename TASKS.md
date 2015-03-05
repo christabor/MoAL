@@ -20,12 +20,14 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Full
 + Abstract data types
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
-  + Container
-  + Map/Associative array/Dictionary
-  + Multimap
-  + List
-  + Set
-  + Multiset/Bag
+  + [Container](data_structures/abstract/container.py)
+  + Map / Associative array / Dictionary
+  + Multi-map
+  + [List](data_structures/abstract/list.py)
+  + [Set](data_structures/abstract/set.py)
+    + [Static](data_structures/abstract/set.py)
+    + [Dynamic](data_structures/abstract/set.py)
+  + Multi-set / Bag
   + [Queue](data_structures/abstract/queues.py)
     + [Double-ended queue](data_structures/abstract/queues.py)
     + [Priority queue](data_structures/abstract/queues.py)
@@ -34,6 +36,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Stack frames](data_structures/abstract/stack_frame.py)
   + String
   + Tree
+  + Stream
   + [Graph](data_structures/graphs/graphs.py)
 + Linear
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
@@ -149,7 +152,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + [Generalized](data_structures/trees/suffix_tree.py)
       + Ukkonen's
       + McCreight's
-    + Suffix array
+    + [Suffix array](data_structures/trees/suffix_array.py)
     + Compressed suffix array
     + FM-index
     + B-trie
@@ -430,6 +433,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Lamport's bakery
   + Peterson's
   + Dekker's
++ Distributed Networking
+  + Koorde
+  + Chord
 + Number series generation/discovery
   + Spigot
   + Sieve of Eratosthenese
@@ -576,23 +582,25 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 + Storage
   + Databases
-  + Relational
-    + MySql
-    + PostgreSql
-  + Key/value
-    + Redis (doc + k/v)
-  + Document
-    + ElasticSearch
-    + Solr
-    + MongoDB
-    + CouchDB
-  + Cache
-    + MemCached
-  + Graph
-    + Neo4j
-  + WideColumn
-    + HBase
-    + BigTable
+    + Relational
+      + MySql
+      + PostgreSql
+    + Key/value
+      + Redis (doc + k/v)
+    + Document
+      + ElasticSearch
+      + Solr
+      + MongoDB
+      + CouchDB
+    + Cache
+      + MemCached
+    + Graph
+      + Neo4j
+    + WideColumn
+      + HBase
+      + BigTable
+    + Data structures
+      + Inverted Index
 + Serialization
   + Apache Avro
   + CSV
@@ -632,7 +640,11 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + HATEOAS
   + API design
     + Fluent interface
-+ Distributed Systems
++ Parallel Computing
++ Distributed Computing
+  + Peer-to-Peer (P2P)
+    + Structured
+    + Unstructured
   + CAP Theorem
   + "Big Data" processing
     + Hadoop file system
