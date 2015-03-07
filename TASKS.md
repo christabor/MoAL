@@ -436,6 +436,13 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Distributed Networking
   + Koorde
   + Chord
++ Parsing/Grammars
+  + Cocke–Younger–Kasami
+  + Inside–outside
+  + Forward–backward
+  + Viterbi
+  + Earley
+  + Conditional Inside
 + Number series generation/discovery
   + Spigot
   + Sieve of Eratosthenese
@@ -713,6 +720,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Generalized
     + [Turing machine](automata_theory/turing_machine.py)
       + [Universal](automata_theory/universal_turing_machine.py)
+      + [Decider / Total](automata_theory/turing_machine.py)
       + Alternating
       + Quantum
       + Non-deterministic
@@ -799,10 +807,10 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Recursive
     + Regular
     + Analytic
-    + Context-free
+    + [Context-free](languages/formal_language_theory/grammars/context_free.py)
       + Stochastic
       + Adaptive
-      + Ambiguous
+      + [Ambiguous](languages/formal_language_theory/grammars/context_free.py)
       + [Backus-Naur Form (BFN)](languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms
@@ -952,7 +960,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
             + LL(1)
             + LL(k)
               + Simple
-              + Look-Ahead
+              + Look-Ahead / LALR
         + Bottom up
           + Backtracking
           + Shift-reduce

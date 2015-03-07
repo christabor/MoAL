@@ -145,6 +145,17 @@ class TuringMachine(object):
         self.result = ''
 
 
+class Decider(TuringMachine):
+    """See wikipedia.org/wiki/Machine_that_always_halts"""
+
+    def transition(self):
+        super(Decider, self).transition()
+        # Stop aka "decide".
+        self.halt()
+        # Re-active for next time.
+        self.activate()
+
+
 if __name__ == '__main__':
     with Section('Turing Machines'):
         tm = TuringMachine()
