@@ -6,6 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
+from helpers.display import print_simple
 from helpers.display import prnt
 from random import choice
 from string import ascii_uppercase
@@ -17,6 +18,12 @@ class ContextFreeGrammar(object):
     def __init__(self):
         self.rules = []
         self.mapping_token = ' => '
+        self.DEBUG = False
+
+    def __delitem__(self, rule):
+        for index, rule in enumerate(self.rules):
+            if rule[0] == rule:
+                del self.rules[index]
 
     def add_rule(self, string):
         if self.mapping_token not in string:
@@ -25,7 +32,8 @@ class ContextFreeGrammar(object):
                                 self.mapping_token))
         left, right = string.split(self.mapping_token)
         self.rules.append([left, right])
-        print('Added rule: "{}"'.format(self.rules[::-1]))
+        if self.DEBUG:
+            print('Added rule: "{}"'.format(self.rules[::-1]))
 
     def evaluate(self, tokens):
         evaluation = ''
@@ -33,8 +41,9 @@ class ContextFreeGrammar(object):
             for token in tokens:
                 if token == expression[0]:
                     evaluation += expression[1]
-            print('rule {} {} {}'.format(
-                expression[0], self.mapping_token, expression[1]))
+            if self.DEBUG:
+                print('rule {} {} {}'.format(
+                    expression[0], self.mapping_token, expression[1]))
         return evaluation
 
 
@@ -101,7 +110,19 @@ if __name__ == '__main__':
 
         prnt(
             'Ambiguous CFG evaluation result',
-            ambiguous_cfg.evaluate(['S' for n in range(20)]))
+            ambiguous_cfg.evaluate(['S' for _ in range(20)]))
+
+        for rule in cfg.rules:
+            del rule
+
+        for letter in ascii_uppercase:
+            cfg.add_rule('{} => <<{}>>({})'.format(letter, cu(), cp()))
+
+        prnt('Ambiguous CFG evaluation result - nursery rhymes', '')
+        print_simple(cfg.evaluate(list('THE COW JUMPED OVER THE MOON')), '')
+        print_simple(cfg.evaluate(list('LITTLE BO PEEP LOST HER SHEEP')), '')
+        print_simple(cfg.evaluate(
+            list('THE WHEELS ON THE BUS GO ROUND AND ROUND')), '')
 
         wiki_cfg = WikipediaCFG()
         wiki_cfg.add_rule('S => U | V')

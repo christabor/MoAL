@@ -807,9 +807,19 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Recursive
     + Regular
     + Analytic
+    + Attribute
     + [Context-free](languages/formal_language_theory/grammars/context_free.py)
       + Stochastic
       + Adaptive
+        + Recursive (RAGs)
+        + Dynamic Template Translators
+        + Christiansen
+        + Wegbreit
+        + Dynamic
+        + Meta-S calculus
+        + Imperative
+        + Declarative
+        + Hybrid / Time-space
       + [Ambiguous](languages/formal_language_theory/grammars/context_free.py)
       + [Backus-Naur Form (BFN)](languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
