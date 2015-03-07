@@ -712,7 +712,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Pushdown automata
       + Generalized
     + [Turing machine](automata_theory/turing_machine.py)
-      + Universal
+      + [Universal](automata_theory/universal_turing_machine.py)
       + Alternating
       + Quantum
       + Non-deterministic
