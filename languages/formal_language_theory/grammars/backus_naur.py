@@ -5,7 +5,7 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.display import Section
 from random import randrange as rr
 from random import choice
@@ -112,6 +112,6 @@ if __name__ == '__main__':
         }
 
         for _ in range(4):
-            _print('BNF parsing result <name>', naive_bnf_parser(name))
-            _print('BNF parsing result <date>', naive_bnf_parser(date))
-            _print('BNF parsing result <foo>', naive_bnf_parser(foo))
+            prnt('BNF parsing result <name>', naive_bnf_parser(name))
+            prnt('BNF parsing result <date>', naive_bnf_parser(date))
+            prnt('BNF parsing result <foo>', naive_bnf_parser(foo))

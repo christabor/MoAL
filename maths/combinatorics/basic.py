@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.text import uniqchars
 from pprint import pprint as ppr
 from itertools import permutations
@@ -47,17 +47,17 @@ def cartesian(max_chars, max_nums, unique=False):
 
 if __name__ == '__main__':
     with Section('Combinatorics'):
-        _print('Unique chars', uniqchars(10))
+        prnt('Unique chars', uniqchars(10))
         fact = factorial(12)
-        _print('Final factorial amount:', fact[0])
+        prnt('Final factorial amount:', fact[0])
         ppr(fact[1])
         combos = combochars(4, 2)
-        _print('Permutations of random letters', ', '.join(
+        prnt('Permutations of random letters', ', '.join(
             [''.join(combo) for combo in combos]))
-        _print(
+        prnt(
             'Combinations of multiple permutations of random letters',
             group_combochars(6, segments=2), func=ppr)
-        _print('Cartesian product of two sets', cartesian(4, 4))
-        _print(
+        prnt('Cartesian product of two sets', cartesian(4, 4))
+        prnt(
             'Cartesian product of two sets (unique)',
             cartesian(4, 4, unique=True))

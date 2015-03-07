@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.display import _cmd_title
 from pprint import pprint as ppr
 from random import choice
@@ -226,7 +226,7 @@ if __name__ == '__main__':
         ]
 
         for klass in classes:
-            _print('Testing machine...', repr(klass))
+            prnt('Testing machine...', repr(klass))
             klass().run()
 
             _cmd_title('New program')

@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from pprint import pprint as ppr
 from random import randrange
 from copy import deepcopy
@@ -271,7 +271,7 @@ if __name__ == '__main__':
 
         graph[3] = {'edges': [], 'val': 'D'}
         graph.all_vertices()
-        _print('Generated graph', graph.vertices, func=ppr)
+        prnt('Generated graph', graph.vertices, func=ppr)
         deg, vertex = randrange(0, MAX_EDGES), choice(all_vertices)
         print('Has degree {} ... {}? {}'.format(
             deg, vertex, graph.has_degree(deg, vertex)))
@@ -279,21 +279,21 @@ if __name__ == '__main__':
         for vertex in graph:
             print('Vertex {} has degree {}'.format(
                 vertex, graph.degree(vertex)))
-        _print('graph', graph)
-        _print('Has multiple degrees?', graph.has_multiple_degrees(1))
+        prnt('graph', graph)
+        prnt('Has multiple degrees?', graph.has_multiple_degrees(1))
 
     with Section('Directed Graph'):
         digraph = DirectedGraph()
         digraph.DEBUG = True
         for n in range(MAX_VERTICES):
             digraph[n] = {'edges': _rand_edges(MAX_EDGES), 'val': n}
-        _print('Generated directed-graph', digraph.vertices, func=ppr)
-        _print('Digraph', digraph)
-        _print('Get item:', digraph[4])
+        prnt('Generated directed-graph', digraph.vertices, func=ppr)
+        prnt('Digraph', digraph)
+        prnt('Get item:', digraph[4])
         digraph[3] = {'edges': [3, 2, 5], 'val': ''}
-        _print('Set item:', digraph[3])
+        prnt('Set item:', digraph[3])
         del digraph[2]
-        _print('Del item:', digraph)
+        prnt('Del item:', digraph)
 
     with Section('Directed Cyclic / Acyclic Graph (DCG / DAG)'):
         dag = DirectedAcyclicGraph({

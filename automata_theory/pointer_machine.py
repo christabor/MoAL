@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.display import _cmd_title
 from pprint import pprint as ppr
 from helpers.adts import strlist
@@ -169,7 +169,7 @@ class SchonhageStorageModification(PointerMachine):
                         0: {'to': key - 1},
                         1: {'to': key + 1}}
         if self.DEBUG:
-            _print('Graph', self.graph.vertices, func=ppr)
+            prnt('Graph', self.graph.vertices, func=ppr)
 
     def new(self, val):
         """Adds a new value to the word"""
@@ -220,12 +220,12 @@ class SchonhageStorageModification(PointerMachine):
 
     def _run_step(self):
         if self.DEBUG:
-            _print('curr node (before):', self.curr_node, func=ppr)
+            prnt('curr node (before):', self.curr_node, func=ppr)
 
         time.sleep(self.DELAY)
         # Visually update
         if self.DEBUG:
-            _print('curr node (after):', self.curr_node, func=ppr)
+            prnt('curr node (after):', self.curr_node, func=ppr)
 
         self._update_state()
         if self.curr_node is not None:
@@ -233,7 +233,7 @@ class SchonhageStorageModification(PointerMachine):
             self.output += self.curr_val
 
     def traverse_word(self):
-        _print('Graph nodes beginning', self.graph.vertices, func=ppr)
+        prnt('Graph nodes beginning', self.graph.vertices, func=ppr)
         start, end = 0, len(self.word)
         while start < end:
             # Print must come before next step,

@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.text import randchars
 from pprint import pprint as ppr
 from random import randrange as rr
@@ -142,7 +142,7 @@ if __name__ == '__main__':
             except ImmutableSetError:
                 print('Frozen set cannot be modified after creation.')
 
-        _print('Set/Frozen set items', '')
+        prnt('Set/Frozen set items', '')
         ppr(set_adt.items)
         ppr(frozen_set_adt.items)
 

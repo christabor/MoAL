@@ -5,13 +5,23 @@ term = Terminal()
 # Display utilities
 
 
-def _print(words, result, func=None):
-    print('\n')
-    print('{t.green}{t.underline}{}{t.normal}'.format(words, t=term))
+def _func_or_print(result, func):
     if func is not None:
         func(result)
     else:
         print(result)
+
+
+def prnt(words, result, func=None):
+    print('\n')
+    print('{t.green}{t.underline}{}{t.normal}'.format(words, t=term))
+    _func_or_print(result, func)
+    print('\n')
+
+
+def print_simple(words, result, func=None):
+    print(words)
+    _func_or_print(result, func)
     print('\n')
 
 
@@ -27,13 +37,13 @@ class Section:
         self.separator = '=' * 50
         self.content = content
 
-    def _print(self, prefix):
+    def prnt(self, prefix):
         print('\n')
         print('{t.cyan}\n= [{}]: {t.bold} {} {sep} \n{t.normal}'.format(
             prefix, self.content, t=term, sep=self.separator))
 
     def __enter__(self):
-        self._print('BEGIN')
+        self.prnt('BEGIN')
 
     def __exit__(self, exception_type, exception_value, traceback):
-        self._print('END')
+        self.prnt('END')

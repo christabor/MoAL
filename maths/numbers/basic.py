@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from random import randrange as rr
 from fractions import Fraction
 from decimal import Decimal
@@ -71,22 +71,22 @@ if __name__ == '__main__':
     with Section('Basic number sets'):
         MAX_NUMS_PER_EXAMPLE = 10
 
-        _print('Naturals', '')
+        prnt('Naturals', '')
         for n in naturals(MAX_NUMS_PER_EXAMPLE):
             print(n)
 
-        _print('Integers', '')
+        prnt('Integers', '')
         for n in integers(MAX_NUMS_PER_EXAMPLE):
             print(n)
 
-        _print('Rationals', '')
+        prnt('Rationals', '')
         for n in rationals(MAX_NUMS_PER_EXAMPLE):
             print(n)
 
-        _print('Irrationals', '')
+        prnt('Irrationals', '')
         for n in irrationals(MAX_NUMS_PER_EXAMPLE):
             print(n)
 
-        _print('Reals', '')
+        prnt('Reals', '')
         for n in reals(MAX_NUMS_PER_EXAMPLE):
             print(n)

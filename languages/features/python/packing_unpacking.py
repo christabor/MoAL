@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from pprint import pprint as ppr
 
 
@@ -30,12 +30,12 @@ def div_exp(*nums):
 if __name__ == '__main__':
     with Section('Python - unpacking'):
 
-        _print('Arg/kwarg unpacking', '')
+        prnt('Arg/kwarg unpacking', '')
         f = func(1, 2, 3, cats=True, dogs=True)
-        _print('Args/kwargs passing', f, func=ppr)
+        prnt('Args/kwargs passing', f, func=ppr)
 
         orig, squares = nums_and_squares(10)
-        _print('Return val (tuple) unpacking', '{}, {}'.format(orig, squares))
+        prnt('Return val (tuple) unpacking', '{}, {}'.format(orig, squares))
 
         mysandwich = {
             'sandwich': 'Ham & Cheese',
@@ -44,11 +44,11 @@ if __name__ == '__main__':
         }
 
         sand_type, cheeses, hams = mysandwich
-        _print('Unpacking keys (default)', '{}, {}, {}'.format(
+        prnt('Unpacking keys (default)', '{}, {}, {}'.format(
             sand_type, cheeses, hams))
 
         sand_type, cheeses, hams = mysandwich.values()
-        _print('Unpacking values', '{}, {}, {}'.format(
+        prnt('Unpacking values', '{}, {}, {}'.format(
             sand_type, cheeses, hams))
 
     with Section('Python - packing'):
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         sh = 'slices_ham'
         sandwich_tuple = st, sc, sh
 
-        _print(
+        prnt(
             ('Passing a packed list to a function '
              '(or, unpacking a list into a function)'),
             div_exp(*[n for n in range(1, 10)]))

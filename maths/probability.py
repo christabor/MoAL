@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.trials import run_trials
 from random import randrange as rr
 from random import choice
@@ -81,18 +81,18 @@ def _test(*args):
 if __name__ == '__main__':
     with Section('Probability'):
         values_rand = [rr(1, 999) for d in range(rr(1, 20))]
-        _print(
+        prnt(
             ('Probability of a given value:', values_rand),
             Probability.of_single(values_rand))
 
         run_trials(_test)
 
-        _print(
+        prnt(
             ('Probability of multiple given values:',
                 values_rand, values_rand[:2]),
             Probability.of_group(values_rand, values_rand[:2], are_equal=True))
 
-        _print(
+        prnt(
             ('Probability of multiple given values:',
                 values_rand, values_rand[:4]),
             Probability.of_group(values_rand, values_rand[:4], are_equal=True))

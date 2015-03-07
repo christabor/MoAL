@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.text import randchars
 from pprint import pprint as ppr
 
@@ -135,15 +135,15 @@ if __name__ == '__main__':
             print('Iterator: {}, membership check ({}) => {}'.format(
                 val_cont[el], el, el in val_cont))
 
-        _print('Value Container', val_cont.elements, func=ppr)
+        prnt('Value Container', val_cont.elements, func=ppr)
 
         print(val_cont.clear())
-        _print('Empty Container', val_cont.elements, func=ppr)
+        prnt('Empty Container', val_cont.elements, func=ppr)
         assert len(val_cont) == 0
 
         ref_cont = ReferenceContainer()
 
-        _print('Reference Container...', ref_cont)
+        prnt('Reference Container...', ref_cont)
 
         meta = ReferenceContainer()
         ref_cont.insert('meta', meta)

@@ -15,7 +15,7 @@ arr = []
 from helpers.display import Section
 from helpers.text import gibberish
 from helpers.display import _cmd_title
-from helpers.display import _print
+from helpers.display import prnt
 
 
 class Node:
@@ -94,7 +94,7 @@ def print_nodes(node):
         path += _fmt(node)
         count += 1
         node = node.next
-    _print('Linked List\n', path)
+    prnt('Linked List\n', path)
 
 
 def build_list(length):
@@ -126,10 +126,10 @@ if __name__ == '__main__':
         MAX_NODES = 10
         linked_list = build_list(MAX_NODES)
         print_nodes(linked_list)
-        _print('Length of linked list:', len(linked_list))
+        prnt('Length of linked list:', len(linked_list))
 
         if DEBUG:
-            _print('Testing iteration', '')
+            prnt('Testing iteration', '')
             for node in linked_list:
                 print(node)
 
@@ -139,7 +139,7 @@ if __name__ == '__main__':
             del linked_list['node-6']
             del linked_list['tail']
 
-            _print('Testing iteration - post delete:', '')
+            prnt('Testing iteration - post delete:', '')
 
             for node in linked_list:
                 print(node)
@@ -148,7 +148,7 @@ if __name__ == '__main__':
             linked_list['node-3'] = 'BAR'
             linked_list['node-5'] = 'BIM'
 
-            _print('Testing value update', '')
+            prnt('Testing value update', '')
 
             for node in linked_list:
                 print(node)

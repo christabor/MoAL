@@ -5,7 +5,7 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.display import Section
 from helpers.generic import powerset_tree
 from helpers.generic import substring_list
@@ -214,9 +214,9 @@ if __name__ == '__main__':
         deep = DeepSuffixTree(words[0])
         forest = GeneralizedSuffixTree(words)
 
-        _print('Shallow suffix tree', shallow)
-        _print('Deep suffix tree', deep)
-        _print('Generalized suffix tree aka "suffix forest"', forest)
+        prnt('Shallow suffix tree', shallow)
+        prnt('Deep suffix tree', deep)
+        prnt('Generalized suffix tree aka "suffix forest"', forest)
 
         DEBUG = True
         if DEBUG:
@@ -228,6 +228,6 @@ if __name__ == '__main__':
                 try:
                     subset = deep[_rc(keys)][_rc(keys)]
                     if len(subset) > 1 and isinstance(subset, list):
-                        _print('Random choice...', subset, func=ppr)
+                        prnt('Random choice...', subset, func=ppr)
                 except IndexError:
                     continue

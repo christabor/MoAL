@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from random import randrange as rr
 from pprint import pprint as ppr
 from fractions import Fraction
@@ -188,9 +188,9 @@ def absorption_lcm_laws(a, b):
 def test_number(*args):
     func, args = args[0], args[1:]
     try:
-        _print(func.func_name, [_ for _ in func(*args)])
+        prnt(func.func_name, [_ for _ in func(*args)])
     except TypeError:
-        _print(func.func_name, func(*args))
+        prnt(func.func_name, func(*args))
 
 
 if __name__ == '__main__':
@@ -215,16 +215,16 @@ if __name__ == '__main__':
             lambda x: x * x - x // x + x
         ]
 
-        [_print(
+        [prnt(
             'Series of series with: {}'.format(getsource(f)),
             [map(f, (n for n in range(1, _)))
                 for _ in fibo(8)]) for f in funcs]
 
-        [_print(
+        [prnt(
             'Factor {}'.format(n),
             [f for f in factor(rr(100, 9999))][0]) for n in range(4)]
 
-        _print('Factorial', [f for f in factorials(10)])
+        prnt('Factorial', [f for f in factorials(10)])
 
         [f for f in factor_factorials(10)]
 

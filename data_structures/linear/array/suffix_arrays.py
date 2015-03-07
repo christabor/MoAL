@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _print
+from helpers.display import prnt
 from helpers.text import words_unix_dict
 
 
@@ -65,7 +65,7 @@ class InfixArray(SuffixArray):
 class SuperSuffixArray(SuffixArray):
 
     def _view(self, suffixes):
-        _print(suffixes[0][:-1], '')
+        prnt(suffixes[0][:-1], '')
         for k, substr in enumerate(suffixes):
             max_width = (len(suffixes[:-1]) + 30)
             spaces = '~' * max_width
@@ -94,20 +94,20 @@ if __name__ == '__main__':
         iarray = InfixArray()
         iarray.make_superstring(strings=[word_gen.next() for _ in range(2)])
 
-        _print('Weird infix style substring', iarray)
+        prnt('Weird infix style substring', iarray)
 
         ssarray = SuperSuffixArray()
         ssarray.make_superstring(strings=[word_gen.next() for _ in range(10)])
 
-        _print('Superstring suffix array', ssarray, func=repr)
+        prnt('Superstring suffix array', ssarray, func=repr)
 
         ssarray.sort()
 
-        _print('SORTED Superstring suffix array', ssarray, func=repr)
+        prnt('SORTED Superstring suffix array', ssarray, func=repr)
 
         if DEBUG:
             ssarray2 = SuperSuffixArray()
             ssarray2.make_superstring(
                 strings=['pneumonoultramicroscopicsilicovolcanoconiosis'])
 
-            _print('Superstring suffix array - long', ssarray2, func=repr)
+            prnt('Superstring suffix array - long', ssarray2, func=repr)
