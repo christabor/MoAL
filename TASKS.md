@@ -1074,5 +1074,6 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
 + research.microsoft.com/en-us/um/people/gurevich/Opera/78.pdf
 + symbolicanalysis.wordpress.com/category/other-methodologies/turing-machine-and-related-automata/
-+ https://github.com/boyers/theorem_prover
-+ https://symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
++ github.com/boyers/theorem_prover
++ symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
++ www.quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
