@@ -41,7 +41,6 @@ class AttributeContextFreeGrammar(context_free.ContextFreeGrammar):
             return ''
 
     def _len(self, token):
-        print('Calling len...')
         return 'L:{}'.format(len(token))
 
     def _prop(self, token):
@@ -54,9 +53,11 @@ class AttributeContextFreeGrammar(context_free.ContextFreeGrammar):
         return 'U:{}'.format(uniqchars(len(token)))
 
     def _parse_terminal(self, attr, token):
-        """Parse a terminal value given a attribute and token."""
-        # For this example, we won't get too fancy,
-        # just force a string on all values.
+        """Parse a terminal value given a attribute and token.
+
+        For this example, we won't get too fancy,
+        just force a string on all values.
+        """
         return str(self[attr](token))
 
     def _attr(self, semantic_rule):
@@ -65,7 +66,7 @@ class AttributeContextFreeGrammar(context_free.ContextFreeGrammar):
         return semantic_rule.replace(
             self.terminus, '').replace(' ', '').split(self.attr_token)[1]
 
-    def evaluate(self, tokens, evaluation='', f=0):
+    def evaluate(self, tokens, evaluation=''):
         """A basic parser for a custom attribute grammar.
 
         One thing to note is that ambiguous grammars need to be iterated over,
