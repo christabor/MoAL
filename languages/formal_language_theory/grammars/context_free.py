@@ -6,7 +6,6 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import print_simple
 from helpers.display import prnt
 from random import choice
 from string import ascii_uppercase
@@ -17,6 +16,7 @@ class ContextFreeGrammar(object):
 
     def __init__(self):
         self.rules = []
+        self.terminus = '$'
         self.mapping_token = ' => '
         self.DEBUG = False
 
@@ -35,108 +35,112 @@ class ContextFreeGrammar(object):
         if self.DEBUG:
             print('Added rule: "{}"'.format(self.rules[::-1]))
 
-    def evaluate(self, tokens):
-        evaluation = ''
-        for _, expression in enumerate(self.rules):
-            for token in tokens:
-                if token == expression[0]:
-                    evaluation += expression[1]
-            if self.DEBUG:
-                print('rule {} {} {}'.format(
-                    expression[0], self.mapping_token, expression[1]))
-        return evaluation
+    def _get_rule(self, token):
+        for rule in self.rules:
+            left, right = rule
+            if left == token:
+                return right
+        return ''
 
-
-class WikipediaCFG(ContextFreeGrammar):
-    """
-    From wikipedia.org/wiki/Context-free_grammar
-    S => U | V
-    U => TaU | TaT | UaT
-    V => TbV | TbT | VbT
-    T => aTbT | bTaT | [END]
-    """
-
-    def __init__(self):
-        super(WikipediaCFG, self).__init__()
-        self.rules = {}
-
-    def add_rule(self, rule):
-        left, right = rule.split(self.mapping_token)
-        self.rules[left] = right
-
-    def evaluate(self, tokens):
-        evaluation = ''
-        for rule, expression in self.rules.iteritems():
-            for char in list(expression):
-                try:
-                    evaluation += self.rules[char]
-                except KeyError:
-                    if char == ';':
-                        return evaluation
+    def evaluate_single(self, token, nonterminals, evaluation=''):
+        rule = self._get_rule(token)
+        spaces = ' ' * 4
+        for char in rule:
+            if char.endswith(self.terminus):
+                print('{}Completed'.format(' ' * 4))
+                return evaluation
+            sub_rule = self._get_rule(char)
+            print('{}Char: {}, Subrule: {}, (Parent rule: {})'.format(
+                spaces, char, sub_rule if sub_rule else '[empty]', rule))
+            if sub_rule:
+                for sub_char in sub_rule:
+                    if sub_char in nonterminals:
+                        print('{}Nonterminal: {}'.format(spaces * 2, sub_char))
+                        evaluation += self.evaluate_single(
+                            sub_char, nonterminals, evaluation=evaluation)
                     else:
-                        evaluation += char
+                        print('{}Terminal: {}'.format(spaces * 2, sub_char))
+                        if sub_char != self.terminus:
+                            evaluation += sub_char
+                        else:
+                            return evaluation
+            else:
+                evaluation += char
+            curr = '[{}]'.format(
+                evaluation if evaluation else '[empty]')
+            print('{}{}\n'.format('.' * abs(80 - len(curr)), curr))
         return evaluation
+
+    def evaluate(self, tokens, evaluation=''):
+        """A basic parser for a custom attribute grammar.
+
+        One thing to note is that ambiguous grammars need to be iterated over,
+        since the duplicate rules can't be mapped via dictionary key.
+        Unambiguous grammars are therefore more performant,
+        because the lookup is O(1) vs. O(N).
+        """
+        nonterminals = [r[0] for r in self.rules]
+        print('Ruleset: {}, Tokens: {}'.format(self.rules, tokens))
+        for token in tokens:
+            print('\n<{}>\n\nToken: {}'.format('=' * 80, token))
+            evaluation += self.evaluate_single(token, nonterminals)
+        print('\nFinal value: "{}"\n'.format(evaluation))
+        return evaluation
+
+
+def cp():
+    return choice(punctuation)
+
+
+def cu():
+    return choice(ascii_uppercase)
 
 
 if __name__ == '__main__':
     with Section('Grammar parser - basic'):
         cfg = ContextFreeGrammar()
 
-        def cp():
-            return choice(punctuation)
-
-        def cu():
-            return choice(ascii_uppercase)
-
-        for _ in range(10):
-            # Gibberish cfg rule templates
-            rule_templates = [
-                '{} => {}'.format(cu(), cu()),
-                '{} => (({}{}))'.format(cu(), cu(), cu()),
-                '{} => {}+{}'.format(cu(), cu(), cu()),
-                '{} => {}_{}_{}'.format(cu(), cp(), cu(), cp()),
-                '{} => {}{}'.format(cu(), cu(), cu()),
-            ]
-            cfg.add_rule(choice(rule_templates))
-
-        prnt(
-            'CFG evaluation result',
-            cfg.evaluate([cu() for n in range(20)]))
-
-        ambiguous_cfg = ContextFreeGrammar()
         # There are two rules for the same mapping "S"; thus, it's ambiguous.
-        ambiguous_cfg.add_rule('{} => {}{}'.format('S', cu(), cp()))
-        ambiguous_cfg.add_rule('{} => {}{}{}'.format('S', cu(), cp(), cp()))
+        ambig_grammar = [
+            'S => <{++>U<>',
+            'U => {}VV',
+            'B => \\{//U\\++}',
+            'V => *&&&*!$'
+        ]
+        ambiguous_cfg = ContextFreeGrammar()
+        map(ambiguous_cfg.add_rule, ambig_grammar)
+        tokens = [choice(['S', 'U', 'B', 'V']) for _ in range(10)]
 
-        prnt(
-            'Ambiguous CFG evaluation result',
-            ambiguous_cfg.evaluate(['S' for _ in range(20)]))
+        wiki_grammar = [
+            'S => UV',
+            'U => aBc-bBac',
+            'B => caa$',
+            'V => ac B bca U']
 
-        for rule in cfg.rules:
-            del rule
+        letters = ['S', 'U', 'B', 'V']
+        map(cfg.add_rule, wiki_grammar)
 
-        for letter in ascii_uppercase:
-            cfg.add_rule('{} => <<{}>>({})'.format(letter, cu(), cp()))
+        def cfg1():
+            prnt('CFG result', '')
+            cfg.evaluate(['B', 'B', 'B', 'V', 'U'])
+            cfg.evaluate(['U', 'C', 'B', 'V', 'U', 'S'])
+            cfg.evaluate([choice(letters) for _ in range(10)])
 
-        prnt('Ambiguous CFG evaluation result - nursery rhymes', '')
-        print_simple(cfg.evaluate(list('THE COW JUMPED OVER THE MOON')), '')
-        print_simple(cfg.evaluate(list('LITTLE BO PEEP LOST HER SHEEP')), '')
-        print_simple(cfg.evaluate(
-            list('THE WHEELS ON THE BUS GO ROUND AND ROUND')), '')
+        def cfg2():
+            prnt('Ambiguous CFG result', ambiguous_cfg.evaluate(tokens))
 
-        wiki_cfg = WikipediaCFG()
-        wiki_cfg.add_rule('S => U | V')
-        wiki_cfg.add_rule('U => TaU')
-        wiki_cfg.add_rule('U => TaT')
-        wiki_cfg.add_rule('U => UaT')
-
-        wiki_cfg.add_rule('V => TbV')
-        wiki_cfg.add_rule('V => TbT')
-        wiki_cfg.add_rule('V => VbT')
-
-        wiki_cfg.add_rule('T => aTbT')
-        wiki_cfg.add_rule('T => bTaT')
-        wiki_cfg.add_rule('T => ;')
-        prnt(
-            'CFG evaluation result',
-            wiki_cfg.evaluate(['S', 'V', 'U', 'T']))
+        choices = {
+            '1': cfg1,
+            '2': cfg2
+        }
+        DEBUG = False
+        if DEBUG:
+            _choices = choices.keys()
+            _choice = raw_input('Pick a CFG to run: {} ==> '.format(_choices))
+            try:
+                choices[_choice]()
+            except KeyError:
+                pass
+        else:
+            for func in choices:
+                choices[func]()
