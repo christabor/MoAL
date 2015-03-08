@@ -120,6 +120,5 @@ if __name__ == '__main__':
             utm.add_program(
                 'program-{}'.format(n),
                 DummyProgramGenerator.make(max_states=4))
-
-        utm.run('program-0')
-        utm.run('program-1')
+        for name, _ in utm.programs.iteritems():
+            utm.run(name)
