@@ -23,6 +23,7 @@ class ContextFreeGrammar(object):
         self.terminus = '$'
         self.mapping_token = ' => '
         self.DEBUG = False
+        self.indent = ' ' * 4
 
     def __delitem__(self, rule):
         for index, rule in enumerate(self.rules):
@@ -70,41 +71,48 @@ class ContextFreeGrammar(object):
     def delete_tokens(self):
         self.tokens = []
 
+    def _is_terminal_or(self, char):
+        is_terminal = False
+        for option in char:
+            if option.endswith(self.terminus):
+                is_terminal = True
+                break
+        return is_terminal
+
+    def _is_terminal(self, char):
+        if isinstance(char, list):
+            if self._is_terminal_or(char):
+                return True
+        else:
+            if char.endswith(self.terminus):
+                print('{}Completed'.format(' ' * 4))
+                return True
+
     def evaluate_single(self, token, nonterminals, evaluation=''):
         rule = self._get_rule(token)
-        spaces = ' ' * 4
         for char in rule:
-            if isinstance(char, list):
-                terminal = False
-                for option in char:
-                    if option.endswith(self.terminus):
-                        terminal = True
-                        break
-                if terminal:
-                    return evaluation
-            else:
-                if char.endswith(self.terminus):
-                    print('{}Completed'.format(' ' * 4))
-                    return evaluation
+            if self._is_terminal(char):
+                return evaluation
             sub_rule = self._get_rule(char)
             print('{}Char: {}, Subrule: {}, (Parent rule: {})'.format(
-                spaces, char, sub_rule if sub_rule else '[empty]', rule))
+                self.indent, char, sub_rule if sub_rule else '[empty]', rule))
             if sub_rule:
                 for sub_char in sub_rule:
                     if sub_char in nonterminals:
-                        print('{}Nonterminal: {}'.format(spaces * 2, sub_char))
+                        print('{}Nonterminal: {}'.format(
+                            self.indent * 2, sub_char))
                         evaluation += self.evaluate_single(
                             sub_char, nonterminals, evaluation=evaluation)
                     else:
-                        print('{}Terminal: {}'.format(spaces * 2, sub_char))
+                        print('{}Terminal: {}'.format(
+                            self.indent * 2, sub_char))
                         if sub_char != self.terminus:
                             evaluation += sub_char
                         else:
                             return evaluation
             else:
                 evaluation += char
-            curr = '[{}]'.format(
-                evaluation if evaluation else '[empty]')
+            curr = '[{}]'.format(evaluation if evaluation else '[empty]')
             print('{}{}\n'.format('.' * abs(80 - len(curr)), curr))
         return evaluation
 
