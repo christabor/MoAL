@@ -39,8 +39,9 @@ class ContextFreeGrammar(object):
             raise TypeError('Invalid rule representation. '
                             'Use a {} to indicate mapping.'.format(
                                 self.mapping_token))
-        print string.split(self.mapping_token)
         left, right = string.split(self.mapping_token)
+        if '|' in right:
+            right = right.split('|')
         self.rules.append([left, right])
         if self.DEBUG:
             print('Added rule: "{}"'.format(self.rules[::-1]))
@@ -49,7 +50,10 @@ class ContextFreeGrammar(object):
         for rule in self.rules:
             left, right = rule
             if left == token:
-                return right
+                if isinstance(right, list):
+                    return choice(right)
+                else:
+                    return right
         return ''
 
     def set_rules(self, rules):
@@ -70,9 +74,18 @@ class ContextFreeGrammar(object):
         rule = self._get_rule(token)
         spaces = ' ' * 4
         for char in rule:
-            if char.endswith(self.terminus):
-                print('{}Completed'.format(' ' * 4))
-                return evaluation
+            if isinstance(char, list):
+                terminal = False
+                for option in char:
+                    if option.endswith(self.terminus):
+                        terminal = True
+                        break
+                if terminal:
+                    return evaluation
+            else:
+                if char.endswith(self.terminus):
+                    print('{}Completed'.format(' ' * 4))
+                    return evaluation
             sub_rule = self._get_rule(char)
             print('{}Char: {}, Subrule: {}, (Parent rule: {})'.format(
                 spaces, char, sub_rule if sub_rule else '[empty]', rule))
@@ -175,12 +188,18 @@ if __name__ == '__main__':
                 choices[func]()
 
         cfg.set_rules([
+            'A => B|C|D|E|F',
             'B => b',
             'C => c',
             'D => h',
             'E => s',
+            'F => G$',
+            'G => ay|ey|iy|oy|uy',
             'Z => at$',
         ])
+        # Test OR capability
+        assert cfg.evaluate(['E', 'F']) in ['say', 'sey', 'siy', 'soy', 'suy']
+
         membership = [
             ('at', ['Z']),
             ('bat', ['B', 'Z']),
