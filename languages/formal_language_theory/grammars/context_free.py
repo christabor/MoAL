@@ -12,6 +12,10 @@ from string import ascii_uppercase
 from string import punctuation
 
 
+class InvalidTokenSet(Exception):
+    pass
+
+
 class ContextFreeGrammar(object):
 
     def __init__(self):
@@ -25,11 +29,17 @@ class ContextFreeGrammar(object):
             if rule[0] == rule:
                 del self.rules[index]
 
+    def __contains__(self, word):
+        """Tests if a word can be created using the
+        existing internal grammar and rules."""
+        return self.evaluate() == word
+
     def add_rule(self, string):
         if self.mapping_token not in string:
             raise TypeError('Invalid rule representation. '
                             'Use a {} to indicate mapping.'.format(
                                 self.mapping_token))
+        print string.split(self.mapping_token)
         left, right = string.split(self.mapping_token)
         self.rules.append([left, right])
         if self.DEBUG:
@@ -41,6 +51,20 @@ class ContextFreeGrammar(object):
             if left == token:
                 return right
         return ''
+
+    def set_rules(self, rules):
+        self.rules = []
+        for rule_str in rules:
+            self.add_rule(rule_str)
+
+    def set_tokens(self, tokens):
+        self.tokens = tokens
+
+    def delete_rules(self):
+        self.rules = []
+
+    def delete_tokens(self):
+        self.tokens = []
 
     def evaluate_single(self, token, nonterminals, evaluation=''):
         rule = self._get_rule(token)
@@ -71,7 +95,7 @@ class ContextFreeGrammar(object):
             print('{}{}\n'.format('.' * abs(80 - len(curr)), curr))
         return evaluation
 
-    def evaluate(self, tokens, evaluation=''):
+    def evaluate(self, tokens=None, evaluation=''):
         """A basic parser for a custom attribute grammar.
 
         One thing to note is that ambiguous grammars need to be iterated over,
@@ -79,6 +103,11 @@ class ContextFreeGrammar(object):
         Unambiguous grammars are therefore more performant,
         because the lookup is O(1) vs. O(N).
         """
+        if tokens is None:
+            if hasattr(self, 'tokens'):
+                tokens = self.tokens
+            else:
+                raise InvalidTokenSet
         nonterminals = [r[0] for r in self.rules]
         print('Ruleset: {}, Tokens: {}'.format(self.rules, tokens))
         for token in tokens:
@@ -122,12 +151,12 @@ if __name__ == '__main__':
 
         def cfg1():
             prnt('CFG result', '')
-            cfg.evaluate(['B', 'B', 'B', 'V', 'U'])
-            cfg.evaluate(['U', 'C', 'B', 'V', 'U', 'S'])
-            cfg.evaluate([choice(letters) for _ in range(10)])
+            cfg.evaluate(tokens=['B', 'B', 'B', 'V', 'U'])
+            cfg.evaluate(tokens=['U', 'C', 'B', 'V', 'U', 'S'])
+            cfg.evaluate(tokens=[choice(letters) for _ in range(10)])
 
         def cfg2():
-            prnt('Ambiguous CFG result', ambiguous_cfg.evaluate(tokens))
+            prnt('Ambiguous CFG result', ambiguous_cfg.evaluate(tokens=tokens))
 
         choices = {
             '1': cfg1,
@@ -144,3 +173,22 @@ if __name__ == '__main__':
         else:
             for func in choices:
                 choices[func]()
+
+        cfg.set_rules([
+            'B => b',
+            'C => c',
+            'D => h',
+            'E => s',
+            'Z => at$',
+        ])
+        membership = [
+            ('at', ['Z']),
+            ('bat', ['B', 'Z']),
+            ('cat', ['C', 'Z']),
+            ('hat', ['D', 'Z']),
+            ('sat', ['E', 'Z']),
+        ]
+        for test in membership:
+            word, new_tokens = test
+            cfg.set_tokens(new_tokens)
+            assert word in cfg
