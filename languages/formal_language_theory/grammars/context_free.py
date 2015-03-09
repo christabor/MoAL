@@ -89,6 +89,9 @@ class ContextFreeGrammar(object):
                 return True
 
     def evaluate_single(self, token, nonterminals, evaluation=''):
+        """Recursively evaluates a single rule with a token and a given
+        set of non-terminals"""
+        # TODO: implement backtracking when encountering OR evaluation
         rule = self._get_rule(token)
         for char in rule:
             if self._is_terminal(char):
