@@ -22,7 +22,7 @@ class BaseDataType(object):
     def _alter(old_bit, new_bit, value):
         curr_index = len(value) - 1
         new = list(value)
-        _old = ''.join(new)
+        old = ''.join(new)
         while new[curr_index] == old_bit:
             curr_index = curr_index - 1
         try:
@@ -32,7 +32,7 @@ class BaseDataType(object):
         new[curr_index] = old_bit
         new = ''.join(new)
         value = new
-        return _old, new
+        return old, new
 
     @staticmethod
     def decrement(value):
