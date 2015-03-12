@@ -22,8 +22,7 @@ def prnt(title, result, func=None):
 def print_var(vars, upper=False, convert=False):
     """Single line print with variable and a title, as well
     as some optional kwargs to transform the data."""
-    # Allow passing in of a single or multiple lists,
-    # with appropriate type checking.
+    # Allow passing in of single or multiple lists
     if isinstance(vars[0], str) and len(vars) == 2:
         is_single = True
         # Format the list appropriately
@@ -39,7 +38,7 @@ def print_var(vars, upper=False, convert=False):
                 data = ''.join(map(str, data))
         elif upper:
             title = title.upper()
-        print('{}: {}'.format(var[0], var[1]))
+        print('{}: {}'.format(title, data))
 
 
 def print_nl(title, pos='top'):
