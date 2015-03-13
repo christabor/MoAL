@@ -472,10 +472,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Greedy
 + Dynamic programming
 + Divide & conquer
-+ Standard graph
-  + Shortest path
-  + Max flow
-  + MST
++ Graph traversal
   + Shortest Path Problems
   + Dijkstra's Algorithm
   + Knight's Tour Problem
@@ -490,16 +487,47 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 + Transistors
 + Logic gates
-+ Data (types)
-  + Hexadecimal
-  + Octal
-  + Binary
++ [Data (types)](computer_organization/data_types.py)
+  + [Bit](computer_organization/data_types.py)
+  + [Nibble](computer_organization/data_types.py)
+  + [Byte](computer_organization/data_types.py)
+  + [Octet](computer_organization/data_types.py)
+  + [*byte](computer_organization/data_types.py)
++ [Numerical encoding](computer_organization/numerical_encoding_basic.py)
+  + [Hexadecimal](computer_organization/numerical_encoding_basic.py)
+  + [Octal](computer_organization/numerical_encoding_basic.py)
+  + Bi-Quinary
+  + [Binary](computer_organization/numerical_encoding_basic.py)
+     + Binary coded decimal (BCD)
   + Ternary
   + N-ary
-  + Endianness
+  + Gray code
+    + n-ary
+    + Balanced
+    + Monotonics
+    + Beckett–Gray
+    + Snake-in-the-box
+    + Single-track
 + Math
-  + Boolean logic
-  + Bitwise operations
+  + Endianness
+  + Two's complement
+  + One's complement
+  + Binary
+    + Addition
+    + Subtraction
+    + Multiplication
+    + Division
+    + Square root
+    + Bitwise operations
+      + XOR
+      + OR
+      + AND
+      + NOT
+      + Shifts
+        + Arithmetical
+        + Logical
+        + Rotate no carry
+        + Rotate through carry
 + Memory
   + Memory hierarchy
   + Virtual memory
@@ -804,12 +832,15 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + reality
     + Others
   + Formal grammars
+    + Link
+    + Tree-adjoining
     + Recursive
     + Regular
     + Analytic
-    + [Attribute](languages/formal_language_theory/grammars/attribute_context_free.py)
+    + [Context-sensitive](languages/formal_language_theory/grammars/context_sensitive.py)
     + [Context-free](languages/formal_language_theory/grammars/context_free.py)
       + Stochastic
+      + [Attribute](languages/formal_language_theory/grammars/attribute_context_free.py)
       + Adaptive
         + Recursive (RAGs)
         + Dynamic Template Translators
@@ -1018,6 +1049,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + wikipedia.org/wiki/Central_processing_unit
 + wikipedia.org/wiki/System_on_a_chip
 + wikipedia.org/wiki/Programming_paradigm
++ wikipedia.org/wiki/List_of_algorithms
 + wikipedia.org/wiki/NoSQL
 + wikipedia.org/wiki/Evaluation_strategy
 + wikipedia.org/wiki/Machine_learning
@@ -1059,6 +1091,8 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
   + wikipedia.org/wiki/Computability_theory#Areas_of_research
   + wikipedia.org/wiki/Model_theory
 + wikipedia.org/wiki/List_of_data_structures
++ wikipedia.org/wiki/Bitwise_operation
++ wikipedia.org/wiki/Gray_code
 
 *Misc*
 + www.fullstackpython.com/table-of-contents.html
