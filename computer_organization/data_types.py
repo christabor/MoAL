@@ -22,11 +22,18 @@ class BaseDataType(object):
 
     @staticmethod
     def _alter(old_bit, new_bit, value):
-        if isinstance(value, int):
-            value = str(value)
+        """An interesting visualization of flipping bits --
+        not very robust; primarily meant as a basic learning exercise
+        -- see other relevant modules for more specific implementations."""
+        if not isinstance(value, str):
+            raise TypeError('Requires a string version to prevent coercion.')
         curr_index = len(value) - 1
+        # Convert the binary values to a list for operating on
         new = list(value)
+        # Store a copy string representation for visual comparisons
         old = ''.join(new)
+        # Keep moving right until we get to the next on/off bit
+        # (depending on whether we're incrementing or decrementing)
         while new[curr_index] == old_bit:
             curr_index -= 1
             new[curr_index + 1] = new_bit
@@ -61,6 +68,26 @@ class BaseDataType(object):
     @staticmethod
     def subtract(binval, amount):
         for n in range(amount):
+            binval = BaseDataType.decrement(binval)
+        return binval
+
+    @staticmethod
+    def multiply(binval, amount):
+        # Just defer to increment,
+        # e.g. 10 * 2 = 20, |10 - 20| = 10 ... inc. 10
+        product = int(binval) * amount
+        diff = abs(int(binval) - product)
+        for n in range(diff):
+            binval = BaseDataType.increment(binval)
+        return binval
+
+    @staticmethod
+    def divide(binval, amount):
+        # Just defer to decrement,
+        # e.g. 10 / 2 = 5, 10 - 5 = 5 ... dec. 5
+        quotient = int(binval) // amount
+        diff = abs(int(binval) - quotient)
+        for n in range(diff):
             binval = BaseDataType.decrement(binval)
         return binval
 
