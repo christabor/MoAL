@@ -12,6 +12,10 @@ def _func_or_print(result, func):
         print(result)
 
 
+def divider(atom='_'):
+    print(atom * 80)
+
+
 def prnt(title, result, func=None):
     print('\n')
     print('{t.green}{t.underline}{}{t.normal}'.format(title, t=term))
@@ -19,7 +23,7 @@ def prnt(title, result, func=None):
     print('\n')
 
 
-def print_var(vars, upper=False, convert=False):
+def print_vars(vars, upper=False, convert=False):
     """Single line print with variable and a title, as well
     as some optional kwargs to transform the data."""
     # Allow passing in of single or multiple lists
