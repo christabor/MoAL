@@ -1,5 +1,7 @@
 from random import choice
 from random import randrange as rr
+from itertools import chain
+from itertools import izip
 
 
 def subdivide_groups(items, divisions=2):
@@ -124,3 +126,7 @@ def random_number_set(min_rand=0, max_rand=9999, max_range=100):
 
 def random_number_sets(sets=2, max_random=50):
     return [random_number_set(0, 9999, max_random) for _ in range(sets)]
+
+
+def interleave(*lists):
+    return list(chain.from_iterable(izip(*lists)))
