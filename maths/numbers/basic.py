@@ -32,8 +32,7 @@ def integers(max_nums):
 
 
 def rationals(max_nums):
-    """Does not encapsulate entirety of the rationals,
-    simply an example subset"""
+    """Doesn't cover entirety of the rationals, just an example subset"""
     for n in range(0, max_nums):
         try:
             rand_example = rr(0, max_nums ** n)  # Make things interesting
@@ -44,8 +43,7 @@ def rationals(max_nums):
 
 
 def irrationals(max_nums):
-    """Does not encapsulate entirety of the rationals,
-    simply an example subset"""
+    """Doesn't cover entirety of the irrationals, just an example subset"""
     getcontext().prec = 20
     for n in range(1, max_nums):
         res = Decimal(n).sqrt()
