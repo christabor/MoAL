@@ -137,18 +137,18 @@ class Octet(Nibble):
         super(Octet, self).__init__(value)
 
 
-class Byte16(Nibble):
+class Halfword(Nibble):
 
     def __init__(self, value):
         self.length = 16
-        super(Byte16, self).__init__(value)
+        super(Halfword, self).__init__(value)
 
 
-class Byte32(Nibble):
+class Word(Nibble):
 
     def __init__(self, value):
         self.length = 32
-        super(Byte32, self).__init__(value)
+        super(Word, self).__init__(value)
 
 
 def update_animation(steps, func, instance):
