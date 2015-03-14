@@ -247,7 +247,8 @@ def hex_to_oct(hexnumber):
 # ------------- TESTING --------------------------------------------------------
 
 def compare_to_native(
-        native, custom, count=20, assert_results=False, supress_other=True):
+        native, custom, count=20, assert_results=False,
+        prefix=None, supress_other=True):
     """Compares custom callable to the native version with a list of numbers."""
     print('Running func: {}'.format(native))
     failures = []
@@ -256,6 +257,8 @@ def compare_to_native(
         DEBUG = False
     for n in range(1, count):
         res_n, res_c = native(n), custom(n)
+        if prefix is not None:
+            res_c = '{}{}'.format(prefix, res_c)
         print('native {}, mine {}'.format(res_n, res_c))
         if assert_results:
             try:
@@ -297,7 +300,7 @@ def bina():
     assert '0b' + dec_to_bin(12) == str(bin(12)) == '0b1100'
     assert '0b' + hex_to_bin('0x13e') == bin(0x13e) == '0b100111110'
     assert '0b' + oct_to_bin(51) == '0b101001'
-    compare_to_native(bin, dec_to_bin, assert_results=True)
+    compare_to_native(bin, dec_to_bin, assert_results=True, prefix='0b')
 
 
 def octa():
@@ -307,7 +310,7 @@ def octa():
     assert dec_to_oct(12) == '14'
     assert dec_to_oct(390) == '606'
     assert dec_to_oct(500) == '764'
-    compare_to_native(oct, dec_to_oct, assert_results=True)
+    compare_to_native(oct, dec_to_oct, assert_results=True, prefix='0')
 
 
 def deca():
