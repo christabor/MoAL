@@ -487,20 +487,78 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 + Transistors
 + Logic gates
-+ [Data (types)](computer_organization/data_types.py)
++ [Data-types & representation](computer_organization/data_types.py)
   + [Bit](computer_organization/data_types.py)
   + [Nibble](computer_organization/data_types.py)
   + [Byte](computer_organization/data_types.py)
   + [Octet](computer_organization/data_types.py)
   + [*byte](computer_organization/data_types.py)
+  + [Two's complement](computer_organization/one_twos_complement.py)
+  + [Ones' complement](computer_organization/one_twos_complement.py)
 + [Numerical encoding](computer_organization/numerical_encoding_basic.py)
-  + [Hexadecimal](computer_organization/numerical_encoding_basic.py)
+  + [Decimal](computer_organization/numerical_encoding_basic.py)
+    + Duodecimal
+    + Tridecimal
+    + Tetradecimal
+    + Pentadecimal
+    + [Hexadecimal](computer_organization/numerical_encoding_basic.py)
+    + Octodecimal
+    + Vigesimal
+    + Tetravigesimal
+    + Pentavigesimal
+    + Hexavigesimal
+    + Septemvigesimal
+    + Trigesimal
+    + Duotrigesimal
+    + Hexatrigesimal
+    + Sexagesimal
+    + Duosexagesimal
+    + Tetrasexagesimal
+    + Pentaoctagesimal
+    + Centovigesimal
+    + Duocentoquadragesimal
+    + Trecentosexagesimal
+  + Complex
+    + Quater-Imaginary base
+    + Twindragon
+  + Non-integer bases
+    + Golden ratio
+    + Euler
+    + Pi-ary
+    + Sqrt 2
+    + 12th root of two
   + [Octal](computer_organization/numerical_encoding_basic.py)
-  + Bi-Quinary
-  + [Binary](computer_organization/numerical_encoding_basic.py)
-     + Binary coded decimal (BCD)
-  + Ternary
+  + Redundant binary representation (RBR)
+  + Quote notation
+  + Fibonacci coding
+  + Skew binary
+  + Ostrowski numeration
+  + Negative
+    + Negabinary
+    + Negadecimal
+    + Negaternary
+    + Negafibonacci
+  + Mixed radix
+    + Factoradic
   + N-ary
+    + [Binary](computer_organization/numerical_encoding_basic.py)
+       + Binary coded decimal (BCD)
+        + 8421
+        + 4221
+        + 7421
+        + excess-3
+    + Bi-Quinary
+    + Ternary
+      + Balanced ternary
+    + Quaternary
+    + Quinary
+    + Senary
+    + Septenary
+    + Nonary
+  + Bijective
+    + base-10
+    + base-26 Spr
+  + 1-adic bijective (tally)
   + Gray code
     + n-ary
     + Balanced
@@ -510,8 +568,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Single-track
 + Math
   + Endianness
-  + Two's complement
-  + One's complement
   + Binary
     + Addition
     + Subtraction
@@ -1091,8 +1147,10 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
   + wikipedia.org/wiki/Computability_theory#Areas_of_research
   + wikipedia.org/wiki/Model_theory
 + wikipedia.org/wiki/List_of_data_structures
-+ wikipedia.org/wiki/Bitwise_operation
-+ wikipedia.org/wiki/Gray_code
++ wikipedia.org/wiki/List_of_numeral_systems
+  + wikipedia.org/wiki/Factorial_number_system
+  + wikipedia.org/wiki/Gray_code
+  + wikipedia.org/wiki/Bitwise_operation
 
 *Misc*
 + www.fullstackpython.com/table-of-contents.html
@@ -1101,8 +1159,10 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + anandology.com/python-practice-book
 
 ### Optional reading:
-+ *Introduction to Algorithm Design* - Jon Kleinberg and Eva Tardos, or Introduction to Algorithms CLRS (MIT).
++ *Introduction to Algorithm Design* - Jon Kleinberg and Eva Tardos
++ *Introduction to Algorithms CLRS (MIT)*
 + *Purely functional data structures* - Chris Okasaki
++ *The Language of Machines: An Introduction to Computability and Formal Languages* - Robert W. Floyd, Richard Beigel
 
 ### Notes, Q/A, research
 + stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array

@@ -61,6 +61,7 @@ def make_groups(string, count):
 # ------------- CONVERTERS -----------------------------------------------------
 
 def _divide_by(number, base):
+    number = int(number)
     """General purpose numeral converter,
     using the divide-by N + modulo technique."""
     vals = []

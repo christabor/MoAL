@@ -14,6 +14,7 @@ def _func_or_print(result, func):
 
 def divider(atom='_'):
     print(atom * 80)
+    print('\n')
 
 
 def prnt(title, result, func=None):
