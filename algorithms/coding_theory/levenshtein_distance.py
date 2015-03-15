@@ -42,7 +42,7 @@ def _branch(word, dist):
     return branch, word
 
 
-def lev_recursive(s1, s2, l1=None, l2=None, ct=0, parent=True):
+def lev_recursive(s1, s2, l1=None, l2=None, ct=0):
     """Recursive implementation of the Levenshtein distance algorithm.
     Algorithm from Wikipedia pseudocode:
     wikipedia.org/wiki/Levenshtein_distance#Computing_Levenshtein_distance
@@ -66,13 +66,9 @@ def lev_recursive(s1, s2, l1=None, l2=None, ct=0, parent=True):
     # per operation, to determine the offset of the three scenarios:
     # short s1, short s2
     dist = min(
-        lev_recursive(
-            s1, s2, l1=l1 - 1, l2=l2, ct=ct + 1, parent=False) + 1,
-        lev_recursive(
-            s1, s2, l1=l1, l2=l2 - 1, ct=ct + 2, parent=False) + 1,
-        lev_recursive(
-            s1, s2, l1=l1 - 1, l2=l2 - 1, ct=ct + 3,
-            parent=False) + cost)
+        lev_recursive(s1, s2, l1=l1 - 1, l2=l2, ct=ct + 1) + 1,
+        lev_recursive(s1, s2, l1=l1, l2=l2 - 1, ct=ct + 2) + 1,
+        lev_recursive(s1, s2, l1=l1 - 1, l2=l2 - 1, ct=ct + 3) + cost)
     if DEBUG:
         # A visualization of the recursive call graph and the various
         # parent/child branches that result in the duplicate
