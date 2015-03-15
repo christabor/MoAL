@@ -888,6 +888,12 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Haskell - monads
   + Haskell - guards
   + Haskell - comprehensions
++ Evaluation strategies
+  + Eager
+  + Lazy
+  + Partial
+  + Remote
+  + Short-circuit
 + Formal language theory
   + Modeling language
     + Algebraic
