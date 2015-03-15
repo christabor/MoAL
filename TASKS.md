@@ -1,5 +1,7 @@
 # Introduction
 
+####*...An autodidacts dream*
+
 **This should be considered a living document. It will grow in size, becoming better organized as new details and fields of study are integrated**
 
 _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file. Each task and child task/category is designed to be as true to the hierarchy of understanding as possible; duplicate labels are thus removed for child elements, so that relationships are derived by simply mentally "traversing the tree", to build out the specific name.
@@ -427,6 +429,14 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Apostolico-Giancarlo
   + Aho-Corasick multi-pattern
   + Rabin-Karp multi-pattern
++ Coding theory
+  + String edit
+    + [Hamming distance](algorithms/coding_theory/hamming_distance.py)
+    + [Levenshtein distance]((algorithms/coding_theory/levenshtein_distance.py))
+    + Lee distance
+    + Hirschberg's
+    + Needleman–Wunsch
+    + Wagner–Fischer
 + Mutual exclusion management
   + Szymanski's
   + Taubenfeld's black-white bakery
@@ -562,7 +572,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Gray code
     + n-ary
     + Balanced
-    + Monotonics
+    + Binary-reflected (BRGC)
+    + Monotonic
     + Beckett–Gray
     + Snake-in-the-box
     + Single-track
@@ -1151,6 +1162,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
   + wikipedia.org/wiki/Factorial_number_system
   + wikipedia.org/wiki/Gray_code
   + wikipedia.org/wiki/Bitwise_operation
++ wikipedia.org/wiki/Coding_theory
 
 *Misc*
 + www.fullstackpython.com/table-of-contents.html

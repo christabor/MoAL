@@ -57,7 +57,7 @@ def _heading(title, divider, desc=None):
     desc = '' if None else desc
     text = (
         '\n {} - {}\n'
-        '|{}|\n').format(title.upper(), desc, divider * 50)
+        '|{}|\n').format(title.upper(), desc, divider * 80)
     print_nl(text)
 
 

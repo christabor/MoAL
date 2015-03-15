@@ -129,6 +129,27 @@ class intlist(strictlist):
         self.do(_fact)
 
 
+def list_fill(length, fill=0):
+    """Fill a list with default values."""
+    return [fill for _ in range(length)]
+
+
+def dict_fill(length, fill=0):
+    """Fill a dict with integer keys and a `fill` value."""
+    return {n: fill for n in range(length)}
+
+
+def matrix_fill(w, h, fill=0):
+    """Generates a two-dimensional matrix of W x H,
+    filled with zeroes or a custom `fillwith` value.
+
+    e.g. [[0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0]]
+    """
+    return [[fill for _ in range(w)] for _ in range(h)]
+
+
 if __name__ == '__main__':
     with Section('Testing abstract data type extensions'):
         # Testing
