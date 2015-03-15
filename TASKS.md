@@ -45,8 +45,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Overloaded arrays](helpers/adts.py)
     + [Suffix arrays](data_structures/linear/array/suffix_arrays.py)
     + Bidirectional map
-    + Bit
-    + Bit field
+    + [Bit](computer_organization/data_types.py)
+    + [Bit field](computer_organization/bit_field.py)
     + Bitboard
     + Bitmap
     + Circular buffer
@@ -433,10 +433,21 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + String edit
     + [Hamming distance](algorithms/coding_theory/hamming_distance.py)
     + [Levenshtein distance]((algorithms/coding_theory/levenshtein_distance.py))
+      + Damerau–Levenshtein distance
+    + Hamming weight
+    + Jaro–Winkler distance
     + Lee distance
     + Hirschberg's
+    + MostFreqKDistance
     + Needleman–Wunsch
     + Wagner–Fischer
+    + Smith–Waterman
+    + MinHash
+    + Bitap
+    + Longest common subsequence
+      + Hunt–McIlroy
+    + Longest common substring
+    + Longest palindromic substring
 + Mutual exclusion management
   + Szymanski's
   + Taubenfeld's black-white bakery
@@ -482,6 +493,11 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Greedy
 + Dynamic programming
 + Divide & conquer
++ Time series analysis
+  + Dynamic time warping
++ Geometry
+  + Manhattan distance
+  + Euclidean distance
 + Graph traversal
   + Shortest Path Problems
   + Dijkstra's Algorithm
@@ -595,6 +611,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Logical
         + Rotate no carry
         + Rotate through carry
+  + [Bit field](computer_organization/bit_field.py)
+  + [Flag field](computer_organization/bit_field.py)
+  + Bit Masking
 + Memory
   + Memory hierarchy
   + Virtual memory
@@ -857,6 +876,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Richards controller
     + Moore
     + Mealy
+    + Levenshtein automaton
 + Computational complexity
   + Classes
     + P
