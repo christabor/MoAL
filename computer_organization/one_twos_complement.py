@@ -7,7 +7,9 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from helpers.display import divider
+from helpers.text import random_binary
 from computer_organization.numerical_encoding_basic import bin_to_dec
+from computer_organization.numerical_encoding_basic import dec_to_bin
 from computer_organization.data_types import BaseDataType
 from random import choice
 
@@ -19,7 +21,7 @@ def ones_complement(binary):
     binary = list(binary)
     for k, digit in enumerate(binary):
         binary[k] = '1' if digit == '0' else '0'
-    return binary
+    return ''.join(binary)
 
 
 def twos_complement(binary):
@@ -29,20 +31,15 @@ def twos_complement(binary):
     binary = ones_complement(binary)
     ones = binary
     binary = BaseDataType.increment(''.join(binary))
-    print('Complements: one: {}, two: {}, (original: {})'.format(
-        ''.join(ones), binary, ''.join(old)))
+    if DEBUG:
+        print('Complements: one: {}, two: {}, (original: {})'.format(
+            ''.join(ones), binary, ''.join(old)))
     dec = bin_to_dec(binary)
     sign, res = ('neg', -dec) if list(binary)[0] == '1' else ('pos', dec,)
-    print('Final decimal is {}: {}'.format(sign, res))
-
-
-def random_binary(bits):
-    if bits % 4 != 0:
-        raise ValueError('Need even bit length!')
-    binary = ''
-    for _ in range(bits):
-        binary += str(choice([1, 0]))
-    return binary
+    res_bin = dec_to_bin(res)
+    if DEBUG:
+        print('Final decimal is {}: {} ({})'.format(sign, res, res_bin))
+    return res_bin
 
 
 if __name__ == '__main__':

@@ -50,3 +50,27 @@ def words_unix_dict(min_length=8):
             if len(word) >= min_length:
                 yield word.strip()
         raise StopIteration
+
+
+def random_binary(bits):
+    if bits % 4 != 0:
+        raise ValueError('Need even bit length!')
+    binary = ''
+    for _ in range(bits):
+        binary += str(choice([1, 0]))
+    return binary
+
+
+def _rand_bitstring(count):
+    binary = ''
+    for _ in range(count):
+        binary += str(choice([1, 0]))
+    return ''.join(binary)
+
+
+def random_nibble():
+    return _rand_bitstring(4)
+
+
+def random_byte():
+    return _rand_bitstring(8)

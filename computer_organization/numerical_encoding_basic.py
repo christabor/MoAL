@@ -86,9 +86,7 @@ def dec_to_hex(number):
 
 def dec_to_bin(number):
     """Convert integer to binary. Only handles positive integers."""
-    if number < 0:
-        raise TypeError
-    bits = _divide_by(number, 2)
+    bits = _divide_by(abs(number), 2)
     for k, bit in enumerate(bits):
         # Pad digits if necessary
         bits[k] = bit.zfill(1)

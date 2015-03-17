@@ -130,11 +130,13 @@ class Nibble(Bit):
             self.bits.append(Bit(char))
 
 
-class Octet(Nibble):
+class Byte(Nibble):
+
+    """Also sometimes referred to as an `Octet`"""
 
     def __init__(self, value):
         self.length = 8
-        super(Octet, self).__init__(value)
+        super(Byte, self).__init__(value)
 
 
 class Halfword(Nibble):
@@ -173,13 +175,13 @@ if __name__ == '__main__':
         assert nibble.get_max_binvals() == 24
 
         print_h3('Byte', desc='8 bits = one byte.')
-        octet = Octet('00000000')
-        print(octet)
-        assert octet.get_max_binvals() == 40320
+        byte = Byte('00000000')
+        print(byte)
+        assert byte.get_max_binvals() == 40320
 
-        orig = octet.value
+        orig = byte.value
         # Flip bits then reverse and check the value to test things
         # are working correctly.
-        update_animation(32, octet.increment, octet)
-        update_animation(32, octet.decrement, octet)
-        assert octet.value == orig
+        update_animation(32, byte.increment, byte)
+        update_animation(32, byte.decrement, byte)
+        assert byte.value == orig

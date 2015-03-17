@@ -10,7 +10,8 @@ BAD_FOLDERS = ['.git']
 BAD_FILES = ['__init__.py', 'bogo_sort.py', 'test_files.py']
 EXPECTED_EXCEPTIONS = (NotImplementedError,)
 # The actual error types we are looking out for.
-UNEXPECTED_EXCEPTIONS = (IOError, ImportError, KeyError, AttributeError)
+UNEXPECTED_EXCEPTIONS = (IOError, ImportError, KeyError, AttributeError,
+                         TypeError, IndexError)
 
 
 def _get_all_files():

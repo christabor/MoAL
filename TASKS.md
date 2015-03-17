@@ -594,26 +594,26 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Snake-in-the-box
     + Single-track
 + Math
-  + Endianness
-  + Binary
-    + Addition
-    + Subtraction
-    + Multiplication
-    + Division
+  + [Endianness (byte ordering)](computer_organization/endianness.py)
+  + [Binary](computer_organization/data_types.py)
+    + [Addition](computer_organization/data_types.py)
+    + [Subtraction](computer_organization/data_types.py)
+    + [Multiplication](computer_organization/data_types.py)
+    + [Division](computer_organization/data_types.py)
     + Square root
-    + Bitwise operations
-      + XOR
-      + OR
-      + AND
-      + NOT
-      + Shifts
-        + Arithmetical
-        + Logical
-        + Rotate no carry
-        + Rotate through carry
+    + [Bitwise operations](computer_organization/bitwise_operations.py)
+      + [XOR](computer_organization/bitwise_operations.py)
+      + [OR](computer_organization/bitwise_operations.py)
+      + [AND](computer_organization/bitwise_operations.py)
+      + [NOT](computer_organization/bitwise_operations.py)
+      + [Shifts](computer_organization/bitwise_operations.py)
+        + [Arithmetical](computer_organization/bitwise_operations.py)
+        + [Logical](computer_organization/bitwise_operations.py)
+        + [Rotate no carry](computer_organization/bitwise_operations.py)
+        + [Rotate through carry](computer_organization/bitwise_operations.py)
   + [Bit field](computer_organization/bit_field.py)
   + [Flag field](computer_organization/bit_field.py)
-  + Bit Masking
+  + [Bit Masking](computer_organization/bitwise_operations.py)
 + Memory
   + Memory hierarchy
   + Virtual memory

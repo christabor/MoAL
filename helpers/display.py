@@ -53,27 +53,24 @@ def print_nl(title, pos='top'):
         print('{}\n'.format(title))
 
 
-def _heading(title, divider, desc=None):
-    desc = '' if None else desc
-    text = (
-        '\n {} - {}\n'
-        '|{}|\n').format(title.upper(), desc, divider * 80)
+def _heading(title, divider, desc=''):
+    text = ('\n {} - {}\n' '|{}|\n').format(title.upper(), desc, divider * 80)
     print_nl(text)
 
 
-def print_h1(title, desc=None):
+def print_h1(title, desc=''):
     _heading(title, '#', desc=desc)
 
 
-def print_h2(title, desc=None):
+def print_h2(title, desc=''):
     _heading(title, '=', desc=desc)
 
 
-def print_h3(title, desc=None):
+def print_h3(title, desc=''):
     _heading(title, '-', desc=desc)
 
 
-def print_h4(title, desc=None):
+def print_h4(title, desc=''):
     _heading(title, '.', desc=desc)
 
 

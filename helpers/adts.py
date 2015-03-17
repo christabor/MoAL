@@ -6,16 +6,19 @@ from random import shuffle
 
 class strictlist(list):
     """A list that only allows certain primitive types
-    (when subclassed), and adds some useful helper methods that are
+    (when sub-classed), and adds some useful helper methods that are
     applied to all members in the list, for that primitive.
     """
 
     def __init__(self, items, valid_type=None):
+        # Bind this list to a valid type, so no other types can be added
+        # or mutated within the context of this class.
         self._type = valid_type
         self.items = [member for member in items if self._valid(member)]
 
     def __setitem__(self, index, value):
-        """Don't allow incorrect types to be added, but do so gracefully."""
+        """Don't allow incorrect types to be added, but do so gracefully
+        to allow for composition/flow operations."""
         if self._valid(value):
             super(strictlist, self).__setitem__(index, value)
         return self
@@ -130,18 +133,18 @@ class intlist(strictlist):
 
 
 def list_fill(length, fill=0):
-    """Fill a list with default values."""
+    """Fill a list with default values and a custom `fill` value."""
     return [fill for _ in range(length)]
 
 
 def dict_fill(length, fill=0):
-    """Fill a dict with integer keys and a `fill` value."""
+    """Fill a dict with integer keys and a custom `fill` value."""
     return {n: fill for n in range(length)}
 
 
 def matrix_fill(w, h, fill=0):
     """Generates a two-dimensional matrix of W x H,
-    filled with zeroes or a custom `fillwith` value.
+    filled with zeroes or a custom `fill` value.
 
     e.g. [[0, 0, 0],
           [0, 0, 0],
