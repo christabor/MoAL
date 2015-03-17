@@ -74,7 +74,7 @@ def bitwise_or(bits1, bits2):
 
 
 def bitwise_xor(bits1, bits2):
-    """Do a logical OR on each pair of bits: e.g. 1/1 = 0, 0/1 = 1, 0/0 = 0"""
+    """Do a logical XOR on each pair of bits: e.g. 1/1 = 0, 0/1 = 1, 0/0 = 0"""
     _checkbits(bits1, bits2)
     bits1, bits2 = list(bits1), list(bits2)
     before1, before2, res = ''.join(bits1), ''.join(bits2), ''
