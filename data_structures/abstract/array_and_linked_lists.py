@@ -10,11 +10,13 @@ from helpers.text import gibberish
 from helpers.display import _cmd_title
 from helpers.display import prnt
 
+DEBUG = True if __name__ == '__main__' else False
+
 # Arrays are simple: []. Nothing special here.
 
 arr = []
 
-# Python doesn't have Linked Lists in the traditional sense,
+# Python doesn't expose Linked Lists as usable data structures,
 # so you can manually recreate the idea behind them using classes.
 
 
@@ -56,7 +58,7 @@ class LinkNode(object):
             if node.title == key:
                 return node
             node = node.next
-        return node
+        return None
 
     def __delitem__(self, key):
         """Delete a node, purge any references, and update the adjacent links"""
@@ -157,44 +159,51 @@ class AssociationList(LinkNode):
     def __init__(self, *args, **kwargs):
         super(AssociationList, self).__init__(*args, **kwargs)
 
+    def __getitem__(self, key):
+        """Get an existing node, returning only the value."""
+        node = self
+        while node is not None:
+            if node.title == key:
+                return node.cargo
+            node = node.next
+        return None
+
     def __setitem__(self, key, value):
-        node = self.__getitem__(key)
+        node = super(AssociationList, self).__setitem__(key, value)
         if node is not None:
             node.cargo = value
 
 
-if __name__ == '__main__':
+if DEBUG:
     with Section('Arrays & Linked Lists'):
-        DEBUG = True
         MAX_NODES = 10
         linked_list = build_list(MAX_NODES)
         print_nodes(linked_list)
         prnt('Length of linked list:', len(linked_list))
 
-        if DEBUG:
-            prnt('Testing iteration', '')
-            for node in linked_list:
-                print(node)
+        prnt('Testing iteration', '')
+        for node in linked_list:
+            print(node)
 
-            del linked_list['node-1']
-            del linked_list['node-4']
-            del linked_list['node-2']
-            del linked_list['node-6']
-            del linked_list['tail']
+        del linked_list['node-1']
+        del linked_list['node-4']
+        del linked_list['node-2']
+        del linked_list['node-6']
+        del linked_list['tail']
 
-            prnt('Testing iteration - post delete:', '')
+        prnt('Testing iteration - post delete:', '')
 
-            for node in linked_list:
-                print(node)
+        for node in linked_list:
+            print(node)
 
-            linked_list['head'] = 'FOO'
-            linked_list['node-3'] = 'BAR'
-            linked_list['node-5'] = 'BIM'
+        linked_list['head'] = 'FOO'
+        linked_list['node-3'] = 'BAR'
+        linked_list['node-5'] = 'BIM'
 
-            prnt('Testing value update', '')
+        prnt('Testing value update', '')
 
-            for node in linked_list:
-                print(node)
+        for node in linked_list:
+            print(node)
 
 # Glossary practice
 
