@@ -104,6 +104,18 @@ class LinkNode(object):
             next = next.next
         return next
 
+    def prepend(self, key, value):
+        """Add a new node to the very beginning of the list."""
+        curr_begin = self.first()
+        curr_begin.next = LinkNode(title=key, cargo=value)
+        curr_begin.next.prev = curr_begin
+
+    def append(self, key, value):
+        """Add a new node to the very end of the list."""
+        curr_end = self.last()
+        curr_end.next = LinkNode(title=key, cargo=value)
+        curr_end.next.prev = curr_end
+
 
 def print_nodes(node):
 
@@ -123,9 +135,10 @@ def print_nodes(node):
     prnt('Linked List\n', path)
 
 
-def build_list(length):
-    # Start from the beginning with a new node.
-    head = LinkNode('head', prev=None)
+def build_list(length, head=None):
+    if head is None:
+        # Start from the beginning with a new node.
+        head = LinkNode('head', prev=None)
     curr_node = head
     curr = 0  # Head starts at 0
     while curr_node is not None:
@@ -168,11 +181,8 @@ class AssociationList(LinkNode):
             node = node.next
         return None
 
-    def __setitem__(self, key, value):
-        node = super(AssociationList, self).__setitem__(key, value)
-        if node is not None:
-            node.cargo = value
-
+    def __setitem__(self, *args, **kwargs):
+        return self.append(*args, **kwargs)
 
 if DEBUG:
     with Section('Arrays & Linked Lists'):

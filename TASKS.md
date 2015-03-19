@@ -4,7 +4,7 @@
 
 **This should be considered a living document. It will grow in size, becoming better organized as new details and fields of study are integrated**
 
-_Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below in each file. Each task and child task/category is designed to be as true to the hierarchy of understanding as possible; duplicate labels are thus removed for child elements, so that relationships are derived by simply mentally "traversing the tree", to build out the specific name.
+_Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be individual and atomic, but many build off of each other and are imported as new modules. Each file is formatted to have classes/definitions and then examples below. Each task and child task/category is designed to be as true to the hierarchy of understanding as possible; duplicate labels are thus removed for child elements, so that relationships are derived by simply mentally "traversing the tree", to build out the specific name.
 
 # Tasks
 
@@ -23,7 +23,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Abstract data types
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
   + [Container](data_structures/abstract/container.py)
-  + Map / Associative array / Dictionary
+  + [Map / Associative array / Dictionary](data_structures/abstract/map.py)
   + Multi-map
   + [List](data_structures/abstract/list.py)
   + [Set](data_structures/abstract/set.py)
@@ -44,7 +44,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
     + [Overloaded arrays](helpers/adts.py)
     + [Suffix arrays](data_structures/linear/array/suffix_arrays.py)
-    + Bidirectional map
+    + Bi-directional map
     + [Bit](computer_organization/data_types.py)
     + [Bit field](computer_organization/bit_field.py)
     + Bitboard
@@ -68,6 +68,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Doubly linked
     + Array list
     + [Linked](data_structures/abstract/array_and_linked_lists.py)
+      + [Association list](data_structures/abstract/array_and_linked_lists.py)
     + Self-organizing
     + [Skip lists](data_structures/linear/lists/skip_lists.py)
     + Unrolled linked
@@ -359,6 +360,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
           + [O(2^n)](maths/big_o.py)
           + [O(n!)](maths/big_o.py)
     + Optimization
+      + Memoization
+      + Strength reduction
+      + Caching
       + Linear programming
         + Augmented form
         + Duality
