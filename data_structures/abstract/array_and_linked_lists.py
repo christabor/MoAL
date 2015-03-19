@@ -5,17 +5,17 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
+from helpers.display import Section
+from helpers.text import gibberish
+from helpers.display import _cmd_title
+from helpers.display import prnt
+
 # Arrays are simple: []. Nothing special here.
 
 arr = []
 
 # Python doesn't have Linked Lists in the traditional sense,
 # so you can manually recreate the idea behind them using classes.
-
-from helpers.display import Section
-from helpers.text import gibberish
-from helpers.display import _cmd_title
-from helpers.display import prnt
 
 
 class LinkNode(object):
@@ -161,14 +161,6 @@ class AssociationList(LinkNode):
         node = self.__getitem__(key)
         if node is not None:
             node.cargo = value
-
-    # def __getitem__(self, key):
-    #     node = self.first()
-    #     while node is not None:
-    #         if node.title == key:
-    #             return node.cargo
-    #         node = node.next
-    #     raise KeyError('Key not found.')
 
 
 if __name__ == '__main__':
