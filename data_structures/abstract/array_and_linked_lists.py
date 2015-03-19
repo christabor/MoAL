@@ -18,7 +18,7 @@ from helpers.display import _cmd_title
 from helpers.display import prnt
 
 
-class Node:
+class LinkNode(object):
     """A node represents a connection in the linked list."""
 
     def __init__(self, title, cargo=None, prev=None, next=None):
@@ -36,6 +36,7 @@ class Node:
             title=self.title, cargo=self.cargo)
 
     def __iter__(self):
+        """Iterate over linked nodes"""
         node = self
         yield node
         while node.next is not None:
@@ -43,11 +44,13 @@ class Node:
             yield node
 
     def __setitem__(self, key, value):
+        """Update the values of an existing node"""
         node = self.__getitem__(key)
         if node is not None:
             node.cargo = value
 
     def __getitem__(self, key):
+        """Get an existing node"""
         node = self
         while node is not None:
             if node.title == key:
@@ -56,16 +59,15 @@ class Node:
         return node
 
     def __delitem__(self, key):
+        """Delete a node, purge any references, and update the adjacent links"""
         if self.title == key:
             node = self
         else:
             node = self.__getitem__(key)
-
         if node.prev is not None:
             node.prev.next = node.next
         if node.next is not None:
             node.next.prev = node.prev
-
         if self.DEBUG:
             print('\nDELETING... {} {}'.format(node.title, node.cargo))
         del node
@@ -77,6 +79,28 @@ class Node:
             count += 1
             node = node.next
         return count
+
+    def first(self):
+        """Move backward in the list until the first node is found
+            e.g. [N - 2] <-- [N - 1] <-- [N]
+        """
+        prev = self
+        while prev:
+            if prev.prev is None:
+                return prev
+            prev = prev.prev
+        return prev
+
+    def last(self):
+        """Move forward in the list until the last node is found
+            e.g. [N] --> [N + 1] --> [N + 2]
+        """
+        next = self
+        while next:
+            if next.next is None:
+                return next
+            next = next.next
+        return next
 
 
 def print_nodes(node):
@@ -99,7 +123,7 @@ def print_nodes(node):
 
 def build_list(length):
     # Start from the beginning with a new node.
-    head = Node('head', prev=None)
+    head = LinkNode('head', prev=None)
     curr_node = head
     curr = 0  # Head starts at 0
     while curr_node is not None:
@@ -112,12 +136,39 @@ def build_list(length):
             curr_node.title = title
 
         curr_node.next = None if (curr == length - 1) \
-            else Node(title, prev=curr_node)
+            else LinkNode(title, prev=curr_node)
 
         # Advance to the next node, for the next iteration
         curr_node = curr_node.next
         curr += 1
     return head
+
+
+class AssociationList(LinkNode):
+    """Our linked list already encapsulates all the behavior necessary.
+    The required `key` and `value` properties are named `title` and `cargo`
+    respectively. The association (lookup) can be evaluated by traversing the
+    linked list and comparing the key, then returning the matching nodes value.
+
+    This behavior is already done with the setter, but to be explicit,
+    we'll re-define a method that returns ONLY the value,
+    rather than the entire node reference."""
+
+    def __init__(self, *args, **kwargs):
+        super(AssociationList, self).__init__(*args, **kwargs)
+
+    def __setitem__(self, key, value):
+        node = self.__getitem__(key)
+        if node is not None:
+            node.cargo = value
+
+    # def __getitem__(self, key):
+    #     node = self.first()
+    #     while node is not None:
+    #         if node.title == key:
+    #             return node.cargo
+    #         node = node.next
+    #     raise KeyError('Key not found.')
 
 
 if __name__ == '__main__':
