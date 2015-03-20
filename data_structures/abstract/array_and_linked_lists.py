@@ -37,6 +37,9 @@ class LinkNode(object):
         return '<_{title}_._{cargo}_>'.format(
             title=self.title, cargo=self.cargo)
 
+    def __contains__(self, key):
+        return self.__getitem__(key) is not None
+
     def __iter__(self):
         """Iterate over linked nodes"""
         node = self
@@ -66,13 +69,16 @@ class LinkNode(object):
             node = self
         else:
             node = self.__getitem__(key)
+        if node is None:
+            return
+        # Update linkage, e.g. (1) <-> 2 <-> (3) ... (1) <-> (3)
         if node.prev is not None:
             node.prev.next = node.next
         if node.next is not None:
             node.next.prev = node.prev
         if self.DEBUG:
             print('\nDELETING... {} {}'.format(node.title, node.cargo))
-        del node
+        del self[node.title]
 
     def __len__(self):
         count = 1  # Inclusive, head is 0
@@ -165,9 +171,8 @@ class AssociationList(LinkNode):
     respectively. The association (lookup) can be evaluated by traversing the
     linked list and comparing the key, then returning the matching nodes value.
 
-    This behavior is already done with the setter, but to be explicit,
-    we'll re-define a method that returns ONLY the value,
-    rather than the entire node reference."""
+    This behavior is already done with the setter,
+    so we don't need to re-define it here."""
 
     def __init__(self, *args, **kwargs):
         super(AssociationList, self).__init__(*args, **kwargs)
@@ -177,12 +182,10 @@ class AssociationList(LinkNode):
         node = self
         while node is not None:
             if node.title == key:
-                return node.cargo
+                return node
             node = node.next
         return None
 
-    def __setitem__(self, *args, **kwargs):
-        return self.append(*args, **kwargs)
 
 if DEBUG:
     with Section('Arrays & Linked Lists'):
