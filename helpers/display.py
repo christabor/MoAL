@@ -54,7 +54,9 @@ def print_nl(title, pos='top'):
 
 
 def _heading(title, divider, desc=''):
-    text = ('\n {} - {}\n' '|{}|\n').format(title.upper(), desc, divider * 80)
+    hyphen = '' if desc == '' else ' - '
+    text = ('\n {} {} {}\n' '|{}|\n').format(
+        title.upper(), hyphen, desc, divider * 80)
     print_nl(text)
 
 
