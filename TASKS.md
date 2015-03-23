@@ -47,8 +47,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Bi-directional map
     + [Bit](computer_organization/data_types.py)
     + [Bit field](computer_organization/bit_field.py)
-    + Bitboard
-    + Bitmap
+    + Bit Array
+      + Bitboard
+      + Bitmap
     + Circular buffer
     + Control table
     + Image
@@ -526,28 +527,46 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Two's complement](computer_organization/one_twos_complement.py)
   + [Ones' complement](computer_organization/one_twos_complement.py)
 + [Numerical encoding](computer_organization/numerical_encoding_basic.py)
-  + [Decimal](computer_organization/numerical_encoding_basic.py)
-    + Duodecimal
-    + Tridecimal
-    + Tetradecimal
-    + Pentadecimal
-    + [Hexadecimal](computer_organization/numerical_encoding_basic.py)
-    + Octodecimal
-    + Vigesimal
-    + Tetravigesimal
-    + Pentavigesimal
-    + Hexavigesimal
-    + Septemvigesimal
-    + Trigesimal
-    + Duotrigesimal
-    + Hexatrigesimal
-    + Sexagesimal
-    + Duosexagesimal
-    + Tetrasexagesimal
-    + Pentaoctagesimal
-    + Centovigesimal
-    + Duocentoquadragesimal
-    + Trecentosexagesimal
+  + [N-ary](computer_organization/positional.py)
+    + [Binary](computer_organization/numerical_encoding_basic.py)
+       + Binary coded decimal (BCD)
+        + 8421
+        + 4221
+        + 7421
+        + excess-3
+    + Bi-Quinary
+    + [Ternary](computer_organization/positional.py)
+      + Balanced ternary
+    + [Quaternary](computer_organization/positional.py)
+    + [Quinary](computer_organization/positional.py)
+    + [Senary](computer_organization/positional.py)
+    + [Septenary](computer_organization/positional.py)
+    + [Octal](computer_organization/numerical_encoding_basic.py)
+    + [Nonary](computer_organization/positional.py)
+    + [Decimal](computer_organization/numerical_encoding_basic.py)
+    + [Undecimal](computer_organization/positional.py)
+    + [Duodecimal](computer_organization/positional.py)
+    + [Tridecimal](computer_organization/positional.py)
+    + [Tetradecimal](computer_organization/positional.py)
+    + [Pentadecimal](computer_organization/positional.py)
+    + [[Hexadecimal](computer_organization/positional.py)](computer_organization/numerical_encoding_basic.py)
+    + [Octodecimal](computer_organization/positional.py)
+    + [Vigesimal](computer_organization/positional.py)
+    + [Tetravigesimal](computer_organization/positional.py)
+    + [Pentavigesimal](computer_organization/positional.py)
+    + [Hexavigesimal](computer_organization/positional.py)
+    + [Septemvigesimal](computer_organization/positional.py)
+    + [Trigesimal](computer_organization/positional.py)
+    + [Duotrigesimal](computer_organization/positional.py)
+    + [Hexatrigesimal](computer_organization/positional.py)
+    + [Sexagesimal](computer_organization/positional.py)
+    + [Duosexagesimal](computer_organization/positional.py)
+    + [Tetrasexagesimal](computer_organization/positional.py)
+    + [Pentaoctagesimal](computer_organization/positional.py)
+    + [Centovigesimal](computer_organization/positional.py)
+    + [Duocentoquadragesimal](computer_organization/positional.py)
+    + [Trecentosexagesimal](computer_organization/positional.py)
+    + [Custom](computer_organization/positional.py)
   + Complex
     + Quater-Imaginary base
     + Twindragon
@@ -557,7 +576,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Pi-ary
     + Sqrt 2
     + 12th root of two
-  + [Octal](computer_organization/numerical_encoding_basic.py)
   + Redundant binary representation (RBR)
   + Quote notation
   + Fibonacci coding
@@ -570,24 +588,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Negafibonacci
   + Mixed radix
     + Factoradic
-  + N-ary
-    + [Binary](computer_organization/numerical_encoding_basic.py)
-       + Binary coded decimal (BCD)
-        + 8421
-        + 4221
-        + 7421
-        + excess-3
-    + Bi-Quinary
-    + Ternary
-      + Balanced ternary
-    + Quaternary
-    + Quinary
-    + Senary
-    + Septenary
-    + Nonary
   + Bijective
     + base-10
-    + base-26 Spr
+    + base-26
   + 1-adic bijective (tally)
   + Gray code
     + n-ary
