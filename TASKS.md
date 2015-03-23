@@ -529,8 +529,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + [Numerical encoding](computer_organization/numerical_encoding_basic.py)
   + [N-ary](computer_organization/positional.py)
     + [Binary](computer_organization/numerical_encoding_basic.py)
-       + Binary coded decimal (BCD)
-        + 8421
+       + [Binary coded decimal (BCD)](computer_organization/bcd.py)
+        + [8421](computer_organization/bcd.py)
         + 4221
         + 7421
         + excess-3

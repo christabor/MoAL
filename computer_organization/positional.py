@@ -53,6 +53,10 @@ BASES = [
     {'base': 360, 'name': 'Trecentosexagesimal'},
     {'base': 4, 'name': 'DNA - made up', 'custom': list('ATCG')},
     {'base': 4, 'name': 'RNA - made up', 'custom': list('AUCG')},
+    # Novel examples from wikipedia.org/wiki/Binary_number#Representation
+    {'base': 2, 'name': 'XO - made up', 'custom': list('XO')},
+    {'base': 2, 'name': 'Morsish - made up', 'custom': list('|-')},
+    {'base': 2, 'name': 'YesNo - made up', 'custom': list('yn')},
 ]
 
 

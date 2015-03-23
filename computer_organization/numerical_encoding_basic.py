@@ -70,8 +70,8 @@ def _tostr_joined(ints):
 
 def divide_by(num, base, to_int=False, joined=False):
     """General purpose numeral converter, using the divide-by N + modulo
-    technique. Returns a integers, or optionally, a joined string,
-    or converted list of integers as strings."""
+    technique. Returns a list of integers, or optionally, a joined string,
+    or a converted list of integers as strings."""
     num = int(num)
     vals = []
     if base == 1:
@@ -100,6 +100,8 @@ def dec_to_hex(num):
 
 def dec_to_bin(num):
     """Convert integer to binary. Only handles positive integers."""
+    if num == 0:
+        return '0'
     bits = divide_by(abs(num), 2)
     for k, bit in enumerate(bits):
         # Pad digits if necessary
@@ -262,7 +264,8 @@ def hex_to_oct(hexnum):
 def compare_to_native(
         native, custom, count=20, assert_results=False,
         prefix=None, supress_other=True):
-    """Compares custom callable to the native version with a list of nums."""
+    """Compares custom numerical converter to the
+    native python version with a list of nums."""
     print('Running func: {}'.format(native))
     failures = []
     if supress_other:
@@ -364,20 +367,20 @@ def all_powers_n(num, power):
 
 
 def all_powers_two(num):
-    """Find the various powers of two for a given num -- often used
-    for finding binary num values of a num, since is base 2."""
+    """Find the various powers of two for a given `num` -- often used
+    for finding binary values of a num, since binary is base 2."""
     return all_powers_n(num, 2)
 
 
 def powers_mult(num, power):
-    """Visualization of all values of a num raise up to a max power."""
+    """Visualization of all values of given `num` raise up to a max power."""
     for n in range(power):
         mult_val = ' x '.join([unicode(num) for _ in range(n)])
         print('{}^{} = {} = {}'.format(num, n, mult_val, num ** n))
 
 
 def powers_ten(num):
-    """A visualization of the powers of ten technique for nums"""
+    """A visualization of the powers of ten technique for a given `num`"""
     value = 0
     digits = list(reversed(unicode(num)))
     places = len(digits)
