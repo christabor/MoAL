@@ -31,6 +31,8 @@ def subdivide_groups(items, divisions=2):
 
 
 def swap_item(items, a, b):
+    """Swap an item a with b, in a list.
+    Used primarily for sorting algorithms."""
     copy = items[a]
     items[a] = items[b]
     items[b] = copy
@@ -78,7 +80,7 @@ def substring_dict(string):
 
 def powerset_tree(lst, initial=True, terminator=''):
     """Creates nested powersets of the word list for each key
-    -- effectively a suffix tree generator.
+    -- the result is effectively a suffix tree.
     `terminator` is a string value that can be passed in to terminate
     each parent element in a list -- indices can be used to denote
     the same thing, but it gives a visual option if you prefer.
@@ -112,10 +114,9 @@ def powerset_tree(lst, initial=True, terminator=''):
     return lst
 
 
-def choice_take(options, maximum):
+def take_choice(options, maximum):
     """Return an array of random choices.
-    Choices are seeded from `options` from 0 until `maximum`.
-    """
+    Choices are seeded from `options` from 0 until `maximum`."""
     return [choice(options) for _ in range(maximum)]
 
 
@@ -125,8 +126,11 @@ def random_number_set(min_rand=0, max_rand=9999, max_range=100):
 
 
 def random_number_sets(sets=2, max_random=50):
+    """A mutli-valued version of `random_number_set`"""
     return [random_number_set(0, 9999, max_random) for _ in range(sets)]
 
 
 def interleave(*lists):
+    """Interleave N lists into each other;
+    e.g. [1, 2], ['A' 'B'] => [1, 'A', 2, 'B']"""
     return list(chain.from_iterable(izip(*lists)))
