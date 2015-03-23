@@ -13,12 +13,12 @@ DEBUG = True if __name__ == '__main__' else False
 
 hexvals = list('0123456789abcdef')
 HEX_VALS = {hexval: k for k, hexval in enumerate(hexvals)}
-HEX_INTEGERS = {k: hexval for k, hexval in enumerate(hexvals)}
+HEX_INTEGERS = {unicode(k): hexval for k, hexval in enumerate(hexvals)}
 
 
 def _scale(base, maximum):
-    """Creates a range of numbers up to `maximum`, given a base.
-    This scale is used for visually converting numbers,
+    """Creates a range of nums up to `maximum`, given a base.
+    This scale is used for visually converting nums,
     and serves as an intuitive reference.
 
     See youtube.com/watch?v=e3mCABVEK88 for some good examples.
@@ -34,7 +34,7 @@ def _scale(base, maximum):
         values.append(value)
         value *= base
     return values, '{}\n{}'.format('     '.join(
-        map(str, reversed(values))), '-' * 80)
+        map(unicode, reversed(values))), '-' * 80)
 
 
 def make_groups(string, count):
@@ -60,47 +60,61 @@ def make_groups(string, count):
 
 # ------------- CONVERTERS -----------------------------------------------------
 
-def _divide_by(number, base):
-    number = int(number)
-    """General purpose numeral converter,
-    using the divide-by N + modulo technique."""
+def _tounicode(ints):
+    return map(unicode, ints)
+
+
+def _tostr_joined(ints):
+    return ''.join(_tounicode(ints))
+
+
+def divide_by(num, base, to_int=False, joined=False):
+    """General purpose numeral converter, using the divide-by N + modulo
+    technique. Returns a integers, or optionally, a joined string,
+    or converted list of integers as strings."""
+    num = int(num)
     vals = []
     if base == 1:
-        return [number]
-    while number > 0:
+        return [num]
+    while num > 0:
         # Remainder = least significant bit
-        val = number % base
-        number = number // base
+        val = num % base
+        num = num // base
         # Add a new bit at the beginning for each increment
-        vals.insert(0, str(val))
+        vals.insert(0, unicode(val))
+    # Optionally format the results.
+    if joined:
+        return _tostr_joined(vals)
+    elif to_int:
+        return _tounicode(vals)
     return vals
 
 
-def dec_to_hex(number):
+def dec_to_hex(num):
     """Convert integer to hexadecimal"""
-    hexnumber = ''
-    for num in _divide_by(number, 16):
-        hexnumber += HEX_INTEGERS[int(num)]
-    return '0x{}'.format(hexnumber)
+    hexnum = ''
+    for num in divide_by(num, 16):
+        hexnum += HEX_INTEGERS[num]
+    return '0x{}'.format(hexnum)
 
 
-def dec_to_bin(number):
+def dec_to_bin(num):
     """Convert integer to binary. Only handles positive integers."""
-    bits = _divide_by(abs(number), 2)
+    bits = divide_by(abs(num), 2)
     for k, bit in enumerate(bits):
         # Pad digits if necessary
         bits[k] = bit.zfill(1)
     res = ''.join(bits)
     if DEBUG:
-        print_vars([['dec', number], ['dec => bin', res]], convert=True)
+        print_vars([['dec', num], ['dec => bin', res]], convert=True)
     return res
 
 
-def oct_to_dec(number):
+def oct_to_dec(num):
     """Convert an octal to integer.
-    algorithm/notes from robotroom.com/NumberSystems4.html
+    algorithm/notes from robotroom.com/numSystems4.html
     """
-    octal, index, digits = 0, 0, str(number)
+    octal, index, digits = 0, 0, unicode(num)
     powers = list(reversed(range(len(digits))))
     for digit in digits:
         power = powers[index]
@@ -112,13 +126,13 @@ def oct_to_dec(number):
     return octal
 
 
-def oct_to_bin(number):
+def oct_to_bin(num):
     """Convert octal to binary
     instructions used for algorithm from:
     wikipedia.org/wiki/Octal#Octal_to_binary_conversion
     """
     binary = ''
-    digits = str(number)
+    digits = unicode(num)
     for digit in digits:
         print_vars(['octal digit', digit])
         binary += dec_to_bin(int(digit)).zfill(3)
@@ -127,23 +141,23 @@ def oct_to_bin(number):
     return binary
 
 
-def dec_to_oct(number):
+def dec_to_oct(num):
     """Convert an integer to an octal, using 'divide by base' technique."""
-    return ''.join(map(str, _divide_by(number, 8)))
+    return divide_by(num, 8, joined=True)
 
 
-def bin_to_dec(number):
+def bin_to_dec(num):
     """Convert binary to integer"""
-    if not isinstance(number, str):
-        number = str(number)
-    if(number.startswith('0b')):
-        number = number[2:]
+    if not isinstance(num, str):
+        num = unicode(num)
+    if(num.startswith('0b')):
+        num = num[2:]
     # Reverse the bits to make right side comparison easier with the co-domain
-    bits = list(reversed(number))
+    bits = list(reversed(num))
     length = len(bits)
     value = 0
-    # Map the binary number and co-domain 1:1 to see if the bits are
-    # on or off, and add the corresponding number if so.
+    # Map the binary num and co-domain 1:1 to see if the bits are
+    # on or off, and add the corresponding num if so.
     codomain, _ = _scale(2, length)
     for index in range(length):
         if bits[index] == '1':
@@ -157,89 +171,89 @@ def bin_to_oct(binary):
     octal = ''
     bin_groups = make_groups(binary, 3)
     for bin_group in bin_groups:
-        octal += str(bin_to_dec(bin_group))
+        octal += unicode(bin_to_dec(bin_group))
     if DEBUG:
         print('Binary {} to octal: {}'.format(binary, octal))
     return int(octal)
 
 
-def bin_to_hex(number):
+def bin_to_hex(num):
     """Convert binary to hexadecimal.
     Uses integer conversion as an intermediate step."""
-    if isinstance(number, int):
-        number = str(number)
-    return dec_to_hex(bin_to_dec(number))
+    if isinstance(num, int):
+        num = unicode(num)
+    return dec_to_hex(bin_to_dec(num))
 
 
-def oct_to_hex(octnumber):
+def oct_to_hex(octnum):
     """Convert octal to hexadecimal.
     Uses binary conversion as an intermediate step.
     Instructions used for algorithm from:
     wikipedia.org/wiki/Octal#Octal_to_hexadecimal_conversion
     """
-    hexnumber, binary = '', ''
-    digits = str(octnumber)
+    hexnum, binary = '', ''
+    digits = unicode(octnum)
     for digit in digits:
         # Convert decimal to binary, pad where appropriate.
         if digit == '0':
-            binnumber = '000'
+            binnum = '000'
         elif digit == '1':
-            binnumber = '001'
+            binnum = '001'
         else:
-            binnumber = dec_to_bin(int(digit))
-        binnumber = binnumber.zfill(2)
-        binary += binnumber
+            binnum = dec_to_bin(int(digit))
+        binnum = binnum.zfill(2)
+        binary += binnum
     # Group remainder by 4 digits
     bin_groups = make_groups(binary, 4)
     if DEBUG:
         print_vars(
             [['bin group x 4', bin_groups], ['oct => hex (bin)', binary]])
     for group in bin_groups:
-        # Add number, shave off individual 0x part from individual conversion.
-        hexnumber += str(bin_to_hex(group))[2:]
-    return '0x{}'.format(hexnumber)
+        # Add num, shave off individual 0x part from individual conversion.
+        hexnum += unicode(bin_to_hex(group))[2:]
+    return '0x{}'.format(hexnum)
 
 
-def hex_to_dec(hexnumber):
+def hex_to_dec(hexnum):
     """Convert hexadecimal to integer"""
-    hexnumber = str(hexnumber)
-    if hexnumber.startswith('0x'):
-        hexnumber = hexnumber[2:]
+    hexnum = unicode(hexnum)
+    if hexnum.startswith('0x'):
+        hexnum = hexnum[2:]
     value = 0
-    length = len(hexnumber)
+    length = len(hexnum)
     codomain, _ = _scale(16, length)
-    for k, val in enumerate(reversed(hexnumber)):
-        val = HEX_VALS[str(val)]
+    for k, val in enumerate(reversed(hexnum)):
+        val = HEX_VALS[unicode(val)]
         if DEBUG:
             print('{} * {} = {}'.format(val, codomain[k], val * codomain[k]))
         # Get the index that corresponds to the hex system
         value += val * codomain[k]
     if DEBUG:
-        print('Hex 0x{} to int = {}'.format(hexnumber, value))
+        print('Hex 0x{} to int = {}'.format(hexnum, value))
     return value
 
 
-def hex_to_bin(hexnumber):
+def hex_to_bin(hexnum):
     """Convert hexadecimal to binary"""
-    binary = dec_to_bin(hex_to_dec(hexnumber))
+    binary = dec_to_bin(hex_to_dec(hexnum))
     if DEBUG:
         print_vars(['Hex to bin', binary])
     return binary
 
 
-def hex_to_oct(hexnumber):
+def hex_to_oct(hexnum):
     """Convert hexadecimal to octal"""
-    hexnumber = str(hexnumber)
-    if hexnumber.startswith('0x'):
-        hexnumber = hexnumber[2:]
+    hexnum = unicode(hexnum)
+    if hexnum.startswith('0x'):
+        hexnum = hexnum[2:]
     octal = ''
-    binary = '0' + hex_to_bin(hexnumber)
+    binary = '0' + hex_to_bin(hexnum)
     groups = make_groups(binary, 3)
     if DEBUG:
         print_vars(['Hex to octal', binary])
         print_vars(['Hex to octal (binary groups)', groups])
     for group in groups:
-        octal += str(bin_to_oct(group))
+        octal += unicode(bin_to_oct(group))
     return int(octal)
 
 
@@ -248,7 +262,7 @@ def hex_to_oct(hexnumber):
 def compare_to_native(
         native, custom, count=20, assert_results=False,
         prefix=None, supress_other=True):
-    """Compares custom callable to the native version with a list of numbers."""
+    """Compares custom callable to the native version with a list of nums."""
     print('Running func: {}'.format(native))
     failures = []
     if supress_other:
@@ -295,8 +309,8 @@ def genr():
 
 
 def bina():
-    assert '0b' + dec_to_bin(3029) == str(bin(3029)) == '0b101111010101'
-    assert '0b' + dec_to_bin(12) == str(bin(12)) == '0b1100'
+    assert '0b' + dec_to_bin(3029) == unicode(bin(3029)) == '0b101111010101'
+    assert '0b' + dec_to_bin(12) == unicode(bin(12)) == '0b1100'
     assert '0b' + hex_to_bin('0x13e') == bin(0x13e) == '0b100111110'
     assert '0b' + oct_to_bin(51) == '0b101001'
     compare_to_native(bin, dec_to_bin, assert_results=True, prefix='0b')
@@ -332,40 +346,40 @@ def hexa():
 # ------------- MISC. FUN STUFF ------------------------------------------------
 
 
-def all_powers_n(number, power):
+def all_powers_n(num, power):
     """Powers of two check, extended to any exponent"""
     powers = []
-    while number > 1:
+    while num > 1:
         # Starting from largest to smallest is significantly faster
         for n in reversed(range(12)):
             product = power ** n
-            # 2^12 covers many cases, but doesn't cover a lot of larger numbers;
+            # 2^12 covers many cases, but doesn't cover a lot of larger nums;
             # this demonstration is just a basic primer on the algorithm.
-            if product < number:
-                print('{}^{} ... (|{} - {}| = {})'.format(
-                    power, n, number, product, number - product))
-                number -= product
+            if product < num:
+                print('{}^{} ... |{} - {}| = {}'.format(
+                    power, n, num, product, num - product))
+                num -= product
                 powers.append(n)
     return powers
 
 
-def all_powers_two(number):
-    """Find the various powers of two for a given number -- often used
-    for finding binary number values of a number, since is base 2."""
-    return all_powers_n(number, 2)
+def all_powers_two(num):
+    """Find the various powers of two for a given num -- often used
+    for finding binary num values of a num, since is base 2."""
+    return all_powers_n(num, 2)
 
 
-def powers_mult(number, power):
-    """Visualization of all values of a number raise up to a max power."""
+def powers_mult(num, power):
+    """Visualization of all values of a num raise up to a max power."""
     for n in range(power):
-        mult_val = ' x '.join([str(number) for _ in range(n)])
-        print('{}^{} = {} = {}'.format(number, n, mult_val, number ** n))
+        mult_val = ' x '.join([unicode(num) for _ in range(n)])
+        print('{}^{} = {} = {}'.format(num, n, mult_val, num ** n))
 
 
-def powers_ten(number):
-    """A visualization of the powers of ten technique for numbers"""
+def powers_ten(num):
+    """A visualization of the powers of ten technique for nums"""
     value = 0
-    digits = list(reversed(str(number)))
+    digits = list(reversed(unicode(num)))
     places = len(digits)
     values = []
     mapping = {}
@@ -376,7 +390,7 @@ def powers_ten(number):
         values.append(place)
         mapping[place] = (int(digits[index]), int(place_index))
         print('{} * {} = {}'.format(digits[index], place_index, place, value))
-    print('{} = {}'.format(' + '.join(map(str, values)), number))
+    print('{} = {}'.format(' + '.join(map(unicode, values)), num))
     print('\n')
     return mapping
 
