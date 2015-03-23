@@ -533,7 +533,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + [8421](computer_organization/bcd.py)
         + 4221
         + 7421
-        + excess-3
+        + [excess-3](computer_organization/bcd.py)
     + Bi-Quinary
     + [Ternary](computer_organization/positional.py)
       + Balanced ternary
