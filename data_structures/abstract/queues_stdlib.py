@@ -18,6 +18,7 @@ from helpers.display import Section
 
 COUNT_LOCK = threading.Lock()
 TOTAL = 1
+DEBUG = True if __name__ == '__main__' else False
 
 
 class CountThread(threading.Thread):
@@ -40,22 +41,8 @@ class CountThread(threading.Thread):
             COUNT_LOCK.acquire()
             TOTAL += 1
             COUNT_LOCK.release()
-        print('Total processed by {}: {}:'.format(self.name, TOTAL))
-
-
-with Section('Python stdlib Queue and multi-threading examples'):
-    counter_one = CountThread()
-    counter_two = CountThread()
-    counter_three = CountThread()
-    counter_one.start('one')
-    counter_two.start('two')
-    counter_three.start('three')
-
-    print('** these dividers will not work right since the threads '
-          'are ND and the end of this line is not guaranteed to '
-          'come before the end of the thread processes! **')
-
-# Some basic code taken from https://docs.python.org/2/library/queue.html
+        if DEBUG:
+            print('Total processed by {}: {}:'.format(self.name, TOTAL))
 
 
 class Worker:
@@ -65,7 +52,8 @@ class Worker:
         self.queue = queue
 
     def do_work(self, item):
-        print('Working on item... {}\n'.format(item))
+        if DEBUG:
+            print('Working on item... {}\n'.format(item))
 
     def worker(self):
         while True:
@@ -74,7 +62,8 @@ class Worker:
             self.queue.task_done()
 
     def process_all(self):
-        print('Starting all process threads...')
+        if DEBUG:
+            print('Starting all process threads...')
         for _ in range(self.NUM_THREADS):
             t = threading.Thread(target=self.worker)
             t.daemon = True
@@ -98,7 +87,17 @@ class Producer:
         return gibberish()
 
 
-if __name__ == '__main__':
+if DEBUG:
+    with Section('Python stdlib Queue and multi-threading examples'):
+        counter_one = CountThread()
+        counter_two = CountThread()
+        counter_three = CountThread()
+        counter_one.start('one')
+        counter_two.start('two')
+        counter_three.start('three')
+
+    # Some basic code taken from docs.python.org/2/library/queue.html
+
     with Section('Python stdlib Queue and multi-threading examples 2'):
         work_queue = Queue()
         bot = Worker(work_queue)
@@ -115,7 +114,3 @@ if __name__ == '__main__':
 
         # Block until done
         work_queue.join()
-
-        print('** these dividers will not work right since the threads '
-              'are ND and the end of this line is not guaranteed to '
-              'come before the end of the thread processes! **')
