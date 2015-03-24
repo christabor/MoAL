@@ -144,7 +144,7 @@ class MultiSet(DynamicSet):
         """Count multiple properties."""
         _count = 0
         for prop in props:
-            self.count(prop, key=key)
+            _count += self.count(prop, key=key)
         return _count
 
     def count(self, prop, key=None):
