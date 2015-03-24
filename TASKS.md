@@ -29,7 +29,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Set](data_structures/abstract/set.py)
     + [Static](data_structures/abstract/set.py)
     + [Dynamic](data_structures/abstract/set.py)
-  + Multi-set / Bag
+  + [Multi-set / Bag](data_structures/abstract/set.py)
   + [Queue](data_structures/abstract/queues.py)
     + [Double-ended queue](data_structures/abstract/queues.py)
     + [Priority queue](data_structures/abstract/queues.py)

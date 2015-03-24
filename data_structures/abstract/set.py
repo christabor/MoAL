@@ -6,11 +6,13 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import prnt
+from helpers.display import print_h4
 from helpers.text import randchars
 from pprint import pprint as ppr
 from random import randrange as rr
 from random import choice
+
+DEBUG = True if __name__ == '__main__' else False
 
 
 class ImmutableSetError(Exception):
@@ -32,8 +34,7 @@ class SetADT(object):
 
     In this view, the contents of a set are a bunch,
     and isolated data items are elementary bunches (elements).
-    Whereas sets contain elements, bunches consist of elements.
-    """
+    Whereas sets contain elements, bunches consist of elements."""
 
     def __init__(self, items=[]):
         self.items = items
@@ -128,7 +129,52 @@ class DynamicSet(SetADT):
         return abs(len(self) - self.capacity)
 
 
-if __name__ == '__main__':
+class MultiSet(DynamicSet):
+
+    def __setitem__(self, group, values):
+        """Sets a single item in a multi-set group. Each group can be queried
+        by individual values, but multiple values can be stored.
+        e.g. mymset['foo'] = {'bar': 2, 'bim': True} ... myset.count('bar') == 1
+        """
+        val = {group: True}
+        val.update(values)
+        self.items.append(val)
+
+    def count_multi(self, props, key=None):
+        """Count multiple properties."""
+        _count = 0
+        for prop in props:
+            self.count(prop, key=key)
+        return _count
+
+    def count(self, prop, key=None):
+        """Check the count of any given property or key (either scenario works
+            seamlessly for ease-of-use) and user simplicity."""
+        _count = 0
+        for item in self:
+            # Allow any data to be set, but transparently check any hash values
+            # and fail silently if the value is not a dictionary.
+            try:
+                if key is not None:
+                    # If key is set, use that to check for the property,
+                    # otherwise count based on number of properties.
+                    try:
+                        if item[key] == prop:
+                            _count += 1
+                    except KeyError:
+                        # Scenario: key was given, but it doesn't exist here.
+                        continue
+                else:
+                    if prop in item:
+                        _count += 1
+            except TypeError:
+                continue
+        if DEBUG:
+            print('Count = {} for property {}'.format(_count, prop))
+        return _count
+
+
+if DEBUG:
     with Section('Set Abstract Data Type'):
         set_adt = SetADT()
         frozen_set_adt = FrozenSetADT([1, 2, 3, 4, True, False, 'A', 'B', 'C'])
@@ -142,7 +188,7 @@ if __name__ == '__main__':
             except ImmutableSetError:
                 print('Frozen set cannot be modified after creation.')
 
-        prnt('Set/Frozen set items', '')
+        print_h4('Set/Frozen set items', '')
         ppr(set_adt.items)
         ppr(frozen_set_adt.items)
 
@@ -150,3 +196,14 @@ if __name__ == '__main__':
         print('Capacity', dynam_set.set_capacity(4))
         print('Room left', dynam_set.room_left())
         dynam_set.add(range(100))
+
+        print_h4('Multiset example', 'Allowing multiple items of the same')
+        multiset = MultiSet()
+        multiset['cat'] = {'name': 'lily', 'type': 'persian'}
+        multiset['cat'] = {'name': 'radical', 'type': 'calico', 'age': 23}
+        multiset['cat'] = {'name': 'jadore', 'type': 'siamese'}
+        multiset['cat'] = {'name': 'tutu', 'type': 'abyssinian'}
+
+        assert multiset.count('cat') == 4
+        assert multiset.count(23, key='age') == 1
+        assert multiset.count('tutu', key='name') == 1
