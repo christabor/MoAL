@@ -534,6 +534,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + 4221
         + 7421
         + [excess-3](computer_organization/bcd.py)
+        + Telephony (TCBD)
     + Bi-Quinary
     + [Ternary](computer_organization/positional.py)
       + Balanced ternary
@@ -592,6 +593,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + base-10
     + base-26
   + 1-adic bijective (tally)
+  + Johnson code
   + Gray code
     + n-ary
     + Balanced

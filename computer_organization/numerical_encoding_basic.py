@@ -17,9 +17,8 @@ HEX_INTEGERS = {unicode(k): hexval for k, hexval in enumerate(hexvals)}
 
 
 def _scale(base, maximum):
-    """Creates a range of nums up to `maximum`, given a base.
-    This scale is used for visually converting nums,
-    and serves as an intuitive reference.
+    """Creates a range of numbers up to `maximum`, given a base.
+    The scale is used as an intuitive reference for visually converting numbers.
 
     See youtube.com/watch?v=e3mCABVEK88 for some good examples.
 
@@ -27,7 +26,7 @@ def _scale(base, maximum):
 
     ... 128     64     32     16     8     4     2     1
     ----------------------------------------------------
-    Note: visual order is reversed, but not list.
+    Note: The visual order is reversed, but the returned list is not.
     """
     value, values = base, [1]
     for k in range(maximum):

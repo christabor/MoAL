@@ -54,6 +54,11 @@ def dec_to_bcd_excess3(num, bias=3):
 
 if DEBUG:
     with Section('Numerical encoding: Binary Coded Decimal (BCD)'):
+        """More exist, but are not covered here.
+        See books.google.com/books?id=0f-6diYBV0wC&lpg
+            =PA48&ots=jG6NiHY3he&dq=bcd%207421&pg
+            =PA51#v=onepage&q=bcd%207421&f=false For more examples."""
+
         print('D = Decimal, B = Binary, C = Binary Coded Decimal')
         nums = [
             1, 2, 4, 16, 32, 64, 128, 256, 512, 1024, 2048, 1234,
