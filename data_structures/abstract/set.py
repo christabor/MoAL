@@ -148,7 +148,7 @@ class MultiSet(DynamicSet):
         return _count
 
     def count(self, prop, key=None):
-        """Check the count of any given property or key (either scenario works
+        """Check the count of any given value or key (either scenario works
             seamlessly for ease-of-use) and user simplicity."""
         _count = 0
         for item in self:
