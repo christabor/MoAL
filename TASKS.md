@@ -36,7 +36,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + [Using stdlib](data_structures/abstract/queues_stdlib.py)
   + [Stacks](data_structures/abstract/stack.py)
     + [Stack frames](data_structures/abstract/stack_frame.py)
-  + String
+  + [String](data_structures/abstract/string_adt.py)
   + Tree
   + Stream
   + [Graph](data_structures/graphs/graphs.py)
