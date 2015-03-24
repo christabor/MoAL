@@ -44,7 +44,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
     + [Overloaded arrays](helpers/adts.py)
     + [Suffix arrays](data_structures/linear/array/suffix_arrays.py)
-    + Bi-directional map
+    + [Bi-directional map](data_structures/abstract/map.py)
     + [Bit](computer_organization/data_types.py)
     + [Bit field](computer_organization/bit_field.py)
     + Bit Array

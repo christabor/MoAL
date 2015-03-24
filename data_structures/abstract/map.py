@@ -8,6 +8,7 @@ if __name__ == '__main__':
 from helpers.display import Section
 from helpers.display import print_h2
 from helpers.display import print_h3
+from helpers.display import print_info
 from helpers.display import divider
 from helpers.text import randchars
 from data_structures.abstract.array_and_linked_lists import AssociationList
@@ -108,6 +109,55 @@ class Enrollment(MultiMap):
         super(Enrollment, self).__setitem__(student, klass)
 
 
+class BidirectionalMap(dict):
+    """The bi-directional map uses a dictionary rather than an associative
+    or linked list, since the main purposes is to stress the concept of
+    bi-directional mapping, not the actual implementation. Besides, a dict would
+    be a better implementation for real-world usage, at least in python."""
+
+    def __str__(self):
+        print('{')
+        for key, val in self.items.iteritems():
+            print('  {}: {}'.format(key, val))
+            # print('  {}: {} (or) {}: {}'.format(key, val, val, key))
+        print('}')
+        return ''
+
+    def __init__(self, *args, **kwargs):
+        self.items = {}
+        self.items.update(*args, **kwargs)
+
+    def __contains__(self, key):
+        for _key, val in self.items.iteritems():
+            if _key == key:
+                return True
+            elif val == key:
+                return True
+        return False
+
+    def __getitem__(self, key, value):
+        try:
+            return self[key]
+        except KeyError:
+            return self[value]
+        finally:
+            pass
+
+    def __setitem__(self, key, val):
+        """The idea here is that a key and a value are interchangeable,
+        but either direction should still enforce the rules of a traditional
+        map (or dictionary, in this case.)"""
+        keys = self.items.keys()
+        values = self.items.values()
+        is_both_key = key in keys and key in values
+        is_both_val = val in keys and val in values
+        if is_both_key or is_both_val:
+            raise ValueError(
+                'Item already exists in both key and value'
+                ' -- it can only exist in one!')
+        super(BidirectionalMap, self).__setitem__(key, val)
+
+
 if DEBUG:
     with Section('Map Abstract Data Type'):
         map_adt = MapADT(title='map_head')
@@ -153,3 +203,17 @@ if DEBUG:
         print(classes_map)
 
         assert 'Ms. Ella Tabor' not in classes_map
+
+        print_h3('Bi-directional', desc='A map ADT that maps to key OR value.')
+
+        bdmap = BidirectionalMap(
+            {1: 'Foo', 2: 'Bar', 'Foo': 'Bar', 'Bar': 'Foo'})
+        print(bdmap)
+        try:
+            bdmap['Bar'] = 'Foo'
+            bdmap['Foo'] = 'Bar'
+        except ValueError:
+            print_info('Test raising error for duplicate values Foo and Bar')
+        print(bdmap)
+        assert 'Bar' in bdmap
+        assert 'Foo' in bdmap
