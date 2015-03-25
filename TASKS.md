@@ -38,7 +38,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Stack frames](data_structures/abstract/stack_frame.py)
   + [String](data_structures/abstract/string_adt.py)
   + Tree
-  + Stream
+  + [Stream](data_structures/abstract/stream.py)
   + [Graph](data_structures/graphs/graphs.py)
 + Linear
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
@@ -437,7 +437,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Coding theory
   + String edit
     + [Hamming distance](algorithms/coding_theory/hamming_distance.py)
-    + [Levenshtein distance]((algorithms/coding_theory/levenshtein_distance.py))
+    + [Levenshtein distance](algorithms/coding_theory/levenshtein_distance.py)
       + Damerau–Levenshtein distance
     + Hamming weight
     + Jaro–Winkler distance
