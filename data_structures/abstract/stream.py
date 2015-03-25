@@ -38,7 +38,7 @@ class Stream(Queue):
             return None
         if DEBUG:
             print('Reading new item from stream... {}\n'.format(end))
-            print('[CURRNET STREAM] {}\n'.format(' -- '.join(self.items)))
+            print('[CURRENT STREAM] {}\n'.format(' -- '.join(self.items)))
         self.total_read += 1
         return end
 
