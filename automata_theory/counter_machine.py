@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from helpers.display import prnt
-from helpers.display import _cmd_title
+from helpers.display import cmd_title
 from pprint import pprint as ppr
 from random import choice
 import time
@@ -52,7 +52,7 @@ class CounterMachine:
         # Time delay, only used for only demonstration effect.
         self.DELAY = 0
         if self.DEBUG:
-            _cmd_title('Prepping')
+            cmd_title('Prepping')
         if program is None:
             self.program = {
                 1: {'code': 'JZ', 'fn': self.jz, 'reg': 2, 'jump': 6},
@@ -99,7 +99,7 @@ class CounterMachine:
 
     def halt(self):
         if self.DEBUG:
-            _cmd_title('Halting')
+            cmd_title('Halting')
         self.halted = True
         # From Wikipedia:
         # The program HALTs with the contents of register #2
@@ -229,7 +229,7 @@ if __name__ == '__main__':
             prnt('Testing machine...', repr(klass))
             klass().run()
 
-            _cmd_title('New program')
+            cmd_title('New program')
             singleton = CounterMachine()
             singleton._generate_program()
             ppr(singleton.program)

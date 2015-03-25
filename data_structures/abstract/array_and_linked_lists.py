@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from helpers.text import gibberish
-from helpers.display import _cmd_title
+from helpers.display import cmd_title
 from helpers.display import prnt
 
 DEBUG = True if __name__ == '__main__' else False
@@ -132,7 +132,7 @@ def print_nodes(node):
             divider='....' if node.next is not None else '') \
             if node is not None else ''
     path, count = '', 0
-    _cmd_title('Printing Nodes')
+    cmd_title('Printing Nodes')
     # Follows a node along it's next target, until next is None.
     while node is not None:
         path += _fmt(node)

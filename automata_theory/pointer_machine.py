@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from helpers.display import prnt
-from helpers.display import _cmd_title
+from helpers.display import cmd_title
 from pprint import pprint as ppr
 from helpers.adts import strlist
 from data_structures.graphs.graphs import DirectedGraph
@@ -35,7 +35,7 @@ class PointerMachine(object):
 
     def halt(self):
         if self.DEBUG:
-            _cmd_title('Halting')
+            cmd_title('Halting')
         self.halted = True
 
     def run_instruction(self, instruction):
@@ -348,7 +348,7 @@ if __name__ == '__main__':
         for _class in classes:
             # Decouple abstract class / stubbing from demo by suppression.
             try:
-                _cmd_title('Testing machine... {}'.format(repr(_class)))
+                cmd_title('Testing machine... {}'.format(repr(_class)))
                 _class().run()
             except NotImplementedError:
                 continue

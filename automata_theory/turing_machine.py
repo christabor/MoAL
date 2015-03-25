@@ -6,7 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
-from helpers.display import _cmd_title
+from helpers.display import cmd_title
 from helpers.display import print_simple
 from pprint import pprint as ppr
 from random import choice
@@ -53,7 +53,7 @@ class TuringMachine(object):
         self._setup(program)
 
     def _show_program(self):
-        _cmd_title('PROGRAM')
+        cmd_title('PROGRAM')
         print_simple('States list', self.states, func=ppr)
         print_simple('Transitions', self.transitions, func=ppr)
         print_simple('Tape', self.tape, func=ppr)
@@ -93,7 +93,7 @@ class TuringMachine(object):
         print('{} == {}\n{}\n'.format(tape_viz, self.result, pointer))
 
     def _run(self):
-        _cmd_title('STARTING VISUALIZATION')
+        cmd_title('STARTING VISUALIZATION')
         while self.running:
             for _ in range(self.max_states):
                 # Sleep so that each step is delayed, for effect.
@@ -128,14 +128,14 @@ class TuringMachine(object):
         self.tape[self.tape_index] = new_state['value']
 
     def activate(self):
-        _cmd_title('ACTIVATING')
+        cmd_title('ACTIVATING')
         self.running = True
 
     def halt(self):
         """Whether or not this machine actually does halt,
         this method must be called to prevent stack overflow
         (for infinite examples)."""
-        _cmd_title('HALTING')
+        cmd_title('HALTING')
         self.running = False
         # Reset any state
         self.tape = None

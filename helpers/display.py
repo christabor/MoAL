@@ -129,11 +129,13 @@ def print_simple(words, result, func=None):
     print('\n')
 
 
-def _cmd_title(msg):
+def cmd_title(msg, newlines=True):
     """Print a command type message (e.g [COMMAND]) in red."""
-    print('\n')
+    if newlines:
+        print('\n')
     print('{t.red}[{msg}]{t.normal}'.format(msg=msg.upper(), t=term))
-    print('\n')
+    if newlines:
+        print('\n')
 
 
 class Section:
@@ -163,7 +165,7 @@ if __name__ == '__main__':
     print_success('Testing Success')
     print_error('Testing Error')
 
-    _cmd_title('DANGER WILL ROBINSON')
+    cmd_title('DANGER WILL ROBINSON')
 
     print_h1('Heading 1...')
     print_h2('Heading 2...')
