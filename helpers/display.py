@@ -13,11 +13,12 @@ def _func_or_print(result, func):
         print(result)
 
 
-def divider(atom='_'):
+def divider(atom='_', newline=True):
     """Print a divider. Optionally override the unit of text to use
     (e.g ---, ...., ###)"""
     print(atom * 80)
-    print('\n')
+    if newline:
+        print('\n')
 
 
 def _label(prefix):
@@ -61,6 +62,41 @@ def prnt(title, result, func=None):
     print('{t.green}{t.underline}{}{t.normal}'.format(title, t=term))
     _func_or_print(result, func)
     print('\n')
+
+
+def _make_padded_char(word, padding=5):
+    """Create a string format token with padding based on the length
+    of the given `word` * `padding`;
+    e.g. 'cat' -> {:<3}"""
+    return '{:<' + str(len(str(word)) + padding) + '}'
+
+
+def make_padded_chars(words, seperator=' '):
+    """Call `_make_padding_char` on a list of words.
+    For example, to create a new format string to pad a list of values.
+    (e.g. {:<3} {<:6} {<:9}"""
+    fmt_string = ''
+    for word in words:
+        fmt_string += _make_padded_char(word) + seperator
+    return fmt_string
+
+
+def print_table(rows, formatter=None):
+    """Print a table that is uniform and aligned."""
+    headings = rows[0].keys()
+    # Optionally allow custom format functions for each heading
+    if formatter:
+        headings = map(formatter, headings)
+    # This is where it shines - we make a format string template based on
+    # each heading token, which can be used for both headings and rows.
+    template = make_padded_chars(headings)
+    # Print headings first
+    print(template.format(*headings))
+    divider(newline=False)
+    for row in rows:
+        values = row.values()
+        # Apply the unique values to the template
+        print(template.format(*values))
 
 
 def print_vars(vars, upper=False, convert=False):
