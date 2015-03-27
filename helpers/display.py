@@ -13,6 +13,39 @@ def _func_or_print(result, func):
         print(result)
 
 
+def _uncase_x(string, seperator):
+    """Split by `seperator` and join the string;
+    e.g. 'foo_bar' => foo bar """
+    return ' '.join(string.split(str(seperator)))
+
+
+def uncase_period(string):
+    return _uncase_x(string, '.')
+
+
+def uncase_hyphen(string):
+    return _uncase_x(string, '-')
+
+
+def uncase_snake(string):
+    return _uncase_x(string, '_')
+
+
+def uncase_snake_upper(string):
+    return uncase_snake(string).upper()
+
+
+def firstcaps(string):
+    string = list(string.lower())
+    string[0] = string[0].upper()
+    return ''.join(string)
+
+
+def title_case(string, seperator='_'):
+    """Format a string into title case - e.g. 'some_word' => Some Word """
+    return ' '.join(map(firstcaps, string.split(seperator)))
+
+
 def divider(atom='_', newline=True):
     """Print a divider. Optionally override the unit of text to use
     (e.g ---, ...., ###)"""
