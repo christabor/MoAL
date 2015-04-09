@@ -49,7 +49,9 @@ def title_case(string, seperator='_'):
 def divider(atom='_', newline=True):
     """Print a divider. Optionally override the unit of text to use
     (e.g ---, ...., ###)"""
-    print(atom * 80)
+    # Correct for longer than 1 character atoms, since it will take up
+    # more than 80 chars.
+    print(atom * (80 // len(atom)))
     if newline:
         print('\n')
 
@@ -114,7 +116,7 @@ def make_padded_chars(words, seperator=' '):
     return fmt_string
 
 
-def print_table(rows, formatter=None):
+def print_table(rows, formatter=None, striped=True):
     """Print a table that is uniform and aligned."""
     headings = rows[0].keys()
     # Optionally allow custom format functions for each heading
@@ -126,10 +128,14 @@ def print_table(rows, formatter=None):
     # Print headings first
     print(template.format(*headings))
     divider(newline=False)
-    for row in rows:
+    num_rows = len(rows)
+    for k, row in enumerate(rows):
         values = row.values()
         # Apply the unique values to the template
         print(template.format(*values))
+        if striped and k != num_rows - 1:
+            divider(atom='-', newline=False)
+    divider()
 
 
 def print_vars(vars, upper=False, convert=False):
