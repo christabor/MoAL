@@ -49,7 +49,7 @@ class CounterMachine:
 
         """
         self.DEBUG = True
-        # Time delay, only used for only demonstration effect.
+        # Time delay, only used for effect in demonstration.
         self.DELAY = 0
         if self.DEBUG:
             cmd_title('Prepping')
