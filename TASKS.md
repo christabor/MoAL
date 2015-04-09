@@ -24,7 +24,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
   + [Container](data_structures/abstract/container.py)
   + [Map / Associative array / Dictionary](data_structures/abstract/map.py)
-  + [Multi-map](data_structures/abstract/multimap.py)
+  + [Multi-map](data_structures/abstract/map.py)
   + [List](data_structures/abstract/list.py)
   + [Set](data_structures/abstract/set.py)
     + [Static](data_structures/abstract/set.py)
@@ -940,7 +940,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Recursive
     + Regular
     + Analytic
-    + [Context-sensitive](languages/formal_language_theory/grammars/context_sensitive.py)
+    + Context-sensitive
     + [Context-free](languages/formal_language_theory/grammars/context_free.py)
       + Stochastic
       + [Attribute](languages/formal_language_theory/grammars/attribute_context_free.py)
