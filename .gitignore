@@ -50,3 +50,7 @@ compass
 /.sass-cache
 .sass-cache
 *.sass-cache
+
+
+# Other #
+notes
