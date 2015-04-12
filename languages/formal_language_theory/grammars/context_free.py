@@ -45,7 +45,7 @@ class ContextFreeGrammar(object):
             right = right.split('|')
         self.rules.append([left, right])
         if self.DEBUG:
-            print('Added rule: "{}"'.format(self.rules[::-1]))
+            print('Added rule: "{}"'.format(self.rules[-1]))
 
     def _get_rule(self, token):
         for rule in self.rules:

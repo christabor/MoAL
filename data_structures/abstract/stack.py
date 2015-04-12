@@ -14,6 +14,8 @@ from helpers.text import gibberish
 from helpers.display import Section
 from pprint import pprint as ppr
 
+DEBUG = True if __name__ == '__main__' else False
+
 
 class Stack(object):
 
@@ -43,29 +45,6 @@ class Stack(object):
 
     def view(self):
         return self.items
-
-
-STACK_COUNT = 10
-
-with Section('Stacks'):
-    stack = Stack()
-    print('\n')
-    print('First in push')
-    print('\n')
-    for _ in range(STACK_COUNT):
-        stack.push('{} ... [ {} ]'.format(_, gibberish()))
-        print(stack.head())
-
-    print('\n')
-    print(stack.size(), stack.view())
-    print('\n')
-    print('First out pop')
-    print('\n')
-    for _ in range(STACK_COUNT):
-        print(stack.pop())
-
-    print('\n')
-    print('{} {}'.format(stack.size(), stack.view()))
 
 
 # Example 'real world usage'
@@ -98,15 +77,6 @@ class Logger(Stack):
         return self.tail()
 
 
-with Section('Loggers'):
-    logger = Logger()
-    for _ in range(STACK_COUNT):
-        logger.add_message(gibberish(length=10), priority=randrange(0, 10))
-    print(logger.view_messages())
-    print(logger.get_by_priority(4))
-    print(logger.get_last_message())
-    print(logger.get_first_message())
-
 # Example 'real world usage' with extensions, OOP
 
 
@@ -124,8 +94,39 @@ class NetworkLogger(Logger):
             '[NETWORK] - ' + message, priority=priority)
 
 
-if __name__ == '__main__':
-    with Section('Loggers [continued]'):
+if DEBUG:
+    STACK_COUNT = 10
+
+    with Section('Stacks'):
+        stack = Stack()
+        print('\n')
+        print('First in push')
+        print('\n')
+        for _ in range(STACK_COUNT):
+            stack.push('{} ... [ {} ]'.format(_, gibberish()))
+            print(stack.head())
+
+        print('\n')
+        print(stack.size(), stack.view())
+        print('\n')
+        print('First out pop')
+        print('\n')
+        for _ in range(STACK_COUNT):
+            print(stack.pop())
+
+        print('\n')
+        print('{} {}'.format(stack.size(), stack.view()))
+
+    with Section('Loggers'):
+        logger = Logger()
+        for _ in range(STACK_COUNT):
+            logger.add_message(gibberish(length=10), priority=randrange(0, 10))
+        print(logger.view_messages())
+        print(logger.get_by_priority(4))
+        print(logger.get_last_message())
+        print(logger.get_first_message())
+
+    with Section('Loggers - contextual examples'):
         wl = WebLogger()
         nl = NetworkLogger()
 

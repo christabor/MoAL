@@ -92,7 +92,7 @@ class BaseDataType(object):
         return binval
 
     def get_least_significant(self):
-        return self.value[::-1]
+        return self.value[-1]
 
     def get_most_significant(self):
         return self.value[0]
