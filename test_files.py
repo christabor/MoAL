@@ -9,9 +9,6 @@ BAD_FOLDERS = ['.git']
 # BOGO sort is too slow to be worth testing.
 BAD_FILES = ['__init__.py', 'bogo_sort.py', 'test_files.py']
 EXPECTED_EXCEPTIONS = (NotImplementedError,)
-# The actual error types we are looking out for.
-UNEXPECTED_EXCEPTIONS = (IOError, ImportError, KeyError, AttributeError,
-                         TypeError, IndexError)
 
 
 def _get_all_files():
@@ -52,7 +49,6 @@ if __name__ == '__main__':
                 execfile(filepath)
             except EXPECTED_EXCEPTIONS:
                 continue
-            except UNEXPECTED_EXCEPTIONS:
-                test_results.append(_result(filepath, sys.exc_info()))
+            test_results.append(_result(filepath, sys.exc_info()))
     print('\nTEST RESULTS:')
     ppr(test_results)
