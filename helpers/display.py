@@ -61,42 +61,44 @@ def _label(prefix):
     return '[{}] '.format(prefix.upper())
 
 
-def print_info(msg):
+def print_info(msg, prefix=True):
     """Print info-type text in red with a prefix"""
-    prefix = _label('INFO')
+    prefix = _label('INFO') if prefix else ''
     vals = '{t.blue}{}{}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 
-def print_warning(msg):
+def print_warning(msg, prefix=True):
     """Print warning-type text in red with a prefix"""
-    prefix = _label('WARN')
+    prefix = _label('WARN') if prefix else ''
     vals = '{t.yellow}{}{}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 
-def print_success(msg):
+def print_success(msg, prefix=True):
     """Print success-type text in red with a prefix"""
-    prefix = _label('YAY')
+    prefix = _label('YAY') if prefix else ''
     vals = '{t.green}{}{}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 
-def print_error(msg):
+def print_error(msg, prefix=True):
     """Print error-type text in red with a prefix"""
-    prefix = _label('ERROR')
+    prefix = _label('ERROR') if prefix else ''
     vals = '{t.red}{}{}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 
-def prnt(title, result, func=None):
+def prnt(title, result, func=None, newlines=False):
     """A more useful default print function for titles and accompanying
     content. Shows stylized title, with content below, and newlines.
     The content can optionally be formatted by a given `func`."""
-    print('\n')
+    if newlines:
+        print('\n')
     print('{t.green}{t.underline}{}{t.normal}'.format(title, t=term))
     _func_or_print(result, func)
-    print('\n')
+    if newlines:
+        print('\n')
 
 
 def _make_padded_char(word, padding=5):
@@ -126,7 +128,7 @@ def print_table(rows, formatter=None, striped=True):
     # each heading token, which can be used for both headings and rows.
     template = make_padded_chars(headings)
     # Print headings first
-    print(template.format(*headings))
+    print_success(template.format(*headings), prefix=False)
     divider(newline=False)
     num_rows = len(rows)
     for k, row in enumerate(rows):
@@ -222,10 +224,10 @@ class Section:
         self.separator = '=' * 50
         self.content = content
 
-    def prnt(self, prefix):
-        print('\n')
-        print('{t.cyan}\n= [{}]: {t.bold} {} {sep} \n{t.normal}'.format(
-            prefix, self.content, t=term, sep=self.separator))
+    def prnt(self, prefix, newlines=True):
+        nl = '\n' if newlines else ''
+        print('{t.cyan}{nl}[{}]: {t.bold} {} {sep} {nl}{t.normal}'.format(
+            prefix, self.content, t=term, sep=self.separator, nl=nl))
 
     def __enter__(self):
         self.prnt('BEGIN')
