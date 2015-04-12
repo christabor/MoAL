@@ -37,7 +37,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Stacks](data_structures/abstract/stack.py)
     + [Stack frames](data_structures/abstract/stack_frame.py)
   + [String](data_structures/abstract/string_adt.py)
-  + Tree
+  + [Tree](data_structures/abstract/tree.py)
   + [Stream](data_structures/abstract/stream.py)
   + [Graph](data_structures/graphs/graphs.py)
 + Linear
