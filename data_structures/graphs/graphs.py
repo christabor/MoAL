@@ -32,8 +32,10 @@ class Graph(object):
             _len += self.vertices[key]['edges']
         return len(set(_len))
 
-    def __init__(self, vertices=None):
-        self.vertices = vertices or {}
+    def __init__(self, vertices={}):
+        if not isinstance(vertices, dict):
+            raise ValueError
+        self.vertices = vertices
         self.node_count = 0
         self.DEBUG = False
 
@@ -44,10 +46,11 @@ class Graph(object):
         key, vertices = args
         self.vertices[key] = vertices
         self.node_count += 1
+        return self.vertices[key]
 
     def __delitem__(self, vertex):
         # Remove entire node
-        if vertex not in self.vertices:
+        if vertex not in self:
             return
         del self.vertices[vertex]
         # Remove other references.
@@ -61,6 +64,15 @@ class Graph(object):
 
     def __iter__(self):
         return iter(self.vertices)
+
+    def __reversed__(self):
+        return reversed(self.iter())
+
+    def __unicode__(self):
+        return unicode(self.__repr__())
+
+    def __repr__(self):
+        return '{}'.format(self.vertices)
 
     def __str__(self):
         display = []
@@ -114,7 +126,7 @@ class Graph(object):
         res = self.walk(start, end, test_cycle=True)
         if len(res) == 0:
             return True
-        return res[0] == res[::-1]
+        return res[0] == res[-1]
 
     def is_leaf(self, vertex):
         """A leaf vertex is a vertex with no outbound edges."""
@@ -127,7 +139,7 @@ class Graph(object):
             end = start
         if start == end and not test_cycle:
             return path
-        if test_cycle and path[::-1] == start:
+        if test_cycle and path[-1] == start:
             return paths
         if start in self.vertices.keys():
             for vertex in self.vertices[start]['edges']:
@@ -138,6 +150,52 @@ class Graph(object):
                         vertex, end, path=path, test_cycle=test_cycle)
         return paths
 
+    def _prune_all(self):
+        """The pruning function of `is_acyclic`. Continue deleting
+        vertices and checking if a cycle exists on any current vertex."""
+        while len(self.vertices.keys()) > 1:
+            verts = self.vertices.keys()
+            # Get a new random vertex - yes, random is sufficient here.
+            start = choice(verts)
+            if self.DEBUG:
+                print('Checking cycle... start={}, vertices={}'.format(
+                    start, verts))
+            # Skip ahead if there's only one vertex left.
+            if self.is_cycle(start):
+                return False
+            else:
+                # Otherwise, keep checking cycles and deleting vertices.
+                self.__delitem__(start)
+
+    def is_trail(self, start, end):
+        """A trail is a walk in which all the edges are distinct."""
+        res = self.walk(start, end)
+        return len(res) == len(set(res))
+
+    def is_bipartite(self, start, end):
+        pass
+
+    def tour_hamiltonian(self):
+        pass
+
+    def tour_eulerian(self):
+        pass
+
+
+class UndirectedGraph(Graph):
+
+    def __init__(self, *args, **kwargs):
+        super(UndirectedGraph, self).__init__(*args, **kwargs)
+        self._add_inbound_edges()
+
+    def __setitem__(self, *args):
+        key, _ = args
+        super(UndirectedGraph, self).__setitem__(*args)
+        self._add_inbound_edge(key)
+
+
+class DirectedGraph(Graph):
+
     def is_cycle(self, vertex):
         return self.walk(vertex, None, test_cycle=True)[::-1] == vertex
 
@@ -146,22 +204,6 @@ class Graph(object):
 
     def is_cyclic(self):
         return not self.is_acyclic()
-
-    def _prune_all(self):
-        """The pruning function of `is_acyclic`. Continue deleting
-        vertices and checking if a cycle exists on any current vertex."""
-        while len(self.vertices.keys()) > 1:
-            verts = self.vertices.keys()
-            # Skip ahead if there's only one vertex left.
-            start = choice(verts)
-            if self.DEBUG:
-                print('Checking cycle... start={}, vertices={}'.format(
-                    start, verts))
-            # Otherwise, keep checking cycles and deleting vertices.
-            if self.is_cycle(start):
-                return False
-            else:
-                self.__delitem__(start)
 
     def _is_acyclic(self):
         """A small method for the acyclic check that can be overridden,
@@ -200,36 +242,6 @@ class Graph(object):
             self.vertices = graph_copy
         return is_acyclic
 
-    def is_trail(self, start, end):
-        """A trail is a walk in which all the edges are distinct."""
-        res = self.walk(start, end)
-        return len(res) == len(set(res))
-
-    def is_bipartite(self, start, end):
-        pass
-
-    def tour_hamiltonian(self):
-        pass
-
-    def tour_eulerian(self):
-        pass
-
-
-class UndirectedGraph(Graph):
-
-    def __init__(self, *args, **kwargs):
-        super(UndirectedGraph, self).__init__(*args, **kwargs)
-        self._add_inbound_edges()
-
-    def __setitem__(self, *args):
-        key, _ = args
-        super(UndirectedGraph, self).__setitem__(*args)
-        self._add_inbound_edge(key)
-
-
-class DirectedGraph(Graph):
-    pass
-
 
 class CyclicGraph(Graph):
     pass
@@ -258,6 +270,12 @@ def _rand_edges(num_edges):
 
 if __name__ == '__main__':
     with Section('Graph'):
+        """Graphs are generated using a dictionary with labels.
+        'edges' is a list of edges, and 'val' is the name, and key.
+        The graph is keyed by the node name, which can be any valid
+        dictionary key format (e.g. string, number, list, etc...)
+        Optional parameters can be added to the dictionary,
+        but of course they are not referenced here."""
         graph = UndirectedGraph({
             0: {'edges': [1, 2], 'val': 'A'},
             1: {'edges': [2, 0], 'val': 'B'},
