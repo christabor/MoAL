@@ -7,18 +7,9 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from helpers.display import prnt
-from helpers.display import print_h2
-from helpers.display import print_h4
-from helpers.display import print_error
-from helpers.display import print_table
 from helpers.display import divider
 from helpers.display import cmd_title
-from helpers.display import uncase_snake_upper
-from Queue import Queue as StdQueue
 from data_structures.graphs.graphs import Graph
-from data_structures.abstract.queues import Queue
-from collections import OrderedDict
-import time
 
 
 DEBUG = True if __name__ == '__main__' else False
@@ -260,9 +251,6 @@ if DEBUG:
           The tree above is represented in python code below.
 
         """
-        # `get` and `add_*` implement a chainable interface to allow for
-        # fluid calls, which is particularly intuitive since every call puts
-        # us at the specific node in question, like traversing the tree.
 
         graph = {
             0: {'edges': [1, 2], 'val': 'i am the root!', 'is_root': True},
