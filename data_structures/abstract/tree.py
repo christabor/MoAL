@@ -72,6 +72,7 @@ class Tree(Graph):
         # Set root to False if not specified, otherwise True
         node.update({'is_root': node.get('is_root', False)})
         node.update({'is_child': not node.get('is_root', True)})
+        node.update({'val': node.get('val', '')})
         node.update({'edges': node.get('edges', [])})
         is_leaf = len(node.get('edges')) == 0
         node.update({'is_leaf': is_leaf})
@@ -156,7 +157,7 @@ class Tree(Graph):
         return num_siblings == len(sibling_names)
 
     def is_match(self, node, node_name):
-        return self.__getitem__(node_name).val == node_name
+        return self.__getitem__(node_name).get('val') == node_name
 
     def num_siblings(self, node_name):
         return len(self.get_siblings(node_name))
@@ -254,22 +255,22 @@ if DEBUG:
 
         graph = {
             0: {'edges': [1, 2], 'val': 'i am the root!', 'is_root': True},
-            1: {'edges': [3, 4], 'val': '', 'parent': 0},
+            1: {'edges': [3, 4], 'parent': 0},
             2: {'edges': [5], 'val': 'i am greater than 1!', 'parent': 0},
-            3: {'edges': [6, 7], 'val': '', 'parent': 1},
-            4: {'edges': [], 'val': '', 'parent': 1},
-            5: {'edges': [8, 9], 'val': '', 'parent': 2},
-            6: {'edges': [], 'val': '', 'parent': 3},
+            3: {'edges': [6, 7], 'parent': 1},
+            4: {'edges': [], 'parent': 1},
+            5: {'edges': [8, 9], 'parent': 2},
+            6: {'edges': [], 'parent': 3},
             7: {'edges': [], 'val': 'lucky number 7', 'parent': 3},
-            8: {'edges': [], 'val': '', 'parent': 5},
-            9: {'edges': [], 'val': '', 'parent': 5},
-            10: {'edges': [11, 12], 'val': '', 'parent': 6},
-            11: {'edges': [], 'val': '', 'parent': 10},
-            12: {'edges': [], 'val': '', 'parent': 10},
+            8: {'edges': [], 'parent': 5},
+            9: {'edges': [], 'parent': 5},
+            10: {'edges': [11, 12], 'parent': 6},
+            11: {'edges': [], 'parent': 10},
+            12: {'edges': [], 'parent': 10},
         }
 
         tree = Tree(graph)
-        tree[9] = {'edges': [], 'val': '', 'parent': 5}
+        tree[9] = {'edges': [], 'parent': 5}
         prnt('Tree, subclassed from graph', tree)
         divider(newline=False)
 

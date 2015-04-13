@@ -9,11 +9,12 @@ if __name__ == '__main__':
 from random import randrange
 from helpers.text import gibberish
 from helpers.display import Section
-# Mostly taken from
-# interactivepython.org/runestone/static/pythonds/Trees/bst.html#lst-bst1
 
 
 class BinarySearchTree:
+    """BST Code sample originally from interactivepython.org
+        /runestone/static/pythonds/Trees/bst.html#lst-bst1
+    """
 
     def __init__(self):
         # Default to no "top/root" root element

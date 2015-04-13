@@ -100,7 +100,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + AA
     + [AVL tree](data_structures/trees/avl_trees.py)
     + [Binary search tree](data_structures/trees/binary_search_trees.py)
-    + Binary
+    + [Binary](data_structures/trees/binary_trees.py)
     + Cartesian
     + Order statistic
     + Pagoda
@@ -117,6 +117,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Treap
     + Weight-balanced
     + Binary data structure
+    + Stern–Brocot (mathematical)
   + B
     + B
     + B+
