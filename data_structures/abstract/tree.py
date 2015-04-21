@@ -34,6 +34,11 @@ class Tree(Graph):
 
     Terms implemented as methods and/or properties:
     (en.wikipedia.org/wiki/Tree_(data_structure))
+
+    *Note*: the key used by graphs is simply edges, because direction or
+    subordinate/dominant relationships are not relevant. Here, any edge from
+    one node to another is implicitly downward, so specifying 'children' vs.
+    'parent' is not necessary; all edges are considered children.
     """
 
     def __init__(self, vertices={}):
@@ -116,7 +121,6 @@ class Tree(Graph):
 
     def is_descendant(self, node_name, descendant_name):
         """Determine if the given node is a descendant (below) of this node."""
-
         return self.node_height(node_name) < self.node_height(descendant_name)
 
     def is_ancestor(self, ancestor_name, node_name):
