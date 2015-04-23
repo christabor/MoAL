@@ -5,10 +5,11 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
+from random import randrange as rr
 from helpers.display import Section
 from helpers.display import prnt
-from data_structures.abstract.tree import Tree
-from data_structures.trees.binary_search_trees import BinarySearchTree
+from helpers.display import print_subdued
+from data_structures.trees.binary_trees import BinaryTree
 
 DEBUG = True if __name__ == '__main__' else False
 
@@ -46,54 +47,81 @@ the tree left-to-right (aka "symmetric" aka "in-order").
 I have found a useful way to construct the tree on paper, using an
 intuitive approach to visualizing the sequence, and recursively building it.
 
-Taking the list in its entirety:
-
-[9, 3, 7, 1, 8, 12, 10, 20, 15, 18, 5]
-
 I find it's easy to think of the list as being broken down into sub-lists,
 where each sub-list has a left, pivot, and right side.
 
 With this in mind, we can find the pivot, which is always going to the
 smallest number, and then divide the list up into a sublist,
-where the first index is the left, and second index is the right,
-and we pop the pivot off, and add it to the `parents` list.
+where the first index is the current node, the second is the left child,
+and the third is the right. If left and right are empty, then the singleton
+list denotes a leaf.
 
-0. [9, 3, 7, 1, 8, 12, 10, 20, 15, 18, 5] (start position)
-1. [9, 3, 7], [8, 12, 10, 20, 15, 18, 5], parents = [1]
-2. [[9, 7]], [[8, 12, 10, 20, 15, 18], []], parents = [1, 3, 5]
-3. [[9, 7]], [[], [12, 10, 20, 15, 18]], parents = [1, 3, 5, 8]
-4. [[9, 7]], [[], [[12], [20, 15, 18]]], parents = [1, 3, 5, 8, 10]
-5. [[9, 7]], [[], [[12], [[20], [18]]]], parents = [1, 3, 5, 8, 10, 12]
-... done!
+--------------------------------------------------------------------------------
+
+Examples illustrated as tree, nested list, and dictionary:
+
+Another intuitive way to visualize it, is to do the above procedure,
+but for each pivot, draw a line up/down to the previous pivot,
+and then draw lines from the current pivot to the left and right children.
+At the end, you'll get an actual tree drawing:
+
+>>> [3, 2, 1]
+
+    3, 2, [1]
+          /
+    3, [2]
+       /
+     [3]
+
+    Pretty cool!
+
+    which is equivalent to:
+    = {1: 'edges': [2], ..., 2: 'edges': [3], ..., 3: 'edges': [], ...,} OR
+    = [1, [2, [3]], []]
+
+--------------------------------------------------------------------------------
+
+More examples:
+
+>>> [1, [3, [4]], [2]]
+
+     4,  3,  [1], 2
+             / \
+        4, [3] [2]
+           /
+         [4]
+
+>>> [1, [4, [3]], [2]]
+
+     3,  4,  [1], 2
+             / \
+           [4] [2]
+           /
+         [3]
+
+>>> [1, [3, [4]], [2, [5]]]
+
+    4, 3, [1], 2, 5
+         /   \
+    4, [3],  [2], 5
+       /       \
+     [4]       [5]
+
+--------------------------------------------------------------------------------
 
 We just keep doing this until there are no more lists left with length > 2.
 Keep in mind, we need to maintain the parent/child relationship, where
 pivot is the parent of the left and right child, otherwise we will just end
 up with a list of lists, all of which have a single value.
 
-Based on the order of appending, we can infer the relationship of parent
-nodes from the `parents` list: [1 -> 3 -> 5 -> 8 -> 10 -> 12]
-
 If a list has length 2, then it cannot be sub-divided. This means it's a
-sibling of the current siblings.
-
-Another intuitive way to visualize it, is to do the above procedure,
-but for each pivot, draw a line up/down to the previous pivot,
-and then draw lines from the current pivot to the left and right children.
-At the end, you'll get an actual tree drawing!"""
+sibling of the current siblings. Depending on the side this sublist is on
+(left or right), the order will determine if the larger number is the parent
+or sibling.
+"""
 
 
-class NaiveCartesianTree(BinarySearchTree):
-    """We use the original BST that operates more like a tree (instantiated
-    classes of 'nodes' with pointers, vs. a dictionary) to illustrate the tree
-    properties. However, the non-naive version is more suitable for real usage,
-    but the fact it uses a dictionary makes the general understanding harder,
-    because the left/right binary nature is not intuited
-    from a dictionary of references ("pseudo-pointers").
-    """
-
-
-class CartesianTree(Tree):
+class CartesianTree(BinaryTree):
     """A more realistic (but harder to grok) implementation using our
     easier/faster/performant dictionary based implementation. The primary
     encoding algorithm lives here as a staticmethod, so that other tree
@@ -119,7 +147,7 @@ class CartesianTree(Tree):
         self.sequence = seq
 
     @staticmethod
-    def case_two(seq):
+    def case_two(seq, root=False):
         """There are two sub-types here:
         A. Left child only [2, 1]
         B. Right child only [1, 2]
@@ -132,14 +160,20 @@ class CartesianTree(Tree):
         Args:
             seq: A list of integers.
         Returns:
-            A list, with sub-lists for left and right-children.
+            A list, with sub-lists for left and right children.
             e.g. [2, 3, 1, 4] -> [1, [2, 3], [4]]
         """
         if not isinstance(seq, list):
             return seq
         if len(seq) < 2:
             return seq
-        return [min(seq), [max(seq)]]
+        _min, _max = min(seq), max(seq)
+        if root:
+            return [_min, [_max]]
+        if _max == seq[0]:
+            return [_max, [_min]]
+        else:
+            return [_min, [_max]]
 
     @staticmethod
     def case_n(seq):
@@ -159,12 +193,10 @@ class CartesianTree(Tree):
             return seq
         if len(seq) < 3:
             return CartesianTree.case_two(seq)
-        parent = min(seq)
-        parent_index = seq.index(parent)
+        current = min(seq)
+        parent_index = seq.index(current)
         left, right = seq[:parent_index], seq[parent_index + 1:]
-        if not DEBUG:
-            print('seq: {}, results: {}'.format(seq, [parent, left, right]))
-        return [parent, left, right]
+        return [current, left, right]
 
     @staticmethod
     def is_leaf_lst(res):
@@ -181,93 +213,105 @@ class CartesianTree(Tree):
             return True
         return len(left) == 0 and len(right) == 0
 
-    @staticmethod
-    def subdivide(seq, count=0):
+    def _add(self, current, l_child, r_child, parent):
+        """Normalizes the list into a dictionary entry
+        usable by the parent tree class and infers the relationship of
+        the nested list to convert the edges into a simple list."""
+        edges = []
+        if l_child is not None:
+            if len(l_child) > 0 and isinstance(l_child[0], int):
+                edges.append(min(l_child))
+        if r_child is not None:
+            if len(r_child) > 0 and isinstance(r_child[0], int):
+                edges.append(min(r_child))
+        node = {
+            'parent': parent,
+            'edges': edges,
+            'is_root': parent is None,
+            'is_leaf': len(edges) == 0}
+        return self.__setitem__(current, node)
+
+    def _get_members(self, res):
+        """Determine current, left and right child nodes to return, if
+        they exist or not.
+        Args:
+            res: the resultant sublist from the subdivision(s) in :subdivide.
+        Returns:
+            A 3-tuple with the current, left, and right child nodes.
+        """
+        count = len(res)
+        if count == 3:
+            # [1, [2...], [3...]]
+            return res[0], res[1], res[2]
+        elif count == 2:
+            # [1, [3...]] or [1, [2...]]
+            return res[0], res[1], []
+        elif count == 1:
+            # [1]
+            return res[0], [], []
+        else:
+            return [], [], []
+
+    def subdivide(self, seq, count=0, parent=None):
         """Iteratively subdivides the list, using atomic, helper methods.
         Args:
             seq: (sequence) ... a list of integers.
             count: optional ... a count for profiling the recursive call stack.
+            parent: kwarg ... the parent to use for the current node.
         Returns:
             A list of lists, encoding the entire tree and relationship
             between parent/child and corresponding left/right nodes.
         """
-        if DEBUG:
-            atom = '_'
-            print('|{} Starting sequence: {}'.format(count * atom, seq))
-            print('Recursive call count: {}'.format(count))
+        # Get the first division, which consists of the root and its children.
         res = CartesianTree.case_n(seq)
+        if seq is None:
+            return
+        try:
+            current, l_child, r_child = res[0], res[1], res[2]
+        except IndexError:
+            current, l_child, r_child = None, None, None
         if DEBUG:
-            print('|{} Resulting subdivision: {}'.format(count * atom, res))
-
-        # If it's a list (otherwise it's a single integer,
-        # representing the parent.) and it's not a leaf, keep chugging along
-        # with the "manual" sub-divisions.
-        if isinstance(seq, list) and not CartesianTree.is_leaf_lst(res):
-            members = len(res)
-            if members == 3:
-                parent, left_child, right_child = res[0], res[1], res[2]
-            elif members == 2:
-                parent, left_child, right_child = res[0], res[1], []
-            elif members == 1:
-                parent, left_child, right_child = res[0], [], []
-            else:
-                parent, left_child, right_child = [], [], []
-                return [parent, left_child, right_child]
-        else:
-            return res
-
-        # Recursively subdivide left and right, until the above code catches
-        # the sentinel values.
-        count += 1
-        left_child = CartesianTree.subdivide(left_child, count=count)
-        count += 1
-        right_child = CartesianTree.subdivide(right_child, count=count)
-        if DEBUG:
-            prnt(
-                'Final result:',
-                '{}'.format([parent, left_child, right_child]))
+            branch = '\\' if count > 0 else ''
+            atom = count * '_' if count > 0 else ''
+            print_subdued('{}{}{} {} -> {}'.format(
+                '\n' if count == 0 else '', branch, atom, seq, res))
+        # Keep chugging along with the "manual" sub-divisions unless we
+        # encounter a nested list, then we must convert it recursively.
+        if not CartesianTree.is_leaf_lst(res):
+            current, l_child, r_child = self._get_members(res)
+            self._add(current, l_child, r_child, parent)
+        elif len(seq) == 2:
+            single = self.case_two(seq, root=True)
+            current, l_child = single[0], single[1]
+            self._add(current, l_child, None, parent)
+        # Single node, e.g. [1]
+        elif len(res) > 0:
+            self._add(res[0], None, None, parent)
+        # Recursively subdivide left and right, until the above code
+        # catches the remaining values.
+        l_child = self.subdivide(l_child, count=count + 1, parent=current)
+        r_child = self.subdivide(r_child, count=count + 2, parent=current)
         # Return the entire nested root/children structure.
-        return [parent, left_child, right_child]
+        return [current, l_child, r_child]
 
-    def encode(self):
+    def encode(self, seq=None):
         """Encode the objects' sequence data as a normal graph
-        representative dictionary.
-        Args:
-            None
-        Returns:
-            A list of lists, indicating the tree structure.
-            See :subdivide for more info.
-        """
-        self.sequence = CartesianTree.subdivide(self.sequence)
-        self.normalize()
-
-    def normalize(self):
-        """Normalizes the sequence into a format
-        usable by the base tree implementation."""
-        normalized = {}
-        root = self.sequence[0]
-
-        # TODO:
-        # Normalize for parent, using dictionary.
-
-        # Encode the typical, required format to the tree structure
-        # using the parent method, once normalized.
-        return super(CartesianTree, self).__init__(normalized)
-
+        representative dictionary."""
+        super(CartesianTree, self).__init__()
+        prnt('Encoding with new sequence...', seq)
+        self.sequence = self.subdivide(
+            seq if seq is not None else self.sequence)
+        if DEBUG:
+            print(cartesian_tree)
 
 if DEBUG:
     with Section('Cartesian Trees'):
         # Sub-sample of primes. See oeis.org/A000043 for all of them.
         wikipedia = [9, 3, 7, 1, 8, 12, 10, 20, 15, 18, 5]
         mersenne_primes = [2, 3, 5, 7, 13, 17, 19, 31, 61, 89, 107]
-        simple_test = [4, 3, 1, 2, 5, 6]
-        cartesian_tree = CartesianTree(simple_test)
-
-        """Basic sub-case algorithm testing."""
-
         # Cases [x, x]
         assert CartesianTree.case_two([1, 2]) == [1, [2]]
-        assert CartesianTree.case_two([2, 1]) == [1, [2]]
+        assert CartesianTree.case_two([2, 1]) == [2, [1]]
         # Cases [x, x, x]
         assert CartesianTree.case_n([3, 2, 1]) == [1, [3, 2], []]
         assert CartesianTree.case_n([1, 2, 3]) == [1, [], [2, 3]]
@@ -291,8 +335,42 @@ if DEBUG:
         assert CartesianTree.case_n([4, 2, 3, 1, 5, 6, 7, 8]) == [
             1, [4, 2, 3], [5, 6, 7, 8]]
 
-        cartesian_tree.encode()
-        prnt('Testing re-sequence to original list', '')
-        print(cartesian_tree)
+        # Case 2
+        simple_test = [4, 1]
+        cartesian_tree = CartesianTree(simple_test)
 
-        # TODO: more assertions here...
+        cartesian_tree.encode(seq=[1, 4])
+        # Case 3
+        cartesian_tree.encode(seq=[4, 1, 3])
+        cartesian_tree.encode(seq=[4, 3, 1])
+        # Case 4
+        cartesian_tree.encode(seq=[4, 3, 1, 2])
+        cartesian_tree.encode(seq=[1, 4, 3, 2])
+        cartesian_tree.encode(seq=[2, 4, 3, 1])
+        cartesian_tree.encode(seq=[4, 3, 1, 2])
+        # Case 5
+        cartesian_tree.encode(seq=[4, 3, 1, 2, 5])
+        # Case N
+        cartesian_tree.encode(seq=[4, 3, 1, 2, 5, 6])
+        cartesian_tree.encode(seq=[8, 4, 3, 1, 2, 5, 6, 7])
+
+        # Unique sequences
+        cartesian_tree.encode(seq=wikipedia)
+        cartesian_tree.encode(seq=mersenne_primes)
+
+        # Obscene / random large sizes for testing edge cases and performance.
+        cartesian_tree.encode(seq=mersenne_primes)
+        cartesian_tree.encode(seq=[rr(0, 9999) for n in range(16)])
+
+        # More assertions from tree, to confirm we haven't lost
+        # any parent classes functionality or somehow regressed.
+        cartesian_tree.encode(seq=[2, 1, 3, 4, 6])
+        assert cartesian_tree.is_descendant(2, 1)
+        assert cartesian_tree.is_ancestor(1, 2)
+        assert not cartesian_tree.is_descendant(1, 6)
+        assert cartesian_tree.get_siblings(3) == [2, 3]
+        assert cartesian_tree.get_root()['edges'] == [2, 3]
+
+        for node in [(1, 1), (2, 2), (3, 2), (4, 3), (5, 3), (6, 4)]:
+            d, res = node[0], node[1]
+            assert cartesian_tree.node_depth(d) == res

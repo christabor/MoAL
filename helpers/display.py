@@ -61,6 +61,12 @@ def _label(prefix):
     return '[{}] '.format(prefix.upper())
 
 
+def print_subdued(msg):
+    """Print info-type text in dark."""
+    vals = '{t.black}{}{t.normal}'
+    print(vals.format(msg, t=term))
+
+
 def print_info(msg, prefix=True):
     """Print info-type text in red with a prefix"""
     prefix = _label('INFO') if prefix else ''
