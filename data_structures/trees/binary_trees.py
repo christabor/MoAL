@@ -47,7 +47,7 @@ if DEBUG:
                          1     2  interior
                         /     / \
                        /     /   \
-                      3     4     5  interior
+                      3     4     5  leaves
 
           The tree above is represented in python code below.
 

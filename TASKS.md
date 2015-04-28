@@ -20,7 +20,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Retroactive
   + Partial
   + Full
-+ Abstract data types
++ [Abstract data types](data_structures/abstract/)
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
   + [Container](data_structures/abstract/container.py)
   + [Map / Associative array / Dictionary](data_structures/abstract/map.py)
@@ -98,18 +98,18 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Trees
   + Binary
     + AA
-    + [AVL tree](data_structures/trees/avl_trees.py)
-    + [Binary search tree](data_structures/trees/binary_search_trees.py)
+    + [AVL](data_structures/trees/avl_trees.py)
+    + [Binary search](data_structures/trees/binary_search_trees.py)
+      * Randomized binary search
+      * Self-balancing binary search
     + [Binary](data_structures/trees/binary_trees.py)
     + [Cartesian](data_structures/trees/cartesian_trees.py)
     + Order statistic
     + Pagoda
-    + Randomized binary search
     + Red-black
     + Rope
     + Scapegoat
-    + Self-balancing binary search
-    + [Splay tree](data_structures/trees/splay_trees.py)
+    + [Splay](data_structures/trees/splay_trees.py)
     + T-tree
     + Tango
     + Threaded binary
