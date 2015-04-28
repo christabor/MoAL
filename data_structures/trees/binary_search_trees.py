@@ -91,7 +91,7 @@ class BinarySearchTree:
         if self.root:
             res = self._get(key, self.root)
             if res is not None:
-                return res.data
+                return res
             else:
                 return None
         return None
@@ -378,3 +378,15 @@ if __name__ == '__main__':
         print('\n')
         recurse_bst(bst.root, None)
         print('\n')
+
+        # Basic test assertions
+        bst.put(100, 'testing')
+        assert 100 in bst
+        del bst[100]
+        assert 100 not in bst
+        bst.put(100, 'testing')
+        bst.put(101, 'testing')
+        assert 101 in bst
+        f = bst.get(100)
+        assert f.has_right_child()
+        assert not f.has_left_child()
