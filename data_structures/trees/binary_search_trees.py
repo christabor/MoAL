@@ -13,7 +13,8 @@ from helpers.display import Section
 
 class BinarySearchTree:
     """BST Code sample originally from interactivepython.org
-        /runestone/static/pythonds/Trees/bst.html#lst-bst1
+        /runestone/static/pythonds/Trees/bst.html#lst-bst1,
+        with some modifications.
     """
 
     def __init__(self):
@@ -203,22 +204,21 @@ class BinarySearchTree:
                     self.parent.right_child = self
         return successor
 
+    def _swap_current(self, current_node, side):
+        if side == 'left':
+            current_node.swap_node(
+                current_node.left_child.key,
+                current_node.left_child.data,
+                current_node.left_child.left_child,
+                current_node.left_child.right_child)
+        else:
+            current_node.swap_node(
+                current_node.right_child.key,
+                current_node.right_child.data,
+                current_node.right_child.left_child,
+                current_node.right_child.right_child)
+
     def remove(self, current_node):
-
-        def _swap_current(side):
-            if side == 'left':
-                current_node.swap_node(
-                    current_node.left_child.key,
-                    current_node.left_child.data,
-                    current_node.left_child.left_child,
-                    current_node.left_child.right_child)
-            else:
-                current_node.swap_node(
-                    current_node.right_child.key,
-                    current_node.right_child.data,
-                    current_node.right_child.left_child,
-                    current_node.right_child.right_child)
-
         # If the current node is a leaf, check if it's
         # the left or the right node of the parent, and remove it accordingly.
         if current_node.is_leaf():
@@ -248,7 +248,7 @@ class BinarySearchTree:
                 # If its neither the left or child, then make a new node
                 # with the current_node grandchildren
                 else:
-                    _swap_current('left')
+                    self._swap_current(current_node, 'left')
             # Deal with non leaf nodes
             else:
                 # Do the same, but for the right side instead.
@@ -259,7 +259,7 @@ class BinarySearchTree:
                     current_node.right_child.parent = current_node.parent
                     current_node.parent.right_child = current_node.right_child
                 else:
-                    _swap_current('right')
+                    self._swap_current(current_node, 'right')
 
 
 class Node:
