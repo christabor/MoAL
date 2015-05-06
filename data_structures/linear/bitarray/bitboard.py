@@ -33,12 +33,10 @@ class ChessPieceBitBoard(BitField):
             /SCD_algebraic_notation.svg/242px-SCD_algebraic_notation.svg.png
         For an example of the coordinate system in chess.
         """
-        count = 0
         for col in self.cols:
             for row in self.rows:
-                # Use overloaded __setitem__
-                self[str(count)] = '{}{}'.format(col, row)
-                count += 1
+                # Use overloaded __setitem__, which sets the bit field bit value
+                self['{}{}'.format(col, row)] = False
 
 
 class ChessBoard:
@@ -80,9 +78,9 @@ class ChessBoard:
         print('Moving {} piece `{}` from {} to {}'.format(
             player, piece, old_position, new_position))
         # Set old position to inactive in bitarray
-        self.boards[piece] = False
+        self.boards[piece][old_position] = False
         # Set new position to active in bitarray
-        self.boards[piece] = True
+        self.boards[piece][new_position] = True
 
 
 if DEBUG:
