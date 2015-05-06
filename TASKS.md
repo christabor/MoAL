@@ -44,6 +44,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Arrays](data_structures/abstract/array_and_linked_lists.py)
     + [Overloaded arrays](helpers/adts.py)
     + [Suffix arrays](data_structures/linear/array/suffix_arrays.py)
+      + Compressed suffix array
     + [Bi-directional map](data_structures/abstract/map.py)
     + [Bit](computer_organization/data_types.py)
     + [Bit field](computer_organization/bit_field.py)
@@ -157,8 +158,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + [Generalized](data_structures/trees/suffix_tree.py)
       + Ukkonen's
       + McCreight's
-    + [Suffix array](data_structures/trees/suffix_array.py)
-    + Compressed suffix array
     + FM-index
     + B-trie
     + Judy array
