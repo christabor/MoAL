@@ -49,7 +49,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Bit](computer_organization/data_types.py)
     + [Bit field](computer_organization/bit_field.py)
     + Bit Array
-      + Bitboard
+      + [Bitboard](data_structures/linear/bitarray/bitboard.py)
       + Bitmap
     + Circular buffer
     + Control table
