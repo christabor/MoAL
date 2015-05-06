@@ -51,7 +51,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Bit Array
       + [Bitboard](data_structures/linear/bitarray/bitboard.py)
       + Bitmap
-    + Circular buffer
+    + [Circular buffer](data_structures/linear/array/circular_buffer.py)
     + Control table
     + Image
     + Dynamic
