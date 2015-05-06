@@ -1201,7 +1201,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + wikipedia.org/wiki/Coding_theory
 
 *Misc*
-+ www.fullstackpython.com/table-of-contents.html
++ fullstackpython.com/table-of-contents.html
 + interactivepython.org/
 + refactoring.com/catalog/
 + anandology.com/python-practice-book
@@ -1218,4 +1218,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + symbolicanalysis.wordpress.com/category/other-methodologies/turing-machine-and-related-automata/
 + github.com/boyers/theorem_prover
 + symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
-+ www.quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
++ quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
