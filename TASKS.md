@@ -940,6 +940,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Recursive
     + Regular
     + Analytic
+      * Parsing Expression (PE)
     + Context-sensitive
     + [Context-free](languages/formal_language_theory/grammars/context_free.py)
       + Stochastic
@@ -1006,7 +1007,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Mozart
   + Domain Specific (DSL)
     + Metalinguistic abstraction
-    + Embeddable
+    + [Embeddable](languages/domain_specific/embeddable_dsl.py)
     + Macros
       + Hygienic
       + Anaphoric
@@ -1219,3 +1220,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + github.com/boyers/theorem_prover
 + symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
 + quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
++ github.com/raganwald-deprecated/homoiconic/blob/master/2009-10-08/metalinguistic.md
