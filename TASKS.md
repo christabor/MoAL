@@ -1007,7 +1007,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Mozart
   + Domain Specific (DSL)
     + Metalinguistic abstraction
-    + [Embeddable](languages/domain_specific/embeddable_dsl.py)
+    + [Embeddable](languages/domain_specific/embedded_dsl.py)
     + Macros
       + Hygienic
       + Anaphoric
