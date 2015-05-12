@@ -1221,3 +1221,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
 + quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
 + github.com/raganwald-deprecated/homoiconic/blob/master/2009-10-08/metalinguistic.md
+* youtube.com/watch?v=0JXhJyTo5V8
