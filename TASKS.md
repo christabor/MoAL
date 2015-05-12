@@ -1097,7 +1097,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Clang
     + Custom (make one!)
     + Symbol table
-    + Abstract Syntax Tree (AST)
+    + [Abstract Syntax Tree (AST)](execution/compiler/abstract_syntax_tree.py)
     + Abstract semantic graph
     + Components
       + Parser
