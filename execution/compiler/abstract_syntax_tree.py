@@ -34,18 +34,29 @@ def bar():
 
 def ast_drawing():
     """The AST Drawing.
-    x = unaryOp = -1
-    y = binaryOp = 2 + 2
+
+    unaryOp = `-1`
 
         (ROOT)
-         / \   <-- x
+         / \
        [-] [1]
+
+    binaryOp = `2 + 2`
 
         (ROOT)
          /
        [+]
        / \
      [2] [2]
+
+    etc... `foo = 3 * 9`
+
+        (ROOT)
+         /  \
+       [=]  [*]
+       /    /  \
+     [foo] [3] [9]
+
     """
 
 if DEBUG:
