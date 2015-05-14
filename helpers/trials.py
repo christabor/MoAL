@@ -3,6 +3,9 @@ from random import randrange as rr
 
 
 def run_trials(func, trials=3):
+    """Runs a set of trials given a function and trial number.
+    The `func` in question is expected to use the test_speed decorator
+    to do the actual profiling."""
     for num in range(trials):
         print('Running trial #{}'.format(num))
         func(num)
@@ -13,7 +16,9 @@ def run_sorting_trials(
         sorting_func, magnitudes=[10, 100, 1000], test_output=True):
     """Runs a bunch of trials of various magnitudes with a given
     func, using randomly generated numbers.
-    Returns a dict of results for later inspection."""
+    Returns a dict of results for later inspection.
+    Tailored specifically for sorting functions, by
+    generating randomly mixed sequences of numbers."""
     results = {
         'function': sorting_func.func_name if hasattr(
             sorting_func, 'func_name') else 'builtin'
@@ -30,6 +35,8 @@ def run_sorting_trials(
 
 
 def _test_speed(func, *args, **kwargs):
+    """Decorator that wraps a function and provides a timer
+    + results output for execution profiling."""
     def _inner(*args, **kwargs):
         divider = '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
         print(divider)
