@@ -717,7 +717,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + [PostgreSql](storage/databases/relational/postgresql_psycopg2.py)
         * [Psycopg2](storage/databases/relational/postgresql_psycopg2.py)
     + Key/value
-      + [Redis (doc + k/v)](storage/databases/relational/redis_db.py)
+      + [Redis (doc + k/v)](storage/databases/keyvalue/redis_db.py)
     + Document
       + ElasticSearch
       + Solr
