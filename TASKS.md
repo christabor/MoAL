@@ -899,7 +899,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Arithmetic complexity
 + Quantum complexity
 + Communication complexity
-+ Unique Games Conjecture and its relation to optimality of approximation algorithms
++ Unique Games Conjecture
 
 ## Languages
 
@@ -1223,3 +1223,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
 + github.com/raganwald-deprecated/homoiconic/blob/master/2009-10-08/metalinguistic.md
 * youtube.com/watch?v=0JXhJyTo5V8
+* echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew
