@@ -22,3 +22,20 @@ As mentioned before, in some cases, direct programming makes little sense since 
 
 ### Strategy: "20 minutes a day"
 This is not mandatory -- do whatever works best for you; but the "20 minute a day" approach is a good place to start ([you can read about it here](http://www.quora.com/What-small-lifestyle-changes-have-the-biggest-impact/answer/Evan-DeFilippis?srid=dDmF&share=1)). I find this approach helps get me motivated when the task seems daunting or I'm strapped for time -- 20 minutes is something anyone can commit to, and you'll be surprised how much can be accomplished when taken in aggregate -- it's all about building up change over the long term; don't obsess over the short term!
+
+### Strategy part II: efficiency, and mastering the material
+While this project is highly structured, it is still very organic. I have tuned and tweaked different strategies for learning as I've gone along.
+
+One of these strategies is inspired by the ["Learning how to learn"](https://www.coursera.org/learn/learning-how-to-learn) course on Coursera. Having synthesized some of the tools there, I have created my own hybrid learning practice for each given task. The discrete nature of each task makes it very easy to find reference material and build out a study session that can be short and "mentally digestible".
+
+Here it is:
+
+1. Read up on a Wikipedia article giving an introduction to the concept (e.g. Binary Search Trees). Feel free to even browse Google images or the like for some conceptual examples to things together.
+2. Watch a YouTube video explaining these concepts. Videos are fun and easy.
+3. While doing 1 & 2 (or shortly after), create a mind map of all the concepts and phrases that came up, or in your mind. There is plenty of great mind map software, free and paid (I prefer [SimpleMind](http://www.simpleapps.eu/simplemind/), it's Android and Mac friendly, and works well, without the clutter).
+4. Write the actual program for the actual task -- this is the most important, obviously.
+5. Meditate on what you've learned!
+
+My rationale for developing this approach comes from the notion that learning through multiple styles helps reinforce your overall understanding. Above, we have concrete verbal/spoken examples, conceptual examples, and practice, in not just one, but two forms (the actual programming and the mind-mapping).
+
+With all of this you are creating an intuitive understanding while at the same time cementing it as detailed information. This makes retention much, much better.
