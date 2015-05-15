@@ -30,7 +30,7 @@ One of these strategies is inspired by the ["Learning how to learn"](https://www
 
 Here it is:
 
-1. Read up on a Wikipedia article giving an introduction to the concept (e.g. Binary Search Trees). Feel free to even browse Google images or the like for some conceptual examples to things together.
+1. Read up on a Wikipedia article giving an introduction to the concept (e.g. Binary Search Trees). Feel free to even browse Google images or the like for some conceptual examples to bring things together.
 2. Watch a YouTube video explaining these concepts. Videos are fun and easy.
 3. While doing 1 & 2 (or shortly after), create a mind map of all the concepts and phrases that came up, or in your mind. There is plenty of great mind map software, free and paid (I prefer [SimpleMind](http://www.simpleapps.eu/simplemind/), it's Android and Mac friendly, and works well, without the clutter).
 4. Write the actual program for the actual task -- this is the most important, obviously.
