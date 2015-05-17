@@ -764,6 +764,10 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Architecture
   + Model driven (MDA)
   + MVC / N-Tier
+  + Aspect oriented system
+  + Middleware
+    * Application
+    * Distributed
   + SOA
     + Micro-services
   + RESTful API
@@ -1201,6 +1205,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
   + wikipedia.org/wiki/Gray_code
   + wikipedia.org/wiki/Bitwise_operation
 + wikipedia.org/wiki/Coding_theory
++ wikipedia.org/wiki/Aspect-oriented_software_development
 
 *Misc*
 + fullstackpython.com/table-of-contents.html
