@@ -723,8 +723,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Solr
       + MongoDB
       + CouchDB
-    + Cache
-      + MemCached
     + Graph
       + Neo4j
     + WideColumn
@@ -794,6 +792,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Performance
   + Caching
     + Varnish
+    + [Memcached](systems_engineering/performance/caching/memcached_example.py)
 
 ## Artifical Intelligence
 
