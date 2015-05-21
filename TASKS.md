@@ -711,6 +711,14 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 ## Data Storage / Transmission
 
 + Storage
+  + Search Server
+    + Elasticsearch
+    + Lemur
+    + Lucene
+    + Solr
+    + Sphinx
+    + Xapian
+    + Terrier Search Engine
   + Databases
     + Relational
       + MySql
@@ -719,8 +727,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Key/value
       + [Redis (doc + k/v)](storage/databases/keyvalue/redis_db.py)
     + Document
-      + ElasticSearch
-      + Solr
       + MongoDB
       + CouchDB
     + Graph
@@ -1226,5 +1232,6 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
 + quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
 + github.com/raganwald-deprecated/homoiconic/blob/master/2009-10-08/metalinguistic.md
-* youtube.com/watch?v=0JXhJyTo5V8
-* echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew
++ youtube.com/watch?v=0JXhJyTo5V8
++ echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew
++ stackoverflow.com/questions/9624774/after-mysql-install-via-brew-i-get-the-error-the-server-quit-without-updating
