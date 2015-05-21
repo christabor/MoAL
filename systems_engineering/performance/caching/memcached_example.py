@@ -51,7 +51,6 @@ def get_records(cur):
         conn.commit()
         # Setup caching once loaded
         mclient.set(CACHE_KEY, records)
-        # Close up shop to prevent zombie processes, etc.
         return records
 
 
@@ -84,4 +83,5 @@ if DEBUG:
         get_records(cur)
         # Read the database again, which will hit memcached first.
         get_records(cur)
+        # Close up shop to prevent zombie processes, etc.
         cur.close()
