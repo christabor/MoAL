@@ -730,7 +730,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + [MongoDB](storage/databases/document/mongo_db.py)
       + CouchDB
     + Graph
+      * TinkerPop (interfacing)
       + Neo4j
+      * Titan
     + WideColumn
       + HBase
       + BigTable
