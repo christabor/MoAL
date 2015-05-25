@@ -302,6 +302,25 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Refactoring
   + Martin Fowler refactoring.com patterns
 + Problem solving
+  * Design patterns
+    - Unix Rules
+      + Rule of modularity
+      + Rule of Clarity
+      + Rule of Composition
+      + Rule of Separation
+      + Rule of Simplicity
+      + Rule of Parsimony
+      + Rule of Transparency
+      + Rule of Robustness
+      + Rule of Representation
+      + Rule of Least Surprise
+      + Rule of Silence
+      + Rule of Repair
+      + Rule of Economy
+      + Rule of Generation
+      + Rule of Optimization
+      + Rule of Diversity
+      + Rule of Extensibility
   + Decomposition
 
 ## Mathematics
@@ -726,6 +745,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         * [Psycopg2](storage/databases/relational/postgresql_psycopg2.py)
     + Key/value
       + [Redis (doc + k/v)](storage/databases/keyvalue/redis_db.py)
+      + Accumulo
     + Document
       + [MongoDB](storage/databases/document/mongo_db.py)
       + CouchDB
@@ -733,6 +753,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * TinkerPop (interfacing)
       + Neo4j
       * Titan
+      * Giraph
     + WideColumn
       + HBase
       + BigTable
@@ -1237,3 +1258,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + youtube.com/watch?v=0JXhJyTo5V8
 + echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew
 + stackoverflow.com/questions/9624774/after-mysql-install-via-brew-i-get-the-error-the-server-quit-without-updating
++ wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules
