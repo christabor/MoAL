@@ -17,6 +17,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Fat / path combination
   + Full
   + Confluent
++ Succinct
 + Retroactive
   + Partial
   + Full
@@ -243,9 +244,10 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Routing table
   + Symbol table
 
-## Engineering / Software Development
+## Software Engineering / Software Development
 
 + Requirements analysis
++ Reification
 + Debugging
 + Development
   + Methodologies
@@ -294,6 +296,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Gray box
     + /TBD/
 + Deployment
+  * Docker
 + Formal verification
   + Theorem provers
     + Automated
@@ -321,6 +324,16 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rule of Optimization
       + Rule of Diversity
       + Rule of Extensibility
+    + GRASP
+      * Controller
+      * Creator
+      * Indirection
+      * Information Expert
+      * High Cohesion
+      * Low Coupling
+      * Polymorphism
+      * Protected Variations
+      * Pure Fabrication
   + Decomposition
 
 ## Mathematics
@@ -390,8 +403,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Statistics
       + [Probability](maths/probability.py)
     + Cryptography
-      + Diffie-Hellman
-      + RSA
       + Zero-knowledge proofs
       + Ciphers
         + Historical
@@ -405,6 +416,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
             + Asymmetric
           + Input type
             + Block
+              * GOST
             + Stream
     + Modeling
       + Finance
@@ -429,6 +441,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Forcing
       + Cardinal invariants
       + Set-theoretic topology
+      + Three-valued (trivalent / trinary)
     + Model theory
       + Classical
       + Applied to groups and fields
@@ -437,6 +450,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Infinite
     + Recursion theory / Computability theory
       + Lambda calculus
+      + Kahn process networks
     + Proof theory
       + Hilbert system
     + First-order
@@ -447,72 +461,415 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 ## Algorithms
 
-+ String search
-  + Knuth-Morris-Pratt
-  + Boyer-Moore-Horspool
-  + Apostolico-Giancarlo
-  + Aho-Corasick multi-pattern
-  + Rabin-Karp multi-pattern
++ Automata
+    + Powerset construction
+    + Todd-Coxeter
++ Artificial intelligence
+    + Alpha-beta
+    + Ant-algorithms
+    + Cortical Learning Algorithm
+    + Differential evolution
++ Computer vision
+    + Epitome
+    + Counting objects in an image
+        + connected-component labeling
+    + Deep Dense Face Detector
+    + Evolution-Constructed Features
+    + O'Carroll
+    + Tracking-Learning Detection
+    + Viola-Jones object detection framework
++ Cryptography
+    + Private key (symmetric)
+        + Advanced Encryption Standard / Rijndael
+        + Blowfish
+        + Data Encryption Standard (DES)
+        + IDEA / IPES / PES
+        + RC4 or ARC4
+        + Tiny Encryption Algorithm
+    + Public key (asymmetric)
+        + DSA
+        + ElGamal
+        + RSA
+        + Diffie-Hellman / Merkle
+        + NTRUEncrypt
+    + Message digest functions
+        + MD5
+        + RIPEMD
+        + SHA-1
+        + HMAC
+        + Tiger (TTH)
+    + Techniques
+        + Shamir's secret sharing scheme
+        + Blakley's secret sharing scheme
+    + Other techniques and decryption
+        + Subset sum
+        + Shor's
++ Genetic algorithms
+    + Fitness proportionate selection (aka roulette-wheel selection)
+    + Truncation selection
+    + Tournament selection
+    + Stochastic universal sampling
++ Machine learning
+    + PAVA (Pool-Adjacent-Violators Algorithm)
+    + Multiplicative Weights
++ Bioinformatics and Cheminformatics
+    + Needleman-Wunsch
+    + Smith-Waterman
+    + Ullmann's
++ Compression
+    + Lossless
+        + Burrows-Wheeler transform
+        + Deflate
+        + Delta encoding
+        + Incremental encoding
+        + LZW. (Lempel-Ziv-Welch)
+        + LZ77 and 78
+        + Lempel-Ziv-Markov chain
+        + LZO
+        + Prediction by Partial Matching
+        + Shannon-Fano coding
+        + Truncated binary
+        + Run-length encoding
+        + Sequitur
+        + EZW (Embedded Zerotree Wavelet)
+        + Entropy encoding
+        + Huffman coding
+            + Adaptive
+        + Arithmetic coding
+        + Range encoding
+        + Unary coding
+        + Elias delta, gamma, omega coding
+        + Fibonacci coding
+        + Golomb coding
+        + Rice coding
+    + Lossy
+        + Linear predictive coding
+        + A-law algorithm
+        + Mu-law algorithm
+        + Fractal compression
+        + Transform coding
+        + Vector quantization
+        + Wavelet compression
++ Graphics
+    + Bresenham's line
+    + Colorization
+    + Depixelizing Pixel Art
+    + DDA line
+    + Flood fill
+    + HDR
+        + /TBD/
+    + Xiaolin Wu's line
+    + Painter's
+    + Ray tracing
+    + Phong shading
+    + Gouraud shading
+    + Scanline rendering
+    + Global illumination
+    + Interpolation
+    + Resynthesizer
+    + Slope-intercept
+    + Spline interpolation
+    + 3D Surface Tracker Technology
++ Geometry
+    + Gift wrapping
+    + Gilbert-Johnson-Keerthi distance
+    + Graham scan
+    + Line segment intersection
+    + Point in polygon
+    + Ray/Plane intersection
+        + Line/Triangle intersection
+    + Polygonization of implicit surfaces
+    + Triangulation
++ Mathematics
+    + Algebra
+        + Buchberger's
+        + Extended Euclidean
+        + Fourier transform multiplication
+        + Gram-Schmidt process
+        + Gauss-Jordan elimination
+        + Karatsuba multiplication
+        + Knuth-Bendix completion
+        + Multivariate division
+        + Risch
+        + Toom-Cook (Toom3)
+        + Eigenvalue algorithm
+            + R algorithm
+            * Inverse iteration
+            * Lanczos iteration
+            * Arnoldi iteration
+            * Rayleigh quotient iteration
+            * Jacobi method
+            * Bisection
+            * Divide-and-conquer
+            * Eigenvector algorithms
+            * Richardson eigenvector algorithm.
+            * Max-Plus
+            * Abrams and Lloyd eigenvector
+        Arithmetic
+        + Binary GCD
+        + Booth's multiplication
+        + Euclidean algorithm
+        + Binary multiplication (Peasant or Egyptian multiplication)
+    + Discrete logarithm in group theory
+        + Baby-step giant-step
+        + Pollard's rho algorithm for logarithms
+        + Pohlig-Hellman
+        + Index calculus algorithm
++ Integer factorization
+    + Prime factorization
+        + Fermat's factorization method
+        + Trial division
+        + Lenstra elliptic curve factorization / ECM
+        + Pollard's rho
+        + Pollard's p-1
+        + Congruence of squares
+        + Quadratic sieve
+        + Dixon's factorization method
+        + Special number field sieve
+        + General number field sieve (GNS)
++ Merging
+    + Simple Merge
+    + k-way Merge
++ Logic programming
+    + Davis–Putnam
++ Matrix processing
+    + Exponentiating by squaring
+    + Rutishauser
+    + Strassen
+    + Symbolic Cholesky decomposition
+    + Zha's algorithm
+    + Matrix chain multiplication
++ Optic
+    + Gerchberg Saxton
++ Texts
+    + Searching
+        + Aho-Corasick
+        + Bitap (or shift-or, shift-and, Baeza-Yates-Gonnet)
+        + Boyer-Moore-Horspool
+        + Apostolico-Giancarlo
+        + Burrows Wheeler transform
+        + Knuth-Morris-Pratt
+        + Rabin-Karp
+        + Longest common subsequence problem
+        + Longest increasing subsequence problem
+        + Shortest common supersequence
+        + Horspool
+    + Approximate matching
+        + [Hamming distance](algorithms/coding_theory/hamming_distance.py)
+        + [Levenshtein distance](algorithms/coding_theory/levenshtein_distance.py)
+        +     Damerau–Levenshtein distance
+        + Soundex
+        + Metaphone
+        + NYSIIS
+    + Word processing
+        + Latent Dirichlet Allocation
+        + Latent Semantic Indexing
+        + Stemming
++ Utilities
+    + Doomsday
+    + Xor swap
+    + Hamming weight
+    + Luhn
+    + Create bit mask
++ Misc.
+    + BrowseRank
+    + Hypertext Induced Topic Selection (HITS, patent in 1997)
+    + Growth-Algorithm Model of Leaf Shape
+    + PageRank
+    + Schreier-Sims
+    + Robinson-Schensted
 + Coding theory
   + String edit
-    + [Hamming distance](algorithms/coding_theory/hamming_distance.py)
-    + [Levenshtein distance](algorithms/coding_theory/levenshtein_distance.py)
-      + Damerau–Levenshtein distance
-    + Hamming weight
     + Jaro–Winkler distance
     + Lee distance
-    + Hirschberg's
     + MostFreqKDistance
-    + Needleman–Wunsch
-    + Wagner–Fischer
-    + Smith–Waterman
     + MinHash
-    + Bitap
     + Longest common subsequence
       + Hunt–McIlroy
     + Longest common substring
     + Longest palindromic substring
-+ Mutual exclusion management
-  + Szymanski's
-  + Taubenfeld's black-white bakery
-  + Lamport's bakery
-  + Peterson's
-  + Dekker's
++ Operating systems
+    + Mutual exclusion management
+    + Szymanski's
+    + Taubenfeld's black-white bakery
+    + Banker
+    + Page replacement
+    + Bully
+    + Disk scheduling
+    + Elevator
+    + Shortest seek first
+    + Process synchronization
+    + Peterson
+    + Lamport's Bakery
+    + Dekker
+    + Scheduling algorithms
+    + Earliest deadline first scheduling
+    + Fair-share scheduling
+    + Least slack time scheduling / Least Laxity First
+    + List scheduling
+    + critical path
+    + longest path
+    + highest level first
+    + longest processing time
+    + Multi level feedback queue
+    + Rate-monotonic scheduling
+    + Round-Robin scheduling
+    + Shortest job next (or first)
+    + Shortest remaining time
++ (Pseudo) Random number generators
+    + Blum Blum Shub
+    + Mersenne twister
+    + Lagged Fibonacci generator
+    + Linear congruential generator
+    + Yarrow
+    + Fortuna
+    + Linear feedback shift register
++ Astronomy
+    + Ephemerides
+    + Julian day
+    + Julian date
++ Signal processing
+    + CORDIC
+    + Rainflow-counting
+    + OSEM
+    + Goertzel algorithm
+    + Discrete Fourier transform
+    + Fast Fourier transform
+      * Cooley-Tukey
+      * Rader's
+      * Bluestein's
+      * Bruun's
+      * Prime-factor
+    + Richardson-Lucy deconvolution
+    + Elser Difference-Map
+    + Shazam
++ Software engineering
+    + Unicode Collation
+    + CHS conversion
+    + Cyclic redundancy check
+    + Parity control
++ Memory allocation
+    + Boehm garbage collector
+    + Buddy memory allocation
+    + Generational garbage collector
+    + Mark and sweep
+    + Reference counting
++ Distributed systems
+    + Lamport ordering
+    + Snapshot
+    + Vector clocks
+    + Marzullo
+    + Intersection
++ Optimization
+    + Almost Linear Max Flow
+    + Ant colony optimization
+    + BFGS (Broyden-Fletcher-Goldfarb-Shanno method)
+    + Branch and bound
+    + Conjugate gradient method
+    + Evolution strategy
+    + Gauss-Newton
+    + Gradient descent
+    + Levenberg-Marquardt
+    + Line search
+    + Local search
+    + Nelder-Mead method (downhill simplex method)
+    + Newton's method in optimization
+    + Paxos
+    + PSO, Particle swarm optimization
+    + Random-restart hill climbing
+    + Simplex
+    + Simulated annealing
+    + Stochastic tunneling
+    + Tabu search
+    + Trust search
++ Parsing
+    + Cocke–Younger–Kasami
+    + Earley
+    + Forward–backward
+    + Conditional Inside
+    + Inside-outside
+    + LL Parsers
+    + ANTLR
+    + LR Parsers
+    + Dijkstra's shunting yard
+    + LALR (Look-ahead LR)
+    + SLR (Simple LR) parser
+    + Canonical LR parser or LR(1) parser
+    + GLR. (Generalized LR parser)
+    + Recursive Descent Parsers
+    + Packrat parser
++ Prediction
+    + Baum-Welch
+    + Viterbi
++ Quantum
+    + Grover's
+    + Shor's
+    + Deutsch-Jozsa
 + Distributed Networking
   + Koorde
   + Chord
-+ Parsing/Grammars
-  + Cocke–Younger–Kasami
-  + Inside–outside
-  + Forward–backward
-  + Viterbi
-  + Earley
-  + Conditional Inside
-+ Number series generation/discovery
-  + Spigot
-  + Sieve of Eratosthenese
-+ Multiplication
-  + Gauss's complex
-  + Karatsuba
-  + Schonhage-Strassen
-  + Toom-Cook
-  + Fourier transform
++ Lists, arrays and trees
+    + Breadth-first search
+    + Best-first search
+    + Depth-first search
+    + Dictionary search
+    + Disjoint-set data structure and algorithm
+    + Interpolated search / predictive search
+    + Median search
+    + Selection algorithm
+    + Uniform-cost search
++ Prime test
+    + AKS (Agrawal-Kayal-Saxena)
+    + Fermat
+    + Miller-Rabin
+    + Spigot
+    + Sieve of Eratosthenes
+    + Sieve of Atkin
+    + Solovay-Strassen
++ Numerical
+    + Fibonacci sequence
+    + Biconjugate gradient method
+    + Dancing Links
+    + De Boor
+    + De Casteljau's
+    + False position method
+    + Gauss-Legendre
+    + Kahan summation
+    + MISER
+    + Newton's method
+    + Secant method
+    + Shifting nth-root
+    + Square root
+    + Borwein's
+    + Metropolis-Hastings
 + Sorting
-  + [Insertion sort](algorithms/sorting/insertion_sort.py)
-  + [Merge sort](algorithms/sorting/merge_sort.py)
-  + [Quick sort](algorithms/sorting/quick_sort.py)
-  + Splay sort
-  + Heap sort
-  + Radix sort
-    + MSD
-    + Adaptive
-    + MBM
-    + Forward
-  + [Bubble Sort](algorithms/sorting/bubble_sort.py)
-  + [Bogo Sort (anti-pattern)](algorithms/sorting/bogo_sort.py)
-  + Burst sort
-  + [Selection Sort](algorithms/sorting/selection_sort.py)
-  + [Shell Sort](algorithms/sorting/shell_sort.py)
+    + Binary tree sort
+    + Bucket sort
+    + Cocktail sort (bidirectional bubble, shaker, ripple, shuttle, happy hour)
+    + Comb sort
+    + Counting sort
+    + Gnome sort
+    + Introsort
+    + Pancake sort
+    + Pigeonhole sort
+    + Postman sort
+    + Smoothsort
+    + Stochastic
+    - [Insertion sort](algorithms/sorting/insertion_sort.py)
+    - [Merge sort](algorithms/sorting/merge_sort.py)
+    - [Quick sort](algorithms/sorting/quick_sort.py)
+    - Splay sort
+    - Heap sort
+    - Radix sort
+      - MSD
+      - Adaptive
+      - MBM
+      - Forward
+    - [Bubble Sort](algorithms/sorting/bubble_sort.py)
+    - [Bogo Sort (anti-pattern)](algorithms/sorting/bogo_sort.py)
+    - Burst sort
+    - [Selection Sort](algorithms/sorting/selection_sort.py)
+    - [Shell Sort](algorithms/sorting/shell_sort.py)
 + Approximation
 + Greedy
 + Dynamic programming
@@ -527,11 +884,30 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Dijkstra's Algorithm
   + Knight's Tour Problem
   + The Word Ladder Problem
-  + DFS / BFS
   + Prim's Spanning Tree Algorithm
   + Building the Word Ladder Graph
   + Topological Sorting
   + Strongly Connected Components
+  + A* tree search
+  + 3D Surface Tracker Technolog
+  + Bellman-Ford
+  + Graph canonization
+  + Perturbation methods
+  + Floyd-Warshall
+  + Floyd's cycle-finding
+  + Johnson
+  + Hopcroft–Karp algorithm
+  + Kruskal
+  + Boruvka
+  + Ford-Fulkerson
+  + Edmonds-Karp
+  + Nonblocking Minimal Spanning Switch
+  + Woodhouse-Sharp
+  + Spring based
+  + Hungarian
+  + Coloring
+  + Nearest neighbor
+  + Tarjan's off-line least common ancestors
 
 ## Computer Organization
 
@@ -646,6 +1022,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Memory hierarchy
   + Virtual memory
   + Memory mapped I/O
+  + Content-addressable memory
 + Synchronization primitives
 
 ## Operating Systems
@@ -675,7 +1052,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + User level (N:1)
         + Hybrid (M:N)
     + Co-routines [language]
+    + Tail call [language]
     + Fibers [system]
+    + Continuation [language]
   + Schedulers
   + Producer / consumer
 + Memory management
@@ -691,6 +1070,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 + Ethernet
 + Protocols
+  * Application
+    - LDAP
   + RPC
     + JSONRPC
     + XMLRPC
@@ -731,7 +1112,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 + Storage
   + Search Server
-    + Elasticsearch
+    + Elastic Search
+    + Apache Drill
     + Lemur
     + Lucene
     + Solr
@@ -759,8 +1141,14 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + BigTable
     + Data structures
       + Inverted Index
+    + Services
+      * BigQuery
+      * Datomic
+    * Other
+      - InfluxDB
+      * hustle
 + Serialization
-  + Apache Avro
+  + Avro
   + CSV
   + JSON
   + MessagePack
@@ -801,9 +1189,12 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Basic
     + HATEOAS
   + API design
+    * JSONAPI (jsonapi.org)
     + Fluent interface
 + Parallel Computing
 + Distributed Computing
+  * Fault-tolerance
+  * Self-stabilization
   + Peer-to-Peer (P2P)
     + Structured
     + Unstructured
@@ -833,8 +1224,21 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + K-means clustering
     + Bayesian probability
     + Neural networks
+      + Self-organizing map (Kohonen map)
+      - Neocognitron
+      * ADALINE
+        - MADALINE
+      + Adaptive Resonance Theory
+        + ART 1
+        + ART 2
+        + ART 2-A
+        + ART 3
+        + Fuzzy ART
+        + ARTMAP
+        + Fuzzy ARTMAP
       + Recurrent (RNNs)
         + Boltzmann machine
+        + Backpropagation
         + Hopfield
         + Elman
         + Jordan
@@ -852,6 +1256,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 ## Robotics & Electronics
 
 + Arduino
+  * Firmata
+    - (via) Johnny Five
 + Raspberry Pi
 + HDLs
   + Analog
@@ -992,12 +1398,18 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + [Backus-Naur Form (BFN)](languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms
+  * Parallel
+    - Languages
+      - Chapel (language)
   + Functional
+    + Packages
+       PyMonad
     + Languages
       + Haskell
       + OCaml
       + Lisp
       + Clojure
+      + PyMonad
     + Features
       + Parametric polymorphism
   + Logic
@@ -1038,6 +1450,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rust
       + Nimrod
       + Mozart
+  + Extensible
   + Domain Specific (DSL)
     + Metalinguistic abstraction
     + [Embeddable](languages/domain_specific/embedded_dsl.py)
@@ -1234,6 +1647,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
   + wikipedia.org/wiki/Bitwise_operation
 + wikipedia.org/wiki/Coding_theory
 + wikipedia.org/wiki/Aspect-oriented_software_development
++ wikipedia.org/wiki/GRASP_(object-oriented_design)
 
 *Misc*
 + fullstackpython.com/table-of-contents.html
@@ -1259,3 +1673,6 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew
 + stackoverflow.com/questions/9624774/after-mysql-install-via-brew-i-get-the-error-the-server-quit-without-updating
 + wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules
++ youtube.com/playlist?list=PLFDnELG9dpVxEpbyL53CYebmLI58qJhlt
++ scriptol.com/programming/list-algorithms.php
+
