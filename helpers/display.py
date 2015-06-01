@@ -56,42 +56,33 @@ def divider(atom='_', newline=True):
         print('\n')
 
 
-def _label(prefix):
-    """Private function to format prefix for a label (e.g. [MESSAGE])"""
-    return '[{}] '.format(prefix.upper())
-
-
 def print_subdued(msg):
     """Print info-type text in dark."""
     vals = '{t.black}{}{t.normal}'
     print(vals.format(msg, t=term))
 
 
-def print_info(msg, prefix=True):
+def print_info(msg, prefix='[INFO]'):
     """Print info-type text in red with a prefix"""
-    prefix = _label('INFO') if prefix else ''
-    vals = '{t.blue}{}{}{t.normal}'
+    vals = '{t.blue}{} {}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 
-def print_warning(msg, prefix=True):
+def print_warning(msg, prefix='[WARN]'):
     """Print warning-type text in red with a prefix"""
-    prefix = _label('WARN') if prefix else ''
-    vals = '{t.yellow}{}{}{t.normal}'
+    vals = '{t.yellow}{} {}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 
-def print_success(msg, prefix=True):
+def print_success(msg, prefix='[YAY]'):
     """Print success-type text in red with a prefix"""
-    prefix = _label('YAY') if prefix else ''
-    vals = '{t.green}{}{}{t.normal}'
+    vals = '{t.green}{} {}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 
-def print_error(msg, prefix=True):
+def print_error(msg, prefix='[ERROR]'):
     """Print error-type text in red with a prefix"""
-    prefix = _label('ERROR') if prefix else ''
-    vals = '{t.red}{}{}{t.normal}'
+    vals = '{t.red}{} {}{t.normal}'
     print(vals.format(prefix, msg, t=term))
 
 

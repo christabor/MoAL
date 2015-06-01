@@ -133,7 +133,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Bx
     + AList
   + [Heaps](data_structures/trees/heaps.py)
-    + Binary
+    + [Binary](data_structures/trees/heaps.py)
     + Weak
     + Binomial
     + Fibonacci
@@ -1577,7 +1577,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Object code
 + Bytecode
 + Machine code
-  + Opcode
+  + [Opcode](execution/machine/opcodes.py)
   + Assembly language
     + Assembler concept
     + Languages
