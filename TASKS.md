@@ -80,7 +80,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Zipper
     + Doubly connected edge
     + Difference
-    + Free
+    + [Free](data_structures/linear/lists/free_list.py)
 + Hashes
   + Bloom filter
   + Count-Min sketch
@@ -1675,4 +1675,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules
 + youtube.com/playlist?list=PLFDnELG9dpVxEpbyL53CYebmLI58qJhlt
 + scriptol.com/programming/list-algorithms.php
-
++ http://www.wisegeek.com/what-is-a-free-list.htm
