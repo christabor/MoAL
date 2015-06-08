@@ -1,4 +1,5 @@
 from blessings import Terminal
+from pprint import pprint as ppr
 
 term = Terminal()
 
@@ -195,12 +196,13 @@ def print_h4(title, desc=''):
     _heading(title, '.', desc=desc)
 
 
-def print_simple(words, result, func=None):
+def print_simple(words, result, func=ppr, newline=True):
     """Print a heading with data. The content can optionally be formatted by
     a given `func`. No styling is done to the text."""
     print(words)
     _func_or_print(result, func)
-    print('\n')
+    if newline:
+        print('\n')
 
 
 def cmd_title(msg, newlines=True):

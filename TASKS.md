@@ -264,8 +264,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + /TBD/
 + Testing
   + Black box
-    + Decision table testing
-    + All-pairs testing
+    + [Decision table](software_engineering/testing/black_box/decision_table.py)
+    + [All-pairs/orthogonal array](software_engineering/testing/black_box/allpairs.py)
     + State transition analysis
     + Equivalence partitioning
     + Boundary value analysis
@@ -1676,3 +1676,5 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + youtube.com/playlist?list=PLFDnELG9dpVxEpbyL53CYebmLI58qJhlt
 + scriptol.com/programming/list-algorithms.php
 + http://www.wisegeek.com/what-is-a-free-list.htm
++ https://www.youtube.com/watch?v=ED2iJXkdhCQ
++ http://www.slideshare.net/AlexRomanoff/introduction-to-pairwise-testing-31094064
