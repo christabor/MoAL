@@ -16,6 +16,9 @@ class Queue(Stack):
     def __init__(self, *args, **kwargs):
         super(Queue, self).__init__(*args, **kwargs)
 
+    def __len__(self):
+        return len(self.items)
+
     def enqueue(self, item):
         return self.items.insert(0, item)
 

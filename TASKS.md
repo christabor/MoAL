@@ -33,7 +33,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Multi-set / Bag](data_structures/abstract/set.py)
   + [Queue](data_structures/abstract/queues.py)
     + [Double-ended queue](data_structures/abstract/queues.py)
-    + [Priority queue](data_structures/abstract/queues.py)
+    + [Priority queue](data_structures/abstract/priority_queue.py)
       + [Using stdlib](data_structures/abstract/queues_stdlib.py)
   + [Stacks](data_structures/abstract/stack.py)
     + [Stack frames](data_structures/abstract/stack_frame.py)
