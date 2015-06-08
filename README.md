@@ -1,16 +1,16 @@
 MOAL
 ====
 
+## Goals
+
+MoAL - aka "Mother of All Learning" is a personal vision and project of mine, where the goal is to synthesize an extremely large set of computer science, software engineering, and computational science/math competencies into basic components, allowing one to learn a typically unfathomable breadth of topics in the field, doing so in a shorter amount of time. The trade off of **depth** is acceptable as it stresses basic competencies across all aspects, **which can later be translated into more detailed understanding**. However, it's important to note, many of these projects embody a reasonably deep level of understanding, and further enrich each competency by lateral connections of other, similar understandings that go beyond a typical, more familiar degree, comprised of a cross-section of coursework, that stresses only more common elements, while excluding others.
+
 Each task is meant to be simple and atomic, so there is freedom to approach it however is most comfortable for a given learning style. Think of it like a jigsaw puzzle; while it's important to get the breadth and depth that makes a degree worthwhile, pieces are constantly being filled in, and this can be done line by line (linearly), or in a completely random fashion (or anything in-between).
 
 __Enough talk! See [the tasks](TASKS.md) for more details__
 
 ## Motivations
 The very first list was originally taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1, but it has been greatly expanded and re-organized. This will probably continue to change, which is why the atomic, containerization approach for each task is so important.
-
-## Goals
-
-The primary goal of this project is to synthesize an extremely large set of concepts and ideas into crucial components, allowing one to learn a typically unfathomable breadth of topics in the field, doing so in a shorter amount of time. The trade off of **depth** is acceptable as it stresses basic competencies across all aspects, **which can later be translated into more detailed understanding**.
 
 **To that end,** my goal is to do as much as can be done in python, except for specific language requirements. Things that are math, theory, or concept oriented should still be done in Python -- utilizing tools like numpy, scipy to do different types of computation.
 
