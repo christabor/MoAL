@@ -226,7 +226,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Incidence matrix](data_structures/graphs/incidence_matrix.py)
   + [Graph-structured stack](data_structures/graphs/graph_structured_stack.py)
   + Scene
-  + Binary decision diagram
+  + [Binary decision diagram](data_structures/graphs/binary_decision_diagram)
   + Zero-suppressed decision diagram
   + And-inverter
   + [Directed](data_structures/graphs/graphs.py)
