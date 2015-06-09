@@ -40,7 +40,11 @@ class Graph(object):
         self.DEBUG = False
 
     def __contains__(self, vertex):
-        return vertex in self.vertices
+        try:
+            vals = [f['val'] for f in self.vertices.values()]
+        except KeyError:
+            vals = []
+        return vertex in self.vertices or vertex in vals
 
     def __setitem__(self, *args):
         key, vertices = args
@@ -354,6 +358,10 @@ if __name__ == '__main__':
             10: {'edges': [], 'val': 'G'},
             11: {'edges': [2, 9, 10], 'val': 'H'},
         })
+        assert 'A' in dcg_wikipedia
+        assert 'H' in dcg_wikipedia
+        assert 'h' not in dcg_wikipedia
+        assert 'Z' not in dcg_wikipedia
         dcg_wikipedia.DEBUG = True
         for k, vert in enumerate(dcg_wikipedia.vertices):
             assert not dcg_wikipedia.is_cycle(k)
