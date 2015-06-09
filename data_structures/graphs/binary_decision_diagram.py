@@ -24,14 +24,14 @@ class BinaryDecisionDiagram(Tree):
             if DEBUG:
                 path = self.walk(start, end)
                 rows = [self[vert]['val'] for vert
-                        in path if self[vert]['val']] + ['... result']
+                        in path if self[vert]['val']] + ['result']
                 vals = [_conv(self[vert]['bool']) for vert
                         in path if self[vert]['val']]
                 vals = vals + [v['decision']]
-                divider(newline=False)
                 print(' | '.join(map(str, rows)))
-                print(' | '.join(map(str, vals)))
-                divider(newline=False)
+                print('-' * 80)
+                print('  | '.join(map(str, vals)))
+                divider('#', newline=False)
             return v['decision']
         else:
             raise ValueError('Invalid decision node.')
