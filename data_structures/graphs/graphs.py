@@ -19,6 +19,8 @@ MAX_VERTICES = 6
 MAX_EDGES = MAX_VERTICES / 2
 all_vertices = range(0, MAX_VERTICES)
 
+DEBUG = True if __name__ == '__main__' else False
+
 
 class InvalidGraphRepresentation(Exception):
     pass
@@ -37,7 +39,6 @@ class Graph(object):
             raise ValueError
         self.vertices = vertices
         self.node_count = 0
-        self.DEBUG = False
 
     def __contains__(self, vertex):
         try:
@@ -82,7 +83,7 @@ class Graph(object):
         display = []
         for vertex, vertices in self.vertices.iteritems():
             display.append('({vertex}) --> {outbound}'.format(
-                vertex=vertex, outbound=vertices))
+                vertex=vertex, outbound=vertices['edges']))
         return ',\n'.join(display)
 
     def _add_inbound_edges(self):
@@ -102,8 +103,11 @@ class Graph(object):
             vertices = vertices + vals['edges']
         return list(set(vertices)) if unique else vertices
 
-    def has_vertex(self, vertex, verts):
+    def _has_vertex(self, vertex, verts):
         return vertex in verts
+
+    def has_vertex(self, vertex, target):
+        return target in self[vertex]['edges']
 
     def degree(self, vertex):
         """Return the number of edges for a given vertex.
@@ -131,6 +135,26 @@ class Graph(object):
         if len(res) == 0:
             return True
         return res[0] == res[-1]
+
+    def _dfs(self, start, target):
+        """Typical stack based DFS algorithm, translated from
+        pseudocode via wikipedia.org/wiki/Depth-first_search"""
+        stack = []
+        seen = []
+        stack.append(start)
+        while len(stack) > 0:
+            vertex = stack.pop()
+            if vertex == target:
+                return self[vertex]
+            if vertex not in seen:
+                seen.append(vertex)
+                stack += self[vertex]['edges']
+        if DEBUG:
+            print(seen)
+        return []
+
+    def _bfs(self, start):
+        raise NotImplementedError
 
     def is_leaf(self, vertex):
         """A leaf vertex is a vertex with no outbound edges."""
@@ -161,7 +185,7 @@ class Graph(object):
             verts = self.vertices.keys()
             # Get a new random vertex - yes, random is sufficient here.
             start = choice(verts)
-            if self.DEBUG:
+            if DEBUG:
                 print('Checking cycle... start={}, vertices={}'.format(
                     start, verts))
             # Skip ahead if there's only one vertex left.
@@ -216,7 +240,7 @@ class DirectedGraph(Graph):
         last_key = self.vertices.keys()[0]  # Only one vertex left.
         vertices_left = len(self.vertices[last_key]['edges'])
         is_acyclic = True if vertices_left == 0 else False
-        if self.DEBUG:
+        if DEBUG:
             print('Graph {} acyclicity = {}'.format(self.vertices, is_acyclic))
         return is_acyclic
 
@@ -272,7 +296,7 @@ def _rand_edges(num_edges):
     return list(edges)
 
 
-if __name__ == '__main__':
+if DEBUG:
     with Section('Graph'):
         """Graphs are generated using a dictionary with labels.
         'edges' is a list of edges, and 'val' is the name, and key.

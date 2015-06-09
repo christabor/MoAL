@@ -32,9 +32,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Dynamic](data_structures/abstract/set.py)
   + [Multi-set / Bag](data_structures/abstract/set.py)
   + [Queue](data_structures/abstract/queues.py)
+    + [Using stdlib](data_structures/abstract/queues_stdlib.py)
     + [Double-ended queue](data_structures/abstract/queues.py)
     + [Priority queue](data_structures/abstract/priority_queue.py)
-      + [Using stdlib](data_structures/abstract/queues_stdlib.py)
   + [Stacks](data_structures/abstract/stack.py)
     + [Stack frames](data_structures/abstract/stack_frame.py)
   + [String](data_structures/abstract/string_adt.py)
@@ -224,7 +224,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Adjacency list](data_structures/graphs/adjacency_list.py)
   + [Adjacency matrix](data_structures/graphs/adjacency_matrix.py)
   + [Incidence matrix](data_structures/graphs/incidence_matrix.py)
-  + Graph-structured stack
+  + [Graph-structured stack](data_structures/graphs/graph_structured_stack.py)
   + Scene
   + Binary decision diagram
   + Zero-suppressed decision diagram
@@ -811,7 +811,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Lists, arrays and trees
     + Breadth-first search
     + Best-first search
-    + Depth-first search
+    + [Depth-first search](data_structures/graphs/graphs.py)
     + Dictionary search
     + Disjoint-set data structure and algorithm
     + Interpolated search / predictive search
