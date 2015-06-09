@@ -6,6 +6,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from helpers.display import Section
+from helpers.display import divider
 from data_structures.abstract.tree import Tree
 
 DEBUG = True if __name__ == '__main__' else False
@@ -14,8 +15,23 @@ DEBUG = True if __name__ == '__main__' else False
 class BinaryDecisionDiagram(Tree):
 
     def decide(self, start, end):
+
+        def _conv(val):
+            return 1 if val else 0
+
         v = self._dfs(start, end)
         if 'decision' in v:
+            if DEBUG:
+                path = self.walk(start, end)
+                rows = [self[vert]['val'] for vert
+                        in path if self[vert]['val']] + ['... result']
+                vals = [_conv(self[vert]['bool']) for vert
+                        in path if self[vert]['val']]
+                vals = vals + [v['decision']]
+                divider(newline=False)
+                print(' | '.join(map(str, rows)))
+                print(' | '.join(map(str, vals)))
+                divider(newline=False)
             return v['decision']
         else:
             raise ValueError('Invalid decision node.')
