@@ -135,10 +135,10 @@ if __name__ == '__main__':
             print('Iterator: {}, membership check ({}) => {}'.format(
                 val_cont[el], el, el in val_cont))
 
-        prnt('Value Container', val_cont.elements, func=ppr)
+        prnt('Value Container', val_cont.elements)
 
         print(val_cont.clear())
-        prnt('Empty Container', val_cont.elements, func=ppr)
+        prnt('Empty Container', val_cont.elements)
         assert len(val_cont) == 0
 
         ref_cont = ReferenceContainer()

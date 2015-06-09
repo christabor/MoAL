@@ -9,7 +9,6 @@ from helpers.display import Section
 from helpers.display import prnt
 from automata_theory.turing_machine import TuringMachine
 from automata_theory.turing_machine import DummyProgramGenerator
-from pprint import pprint as ppr
 
 
 class UnknownProgram(Exception):
@@ -80,7 +79,7 @@ class UniversalTuringMachine(TuringMachine):
     def add_program(self, *args):
         name, program = args
         if self.DEBUG:
-            prnt('Adding program', program, func=ppr)
+            prnt('Adding program', program)
         self.programs[name] = program
 
     def encode(self):
@@ -112,7 +111,7 @@ class UniversalTuringMachine(TuringMachine):
 if __name__ == '__main__':
     with Section('Universal Turing Machine'):
         program = DummyProgramGenerator.make(max_states=5)
-        prnt('UTM program', program, func=ppr)
+        prnt('UTM program', program)
         utm = UniversalTuringMachine(program=program)
 
         # Add some seed "programs"

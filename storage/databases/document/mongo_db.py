@@ -10,7 +10,6 @@ from helpers.display import prnt
 from helpers.trials import run_trials
 from helpers.trials import _test_speed
 from datetime import datetime as dt
-from pprint import pprint as ppr
 from faker import Factory
 from pymongo import MongoClient
 
@@ -56,7 +55,7 @@ if DEBUG:
         mongo_res = []
         for k, item in enumerate(res):
             mongo_res.append(item['name'])
-        prnt('Result from MongoDB execution, names only: ', mongo_res, func=ppr)
+        prnt('Result from MongoDB execution, names only: ', mongo_res)
         # Check database count vs. local increment
         assert sorted(mongo_res) == sorted(_testdata)
         assert _count == collection.count()

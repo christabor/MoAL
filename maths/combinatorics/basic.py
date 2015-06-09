@@ -56,7 +56,7 @@ if __name__ == '__main__':
             [''.join(combo) for combo in combos]))
         prnt(
             'Combinations of multiple permutations of random letters',
-            group_combochars(6, segments=2), func=ppr)
+            group_combochars(6, segments=2))
         prnt('Cartesian product of two sets', cartesian(4, 4))
         prnt(
             'Cartesian product of two sets (unique)',

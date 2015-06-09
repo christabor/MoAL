@@ -8,7 +8,6 @@ if __name__ == '__main__':
 from helpers.display import Section
 from helpers.display import cmd_title
 from helpers.display import print_simple
-from pprint import pprint as ppr
 from random import choice
 from random import shuffle
 import time
@@ -54,9 +53,9 @@ class TuringMachine(object):
 
     def _show_program(self):
         cmd_title('PROGRAM')
-        print_simple('States list', self.states, func=ppr)
-        print_simple('Transitions', self.transitions, func=ppr)
-        print_simple('Tape', self.tape, func=ppr)
+        print_simple('States list', self.states)
+        print_simple('Transitions', self.transitions)
+        print_simple('Tape', self.tape)
 
     def _setup(self, program):
         if program is None:

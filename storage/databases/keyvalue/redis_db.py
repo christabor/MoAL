@@ -10,7 +10,6 @@ from helpers.display import print_success
 from helpers.display import prnt
 from helpers.trials import run_trials
 from helpers.trials import _test_speed
-from pprint import pprint as ppr
 from faker import Factory
 from redis import Redis
 
@@ -42,4 +41,4 @@ if DEBUG:
         print_success('This is **too** easy!')
         # Use single pipeline for speed.
         res = pipe.execute()
-        prnt('Result from Redis store pipeline execution: ', res, func=ppr)
+        prnt('Result from Redis store pipeline execution: ', res)

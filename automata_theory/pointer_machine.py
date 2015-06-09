@@ -8,7 +8,6 @@ if __name__ == '__main__':
 from helpers.display import Section
 from helpers.display import prnt
 from helpers.display import cmd_title
-from pprint import pprint as ppr
 from helpers.adts import strlist
 from data_structures.graphs.graphs import DirectedGraph
 import time
@@ -169,7 +168,7 @@ class SchonhageStorageModification(PointerMachine):
                         0: {'to': key - 1},
                         1: {'to': key + 1}}
         if self.DEBUG:
-            prnt('Graph', self.graph.vertices, func=ppr)
+            prnt('Graph', self.graph.vertices)
 
     def new(self, val):
         """Adds a new value to the word"""
@@ -220,12 +219,12 @@ class SchonhageStorageModification(PointerMachine):
 
     def _run_step(self):
         if self.DEBUG:
-            prnt('curr node (before):', self.curr_node, func=ppr)
+            prnt('curr node (before):', self.curr_node)
 
         time.sleep(self.DELAY)
         # Visually update
         if self.DEBUG:
-            prnt('curr node (after):', self.curr_node, func=ppr)
+            prnt('curr node (after):', self.curr_node)
 
         self._update_state()
         if self.curr_node is not None:
@@ -233,7 +232,7 @@ class SchonhageStorageModification(PointerMachine):
             self.output += self.curr_val
 
     def traverse_word(self):
-        prnt('Graph nodes beginning', self.graph.vertices, func=ppr)
+        prnt('Graph nodes beginning', self.graph.vertices)
         start, end = 0, len(self.word)
         while start < end:
             # Print must come before next step,

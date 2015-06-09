@@ -10,7 +10,6 @@ from helpers.display import prnt
 from helpers.text import uniqchars
 from languages.formal_language_theory.grammars import context_free
 from random import randrange as rr
-from pprint import pprint as ppr
 
 
 class AttributeContextFreeGrammar(context_free.ContextFreeGrammar):
@@ -75,7 +74,7 @@ class AttributeContextFreeGrammar(context_free.ContextFreeGrammar):
         because the lookup is O(1) vs. O(N).
         """
         if self.DEBUG:
-            prnt('Ruleset', self.rules, func=ppr)
+            prnt('Ruleset', self.rules)
             print('\nEvaluating tokens: {}'.format(tokens))
         for token in tokens:
             for rule in self.rules:

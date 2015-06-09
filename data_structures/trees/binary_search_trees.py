@@ -88,13 +88,7 @@ class BinarySearchTree:
                 current_node.right_child = Node(key, val, parent=current_node)
 
     def get(self, key):
-        if self.root:
-            res = self._get(key, self.root)
-            if res is not None:
-                return res
-            else:
-                return None
-        return None
+        return self._get(key, self.root) if self.root else None
 
     def _get(self, key, current_node):
         # Return nothing if no node was given.
@@ -278,7 +272,7 @@ class Node:
         # it is overriding the `for **in** x` behavior, it is called for each
         # node, which makes it recursive, thus covering all nodes.
         if self:
-            # Yield left nodes if thery exist
+            # Yield left nodes if they exist
             if self.has_left_child():
                 for node in self.left_child:
                     yield node

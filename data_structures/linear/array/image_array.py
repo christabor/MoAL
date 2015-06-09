@@ -9,7 +9,6 @@ from helpers.display import Section
 from helpers.display import prnt
 from random import randrange
 from random import random
-from pprint import pprint as ppr
 
 DEBUG = True if __name__ == '__main__' else False
 
@@ -33,5 +32,5 @@ if DEBUG:
         img = ImageArray()
         for n in xrange(10):
             img.insert(n, random_pixel())
-        prnt('Random "pixel data" generated', img, func=ppr)
+        prnt('Random "pixel data" generated', img)
         print('...')

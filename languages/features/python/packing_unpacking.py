@@ -7,7 +7,6 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from helpers.display import prnt
-from pprint import pprint as ppr
 
 
 def func(*args, **kwargs):
@@ -32,7 +31,7 @@ if __name__ == '__main__':
 
         prnt('Arg/kwarg unpacking', '')
         f = func(1, 2, 3, cats=True, dogs=True)
-        prnt('Args/kwargs passing', f, func=ppr)
+        prnt('Args/kwargs passing', f)
 
         orig, squares = nums_and_squares(10)
         prnt('Return val (tuple) unpacking', '{}, {}'.format(orig, squares))

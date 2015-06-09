@@ -228,6 +228,6 @@ if __name__ == '__main__':
                 try:
                     subset = deep[_rc(keys)][_rc(keys)]
                     if len(subset) > 1 and isinstance(subset, list):
-                        prnt('Random choice...', subset, func=ppr)
+                        prnt('Random choice...', subset)
                 except IndexError:
                     continue

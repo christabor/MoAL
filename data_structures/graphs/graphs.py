@@ -7,7 +7,6 @@ if __name__ == '__main__':
 
 from helpers.display import Section
 from helpers.display import prnt
-from pprint import pprint as ppr
 from random import randrange
 from copy import deepcopy
 from random import choice
@@ -317,7 +316,7 @@ if DEBUG:
 
         graph[3] = {'edges': [], 'val': 'D'}
         graph.all_vertices()
-        prnt('Generated graph', graph.vertices, func=ppr)
+        prnt('Generated graph', graph.vertices)
         deg, vertex = randrange(0, MAX_EDGES), choice(all_vertices)
         print('Has degree {} ... {}? {}'.format(
             deg, vertex, graph.has_degree(deg, vertex)))
@@ -333,7 +332,7 @@ if DEBUG:
         digraph.DEBUG = True
         for n in range(MAX_VERTICES):
             digraph[n] = {'edges': _rand_edges(MAX_EDGES), 'val': n}
-        prnt('Generated directed-graph', digraph.vertices, func=ppr)
+        prnt('Generated directed-graph', digraph.vertices)
         prnt('Digraph', digraph)
         prnt('Get item:', digraph[4])
         digraph[3] = {'edges': [3, 2, 5], 'val': ''}

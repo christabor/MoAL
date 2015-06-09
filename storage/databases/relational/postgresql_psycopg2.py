@@ -12,7 +12,6 @@ from helpers.display import print_h2
 from helpers.display import prnt
 from helpers.trials import run_trials
 from helpers.trials import _test_speed
-from pprint import pprint as ppr
 from faker import Factory
 import psycopg2
 
@@ -31,7 +30,7 @@ def make_person():
 @_test_speed
 def insert_all(max_records):
     peeps = [make_person() for n in range(max_records)]
-    prnt('Records to create', peeps, func=ppr)
+    prnt('Records to create', peeps)
     cur.executemany("""INSERT INTO people(name, email, address)
             VALUES (%(name)s, %(email)s, %(address)s)""", peeps)
 
@@ -60,6 +59,6 @@ if DEBUG:
 
         cur.execute('SELECT * FROM people;')
         records = cur.fetchall()
-        prnt('SQL Records', records, func=ppr)
+        prnt('SQL Records', records)
         # Close up shop to prevent zombie processes, etc.
         cur.close()

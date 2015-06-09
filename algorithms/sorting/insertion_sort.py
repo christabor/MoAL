@@ -9,7 +9,6 @@ if __name__ == '__main__':
 from helpers.display import Section
 from helpers.display import prnt
 from helpers.trials import run_sorting_trials
-from pprint import pprint as ppr
 
 
 def insertion_sort(items):
@@ -36,4 +35,4 @@ def insertion_sort(items):
 if __name__ == '__main__':
     with Section('Insertion Sort'):
         results = run_sorting_trials(insertion_sort)
-        prnt('Insertion sort results:', results, func=ppr)
+        prnt('Insertion sort results:', results)
