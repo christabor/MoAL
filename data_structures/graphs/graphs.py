@@ -29,24 +29,14 @@ class InvalidGraphRepresentation(Exception):
 
 
 class GraphRendererMixin:
-    """A mixin to keep rendering out of the mix(in).
-    Uses PyGraphViz to do the heavy lifting."""
-    def __init__(self, strict=False, directed=False):
-        """Store graph info here so other classes that mix this class
-        can override without re-implementing the `render_graph` class."""
-        self.directed = directed
-        self.strict = strict
 
-    def render_graph(self, filename, layout=None):
-        g = pgv.AGraph(strict=self.strict, directed=self.directed)
+    def render_graph(self, filename, **kwargs):
+        g = pgv.AGraph(**kwargs)
         for name, data in self.vertices.iteritems():
             g.add_node(str(name))
             for edge in data['edges']:
                 g.add_edge(str(edge), str(name))
-        if layout is not None:
-            g.layout(layout)
-        else:
-            g.layout()
+        g.layout()
         g.draw(filename)
 
 
