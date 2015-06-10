@@ -12,6 +12,7 @@ from helpers.display import prnt
 from random import randrange
 from copy import deepcopy
 from random import choice
+import pygraphviz as pgv
 
 # Terminology from wikipedia.org/wiki/Glossary_of_graph_theory
 # and base algorithm from cs.hmc.edu/~keller/courses/cs60/s98/examples/acyclic
@@ -27,7 +28,29 @@ class InvalidGraphRepresentation(Exception):
     pass
 
 
-class Graph(object):
+class GraphRendererMixin:
+    """A mixin to keep rendering out of the mix(in).
+    Uses PyGraphViz to do the heavy lifting."""
+    def __init__(self, strict=False, directed=False):
+        """Store graph info here so other classes that mix this class
+        can override without re-implementing the render class."""
+        self.directed = directed
+        self.strict = strict
+
+    def render(self, filename, layout=None):
+        g = pgv.AGraph(strict=self.strict, directed=self.directed)
+        for name, data in self.vertices.iteritems():
+            g.add_node(str(name))
+            for edge in data['edges']:
+                g.add_edge(str(edge), str(name))
+        if layout is not None:
+            g.layout(layout)
+        else:
+            g.layout()
+        g.draw(filename)
+
+
+class Graph(object, GraphRendererMixin):
 
     def __len__(self):
         _len = []
@@ -392,3 +415,7 @@ if DEBUG:
             assert not dcg_wikipedia.is_cycle(k)
             assert dcg_wikipedia.is_acycle(k)
         assert dcg_wikipedia.is_acyclic()
+        draw = raw_input('Create png example of graph? Y/N ')
+        if draw == 'Y':
+            filename = raw_input('Please enter a filename (png): ')
+            dcg_wikipedia.render(filename)
