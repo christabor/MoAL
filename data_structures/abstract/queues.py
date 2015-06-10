@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
+
 if __name__ == '__main__':
     from os import getcwd
     from os import sys

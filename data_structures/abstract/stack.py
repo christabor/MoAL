@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
+
 # Mostly taken from:
 # interactivepython.org/runestone/
 # static/pythonds/BasicDS/ImplementingaStackinPython.html

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
+
 # Concepts/learning from:
 # http://inventwithpython.com/blog/2013/04/22/
 #   multithreaded-python-tutorial-with-threadworms/

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
+
 # Based on code from
 # https://kunigami.wordpress.com/2012/09/25/skip-lists-in-python/
 

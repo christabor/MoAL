@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
+
 if __name__ == '__main__':
     from os import getcwd
     from os import sys
@@ -72,8 +74,8 @@ if DEBUG:
 
         def stream_write():
             cmd_title('Thread starting in WRITE mode', newlines=False)
+            global n_val
             while n_val < MAX_ITERATIONS:
-                global n_val
                 time.sleep(ADD_INTERVAL)
                 data_stream.add(n_val)
                 n_val += 1

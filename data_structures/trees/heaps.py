@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
+
 # Mostly taken from:
 # http://interactivepython.org/runestone/static/pythonds/Trees/heap.html
 
