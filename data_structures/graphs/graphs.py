@@ -33,11 +33,11 @@ class GraphRendererMixin:
     Uses PyGraphViz to do the heavy lifting."""
     def __init__(self, strict=False, directed=False):
         """Store graph info here so other classes that mix this class
-        can override without re-implementing the render class."""
+        can override without re-implementing the `render_graph` class."""
         self.directed = directed
         self.strict = strict
 
-    def render(self, filename, layout=None):
+    def render_graph(self, filename, layout=None):
         g = pgv.AGraph(strict=self.strict, directed=self.directed)
         for name, data in self.vertices.iteritems():
             g.add_node(str(name))
@@ -418,4 +418,4 @@ if DEBUG:
         draw = raw_input('Create png example of graph? Y/N ')
         if draw == 'Y':
             filename = raw_input('Please enter a filename (png): ')
-            dcg_wikipedia.render(filename)
+            dcg_wikipedia.render_graph(filename)
