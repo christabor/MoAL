@@ -65,6 +65,8 @@ class Graph(object, GraphRendererMixin):
 
     def __setitem__(self, *args):
         key, vertices = args
+        # Ensure it has no duplicate edges
+        vertices['edges'] = list(set(vertices['edges']))
         self.vertices[key] = vertices
         self.node_count += 1
         return self.vertices[key]
