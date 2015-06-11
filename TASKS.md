@@ -228,14 +228,14 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Scene](data_structures/graphs/scene_graph.py)
   + [Binary decision diagram](data_structures/graphs/binary_decision_diagram.py)
   + Zero-suppressed decision diagram
-  + And-inverter
   + [Directed](data_structures/graphs/graphs.py)
     + DAWG/DAFSA
       + Sparse
       + Compacted
     + [Acyclic](data_structures/graphs/graphs.py)
       + Propositional
-  + Multigraph
+      + And-inverter
+  + [Multigraph](data_structures/graphs/multi_graph.py)
   + Hypergraph
 + Other
   + Lightmap
