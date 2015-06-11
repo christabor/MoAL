@@ -4,6 +4,7 @@ from pprint import pprint as ppr
 term = Terminal()
 
 # Display utilities
+MAX_WIDTH = 80
 
 
 def _func_or_print(result, func):
@@ -52,7 +53,7 @@ def divider(atom='_', newline=True):
     (e.g ---, ...., ###)"""
     # Correct for longer than 1 character atoms, since it will take up
     # more than 80 chars.
-    print(atom * (80 // len(atom)))
+    print(atom * (MAX_WIDTH // len(atom)))
     if newline:
         print('\n')
 
@@ -172,7 +173,7 @@ def print_nl(title, pos='top'):
 def _heading(title, divider, desc=''):
     hyphen = '' if desc == '' else ' - '
     text = ('\n {} {} {}\n' '|{}|\n').format(
-        title.upper(), hyphen, desc, divider * 80)
+        title.upper(), hyphen, desc, divider * MAX_WIDTH)
     print_nl(text)
 
 
@@ -220,13 +221,16 @@ class Section:
     of code/results."""
 
     def __init__(self, content):
-        self.separator = '=' * 50
         self.content = content
 
     def prnt(self, prefix, newlines=True):
         nl = '\n' if newlines else ''
+        # Make alignment perfectly match the 80 character
+        # mark for all display helpers.
+        spaces, offset = 4, len(prefix) + len(self.content)
+        seperator = '=' * (MAX_WIDTH - offset - spaces)
         print('{t.cyan}{nl}[{}]: {t.bold} {} {sep} {nl}{t.normal}'.format(
-            prefix, self.content, t=term, sep=self.separator, nl=nl))
+            prefix, self.content, t=term, sep=seperator, nl=nl))
 
     def __enter__(self):
         self.prnt('BEGIN')
