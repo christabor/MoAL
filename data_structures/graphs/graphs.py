@@ -30,7 +30,7 @@ class InvalidGraphRepresentation(Exception):
 
 class GraphRendererMixin:
 
-    def render_graph(self, filename, **kwargs):
+    def build_graph(self, **kwargs):
         g = pgv.AGraph(**kwargs)
         for name, data in self.vertices.iteritems():
             g.add_node(name)
@@ -38,6 +38,10 @@ class GraphRendererMixin:
             curr.attr['label'] = data['val'] if data['val'] else name
             for edge in data['edges']:
                 g.add_edge(str(edge), str(name))
+        return g
+
+    def render_graph(self, filename, **kwargs):
+        g = self.build_graph(**kwargs)
         g.layout()
         g.draw(filename)
 

@@ -86,6 +86,17 @@ class Tree(Graph):
         node.update({'parent': node.get('parent', None)})
         return node
 
+    def build_tree(self, **kwargs):
+        g = super(Tree, self).build_graph(**kwargs)
+        for name, data in self.vertices.iteritems():
+            g.add_subgraph(data['edges'])
+        return g
+
+    def render_graph(self, filename, **kwargs):
+        g = self.build_tree(**kwargs)
+        g.layout(prog='dot')
+        g.draw(filename)
+
     def node_depth(self, node_name, use_root=False):
         """Determine the depth of a node - which is the number of nodes
         between this node and the root (going up, the opposite of node_height).
@@ -224,10 +235,10 @@ class Tree(Graph):
         old_parent = self.__getitem__(node.get('parent'))
         # Update this nodes parent
         node.update({'parent': parent_name})
-        # Remove child from old parent
+        # Remove child from old parent edges
         old_parent.get('edges').remove(node_name)
-        # Add child to new parent edges.
-        new_parent.get('edges').append(new_parent)
+        # Add child to new parent edges
+        new_parent.get('edges').append(node_name)
         return node
 
 
@@ -266,7 +277,7 @@ if DEBUG:
             3: {'edges': [6, 7], 'parent': 1},
             4: {'edges': [], 'parent': 1},
             5: {'edges': [8, 9], 'parent': 2},
-            6: {'edges': [], 'parent': 3},
+            6: {'edges': [10], 'parent': 3},
             7: {'edges': [], 'val': 'lucky number 7', 'parent': 3},
             8: {'edges': [], 'parent': 5},
             9: {'edges': [], 'parent': 5},
@@ -278,6 +289,7 @@ if DEBUG:
         tree = Tree(graph)
         tree[9] = {'edges': [], 'parent': 5}
         prnt('Tree, subclassed from graph', tree)
+        tree.render_graph('tree-example.png')
         divider(newline=False)
 
         for n in range(len(graph)):
@@ -302,9 +314,9 @@ if DEBUG:
 
         cmd_title('Testing: node_height', newlines=False)
         assert tree.node_height(4) == 1
-        assert tree.node_height(3) == 2
-        assert tree.node_height(1) == 3
-        assert tree.node_height(0) == 4
+        assert tree.node_height(3) == 4
+        assert tree.node_height(1) == 5
+        assert tree.node_height(0) == 6
 
         cmd_title('Testing: node_depth', newlines=False)
         assert tree.node_depth(4) == 3
@@ -319,7 +331,7 @@ if DEBUG:
         assert tree.has_siblings(3, sibling_names=[4])
 
         cmd_title('Testing: total_height', newlines=False)
-        assert tree.total_height() == 4
+        assert tree.total_height() == 6
 
         cmd_title('Testing: is_descendant', newlines=False)
         assert tree.is_descendant(9, 2)
@@ -352,7 +364,9 @@ if DEBUG:
 
         cmd_title('Testing: is_leaf', newlines=False)
         assert tree[4].get('is_leaf')
-        assert tree[6].get('is_leaf')
+        assert not tree[2].get('is_leaf')
+        assert not tree[5].get('is_leaf')
+        assert not tree[6].get('is_leaf')
         assert tree[7].get('is_leaf')
         assert tree[8].get('is_leaf')
         assert tree[9].get('is_leaf')
