@@ -20,10 +20,12 @@ class BinaryDecisionDiagram(Tree):
     def build_tree(self, **kwargs):
         g = pgv.AGraph(**kwargs)
         for name, data in self.vertices.iteritems():
-            g.add_node(name, label=data['val'] if data['val'] else name)
+            label = data['val'] if data['val'] else name
+            g.add_node(name, label=label)
             for edge in data['edges']:
                 g.add_edge(
                     str(edge), str(name),
+                    label='  {}'.format(label),
                     color=('red' if data['bool'] else 'green'))
         return g
 
