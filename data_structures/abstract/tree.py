@@ -92,7 +92,7 @@ class Tree(Graph):
             g.add_subgraph(data['edges'])
         return g
 
-    def render_graph(self, filename, **kwargs):
+    def render_tree(self, filename, **kwargs):
         g = self.build_tree(**kwargs)
         g.layout(prog='dot')
         g.draw(filename)
@@ -289,7 +289,7 @@ if DEBUG:
         tree = Tree(graph)
         tree[9] = {'edges': [], 'parent': 5}
         prnt('Tree, subclassed from graph', tree)
-        tree.render_graph('tree-example.png')
+        tree.render_tree('tree-example.png')
         divider(newline=False)
 
         for n in range(len(graph)):
