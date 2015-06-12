@@ -10,11 +10,22 @@ if __name__ == '__main__':
 from helpers.display import Section
 from helpers.display import divider
 from data_structures.abstract.tree import Tree
+import pygraphviz as pgv
 
 DEBUG = True if __name__ == '__main__' else False
 
 
 class BinaryDecisionDiagram(Tree):
+
+    def build_tree(self, **kwargs):
+        g = pgv.AGraph(**kwargs)
+        for name, data in self.vertices.iteritems():
+            g.add_node(name, label=data['val'] if data['val'] else name)
+            for edge in data['edges']:
+                g.add_edge(
+                    str(edge), str(name),
+                    color=('red' if data['bool'] else 'green'))
+        return g
 
     def decide(self, start, end):
 
@@ -77,3 +88,5 @@ if DEBUG:
         assert not bdd.decide(0, 9)
         assert not bdd.decide(0, 11)
         assert not bdd.decide(0, 12)
+
+        bdd.render_tree('bdd-tree.png')

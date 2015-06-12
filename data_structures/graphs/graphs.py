@@ -33,9 +33,7 @@ class GraphRendererMixin:
     def build_graph(self, **kwargs):
         g = pgv.AGraph(**kwargs)
         for name, data in self.vertices.iteritems():
-            g.add_node(name)
-            curr = g.get_node(name)
-            curr.attr['label'] = data['val'] if data['val'] else name
+            g.add_node(name, label=data['val'] if data['val'] else name)
             for edge in data['edges']:
                 g.add_edge(str(edge), str(name))
         return g
