@@ -1442,7 +1442,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Flow based
     + Cell-oriented
     + Ractive
-    + Hartmann pipeline
+    + Pipeline
+      + Hartmann
+      + UNIX
   + Stream processing
   + Concurrent
     + Languages
