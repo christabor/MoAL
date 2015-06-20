@@ -1,9 +1,11 @@
-# http://www.westwind.com/reference/os-x/commandline/pipes.html
 
 function divider() {
     echo '\n------------------------------------------------------------------'
 }
 
+# ------------------------------------------------------------------------------
+#              http://www.westwind.com/reference/os-x/commandline/
+# ------------------------------------------------------------------------------
 
 case "$1" in
     1)
@@ -72,4 +74,50 @@ case "$1" in
         divider
         echo 'Man + pipe -> apropos circular'
         man 'sh' | ag 'shell' -0 -wc | xargs apropos | ag 'shell'
+
+    12)
+        divider
+        echo 'Find types + pipes'
+        find . -type f -print0 | xargs -0 ag -il 'shell' | xargs wc
+
+    13)
+        divider
+        echo 'Locate + weird circular find'
+        locate 'pipeline' | ag '.py' | xargs find . | ag '.py' | wc
+
+    14)
+        divider
+        echo 'With extreme prejudice'
+        lsof -b | ag 'microsoft' | xargs pkill
+
+    15)
+        divider
+        echo 'Find default ethernet'
+        ifconfig -a | ag 'en0'
+
+    16)
+        divider
+        echo 'homesweethome'
+        sw_vers | ag 'Mac'
+
+
+# ------------------------------------------------------------------------------
+#              http://www.tldp.org/LDP/abs/html/sedawk.html
+# ------------------------------------------------------------------------------
+
+    17)
+        divider
+        echo 'sed + pipes 1 - print'
+        ls -la ~/ | sed -n '/@/p'
+
+    18)
+        divider
+        echo 'sed substitution and output'
+        ps ax | ag 'ctabor' > procs.txt && less procs.txt | sed -n 's/ctabor/CTABULOUS/p' > procs2.txt
+
+    19)
+        divider
+        echo 'Prettify list'
+        sw_vers | awk '{print $1 " ==> " $2}' | sed -n 's/://p' > preeetty.txt
+
 esac

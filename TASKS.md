@@ -1202,6 +1202,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + "Big Data" processing
     + Hadoop file system
     + Hadoop MapReduce
+    + Kafka
+    + Storm
     + PIG
     + ZooKeeper
       + Kazoo
@@ -1444,7 +1446,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Ractive
     + Pipeline
       + Hartmann
-      + UNIX
+      + [UNIX](languages/paradigms/dataflow/pipelines/unix_cmds.sh)
   + Stream processing
   + Concurrent
     + Languages
