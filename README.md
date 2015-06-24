@@ -7,6 +7,8 @@ MoAL - aka "Mother of All Learning" is a personal vision and project of mine, wh
 
 Each task is meant to be simple and atomic, so there is freedom to approach it however is most comfortable for a given learning style. Think of it like a jigsaw puzzle; while it's important to get the breadth and depth that makes a degree worthwhile, pieces are constantly being filled in, and this can be done line by line (linearly), or in a completely random fashion (or anything in-between).
 
+This approach also embodies the Unix philosophy of "combining small, discrete tools to accomplish larger tasks."
+
 __Enough talk! See [the tasks](TASKS.md) for more details__
 
 ## Motivations

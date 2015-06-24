@@ -286,6 +286,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Pylint
       + Data-flow analysis
       + Hoare logic
+        * Communicating sequential processes (CSP)
       + Type checking
       + Type inference
       + Symbolic simulation
@@ -1065,6 +1066,17 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Hypervisor
   + Language based
 + System on a chip (SoC)
++ Inter-process communication
+  * File
+  * Signal
+  * Socket
+  * Message Queue
+  * Pipe
+    - Named
+  * Semaphore
+  * Shared memory
+  * Message passing
+  * Memory-mapped file
 
 ## Networking
 
@@ -1682,3 +1694,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://www.wisegeek.com/what-is-a-free-list.htm
 + https://www.youtube.com/watch?v=ED2iJXkdhCQ
 + http://www.slideshare.net/AlexRomanoff/introduction-to-pairwise-testing-31094064
++ http://www.catb.org/esr/writings/taoup/html/ch01s06.html
