@@ -14,6 +14,9 @@ from string import ascii_uppercase
 from string import punctuation
 
 
+DEBUG = True if __name__ == '__main__' else False
+
+
 class InvalidTokenSet(Exception):
     pass
 
@@ -151,7 +154,7 @@ def cu():
     return choice(ascii_uppercase)
 
 
-if __name__ == '__main__':
+if DEBUG:
     with Section('Grammar parser - basic'):
         cfg = ContextFreeGrammar()
 
@@ -173,7 +176,7 @@ if __name__ == '__main__':
             'V => ac B bca U']
 
         letters = ['S', 'U', 'B', 'V']
-        map(cfg.add_rule, wiki_grammar)
+        cfg.set_rules(wiki_grammar)
 
         def cfg1():
             prnt('CFG result', '')
