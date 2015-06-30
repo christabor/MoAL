@@ -39,6 +39,8 @@ def insert_all(max_records):
 
 if DEBUG:
     with Section('PostgreSQL (via psycopg2)'):
+        # Starting postgresql on mac:
+        # `postgres -D /usr/local/var/postgres/data`
         try:
             conn = psycopg2.connect(
                 dbname='ctabor', user='ctabor', host='localhost', password='')
