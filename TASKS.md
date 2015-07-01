@@ -1390,7 +1390,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Formal grammars
     + Link
     + Tree-adjoining
-    + Recursive
+    + [Recursive](languages/formal_language_theory/grammars/attribute_context_free.py)
     + Regular
     + [Analytic](languages/formal_language_theory/grammars/analytic_context_free.py)
       * Parsing Expression (PE)
@@ -1416,14 +1416,13 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     - Languages
       - Chapel (language)
   + Functional
-    + Packages
-       PyMonad
     + Languages
       + Haskell
       + OCaml
       + Lisp
       + Clojure
-      + PyMonad
+      + Python
+        * PyMonad
     + Features
       + Parametric polymorphism
   + Logic
@@ -1444,6 +1443,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Dynamic dispatch
         + Multiple dispatch
         + Static binding
+        + Dynamic binding
   + Array programming
     + J
   + Meta-programming

@@ -179,7 +179,7 @@ if DEBUG:
                 'U': 'CS/F',
                 'O': '{',
                 'C': '}',
-                'E': 'ε',
+                'E': '',  # Epsilon string
                 'F': 'f',
             }
         }
