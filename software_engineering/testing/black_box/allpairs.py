@@ -17,14 +17,14 @@ DEBUG = True if __name__ == '__main__' else False
 
 
 def bigrams(conditions):
-    bigrams = []
+    _bigrams = []
     for k, condition in enumerate(conditions):
         if k < len(conditions) - 1:
-            bigrams.append([conditions[k + 1], condition, True, False])
-            bigrams.append([conditions[k + 1], condition, True, True])
-            bigrams.append([conditions[k + 1], condition, False, True])
-            bigrams.append([conditions[k + 1], condition, False, False])
-    return bigrams
+            _bigrams.append([conditions[k + 1], condition, True, False])
+            _bigrams.append([conditions[k + 1], condition, True, True])
+            _bigrams.append([conditions[k + 1], condition, False, True])
+            _bigrams.append([conditions[k + 1], condition, False, False])
+    return _bigrams
 
 
 if DEBUG:
@@ -34,6 +34,6 @@ if DEBUG:
         print_simple('Long way', perms, newline=False)
         print_error('Length: {}'.format(len(perms)), prefix='[LONG]')
 
-        bigrams = bigrams(conditions)
-        print_simple('Short (all-pairs) way', bigrams, newline=False)
-        print_success('Length: {}'.format(len(bigrams)), prefix='[SHORT]')
+        bgrams = bigrams(conditions)
+        print_simple('Short (all-pairs) way', bgrams, newline=False)
+        print_success('Length: {}'.format(len(bgrams)), prefix='[SHORT]')
