@@ -1434,8 +1434,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Prolog
   + Object-oriented
     + Features
-      + [Class hierarchy](languages/paradigms/oop_classes.py)
-      + [Static, class, & abstract methods](languages/paradigms/oop_classes.py)
+      + [Class hierarchy](languages/paradigms/object_oriented/oop_classes.py)
+      + [Static, class, & abstract methods](languages/paradigms/object_oriented/oop_classes.py)
         + Abstract Base Classes
       + Overloading
       + Polymorphism
