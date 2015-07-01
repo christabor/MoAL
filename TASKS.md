@@ -1440,7 +1440,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Overloading
       + Polymorphism
         + Operator overloading
-        + Function overloading
+        + Function overloading/ad-hoc polymorphism
         + Parametric polymorphism
         + Single / Dynamic dispatch
         + Double dispatch
