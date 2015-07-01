@@ -1424,7 +1424,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Python
         * PyMonad
     + Features
-      + Parametric polymorphism
+      + Functional Parametric polymorphism
   + Logic
     + Abductive
     + Answer set
@@ -1439,11 +1439,16 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + [Abstract Base Classes](languages/paradigms/object_oriented/abstract_baseclass.py)
       + Overloading
       + Polymorphism
-        + Single dispatch
-        + Dynamic dispatch
+        + Operator overloading
+        + Function overloading
+        + Parametric polymorphism
+        + Single / Dynamic dispatch
+        + Double dispatch
         + Multiple dispatch
         + Static binding
-        + Dynamic binding
+        + Virtual function
+        + Subtyping
+        + Static / Dynamic binding
   + Array programming
     + J
   + Meta-programming
