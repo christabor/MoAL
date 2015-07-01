@@ -63,8 +63,7 @@ if DEBUG:
         try:
             print(MyAbstractThing())
         except TypeError:
-            print('Abstract methods on abstract '
-                  'classes are not meant to be instantiated.')
+            print('Abstract classes are not meant to be instantiated.')
 
         try:
             print(MyBrokenConcreteThing())
