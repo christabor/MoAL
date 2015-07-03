@@ -328,7 +328,14 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * [Creator](software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
       * Indirection
       * Information Expert
-      * High Cohesion
+      * [High Cohesion](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Coincidental (worst)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Logical](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Temporal](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Procedural](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Communicational/informational](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Sequential](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Functional (best)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
       * Low Coupling
       * Polymorphism
       * Protected Variations
@@ -1694,7 +1701,8 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules
 + youtube.com/playlist?list=PLFDnELG9dpVxEpbyL53CYebmLI58qJhlt
 + scriptol.com/programming/list-algorithms.php
-+ http://www.wisegeek.com/what-is-a-free-list.htm
-+ https://www.youtube.com/watch?v=ED2iJXkdhCQ
-+ http://www.slideshare.net/AlexRomanoff/introduction-to-pairwise-testing-31094064
-+ http://www.catb.org/esr/writings/taoup/html/ch01s06.html
++ www.wisegeek.com/what-is-a-free-list.htm
++ www.youtube.com/watch?v=ED2iJXkdhCQ
++ www.slideshare.net/AlexRomanoff/introduction-to-pairwise-testing-31094064
++ www.catb.org/esr/writings/taoup/html/ch01s06.html
++ www.cs.unc.edu/~stotts/COMP145/cohesion.html
