@@ -95,7 +95,7 @@ class FileOpener:
     def _can_read(self, user):
         return user.name in self.access_permissions('read')
 
-    def _can_wite(self, user):
+    def _can_write(self, user):
         return user.name in self.access_permissions('write')
 
 
