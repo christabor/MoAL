@@ -260,8 +260,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Model transformation
     + Feature driven (FDD)
     + Domain driven (DDD)
-+ Design Patterns
-  + /TBD/
 + Testing
   + Black box
     + [Decision table](software_engineering/testing/black_box/decision_table.py)
