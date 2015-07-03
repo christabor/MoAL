@@ -325,7 +325,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rule of Extensibility
     + GRASP
       * [Controller](software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
-      * Creator
+      * [Creator](software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
       * Indirection
       * Information Expert
       * High Cohesion
