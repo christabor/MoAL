@@ -326,7 +326,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + GRASP
       * [Controller](software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
       * [Creator](software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
-      * Indirection
+      * [Indirection](software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.py)
       * Information Expert
       * [High Cohesion](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
         - [Coincidental (worst)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
@@ -1706,3 +1706,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + www.slideshare.net/AlexRomanoff/introduction-to-pairwise-testing-31094064
 + www.catb.org/esr/writings/taoup/html/ch01s06.html
 + www.cs.unc.edu/~stotts/COMP145/cohesion.html
++ zedshaw.com/archive/indirection-is-not-abstraction/
