@@ -327,7 +327,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * [Controller](software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
       * [Creator](software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
       * [Indirection](software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.py)
-      * Information Expert
+      * [Information Expert](software_engineering/problem_solving/design_patterns/grasp/pattern_infohiding.py)
       * [High Cohesion](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
         - [Coincidental (worst)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
         - [Logical](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
