@@ -28,7 +28,13 @@ class GridMonitorService:
     """This monitor service acts as an intermediary for handling db and object
     related functionality, and can be used to continually add more utilities
     that are related to the single entity, but that shouldn't be stored
-    directly on it."""
+    directly on it.
+
+    It can be though of as a service-like layer of indirection:
+
+    entity <------> entity_service <------> data-store
+
+    """
 
     def __init__(self, grid):
         self.data = MonitorDB()
