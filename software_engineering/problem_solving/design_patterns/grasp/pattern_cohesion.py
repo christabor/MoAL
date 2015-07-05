@@ -200,8 +200,8 @@ if DEBUG:
         >>> pipe.ls().grep('TASKS.md').save('pipetest-123.txt')
 
         # Example usage of token...
-        # luther = SExpressionLexer()
-        # luther = NaiveXMLLexer()
+        luther = SExpressionLexer()
+        luther = NaiveXMLLexer()
         t = luther.tokenize('Do you know the story of Prometheus? No, of '
                             'course you don\'t. Prometheus was a god who stole '
                             'the power of fire from the other gods and gave '

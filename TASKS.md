@@ -323,6 +323,12 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rule of Optimization
       + Rule of Diversity
       + Rule of Extensibility
+    + SOLID
+      * Single Responsibility
+      * Open/Closed
+      * Liskov Substitution
+      * Interface segregation
+      * Dependency Inversion
     + GRASP
       * [Controller](software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
       * [Creator](software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
@@ -337,8 +343,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         - [Sequential](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
         - [Functional (best)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
       * Low Coupling
-      * Polymorphism
-      * Protected Variations
+      * [Polymorphism](software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.py)
+      * [Protected Variations](software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.py)
       * Pure Fabrication
   + Decomposition
 
@@ -1707,3 +1713,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + www.catb.org/esr/writings/taoup/html/ch01s06.html
 + www.cs.unc.edu/~stotts/COMP145/cohesion.html
 + zedshaw.com/archive/indirection-is-not-abstraction/
++ www.cs.mun.ca/~harold/Courses/Old/CS3716.W12/Diary/Rod/grasp2/grasp2.html
