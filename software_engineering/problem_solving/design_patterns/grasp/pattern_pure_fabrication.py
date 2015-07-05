@@ -32,7 +32,7 @@ class GridMonitorService:
 
     It can be though of as a service-like layer of indirection:
 
-    entity <------> entity_service <------> data-store
+    entity <------> entity_service <------> data_store
 
     """
 
