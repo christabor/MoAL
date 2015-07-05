@@ -345,7 +345,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * Low Coupling
       * [Polymorphism](software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.py)
       * [Protected Variations](software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.py)
-      * Pure Fabrication
+      * [Pure Fabrication](software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.py)
   + Decomposition
 
 ## Mathematics
