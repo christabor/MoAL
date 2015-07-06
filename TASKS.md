@@ -342,7 +342,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         - [Communicational/informational](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
         - [Sequential](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
         - [Functional (best)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-      * Low Coupling
+      * [Low/loose Coupling](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
       * [Polymorphism](software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.py)
       * [Protected Variations](software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.py)
       * [Pure Fabrication](software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.py)
