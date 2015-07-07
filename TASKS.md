@@ -242,7 +242,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Winged edge
   + Quad-edge
   + Routing table
-  + Symbol table
+  + [Symbol table](data_structures/other/symbol_table.py)
 
 ## Software Engineering / Software Development
 
