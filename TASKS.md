@@ -180,9 +180,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Z-order
     + UB
     + R
-    + R+
-    + R*
-    + Hilbert R
+      * R+
+      * R*
+      * Hilbert R
     + X
     + Metric
     + Cover
