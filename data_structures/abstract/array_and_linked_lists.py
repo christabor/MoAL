@@ -22,14 +22,12 @@ arr = []
 # so you can manually recreate the idea behind them using classes.
 
 
-class LinkNode(object):
-    """A node represents a connection in the linked list."""
+class SingleNode(object):
 
-    def __init__(self, title, cargo=None, prev=None, next=None):
+    def __init__(self, title, cargo=None, next=None):
         self.DEBUG = True
         self.title = title
         self.next = next
-        self.prev = prev
         self.cargo = cargo or gibberish(length=5)
 
     def __str__(self):
@@ -65,6 +63,35 @@ class LinkNode(object):
             node = node.next
         return None
 
+    def last(self):
+        """Move forward in the list until the last node is found
+            e.g. [N] --> [N + 1] --> [N + 2]
+        """
+        next = self
+        while next:
+            if next.next is None:
+                return next
+            next = next.next
+        return next
+
+    def __len__(self):
+        count = 1  # Inclusive, head is 0
+        node = self
+        while node.next is not None:
+            count += 1
+            node = node.next
+        return count
+
+
+class DoubleNode(SingleNode):
+    """A node represents a connection in the linked list. This extends
+    the single node (linked list) to become a doubly-linked list - a list with
+    connections going in both directions (forward and backwards)."""
+
+    def __init__(self, title, cargo=None, prev=None, next=None):
+        super(DoubleNode, self).__init__(title, cargo=None, next=None)
+        self.prev = prev
+
     def __delitem__(self, key):
         """Delete a node, purge any references, and update the adjacent links"""
         if self.title == key:
@@ -82,14 +109,6 @@ class LinkNode(object):
             print('\nDELETING... {} {}'.format(node.title, node.cargo))
         del self[node.title]
 
-    def __len__(self):
-        count = 1  # Inclusive, head is 0
-        node = self
-        while node.next is not None:
-            count += 1
-            node = node.next
-        return count
-
     def first(self):
         """Move backward in the list until the first node is found
             e.g. [N - 2] <-- [N - 1] <-- [N]
@@ -101,27 +120,16 @@ class LinkNode(object):
             prev = prev.prev
         return prev
 
-    def last(self):
-        """Move forward in the list until the last node is found
-            e.g. [N] --> [N + 1] --> [N + 2]
-        """
-        next = self
-        while next:
-            if next.next is None:
-                return next
-            next = next.next
-        return next
-
     def prepend(self, key, value):
         """Add a new node to the very beginning of the list."""
         curr_begin = self.first()
-        curr_begin.next = LinkNode(title=key, cargo=value)
+        curr_begin.next = DoubleNode(title=key, cargo=value)
         curr_begin.next.prev = curr_begin
 
     def append(self, key, value):
         """Add a new node to the very end of the list."""
         curr_end = self.last()
-        curr_end.next = LinkNode(title=key, cargo=value)
+        curr_end.next = DoubleNode(title=key, cargo=value)
         curr_end.next.prev = curr_end
 
 
@@ -140,13 +148,13 @@ def print_nodes(node):
         path += _fmt(node)
         count += 1
         node = node.next
-    prnt('Linked List\n', path)
+    prnt('Linked List\n', path, newlines=False)
 
 
 def build_list(length, head=None):
     if head is None:
         # Start from the beginning with a new node.
-        head = LinkNode('head', prev=None)
+        head = DoubleNode('head', prev=None)
     curr_node = head
     curr = 0  # Head starts at 0
     while curr_node is not None:
@@ -154,20 +162,17 @@ def build_list(length, head=None):
             title = 'tail'
         else:
             title = 'node-{}'.format(curr)
-
         if curr > 0:
             curr_node.title = title
-
         curr_node.next = None if (curr == length - 1) \
-            else LinkNode(title, prev=curr_node)
-
+            else DoubleNode(title, prev=curr_node)
         # Advance to the next node, for the next iteration
         curr_node = curr_node.next
         curr += 1
     return head
 
 
-class AssociationList(LinkNode):
+class AssociationList(DoubleNode):
     """Our linked list already encapsulates all the behavior necessary.
     The required `key` and `value` properties are named `title` and `cargo`
     respectively. The association (lookup) can be evaluated by traversing the
@@ -192,11 +197,15 @@ class AssociationList(LinkNode):
 if DEBUG:
     with Section('Arrays & Linked Lists'):
         MAX_NODES = 10
+        single = SingleNode('head')
+        single['next'] = SingleNode('next-1')
+        print(single)
+
         linked_list = build_list(MAX_NODES)
         print_nodes(linked_list)
-        prnt('Length of linked list:', len(linked_list))
+        prnt('Length of linked list:', len(linked_list), newlines=False)
 
-        prnt('Testing iteration', '')
+        prnt('Testing iteration', '', newlines=False)
         for node in linked_list:
             print(node)
 
@@ -206,7 +215,9 @@ if DEBUG:
         del linked_list['node-6']
         del linked_list['tail']
 
-        prnt('Testing iteration - post delete:', '')
+        assert not linked_list['tail']
+
+        prnt('Testing iteration - post delete:', '', newlines=False)
 
         for node in linked_list:
             print(node)
@@ -215,10 +226,15 @@ if DEBUG:
         linked_list['node-3'] = 'BAR'
         linked_list['node-5'] = 'BIM'
 
-        prnt('Testing value update', '')
+        assert linked_list['head'].cargo == 'FOO'
+        assert linked_list['node-3'].cargo == 'BAR'
+        assert linked_list['node-5'].cargo == 'BIM'
+
+        prnt('Testing value update', '', newlines=False)
 
         for node in linked_list:
             print(node)
+            assert node.cargo
 
 # Glossary practice
 

@@ -68,9 +68,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Iliffe vector
     + Variable-length
   + Lists
-    + Doubly linked
     + Array list
     + [Linked](data_structures/abstract/array_and_linked_lists.py)
+      + [Doubly linked](data_structures/abstract/array_and_linked_lists.py)
       + [Association list](data_structures/abstract/array_and_linked_lists.py)
     + Self-organizing
     + [Skip lists](data_structures/linear/lists/skip_lists.py)
