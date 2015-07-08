@@ -171,12 +171,12 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Range
     + Bin
     + Kd-tree
-    + Implicit kd-tree
-    + Min/max kd-tree
-    + Adaptive k-d
+      * Implicit kd-tree
+      * Min/max kd-tree
+      * Adaptive k-d
     + Quad
     + Oc
-    + Linear oc
+      + Linear
     + Z-order
     + UB
     + R
