@@ -368,6 +368,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Number theory](maths/number_theory.py)
   + Group theory
   + Category theory
+    * Sympy
   + Graph theory
     + Spectral graph theory
     + Euler graph
@@ -419,7 +420,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Ciphers
         + Historical
           + Substitution
-            + ROT13
+            + [ROT13](maths/applied/computational/cryptography/ciphers/historical/substitution/rot13.py)
           + Transposition
             + Rail fence
         + Modern
