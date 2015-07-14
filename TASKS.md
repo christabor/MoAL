@@ -236,7 +236,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Propositional
       + And-inverter
   + [Multigraph](data_structures/graphs/multigraph.py)
-  + Hypergraph
+  + [Hypergraph](data_structures/graphs/hypergraph.py)
 + Other
   + Lightmap
   + Winged edge
