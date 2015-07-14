@@ -241,7 +241,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Lightmap
   + Winged edge
   + Quad-edge
-  + Routing table
+  + [Routing table](data_structures/other/routing_table.py)
   + [Symbol table](data_structures/other/symbol_table.py)
 
 ## Software Engineering / Software Development

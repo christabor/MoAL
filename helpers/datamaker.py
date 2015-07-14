@@ -17,3 +17,11 @@ def random_graph(max_edges=10):
     for k, letter in enumerate(letters):
         dag[k] = random_node(letter, nums, max_edges)
     return dag
+
+
+def subnet_mask():
+    op1 = '255.255.255.255'
+    op2 = '255.0.0.0'
+    op3 = '255.255.255.{}{}{}'.format(
+        choice(range(1, 2)), choice(range(0, 9)), choice(range(0, 9)))
+    return choice([op1, op2, op3])
