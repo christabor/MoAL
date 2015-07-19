@@ -1372,6 +1372,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + recursive
     + expression
   + Python - decorator
+    * Class
+    * Method
   + Python - context manager (with)
   + [Python - variable packing/unpacking](languages/features/python/packing_unpacking.py)
   + Python - index slicing
@@ -1398,7 +1400,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Object-oriented
     + reality
     + Others
-    + Dyck language
+    + [Dyck language](languages/formal_language_theory/modeling/dyck.py)
   + Formal grammars
     + Link
     + Tree-adjoining
