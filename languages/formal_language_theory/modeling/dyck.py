@@ -17,25 +17,29 @@ DEBUG = True if __name__ == '__main__' else False
 
 class Dyck(list):
 
-    def __init__(self, max):
+    def __init__(self, max, left='(', right=')'):
         self._max = max
         self.rejoinder = True
-        self.string = list('[]' * self._max)
+        self.left = left
+        self.right = right
+        self.string = list('{}{}'.format(self.left, self.right) * self._max)
 
     def __abs__(self):
-        """Returns the absolute value, as 2-tuple, where |u|"""
+        """Returns the absolute value, as 2-tuple, where the absolute value
+        |u| is represented as the count of left and right brackets."""
         lefts, rights = 0, 0
-        for x in self.string:
-            if x == '[':
+        for char in self.string:
+            if char == self.left:
                 lefts += 1
-            elif x == ']':
+            elif char == self.right:
                 rights += 1
         return lefts, rights
 
     def __str__(self):
         if self.rejoinder:
             return 'Rejoined: {}'.format(
-                ' '.join(''.join(self.string).split('][')))
+                ' '.join(''.join(self.string).split('{}{}'.format(
+                    self.right, self.left))))
         return self.string
 
     def is_balanced(self):
@@ -50,18 +54,19 @@ class Dyck(list):
             chars = self.string[0:self._max]
             # Make sure it contains both, since the form language definition
             # requires it.
-            if chars[-1] == '[':
-                chars += ']'
+            if chars[-1] == self.left:
+                chars += self.right
             print('Dyck language subset: {}'.format(''.join(chars)))
             # Insert brackets at random locations, as this can produce
             # variations that show possible nesting.
-            self.string.insert(index, '[{}]'.format(''))
+            self.string.insert(index, '{}{}{}'.format(
+                self.left, '', self.right))
 
     def show_equation(self, equation):
         eq = list(equation)
-        eq = filter(lambda x: x.strip() in [']', '['], eq)
+        eq = filter(lambda x: x.strip() in [self.right, self.left], eq)
         print(''.join(eq))
-        return eq
+        return ''.join(eq)
 
 
 if DEBUG:
@@ -72,4 +77,4 @@ if DEBUG:
         print_simple('Absolute value:', abs(dycklang), newline=False)
         assert dycklang.is_balanced()
         assert dycklang.show_equation(
-            '[2x - 3 + [7 / 2]] + [[3x x [4 - 2]] + [4x - [1 * [3 + 5]]]]')
+            '(2x - 3 + (7 / 2)) + ((3x x (4 - 2)) + (4x - (1 * (3 + 5))))')
