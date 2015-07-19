@@ -1,5 +1,6 @@
 import time
 from random import randrange as rr
+from functools import wraps
 
 
 def run_trials(func, trials=3):
@@ -37,6 +38,7 @@ def run_sorting_trials(
 def _test_speed(func, *args, **kwargs):
     """Decorator that wraps a function and provides a timer
     + results output for execution profiling."""
+    @wraps(func)
     def _inner(*args, **kwargs):
         divider = '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
         print(divider)
