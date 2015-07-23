@@ -1131,7 +1131,18 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + HAProxy
 + Administration
   + Software defined
-
++ WWW
+  * Semantic Web
+    - RDF
+    - RDFS
+    - SKOS
+    - SPARQL
+    - Notation3
+    - N-Triples
+    - Turtle
+    - OWL
+    - RIF
+    - Unifying Logic and Proof layers
 ## Data Storage / Transmission
 
 + Storage
@@ -1392,7 +1403,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Short-circuit
 + Formal language theory
   + Modeling language
-    + Algebraic
+    + Algebraic (Pyomo)
     + Behavioral
     + Discipline-Specific
     + Domain-specific
@@ -1717,3 +1728,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + www.cs.unc.edu/~stotts/COMP145/cohesion.html
 + zedshaw.com/archive/indirection-is-not-abstraction/
 + www.cs.mun.ca/~harold/Courses/Old/CS3716.W12/Diary/Rod/grasp2/grasp2.html
++ https://en.wikipedia.org/wiki/Semantic_Web
