@@ -7,10 +7,10 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.text import gibberish
-from helpers.display import cmd_title
-from helpers.display import prnt
+from MOAL.helpers.display import Section
+from MOAL.helpers.text import gibberish
+from MOAL.helpers.display import cmd_title
+from MOAL.helpers.display import prnt
 
 DEBUG = True if __name__ == '__main__' else False
 

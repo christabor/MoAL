@@ -10,9 +10,9 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
+from MOAL.helpers.display import Section
+import MOAL.data_structures.trees.binary_search_trees as bst
 from random import randrange as rr
-import data_structures.trees.binary_search_trees as bst
 
 
 class BinHeap(bst.BinarySearchTree):

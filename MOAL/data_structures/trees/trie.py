@@ -7,11 +7,11 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
+from MOAL.helpers.display import Section
 from string import ascii_lowercase
 from string import punctuation
 from random import choice
-from data_structures.trees.binary_search_trees import BinarySearchTree
+from MOAL.data_structures.trees.binary_search_trees import BinarySearchTree
 
 # Inspired by:
 # http://www.toptal.com/java/the-trie-a-neglected-data-structure

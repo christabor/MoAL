@@ -7,10 +7,10 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import print_h4
-from helpers.display import cmd_title
-from data_structures.abstract.tree import Tree
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_h4
+from MOAL.helpers.display import cmd_title
+from MOAL.data_structures.abstract.tree import Tree
 
 DEBUG = True if __name__ == '__main__' else False
 

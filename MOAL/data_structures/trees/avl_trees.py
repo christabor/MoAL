@@ -10,8 +10,8 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-import data_structures.trees.binary_search_trees as bst
-from helpers.display import Section
+import MOAL.data_structures.trees.binary_search_trees as bst
+from MOAL.helpers.display import Section
 
 
 class AVLTree(bst.BinarySearchTree):

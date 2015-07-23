@@ -7,10 +7,10 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.text import gibberish
-from helpers.trials import _test_speed
-from helpers.trials import run_trials
-from helpers.display import Section
+from MOAL.helpers.text import gibberish
+from MOAL.helpers.trials import _test_speed
+from MOAL.helpers.trials import run_trials
+from MOAL.helpers.display import Section
 
 
 dict_test = {gibberish(length=10): x for x in range(1000)}

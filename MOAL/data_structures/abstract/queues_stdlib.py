@@ -14,8 +14,8 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 # from random import choice
-from helpers.text import gibberish
-from helpers.display import Section
+from MOAL.helpers.text import gibberish
+from MOAL.helpers.display import Section
 
 
 COUNT_LOCK = threading.Lock()

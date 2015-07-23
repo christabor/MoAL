@@ -7,10 +7,10 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import prnt
-from helpers.text import uniqchars
-from languages.formal_language_theory.grammars import context_free
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
+from MOAL.helpers.text import uniqchars
+from MOAL.languages.formal_language_theory.grammars import context_free
 from random import randrange as rr
 
 

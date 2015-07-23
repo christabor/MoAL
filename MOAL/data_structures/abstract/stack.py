@@ -12,8 +12,8 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from random import randrange
-from helpers.text import gibberish
-from helpers.display import Section
+from MOAL.helpers.text import gibberish
+from MOAL.helpers.display import Section
 from pprint import pprint as ppr
 
 DEBUG = True if __name__ == '__main__' else False

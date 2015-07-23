@@ -7,8 +7,8 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import prnt
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
 from random import randrange as rr
 from pprint import pprint as ppr
 from fractions import Fraction

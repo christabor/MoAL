@@ -35,7 +35,11 @@ def _view_output_suppressed(popen_args=[]):
 
 def _result(filepath, exception_info):
     exception, desc, _ = exception_info
-    return {'file': filepath, 'desc': desc, 'exception': exception.__name__}
+    exception = hasattr(exception, '__name__')
+    return {
+        'file': filepath, 'desc': desc,
+        'exception': exception.__name__ if hasattr(
+            exception, '__name__') else ''}
 
 
 if __name__ == '__main__':

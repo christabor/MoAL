@@ -7,11 +7,11 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import prnt
-from helpers.display import divider
-from helpers.display import cmd_title
-from data_structures.graphs.graphs import Graph
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
+from MOAL.helpers.display import divider
+from MOAL.helpers.display import cmd_title
+from MOAL.data_structures.graphs.graphs import Graph
 
 
 DEBUG = True if __name__ == '__main__' else False

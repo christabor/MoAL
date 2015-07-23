@@ -7,9 +7,9 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import divider
-from data_structures.abstract.tree import Tree
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import divider
+from MOAL.data_structures.abstract.tree import Tree
 import pygraphviz as pgv
 
 DEBUG = True if __name__ == '__main__' else False

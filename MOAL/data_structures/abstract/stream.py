@@ -7,8 +7,8 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import cmd_title
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import cmd_title
 from Queue import Queue
 from threading import Lock
 from threading import Thread

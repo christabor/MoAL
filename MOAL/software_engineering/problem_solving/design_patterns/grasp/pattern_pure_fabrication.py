@@ -7,7 +7,7 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
+from MOAL.helpers.display import Section
 from uuid import uuid1
 from random import choice
 from random import randrange as rr

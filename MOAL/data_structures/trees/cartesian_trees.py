@@ -8,10 +8,10 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from random import randrange as rr
-from helpers.display import Section
-from helpers.display import prnt
-from helpers.display import print_subdued
-from data_structures.trees.binary_trees import BinaryTree
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
+from MOAL.helpers.display import print_subdued
+from MOAL.data_structures.trees.binary_trees import BinaryTree
 
 DEBUG = True if __name__ == '__main__' else False
 

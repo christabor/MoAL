@@ -7,10 +7,9 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-
-from helpers.display import Section
-from helpers.generic import subdivide_groups
-from helpers.generic import random_number_set
+from MOAL.helpers.display import Section
+from MOAL.helpers.generic import subdivide_groups
+from MOAL.helpers.generic import random_number_set
 from algorithms.sorting.quick_sort import quick_sort
 from pprint import pprint as ppr
 from Queue import Queue

@@ -1,6 +1,6 @@
 import operator
-from helpers.display import Section
-from helpers.display import prnt
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
 from random import shuffle
 
 

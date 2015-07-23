@@ -9,8 +9,8 @@ if __name__ == '__main__':
 
 
 from random import randrange
-from helpers.text import gibberish
-from helpers.display import Section
+from MOAL.helpers.text import gibberish
+from MOAL.helpers.display import Section
 
 
 class BinarySearchTree:

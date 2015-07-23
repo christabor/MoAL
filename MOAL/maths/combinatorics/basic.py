@@ -7,9 +7,9 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import prnt
-from helpers.text import uniqchars
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
+from MOAL.helpers.text import uniqchars
 from pprint import pprint as ppr
 from itertools import permutations
 from itertools import product

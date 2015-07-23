@@ -7,8 +7,8 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from data_structures.graphs.graphs import DirectedAcyclicGraph
+from MOAL.helpers.display import Section
+from MOAL.data_structures.graphs.graphs import DirectedAcyclicGraph
 
 DEBUG = True if __name__ == '__main__' else False
 

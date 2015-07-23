@@ -7,13 +7,13 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import print_h2
-from helpers.display import print_h3
-from helpers.display import print_info
-from helpers.display import divider
-from helpers.text import randchars
-from data_structures.abstract.array_and_linked_lists import AssociationList
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_h2
+from MOAL.helpers.display import print_h3
+from MOAL.helpers.display import print_info
+from MOAL.helpers.display import divider
+from MOAL.helpers.text import randchars
+from MOAL.data_structures.abstract.array_and_linked_lists import AssociationList
 from random import randrange as rr
 from random import choice
 from faker import Factory

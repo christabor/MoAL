@@ -7,9 +7,9 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import prnt
-from helpers.text import randchars
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
+from MOAL.helpers.text import randchars
 from pprint import pprint as ppr
 
 

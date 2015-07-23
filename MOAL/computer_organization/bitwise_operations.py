@@ -8,11 +8,11 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from time import sleep
-from helpers.display import Section
-from helpers.display import print_h2
-from helpers.display import divider
-from helpers.text import random_byte as rand_byte
-from computer_organization.one_twos_complement import ones_complement
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_h2
+from MOAL.helpers.display import divider
+from MOAL.helpers.text import random_byte as rand_byte
+from MOAL.computer_organization.one_twos_complement import ones_complement
 
 DEBUG = True if __name__ == '__main__' else False
 DELAY = 0.4

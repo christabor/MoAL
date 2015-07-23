@@ -7,11 +7,10 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-
-from helpers.display import Section
-from helpers.trials import run_sorting_trials
-from algorithms.sorting.insertion_sort import insertion_sort
-from algorithms.sorting.quick_sort import quick_sort
+from MOAL.helpers.display import Section
+from MOAL.helpers.trials import run_sorting_trials
+from MOAL.algorithms.sorting.insertion_sort import insertion_sort
+from MOAL.algorithms.sorting.quick_sort import quick_sort
 from pprint import pprint as ppr
 
 

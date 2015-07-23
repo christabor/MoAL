@@ -7,10 +7,10 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import prnt
-from automata_theory.turing_machine import TuringMachine
-from automata_theory.turing_machine import DummyProgramGenerator
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
+from MOAL.automata_theory.turing_machine import TuringMachine
+from MOAL.automata_theory.turing_machine import DummyProgramGenerator
 
 
 class UnknownProgram(Exception):

@@ -7,11 +7,11 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import divider
-from helpers.display import print_h4
-from computer_organization.data_types import BaseDataType
-from computer_organization import numerical_encoding_basic as encoders
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import divider
+from MOAL.helpers.display import print_h4
+from MOAL.computer_organization.data_types import BaseDataType
+from MOAL.computer_organization import numerical_encoding_basic as encoders
 
 DEBUG = True if __name__ == '__main__' else False
 

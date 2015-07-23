@@ -7,11 +7,11 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import prnt
-from helpers.display import cmd_title
-from helpers.adts import strlist
-from data_structures.graphs.graphs import DirectedGraph
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import prnt
+from MOAL.helpers.display import cmd_title
+from MOAL.helpers.adts import strlist
+from MOAL.data_structures.graphs.graphs import DirectedGraph
 import time
 
 # Definition, variations and example instruction set

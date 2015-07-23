@@ -7,11 +7,11 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from data_structures.trees.avl_trees import AVLTree
-from data_structures.trees.binary_search_trees import Node
-from data_structures.trees.binary_search_trees import recurse_bst
-from data_structures.trees.binary_search_trees import populate_bst
-from helpers.display import Section
+from MOAL.data_structures.trees.avl_trees import AVLTree
+from MOAL.data_structures.trees.binary_search_trees import Node
+from MOAL.data_structures.trees.binary_search_trees import recurse_bst
+from MOAL.data_structures.trees.binary_search_trees import populate_bst
+from MOAL.helpers.display import Section
 
 DEBUG = True
 

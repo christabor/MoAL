@@ -7,9 +7,8 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-
-from helpers.display import Section
-from helpers.trials import run_sorting_trials
+from MOAL.helpers.display import Section
+from MOAL.helpers.trials import run_sorting_trials
 from pprint import pprint as ppr
 
 

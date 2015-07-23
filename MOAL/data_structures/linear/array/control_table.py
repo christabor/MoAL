@@ -7,9 +7,9 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import print_error
-from helpers.display import print_success
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_error
+from MOAL.helpers.display import print_success
 
 DEBUG = True if __name__ == '__main__' else False
 

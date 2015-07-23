@@ -7,12 +7,12 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import print_success
-from helpers.display import print_info
-from helpers.display import print_warning
-from helpers.display import print_h2
-from helpers.trials import _test_speed
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_success
+from MOAL.helpers.display import print_info
+from MOAL.helpers.display import print_warning
+from MOAL.helpers.display import print_h2
+from MOAL.helpers.trials import _test_speed
 from uuid import uuid1
 from faker import Factory
 import psycopg2

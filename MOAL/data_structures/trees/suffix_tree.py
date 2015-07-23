@@ -7,11 +7,11 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import prnt
-from helpers.display import Section
-from helpers.generic import powerset_tree
-from helpers.generic import substring_list
-from helpers.trials import _test_speed
+from MOAL.helpers.display import prnt
+from MOAL.helpers.display import Section
+from MOAL.helpers.generic import powerset_tree
+from MOAL.helpers.generic import substring_list
+from MOAL.helpers.trials import _test_speed
 from pprint import pprint as ppr
 from random import choice
 

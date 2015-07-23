@@ -7,9 +7,9 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import cmd_title
-from helpers.display import print_simple
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import cmd_title
+from MOAL.helpers.display import print_simple
 from random import choice
 from random import shuffle
 import time

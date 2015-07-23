@@ -7,14 +7,14 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import print_simple
-from helpers.datamaker import subnet_mask
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_simple
+from MOAL.helpers.datamaker import subnet_mask
 from random import randrange as rr
 from faker import Factory
 from faker.providers import internet
 from pprint import pprint as ppr
-from computer_organization import numerical_encoding_basic as encoders
+from MOAL.computer_organization import numerical_encoding_basic as encoders
 
 
 DEBUG = True if __name__ == '__main__' else False

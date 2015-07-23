@@ -7,12 +7,12 @@ if __name__ == '__main__':
     from os import sys
     sys.path.append(getcwd())
 
-from helpers.display import Section
-from helpers.display import divider
-from helpers.text import random_binary
-from computer_organization.numerical_encoding_basic import bin_to_dec
-from computer_organization.numerical_encoding_basic import dec_to_bin
-from computer_organization.data_types import BaseDataType
+from MOAL.helpers.display import Section
+from MOAL.helpers.display import divider
+from MOAL.helpers.text import random_binary
+from MOAL.computer_organization.numerical_encoding_basic import bin_to_dec
+from MOAL.computer_organization.numerical_encoding_basic import dec_to_bin
+from MOAL.computer_organization.data_types import BaseDataType
 from random import choice
 
 
