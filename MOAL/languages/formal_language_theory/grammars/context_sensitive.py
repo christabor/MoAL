@@ -10,7 +10,7 @@ if __name__ == '__main__':
 from MOAL.helpers.display import Section
 from MOAL.helpers.display import prnt
 from random import choice
-from languages.formal_language_theory.grammars.context_free \
+from MOAL.languages.formal_language_theory.grammars.context_free \
     import ContextFreeGrammar
 
 DEBUG = True if __name__ == '__main__' else False
