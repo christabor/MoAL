@@ -21,40 +21,40 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Retroactive
   + Partial
   + Full
-+ [Abstract data types](data_structures/abstract/)
-  + [Arrays](data_structures/abstract/array_and_linked_lists.py)
-  + [Container](data_structures/abstract/container.py)
-  + [Map / Associative array / Dictionary](data_structures/abstract/map.py)
-  + [Multi-map](data_structures/abstract/map.py)
-  + [List](data_structures/abstract/list.py)
-  + [Set](data_structures/abstract/set.py)
-    + [Static](data_structures/abstract/set.py)
-    + [Dynamic](data_structures/abstract/set.py)
-  + [Multi-set / Bag](data_structures/abstract/set.py)
-  + [Queue](data_structures/abstract/queues.py)
-    + [Using stdlib](data_structures/abstract/queues_stdlib.py)
-    + [Double-ended queue](data_structures/abstract/queues.py)
-    + [Priority queue](data_structures/abstract/priority_queue.py)
-  + [Stacks](data_structures/abstract/stack.py)
-    + [Stack frames](data_structures/abstract/stack_frame.py)
-  + [String](data_structures/abstract/string_adt.py)
-  + [Tree](data_structures/abstract/tree.py)
-  + [Stream](data_structures/abstract/stream.py)
-  + [Graph](data_structures/graphs/graphs.py)
++ [Abstract data types](MOAL/data_structures/abstract/)
+  + [Arrays](MOAL/data_structures/abstract/array_and_linked_lists.py)
+  + [Container](MOAL/data_structures/abstract/container.py)
+  + [Map / Associative array / Dictionary](MOAL/data_structures/abstract/map.py)
+  + [Multi-map](MOAL/data_structures/abstract/map.py)
+  + [List](MOAL/data_structures/abstract/list.py)
+  + [Set](MOAL/data_structures/abstract/set.py)
+    + [Static](MOAL/data_structures/abstract/set.py)
+    + [Dynamic](MOAL/data_structures/abstract/set.py)
+  + [Multi-set / Bag](MOAL/data_structures/abstract/set.py)
+  + [Queue](MOAL/data_structures/abstract/queues.py)
+    + [Using stdlib](MOAL/data_structures/abstract/queues_stdlib.py)
+    + [Double-ended queue](MOAL/data_structures/abstract/queues.py)
+    + [Priority queue](MOAL/data_structures/abstract/priority_queue.py)
+  + [Stacks](MOAL/data_structures/abstract/stack.py)
+    + [Stack frames](MOAL/data_structures/abstract/stack_frame.py)
+  + [String](MOAL/data_structures/abstract/string_adt.py)
+  + [Tree](MOAL/data_structures/abstract/tree.py)
+  + [Stream](MOAL/data_structures/abstract/stream.py)
+  + [Graph](MOAL/data_structures/graphs/graphs.py)
 + Linear
-  + [Arrays](data_structures/abstract/array_and_linked_lists.py)
-    + [Overloaded arrays](helpers/adts.py)
-    + [Suffix arrays](data_structures/linear/array/suffix_arrays.py)
+  + [Arrays](MOAL/data_structures/abstract/array_and_linked_lists.py)
+    + [Overloaded arrays](MOAL/helpers/adts.py)
+    + [Suffix arrays](MOAL/data_structures/linear/array/suffix_arrays.py)
       + Compressed suffix array
-    + [Bi-directional map](data_structures/abstract/map.py)
-    + [Bit](computer_organization/data_types.py)
-    + [Bit field](computer_organization/bit_field.py)
+    + [Bi-directional map](MOAL/data_structures/abstract/map.py)
+    + [Bit](MOAL/computer_organization/data_types.py)
+    + [Bit field](MOAL/computer_organization/bit_field.py)
     + Bit Array
-      + [Bitboard](data_structures/linear/bitarray/bitboard.py)
-      + [Bitmap](data_structures/linear/bitarray/bitboard.py)
-    + [Circular buffer](data_structures/linear/array/circular_buffer.py)
-    + [Control table](data_structures/linear/array/control_table.py)
-    + [Image](data_structures/linear/array/image_array.py)
+      + [Bitboard](MOAL/data_structures/linear/bitarray/bitboard.py)
+      + [Bitmap](MOAL/data_structures/linear/bitarray/bitboard.py)
+    + [Circular buffer](MOAL/data_structures/linear/array/circular_buffer.py)
+    + [Control table](MOAL/data_structures/linear/array/control_table.py)
+    + [Image](MOAL/data_structures/linear/array/image_array.py)
     + Dynamic
     + Gap buffer
     + Hashed array tree
@@ -69,18 +69,18 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Variable-length
   + Lists
     + Array list
-    + [Linked](data_structures/abstract/array_and_linked_lists.py)
-      + [Doubly linked](data_structures/abstract/array_and_linked_lists.py)
-      + [Association list](data_structures/abstract/array_and_linked_lists.py)
+    + [Linked](MOAL/data_structures/abstract/array_and_linked_lists.py)
+      + [Doubly linked](MOAL/data_structures/abstract/array_and_linked_lists.py)
+      + [Association list](MOAL/data_structures/abstract/array_and_linked_lists.py)
     + Self-organizing
-    + [Skip lists](data_structures/linear/lists/skip_lists.py)
+    + [Skip lists](MOAL/data_structures/linear/lists/skip_lists.py)
     + Unrolled linked
     + VList
     + Xor linked
     + Zipper
     + Doubly connected edge
     + Difference
-    + [Free](data_structures/linear/lists/free_list.py)
+    + [Free](MOAL/data_structures/linear/lists/free_list.py)
 + Hashes
   + Bloom filter
   + Count-Min sketch
@@ -89,7 +89,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Dynamic perfect hash table
   + Hash array mapped trie (HAMT)
   + Hash list
-  + [Hash table](data_structures/hashes/hashtable.py)
+  + [Hash table](MOAL/data_structures/hashes/hashtable.py)
   + Hash tree
   + Hash trie
   + Koorde
@@ -100,23 +100,23 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Trees
   + Binary
     + AA
-    + [AVL](data_structures/trees/avl_trees.py)
-    + [Binary search](data_structures/trees/binary_search_trees.py)
+    + [AVL](MOAL/data_structures/trees/avl_trees.py)
+    + [Binary search](MOAL/data_structures/trees/binary_search_trees.py)
       * Randomized binary search
       * Self-balancing binary search
-    + [Binary](data_structures/trees/binary_trees.py)
-    + [Cartesian](data_structures/trees/cartesian_trees.py)
+    + [Binary](MOAL/data_structures/trees/binary_trees.py)
+    + [Cartesian](MOAL/data_structures/trees/cartesian_trees.py)
     + Order statistic
     + Pagoda
     + Red-black
     + Rope
     + Scapegoat
-    + [Splay](data_structures/trees/splay_trees.py)
+    + [Splay](MOAL/data_structures/trees/splay_trees.py)
     + T-tree
     + Tango
     + Threaded binary
     + Top
-    + [Treap](data_structures/trees/cartesian_trees.py)
+    + [Treap](MOAL/data_structures/trees/cartesian_trees.py)
     + Weight-balanced
     + Binary data structure
     + Stern–Brocot (mathematical)
@@ -132,8 +132,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Fusion
     + Bx
     + AList
-  + [Heaps](data_structures/trees/heaps.py)
-    + [Binary](data_structures/trees/heaps.py)
+  + [Heaps](MOAL/data_structures/trees/heaps.py)
+    + [Binary](MOAL/data_structures/trees/heaps.py)
     + Weak
     + Binomial
     + Fibonacci
@@ -153,10 +153,10 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Binary indexed tree
   + vEB tree
   + Red-black tree
-  + [Trie](data_structures/trees/trie.py)
+  + [Trie](MOAL/data_structures/trees/trie.py)
     + Radix tree
-    + [Suffix tree](data_structures/trees/suffix_tree.py)
-      + [Generalized](data_structures/trees/suffix_tree.py)
+    + [Suffix tree](MOAL/data_structures/trees/suffix_tree.py)
+      + [Generalized](MOAL/data_structures/trees/suffix_tree.py)
       + Ukkonen's
       + McCreight's
     + FM-index
@@ -209,7 +209,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Van Emde Boas
     + Rose
   + Application specific
-    + [Abstract syntax](execution/compiler/abstract_syntax_tree.py)
+    + [Abstract syntax](MOAL/execution/compiler/abstract_syntax_tree.py)
     + Parse
     + Decision
     + Alternating decision
@@ -220,29 +220,29 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Expression
     + Log-structured merge
     + AHO tree (for AHO algorithm)
-+ [Graph](data_structures/graphs/graphs.py)
-  + [Adjacency list](data_structures/graphs/adjacency_list.py)
-  + [Adjacency matrix](data_structures/graphs/adjacency_matrix.py)
-  + [Incidence matrix](data_structures/graphs/incidence_matrix.py)
-  + [Graph-structured stack](data_structures/graphs/graph_structured_stack.py)
-  + [Scene](data_structures/graphs/scene_graph.py)
-  + [Binary decision diagram](data_structures/graphs/binary_decision_diagram.py)
++ [Graph](MOAL/data_structures/graphs/graphs.py)
+  + [Adjacency list](MOAL/data_structures/graphs/adjacency_list.py)
+  + [Adjacency matrix](MOAL/data_structures/graphs/adjacency_matrix.py)
+  + [Incidence matrix](MOAL/data_structures/graphs/incidence_matrix.py)
+  + [Graph-structured stack](MOAL/data_structures/graphs/graph_structured_stack.py)
+  + [Scene](MOAL/data_structures/graphs/scene_graph.py)
+  + [Binary decision diagram](MOAL/data_structures/graphs/binary_decision_diagram.py)
   + Zero-suppressed decision diagram
-  + [Directed](data_structures/graphs/graphs.py)
+  + [Directed](MOAL/data_structures/graphs/graphs.py)
     + DAWG/DAFSA
       + Sparse
       + Compacted
-    + [Acyclic](data_structures/graphs/graphs.py)
+    + [Acyclic](MOAL/data_structures/graphs/graphs.py)
       + Propositional
       + And-inverter
-  + [Multigraph](data_structures/graphs/multigraph.py)
-  + [Hypergraph](data_structures/graphs/hypergraph.py)
+  + [Multigraph](MOAL/data_structures/graphs/multigraph.py)
+  + [Hypergraph](MOAL/data_structures/graphs/hypergraph.py)
 + Other
   + Lightmap
   + Winged edge
   + Quad-edge
-  + [Routing table](data_structures/other/routing_table.py)
-  + [Symbol table](data_structures/other/symbol_table.py)
+  + [Routing table](MOAL/data_structures/other/routing_table.py)
+  + [Symbol table](MOAL/data_structures/other/symbol_table.py)
 
 ## Software Engineering / Software Development
 
@@ -262,8 +262,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Domain driven (DDD)
 + Testing
   + Black box
-    + [Decision table](software_engineering/testing/black_box/decision_table.py)
-    + [All-pairs/orthogonal array](software_engineering/testing/black_box/allpairs.py)
+    + [Decision table](MOAL/software_engineering/testing/black_box/decision_table.py)
+    + [All-pairs/orthogonal array](MOAL/software_engineering/testing/black_box/allpairs.py)
     + State transition analysis
     + Equivalence partitioning
     + Boundary value analysis
@@ -330,42 +330,42 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * Interface segregation
       * Dependency Inversion
     + GRASP
-      * [Controller](software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
-      * [Creator](software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
-      * [Indirection](software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.py)
-      * [Information Expert](software_engineering/problem_solving/design_patterns/grasp/pattern_infohiding.py)
-      * [High Cohesion](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-        - [Coincidental (worst)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-        - [Logical](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-        - [Temporal](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-        - [Procedural](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-        - [Communicational/informational](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-        - [Sequential](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-        - [Functional (best)](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-      * [Low/loose Coupling](software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
-      * [Polymorphism](software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.py)
-      * [Protected Variations](software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.py)
-      * [Pure Fabrication](software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.py)
+      * [Controller](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
+      * [Creator](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
+      * [Indirection](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.py)
+      * [Information Expert](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_infohiding.py)
+      * [High Cohesion](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Coincidental (worst)](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Logical](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Temporal](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Procedural](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Communicational/informational](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Sequential](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+        - [Functional (best)](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+      * [Low/loose Coupling](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.py)
+      * [Polymorphism](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.py)
+      * [Protected Variations](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.py)
+      * [Pure Fabrication](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.py)
   + Decomposition
 
 ## Mathematics
 
 + Quantity
   + Numbers
-    + [Natural](maths/numbers/basic.py)
-      + [Transfinite](maths/set_theory.py)
-    + [Integers](maths/numbers/basic.py)
-    + [Rational](maths/numbers/basic.py)
-    + [Irrational](maths/numbers/basic.py)
-    + [Real](maths/numbers/basic.py)
+    + [Natural](MOAL/maths/numbers/basic.py)
+      + [Transfinite](MOAL/maths/set_theory.py)
+    + [Integers](MOAL/maths/numbers/basic.py)
+    + [Rational](MOAL/maths/numbers/basic.py)
+    + [Irrational](MOAL/maths/numbers/basic.py)
+    + [Real](MOAL/maths/numbers/basic.py)
     + Imaginary
     + Complex
     + Quaternions
     + Octonions
-    + [Cardinals](maths/set_theory.py)
+    + [Cardinals](MOAL/maths/set_theory.py)
 + Structure
-  + [Combinatorics](maths/combinatorics/basic.py)
-  + [Number theory](maths/number_theory.py)
+  + [Combinatorics](MOAL/maths/combinatorics/basic.py)
+  + [Number theory](MOAL/maths/number_theory.py)
   + Group theory
   + Category theory
     * Sympy
@@ -397,14 +397,14 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Fluid dynamics
     + Numerical analysis
       + Asymptotic notation
-        + [Big O](maths/big_o.py)
-          + [O(1)](maths/big_o.py)
-          + [O(logN)](maths/big_o.py)
-          + [O(n)](maths/big_o.py)
-          + [O(n logN)](maths/big_o.py)
-          + [O(n^2)](maths/big_o.py)
-          + [O(2^n)](maths/big_o.py)
-          + [O(n!)](maths/big_o.py)
+        + [Big O](MOAL/maths/big_o.py)
+          + [O(1)](MOAL/maths/big_o.py)
+          + [O(logN)](MOAL/maths/big_o.py)
+          + [O(n)](MOAL/maths/big_o.py)
+          + [O(n logN)](MOAL/maths/big_o.py)
+          + [O(n^2)](MOAL/maths/big_o.py)
+          + [O(2^n)](MOAL/maths/big_o.py)
+          + [O(n!)](MOAL/maths/big_o.py)
     + Optimization
       + Memoization
       + Strength reduction
@@ -414,15 +414,15 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Duality
     + Probability theory
     + Statistics
-      + [Probability](maths/probability.py)
+      + [Probability](MOAL/maths/probability.py)
     + Cryptography
       + Zero-knowledge proofs
       + Ciphers
         + Historical
           + Substitution
-            + [ROT13](maths/applied/computational/cryptography/ciphers/historical/substitution/rot13.py)
+            + [ROT13](MOAL/maths/applied/computational/cryptography/ciphers/historical/substitution/rot13.py)
           + Transposition
-            + [Rail fence](maths/applied/computational/cryptography/ciphers/historical/transposition/railfence.py)
+            + [Rail fence](MOAL/maths/applied/computational/cryptography/ciphers/historical/transposition/railfence.py)
         + Modern
           + Key type
             + Symmetric
@@ -443,7 +443,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Utility theory
   + Social choice theory
   + Logic
-    + [Set theory](maths/set_theory.py)
+    + [Set theory](MOAL/maths/set_theory.py)
       + Axiomatic
       + Combinatorial
       + Descriptive
@@ -668,8 +668,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Shortest common supersequence
         + Horspool
     + Approximate matching
-        + [Hamming distance](algorithms/coding_theory/hamming_distance.py)
-        + [Levenshtein distance](algorithms/coding_theory/levenshtein_distance.py)
+        + [Hamming distance](MOAL/algorithms/coding_theory/hamming_distance.py)
+        + [Levenshtein distance](MOAL/algorithms/coding_theory/levenshtein_distance.py)
         +     Damerau–Levenshtein distance
         + Soundex
         + Metaphone
@@ -824,7 +824,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Lists, arrays and trees
     + Breadth-first search
     + Best-first search
-    + [Depth-first search](data_structures/graphs/graphs.py)
+    + [Depth-first search](MOAL/data_structures/graphs/graphs.py)
     + Dictionary search
     + Disjoint-set data structure and algorithm
     + Interpolated search / predictive search
@@ -868,9 +868,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Postman sort
     + Smoothsort
     + Stochastic
-    - [Insertion sort](algorithms/sorting/insertion_sort.py)
-    - [Merge sort](algorithms/sorting/merge_sort.py)
-    - [Quick sort](algorithms/sorting/quick_sort.py)
+    - [Insertion sort](MOAL/algorithms/sorting/insertion_sort.py)
+    - [Merge sort](MOAL/algorithms/sorting/merge_sort.py)
+    - [Quick sort](MOAL/algorithms/sorting/quick_sort.py)
     - Splay sort
     - Heap sort
     - Radix sort
@@ -878,11 +878,11 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       - Adaptive
       - MBM
       - Forward
-    - [Bubble Sort](algorithms/sorting/bubble_sort.py)
-    - [Bogo Sort (anti-pattern)](algorithms/sorting/bogo_sort.py)
+    - [Bubble Sort](MOAL/algorithms/sorting/bubble_sort.py)
+    - [Bogo Sort (anti-pattern)](MOAL/algorithms/sorting/bogo_sort.py)
     - Burst sort
-    - [Selection Sort](algorithms/sorting/selection_sort.py)
-    - [Shell Sort](algorithms/sorting/shell_sort.py)
+    - [Selection Sort](MOAL/algorithms/sorting/selection_sort.py)
+    - [Shell Sort](MOAL/algorithms/sorting/shell_sort.py)
 + Approximation
 + Greedy
 + Dynamic programming
@@ -926,56 +926,56 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 + Transistors
 + Logic gates
-+ [Data-types & representation](computer_organization/data_types.py)
-  + [Bit](computer_organization/data_types.py)
-  + [Nibble](computer_organization/data_types.py)
-  + [Byte](computer_organization/data_types.py)
-  + [Octet](computer_organization/data_types.py)
-  + [*byte](computer_organization/data_types.py)
-  + [Two's complement](computer_organization/one_twos_complement.py)
-  + [Ones' complement](computer_organization/one_twos_complement.py)
-+ [Numerical encoding](computer_organization/numerical_encoding_basic.py)
-  + [N-ary](computer_organization/positional.py)
-    + [Binary](computer_organization/numerical_encoding_basic.py)
-       + [Binary coded decimal (BCD)](computer_organization/bcd.py)
-        + [8421](computer_organization/bcd.py)
++ [Data-types & representation](MOAL/computer_organization/data_types.py)
+  + [Bit](MOAL/computer_organization/data_types.py)
+  + [Nibble](MOAL/computer_organization/data_types.py)
+  + [Byte](MOAL/computer_organization/data_types.py)
+  + [Octet](MOAL/computer_organization/data_types.py)
+  + [*byte](MOAL/computer_organization/data_types.py)
+  + [Two's complement](MOAL/computer_organization/one_twos_complement.py)
+  + [Ones' complement](MOAL/computer_organization/one_twos_complement.py)
++ [Numerical encoding](MOAL/computer_organization/numerical_encoding_basic.py)
+  + [N-ary](MOAL/computer_organization/positional.py)
+    + [Binary](MOAL/computer_organization/numerical_encoding_basic.py)
+       + [Binary coded decimal (BCD)](MOAL/computer_organization/bcd.py)
+        + [8421](MOAL/computer_organization/bcd.py)
         + 4221
         + 7421
-        + [excess-3](computer_organization/bcd.py)
+        + [excess-3](MOAL/computer_organization/bcd.py)
         + Telephony (TCBD)
     + Bi-Quinary
-    + [Ternary](computer_organization/positional.py)
+    + [Ternary](MOAL/computer_organization/positional.py)
       + Balanced ternary
-    + [Quaternary](computer_organization/positional.py)
-    + [Quinary](computer_organization/positional.py)
-    + [Senary](computer_organization/positional.py)
-    + [Septenary](computer_organization/positional.py)
-    + [Octal](computer_organization/numerical_encoding_basic.py)
-    + [Nonary](computer_organization/positional.py)
-    + [Decimal](computer_organization/numerical_encoding_basic.py)
-    + [Undecimal](computer_organization/positional.py)
-    + [Duodecimal](computer_organization/positional.py)
-    + [Tridecimal](computer_organization/positional.py)
-    + [Tetradecimal](computer_organization/positional.py)
-    + [Pentadecimal](computer_organization/positional.py)
-    + [[Hexadecimal](computer_organization/positional.py)](computer_organization/numerical_encoding_basic.py)
-    + [Octodecimal](computer_organization/positional.py)
-    + [Vigesimal](computer_organization/positional.py)
-    + [Tetravigesimal](computer_organization/positional.py)
-    + [Pentavigesimal](computer_organization/positional.py)
-    + [Hexavigesimal](computer_organization/positional.py)
-    + [Septemvigesimal](computer_organization/positional.py)
-    + [Trigesimal](computer_organization/positional.py)
-    + [Duotrigesimal](computer_organization/positional.py)
-    + [Hexatrigesimal](computer_organization/positional.py)
-    + [Sexagesimal](computer_organization/positional.py)
-    + [Duosexagesimal](computer_organization/positional.py)
-    + [Tetrasexagesimal](computer_organization/positional.py)
-    + [Pentaoctagesimal](computer_organization/positional.py)
-    + [Centovigesimal](computer_organization/positional.py)
-    + [Duocentoquadragesimal](computer_organization/positional.py)
-    + [Trecentosexagesimal](computer_organization/positional.py)
-    + [Custom](computer_organization/positional.py)
+    + [Quaternary](MOAL/computer_organization/positional.py)
+    + [Quinary](MOAL/computer_organization/positional.py)
+    + [Senary](MOAL/computer_organization/positional.py)
+    + [Septenary](MOAL/computer_organization/positional.py)
+    + [Octal](MOAL/computer_organization/numerical_encoding_basic.py)
+    + [Nonary](MOAL/computer_organization/positional.py)
+    + [Decimal](MOAL/computer_organization/numerical_encoding_basic.py)
+    + [Undecimal](MOAL/computer_organization/positional.py)
+    + [Duodecimal](MOAL/computer_organization/positional.py)
+    + [Tridecimal](MOAL/computer_organization/positional.py)
+    + [Tetradecimal](MOAL/computer_organization/positional.py)
+    + [Pentadecimal](MOAL/computer_organization/positional.py)
+    + [[Hexadecimal](MOAL/computer_organization/positional.py)](MOAL/computer_organization/numerical_encoding_basic.py)
+    + [Octodecimal](MOAL/computer_organization/positional.py)
+    + [Vigesimal](MOAL/computer_organization/positional.py)
+    + [Tetravigesimal](MOAL/computer_organization/positional.py)
+    + [Pentavigesimal](MOAL/computer_organization/positional.py)
+    + [Hexavigesimal](MOAL/computer_organization/positional.py)
+    + [Septemvigesimal](MOAL/computer_organization/positional.py)
+    + [Trigesimal](MOAL/computer_organization/positional.py)
+    + [Duotrigesimal](MOAL/computer_organization/positional.py)
+    + [Hexatrigesimal](MOAL/computer_organization/positional.py)
+    + [Sexagesimal](MOAL/computer_organization/positional.py)
+    + [Duosexagesimal](MOAL/computer_organization/positional.py)
+    + [Tetrasexagesimal](MOAL/computer_organization/positional.py)
+    + [Pentaoctagesimal](MOAL/computer_organization/positional.py)
+    + [Centovigesimal](MOAL/computer_organization/positional.py)
+    + [Duocentoquadragesimal](MOAL/computer_organization/positional.py)
+    + [Trecentosexagesimal](MOAL/computer_organization/positional.py)
+    + [Custom](MOAL/computer_organization/positional.py)
   + Complex
     + Quater-Imaginary base
     + Twindragon
@@ -1011,26 +1011,26 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Snake-in-the-box
     + Single-track
 + Math
-  + [Endianness (byte ordering)](computer_organization/endianness.py)
-  + [Binary](computer_organization/data_types.py)
-    + [Addition](computer_organization/data_types.py)
-    + [Subtraction](computer_organization/data_types.py)
-    + [Multiplication](computer_organization/data_types.py)
-    + [Division](computer_organization/data_types.py)
+  + [Endianness (byte ordering)](MOAL/computer_organization/endianness.py)
+  + [Binary](MOAL/computer_organization/data_types.py)
+    + [Addition](MOAL/computer_organization/data_types.py)
+    + [Subtraction](MOAL/computer_organization/data_types.py)
+    + [Multiplication](MOAL/computer_organization/data_types.py)
+    + [Division](MOAL/computer_organization/data_types.py)
     + Square root
-    + [Bitwise operations](computer_organization/bitwise_operations.py)
-      + [XOR](computer_organization/bitwise_operations.py)
-      + [OR](computer_organization/bitwise_operations.py)
-      + [AND](computer_organization/bitwise_operations.py)
-      + [NOT](computer_organization/bitwise_operations.py)
-      + [Shifts](computer_organization/bitwise_operations.py)
-        + [Arithmetical](computer_organization/bitwise_operations.py)
-        + [Logical](computer_organization/bitwise_operations.py)
-        + [Rotate no carry](computer_organization/bitwise_operations.py)
-        + [Rotate through carry](computer_organization/bitwise_operations.py)
-  + [Bit field](computer_organization/bit_field.py)
-  + [Flag field](computer_organization/bit_field.py)
-  + [Bit Masking](computer_organization/bitwise_operations.py)
+    + [Bitwise operations](MOAL/computer_organization/bitwise_operations.py)
+      + [XOR](MOAL/computer_organization/bitwise_operations.py)
+      + [OR](MOAL/computer_organization/bitwise_operations.py)
+      + [AND](MOAL/computer_organization/bitwise_operations.py)
+      + [NOT](MOAL/computer_organization/bitwise_operations.py)
+      + [Shifts](MOAL/computer_organization/bitwise_operations.py)
+        + [Arithmetical](MOAL/computer_organization/bitwise_operations.py)
+        + [Logical](MOAL/computer_organization/bitwise_operations.py)
+        + [Rotate no carry](MOAL/computer_organization/bitwise_operations.py)
+        + [Rotate through carry](MOAL/computer_organization/bitwise_operations.py)
+  + [Bit field](MOAL/computer_organization/bit_field.py)
+  + [Flag field](MOAL/computer_organization/bit_field.py)
+  + [Bit Masking](MOAL/computer_organization/bitwise_operations.py)
 + Memory
   + Memory hierarchy
   + Virtual memory
@@ -1158,13 +1158,13 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Databases
     + Relational
       + MySql
-      + [PostgreSql](storage/databases/relational/postgresql_psycopg2.py)
-        * [Psycopg2](storage/databases/relational/postgresql_psycopg2.py)
+      + [PostgreSql](MOAL/storage/databases/relational/postgresql_psycopg2.py)
+        * [Psycopg2](MOAL/storage/databases/relational/postgresql_psycopg2.py)
     + Key/value
-      + [Redis (doc + k/v)](storage/databases/keyvalue/redis_db.py)
+      + [Redis (doc + k/v)](MOAL/storage/databases/keyvalue/redis_db.py)
       + Accumulo
     + Document
-      + [MongoDB](storage/databases/document/mongo_db.py)
+      + [MongoDB](MOAL/storage/databases/document/mongo_db.py)
       + CouchDB
     + Graph
       * TinkerPop (interfacing)
@@ -1249,7 +1249,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Performance
   + Caching
     + Varnish
-    + [Memcached](systems_engineering/performance/caching/memcached_example.py)
+    + [Memcached](MOAL/systems_engineering/performance/caching/memcached_example.py)
 
 ## Artifical Intelligence
 
@@ -1317,9 +1317,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Abstract machine
     + Pushdown automata
       + Generalized
-    + [Turing machine](automata_theory/turing_machine.py)
-      + [Universal](automata_theory/universal_turing_machine.py)
-      + [Decider / Total](automata_theory/turing_machine.py)
+    + [Turing machine](MOAL/automata_theory/turing_machine.py)
+      + [Universal](MOAL/automata_theory/universal_turing_machine.py)
+      + [Decider / Total](MOAL/automata_theory/turing_machine.py)
       + Alternating
       + Quantum
       + Non-deterministic
@@ -1330,20 +1330,20 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Multi-track
     + Stack machine
     + Register machine / Wang-b machine
-      + [Pointer](automata_theory/pointer_machine.py)
-        + [Schonhage Storage Modification](automata_theory/pointer_machine.py)
-        + [Kolmogorov-Uspenskii](automata_theory/pointer_machine.py)
+      + [Pointer](MOAL/automata_theory/pointer_machine.py)
+        + [Schonhage Storage Modification](MOAL/automata_theory/pointer_machine.py)
+        + [Kolmogorov-Uspenskii](MOAL/automata_theory/pointer_machine.py)
         + Knuth's Linking Automaton
         + Atomistic Pure-LISP (APLM)
         + Atomistic Full-LISP (AFLM)
         + General atomistic
         + Jone's I Language 1
         + Jone's I Language 2
-      + [Counter](automata_theory/counter_machine.py)
-        + [SheperdsonSturgis](automata_theory/counter_machine.py)
-        + [Minsky](automata_theory/counter_machine.py)
+      + [Counter](MOAL/automata_theory/counter_machine.py)
+        + [SheperdsonSturgis](MOAL/automata_theory/counter_machine.py)
+        + [Minsky](MOAL/automata_theory/counter_machine.py)
         + Program
-        + [Abacus](automata_theory/counter_machine.py)
+        + [Abacus](MOAL/automata_theory/counter_machine.py)
         + Lambek
         + Successor
         + SuccessorRAM
@@ -1386,7 +1386,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     * Class
     * Method
   + Python - context manager (with)
-  + [Python - variable packing/unpacking](languages/features/python/packing_unpacking.py)
+  + [Python - variable packing/unpacking](MOAL/languages/features/python/packing_unpacking.py)
   + Python - index slicing
   + Python - comprehensions
   + Rust - de-structuring
@@ -1411,18 +1411,18 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Object-oriented
     + reality
     + Others
-    + [Dyck language](languages/formal_language_theory/modeling/dyck.py)
+    + [Dyck language](MOAL/languages/formal_language_theory/modeling/dyck.py)
   + Formal grammars
     + Link
     + Tree-adjoining
-    + [Recursive](languages/formal_language_theory/grammars/attribute_context_free.py)
+    + [Recursive](MOAL/languages/formal_language_theory/grammars/attribute_context_free.py)
     + Regular
-    + [Analytic](languages/formal_language_theory/grammars/analytic_context_free.py)
+    + [Analytic](MOAL/languages/formal_language_theory/grammars/analytic_context_free.py)
       * Parsing Expression (PE)
-    + [Context-sensitive](languages/formal_language_theory/grammars/context_sensitive.py)
-    + [Context-free](languages/formal_language_theory/grammars/context_free.py)
+    + [Context-sensitive](MOAL/languages/formal_language_theory/grammars/context_sensitive.py)
+    + [Context-free](MOAL/languages/formal_language_theory/grammars/context_free.py)
       + Stochastic
-      + [Attribute](languages/formal_language_theory/grammars/attribute_context_free.py)
+      + [Attribute](MOAL/languages/formal_language_theory/grammars/attribute_context_free.py)
       + Adaptive
         + Recursive (RAGs)
         + Dynamic Template Translators
@@ -1433,8 +1433,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Imperative
         + Declarative
         + Hybrid / Time-space
-      + [Ambiguous](languages/formal_language_theory/grammars/context_free.py)
-      + [Backus-Naur Form (BFN)](languages/formal_language_theory/grammars/backus_naur.py)
+      + [Ambiguous](MOAL/languages/formal_language_theory/grammars/context_free.py)
+      + [Backus-Naur Form (BFN)](MOAL/languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms
   * Parallel
@@ -1459,9 +1459,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Prolog
   + Object-oriented
     + Features
-      + [Class hierarchy](languages/paradigms/object_oriented/oop_classes.py)
-      + [Static, class, & abstract methods](languages/paradigms/object_oriented/oop_classes.py)
-        + [Abstract Base Classes](languages/paradigms/object_oriented/abstract_baseclass.py)
+      + [Class hierarchy](MOAL/languages/paradigms/object_oriented/oop_classes.py)
+      + [Static, class, & abstract methods](MOAL/languages/paradigms/object_oriented/oop_classes.py)
+        + [Abstract Base Classes](MOAL/languages/paradigms/object_oriented/abstract_baseclass.py)
       + Overloading
       + Polymorphism
         + Operator overloading
@@ -1488,7 +1488,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Ractive
     + Pipeline
       + Hartmann
-      + [UNIX](languages/paradigms/dataflow/pipelines/unix_cmds.sh)
+      + [UNIX](MOAL/languages/paradigms/dataflow/pipelines/unix_cmds.sh)
   + Stream processing
   + Concurrent
     + Languages
@@ -1499,7 +1499,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Extensible
   + Domain Specific (DSL)
     + Metalinguistic abstraction
-    + [Embeddable](languages/domain_specific/embedded_dsl.py)
+    + [Embeddable](MOAL/languages/domain_specific/embedded_dsl.py)
     + Macros
       + Hygienic
       + Anaphoric
@@ -1589,7 +1589,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Clang
     + Custom (make one!)
     + Symbol table
-    + [Abstract Syntax Tree (AST)](execution/compiler/abstract_syntax_tree.py)
+    + [Abstract Syntax Tree (AST)](MOAL/execution/compiler/abstract_syntax_tree.py)
     + Abstract semantic graph
     + Components
       + Parser
@@ -1623,7 +1623,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Object code
 + Bytecode
 + Machine code
-  + [Opcode](execution/machine/opcodes.py)
+  + [Opcode](MOAL/execution/machine/opcodes.py)
   + Assembly language
     + Assembler concept
     + Languages
@@ -1729,3 +1729,5 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + zedshaw.com/archive/indirection-is-not-abstraction/
 + www.cs.mun.ca/~harold/Courses/Old/CS3716.W12/Diary/Rod/grasp2/grasp2.html
 + https://en.wikipedia.org/wiki/Semantic_Web
++ https://developer.ridgerun.com/wiki/index.php/How_to_generate_sphinx_documentation_for_python_code_running_in_an_embedded_system#Edit_index.rst
++ http://scriptsonscripts.blogspot.com/2012/09/quick-sphinx-documentation-for-python.html
