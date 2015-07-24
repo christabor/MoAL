@@ -354,3 +354,14 @@ epub_exclude_files = ['search.html']
 
 # If false, no index is generated.
 # epub_use_index = True
+
+
+def skip(app, what, name, obj, skip, options):
+    invalid = ['__doc__', '__dict__', '__module__', '__slots__', '__weakref__']
+    if name in invalid:
+        return skip
+    return False
+
+
+def setup(app):
+    app.connect('autodoc-skip-member', skip)

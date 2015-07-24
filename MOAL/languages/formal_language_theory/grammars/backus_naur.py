@@ -32,9 +32,9 @@ def rand_day():
 
 
 def naive_bnf_parser(grammar):
-    """
-        Traditional Grammar example:
+    """A parser for Backus Naur Form grammars, represented as a dictionaries.
 
+        Traditional Grammar example:
         <date> ::= <month> <day> <year>
         <month> ::= "January" | "February | "March" | "April" | "May" | "June"
                     | "July" | "August" | "September" | "November" | "December"
@@ -57,6 +57,9 @@ def naive_bnf_parser(grammar):
         'name': {'name', 'is_rule': True, 'vals': []},
         'name': {'firstname', 'is_rule': False, 'vals': '...'},
         'name': {'lastname', 'is_rule': False, 'vals': '...'},
+
+        Args:
+            grammar (dict) - the grammar and rules to use for evaluation.
     """
     evaluation = []
 

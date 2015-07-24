@@ -11,25 +11,45 @@ class strictlist(list):
     """
 
     def __init__(self, items, valid_type=None):
+        """Instantiate a new strictlist object
+
+        Args:
+            items (list): a list of potential items for to be filtered.
+
+        Kwargs:
+            valid_type (type): an example type this list must validate against.
+
+        >>> print strictlist([1, 2, 'foo'], valid_type=int)
+        [1, 2]
+        """
         # Bind this list to a valid type, so no other types can be added
         # or mutated within the context of this class.
         self._type = valid_type
         self.items = [member for member in items if self._valid(member)]
 
     def __setitem__(self, index, value):
-        """Don't allow incorrect types to be added, but do so gracefully
+        """Set new items in the list.
+
+        Args:
+            index (int) - the index to add/update an item for.
+            value (mixed) - the item to add; this will be checked against
+                the type specific upon class creation.
+
+        Don't allow incorrect types to be added, but do so gracefully
         to allow for composition/flow operations."""
         if self._valid(value):
             super(strictlist, self).__setitem__(index, value)
         return self
 
     def __iter__(self):
+        """Returns an iterator of the embedded items."""
         return iter(self.items)
 
     def __getitem__(self, index):
         return self.items[index]
 
     def __len__(self):
+        """Returns the length of the embedded items."""
         return len(self.items)
 
     def __repr__(self):
@@ -39,6 +59,14 @@ class strictlist(list):
         return str(self.items)
 
     def _valid(self, val):
+        """Determines if the given value matches the type.
+
+        The correct type associated with this instance upon creation.
+        See __init__ for more.
+
+        Args:
+            val (mixed) - the value to check
+        """
         return isinstance(val, self._type)
 
     def do(self, func, val=None):
