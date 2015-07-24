@@ -367,7 +367,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Combinatorics](MOAL/maths/combinatorics/basic.py)
   + [Number theory](MOAL/maths/number_theory.py)
   + Group theory
-  + Category theory
+  + [Category theory](MOAL/maths/category_theory/cat_basics.py)
     * Sympy
   + Graph theory
     + Spectral graph theory

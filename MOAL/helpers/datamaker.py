@@ -25,3 +25,11 @@ def subnet_mask():
     op3 = '255.255.255.{}{}{}'.format(
         choice(range(1, 2)), choice(range(0, 9)), choice(range(0, 9)))
     return choice([op1, op2, op3])
+
+
+def random_dna(max=4):
+    dna = ''
+    acids = ['T', 'G', 'A', 'C']
+    for x in range(max):
+        dna += choice(acids)
+    return dna
