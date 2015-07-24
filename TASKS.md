@@ -646,7 +646,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Logic programming
     + Davis–Putnam
 + Matrix processing
-    + Exponentiating by squaring
+    + [Exponentiating by squaring](MOAL/algorithms/matrix_processing/matrix_processing.py)
     + Rutishauser
     + Strassen
     + Symbolic Cholesky decomposition
