@@ -1434,6 +1434,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Declarative
         + Hybrid / Time-space
       + [Ambiguous](MOAL/languages/formal_language_theory/grammars/context_free.py)
+      + [Chomsky normal form](MOAL/languages/formal_language_theory/grammars/context_free.py)p
       + [Backus-Naur Form (BFN)](MOAL/languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms

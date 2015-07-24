@@ -187,3 +187,16 @@ if DEBUG:
             print_h4('Testing wikipedia example 2 '
                      'with starting rule: {}'.format(left))
             tdpl.test_grammar(10, left, **wikipedia_kwargs2)
+
+        chomsky_normal_form = {
+            'ruleset': {
+                'S': 'O',
+                'O': 'Ea',
+                'a': '',  # Epsilon string
+                'E': 'O',
+            }
+        }
+        for left, right in chomsky_normal_form['ruleset'].iteritems():
+            print_h4('Testing Chomsky Normal Form (CNF) '
+                     'with starting rule: {}'.format(left))
+            tdpl.test_grammar(4, left, **chomsky_normal_form)
