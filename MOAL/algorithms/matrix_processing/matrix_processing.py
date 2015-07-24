@@ -8,6 +8,8 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_h4
+from MOAL.helpers.datamaker import random_matrix
 from MOAL.helpers import trials
 from pprint import pprint as ppr
 
@@ -61,8 +63,21 @@ def trial_exp(func, max=10):
     ppr(rounds)
     return rounds
 
+
+def test_matrix_with_exp(matrix):
+    """Test the exponentiation function with a bonafide matrix."""
+    ppr(matrix)
+    for row in matrix:
+        for k in row:
+            print(k, exp_by_squaring(k, 2))
+
+
 if DEBUG:
     with Section('Matrix Processing algorithms'):
+        print_h4('Trials with different squaring functions')
         res = trial_exp(exp_by_squaring)
         res2 = trial_exp(exp_by_convential)
         assert res == res2
+
+        print_h4('Trials with squaring function on matrices')
+        test_matrix_with_exp(random_matrix(rows=3, columns=3))
