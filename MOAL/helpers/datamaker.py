@@ -43,7 +43,31 @@ def random_dna(max=4):
     return dna
 
 
-def random_matrix(rows=4, columns=4, min=1, max=100):
+def random_inverse_binary_matrix(**kwargs):
+    """Generate a matrix filled with random 0's, -1's or 1's.
+
+    >>> random_binary_matrix(rows=2, columns=2)
+    [[0, 1, -1], [-1, 1, 0]]
+    """
+    if kwargs is None:
+        kwargs = {}
+    kwargs.update({'choices': [0, 1, -1]})
+    return random_matrix(**kwargs)
+
+
+def random_binary_matrix(**kwargs):
+    """Generate a matrix filled with random 0's or 1's.
+
+    >>> random_binary_matrix(rows=2, columns=2)
+    [[0, 1], [1, 0]]
+    """
+    if kwargs is None:
+        kwargs = {}
+    kwargs.update({'choices': [0, 1]})
+    return random_matrix(**kwargs)
+
+
+def random_matrix(rows=4, columns=4, min=1, max=100, choices=None):
     """Generate a matrix filled with random numbers.
 
     Kwargs:
@@ -51,6 +75,8 @@ def random_matrix(rows=4, columns=4, min=1, max=100):
         columns (int) - The number of columns for each row.
         min (int) - The minimum number to use in randrange
         max (int) - The maximum number to use in randrange
+        choices (list) - The choices to choose from, if specified.
+            If none specified, randrange(min, max) will be used.
 
     >>> random_matrix(rows=3, columns=3, min=1, max=2)
     [[94, 23, 50], [57, 28, 52], [94, 5, 45]]
@@ -59,6 +85,9 @@ def random_matrix(rows=4, columns=4, min=1, max=100):
     for row in range(rows):
         _row = []
         for _ in range(columns):
-            _row.append(rr(min, max))
+            if choices is not None:
+                _row.append(choice(choices))
+            else:
+                _row.append(rr(min, max))
         matrix.append(_row)
     return matrix
