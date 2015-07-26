@@ -10,7 +10,7 @@ if __name__ == '__main__':
 from MOAL.helpers.display import Section
 from MOAL.helpers.display import prnt
 from MOAL.helpers.trials import run_trials
-from MOAL.helpers.trials import _test_speed
+from MOAL.helpers.trials import test_speed
 from datetime import datetime as dt
 from faker import Factory
 from pymongo import MongoClient
@@ -36,7 +36,7 @@ def make_person():
     }
 
 
-@_test_speed
+@test_speed
 def insert_all(max_records):
     global _count
     global _testdata

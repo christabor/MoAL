@@ -11,7 +11,7 @@ from MOAL.helpers.display import Section
 from MOAL.helpers.display import print_success
 from MOAL.helpers.display import prnt
 from MOAL.helpers.trials import run_trials
-from MOAL.helpers.trials import _test_speed
+from MOAL.helpers.trials import test_speed
 from faker import Factory
 from redis import Redis
 
@@ -32,7 +32,7 @@ def insert_name(*args, **kwargs):
     pipe.get(key)
 
 
-@_test_speed
+@test_speed
 def insert_all(max_records):
     for n in range(max_records):
         insert_name()

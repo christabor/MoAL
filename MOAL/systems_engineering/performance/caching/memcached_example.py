@@ -12,7 +12,7 @@ from MOAL.helpers.display import print_success
 from MOAL.helpers.display import print_info
 from MOAL.helpers.display import print_warning
 from MOAL.helpers.display import print_h2
-from MOAL.helpers.trials import _test_speed
+from MOAL.helpers.trials import test_speed
 from uuid import uuid1
 from faker import Factory
 import psycopg2
@@ -40,7 +40,7 @@ def create_records(max_records):
     conn.commit()
 
 
-@_test_speed
+@test_speed
 def get_records(cur):
     cached = mclient.get(CACHE_KEY)
     if cached:

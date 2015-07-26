@@ -329,7 +329,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * Liskov Substitution
       * Interface segregation
       * Dependency Inversion
-    + GRASP
+    + [GRASP](MOAL/software_engineering/problem_solving/design_patterns/grasp)
       * [Controller](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
       * [Creator](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)
       * [Indirection](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.py)
@@ -406,7 +406,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
           + [O(2^n)](MOAL/maths/big_o.py)
           + [O(n!)](MOAL/maths/big_o.py)
     + Optimization
-      + Memoization
+      + [Memoization](MOAL/maths/applied/optimization/memoization.py)
       + Strength reduction
       + Caching
       + Linear programming

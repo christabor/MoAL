@@ -11,7 +11,7 @@ from MOAL.helpers.display import prnt
 from MOAL.helpers.display import Section
 from MOAL.helpers.generic import powerset_tree
 from MOAL.helpers.generic import substring_list
-from MOAL.helpers.trials import _test_speed
+from MOAL.helpers.trials import test_speed
 from pprint import pprint as ppr
 from random import choice
 
@@ -101,7 +101,7 @@ class ShallowSuffixTree(BaseSuffixTree):
     ]
     """
 
-    @_test_speed
+    @test_speed
     def _populate(self):
         self.tree = substring_list(self.word)
 
@@ -111,7 +111,7 @@ class DeepSuffixTree(BaseSuffixTree):
     """The deeper tree can be up to `l` levels deep and `l` levels wide
     -- where l is the length of the initial string."""
 
-    @_test_speed
+    @test_speed
     def _populate(self):
         """Example: banana_tree = {
             # [banana]

@@ -35,7 +35,7 @@ def run_sorting_trials(
     return results
 
 
-def _test_speed(func, *args, **kwargs):
+def test_speed(func, *args, **kwargs):
     """Decorator that wraps a function and provides a timer
     + results output for execution profiling."""
     @wraps(func)
