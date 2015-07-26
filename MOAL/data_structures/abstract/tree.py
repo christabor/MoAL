@@ -395,3 +395,44 @@ if DEBUG:
         assert tree.walk(4, 5) == []
         print(tree.walk(0, 4))
         assert tree.walk(0, 12) == []
+
+        """From Wikipedia:
+        "An octree is a tree data structure in which each internal node
+        has exactly eight children. Octrees are the three-dimensional
+        analog of quadtrees. Octrees are often used in 3D graphics and
+        3D game engines." - en.wikipedia.org/wiki/Octree
+        """
+        quadtree = Tree({
+            1: {'edges': [2, 3, 4, 5], 'val': 'quadroot', 'is_root': True},
+            2: {'edges': [], 'parent': 1},
+            3: {'edges': [6, 7, 8, 9], 'parent': 1},
+            4: {'edges': [], 'parent': 1},
+            5: {'edges': [], 'parent': 1},
+            6: {'edges': [], 'parent': 4},
+            7: {'edges': [], 'parent': 4},
+            8: {'edges': [], 'parent': 4},
+            9: {'edges': [], 'parent': 4},
+        })
+        print(quadtree)
+        quadtree.render_tree('quadtree-example.png')
+        octree = Tree({
+            0: {'edges': [1, 2, 3, 4, 5, 6, 7, 8], 'is_root': True},
+            1: {'edges': [], 'parent': 0},
+            2: {'edges': [], 'parent': 0},
+            3: {'edges': [], 'parent': 0},
+            4: {'edges': [9, 10, 11, 12, 13, 14, 15, 16], 'parent': 0},
+            5: {'edges': [], 'parent': 0},
+            6: {'edges': [], 'parent': 0},
+            7: {'edges': [], 'parent': 0},
+            8: {'edges': [], 'parent': 0},
+            9: {'edges': [], 'parent': 4},
+            10: {'edges': [], 'parent': 4},
+            11: {'edges': [], 'parent': 4},
+            12: {'edges': [], 'parent': 4},
+            13: {'edges': [], 'parent': 4},
+            14: {'edges': [], 'parent': 4},
+            15: {'edges': [], 'parent': 4},
+            16: {'edges': [], 'parent': 4},
+        })
+        print(octree)
+        octree.render_tree('octree-example.png')

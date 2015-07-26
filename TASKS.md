@@ -43,6 +43,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Graph](MOAL/data_structures/graphs/graphs.py)
 + Linear
   + [Arrays](MOAL/data_structures/abstract/array_and_linked_lists.py)
+    + [Linear octree](MOAL/data_structures/linear/array/linear_trees.py)
+    + [Linear quadtree](MOAL/data_structures/linear/array/linear_trees.py)
     + [Overloaded arrays](MOAL/helpers/adts.py)
     + [Suffix arrays](MOAL/data_structures/linear/array/suffix_arrays.py)
       + Compressed suffix array
@@ -174,9 +176,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * Implicit kd-tree
       * Min/max kd-tree
       * Adaptive k-d
-    + Quad
-    + Oc
-      + Linear
+    + [Quad](MOAL/data_structures/abstract/tree.py)
+    + [Octree](MOAL/data_structures/abstract/tree.py)
     + Z-order
     + UB
     + R
