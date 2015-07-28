@@ -93,6 +93,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Hash list
   + [Hash table](MOAL/data_structures/hashes/hashtable.py)
   + Hash tree
+    + Merkle tree
   + Hash trie
   + Koorde
   + Prefix hash tree
@@ -507,11 +508,11 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Diffie-Hellman / Merkle
         + NTRUEncrypt
     + Message digest functions
-        + MD5
-        + RIPEMD
-        + SHA-1
-        + HMAC
-        + Tiger (TTH)
+        + [MD5](MOAL/algorithms/cryptography/digest/message_digest.py)
+        + [RIPEMD](MOAL/algorithms/cryptography/digest/message_digest.py)
+        + [SHA-1](MOAL/algorithms/cryptography/digest/message_digest.py)
+        + [HMAC](MOAL/algorithms/cryptography/digest/message_digest.py)
+        + [Tiger (TTH)](MOAL/algorithms/cryptography/digest/message_digest.py)
     + Techniques
         + Shamir's secret sharing scheme
         + Blakley's secret sharing scheme
