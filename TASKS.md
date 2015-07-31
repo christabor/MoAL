@@ -926,6 +926,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 ## Computer Organization
 
+Note: some encoding schemes are not really used in computer organization, but are grouped as such because there is some crossover. In most cases, many of the numeral systems below can be seen as simply pure mathematical notation in the context of a writing system.
+
 + Transistors
 + Logic gates
 + [Data-types & representation](MOAL/computer_organization/data_types.py)
@@ -1734,3 +1736,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://en.wikipedia.org/wiki/Semantic_Web
 + https://developer.ridgerun.com/wiki/index.php/How_to_generate_sphinx_documentation_for_python_code_running_in_an_embedded_system#Edit_index.rst
 + http://scriptsonscripts.blogspot.com/2012/09/quick-sphinx-documentation-for-python.html
++ www.crypto101.io/
