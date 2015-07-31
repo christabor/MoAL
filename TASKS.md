@@ -1000,7 +1000,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Negaternary
     + Negafibonacci
   + Mixed radix
-    + Factoradic
+    + [Factoradic](MOAL/computer_organization/factoradic.py)
   + Bijective
     + base-10
     + base-26
