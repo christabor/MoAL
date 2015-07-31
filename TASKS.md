@@ -240,7 +240,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Multigraph](MOAL/data_structures/graphs/multigraph.py)
   + [Hypergraph](MOAL/data_structures/graphs/hypergraph.py)
 + Other
-  + Lightmap
+  + [Lightmap](MOAL/data_structures/other/lightmap.py)
   + Winged edge
   + Quad-edge
   + [Routing table](MOAL/data_structures/other/routing_table.py)
