@@ -9,10 +9,6 @@ if __name__ == '__main__':
 
 from MOAL.helpers.text import gibberish
 from MOAL.helpers.display import Section
-from MOAL.helpers.display import print_vars
-from random import randrange as rr
-from pprint import pprint as ppr
-from uuid import uuid1
 
 DEBUG = True if __name__ == '__main__' else False
 
@@ -21,50 +17,63 @@ class NaiveHashTable(object):
 
     def __init__(self):
         self.count = 1
+        self.max_capacity = 100
         self.items = []
-        # Create a new random seed to draw from when using the hash function.
-        # Each one is unique to the instance, so collisions are
-        # practically non-existent (though the amount of bits necessary
-        # to store it is unnecessarily large.)
-        self.random_seed = int(uuid1())
-        if DEBUG:
-            print('Random big seed for modulo: {}'.format(self.random_seed))
+
+    def _naive_hash_value(self, val):
+        """Compute an integer signature relative to the value given. This
+        is very naive and will result in collisions in a short matter of time.
+        Only here for demo purposes, as this data structure is not performant
+        for production use."""
+        val = str(val)
+        _key = ''
+        for v in list(val):
+            _key += str(ord(v))
+        return int(_key)
 
     def hash(self, key):
-        return key % self.random_seed
+        """Super naive hashing function - collisions are highly probable."""
+        return self._naive_hash_value(key) % self.max_capacity
 
     def __iter__(self):
         return iter(self.items)
 
     def __getitem__(self, key):
-        return self.items[key]
+        return self.items[self.hash(key)]
 
     def __setitem__(self, key, value):
         hashkey = self.hash(key)
         if DEBUG:
-            print('Inserting `{}` under hash key {}'.format(value, hashkey))
-        self.items.append(value)
-        self.count += 1
+            print('Inserting `{}` under hash key {} with value: {}'.format(
+                key, hashkey, value))
+        # Expand the list into a sparse array to store keys.
+        if hashkey > len(self.items):
+            self.items += range(len(self.items), hashkey)
+        # Insert the value at the right key location.
+        self.items.insert(hashkey, value)
 
     def __delitem__(self, key):
-        del self[key]
-        self.count -= 1
+        del self.items[key]
 
     def fill_to(self, x):
         for _ in range(x):
-            self.__setitem__(rr(0, 9999), gibberish(length=6))
+            self.__setitem__(gibberish(length=3), gibberish(length=6))
 
 
 if DEBUG:
     with Section('Naive hash tables'):
         nht = NaiveHashTable()
-        keys = [rr(1, 100) for k in range(5)]
-        print_vars(['Keys', keys])
+        nht.fill_to(4)
 
-        for k in keys:
-            nht.fill_to(6)
+        nht['Foo'] = 'TEST'
+        nht['Bar'] = 'TEST'
+        nht['TEST'] = 'Bar'
 
-        for item in nht:
-            print('Reading... {}'.format(item))
+        # Test strings
+        assert nht['Foo'] == 'TEST'
+        assert nht['Bar'] == 'TEST'
+        assert nht['TEST'] == 'Bar'
 
-        ppr(nht.items)
+        # Test integers
+        nht[12] = 'Testnum'
+        assert nht[12] == 'Testnum'
