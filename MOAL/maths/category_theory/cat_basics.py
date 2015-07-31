@@ -9,20 +9,11 @@ if __name__ == '__main__':
 
 from MOAL.helpers.display import Section
 from MOAL.helpers.display import print_h4
+from MOAL.helpers.display import annotate
 from MOAL.helpers.display import print_simple
 from MOAL.helpers.datamaker import random_dna
-from functools import wraps
 
 DEBUG = True if __name__ == '__main__' else False
-
-
-def annotate(func, *args, **kwargs):
-    """A decorate to annotate with the function name when it's called."""
-    @wraps(func)
-    def _inner(*args, **kwargs):
-        print('Calling function: "{}"'.format(func.__name__))
-        return func(*args, **kwargs)
-    return _inner
 
 
 @annotate

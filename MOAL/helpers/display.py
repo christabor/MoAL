@@ -1,10 +1,21 @@
 from blessings import Terminal
 from pprint import pprint as ppr
+from functools import wraps
+
 
 term = Terminal()
 
 # Display utilities
 MAX_WIDTH = 80
+
+
+def annotate(func, *args, **kwargs):
+    """A decorate to annotate with the function name when it's called."""
+    @wraps(func)
+    def _inner(*args, **kwargs):
+        print('Calling function: "{}"'.format(func.__name__))
+        return func(*args, **kwargs)
+    return _inner
 
 
 def _func_or_print(result, func):
