@@ -1624,7 +1624,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Just-in-time compilation
   + Self-interpreter
 + Virtual machine
-  + Process
+  + [Process](MOAL/execution/virtual_machine/process_vm.py)
   + System
   + Dynamic recompilation
   + Hardware-assisted virtualization
