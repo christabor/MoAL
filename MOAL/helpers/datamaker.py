@@ -91,3 +91,24 @@ def random_matrix(rows=4, columns=4, min=1, max=100, choices=None):
                 _row.append(rr(min, max))
         matrix.append(_row)
     return matrix
+
+
+def make_sparselist(vals, total, filler=0):
+    """Generate a sparse list with a given set of values.
+
+    Args:
+        vals (dict) - the list of indices and values,
+            where the key value represents the index to fill in
+        total (int) - the total length of the list. A length less than the
+            length of len(keys.values()) will throw a ValueError
+
+    Returns:
+        sparselist (list) - the sparselist.
+    """
+    if total < max(vals.keys()):
+        raise ValueError(
+            'Invalid length. Keys must be less than or equal to total.')
+    _sparselist = [filler for _ in range(total)]
+    for index, value in vals.iteritems():
+        _sparselist[index] = value
+    return _sparselist

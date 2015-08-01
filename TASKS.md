@@ -51,7 +51,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Bi-directional map](MOAL/data_structures/abstract/map.py)
     + [Bit](MOAL/computer_organization/data_types.py)
     + [Bit field](MOAL/computer_organization/bit_field.py)
-    + Bit Array
+    + [Bit vector](MOAL/computer_organization/bit_field.py)
+    + [Bit Array](MOAL/data_structures/linear/bitarray)
       + [Bitboard](MOAL/data_structures/linear/bitarray/bitboard.py)
       + [Bitmap](MOAL/data_structures/linear/bitarray/bitboard.py)
     + [Circular buffer](MOAL/data_structures/linear/array/circular_buffer.py)
@@ -65,7 +66,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Matrix
     + Parallel
     + Sorted
-    + Sparse
+    + [Sparse](MOAL/data_structures/linear/array/sparse.py)
     + Sparse matrix
     + Iliffe vector
     + Variable-length
