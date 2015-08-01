@@ -67,7 +67,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Parallel
     + Sorted
     + [Sparse](MOAL/data_structures/linear/array/sparse.py)
-    + Sparse matrix
+    + [Sparse matrix](MOAL/data_structures/linear/array/sparse.py)
     + Iliffe vector
     + Variable-length
   + Lists

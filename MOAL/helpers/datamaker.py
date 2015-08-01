@@ -105,10 +105,21 @@ def make_sparselist(vals, total, filler=0):
     Returns:
         sparselist (list) - the sparselist.
     """
-    if total < max(vals.keys()):
-        raise ValueError(
-            'Invalid length. Keys must be less than or equal to total.')
+    if len(vals.keys()) > 0:
+        if total < max(vals.keys()):
+            raise ValueError(
+                'Invalid length. Keys must be less than or equal to total.')
     _sparselist = [filler for _ in range(total)]
     for index, value in vals.iteritems():
         _sparselist[index] = value
     return _sparselist
+
+
+def make_sparsematrix(vals, total, rows=4, cols=4):
+    _sparsematrix = []
+    for col in range(cols):
+        _sparsematrix.append(make_sparselist({}, cols))
+    for coords, data in vals.iteritems():
+        row, col = coords
+        _sparsematrix[row][col] = data
+    return _sparsematrix
