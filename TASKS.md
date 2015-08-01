@@ -69,6 +69,10 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Sparse](MOAL/data_structures/linear/array/sparse.py)
     + [Sparse matrix](MOAL/data_structures/linear/array/sparse.py)
     + Iliffe vector
+      * Jagged array
+      * Triangular array
+      * Triangular matrix
+    + Dope vector
     + Variable-length
   + Lists
     + Array list
@@ -236,7 +240,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Sparse
       + Compacted
     + [Acyclic](MOAL/data_structures/graphs/graphs.py)
-      + Propositional
+      + [Propositional](MOAL/data_structures/graphs/binary_decision_diagram.py)
       + And-inverter
   + [Multigraph](MOAL/data_structures/graphs/multigraph.py)
   + [Hypergraph](MOAL/data_structures/graphs/hypergraph.py)
