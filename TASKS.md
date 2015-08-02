@@ -95,7 +95,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Double Hashing
   + Dynamic perfect hash table
   + Hash array mapped trie (HAMT)
-  + Hash list
+  + [Hash list](MOAL/data_structures/hashes/hash_list.py)
   + [Hash table](MOAL/data_structures/hashes/hashtable.py)
   + Hash tree
     + Merkle tree
@@ -1742,3 +1742,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://developer.ridgerun.com/wiki/index.php/How_to_generate_sphinx_documentation_for_python_code_running_in_an_embedded_system#Edit_index.rst
 + http://scriptsonscripts.blogspot.com/2012/09/quick-sphinx-documentation-for-python.html
 + www.crypto101.io/
++ https://en.wikipedia.org/wiki/List_of_hash_functions

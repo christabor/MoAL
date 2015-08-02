@@ -2,6 +2,8 @@ import platform
 from random import choice
 from string import ascii_letters
 from string import ascii_uppercase as uppers
+from string import letters
+from string import punctuation
 
 
 def gibberish(length=10):
@@ -21,6 +23,16 @@ def gibberish2(length=3):
             _letters), choice(vowels), choice(_letters)
         return first + middle + last
     return ''.join([token() for _ in range(length)])
+
+
+def gibberish3(length=3):
+    """Returns somewhat normal looking gibberish"""
+    f = ''
+    chars = punctuation + letters
+    while length > 0:
+        f += choice(chars)
+        length -= 1
+    return f
 
 
 def randchars(c):

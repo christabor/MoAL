@@ -15,6 +15,10 @@ DEBUG = True if __name__ == '__main__' else False
 
 class NaiveHashTable(object):
 
+    # See en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+    fnv_offset_basis = 14695981039346656037
+    fnv_prime = 1099511628211
+
     def __init__(self):
         self.count = 1
         self.max_capacity = 100
@@ -29,7 +33,27 @@ class NaiveHashTable(object):
         _key = ''
         for v in list(val):
             _key += str(ord(v))
+        # To prevent errors in empty data,
+        # we return 0 as it does not affect the sum when hashing
+        if _key == '':
+            return 0
         return int(_key)
+
+    def hash_fnv1(self, data):
+        hash = self.fnv_offset_basis  # FNV offset basis
+        for byte in data:
+            byte = ord(byte)
+            hash *= self.fnv_prime
+            hash ^= byte
+        return hash
+
+    def hash_fnv1a(self, data):
+        hash = self.fnv_offset_basis
+        for byte in data:
+            byte = ord(byte)
+            hash ^= byte
+            hash *= self.fnv_prime
+        return hash
 
     def hash(self, key):
         """Super naive hashing function - collisions are highly probable."""
