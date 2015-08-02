@@ -53,7 +53,7 @@ def calculate_rolling_hash(substring, string):
 
 def calculate_rolling_hash_average(substring, string):
     p, s = calculate_rolling_hash(substring, string)
-    return int(p) % 4096
+    return int(p) % 4096, int(''.join(map(str, s))) % 4096
 
 
 if DEBUG:
