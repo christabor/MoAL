@@ -102,7 +102,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Hash trie
   + Koorde
   + Prefix hash tree
-  + Rolling hash
+  + [Rolling hash](MOAL/data_structures/hashes/rolling_hash.py)
   + MinHash
   + Quotient filter
 + Trees
@@ -648,7 +648,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Special number field sieve
         + General number field sieve (GNS)
 + Merging
-    + Simple Merge
+    + [Simple Merge](MOAL/algorithms/sorting/merge_sort.py)
     + k-way Merge
 + Logic programming
     + Davis–Putnam
