@@ -93,6 +93,10 @@ def random_matrix(rows=4, columns=4, min=1, max=100, choices=None):
     return matrix
 
 
+def random_uniform_matrix(size, **kwargs):
+    return random_matrix(rows=size, columns=size, **kwargs)
+
+
 def make_sparselist(vals, total, filler=0):
     """Generate a sparse list with a given set of values.
 
