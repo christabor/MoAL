@@ -45,7 +45,7 @@ class PartiallyPersistentNode(PersistentDataStructure):
         print('Current data: {}'.format(self.data))
         return ''
 
-    def __delitem__(self):
+    def __delitem__(self, key):
         """Deleting an item is not allowed, as the data structure
         should be immutable."""
         raise MutableAccessException
@@ -161,6 +161,10 @@ if DEBUG:
         pnode['foo'] = [2, 3, 4, 5]
         # Should work, since it's new
         pnode['bar'] = [1, 2, 3]
+        try:
+            del pnode['bar']
+        except MutableAccessException:
+            pass
         try:
             # Should not work, since it exists,
             # and is no longer the current item.

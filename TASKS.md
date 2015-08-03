@@ -18,9 +18,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Full](MOAL/data_structures/persistent.py)
   + [Confluent](MOAL/data_structures/persistent.py)
 + Succinct
-+ Retroactive
-  + Partial
-  + Full
++ [Retroactive](MOAL/data_structures/retroactive.py)
+  + [Partial](MOAL/data_structures/retroactive.py)
+  + [Full](MOAL/data_structures/retroactive.py)
 + [Abstract data types](MOAL/data_structures/abstract/)
   + [Arrays](MOAL/data_structures/abstract/array_and_linked_lists.py)
   + [Container](MOAL/data_structures/abstract/container.py)
