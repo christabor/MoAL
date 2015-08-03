@@ -997,7 +997,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Redundant binary representation (RBR)
   + Quote notation
   + Fibonacci coding
-  + Skew binary
+  + [Skew binary](MOAL/computer_organization/skew_binary.py)
   + Ostrowski numeration
   + Negative
     + Negabinary
