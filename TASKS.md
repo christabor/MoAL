@@ -1718,19 +1718,19 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + *The Language of Machines: An Introduction to Computability and Formal Languages* - Robert W. Floyd, Richard Beigel
 
 ### Notes, Q/A, research
-+ stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
++ www.stackoverflow.com/questions/2487576/trie-vs-suffix-tree-vs-suffix-array
 + research.microsoft.com/en-us/um/people/gurevich/Opera/78.pdf
 + symbolicanalysis.wordpress.com/category/other-methodologies/turing-machine-and-related-automata/
 + github.com/boyers/theorem_prover
 + symbolicanalysis.wordpress.com/2009/12/15/propositional-directed-acyclic-graph-pdag-vs-aho/
 + quora.com/What-is-the-difference-between-Top-Down-parsing-and-Bottom-up-parsing-in-programming-languages
 + github.com/raganwald-deprecated/homoiconic/blob/master/2009-10-08/metalinguistic.md
-+ youtube.com/watch?v=0JXhJyTo5V8
++ www.youtube.com/watch?v=0JXhJyTo5V8
 + echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew
-+ stackoverflow.com/questions/9624774/after-mysql-install-via-brew-i-get-the-error-the-server-quit-without-updating
++ www.stackoverflow.com/questions/9624774/after-mysql-install-via-brew-i-get-the-error-the-server-quit-without-updating
 + https://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules
-+ youtube.com/playlist?list=PLFDnELG9dpVxEpbyL53CYebmLI58qJhlt
-+ scriptol.com/programming/list-algorithms.php
++ www.youtube.com/playlist?list=PLFDnELG9dpVxEpbyL53CYebmLI58qJhlt
++ www.scriptol.com/programming/list-algorithms.php
 + www.wisegeek.com/what-is-a-free-list.htm
 + www.youtube.com/watch?v=ED2iJXkdhCQ
 + www.slideshare.net/AlexRomanoff/introduction-to-pairwise-testing-31094064
