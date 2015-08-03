@@ -1009,7 +1009,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Bijective
     + base-10
     + base-26
-  + 1-adic bijective (tally)
+  + [1-adic bijective (tally)](MOAL/computer_organization/positional.py)
   + Johnson code
   + Gray code
     + n-ary
@@ -1482,7 +1482,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + Multiple dispatch
         + Static binding
         + Virtual function
-        + Subtyping
+        + Sub-typing
         + Static / Dynamic binding
   + Array programming
     + J
@@ -1495,7 +1495,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Dataflow
     + Flow based
     + Cell-oriented
-    + Ractive
+    + Reactive
     + Pipeline
       + Hartmann
       + [UNIX](MOAL/languages/paradigms/dataflow/pipelines/unix_cmds.sh)
@@ -1535,7 +1535,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Sub-structural
   + Uniqueness
   + Strong
-  + weak
+  + Weak
 
 ## Program Execution
 
