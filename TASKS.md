@@ -10,13 +10,13 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 ## Data structures / types
 
-+ Persistent
-  + Partial
-      + Fat node
++ [Persistent](MOAL/data_structures/persistent.py)
+  + [Partial](MOAL/data_structures/persistent.py)
+      + [Fat node](MOAL/data_structures/persistent.py)
       + Path copying
       + Fat / path combination
-  + Full
-  + Confluent
+  + [Full](MOAL/data_structures/persistent.py)
+  + [Confluent](MOAL/data_structures/persistent.py)
 + Succinct
 + Retroactive
   + Partial
