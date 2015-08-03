@@ -420,15 +420,15 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + Augmented form
         + Duality
     + Probability theory
-    + Statistics
+    + [Statistics](MOAL/maths/probability.py)
       + [Probability](MOAL/maths/probability.py)
-    + Cryptography
+    + [Cryptography](MOAL/maths/applied/computational/cryptography)
       + Zero-knowledge proofs
-      + Ciphers
+      + [Ciphers](MOAL/maths/applied/computational/cryptography/ciphers)
         + Historical
           + Substitution
             + [ROT13](MOAL/maths/applied/computational/cryptography/ciphers/historical/substitution/rot13.py)
-          + Transposition
+          + [Transposition](MOAL/maths/applied/computational/cryptography/ciphers/historical/transposition)
             + [Rail fence](MOAL/maths/applied/computational/cryptography/ciphers/historical/transposition/railfence.py)
         + Modern
           + Key type
@@ -847,7 +847,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Sieve of Atkin
     + Solovay-Strassen
 + Numerical
-    + Fibonacci sequence
+    + [Fibonacci sequence](MOAL/maths/number_theory.py)
     + Biconjugate gradient method
     + Dancing Links
     + De Boor
@@ -1650,60 +1650,60 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 ### Other resources
 
 *Wikipedia*
-+ wikipedia.org/wiki/List_of_important_publications_in_computer_science
-+ wikipedia.org/wiki/Analysis#Computer_science
-+ wikipedia.org/wiki/Central_processing_unit
-+ wikipedia.org/wiki/System_on_a_chip
-+ wikipedia.org/wiki/Programming_paradigm
-+ wikipedia.org/wiki/List_of_algorithms
-+ wikipedia.org/wiki/NoSQL
-+ wikipedia.org/wiki/Evaluation_strategy
-+ wikipedia.org/wiki/Machine_learning
-+ wikipedia.org/wiki/Recurrent_neural_network
-+ wikipedia.org/wiki/Register_machine
-+ wikipedia.org/wiki/Cellular_automaton
-+ wikipedia.org/wiki/Turing_machine
-+ wikipedia.org/wiki/Static_program_analysis
-+ wikipedia.org/wiki/Lists_of_network_protocols
-+ wikipedia.org/wiki/Communications_protocol
-+ wikipedia.org/wiki/Software_development_process
-+ wikipedia.org/wiki/Software_testing#Testing_methods
-+ wikipedia.org/wiki/Cipher
-+ wikipedia.org/wiki/Type_theory
-+ wikipedia.org/wiki/Remote_procedure_call
-+ wikipedia.org/wiki/Inter-process_communication
-+ wikipedia.org/wiki/Performance_engineering
-+ wikipedia.org/wiki/Persistent_data_structure
-+ wikipedia.org/wiki/Software_design_pattern
-+ wikipedia.org/wiki/Category:Formal_languages
-+ wikipedia.org/wiki/Retroactive_data_structures
-+ wikipedia.org/wiki/Linear_programming
-+ wikipedia.org/wiki/Modeling_language
-+ wikipedia.org/wiki/Formal_grammar#The_Chomsky_hierarchy
-+ wikipedia.org/wiki/LL_parser
-+ wikipedia.org/wiki/List_of_programming_languages_by_type#Machine_languages
-+ wikipedia.org/wiki/Comparison_of_data_serialization_formats
-+ wikipedia.org/wiki/Thread_(computing)#Processes.2C_kernel_threads.2C_user_threads.2C_and_fibers
-+ wikipedia.org/wiki/List_of_compilers
-+ wikipedia.org/wiki/Logic#Types_of_logic
-+ wikipedia.org/wiki/Discrete_mathematics
-+ wikipedia.org/wiki/Hardware_description_language
-+ wikipedia.org/wiki/Symbol_table
-+ wikipedia.org/wiki/Mathematics#Fields_of_mathematics
-+ wikipedia.org/wiki/Lexical_analysis
-+ wikipedia.org/wiki/Mathematical_logic
-  + wikipedia.org/wiki/Set_theory#Areas_of_study
-  + wikipedia.org/wiki/Proof_theory
-  + wikipedia.org/wiki/Computability_theory#Areas_of_research
-  + wikipedia.org/wiki/Model_theory
-+ wikipedia.org/wiki/List_of_data_structures
-+ wikipedia.org/wiki/List_of_numeral_systems
-  + wikipedia.org/wiki/Factorial_number_system
-  + wikipedia.org/wiki/Gray_code
-  + wikipedia.org/wiki/Bitwise_operation
-+ wikipedia.org/wiki/Coding_theory
-+ wikipedia.org/wiki/Aspect-oriented_software_development
-+ wikipedia.org/wiki/GRASP_(object-oriented_design)
++ https://en.wikipedia.org/wiki/List_of_important_publications_in_computer_science
++ https://en.wikipedia.org/wiki/Analysis#Computer_science
++ https://en.wikipedia.org/wiki/Central_processing_unit
++ https://en.wikipedia.org/wiki/System_on_a_chip
++ https://en.wikipedia.org/wiki/Programming_paradigm
++ https://en.wikipedia.org/wiki/List_of_algorithms
++ https://en.wikipedia.org/wiki/NoSQL
++ https://en.wikipedia.org/wiki/Evaluation_strategy
++ https://en.wikipedia.org/wiki/Machine_learning
++ https://en.wikipedia.org/wiki/Recurrent_neural_network
++ https://en.wikipedia.org/wiki/Register_machine
++ https://en.wikipedia.org/wiki/Cellular_automaton
++ https://en.wikipedia.org/wiki/Turing_machine
++ https://en.wikipedia.org/wiki/Static_program_analysis
++ https://en.wikipedia.org/wiki/Lists_of_network_protocols
++ https://en.wikipedia.org/wiki/Communications_protocol
++ https://en.wikipedia.org/wiki/Software_development_process
++ https://en.wikipedia.org/wiki/Software_testing#Testing_methods
++ https://en.wikipedia.org/wiki/Cipher
++ https://en.wikipedia.org/wiki/Type_theory
++ https://en.wikipedia.org/wiki/Remote_procedure_call
++ https://en.wikipedia.org/wiki/Inter-process_communication
++ https://en.wikipedia.org/wiki/Performance_engineering
++ https://en.wikipedia.org/wiki/Persistent_data_structure
++ https://en.wikipedia.org/wiki/Software_design_pattern
++ https://en.wikipedia.org/wiki/Category:Formal_languages
++ https://en.wikipedia.org/wiki/Retroactive_data_structures
++ https://en.wikipedia.org/wiki/Linear_programming
++ https://en.wikipedia.org/wiki/Modeling_language
++ https://en.wikipedia.org/wiki/Formal_grammar#The_Chomsky_hierarchy
++ https://en.wikipedia.org/wiki/LL_parser
++ https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Machine_languages
++ https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats
++ https://en.wikipedia.org/wiki/Thread_(computing)#Processes.2C_kernel_threads.2C_user_threads.2C_and_fibers
++ https://en.wikipedia.org/wiki/List_of_compilers
++ https://en.wikipedia.org/wiki/Logic#Types_of_logic
++ https://en.wikipedia.org/wiki/Discrete_mathematics
++ https://en.wikipedia.org/wiki/Hardware_description_language
++ https://en.wikipedia.org/wiki/Symbol_table
++ https://en.wikipedia.org/wiki/Mathematics#Fields_of_mathematics
++ https://en.wikipedia.org/wiki/Lexical_analysis
++ https://en.wikipedia.org/wiki/Mathematical_logic
+  + https://en.wikipedia.org/wiki/Set_theory#Areas_of_study
+  + https://en.wikipedia.org/wiki/Proof_theory
+  + https://en.wikipedia.org/wiki/Computability_theory#Areas_of_research
+  + https://en.wikipedia.org/wiki/Model_theory
++ https://en.wikipedia.org/wiki/List_of_data_structures
++ https://en.wikipedia.org/wiki/List_of_numeral_systems
+  + https://en.wikipedia.org/wiki/Factorial_number_system
+  + https://en.wikipedia.org/wiki/Gray_code
+  + https://en.wikipedia.org/wiki/Bitwise_operation
++ https://en.wikipedia.org/wiki/Coding_theory
++ https://en.wikipedia.org/wiki/Aspect-oriented_software_development
++ https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)
 
 *Misc*
 + fullstackpython.com/table-of-contents.html
@@ -1728,7 +1728,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + youtube.com/watch?v=0JXhJyTo5V8
 + echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew
 + stackoverflow.com/questions/9624774/after-mysql-install-via-brew-i-get-the-error-the-server-quit-without-updating
-+ wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules
++ https://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules
 + youtube.com/playlist?list=PLFDnELG9dpVxEpbyL53CYebmLI58qJhlt
 + scriptol.com/programming/list-algorithms.php
 + www.wisegeek.com/what-is-a-free-list.htm
