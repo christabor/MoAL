@@ -64,10 +64,11 @@ class BinarySearchTree(BinaryTree):
             return False
 
     def rebalance(self, node):
-        if len(node['edges']) < 2:
+        edges = node['edges']
+        if len(edges) < 2:
             return
-        if self._lt(node['edges'][0], node['edges'][1]):
-            list(reversed(node['edges']))
+        if self._lt(edges[0], edges[1]):
+            list(reversed(edges))
 
 
 class BifurcatingArborescence(BinaryTree):
