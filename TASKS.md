@@ -106,7 +106,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + MinHash
   + Quotient filter
 + Trees
-  + Binary
+  + [Binary](MOAL/data_structures/trees/binary_trees.py)
     + AA
     + [AVL](MOAL/data_structures/trees/avl_trees.py)
     + [Binary search](MOAL/data_structures/trees/binary_search_trees.py)
@@ -114,7 +114,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * Self-balancing binary search
     + [Binary](MOAL/data_structures/trees/binary_trees.py)
     + [Cartesian](MOAL/data_structures/trees/cartesian_trees.py)
-    + Order statistic
+    + [Order statistic](MOAL/data_structures/trees/order_statistic_bst.py)
     + Pagoda
     + Red-black
     + Rope
@@ -1489,6 +1489,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Meta-programming
     + Languages
       + Racket
+      + Scheme
   + Template meta-programming
   + Automatic
     + Program synthesis

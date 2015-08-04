@@ -70,9 +70,10 @@ class BinarySearchTree(BinaryTree):
             return False
 
     def rebalance_children(self, node, current=None):
-        print('Balancing children...')
-        """The first index is the left, and the second, the right, so
+        """Does a cascade of re-balances, but only for each child node.
+        The first index is the left, and the second, the right, so
         re-balancing these child nodes is simply ensuring largest comes last."""
+        print('Balancing children...')
         if current is not None:
             node = self.__getitem__(current)
             node['edges'] = sorted(node['edges'])

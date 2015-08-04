@@ -13,7 +13,7 @@ from MOAL.helpers.text import gibberish
 from MOAL.helpers.display import Section
 
 
-class BinarySearchTree:
+class BinarySearchTree(object):
     """BST Code sample originally from interactivepython.org
         /runestone/static/pythonds/Trees/bst.html#lst-bst1,
         with some modifications.
@@ -88,6 +88,7 @@ class BinarySearchTree:
                 self._put(key, val, current_node.right_child)
             else:
                 current_node.right_child = Node(key, val, parent=current_node)
+        return current_node
 
     def get(self, key):
         return self._get(key, self.root) if self.root else None
@@ -268,6 +269,8 @@ class Node:
         self.right_child = right
         self.parent = parent
         self.balance_factor = 0
+        self.size = 0
+        self.name = key
 
     def __iter__(self):
         # This method seemingly iterates over one node only, but since
@@ -278,7 +281,7 @@ class Node:
             if self.has_left_child():
                 for node in self.left_child:
                     yield node
-            yield self.key
+            yield self
             # Yield right nodes if they exist.
             if self.has_right_child():
                 for node in self.right_child:
