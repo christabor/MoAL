@@ -30,10 +30,12 @@ class BinaryTree(Tree):
         super(BinaryTree, self).__setitem__(key, val)
 
     def get_left_child(self, node):
+        if len(node['edges']) == 0:
+            return None
         return node['edges'][0]
 
     def get_right_child(self, node):
-        if len(node['edges'] < 2):
+        if len(node['edges']) < 2:
             return None
         return node['edges'][1]
 
