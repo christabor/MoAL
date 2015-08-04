@@ -30,13 +30,11 @@ class BinaryTree(Tree):
         super(BinaryTree, self).__setitem__(key, val)
 
     def get_left_child(self, node):
-        if len(node['edges'] < 2):
-            raise InvalidChildNodeCount
         return node['edges'][0]
 
     def get_right_child(self, node):
         if len(node['edges'] < 2):
-            raise InvalidChildNodeCount
+            return None
         return node['edges'][1]
 
     def is_degenerate(self):
