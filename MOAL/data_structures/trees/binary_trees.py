@@ -50,12 +50,16 @@ class BinarySearchTree(BinaryTree):
 
     def __init__(self, *args, **kwargs):
         super(BinarySearchTree, self).__init__(*args, **kwargs)
-        self.rebalance(self.get_root())
+        self.rebalance_children(self.get_root()['node'])
+
+    def __setitem__(self, key, val):
+        super(BinarySearchTree, self).__setitem__(key, val)
+        self.rebalance_children(key)
 
     def _lt(self, node_a, node_b):
         """Comparator function, which can be used to implement a BST.
-        This should be sub-classed and overridden for customer comparisons,
-        beyond typical integer comparison."""
+        This should be sub-classed and overridden for custom comparisons,
+        beyond typical integer comparison of BSTs."""
         node_a = self.__getitem__(node_a)
         node_b = self.__getitem__(node_b)
         if 'val' in node_a and 'val' in node_b:
@@ -63,12 +67,17 @@ class BinarySearchTree(BinaryTree):
         else:
             return False
 
-    def rebalance(self, node):
-        edges = node['edges']
-        if len(edges) < 2:
-            return
-        if self._lt(edges[0], edges[1]):
-            list(reversed(edges))
+    def rebalance_children(self, node, current=None):
+        print('Balancing children...')
+        """The first index is the left, and the second, the right, so
+        re-balancing these child nodes is simply ensuring largest comes last."""
+        if current is not None:
+            node = self.__getitem__(current)
+            node['edges'] = sorted(node['edges'])
+            self.rebalance_children(node, current=node)
+        else:
+            node = self.__getitem__(node)
+            node['edges'] = sorted(node['edges'])
 
 
 class BifurcatingArborescence(BinaryTree):

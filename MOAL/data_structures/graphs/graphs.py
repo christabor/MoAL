@@ -86,6 +86,8 @@ class Graph(object, GraphRendererMixin):
         self.node_count -= 1
 
     def __getitem__(self, vertex):
+        if vertex not in self.vertices:
+            return None
         return self.vertices[vertex]
 
     def __iter__(self):
