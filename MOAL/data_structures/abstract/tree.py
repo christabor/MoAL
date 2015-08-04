@@ -57,7 +57,7 @@ class Tree(Graph):
 
     def level(self, node_name):
         # Level: The level of a node is defined by 1 + the number of
-        #     connections between the node and the root.
+        # connections between the node and the root.
         raise NotImplementedError
 
     def __delitem__(self, key):
@@ -70,12 +70,12 @@ class Tree(Graph):
         del self.vertices[key]
         self.node_count -= 1
 
-    def __getitem__(self, key):
-        node = super(Tree, self).__getitem__(key)
-        return node
-
-    def __setitem__(self, key, val):
-        node = super(Tree, self).__setitem__(key, val)
+    def __setitem__(self, key, node):
+        # Make sure they're unique.
+        node['edges'] = set(node['edges'])
+        # Prevent linking to oneself
+        if key in node['edges']:
+            node['edges'].remove(key)
         # Set root to False if not specified, otherwise True
         node.update({'is_root': node.get('is_root', False)})
         node.update({'is_child': not node.get('is_root', True)})
@@ -84,6 +84,7 @@ class Tree(Graph):
         is_leaf = len(node.get('edges')) == 0
         node.update({'is_leaf': is_leaf})
         node.update({'parent': node.get('parent', None)})
+        super(Tree, self).__setitem__(key, node)
         return node
 
     def build_tree(self, **kwargs):
@@ -212,21 +213,31 @@ class Tree(Graph):
             return None
         return self.__getitem__(children[child_index + 1])
 
-    def add_sibling(self, key, node_name, data=None):
-        """Add a node on the same level as this node."""
-        new_node = Tree(node_name, data=data)
+    def add_sibling(self, node_name, new_node_name, data={}):
+        sibling = self.__getitem__(node_name)
+        parent = sibling['parent']
         # Make this sibling have the same parent.
-        new_node.parent = self.parent
-        # Update parent's children as well.
-        self.parent['edges'].append(new_node)
+        data = {'val': data, 'parent': parent, 'edges': []}
+        # # Update parent's children as well.
+        self.vertices[parent]['edges'].append(node_name)
+        self.__setitem__(new_node_name, data)
+        return data
+
+    def add_child(self, parent, new_key, new_vertices=[]):
+        """Add a node below this node."""
+        parent_node = self.__getitem__(parent)
+        new_node = {'parent': parent, 'edges': []}
+        parent_node['edges'].append(new_key)
+        self.__setitem__(new_key, new_node)
         return new_node
 
-    def add_child(self, node_name, new_key=None, new_vertices=[]):
-        """Add a node below this node."""
-        node = self.__getitem__(node_name)
-        new_node = self.__setitem__(new_key, new_vertices, parent=node)
-        node['edges'].append(new_node.name)
-        return node
+    def add_siblings(self, node_name, node_names):
+        sibling = self.__getitem__(node_name)
+        for new in node_names:
+            # Update existing
+            sibling['edges'].append(new)
+            # Add new node
+            self.__setitem__(new, {'edges': []})
 
     def change_parent(self, node_name, parent_name=None):
         """Swap this nodes' parent with a new parent node."""
@@ -395,6 +406,27 @@ if DEBUG:
         assert tree.walk(4, 5) == []
         print(tree.walk(0, 4))
         assert tree.walk(0, 12) == []
+
+        cmd_title('Testing: add_sibling', newlines=False)
+        tree.add_sibling(9, 11)
+
+        assert tree[11]['parent'] == tree[9]['parent']
+        assert 11 not in tree[9]['edges']
+        assert 9 not in tree[11]['edges']
+
+        cmd_title('Testing: add_child', newlines=False)
+        tree.add_child(9, 12)
+        tree.add_child(9, 13)
+
+        assert 12 in tree[9]['edges']
+        assert 13 in tree[9]['edges']
+
+        del tree[11]
+        tree.add_siblings(9, [100, 101, 102])
+
+        assert 100 in tree[9]['edges']
+        assert 101 in tree[9]['edges']
+        assert 102 in tree[9]['edges']
 
         """From Wikipedia:
         "An octree is a tree data structure in which each internal node

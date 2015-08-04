@@ -69,6 +69,7 @@ class Graph(object, GraphRendererMixin):
         key, vertices = args
         # Ensure it has no duplicate edges
         vertices['edges'] = list(set(vertices['edges']))
+        vertices['node'] = key
         self.vertices[key] = vertices
         self.node_count += 1
         return self.vertices[key]
@@ -177,7 +178,8 @@ class Graph(object, GraphRendererMixin):
         raise NotImplementedError
 
     def is_leaf(self, vertex):
-        """A leaf vertex is a vertex with no outbound edges."""
+        """In a plain graph, a leaf vertex is a
+        vertex with no outbound edges."""
         return self.degree(vertex) == 0
 
     def walk(self, start, end, path=[], test_cycle=False):
@@ -299,7 +301,7 @@ class DirectedCyclicGraph(DirectedGraph, CyclicGraph):
     pass
 
 
-class DirectedAcyclicGraph(DirectedGraph, CyclicGraph):
+class DirectedAcyclicGraph(DirectedGraph):
     pass
 
 
