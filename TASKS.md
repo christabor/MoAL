@@ -1527,8 +1527,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Static
   + Inferred
   + Manifest
-  + Nominal
-  + Structural
+  + [Nominal](MOAL/type_theory/nominal_structural.py)
+  + [Structural](MOAL/type_theory/nominal_structural.py)
   + Dependent
   + Duck
   + Gradual
