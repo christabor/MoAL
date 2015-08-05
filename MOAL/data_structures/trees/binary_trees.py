@@ -48,14 +48,14 @@ class BinaryTree(Tree):
         return self.is_degenerate()
 
 
-class BinarySearchTree(BinaryTree):
+class NaiveBinarySearchTree(BinaryTree):
 
     def __init__(self, *args, **kwargs):
-        super(BinarySearchTree, self).__init__(*args, **kwargs)
+        super(NaiveBinarySearchTree, self).__init__(*args, **kwargs)
         self.rebalance_children(self.get_root()['node'])
 
     def __setitem__(self, key, val):
-        super(BinarySearchTree, self).__setitem__(key, val)
+        super(NaiveBinarySearchTree, self).__setitem__(key, val)
         self.rebalance_children(key)
 
     def _lt(self, node_a, node_b):
@@ -122,7 +122,7 @@ if DEBUG:
         except InvalidChildNodeCount:
             cmd_title('Error called successfully', newlines=False)
 
-        bst = BinarySearchTree(data)
+        bst = NaiveBinarySearchTree(data)
         print(bst)
 
         bst.add_child(5, 6)

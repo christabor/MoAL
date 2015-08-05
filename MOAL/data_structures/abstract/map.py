@@ -24,11 +24,11 @@ DEBUG = True if __name__ == '__main__' else False
 class MapADT(AssociationList):
     """From wikipedia.org/wiki/Associative_array:
 
-    Operations associated with this data type allow:
+    "Operations associated with this data type allow:
         * The addition of pairs to the collection
         * The removal of pairs from the collection
         * The modification of the values of existing pairs
-        * The lookup of the value associated with a particular key
+        * The lookup of the value associated with a particular key"
 
     ----------------------------------------------------------------------
 
