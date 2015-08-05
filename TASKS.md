@@ -62,7 +62,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Gap buffer
     + [Hashed array tree](MOAL/data_structures/linear/array/hashed_array_tree.py)
     + Heightmap
-    + Lookup table
+    + [Lookup table](MOAL/maths/applied/optimization/memoization.py)
+    + [Branch table](MOAL/automata_theory/counter_machine.py)
     + Matrix
     + Parallel
     + Sorted
