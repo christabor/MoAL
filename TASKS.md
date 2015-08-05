@@ -60,7 +60,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Image](MOAL/data_structures/linear/array/image_array.py)
     + [Dynamic](MOAL/data_structures/abstract/array_and_linked_lists.py)
     + Gap buffer
-    + Hashed array tree
+    + [Hashed array tree](MOAL/data_structures/linear/array/hashed_array_tree.py)
     + Heightmap
     + Lookup table
     + Matrix
