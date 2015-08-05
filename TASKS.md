@@ -1153,6 +1153,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     - OWL
     - RIF
     - Unifying Logic and Proof layers
+
 ## Data Storage / Transmission
 
 + Storage
@@ -1405,6 +1406,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Haskell - monads
   + Haskell - guards
   + Haskell - comprehensions
+  + Haskell - refinement types
 + Evaluation strategies
   + Eager
   + Lazy
@@ -1531,7 +1533,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + [Nominal](MOAL/type_theory/nominal_structural.py)
   + [Structural](MOAL/type_theory/nominal_structural.py)
   + Dependent
-  + Duck
+  + [Duck](MOAL/type_theory/duck.py)
   + Gradual
   + Latent
   + Sub-structural
@@ -1745,3 +1747,6 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://scriptsonscripts.blogspot.com/2012/09/quick-sphinx-documentation-for-python.html
 + www.crypto101.io/
 + https://en.wikipedia.org/wiki/List_of_hash_functions
++ http://kmcallister.github.io/talks/rust/2015-dependent-types/slides.html
++ http://chimera.labs.oreilly.com/books/1230000000929/index.html
++ https://www.fpcomplete.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell
