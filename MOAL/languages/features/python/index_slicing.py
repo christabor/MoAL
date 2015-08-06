@@ -8,7 +8,6 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from MOAL.helpers.display import Section
-from MOAL.helpers.display import print_h2
 from MOAL.helpers.display import prnt
 from random import shuffle
 import re
