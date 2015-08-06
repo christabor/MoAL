@@ -1396,7 +1396,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Python - decorator
     * Class
     * Method
-  + Python - context manager (with)
+  + [Python - context manager (with)](MOAL/languages/features/python/context_manager.py)
   + [Python - variable packing/unpacking](MOAL/languages/features/python/packing_unpacking.py)
   + Python - index slicing
   + Python - comprehensions
