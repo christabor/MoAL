@@ -223,6 +223,12 @@ class Tree(Graph):
         self.__setitem__(new_node_name, data)
         return data
 
+    def remove_child(self, node_name, child):
+        """Add a node below this node."""
+        node = self.__getitem__(node_name)
+        node['edges'].remove(child)
+        return node
+
     def add_child(self, parent, new_key, new_vertices=[]):
         """Add a node below this node."""
         parent_node = self.__getitem__(parent)

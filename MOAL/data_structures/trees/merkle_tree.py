@@ -8,6 +8,8 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_h2
+from MOAL.helpers.text import gibberish2
 from MOAL.data_structures.hashes.hashtable import NaiveHashTable
 from MOAL.data_structures.trees.binary_trees import BinaryTree
 from MOAL.data_structures.abstract.tree import Tree
@@ -51,14 +53,26 @@ class TigerTreeHash(BinaryTree, MerkleTree):
 
 if DEBUG:
     with Section('Hashed array tree'):
-        merkle = MerkleTree({
+        data = {
             0: {'edges': [1, 2, 3], 'is_root': True},
-            1: {'edges': [], 'parent': 0, 'val': 'Foobar'},
-            2: {'edges': [4], 'parent': 0, 'val': 'Foobar'},
-            3: {'edges': [5], 'parent': 0, 'val': 'Foobar'},
-            4: {'edges': [], 'parent': 0, 'val': 'Foobar'},
-            5: {'edges': [], 'parent': 0, 'val': 'Foobar'},
-        })
+            1: {'edges': [], 'parent': 0},
+            2: {'edges': [4], 'parent': 0},
+            3: {'edges': [5], 'parent': 0},
+            4: {'edges': [], 'parent': 0},
+            5: {'edges': [], 'parent': 0},
+        }
+        for k, node in data.iteritems():
+            node['val'] = gibberish2()
+
+        print_h2('Merkle Tree')
+        merkle = MerkleTree(data)
         for k, node in merkle.vertices.iteritems():
+            print('Node edges: {}, Child hash: {}'.format(
+                node['edges'], node['val']))
+
+        print_h2('Tiger Tree Hash')
+        data[0]['edges'].remove(3)
+        tth = TigerTreeHash(data)
+        for k, node in tth.vertices.iteritems():
             print('Node edges: {}, Child hash: {}'.format(
                 node['edges'], node['val']))
