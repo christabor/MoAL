@@ -63,9 +63,10 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Hashed array tree](MOAL/data_structures/linear/array/hashed_array_tree.py)
     + [Lookup table](MOAL/maths/applied/optimization/memoization.py)
     + [Branch table](MOAL/automata_theory/counter_machine.py)
-    + Matrix
-    + Parallel
-    + Sorted
+    + [Vector](MOAL/data_structures/abstract/array_and_linked_lists.py)
+    + [Matrix](MOAL/data_structures/abstract/array_and_linked_lists.py)
+    + [Parallel](MOAL/data_structures/abstract/array_and_linked_lists.py)
+    + [Sorted](MOAL/data_structures/abstract/array_and_linked_lists.py)
     + [Sparse](MOAL/data_structures/linear/array/sparse.py)
     + [Sparse matrix](MOAL/data_structures/linear/array/sparse.py)
     + Iliffe vector
@@ -73,7 +74,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * Triangular array
       * Triangular matrix
     + Dope vector
-    + Variable-length
+    + [Variable-length](MOAL/data_structures/abstract/array_and_linked_lists.py)
   + Lists
     + Array list
     + [Linked](MOAL/data_structures/abstract/array_and_linked_lists.py)

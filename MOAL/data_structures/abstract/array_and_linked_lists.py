@@ -10,9 +10,16 @@ if __name__ == '__main__':
 from MOAL.helpers.display import Section
 from MOAL.helpers.text import gibberish
 from MOAL.helpers.display import cmd_title
+from MOAL.helpers.display import print_h2
 from MOAL.helpers.display import prnt
+from MOAL.helpers.display import print_simple
+from MOAL.helpers import datamaker as dm
+from faker import Factory
+from random import shuffle
 
 DEBUG = True if __name__ == '__main__' else False
+
+faker = Factory.create()
 
 # Arrays are simple: []. Nothing special here.
 
@@ -236,7 +243,26 @@ if DEBUG:
             print(node)
             assert node.cargo
 
-# Glossary practice
+        print_h2('Parallel arrays')
+        # "Parallel" arrays
+        MAX_ITEMS = 10
+        names = [faker.name() for _ in range(MAX_ITEMS)]
+        emails = [faker.email() for _ in range(MAX_ITEMS)]
+        parallel = [names, emails]
+        for index in range(MAX_ITEMS):
+            print('Name: {}, Email: {}'.format(names[index], emails[index]))
 
-singleton = [1]
-not_singleton = [1, 2]
+        print_h2('Matrix/Vector arrays')
+        matrix = dm.random_matrix(rows=5, columns=5, choices=range(20))
+        print_simple('Matrix', matrix)
+
+        print_h2('Sorted array')
+        # Props to John Neumann for "inventing" it
+        orig = range(10)
+        shuffle(orig)
+        print('Shuffled: {}'.format(orig))
+        print('Sorted: {}'.format(sorted(orig)))
+
+        # Wikipedia glossary practice
+        singleton = [1]
+        not_singleton = [1, 2]
