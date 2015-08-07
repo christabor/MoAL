@@ -98,8 +98,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Hash array mapped trie (HAMT)
   + [Hash list](MOAL/data_structures/hashes/hash_list.py)
   + [Hash table](MOAL/data_structures/hashes/hashtable.py)
-  + Hash tree
-    + Merkle tree
   + Hash trie
   + Koorde
   + Prefix hash tree
@@ -107,6 +105,9 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + MinHash
   + Quotient filter
 + Trees
+  + [Hash tree](MOAL/data_structures/trees/)
+    + [Merkle tree](MOAL/data_structures/trees/merkle_tree.py)
+    + [Tiger Tree Hash](MOAL/data_structures/trees/merkle_tree.py)
   + [Binary](MOAL/data_structures/trees/binary_trees.py)
     + AA
     + [AVL](MOAL/data_structures/trees/avl_trees.py)
@@ -1750,3 +1751,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://kmcallister.github.io/talks/rust/2015-dependent-types/slides.html
 + http://chimera.labs.oreilly.com/books/1230000000929/index.html
 + https://www.fpcomplete.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell
++ http://rustbyexample.com
