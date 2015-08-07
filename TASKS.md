@@ -61,7 +61,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Dynamic](MOAL/data_structures/abstract/array_and_linked_lists.py)
     + Gap buffer
     + [Hashed array tree](MOAL/data_structures/linear/array/hashed_array_tree.py)
-    + Heightmap
     + [Lookup table](MOAL/maths/applied/optimization/memoization.py)
     + [Branch table](MOAL/automata_theory/counter_machine.py)
     + Matrix
@@ -247,6 +246,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Multigraph](MOAL/data_structures/graphs/multigraph.py)
   + [Hypergraph](MOAL/data_structures/graphs/hypergraph.py)
 + Other
+  + [Heightmap](MOAL/data_structures/other/heightmap.py)
   + [Lightmap](MOAL/data_structures/other/lightmap.py)
   + Winged edge
   + Quad-edge
@@ -1752,3 +1752,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://chimera.labs.oreilly.com/books/1230000000929/index.html
 + https://www.fpcomplete.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell
 + http://rustbyexample.com
++ http://www.alpcentauri.info/heightmaps.html
