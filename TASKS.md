@@ -275,7 +275,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Decision table](MOAL/software_engineering/testing/black_box/decision_table.py)
     + [All-pairs/orthogonal array](MOAL/software_engineering/testing/black_box/allpairs.py)
     + [State transition analysis](MOAL/execution/virtual_machine/process_vm.py)
-    + Equivalence partitioning
+    + [Equivalence partitioning](MOAL/software_engineering/testing/black_box/equivalence_partitioning.py)
     + Boundary value analysis
     + Cause-effect graph
     + Error guessing
