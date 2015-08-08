@@ -19,8 +19,8 @@ from MOAL.helpers.display import Section
 
 
 COUNT_LOCK = threading.Lock()
-TOTAL = 1
 DEBUG = True if __name__ == '__main__' else False
+total = 1
 
 
 class CountThread(threading.Thread):
@@ -32,19 +32,19 @@ class CountThread(threading.Thread):
         super(CountThread, self).start()
 
     def run(self):
-        # Make TOTAL a global variable, outside the scope of this
+        # Make total a global variable, outside the scope of this
         # function/class to demonstrate the thread updates
-        global TOTAL
+        global total
         for i in range(1000):
             # Must acquire and then release lock after every operation,
             # otherwise the global mutable state will be overwritten for each
             # thread that runs, resetting the value, which is significantly
-            # lower than the correct TOTAL.
+            # lower than the correct total.
             COUNT_LOCK.acquire()
-            TOTAL += 1
+            total += 1
             COUNT_LOCK.release()
         if DEBUG:
-            print('Total processed by {}: {}:'.format(self.name, TOTAL))
+            print('Total processed by {}: {}:'.format(self.name, total))
 
 
 class Worker:
