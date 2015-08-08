@@ -49,7 +49,7 @@ def _result(filepath, exception_info):
 
 
 def fmt_filename(path):
-    parts = filepath.split('/')
+    parts = path.split('/')
     pyfile = parts[len(parts) - 1]
     pyfile = pyfile.replace('.py', '')
     return pyfile
