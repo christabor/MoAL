@@ -278,7 +278,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Equivalence partitioning](MOAL/software_engineering/testing/black_box/equivalence_partitioning.py)
     + Boundary value analysis
     + Cause-effect graph
-    + Error guessing
+    + [Error guessing](MOAL/software_engineering/testing/black_box/error_guessing.py)
   + White box
     + API testing
     + Code coverage
