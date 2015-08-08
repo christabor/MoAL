@@ -281,7 +281,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Error guessing](MOAL/software_engineering/testing/black_box/error_guessing.py)
   + White box
     + API testing
-    + Code coverage
+    + [Code coverage](MOAL/test_files.py)
     + Fault injection
     + Mutation testing
     + Static analysis

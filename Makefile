@@ -10,3 +10,9 @@ build: docs
 	cd docs && make html -j 4
 serve: build
 	cd docs/_build/html && python -m SimpleHTTPServer 8001
+cleancoverage:
+	@echo "Cleaning up coverage report leftovers..."
+	rm -r coverage_report
+	rm .coverage
+	rm MOAL/.coverage*
+	rm *.png

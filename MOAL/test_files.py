@@ -4,11 +4,17 @@ import subprocess
 from pprint import pprint as ppr
 from glob import glob
 
+args = sys.argv
 
+ADD_COVERAGE = '--cover' in args
+TEST_FILES = '--test' in args
 BAD_FOLDERS = ['.git']
 # BOGO sort is too slow to be worth testing.
-BAD_FILES = ['__init__.py', 'bogo_sort.py', 'test_files.py']
-EXPECTED_EXCEPTIONS = (NotImplementedError,)
+BAD_FILES = [
+    '__init__.py', 'bogo_sort.py', 'test_files.py',
+    'queues_stdlib.py'  # Ignore multi-threaded files
+]
+EXPECTED_EXCEPTIONS = (NotImplementedError)
 
 
 def _get_all_files():
@@ -42,17 +48,35 @@ def _result(filepath, exception_info):
             exception, '__name__') else ''}
 
 
+def fmt_filename(path):
+    parts = filepath.split('/')
+    pyfile = parts[len(parts) - 1]
+    pyfile = pyfile.replace('.py', '')
+    return pyfile
+
+
 if __name__ == '__main__':
-    all_files = _get_all_files()
+    if not TEST_FILES or not ADD_COVERAGE:
+        print('Nothing to do.')
     test_results = []
-    for filepath in all_files:
+    for filepath in _get_all_files():
         filename = filepath.split('/')[-1]
-        # if filename == 'quicktest.py':  # for quick debugging.
         if filename not in BAD_FILES:
             try:
-                execfile(filepath)
+                if TEST_FILES:
+                    execfile(filepath)
+                if ADD_COVERAGE:
+                    print('Getting coverage for: {}'.format(filepath))
+                    # Add unique info for each file to combine with later.
+                    os.system(
+                        'coverage run --source=MOAL -p {}'.format(filepath))
             except EXPECTED_EXCEPTIONS:
                 continue
             test_results.append(_result(filepath, sys.exc_info()))
-    print('\nTEST RESULTS:')
-    ppr(test_results)
+    if ADD_COVERAGE:
+        # Combine unique data and then generate report with it.
+        os.system('coverage combine')
+        os.system('coverage html -d coverage_report')
+    if TEST_FILES:
+        print('\nTEST RESULTS:')
+        ppr(test_results)
