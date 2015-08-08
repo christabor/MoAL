@@ -76,7 +76,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Dope vector
     + [Variable-length](MOAL/data_structures/abstract/array_and_linked_lists.py)
   + Lists
-    + Array list
+    + [Array list](MOAL/data_structures/abstract/array_and_linked_lists.py)
     + [Linked](MOAL/data_structures/abstract/array_and_linked_lists.py)
       + [Doubly linked](MOAL/data_structures/abstract/array_and_linked_lists.py)
       + [Association list](MOAL/data_structures/abstract/array_and_linked_lists.py)
@@ -274,7 +274,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Black box
     + [Decision table](MOAL/software_engineering/testing/black_box/decision_table.py)
     + [All-pairs/orthogonal array](MOAL/software_engineering/testing/black_box/allpairs.py)
-    + State transition analysis
+    + [State transition analysis](MOAL/execution/virtual_machine/process_vm.py)
     + Equivalence partitioning
     + Boundary value analysis
     + Cause-effect graph
