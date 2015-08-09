@@ -16,3 +16,6 @@ cleancoverage:
 	rm .coverage
 	rm MOAL/.coverage*
 	rm *.png
+static_coverage:
+	@echo "Running pylint for static analysis... (output to static_output.txt)"
+	python MOAL/test_files.py --static > static_output.txt

@@ -290,8 +290,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Control-flow graph (CFG)
       + Model checking
         + TuLiP
-      + Static program analysis
-        + Pylint
+      + [Static program analysis](MOAL/test_files.py)
+        + [Pylint](MOAL/test_files.py)
       + Data-flow analysis
       + Hoare logic
         * Communicating sequential processes (CSP)
@@ -1754,3 +1754,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://www.fpcomplete.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell
 + http://rustbyexample.com
 + http://www.alpcentauri.info/heightmaps.html
++ http://www.pylint.org/

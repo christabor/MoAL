@@ -7,6 +7,7 @@ from glob import glob
 args = sys.argv
 
 ADD_COVERAGE = '--cover' in args
+ADD_STATIC_ANALYSIS = '--static' in args
 TEST_FILES = '--test' in args
 BAD_FOLDERS = ['.git']
 # BOGO sort is too slow to be worth testing.
@@ -63,6 +64,8 @@ if __name__ == '__main__':
         filename = filepath.split('/')[-1]
         if filename not in BAD_FILES:
             try:
+                if ADD_STATIC_ANALYSIS:
+                    os.system('pylint {}'.format(filepath))
                 if TEST_FILES:
                     execfile(filepath)
                 if ADD_COVERAGE:
