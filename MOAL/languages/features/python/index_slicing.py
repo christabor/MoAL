@@ -34,6 +34,10 @@ if DEBUG:
         testing = 'Hello world'
         index = re.search(r'world', testing)
         prnt('Slice word based on regex', testing[0:index.start()])
-        print('Slice substring with reverse', testing[-3::-1])
+        prnt('Slice substring with reverse', testing[-3::-1])
         for n in range(1, len(testing)):
             print('Slice with reverse n: {} - {}'.format(n, testing[::-n]))
+        test = range(12)
+        prnt('Slice with odds/evens', test)
+        for n in range(1, 10):
+            print('Slice with sequence n - {}, {}'.format(n, test[-n::-n]))
