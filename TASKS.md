@@ -282,7 +282,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + White box
     + API testing
     + [Code coverage](MOAL/test_files.py)
-    + Fault injection
+    + [Fault injection](MOAL/software_engineering/testing/black_box/fault_injection.py)
     + Mutation testing
     + Static analysis
       + Shape analysis
@@ -1448,7 +1448,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + Declarative
         + Hybrid / Time-space
       + [Ambiguous](MOAL/languages/formal_language_theory/grammars/context_free.py)
-      + [Chomsky normal form](MOAL/languages/formal_language_theory/grammars/context_free.py)p
+      + [Chomsky normal form](MOAL/languages/formal_language_theory/grammars/context_free.py)
       + [Backus-Naur Form (BFN)](MOAL/languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms
