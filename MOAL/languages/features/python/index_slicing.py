@@ -34,3 +34,6 @@ if DEBUG:
         testing = 'Hello world'
         index = re.search(r'world', testing)
         prnt('Slice word based on regex', testing[0:index.start()])
+        print('Slice substring with reverse', testing[-3::-1])
+        for n in range(1, len(testing)):
+            print('Slice with reverse n: {} - {}'.format(n, testing[::-n]))
