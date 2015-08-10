@@ -687,7 +687,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Word processing
         + Latent Dirichlet Allocation
         + Latent Semantic Indexing
-        + Stemming
+        + [Stemming](MOAL/algorithms/texts/word_processing/stemming.py)
 + Utilities
     + Doomsday
     + Xor swap
