@@ -692,7 +692,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Doomsday
     + Xor swap
     + Hamming weight
-    + Luhn
+    + [Luhn](MOAL/algorithms/utilities/luhn.py)
     + Create bit mask
 + Misc.
     + BrowseRank
