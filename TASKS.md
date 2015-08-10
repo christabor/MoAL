@@ -706,7 +706,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Jaro–Winkler distance
     + [Lee distance](MOAL/algorithms/coding_theory/lee_distance.py)
     + MostFreqKDistance
-    + MinHash
+    + [MinHash](MOAL/algorithms/coding_theory/minhash.py)
     + Longest common subsequence
       + Hunt–McIlroy
     + Longest common substring

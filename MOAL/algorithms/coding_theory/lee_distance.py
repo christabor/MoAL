@@ -14,6 +14,7 @@ DEBUG = True if __name__ == '__main__' else False
 
 
 def lee_distance(str1, str2, q=6):
+    """See https://en.wikipedia.org/wiki/Lee_distance for definition."""
     print('Checking: {} / {}'.format(str1, str2))
     if len(str(str1)) != len(str(str2)):
         raise ValueError
