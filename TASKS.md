@@ -690,7 +690,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
         + [Stemming](MOAL/algorithms/texts/word_processing/stemming.py)
 + Utilities
     + Doomsday
-    + Xor swap
+    + [Xor swap](MOAL/algorithms/utilities/xor_swap.py)
     + Hamming weight
     + [Luhn](MOAL/algorithms/utilities/luhn.py)
     + Create bit mask
@@ -704,7 +704,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Coding theory
   + String edit
     + Jaro–Winkler distance
-    + Lee distance
+    + [Lee distance](MOAL/algorithms/coding_theory/lee_distance.py)
     + MostFreqKDistance
     + MinHash
     + Longest common subsequence
