@@ -1372,7 +1372,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + [Acceptors](MOAL/automata_theory/finite_state_machine/fsm.py)
     + [Recognizers](MOAL/automata_theory/finite_state_machine/recognizer.py)
     + [Classifiers](MOAL/automata_theory/finite_state_machine/fsm.py)
-    + Markov chain
+    + [Markov chain](MOAL/automata_theory/finite_state_machine/markov_chain.py)
+      * [Absorbing](MOAL/automata_theory/finite_state_machine/markov_chain.py)
     + Regular expressions
     + Richards controller
     + Levenshtein automaton
