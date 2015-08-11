@@ -1364,9 +1364,9 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + [Random-access stored-program](MOAL/automata_theory/counter_machine.py)
       + [Random access](MOAL/automata_theory/counter_machine.py)
       + Cell probe
-  + Finite State Machines (FSM)
+  + [Finite State Machines (FSM)](MOAL/automata_theory/finite_state_machine/fsm.py)
     + Transducers
-    + Acceptors
+    + [Acceptors](MOAL/automata_theory/finite_state_machine/fsm.py)
     + Classifiers
     + Sequencers
     + Markov chain
