@@ -1361,8 +1361,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + Successor
         + SuccessorRAM
         + ElgotRobinsonRASP
-      + Random-access stored-program
-      + Random access
+      + [Random-access stored-program](MOAL/automata_theory/counter_machine.py)
+      + [Random access](MOAL/automata_theory/counter_machine.py)
       + Cell probe
   + Finite State Machines (FSM)
     + Transducers
@@ -1755,3 +1755,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://rustbyexample.com
 + http://www.alpcentauri.info/heightmaps.html
 + http://www.pylint.org/
++ http://j-algo.binaervarianz.de/screenshots.php

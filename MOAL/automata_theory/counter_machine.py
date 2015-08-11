@@ -8,6 +8,8 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_h2
+from MOAL.helpers.display import print_error
 from MOAL.helpers.display import prnt
 from MOAL.helpers.display import cmd_title
 from pprint import pprint as ppr
@@ -19,7 +21,9 @@ import time
 # from http://en.wikipedia.org/wiki/Counter_machine
 
 
-class CounterMachine:
+class CounterMachine(object):
+
+    MAX_STEPS = 20
 
     def __str__(self):
         return type(self).__name__
@@ -168,7 +172,7 @@ class CounterMachine:
     def run(self):
         while not self.halted:
             # For testing generated programs halting errors
-            if self._step == 100:
+            if self._step == self.MAX_STEPS:
                 self.halt()
             self.run_instruction(self.program[self.curr_instruction])
 
@@ -220,6 +224,41 @@ class ElgotRobinsonRASP(CounterMachine):
     pass
 
 
+class RandomAccessMachine(CounterMachine):
+    """From Wikipedia:
+    "A random-access machine (RAM) is an abstract computational-machine model
+    identical to a multiple-register counter machine with the addition of
+    indirect addressing. At the discretion of an instruction from its
+    finite state machine's TABLE, the machine derives a "target" register's
+    address either (i) directly from the instruction itself, or (ii) indirectly
+    from the contents (e.g. number, label) of the "pointer" register specified
+    in the instruction.
+
+    By definition: A register is a location with both an address
+    (a unique, distinguishable designation/locator equivalent to a
+    natural number) and a content - a single natural number.
+
+    For precision we will use the quasi-formal symbolism from
+    Boolos-Burgess-Jeffrey (2002) to specify a register, its contents, and an
+    operation on a register"
+    """
+
+    def __init__(self, *args, **kwargs):
+        super(RandomAccessMachine, self).__init__(*args, **kwargs)
+        self.program[11] = {
+            'code': 'R', 'fn': self.reg, 'reg': None, 'jump': None}
+        self.registers['r'] = 0
+
+    def reg(self, reg):
+        return self.registers[reg]
+
+    def cpy(self, reg, val):
+        """Unlike the cpy in the counter machine above, the random access
+        machine allows for directly accessing an arbitrary register, instead
+        of only being able to use the preset register, for copy/updates."""
+        self.registers[reg] = val
+
+
 if __name__ == '__main__':
     with Section('Counter Machines'):
         classes = [
@@ -239,5 +278,11 @@ if __name__ == '__main__':
                 singleton.run()
             except TypeError:
                 print('Inoperable program was generated :(')
+            except NotImplementedError:
+                print_error('Not implemented: {}'.format(klass))
             finally:
                 singleton.halt()
+
+        print_h2('Random Access Machine (multi-register counter machine)')
+        ram = RandomAccessMachine()
+        ram.run()
