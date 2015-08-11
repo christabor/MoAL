@@ -23,7 +23,7 @@ class Rcognizer(fsm.Acceptor):
 
 
 if DEBUG:
-    with Section('Finite State Machine'):
+    with Section('Finite State Machine - Recognizer'):
         # From example:
         # en.wikipedia.org/wiki/Finite-state_machine#
         #     /media/File:Fsm_parsing_word_nice.svg
