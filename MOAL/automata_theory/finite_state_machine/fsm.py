@@ -23,11 +23,16 @@ class InvalidTransition:
 
 class FiniteStateMachine(object):
 
-    def __init__(self, states={}, default=None):
+    def __init__(self, states={}, default=None, debug=False, max=20):
+        self.debug = debug
+        # Used for stopping any non-halting auto-generated FSMs
+        self.max = max
         self.states = states
         self.default = default
         self.current = self.default
         self.step = 0
+        self.string = ''
+        self.value = ''
 
     def __getitem__(self, state):
         return self.states[state]
@@ -83,6 +88,17 @@ class FiniteStateMachine(object):
         self._print(edge, old, new)
         return new_data
 
+    def get_next_value(self, node, edge):
+        if node not in self.states:
+            return None
+        _node = self.states[node]['transitions']
+        if _node is None or edge not in _node:
+            return None
+        return _node[edge]
+
+    def _set_current(self, node_label):
+        self.current = node_label
+
 
 class Acceptor(FiniteStateMachine):
 
@@ -94,10 +110,10 @@ class Acceptor(FiniteStateMachine):
                 self.step += 1
                 self.transition(char)
             self.reset()
-            print_success('{}'.format(chars), prefix='[FOUND]')
+            print_success(''.join(chars), prefix='[FOUND]')
             return True
         except InvalidTransition:
-            print_error('{}'.format(chars), prefix='[NOT-FOUND]')
+            print_error(''.join(chars), prefix='[NOT-FOUND]')
             return False
 
 

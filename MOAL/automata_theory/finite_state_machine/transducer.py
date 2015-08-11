@@ -27,14 +27,6 @@ class Transducer(fsm.FiniteStateMachine):
         self.string = ''
         self.value = ''
 
-    def get_next_value(self, node, edge):
-        if node not in self.states:
-            return None
-        _node = self.states[node]['transitions']
-        if _node is None or edge not in _node:
-            return None
-        return _node[edge]
-
     def run_all(self):
         for node, data in self.states.iteritems():
             divider(newline=False)

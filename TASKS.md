@@ -1334,7 +1334,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + [Universal](MOAL/automata_theory/universal_turing_machine.py)
       + [Decider / Total](MOAL/automata_theory/turing_machine.py)
       + Alternating
-      + Quantum
+      + Quantum (QFA)
       + Non-deterministic
       + Read-only
       + Read-only right moving s
