@@ -8,6 +8,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_success
 from MOAL.helpers.display import print_error
 from MOAL.helpers.display import print_info
 from MOAL.helpers.display import divider
@@ -39,48 +40,70 @@ class FiniteStateMachine(object):
     def __str__(self):
         for node, data in self.states.iteritems():
             print('State {}'.format(node))
+            if type(data) != dict:
+                divider(newline=False)
+                continue
             for state, transition in data['transitions'].iteritems():
-                print('  {} --> ({})'.format(state, transition))
+                print('   {} --> ({})'.format(state, transition))
             divider(newline=False)
         return ''
 
+    def reset(self):
+        self.step = 0
+        self.current = self.default
+
+    def _xform(self, edge):
+        """Allows customization of coercion function, for the transition
+        key type, and/or index naming convention - some require ints,
+        some strings, multiple nested indices, etc... This removes the
+        requirement to override _get_transition with a lot more code."""
+        return int(edge)
+
     def _get_transition(self, edge):
         try:
-            return self.states[self.current]['transitions'][int(edge)]
+            return self.states[self.current]['transitions'][self._xform(edge)]
         except KeyError:
             raise InvalidTransition
 
     def _get_current(self):
-        return self.current, self.states[self.current]
+        try:
+            return self.current, self.states[self.current]
+        except KeyError:
+            return None, None
+
+    def _print(self, edge, old, new):
+        print('{} Transition: {} ({} -> {})'.format(
+            self.step * ' ', edge, old, new))
 
     def transition(self, edge):
         old, old_data = self._get_current()
         self.current = self._get_transition(edge)
         new, new_data = self._get_current()
-        print('{} Transition: {} ({} -> {})'.format(
-            self.step * ' ', edge, old, new))
+        self._print(edge, old, new)
+        return new_data
 
 
-class BinaryAcceptor(FiniteStateMachine):
+class Acceptor(FiniteStateMachine):
 
-    def test(self, digits):
+    def test(self, string):
         try:
-            print_info('+ TESTING: {}'.format(digits))
-            _digits = list(str(digits))
-            for digit in _digits:
+            print_info('{}'.format(string), prefix='[TESTING]')
+            chars = list(str(string))
+            for char in chars:
                 self.step += 1
-                self.transition(digit)
-            self.step = 0
+                self.transition(char)
+            self.reset()
+            print_success('{}'.format(chars), prefix='[FOUND]')
             return True
         except InvalidTransition:
-            print_error('Not found: {}'.format(digits))
+            print_error('{}'.format(chars), prefix='[NOT-FOUND]')
             return False
 
 if DEBUG:
     with Section('Finite State Machine'):
         # Example creation of
         # en.wikipedia.org/wiki/Finite-state_machine#/media/File:DFAexample.svg
-        acceptor = BinaryAcceptor(
+        acceptor = Acceptor(
             states={
                 'S1': {'transitions': {0: 'S2', 1: 'S1'}, 'val': 'End node'},
                 'S2': {'transitions': {0: 'S1', 1: 'S2'}, 'val': 'Start node'}},
@@ -89,3 +112,5 @@ if DEBUG:
         assert acceptor.test('11')
         assert not acceptor.test('113')
         assert acceptor.test('1110001010')
+        assert acceptor.test('0')
+        assert acceptor.test('1')

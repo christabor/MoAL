@@ -1367,6 +1367,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + [Finite State Machines (FSM)](MOAL/automata_theory/finite_state_machine/fsm.py)
     + Transducers
     + [Acceptors](MOAL/automata_theory/finite_state_machine/fsm.py)
+    + [Recognizers](MOAL/automata_theory/finite_state_machine/recognizer.py)
     + Classifiers
     + Sequencers
     + Markov chain
