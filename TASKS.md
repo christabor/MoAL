@@ -1365,11 +1365,11 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + [Random access](MOAL/automata_theory/counter_machine.py)
       + Cell probe
   + [Finite State Machines (FSM)](MOAL/automata_theory/finite_state_machine/fsm.py)
-    + Transducers
+    + [Transducers](MOAL/automata_theory/finite_state_machine/transducer.py)
     + [Acceptors](MOAL/automata_theory/finite_state_machine/fsm.py)
     + [Recognizers](MOAL/automata_theory/finite_state_machine/recognizer.py)
     + Classifiers
-    + Sequencers
+    + Sequencers/Generators
     + Markov chain
     + Regular expressions
     + Richards controller
@@ -1757,3 +1757,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://www.alpcentauri.info/heightmaps.html
 + http://www.pylint.org/
 + http://j-algo.binaervarianz.de/screenshots.php
++ http://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html
