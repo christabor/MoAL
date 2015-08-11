@@ -83,6 +83,20 @@ class MealyMachine(ControlApplicationTransducer):
     pass
 
 
+class RichardsController(MealyMachine):
+    """From Wikipedia:
+    "Each state is represented as a transfer condition on the flowchart.
+    Each condition has two control paths leading out of it, a YES or a NO."
+    """
+
+    def __setitem__(self, state, data):
+        if data['transitions'] is not None:
+            for edge, transition in data['transitions'].iteritems():
+                if edge.lower() not in ['yes', 'no']:
+                    raise fsm.InvalidTransition
+        super(RichardsController, self).__setitem__(state, data)
+
+
 class SequencerAlphabetError:
     pass
 
@@ -171,3 +185,20 @@ if DEBUG:
             'S2': {'transitions': {'open': 'close:S3', 'val': 'Opening'}},
             'S3': {'transitions': None, 'val': 'Closed!'}}, debug=True)
         moore.run(node='S1', edge='start')
+
+        print_h2('FSM - Richards Controller')
+        # en.wikipedia.org/wiki/Richards_controller#/
+        #   media/File:Richards_condition.png
+        rich = RichardsController({
+            'X': {'transitions': {'YES': 'F:Z', 'NO': 'F:Y'}},
+            'Y': {'transitions': None},
+            'Z': {'transitions': None}
+        })
+        try:
+            badrich = RichardsController({
+                'X': {'transitions': {'potato': 'F:Z'}},
+                'Z': {'transitions': None}
+            })
+        except fsm.InvalidTransition:
+            print('Invalid test passed')
+        rich.run(node='X', edge='NO')

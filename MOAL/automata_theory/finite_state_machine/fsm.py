@@ -27,12 +27,14 @@ class FiniteStateMachine(object):
         self.debug = debug
         # Used for stopping any non-halting auto-generated FSMs
         self.max = max
-        self.states = states
+        self.states = {}
         self.default = default
         self.current = self.default
         self.step = 0
         self.string = ''
         self.value = ''
+        for state, data in states.iteritems():
+            self.__setitem__(state, data)
 
     def __getitem__(self, state):
         return self.states[state]
