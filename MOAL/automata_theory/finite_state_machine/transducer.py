@@ -43,7 +43,7 @@ class Transducer(fsm.FiniteStateMachine):
             for transition in data['transitions']:
                 self.run(node=node, edge=transition)
 
-    def run(self, node=None, edge=None):
+    def _run(self, node=None, edge=None):
         self.step = 0
         if node is None:
             node = self.default
@@ -60,11 +60,15 @@ class Transducer(fsm.FiniteStateMachine):
             current_node = self.get_next_value(node, edge)
             self.string += edge
             self.step += 1
-        print('Final string value: {}'.format(self.string))
-        val = self.string
+        output = self.string
         # Reset
         self.string = ''
-        return val
+        return node, output
+
+    def run(self, **kwargs):
+        node, output = self._run(**kwargs)
+        print('Final string value: {}'.format(output))
+        return node
 
 
 class ControlApplicationTransducer(Transducer):
@@ -72,7 +76,15 @@ class ControlApplicationTransducer(Transducer):
 
 
 class MooreMachine(ControlApplicationTransducer):
-    pass
+
+    def run(self, **kwargs):
+        """Moore Machines signal to the outside world (or other FSMs)
+        the current state of the machine
+        (based on the last run transition path, in this case.)"""
+        node_label, _ = super(MooreMachine, self)._run(**kwargs)
+        node = self.states[node_label]
+        action = node['val'] if 'val' in node else 'No action specified.'
+        print('Action is: {}'.format(action))
 
 
 class MealyMachine(ControlApplicationTransducer):
@@ -160,3 +172,10 @@ if DEBUG:
             'S1': {'transitions': {'a': 'b:S2'}},
             'S2': {'transitions': None}}, debug=True)
         seq.run(node='S1', edge='a')
+
+        print_h2('FSM - Moore Machine')
+        moore = MooreMachine({
+            'S1': {'transitions': {'start': 'open:S2', 'val': 'Starting'}},
+            'S2': {'transitions': {'open': 'close:S3', 'val': 'Opening'}},
+            'S3': {'transitions': None, 'val': 'Closed!'}}, debug=True)
+        moore.run(node='S1', edge='start')
