@@ -67,6 +67,46 @@ class Transducer(fsm.FiniteStateMachine):
         return val
 
 
+class ControlApplicationTransducer(Transducer):
+    pass
+
+
+class MooreMachine(ControlApplicationTransducer):
+    pass
+
+
+class MealyMachine(ControlApplicationTransducer):
+    pass
+
+
+class SequencerAlphabetError:
+    pass
+
+
+class Sequencer(Transducer):
+    """From Wikipedia:
+    "The sequencers or generators are a subclass of aforementioned types that
+    have a single-letter input alphabet. They produce only one sequence, which
+    can be interpreted as output sequence of transducer or classifier outputs."
+
+    e.g. Seq-0 = S1 -> S2, Seq-1 = S2 -> S3, Seq-N = SN -> SN + 1, etc...
+    """
+
+    def __init__(self, *args, **kwargs):
+        super(Sequencer, self).__init__(*args, **kwargs)
+        for node, data in self.states.iteritems():
+            self._check_valid_sequence(node, data)
+
+    def _check_valid_sequence(self, node, data):
+        trans = data['transitions']
+        if trans is not None and len(trans) > 1:
+            raise SequencerAlphabetError('Sequencer takes only one transition!')
+
+    def __setitem__(self, node, data):
+        self._check_valid_sequence(node, data)
+        super(Sequencer, self).__setitem__(node, data)
+
+
 def generate_transducer(nodes=10, alphabet=None):
     def _transitions(transitions_per_node, nodes):
         return {
@@ -114,3 +154,9 @@ if DEBUG:
         # Fully automated, non-deterministic - which may lead to non-halting
         # or invalid states when testing.
         run_random_transducer()
+
+        print_h2('FSM - Sequencer')
+        seq = Sequencer(states={
+            'S1': {'transitions': {'a': 'b:S2'}},
+            'S2': {'transitions': None}}, debug=True)
+        seq.run(node='S1', edge='a')

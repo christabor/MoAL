@@ -8,6 +8,7 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 from MOAL.helpers.display import Section
+from MOAL.helpers.display import print_h2
 from MOAL.helpers.display import print_success
 from MOAL.helpers.display import print_error
 from MOAL.helpers.display import print_info
@@ -99,10 +100,22 @@ class Acceptor(FiniteStateMachine):
             print_error('{}'.format(chars), prefix='[NOT-FOUND]')
             return False
 
+
+class Classifier(Acceptor):
+    """From Wikipedia:
+    "Classifier is a generalization that, similar to acceptor,
+    produces single output when terminates but has more
+    than two terminal states." """
+
+    def classify(self, *args, **kwargs):
+        return super(Classifier, self).test(*args, **kwargs)
+
+
 if DEBUG:
     with Section('Finite State Machine'):
         # Example creation of
         # en.wikipedia.org/wiki/Finite-state_machine#/media/File:DFAexample.svg
+        print_h2('FSM - Acceptor')
         acceptor = Acceptor(
             states={
                 'S1': {'transitions': {0: 'S2', 1: 'S1'}, 'val': 'End node'},

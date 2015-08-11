@@ -1366,15 +1366,15 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Cell probe
   + [Finite State Machines (FSM)](MOAL/automata_theory/finite_state_machine/fsm.py)
     + [Transducers](MOAL/automata_theory/finite_state_machine/transducer.py)
+      + [Moore](MOAL/automata_theory/finite_state_machine/transducer.py)
+      + [Mealy](MOAL/automata_theory/finite_state_machine/transducer.py)
+      + [Sequencers/Generators](MOAL/automata_theory/finite_state_machine/transducer.py)
     + [Acceptors](MOAL/automata_theory/finite_state_machine/fsm.py)
     + [Recognizers](MOAL/automata_theory/finite_state_machine/recognizer.py)
-    + Classifiers
-    + Sequencers/Generators
+    + [Classifiers](MOAL/automata_theory/finite_state_machine/fsm.py)
     + Markov chain
     + Regular expressions
     + Richards controller
-    + Moore
-    + Mealy
     + Levenshtein automaton
 + Computational complexity
   + Classes
