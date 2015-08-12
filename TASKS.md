@@ -1312,9 +1312,10 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + K-means clustering
     + Bayesian probability
     + Neural networks
+      * Hierarchical Temporal Memory
       + Self-organizing map (Kohonen map)
-      - Neocognitron
-      * ADALINE
+      + Neocognitron
+      + ADALINE
         - MADALINE
       + Adaptive Resonance Theory
         + ART 1
@@ -1336,9 +1337,11 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + Continuous-time
         + Hierarchical
         + Recurrent multilayer Perceptron
+          + Convolutional Neural Network (ConvNet)
+          + Stacked Autoencoder
         + Second order
         + Pollack's sequential cascaded
-        + Neural turing machines
+        + Neural Turing machines
         + Bidirectional associative memory (BAM)
 
 ## Robotics & Electronics
@@ -1799,3 +1802,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html
 + http://blog.notdot.net/2010/07/Damn-Cool-Algorithms-Levenshtein-Automata
 + https://en.wikipedia.org/wiki/Comparison_of_web_server_software
++ http://deeplearning.net/
