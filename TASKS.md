@@ -1123,6 +1123,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
       * HTTP Servers
         * G-Unicorn
         * uWSGI
+        * Tornado
+        * Twisted
     * SSL
     * TLS
     * POP
@@ -1159,9 +1161,14 @@ Note: some encoding schemes are not really used in computer organization, but ar
   * Recursive network architecture (RNA)
   * Custom (make one!)
   * Load balancing
-  + NGINX
-  + Apache
-  + HAProxy
+    + HAProxy
+  + Web server
+    * NGINX
+    * Apache Tomcat
+    * Server Side Protocols
+      - CGI
+      - FastCGI
+      - WebSocket
 + Administration
   + Software defined
 + WWW
@@ -1781,3 +1788,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://j-algo.binaervarianz.de/screenshots.php
 + http://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html
 + http://blog.notdot.net/2010/07/Damn-Cool-Algorithms-Levenshtein-Automata
++ https://en.wikipedia.org/wiki/Comparison_of_web_server_software
