@@ -1104,40 +1104,61 @@ Note: some encoding schemes are not really used in computer organization, but ar
 
 ## Networking
 
-+ Ethernet
 + Protocols
-  * Application
-    - LDAP
-  + RPC
-    + JSONRPC
-    + XMLRPC
-  + Bluetooth
-  + Fibre channel
-  + TCP / IP
-  + RTPS
-  + SSH
-  + UDP
-    + Twisted UDP
-  + FTP/sFTP
-    + Twisted FTP
-  + SMTP
-  + Telnet
-  + HTTP/HTTPS
-    + HTTP Servers
-      + G-Unicorn
-      + uWSGI
-  + SSL
-  + TLS
-  + POP
-  + E6
-  + NTP
-  + PPP
-  + NNTP
-  + IMAP
-  + Bitcoin
-  + Recursive network architecture (RNA)
-  + Custom (make one!)
-+ Load balancing
+  * Application Layer
+      + LDAP
+    * RPC
+      * JSONRPC
+      * XMLRPC
+    * Bluetooth
+    * Fibre channel
+    * RTPS
+    * SSH
+    * FTP/sFTP
+      * Twisted FTP
+    * SMTP
+    * Telnet
+    * HTTP/HTTPS
+      - HTTP/2
+      * HTTP Servers
+        * G-Unicorn
+        * uWSGI
+    * SSL
+    * TLS
+    * POP
+    * NTP
+    * NNTP
+    * IMAP
+    * Bitcoin
+    * E6
+  * Transport Layer
+    * TCP
+    * UDP
+      * Twisted UDP
+    * DCCP
+    * SCTP
+    * RSVP
+  * Internet Layer
+    - IPV4/IPV6
+    - ICMP
+      + ICMPV6
+    - IPsec
+    - ECN
+    - IGMP
+  * Link Layer
+    - ARP
+    - NDP
+    - OSPF
+    - L2TP Tunnels
+    - PPP
+    - MAC
+    - Ethernet
+    - DSL
+    - ISDN
+    - FDDI
+  * Recursive network architecture (RNA)
+  * Custom (make one!)
+  * Load balancing
   + NGINX
   + Apache
   + HAProxy
@@ -1384,9 +1405,9 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + #P
     + BPP
     + PSPACE
-+ PCPs
++ PCP Theorem
 + Circuit lower bounds
-+ Arithmetic complexity
++ Arithmetic circuit
 + Quantum complexity
 + Communication complexity
 + Unique Games Conjecture
@@ -1759,3 +1780,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://www.pylint.org/
 + http://j-algo.binaervarianz.de/screenshots.php
 + http://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html
++ http://blog.notdot.net/2010/07/Damn-Cool-Algorithms-Levenshtein-Automata
