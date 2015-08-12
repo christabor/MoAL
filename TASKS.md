@@ -897,8 +897,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Greedy
 + Dynamic programming
 + Divide & conquer
-+ Time series analysis
-  + Dynamic time warping
++ [Time series analysis](MOAL/algorithms/time_series/dynamic_timewarping.py)
+  + [Dynamic time warping](MOAL/algorithms/time_series/dynamic_timewarping.py)
 + Geometry
   + Manhattan distance
   + Euclidean distance
