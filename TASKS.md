@@ -1258,6 +1258,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Aspect oriented system
   + Middleware
     * Application
+      - 12-Factor
+        - DEIS
     * Distributed
   + SOA
     + Micro-services
@@ -1267,6 +1269,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + API design
     * JSONAPI (jsonapi.org)
     + Fluent interface
++ Configuration management
+  * SaltStack
 + Parallel Computing
 + Distributed Computing
   * Fault-tolerance
@@ -1281,6 +1285,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Kafka
     + Storm
     + PIG
+    + Spark
     + ZooKeeper
       + Kazoo
     + Lucene
@@ -1292,10 +1297,15 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Varnish
     + [Memcached](MOAL/systems_engineering/performance/caching/memcached_example.py)
 
-## Artifical Intelligence
+## Artificial Intelligence
 
 + Machine learning
+  + Swarm intelligence
+  + Topic Modeling
+    * gensim
   + Supervised learning
+    + Inference engine
+      * PyKE
     + Decision tree
     + Perceptrons
     + Support vector machines
