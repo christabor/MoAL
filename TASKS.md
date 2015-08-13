@@ -238,6 +238,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Binary decision diagram](MOAL/data_structures/graphs/binary_decision_diagram.py)
   + Zero-suppressed decision diagram
   + [Directed](MOAL/data_structures/graphs/graphs.py)
+    * Weighted
     + DAWG/DAFSA
       + Sparse
       + Compacted
@@ -1197,6 +1198,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Xapian
     + Terrier Search Engine
   + Databases
+    * Utilities
+      - Stored Procedures
     + Relational
       + MySql
       + [PostgreSql](MOAL/storage/databases/relational/postgresql_psycopg2.py)
@@ -1283,6 +1286,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Hadoop file system
     + Hadoop MapReduce
     + Kafka
+    + NSQ
     + Storm
     + PIG
     + Spark
@@ -1312,6 +1316,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + K-means clustering
     + Bayesian probability
     + Neural networks
+      * Wavelet
       * Hierarchical Temporal Memory
       + Self-organizing map (Kohonen map)
       + Neocognitron
@@ -1438,6 +1443,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Python - generator
     + recursive
     + expression
+  + Python - Metaclasses
   + Python - decorator
     * Class
     * Method
@@ -1803,3 +1809,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://blog.notdot.net/2010/07/Damn-Cool-Algorithms-Levenshtein-Automata
 + https://en.wikipedia.org/wiki/Comparison_of_web_server_software
 + http://deeplearning.net/
++ http://ivansmirnov.io/python-metaclasses/
