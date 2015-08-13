@@ -1290,7 +1290,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Kazoo
     + Lucene
 + Message queuing
-  + [RabbitMQ](MOAL/systems_engineering/message_queues/rabbitmq/emitter.py)
+  + [RabbitMQ](MOAL/systems_engineering/message_queues/rabbitmq/)
   + ZeroMQ
 + Performance
   + Caching
