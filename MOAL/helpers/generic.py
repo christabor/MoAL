@@ -121,7 +121,7 @@ def take_choice(options, maximum):
 
 
 def random_number_set(min_rand=0, max_rand=9999, max_range=100):
-    """Generated a set of random number sets."""
+    """Generated a list of random number sets."""
     return [rr(min_rand, max_rand) for _ in range(max_range)]
 
 

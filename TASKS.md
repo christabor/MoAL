@@ -1228,9 +1228,9 @@ Note: some encoding schemes are not really used in computer organization, but ar
       * hustle
 + Serialization
   + Avro
-  + CSV
-  + JSON
-  + MessagePack
+  + [CSV](MOAL/storage/serialization/csv_test.py)
+  + [JSON](MOAL/storage/serialization/json_test.py)
+  + [MessagePack](MOAL/storage/serialization/json_test.py)
   + Protocol Buffers
   + S-expressions
   + YAML
