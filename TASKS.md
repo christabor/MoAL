@@ -1231,7 +1231,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + [CSV](MOAL/storage/serialization/csv_test.py)
   + [JSON](MOAL/storage/serialization/json_test.py)
   + [MessagePack](MOAL/storage/serialization/json_test.py)
-  + Protocol Buffers
+  + [Protocol Buffers](MOAL/storage/serialization/protocol_buffers/)
   + S-expressions
   + YAML
   + Custom (make one!)
