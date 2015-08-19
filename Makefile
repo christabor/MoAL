@@ -19,3 +19,5 @@ cleancoverage:
 static_coverage:
 	@echo "Running pylint for static analysis... (output to static_output.txt)"
 	python MOAL/test_files.py --static > static_output.txt
+savetree:
+	tree . > tree-example.txt
