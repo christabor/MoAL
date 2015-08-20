@@ -1232,7 +1232,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + [JSON](MOAL/storage/serialization/json_test.py)
   + [MessagePack](MOAL/storage/serialization/json_test.py)
   + [Protocol Buffers](MOAL/storage/serialization/protocol_buffers/)
-  + S-expressions
+  + [S-expressions](MOAL/storage/serialization/sexpressions.clj)
   + YAML
   + Custom (make one!)
 + Modeling
@@ -1810,3 +1810,5 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://en.wikipedia.org/wiki/Comparison_of_web_server_software
 + http://deeplearning.net/
 + http://ivansmirnov.io/python-metaclasses/
++ http://stackoverflow.com/questions/10771107/lisp-list-vs-s-expression
++ http://clojure-doc.org/
