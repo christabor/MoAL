@@ -19,7 +19,7 @@
 
 ; Using raw data instead of evaluation via `
 
-; (str ("foo" "bar")) Error
+; (str ("foo" "bar")) ; Error
 (str `("foo" "bar")) ; No error
 
 (= 2 2)
@@ -35,7 +35,7 @@
 (dec 2)
 (+ (inc 3) (dec 2))
 (= (inc 3) (+ 3 1))
-(< 3.14159 Math/PI
+(< 3.14159 Math/PI)
 
 (format "Hello, %s %s" "Chris" "Tabor")
 (str "foo" "bar")
