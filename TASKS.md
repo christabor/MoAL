@@ -1590,7 +1590,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Sub-structural
   + Uniqueness
   + Strong
-  + Weak
+  + [Weak](MOAL/type_theory/weak_typing.js)
 
 ## Program Execution
 
