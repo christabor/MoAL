@@ -13,7 +13,7 @@ var boolfunc = typeof Boolean == typeof (function(){});
 
 // Haha... wtf
 process.stdout.write('Truthy: ' + String(truthy1 == truth == truthy2) + '\n');
-process.stdout.write('Falsy: ' + String(falsy) + '\n');
+process.stdout.write('Falsy is really truthsy: ' + String(falsy) + '\n');
 process.stdout.write('Boolean `type`: ' + String(booltype) + '\n');
 process.stdout.write('Boolean type is... func? ' + String(boolfunc) + '\n');
 // Weak - allowing coercion of string and bool type!
