@@ -258,7 +258,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 ## Software Engineering / Software Development
 
 + Requirements analysis
-+ Reification
++ [Reification](MOAL/software_engineering/reification/reification.py)
 + Debugging
 + Development
   + Methodologies
@@ -821,6 +821,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Canonical LR parser or LR(1) parser
     + GLR. (Generalized LR parser)
     + Recursive Descent Parsers
+      * NLTK
     + Packrat parser
 + Prediction
     + Baum-Welch
@@ -1812,3 +1813,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://ivansmirnov.io/python-metaclasses/
 + http://stackoverflow.com/questions/10771107/lisp-list-vs-s-expression
 + http://clojure-doc.org/
++ http://groups.csail.mit.edu/medg/ftp/psz/k-rep.html
