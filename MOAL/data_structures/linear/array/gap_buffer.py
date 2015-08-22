@@ -38,7 +38,7 @@ class GapBuffer(list):
         return val
 
     def move(self, count):
-        # "Wrap around if the count is too high"
+        # Wrap around if the count is too high
         if self.left_pointer + count >= len(self):
             self.left_pointer = count
             self.right_pointer = count + self.gap_size

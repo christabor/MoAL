@@ -19,7 +19,7 @@ class Dyck(list):
 
     def __init__(self, max, left='(', right=')'):
         self._max = max
-        self.rejoinder = True
+        self.rejoin = True
         self.left = left
         self.right = right
         self.string = list('{}{}'.format(self.left, self.right) * self._max)
@@ -36,7 +36,7 @@ class Dyck(list):
         return lefts, rights
 
     def __str__(self):
-        if self.rejoinder:
+        if self.rejoin:
             return 'Rejoined: {}'.format(
                 ' '.join(''.join(self.string).split('{}{}'.format(
                     self.right, self.left))))
