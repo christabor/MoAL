@@ -59,7 +59,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Control table](MOAL/data_structures/linear/array/control_table.py)
     + [Image](MOAL/data_structures/linear/array/image_array.py)
     + [Dynamic](MOAL/data_structures/abstract/array_and_linked_lists.py)
-    + Gap buffer
+    + [Gap buffer](MOAL/data_structures/linear/array/gap_buffer.py)
     + [Hashed array tree](MOAL/data_structures/linear/array/hashed_array_tree.py)
     + [Lookup table](MOAL/maths/applied/optimization/memoization.py)
     + [Branch table](MOAL/automata_theory/counter_machine.py)
@@ -1814,3 +1814,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://stackoverflow.com/questions/10771107/lisp-list-vs-s-expression
 + http://clojure-doc.org/
 + http://groups.csail.mit.edu/medg/ftp/psz/k-rep.html
++ http://scienceblogs.com/goodmath/2009/02/18/gap-buffers-or-why-bother-with-1/
