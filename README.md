@@ -41,3 +41,9 @@ Here it is:
 My rationale for developing this approach comes from the notion that learning through multiple styles helps reinforce your overall understanding. Above, we have concrete verbal/spoken examples, conceptual examples, and practice, in not just one, but two forms (the actual programming and the mind-mapping).
 
 With all of this you are creating an intuitive understanding while at the same time cementing it as detailed information. This makes retention much, much better.
+
+### Embedding knowledge and infusing your understanding
+
+One thing I have come to realize is that it is easy to simply "research and implement" the concept at hand, without fully appreciating what it means beyond the textbook definition. One of my goals here is to amass an extremely large cross-section of knowledge and also infuse that understanding into my own practice and disciplines. This allows novel thinking in one area, as you are more likely to take inspiration from a larger "pool" of tips and techniques that have been acquired.
+
+So with that understanding, I would explicitly state here that when working on a project like this, it is important to allow the particular task at hand to envelop you, and infuse the idea into your knowledge. Each one will resonate with your own interests and understanding to a different degree, and that's fine; it's a matter of allowing yourself to grow by ingesting and transforming this knowledge, and not just memorizing a specific algorithm, data structure or concept.
