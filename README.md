@@ -1,9 +1,10 @@
-MOAL
-====
+# MoAL
+
+### aka "Mother of All Learning"
 
 ## Goals
 
-MoAL - aka "Mother of All Learning" is a personal vision and project of mine, where the goal is to synthesize an extremely large set of computer science, software engineering, and computational science/math competencies into basic components, allowing one to learn a typically unfathomable breadth of topics in the field, doing so in a shorter amount of time. The trade off of **depth** is acceptable as it stresses basic competencies across all aspects, **which can later be translated into more detailed understanding**. However, it's important to note, many of these projects embody a reasonably deep level of understanding, and further enrich each competency by lateral connections of other, similar understandings that go beyond a typical, more familiar degree, comprised of a cross-section of coursework, that stresses only more common elements, while excluding others.
+MoAL is a personal vision and project of mine, where the goal is to synthesize an extremely large set of computer science, software engineering, and computational science/math competencies into basic components, allowing one to learn a typically unfathomable breadth of topics in the field, doing so in a shorter amount of time. The trade off of **depth** is acceptable as it stresses basic competencies across all aspects, **which can later be translated into more detailed understanding**. However, it's important to note, many of these projects embody a reasonably deep level of understanding, and further enrich each competency by lateral connections of other, similar understandings that go beyond a typical, more familiar degree, comprised of a cross-section of coursework, that stresses only more common elements, while excluding others.
 
 Each task is meant to be simple and atomic, so there is freedom to approach it however is most comfortable for a given learning style. Think of it like a jigsaw puzzle; while it's important to get the breadth and depth that makes a degree worthwhile, pieces are constantly being filled in, and this can be done line by line (linearly), or in a completely random fashion (or anything in-between).
 
