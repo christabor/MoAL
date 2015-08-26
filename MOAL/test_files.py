@@ -9,6 +9,8 @@ args = sys.argv
 ADD_COVERAGE = '--cover' in args
 ADD_STATIC_ANALYSIS = '--static' in args
 TEST_FILES = '--test' in args
+TEST_CFG = '--cfg' in args
+
 BAD_FOLDERS = ['.git']
 # BOGO sort is too slow to be worth testing.
 BAD_FILES = [
@@ -60,10 +62,17 @@ if __name__ == '__main__':
     if not TEST_FILES or not ADD_COVERAGE:
         print('Nothing to do.')
     test_results = []
+    dir = os.getcwd()
     for filepath in _get_all_files():
         filename = filepath.split('/')[-1]
         if filename not in BAD_FILES:
             try:
+                if TEST_CFG:
+                    output = '{}/cfgs/{}.png'.format(
+                        dir, filename.replace('.py', ''))
+                    os.system(
+                        'pycallgraph graphviz --output-file={} -- {}'.format(
+                            output, filepath))
                 if ADD_STATIC_ANALYSIS:
                     os.system('pylint {}'.format(filepath))
                 if TEST_FILES:
