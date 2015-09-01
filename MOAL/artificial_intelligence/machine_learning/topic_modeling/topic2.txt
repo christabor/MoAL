@@ -1,0 +1,21 @@
+In 1964, the US Surgeon's General produced a report unequivocally stating that smoking was a health hazard. The report had a dramatic impact on public policy and how people viewed smoking. 50 years later, we know that the impact of that report was to save thousands and maybe millions of lives (see 50 year retrospective report here).
+
+We are at a similar point in understanding that lecture is an ineffective way of teaching. Active learning methods lead to better learning and greater retention. More, there is increasing evidence that poor teaching disproportionately impacts students from disadvantaged and under-represented groups.
+
+Last year, the Proceedings of the National Academy of Science published a meta-analysis of 225 studies (see paper here). The conclusion appeared as the title of the paper, Active learning increases student performance in science, engineering, and mathematics. There is increasing evidence that improved teaching reduces the achievement gap between disadvantaged and more advantaged students, e.g., in Biology (see paper here) and in Computer Science (see new paper here from ICER 2015).
+
+Now, Nature has just published a paper (see it here), Why we are teaching science wrong, and how to make it right, which includes the quote, "At this point it is unethical to teach any other way." Wired magazine's article on the active learning papers (see link here) makes the connection more explicit: "The impact of these data should be like the Surgeon General’s report on 'Smoking and Health' in 1964–-they should put to rest any debate about whether active learning is more effective than lecturing."
+
+It's now a matter of science, not opinion. Active learning methods are more effective than lecturing. We should encourage use of active learning methods in our classrooms. The blog post linked here connects to resources for improved teaching methods in computer science. There are active learning methods that we can use even in large classes, like Peer Instruction (see PeerInstruction4CS.org).
+
+Here is something concrete that we in academia can do. We can change the way we select teachers for computer science and how we reward faculty.
+
+All teaching statements for faculty hiring, promotion, and tenure should include a description of how the candidate uses active learning methods and explicitly reduces lecture.
+
+We create the incentive to teach better.  We might simply add a phrase to our job ads and promotion and tenure policies like, "Teaching statements will be more valued that describe how the candidate uses active learning methods and seeks to reduce lecture." We should read these critically. We should be convinced that the candidates are not just mouthing active learning rhetoric but are actually investigating and using active learning methods.
+
+It's a small step, but it's an important one. Incentives change behavior. Stating clearly what we value in teaching statements will send messages that change how CS faculty teach over time. This step will likely have a critical impact on how we teach and who succeeds in computing.
+
+I don't know if any other STEM disciplines are changing how they evaluate teaching statements in response to the Nature and PNAS papers. Let's lead. Let's be first. In 50 years, we might be looking back to find that our response to these reports brought more and more diverse students to computing.
+
+Source: Communications of the ACM

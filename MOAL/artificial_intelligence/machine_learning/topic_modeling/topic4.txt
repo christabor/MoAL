@@ -1,0 +1,13 @@
+Improved censorship technologies have enabled repressive governments to greatly restrict the Internet content their citizens can see. For example, regimes in China, Iran, and elsewhere can now block anti-censorship tools such as Tor and encrypted virtual private network (VPN) connections.
+
+However, Marionette, a new tool developed by researchers at security firm RedJack and Portland State University (PSU), could offer a way around censorship technologies.
+
+Marionette disguises traffic that would normally be blocked as ordinary traffic, such as that from online games or Skype. It also can be programmed with the right responses to more active probes of Internet traffic, a step sometimes taken by Chinese censors to investigate suspicious connections.
+
+RedJack researcher Scott Coull, who developed Marionette with PSU's Kevin Dryer and Thomas Shrimpton, hopes the new tool could eventually be integrated into the Tor and Lantern anonymous browsing networks; he already has discussed Marionette's open source code with Tor's developers.
+
+Although Tor currently supports Format Transforming Encryption, a censorship-evasion method that attempts to make its data look like legitimate data, Coull says Marionette's capabilities are much deeper and more robust.
+
+However, Phillipa Gill, who is developing a censorship-evading system at Stony Brook University, cautions it takes time for new tools such as Marionette to be fully validated.
+
+Source: Communications of the ACM

@@ -1,0 +1,15 @@
+The Washington Post published an article today "Looking for a lucrative major?  Follow the men."  Most of the article is completely unsurprising for anyone who follows the world of women and work and salaries.  As the article says, "men still out-earn women at every education level."  The accompanying charts, created by Randy Olson, show the relationship between gender, college major, and earnings.  Again, the information is largely unsurprising.  Fields that have a greater proportion of men in them are also the fields that bring in higher salaries, and fields with a greater proportion of women bring in lower salaries (personally, I think elementary school teachers should earn 6-figures because the work they do is so important, but nobody who sets policy has asked me).  But there's one bizarre thing in the chart.  Computer Science shows up as being 58% women!!!!
+
+My guess is that everybody reading this blog post knows that the reality is far different than that!  So what happened?
+
+I clicked on through to Olson's original work.  He has an interesting footnote in which he says, "Several readers have pointed out that the gender ratio for Computer Science is suspect, and I agree. Given that women accounted for only 20% of CS majors in 2011, it seems unlikely that we've seen such an unprecedented reversal. The gender ratios are calculated from the American Community Survey sample, and it's possible that there may be sampling error when it comes to gender ratios."  With all due respect, can sampling error really lead to a 38-percentage-point difference?  Olson explains that he used data pulled together by FiveThirtyEight based on data from the U.S. Census Bureau's American Community Survey.
+
+My next step was to look at the actual FiveThirtyEight data, and that's where I found the problem.  FiveThirtyEight has two files.  In recent-grads.csv, the total number of CS majors is 128,319, but that file lists only 1,837 men and 2,524 women!  Sure enough, if you look just at those latter two figures, the women are 57.8% of the 4,361 total.  The correct data is in the women-stem.csv file which shows 99,743 men and 28,576 women, and the women are 22.3% of the total.
+
+I have contacted both FiveThirtyEight and Randy Olson.  I hope they will fix the errors.  In the meantime, if you see data that seems funky, keep digging.  I look forward to the day when a figure of 50% women CS graduates won't raise eyebrows or skepticism.
+
+Thanks to my colleague Aaron Cass who brought the original article to my attention.
+
+Follow-up:  Randy Olson responded to my email, has worked through the data again, contacted FiveThirtyEight, and will be updating his post.  Thanks Randy!
+
+Source: Communications of the ACM

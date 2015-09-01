@@ -115,3 +115,5 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://clojure-doc.org/
 + http://groups.csail.mit.edu/medg/ftp/psz/k-rep.html
 + http://scienceblogs.com/goodmath/2009/02/18/gap-buffers-or-why-bother-with-1/
++ http://caffe.berkeleyvision.org/
++ http://tedunderwood.com/2012/04/07/topic-modeling-made-just-simple-enough/

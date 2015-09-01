@@ -1306,8 +1306,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
 
 + Machine learning
   + Swarm intelligence
-  + Topic Modeling
-    * gensim
+  + [Topic Modeling](MOAL/artificial_intelligence/machine_learning/topic_modeling/)
+    * [gensim](MOAL/artificial_intelligence/machine_learning/topic_modeling/tm_gensim.py)
   + Supervised learning
     + Inference engine
       * PyKE
