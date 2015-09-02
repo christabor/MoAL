@@ -21,3 +21,6 @@ static_coverage:
 	python MOAL/test_files.py --static > static_output.txt
 savetree:
 	tree . > tree-example.txt
+notebook:
+	@echo "Running the interactive notebook!"
+	ipython notebook
