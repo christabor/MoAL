@@ -1,6 +1,9 @@
 from random import randrange as rr
 from random import choice
 from string import ascii_uppercase
+from faker import Factory
+
+faker = Factory.create()
 
 
 def random_node(vals, nums, max_edges):
@@ -17,6 +20,15 @@ def random_graph(max_edges=10):
     for k, letter in enumerate(letters):
         dag[k] = random_node(letter, nums, max_edges)
     return dag
+
+
+def random_person():
+    return {
+        'name': faker.name(),
+        'email': faker.email(),
+        'address': faker.address(),
+        'url': faker.url()
+    }
 
 
 def subnet_mask():

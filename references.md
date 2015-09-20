@@ -60,6 +60,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://en.wikipedia.org/wiki/Coding_theory
 + https://en.wikipedia.org/wiki/Aspect-oriented_software_development
 + https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)
++ https://en.wikipedia.org/wiki/Comparison_of_web_server_software
 
 *Misc*
 + fullstackpython.com/table-of-contents.html
@@ -108,7 +109,6 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://j-algo.binaervarianz.de/screenshots.php
 + http://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html
 + http://blog.notdot.net/2010/07/Damn-Cool-Algorithms-Levenshtein-Automata
-+ https://en.wikipedia.org/wiki/Comparison_of_web_server_software
 + http://deeplearning.net/
 + http://ivansmirnov.io/python-metaclasses/
 + http://stackoverflow.com/questions/10771107/lisp-list-vs-s-expression
@@ -117,3 +117,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://scienceblogs.com/goodmath/2009/02/18/gap-buffers-or-why-bother-with-1/
 + http://caffe.berkeleyvision.org/
 + http://tedunderwood.com/2012/04/07/topic-modeling-made-just-simple-enough/
++ http://python-eve.org/rest_api_for_humans.html
++ http://www.saedsayad.com/data_mining_map.htm
++ http://www.slideshare.net/SarahGuido/a-beginners-guide-to-machine-learning-with-scikitlearn?qid=1f5893d1-c80e-46b2-bdfd-dbf4afb083f4
++ http://www.simafore.com/blog/bid/62482/2-main-differences-between-classification-and-regression-trees

@@ -201,7 +201,7 @@ class CartesianTree(BinaryTree):
         return [current, left, right]
 
     @staticmethod
-    def is_leaf_lst(res):
+    def is_leaf_list(res):
         """Determine if the list (e.g. [1, [2], [3]]) has no children
         or is empty, which is encoded as being a leaf node.
         Args:
@@ -279,7 +279,7 @@ class CartesianTree(BinaryTree):
                 '\n' if count == 0 else '', branch, atom, seq, res))
         # Keep chugging along with the "manual" sub-divisions unless we
         # encounter a nested list, then we must convert it recursively.
-        if not CartesianTree.is_leaf_lst(res):
+        if not CartesianTree.is_leaf_list(res):
             current, l_child, r_child = self._get_members(res)
             self._add(current, l_child, r_child, parent)
         elif len(seq) == 2:
