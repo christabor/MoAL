@@ -1324,7 +1324,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Supervised learning
     + Inference engine
       * PyKE
-    + Decision tree
+    + [Decision tree](MOAL/artificial_intelligence/machine_learning/supervised/decision_trees.py)
     + Perceptrons
     + Support vector machines
     + K-means clustering
