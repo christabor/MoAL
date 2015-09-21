@@ -1276,6 +1276,19 @@ Note: some encoding schemes are not really used in computer organization, but ar
 + Configuration management
   * SaltStack
 + Parallel Computing
+  * High performance computing
+    - Symmetric Multiprocessing
+      + Python
+        * dispy
+    - Cluster Computing
+    - Cloud Computing
+      + Python
+        + PiCloud
+        + StarCluster
+    - Grid Computing
+      + Python
+        + Ganga
+        + Minimum intrusion Grid
 + Distributed Computing
   * Fault-tolerance
   * Self-stabilization

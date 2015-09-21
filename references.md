@@ -121,3 +121,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://www.saedsayad.com/data_mining_map.htm
 + http://www.slideshare.net/SarahGuido/a-beginners-guide-to-machine-learning-with-scikitlearn?qid=1f5893d1-c80e-46b2-bdfd-dbf4afb083f4
 + http://www.simafore.com/blog/bid/62482/2-main-differences-between-classification-and-regression-trees
++ https://wiki.python.org/moin/ParallelProcessing
