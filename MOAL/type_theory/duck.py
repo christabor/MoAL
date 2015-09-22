@@ -75,7 +75,7 @@ class ApoptosisManager:
 
 
 if DEBUG:
-    with Section('SOME MODULE TITLE'):
+    with Section('Type theory - Duck Typing'):
         # Okay, so here's the rundown;
         # 1. New cells are created out of thin air, for something.
         # 2. They are associated with a vital organ -- that is to say,

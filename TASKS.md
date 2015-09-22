@@ -1269,7 +1269,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Micro-services
   + RESTful API
     + [Basic](MOAL/systems_engineering/architecture/restful/)
-    + HATEOAS
+    + [HATEOAS](MOAL/systems_engineering/architecture/restful/)
   + API design
     * JSONAPI (jsonapi.org)
     + Fluent interface

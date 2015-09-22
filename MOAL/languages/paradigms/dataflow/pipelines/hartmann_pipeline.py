@@ -23,5 +23,5 @@ class Pipeline(object):
 
 
 if DEBUG:
-    with Section('SOME MODULE TITLE'):
+    with Section('Hartmann Pipeline'):
         pass
