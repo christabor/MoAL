@@ -31,7 +31,8 @@ assets/build/
 *.log
 *.sql
 *.sqlite
-automtron_postgrs
+db.sqlite3
+/**/migrations/
 
 # OS generated files #
 ######################
