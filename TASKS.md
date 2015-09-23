@@ -1267,11 +1267,12 @@ Note: some encoding schemes are not really used in computer organization, but ar
     * Distributed
   + SOA
     + Micro-services
-  + RESTful API
+  + [RESTful API](MOAL/systems_engineering/architecture/restful/)
     + [Basic](MOAL/systems_engineering/architecture/restful/)
+    + [Complex](MOAL/systems_engineering/architecture/restful/restclient)
     + [HATEOAS](MOAL/systems_engineering/architecture/restful/)
   + API design
-    * JSONAPI (jsonapi.org)
+    * [JSONAPI (jsonapi.org)](MOAL/systems_engineering/architecture/restful/restclient)
     + Fluent interface
 + Configuration management
   * SaltStack
