@@ -1273,7 +1273,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + [HATEOAS](MOAL/systems_engineering/architecture/restful/)
   + API design
     * [JSONAPI (jsonapi.org)](MOAL/systems_engineering/architecture/restful/restclient)
-    + Fluent interface
+    + [Fluent interface](MOAL/systems_engineering/architecture/api_design/fluent_interface.py)
 + Configuration management
   * SaltStack
 + Parallel Computing
