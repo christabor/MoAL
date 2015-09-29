@@ -17,7 +17,7 @@
 // in some non-code based form, and then once completed,
 // using that as a guide for creating software.
 //
-// I've used a sort of informal but concise/consistent synta here, using json.
+// I've used a sort of informal but concise/consistent syntax here, using JSON.
 // isA, hasA, hasMany, hasFunctions, and hasProperties seems
 // to cover most all scenarios, but can be augmented. This might then
 // be parsed and output in some kind of code generation step.
