@@ -24,3 +24,7 @@ savetree:
 notebook:
 	@echo "Running the interactive notebook!"
 	ipython notebook
+epydocs:
+	# http://epydoc.sourceforge.net/manual-reference.html
+	@echo "Generating epydocs and uml classes"
+	epydoc --html --output=moal_epydocs ./MOAL/ --graph=umlclasstree

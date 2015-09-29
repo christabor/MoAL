@@ -125,3 +125,6 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://www.martinfowler.com/bliki/FluentInterface.html
 + http://code.tutsplus.com/tutorials/behavior-driven-development-in-python--net-26547
 + http://lettuce.it/tutorial/simple.html#tutorial-simple
++ https://www.youtube.com/watch?v=ZaMMHMLBXYY
++ http://pyswarm.blogspot.com/2008/09/python-library-for-uml.html
++ http://epydoc.sourceforge.net/manual-reference.html

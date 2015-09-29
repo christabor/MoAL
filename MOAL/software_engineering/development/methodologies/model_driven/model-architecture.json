@@ -1,0 +1,116 @@
+// Model Driven Design is based on the notion of creating models of your
+// software application in advance, incorporating business requirements and domain
+// experience, while iterating on these models until a reasonable
+// version can be used to springboard programming efforts, and reduce error,
+// while improving software outcomes and quality. The idea is not new,
+// having been around in some form or another for quite some time.
+
+// The most commonly used examples for modeling systems in advance of development
+// is the old faithful Unified Modeling Language. There are some python modules
+// and plenty of resources to handle, parse, or otherwise create UML, but I have
+// found it is a cumbersome specification for most developers, including myself,
+// and often requires specialized training just to learn it in the first place.
+
+// Instead, I've opted for my own version of a model specification in the form
+// of JSON configurations. The most important notion here is the crux of the idea:
+// modeling your business requirements, UI, and/or application requirements
+// in some non-code based form, and then once completed,
+// using that as a guide for creating software.
+//
+// I've used a sort of informal but concise/consistent synta here, using json.
+// isA, hasA, hasMany, hasFunctions, and hasProperties seems
+// to cover most all scenarios, but can be augmented. This might then
+// be parsed and output in some kind of code generation step.
+
+// See also: http://agilemodeling.com/essays/modelStorming.htm for some examples
+// of "Just-in-time" modeling.
+
+[{
+    "Manufacturer": {
+        "isA": "<Class>",
+        "hasProperties": [
+            "origin",
+            "designer"
+        ]
+    },
+    "MetalGear": {
+        "isA": "<Class>",
+        "hasA": "Armament",
+        "hasA": "RexInterface",
+        "hasA": "Manufacturer",
+        "hasA": "ArmorComposite",
+        "hasProperties": [
+            "height",
+            "weight",
+            "width",
+            "length",
+            "crew"
+        ]
+    },
+    "ArmorComposite": {
+        "isA": "<Class>",
+        "hasProperties": [
+            "materials",
+            "weight",
+            "primary_defense_type",
+            "weakness",
+            "temperature_max",
+            "temperature_min"
+        ]
+    },
+    "Weapon": {
+        "isA": "<Class>",
+        "hasProperties": [
+            "type",
+            "ammunition_size",
+            "max_capacity",
+            "firing_rate",
+            "firing_range"
+        ]
+    },
+    "Cannon": {
+        "isA": "Weapon"
+    },
+    "Laser": {
+        "isA": "Weapon"
+    },
+    "GatlingGun": {
+        "isA": "Weapon"
+    },
+    "MissileBattery": {
+        "isA": "Weapon"
+    },
+    "Armament": {
+        "isA": "<Class>",
+        "hasMany": "Weapon"
+    },
+    "RexInterface": {
+        "isA": "<Class>",
+        "hasFunctions": [
+            "Acquire",
+            "Scan",
+            "Target",
+            "PowerDown",
+            "Pursue",
+            "Broadcast",
+            "Conceal",
+            "Fire",
+            "Lock"
+        ]
+    },
+    "Rex": {
+        "isA": "MetalGear"
+    },
+    "Ray": {
+        "isA": "MetalGear"
+    },
+    "D": {
+        "isA": "MetalGear"
+    },
+    "DARPA": {
+        "isA": "Manufacturer"
+    },
+    "ArmsTech": {
+        "isA": "Manufacturer"
+    }
+}]
