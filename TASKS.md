@@ -164,7 +164,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + vEB tree
   + Red-black tree
   + [Trie](MOAL/data_structures/trees/trie.py)
-    + Radix tree
+    + [Radix tree](MOAL/data_structures/trees/radix_tree.py)
     + [Suffix tree](MOAL/data_structures/trees/suffix_tree.py)
       + [Generalized](MOAL/data_structures/trees/suffix_tree.py)
       + Ukkonen's
