@@ -338,7 +338,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       * Single Responsibility
       * Open/Closed
       * Liskov Substitution
-      * Interface segregation
+      * [Interface segregation](MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.py)
       * Dependency Inversion
     + [GRASP](MOAL/software_engineering/problem_solving/design_patterns/grasp)
       * [Controller](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
