@@ -11,6 +11,9 @@ from MOAL.helpers.display import Section
 from MOAL.data_structures.trees.trie import NaiveTrie
 
 
+DEBUG = True if __name__ == '__main__' else False
+
+
 class NaiveRadixTree(NaiveTrie):
 
     def _get_offset(self, string):
@@ -48,7 +51,7 @@ class NaiveRadixTree(NaiveTrie):
             print(divider * 80)
 
 
-if __name__ == '__main__':
+if DEBUG:
     with Section('Naive Trie structure - basic'):
         ntrie = NaiveRadixTree()
         words = [

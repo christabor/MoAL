@@ -77,7 +77,7 @@ class StillCoupledApplication:
 
 class Application:
     """This class no longer requires any knowledge of the logger type,
-    because it's passed in. So longer as the methods match, it will
+    because it's passed in. So long as the methods match, it will
     just work. This is called dependency injection."""
 
     logger = None

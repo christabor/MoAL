@@ -49,7 +49,7 @@ if DEBUG:
         # classes, which is fine -- we just want to use the utility of
         # structural checking for all our own subclasses here.
         sqr = Square()
-        # Expected to fail, since we modified it from the original.
+        # Expected to not be instance, since we modified it from the original.
         assert not isinstance(sqr, StructuralType)
 
         green_sqr = ColoredSquare()
