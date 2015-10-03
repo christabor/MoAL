@@ -128,3 +128,8 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://www.youtube.com/watch?v=ZaMMHMLBXYY
 + http://pyswarm.blogspot.com/2008/09/python-library-for-uml.html
 + http://epydoc.sourceforge.net/manual-reference.html
++ https://lostechies.com/derickbailey/2009/02/11/solid-development-principles-in-motivational-pictures/
++ http://martinfowler.com/articles/dipInTheWild.html
++ http://stackoverflow.com/questions/56860/what-is-the-liskov-substitution-principle
++ http://lassala.net/2010/11/04/a-good-example-of-liskov-substitution-principle/
++ http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod

@@ -336,10 +336,10 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rule of Extensibility
     + SOLID
       * Single Responsibility
-      * Open/Closed
-      * Liskov Substitution
+      * [Open/Closed](MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.py)
+      * [Liskov Substitution](MOAL/software_engineering/problem_solving/design_patterns/solid/liskov_substitution.py)
       * [Interface segregation](MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.py)
-      * Dependency Inversion
+      * [Dependency Inversion](MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.py)
     + [GRASP](MOAL/software_engineering/problem_solving/design_patterns/grasp)
       * [Controller](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.py)
       * [Creator](MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.py)

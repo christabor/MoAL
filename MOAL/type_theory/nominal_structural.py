@@ -33,6 +33,13 @@ class SubNominal(PrimaryNominal):
 class StructuralType(object, TesterMixin):
 
     __metaclass__ = ABCMeta
+    debug = True
+
+    @staticmethod
+    def compare(self_methods, self_props, other_methods, other_props):
+        string = 'Self methods/props: {}, {} | Other methods/props: {}, {}'
+        print(string.format(
+            self_methods, self_props, other_methods, other_props))
 
     @staticmethod
     def _extract_props(cls):
@@ -54,9 +61,8 @@ class StructuralType(object, TesterMixin):
         other_methods = StructuralType._extract_members(subclass)
         self_props = StructuralType._extract_props(cls)
         other_props = StructuralType._extract_props(subclass)
-        print(
-            'Self methods/props: {}, {} | Other methods/props: {}, {}'.format(
-                self_methods, self_props, other_methods, other_props))
+        if cls.debug:
+            cls.compare(self_methods, self_props, other_methods, other_props)
         if self_methods == other_methods and self_props == other_props:
             return True
         return False
