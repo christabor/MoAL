@@ -317,7 +317,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Problem solving
   * Design patterns
     - Unix Rules
-      + Rule of modularity
+      + [Rule of modularity](MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.py)
       + Rule of Clarity
       + Rule of Composition
       + Rule of Separation
