@@ -1526,7 +1526,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Lisp
       + Clojure
       + Python
-        * PyMonad
+        * [PyMonad](MOAL/languages/paradigms/functional/pymonad_examples.py)
     + Features
       + Functional Parametric polymorphism
   + Logic
