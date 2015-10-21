@@ -388,7 +388,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Representation theory
   + Algebra
 + Space
-  + Geometry
+  + [Geometry](MOAL/maths/space/fractal_geometry.py)
   + Trigonometry
   + Differential geometry
   + Topology
@@ -403,7 +403,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Complex analysis
 + Applied
   + Computational
-    + Geometry
+    + [Geometry](MOAL/maths/space/fractal_geometry.py)
     + Mathematical physics
     + Fluid dynamics
     + Numerical analysis
@@ -1527,6 +1527,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Clojure
       + Python
         * [PyMonad](MOAL/languages/paradigms/functional/pymonad_examples.py)
+        * Functools
     + Features
       + Functional Parametric polymorphism
   + Logic
