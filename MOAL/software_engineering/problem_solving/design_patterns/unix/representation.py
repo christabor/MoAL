@@ -8,8 +8,6 @@ if __name__ == '__main__':
     sys.path.append(getcwd())
 
 
-from MOAL.helpers.display import Section
-
 DEBUG = True if __name__ == '__main__' else False
 
 
@@ -29,7 +27,7 @@ Also see: http://www.catb.org/esr/writings/taoup/html/generationchapter.html
 
 
 def example_1_bad_method(arg):
-    """This is pretty, convoluted, and hard to read. It is also potentially
+    """This is convoluted and hard to read. It is also potentially
     less performant, since the logic branching must be generated and evaluated.
     """
     if arg is 'foo':
@@ -109,8 +107,3 @@ def example_2_good_method(arg1, arg2):
         return data[arg1][arg2]
     except KeyError:
         return None
-
-
-if DEBUG:
-    with Section('UNIX rules - representation'):
-        pass
