@@ -325,7 +325,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rule of Parsimony
       + Rule of Transparency
       + [Rule of Robustness](MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.py)
-      + Rule of Representation
+      + [Rule of Representation](MOAL/software_engineering/problem_solving/design_patterns/unix/representation.py)
       + Rule of Least Surprise
       + Rule of Silence
       + Rule of Repair
@@ -1274,6 +1274,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + API design
     * [JSONAPI (jsonapi.org)](MOAL/systems_engineering/architecture/restful/restclient)
     + [Fluent interface](MOAL/systems_engineering/architecture/api_design/fluent_interface.py)
+    + Webhooks
 + Configuration management
   * SaltStack
 + Parallel Computing
@@ -1328,9 +1329,12 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + [Decision tree](MOAL/artificial_intelligence/machine_learning/supervised/decision_trees.py)
     + Perceptrons
     + Support vector machines
+    + Relevance vector machines
     + K-means clustering
     + Bayesian probability
     + Neural networks
+      * Deep learning
+        - Pylearn2
       * Wavelet
       * Hierarchical Temporal Memory
       + Self-organizing map (Kohonen map)
@@ -1356,6 +1360,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + Bi-directional
         + Continuous-time
         + Hierarchical
+        + Autoencoder / autoassociator / Diablo network
         + Recurrent multilayer Perceptron
           + Convolutional Neural Network (ConvNet)
           + Stacked Autoencoder
