@@ -133,3 +133,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://stackoverflow.com/questions/56860/what-is-the-liskov-substitution-principle
 + http://lassala.net/2010/11/04/a-good-example-of-liskov-substitution-principle/
 + http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
++ http://www.cs.mtu.edu/~shene/COURSES/cs3621/NOTES/model/winged-e.html

@@ -250,7 +250,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + Other
   + [Heightmap](MOAL/data_structures/other/heightmap.py)
   + [Lightmap](MOAL/data_structures/other/lightmap.py)
-  + Winged edge
+  + [Winged edge](MOAL/data_structures/other/winged_edge.py)
   + Quad-edge
   + [Routing table](MOAL/data_structures/other/routing_table.py)
   + [Symbol table](MOAL/data_structures/other/symbol_table.py)
