@@ -296,7 +296,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Data-flow analysis
       + Hoare logic
         * Communicating sequential processes (CSP)
-      + Type checking
+      + [Type checking](MOAL/software_engineering/testing/white_box/static_analysis/type_checking.py)
       + Type inference
       + Symbolic simulation
       + Symbolic execution
