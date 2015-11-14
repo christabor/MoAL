@@ -1089,7 +1089,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
 + Security
   + Protection ring
   + Supervisor
-  + Hypervisor
+  + [Hypervisor](MOAL/operating_systems/security/hypervisor/example-config.vbox)
   + Language based
 + System on a chip (SoC)
 + Inter-process communication

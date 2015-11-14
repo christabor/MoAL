@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+* VirtaulBox is a hypervisor. Here is one configuration file, for a windows 3.1 machine.
+-->
+<VirtualBox xmlns="http://www.innotek.de/VirtualBox-settings" version="1.14-macosx">
+  <Machine uuid="{}" name="win3.1" OSType="Windows31" snapshotFolder="Snapshots" lastStateChange="2015-11-14T06:35:57Z">
+    <MediaRegistry>
+      <HardDisks>
+        <HardDisk uuid="{}" location="win3.1.vdi" format="VDI" type="Normal"/>
+      </HardDisks>
+      <DVDImages/>
+      <FloppyImages/>
+    </MediaRegistry>
+    <ExtraData>
+      <ExtraDataItem name="GUI/FirstRun" value="yes"/>
+    </ExtraData>
+    <Hardware version="2">
+      <CPU count="1" hotplug="false">
+        <HardwareVirtEx enabled="true"/>
+        <HardwareVirtExNestedPaging enabled="true"/>
+        <HardwareVirtExVPID enabled="true"/>
+        <HardwareVirtExUX enabled="true"/>
+        <PAE enabled="false"/>
+        <LongMode enabled="false"/>
+        <HardwareVirtExLargePages enabled="true"/>
+        <HardwareVirtForce enabled="false"/>
+      </CPU>
+      <Memory RAMSize="32" PageFusion="false"/>
+      <HID Pointing="PS2Mouse" Keyboard="PS2Keyboard"/>
+      <HPET enabled="false"/>
+      <Chipset type="PIIX3"/>
+      <Boot>
+        <Order position="1" device="Floppy"/>
+        <Order position="2" device="DVD"/>
+        <Order position="3" device="HardDisk"/>
+        <Order position="4" device="None"/>
+      </Boot>
+      <Display VRAMSize="16" monitorCount="1" accelerate3D="false" accelerate2DVideo="false"/>
+      <VideoCapture enabled="false" screens="18446744073709551615" horzRes="1024" vertRes="768" rate="512" fps="25"/>
+      <RemoteDisplay enabled="false" authType="Null"/>
+      <BIOS>
+        <ACPI enabled="true"/>
+        <IOAPIC enabled="false"/>
+        <Logo fadeIn="true" fadeOut="true" displayTime="0"/>
+        <BootMenu mode="MessageAndMenu"/>
+        <TimeOffset value="0"/>
+        <PXEDebug enabled="false"/>
+      </BIOS>
+      <USB>
+        <Controllers>
+          <Controller name="OHCI" type="OHCI"/>
+          <Controller name="EHCI" type="EHCI"/>
+        </Controllers>
+        <DeviceFilters/>
+      </USB>
+      <Network>
+        <Adapter slot="0" enabled="true" MACAddress="" cable="true" speed="0" type="Am79C973">
+          <DisabledModes/>
+          <NAT>
+            <DNS pass-domain="true" use-proxy="false" use-host-resolver="false"/>
+            <Alias logging="false" proxy-only="false" use-same-ports="false"/>
+          </NAT>
+        </Adapter>
+        <Adapter slot="1" enabled="false" MACAddress="" cable="true" speed="0" type="Am79C973">
+          <DisabledModes>
+            <NAT>
+              <DNS pass-domain="true" use-proxy="false" use-host-resolver="false"/>
+              <Alias logging="false" proxy-only="false" use-same-ports="false"/>
+            </NAT>
+          </DisabledModes>
+        </Adapter>
+        <Adapter slot="2" enabled="false" MACAddress="" cable="true" speed="0" type="Am79C973">
+          <DisabledModes>
+            <NAT>
+              <DNS pass-domain="true" use-proxy="false" use-host-resolver="false"/>
+              <Alias logging="false" proxy-only="false" use-same-ports="false"/>
+            </NAT>
+          </DisabledModes>
+        </Adapter>
+      </Network>
+      <UART>
+        <Port slot="0" enabled="false" IOBase="0x3f8" IRQ="4" hostMode="Disconnected"/>
+        <Port slot="1" enabled="false" IOBase="0x2f8" IRQ="3" hostMode="Disconnected"/>
+      </UART>
+      <LPT>
+        <Port slot="0" enabled="false" IOBase="0x378" IRQ="7"/>
+        <Port slot="1" enabled="false" IOBase="0x378" IRQ="7"/>
+      </LPT>
+      <AudioAdapter controller="SB16" driver="CoreAudio" enabled="true"/>
+      <RTC localOrUTC="local"/>
+      <SharedFolders/>
+      <Clipboard mode="Disabled"/>
+      <DragAndDrop mode="Disabled"/>
+      <IO>
+        <IoCache enabled="true" size="5"/>
+        <BandwidthGroups/>
+      </IO>
+      <HostPci>
+        <Devices/>
+      </HostPci>
+      <EmulatedUSB>
+        <CardReader enabled="false"/>
+      </EmulatedUSB>
+      <Guest memoryBalloonSize="0"/>
+      <GuestProperties/>
+    </Hardware>
+    <StorageControllers>
+      <StorageController name="Floppy" type="I82078" PortCount="1" useHostIOCache="true" Bootable="true">
+        <AttachedDevice type="Floppy" port="0" device="0"/>
+      </StorageController>
+      <StorageController name="IDE" type="PIIX4" PortCount="2" useHostIOCache="true" Bootable="true">
+        <AttachedDevice type="HardDisk" port="0" device="0">
+          <Image uuid="{}"/>
+        </AttachedDevice>
+        <AttachedDevice passthrough="false" type="DVD" port="1" device="0"/>
+      </StorageController>
+    </StorageControllers>
+  </Machine>
+</VirtualBox>
