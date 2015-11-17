@@ -1239,7 +1239,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
 + Modeling
   + SPICE
   + CMMI
-  + Data model
+  + [Data model](MOAL/storage/modeling/data_modeling.py)
   + ER model
   + Function model
   + Information model
