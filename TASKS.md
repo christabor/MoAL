@@ -1234,7 +1234,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + [MessagePack](MOAL/storage/serialization/json_test.py)
   + [Protocol Buffers](MOAL/storage/serialization/protocol_buffers/)
   + [S-expressions](MOAL/storage/serialization/sexpressions.clj)
-  + YAML
+  + [YAML](MOAL/storage/serialization/yaml_test.yaml)
   + Custom (make one!)
 + Modeling
   + SPICE

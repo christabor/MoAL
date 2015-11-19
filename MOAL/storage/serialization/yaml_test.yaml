@@ -1,0 +1,26 @@
+# http://yamltojson.com -- useful for seeing a common conversion
+--- !look at this cool yaml config.
+this:
+    is
+a:
+    yaml:
+        config
+multiline: >
+    this is a string
+    that has a few lines.
+
+copy-from-ref: &id01
+    foo: bar
+    bar: foo
+copy-to-ref: *id01
+array_vals:
+    - arr1: foo
+      bar: foo
+      foo: bar
+      baz: quux
+      quux: baz
+    - arr2: bar
+      foo: bar
+      bar: foo
+      quux: baz
+      baz: quux
