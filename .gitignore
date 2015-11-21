@@ -12,6 +12,7 @@ assets/build/
 *.so
 /docs/MOAL.*rst
 /docs/_build/*
+tree-example.*
 
 # Packages #
 ############

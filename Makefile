@@ -1,6 +1,7 @@
 clean:
 	@echo "Deleting docs/"
 	rm -rf docs || true
+	rm tree-example.*
 docs: clean
 	@echo "Building Sphinx API Docs..."
 	# http://sphinx-doc.org/man/sphinx-apidoc.html
@@ -21,6 +22,10 @@ static_coverage:
 	python MOAL/test_files.py --static > static_output.txt
 savetree:
 	tree . > tree-example.txt
+savejsontree: savetree
+	@echo "Generating tree as json"
+	cd MOAL/;
+	python MOAL/get_file_tree.py > tree-example.json
 notebook:
 	@echo "Running the interactive notebook!"
 	ipython notebook
