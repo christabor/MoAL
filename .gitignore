@@ -30,7 +30,6 @@ tree-example.*
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 db.sqlite3
 /**/migrations/

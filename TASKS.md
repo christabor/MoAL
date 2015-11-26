@@ -1200,7 +1200,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Terrier Search Engine
   + Databases
     * Utilities
-      - Stored Procedures
+      - [Stored Procedures](MOAL/storage/databases/utilities/stored_procs.sql)
     + [Relational](MOAL/storage/databases/relational/)
       + [MySql](MOAL/storage/databases/relational/sql_alchemy.py)
       + [PostgreSql](MOAL/storage/databases/relational/postgresql_psycopg2.py)
