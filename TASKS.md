@@ -1201,7 +1201,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Databases
     * Utilities
       - Stored Procedures
-    + Relational
+    + [Relational](MOAL/storage/databases/relational/)
       + [MySql](MOAL/storage/databases/relational/sql_alchemy.py)
       + [PostgreSql](MOAL/storage/databases/relational/postgresql_psycopg2.py)
         * [Psycopg2](MOAL/storage/databases/relational/postgresql_psycopg2.py)
@@ -1210,7 +1210,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Accumulo
     + Document
       + [MongoDB](MOAL/storage/databases/document/mongo_db.py)
-      + CouchDB
+      + [CouchDB](MOAL/storage/databases/document/couch_db.py)
     + Graph
       * TinkerPop (interfacing)
       + Neo4j
