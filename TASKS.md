@@ -1299,16 +1299,23 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Unstructured
   + CAP Theorem
   + "Big Data" processing
-    + Hadoop file system
-    + Hadoop MapReduce
-    + Kafka
-    + NSQ
-    + Storm
-    + PIG
-    + Spark
-    + ZooKeeper
-      + Kazoo
-    + Lucene
+    * Hadoop ecosystem
+      * Hadoop (HDFS/MapReduce)
+      * YARN
+      * Hive
+      * HCatalog
+      * Oozie
+      * Sqoop
+      * Flume
+      * Mahout
+      * Kafka
+      * NSQ
+      * PIG
+      * Spark
+      * ZooKeeper
+        * Kazoo
+      * Storm
+      * Ambari
 + Message queuing
   + [RabbitMQ](MOAL/systems_engineering/message_queues/rabbitmq/)
   + ZeroMQ
