@@ -1308,7 +1308,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       * Sqoop
       * Flume
       * Mahout
-      * Kafka
+      * [Kafka](MOAL/systems_engineering/distributed/big_data/kafka_test.py)
       * NSQ
       * PIG
       * Spark
