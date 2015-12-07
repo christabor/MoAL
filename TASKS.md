@@ -418,7 +418,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
           + [O(n!)](MOAL/maths/big_o.py)
     + Optimization
       + [Memoization](MOAL/maths/applied/optimization/memoization.py)
-      + Strength reduction
+      + [Strength reduction](MOAL/maths/applied/optimization/strength_reduction.py)
       + Caching
       + Linear programming
         + Augmented form
