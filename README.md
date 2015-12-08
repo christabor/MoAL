@@ -48,3 +48,7 @@ With all of this you are creating an intuitive understanding while at the same t
 One thing I have come to realize is that it is easy to simply "research and implement" the concept at hand, without fully appreciating what it means beyond the textbook definition. One of my goals here is to amass an extremely large cross-section of knowledge and also infuse that understanding into my own practice and disciplines. This approach allows novel thinking in one area, as one is more likely to take inspiration from a larger "pool" of tips and techniques that have been acquired.
 
 So with that understanding, I would explicitly state here that when working on a project like this, it is important to allow the particular task at hand to envelop you, and infuse the idea into your knowledge. Each one will resonate with your own interests and understanding to a different degree, and that's fine; it's a matter of allowing yourself to grow by ingesting and transforming this knowledge, and not just memorizing a specific algorithm, data structure or concept.
+
+### Documentation / Other visual formats
+
+Documentation exists solely for understanding and as a different way to navigate the complex categories -- it's not meant to be a source of reference for actual development. [Click here to check out all documentation](http://christabor.github.io/MoAL/)
