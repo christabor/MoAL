@@ -458,7 +458,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Axiomatic
       + Combinatorial
       + Descriptive
-      + Fuzzy
+      + [Fuzzy](/MOAL/maths/fuzzy_sets.py)
       + Inner model
       + Large cardinal
       + Determinacy
@@ -1320,7 +1320,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + [RabbitMQ](MOAL/systems_engineering/message_queues/rabbitmq/)
   + ZeroMQ
 + Performance
-  + Caching
+  + [Caching](MOAL/systems_engineering/performance/caching/)
     + Varnish
     + [Memcached](MOAL/systems_engineering/performance/caching/memcached_example.py)
 

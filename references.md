@@ -135,3 +135,5 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
 + http://www.cs.mtu.edu/~shene/COURSES/cs3621/NOTES/model/winged-e.html
 + http://www.dcs.gla.ac.uk/~marks/
++ https://www.quora.com/What-are-some-good-fuzzy-logic-libraries-in-Python
++ https://en.wikipedia.org/wiki/Fuzzy_logic
