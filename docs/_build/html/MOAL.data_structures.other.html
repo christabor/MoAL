@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.other package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.data_structures package" href="MOAL.data_structures.html"/>
+        <link rel="next" title="MOAL.data_structures.trees package" href="MOAL.data_structures.trees.html"/>
+        <link rel="prev" title="MOAL.data_structures.linear.lists package" href="MOAL.data_structures.linear.lists.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.data_structures.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.persistent">MOAL.data_structures.persistent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.retroactive">MOAL.data_structures.retroactive module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.data_structures.html">MOAL.data_structures package</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.other package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.data_structures.other.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.data_structures.other">
+<span id="moal-data-structures-other-package"></span><h1>MOAL.data_structures.other package<a class="headerlink" href="#module-MOAL.data_structures.other" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.other.heightmap">
+<span id="moal-data-structures-other-heightmap-module"></span><h2>MOAL.data_structures.other.heightmap module<a class="headerlink" href="#module-MOAL.data_structures.other.heightmap" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.other.heightmap.HeightMap">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.heightmap.</code><code class="descname">HeightMap</code><span class="sig-paren">(</span><em>size=10</em>, <em>max=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/heightmap.html#HeightMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.heightmap.HeightMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>A heightmap is a data structure used to store the height values of
+(typically) a terrain geometry in 3-d programs.</p>
+<p>Each value may represent discrete sections across the terrain grid.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.other.heightmap.HeightMap.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>size=10</em>, <em>max=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/heightmap.html#HeightMap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.heightmap.HeightMap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.heightmap.HeightMap.get_data">
+<code class="descname">get_data</code><span class="sig-paren">(</span><em>ztype='sin'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/heightmap.html#HeightMap.get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.heightmap.HeightMap.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data format suitable for plotting.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.other.lightmap">
+<span id="moal-data-structures-other-lightmap-module"></span><h2>MOAL.data_structures.other.lightmap module<a class="headerlink" href="#module-MOAL.data_structures.other.lightmap" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.other.lightmap.Lightmap">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.lightmap.</code><code class="descname">Lightmap</code><span class="sig-paren">(</span><em>height=10</em>, <em>width=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/lightmap.html#Lightmap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.lightmap.Lightmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>From Wikipedia:
+&#8220;A lightmap is a data structure which contains the brightness of
+surfaces in 3d graphics applications such as video games.
+Lightmaps are pre-computed, and normally used for static objects only.
+They are particularly suited to urban and
+indoor environments with large planar surfaces.&#8221;</p>
+<dl class="method">
+<dt id="MOAL.data_structures.other.lightmap.Lightmap.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>height=10</em>, <em>width=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/lightmap.html#Lightmap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.lightmap.Lightmap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.lightmap.Lightmap.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/lightmap.html#Lightmap.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.lightmap.Lightmap.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a ...weird... method, but it&#8217;s SOME way to
+visualize the notion of lighting, as darkness and lightness.
+Since I can&#8217;t be bothered to actually build a real renderer for this
+project, I&#8217;m doing this to illustrate the idea in a fun(?) way.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.lightmap.Lightmap.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>recipe=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/lightmap.html#Lightmap.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.lightmap.Lightmap.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don&#8217;t be confused: the notion of a recipe is just for fun here.
+It has nothing to do with lightmaps &#8211; it&#8217;s just to experiment
+with example &#8216;ascii lighting&#8217; for more interesting visualizations.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.other.routing_table">
+<span id="moal-data-structures-other-routing-table-module"></span><h2>MOAL.data_structures.other.routing_table module<a class="headerlink" href="#module-MOAL.data_structures.other.routing_table" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.other.routing_table.RoutingTable">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.routing_table.</code><code class="descname">RoutingTable</code><a class="reference internal" href="_modules/MOAL/data_structures/other/routing_table.html#RoutingTable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.routing_table.RoutingTable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.other.routing_table.RoutingTable.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.routing_table.RoutingTable.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.routing_table.RoutingTable.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.routing_table.RoutingTable.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.routing_table.RoutingTable.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.routing_table.RoutingTable.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.routing_table.RoutingTable.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.routing_table.RoutingTable.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.routing_table.RoutingTable.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.routing_table.RoutingTable.get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.routing_table.RoutingTable.get_networkid">
+<code class="descname">get_networkid</code><span class="sig-paren">(</span><em>ip</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.routing_table.RoutingTable.get_networkid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network ID is comprised of Network Destination and Netmask,
+using CIDR notation. <a class="reference external" href="https://www.youtube.com/watch?v=t5xYI0jzOf4">https://www.youtube.com/watch?v=t5xYI0jzOf4</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.other.symbol_table">
+<span id="moal-data-structures-other-symbol-table-module"></span><h2>MOAL.data_structures.other.symbol_table module<a class="headerlink" href="#module-MOAL.data_structures.other.symbol_table" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.data_structures.other.symbol_table.format_table">
+<code class="descclassname">MOAL.data_structures.other.symbol_table.</code><code class="descname">format_table</code><span class="sig-paren">(</span><em>code_string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/symbol_table.html#format_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.symbol_table.format_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.other.winged_edge">
+<span id="moal-data-structures-other-winged-edge-module"></span><h2>MOAL.data_structures.other.winged_edge module<a class="headerlink" href="#module-MOAL.data_structures.other.winged_edge" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdge">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.winged_edge.</code><code class="descname">WingedEdge</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/winged_edge.html#WingedEdge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdge" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdge.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdge.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdge.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdge.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdge.add_edge">
+<code class="descname">add_edge</code><span class="sig-paren">(</span><em>edge_name</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdge.add_edge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdge.add_face">
+<code class="descname">add_face</code><span class="sig-paren">(</span><em>left</em>, <em>right</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdge.add_face" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdge.add_traversal">
+<code class="descname">add_traversal</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdge.add_traversal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdge.add_vertices">
+<code class="descname">add_vertices</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdge.add_vertices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeEdge">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.winged_edge.</code><code class="descname">WingedEdgeEdge</code><span class="sig-paren">(</span><em>edge</em>, <em>data={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/winged_edge.html#WingedEdgeEdge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeEdge" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeEdge.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>edge</em>, <em>data={}</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeEdge.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeFace">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.winged_edge.</code><code class="descname">WingedEdgeFace</code><span class="sig-paren">(</span><em>orient</em>, <em>data={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/winged_edge.html#WingedEdgeFace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeFace" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeFace.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>orient</em>, <em>data={}</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeFace.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeTraversal">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.winged_edge.</code><code class="descname">WingedEdgeTraversal</code><span class="sig-paren">(</span><em>pred</em>, <em>succ</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/winged_edge.html#WingedEdgeTraversal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeTraversal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeTraversal.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>pred</em>, <em>succ</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeTraversal.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeVertex">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.other.winged_edge.</code><code class="descname">WingedEdgeVertex</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>data={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/other/winged_edge.html#WingedEdgeVertex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeVertex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.other.winged_edge.WingedEdgeVertex.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>data={}</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.other.winged_edge.WingedEdgeVertex.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.data_structures.trees.html" class="btn btn-neutral float-right" title="MOAL.data_structures.trees package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.data_structures.linear.lists.html" class="btn btn-neutral" title="MOAL.data_structures.linear.lists package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

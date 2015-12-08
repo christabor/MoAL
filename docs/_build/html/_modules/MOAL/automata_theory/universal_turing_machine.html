@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.automata_theory.universal_turing_machine &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.automata_theory.universal_turing_machine</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.automata_theory.universal_turing_machine</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">MOAL.automata_theory.turing_machine</span> <span class="kn">import</span> <span class="n">TuringMachine</span>
+<span class="kn">from</span> <span class="nn">MOAL.automata_theory.turing_machine</span> <span class="kn">import</span> <span class="n">DummyProgramGenerator</span>
+
+
+<div class="viewcode-block" id="UnknownProgram"><a class="viewcode-back" href="../../../MOAL.automata_theory.html#MOAL.automata_theory.universal_turing_machine.UnknownProgram">[docs]</a><span class="k">class</span> <span class="nc">UnknownProgram</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="UniversalTuringMachine"><a class="viewcode-back" href="../../../MOAL.automata_theory.html#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine">[docs]</a><span class="k">class</span> <span class="nc">UniversalTuringMachine</span><span class="p">(</span><span class="n">TuringMachine</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    wikipedia.org/wiki/Universal_Turing_machine</span>
+<span class="sd">        #Example_of_universal-machine_coding</span>
+
+<span class="sd">    &quot;</span>
+<span class="sd">    TS = Tape symbol</span>
+<span class="sd">    TM = Tape-motion</span>
+<span class="sd">    MC = M-configuration (instruction, state)</span>
+<span class="sd">    P = Print-op</span>
+
+<span class="sd">    ====================================================================</span>
+<span class="sd">    MC |   TS   | P | TM | Final MC</span>
+<span class="sd">    --------------------------------------------------------------------</span>
+<span class="sd">    q1   blank    P0  R    q2</span>
+<span class="sd">    q2   blank    E   R    q3</span>
+<span class="sd">    q3   blank    P1  R    q4</span>
+<span class="sd">    q4   blank    E   R    q1</span>
+
+<span class="sd">    ====================================================================</span>
+<span class="sd">    MC code | TS code | P code | TM code | Final MC code | 5-tuple</span>
+<span class="sd">    --------------------------------------------------------------------</span>
+<span class="sd">    DA        D         DC       R         DAA             DADDCRDAA</span>
+<span class="sd">    DAA       D         D        R         DAAA            DAADDRDAAA</span>
+<span class="sd">    DAAA      D         DCC      R         DAAAA           DAAADDCCRDAAAA</span>
+<span class="sd">    DAAAA     D         D        R         DA              DAAAADDRDA</span>
+
+<span class="sd">    Finally, the codes for all four 5-tuples are strung together into a code</span>
+<span class="sd">    started by &quot;;&quot; and separated by &quot;;&quot; i.e.:</span>
+<span class="sd">    ;DADDCRDAA;DAADDRDAAA;DAAADDCCRDAAAA;DAAAADDRDA</span>
+<span class="sd">    &quot;</span>
+
+<span class="sd">    ...for our experiment, we&#39;ll just encode one string directly, and skip the</span>
+<span class="sd">    table mapping, since they both represent the same thing,</span>
+<span class="sd">    albeit with different string values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="UniversalTuringMachine.__init__"><a class="viewcode-back" href="../../../MOAL.automata_theory.html#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">UniversalTuringMachine</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">programs</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;main&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="p">}</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">program</span></div>
+
+<div class="viewcode-block" id="UniversalTuringMachine.run"><a class="viewcode-back" href="../../../MOAL.automata_theory.html#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">programs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UnknownProgram</span><span class="p">(</span><span class="s">&#39;Program {} doesn</span><span class="se">\&#39;</span><span class="s">t exist!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Running {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="c"># Assign it to the &quot;active&quot; program, then run as usual.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">program</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">programs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="c"># &quot;un&quot; halt the program, since it normally terminates permanently.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="c"># Setup new state variables again</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
+
+        <span class="c"># Encode and decode work, but aren&#39;t really used -- they&#39;re irrelevant</span>
+        <span class="c"># for this example, but fun to show.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+
+        <span class="c"># Call original run method to actually run the program</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">UniversalTuringMachine</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="UniversalTuringMachine.add_program"><a class="viewcode-back" href="../../../MOAL.automata_theory.html#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.add_program">[docs]</a>    <span class="k">def</span> <span class="nf">add_program</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">program</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Adding program&#39;</span><span class="p">,</span> <span class="n">program</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">programs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span></div>
+
+<div class="viewcode-block" id="UniversalTuringMachine.encode"><a class="viewcode-back" href="../../../MOAL.automata_theory.html#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.encode">[docs]</a>    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Not really necessary, but to emulate the behavior we translate</span>
+<span class="sd">        our generated program into a single long string of values that</span>
+<span class="sd">        can be decoded.&quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Encoding active program&#39;</span><span class="p">)</span>
+        <span class="n">transitions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="p">[</span><span class="s">&#39;transitions&#39;</span><span class="p">]</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;S{};V{};N{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="s">&#39;value&#39;</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s">&#39;next&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">transitions</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()]</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="s">&#39;:&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} ==&gt; {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="p">,</span> <span class="n">code</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span></div>
+
+<div class="viewcode-block" id="UniversalTuringMachine.decode"><a class="viewcode-back" href="../../../MOAL.automata_theory.html#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Re-assemble the string sequence into a real data structure</span>
+<span class="sd">        -- not part of the typical UTM behavior, but signifies the need to</span>
+<span class="sd">        decode the values into something usable.&quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Decoding active program&#39;</span><span class="p">)</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;;&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span> <span class="p">{</span>
+                <span class="s">&#39;value&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;;&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="s">&#39;next&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;;&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)}</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Universal Turing Machine&#39;</span><span class="p">):</span>
+        <span class="n">program</span> <span class="o">=</span> <span class="n">DummyProgramGenerator</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">max_states</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;UTM program&#39;</span><span class="p">,</span> <span class="n">program</span><span class="p">)</span>
+        <span class="n">utm</span> <span class="o">=</span> <span class="n">UniversalTuringMachine</span><span class="p">(</span><span class="n">program</span><span class="o">=</span><span class="n">program</span><span class="p">)</span>
+
+        <span class="c"># Add some seed &quot;programs&quot;</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">utm</span><span class="o">.</span><span class="n">add_program</span><span class="p">(</span>
+                <span class="s">&#39;program-{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">),</span>
+                <span class="n">DummyProgramGenerator</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">max_states</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">utm</span><span class="o">.</span><span class="n">programs</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">utm</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

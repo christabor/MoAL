@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.algorithms.coding_theory.levenshtein_distance &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.algorithms.coding_theory.levenshtein_distance</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.algorithms.coding_theory.levenshtein_distance</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h2</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.adts</span> <span class="kn">import</span> <span class="n">list_fill</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="_check_degenerates"><a class="viewcode-back" href="../../../../MOAL.algorithms.coding_theory.html#MOAL.algorithms.coding_theory.levenshtein_distance._check_degenerates">[docs]</a><span class="k">def</span> <span class="nf">_check_degenerates</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;In mathematics, a degenerate case is a limiting case in which an element</span>
+<span class="sd">    of a class of objects is qualitatively different from the rest of the class</span>
+<span class="sd">    and hence belongs to another, usually simpler, class.&quot;</span>
+<span class="sd">    -Wikipedia</span>
+
+<span class="sd">    The degenerates here are strings that are equal; these are not in the class</span>
+<span class="sd">    of strings that need comparison by Levenshtein distance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span></div>
+
+
+<div class="viewcode-block" id="_branch"><a class="viewcode-back" href="../../../../MOAL.algorithms.coding_theory.html#MOAL.algorithms.coding_theory.levenshtein_distance._branch">[docs]</a><span class="k">def</span> <span class="nf">_branch</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">dist</span><span class="p">):</span></div>
+    <span class="c"># TODO: move into re-usable recursion visualization function</span>
+    <span class="c"># (from original drawings of an abstract diagram for recursion.)</span>
+    <span class="n">chars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="s">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\\</span><span class="s">&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;_&#39;</span> <span class="o">*</span> <span class="n">chars</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">word</span> <span class="k">if</span> <span class="n">dist</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">word</span><span class="p">)</span>
+    <span class="n">hline</span> <span class="o">=</span> <span class="n">chars</span> <span class="o">*</span> <span class="s">&#39;_&#39;</span>
+    <span class="n">branch</span> <span class="o">=</span> <span class="s">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;&#39;</span> <span class="o">*</span> <span class="n">chars</span> <span class="k">if</span> <span class="n">dist</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s">&#39;{}/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hline</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">branch</span><span class="p">,</span> <span class="n">word</span>
+
+
+<div class="viewcode-block" id="lev_recursive"><a class="viewcode-back" href="../../../../MOAL.algorithms.coding_theory.html#MOAL.algorithms.coding_theory.levenshtein_distance.lev_recursive">[docs]</a><span class="k">def</span> <span class="nf">lev_recursive</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ct</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Recursive implementation of the Levenshtein distance algorithm.</span>
+<span class="sd">    Algorithm from Wikipedia pseudocode:</span>
+<span class="sd">    wikipedia.org/wiki/Levenshtein_distance#Computing_Levenshtein_distance</span>
+<span class="sd">    Canonical math example, but not useful for real implementations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">basic</span> <span class="o">=</span> <span class="n">_check_degenerates</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">basic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">basic</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c"># Get length of both strings</span>
+    <span class="k">if</span> <span class="n">l1</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">l2</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+    <span class="c"># Return the other string if one is zero, and vice versa.</span>
+    <span class="k">if</span> <span class="n">l1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">l2</span>
+    <span class="k">if</span> <span class="n">l2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">l1</span>
+    <span class="c"># Compare last characters of both cost increases if they&#39;re not equal.</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">s1</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="c"># Perform the distance function by returning three calls recursively</span>
+    <span class="c"># per operation, to determine the offset of the three scenarios:</span>
+    <span class="c"># short s1, short s2</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+        <span class="n">lev_recursive</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="n">l1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span><span class="p">,</span> <span class="n">ct</span><span class="o">=</span><span class="n">ct</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">lev_recursive</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ct</span><span class="o">=</span><span class="n">ct</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">lev_recursive</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="n">l1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ct</span><span class="o">=</span><span class="n">ct</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">cost</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="c"># A visualization of the recursive call graph and the various</span>
+        <span class="c"># parent/child branches that result in the duplicate</span>
+        <span class="c"># (and unnecessary) calculations.</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">l1</span><span class="p">]</span> <span class="o">+</span> <span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">l2</span><span class="p">]</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s">&#39;&quot;{}&quot; and &quot;{}&quot; = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+        <span class="c"># Get the branch/leaf style based on whether it was the root</span>
+        <span class="c"># or child node in each call graph.</span>
+        <span class="n">branch</span><span class="p">,</span> <span class="n">word</span> <span class="o">=</span> <span class="n">_branch</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+        <span class="c"># With the combination of a time delay and the branching</span>
+        <span class="c"># visualization, I hope to drive home the realization of how</span>
+        <span class="c"># terribly inefficient this algorithm is.</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="n">branching</span> <span class="o">=</span> <span class="s">&#39;{}{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;  &#39;</span> <span class="o">*</span> <span class="n">ct</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">branch</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;({}) {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">branching</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">dist</span></div>
+
+
+<div class="viewcode-block" id="lev_iterative"><a class="viewcode-back" href="../../../../MOAL.algorithms.coding_theory.html#MOAL.algorithms.coding_theory.levenshtein_distance.lev_iterative">[docs]</a><span class="k">def</span> <span class="nf">lev_iterative</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The iterative approach to the Levenshtein algorithm.</span>
+<span class="sd">    Code is ported from (pseudo-code? c?) example on Wikipedia:</span>
+<span class="sd">    wikipedia.org/wiki/Levenshtein_distance#Iterative_with_two_matrix_rows</span>
+
+<span class="sd">    One important thing to note: the Levenshtein function is NOT transitive,</span>
+<span class="sd">    so order matters! That is, lev(s1, s2) != lev(s2, s1).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">basic</span> <span class="o">=</span> <span class="n">_check_degenerates</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">basic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">basic</span>
+    <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">list_fill</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">list_fill</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">len1</span><span class="p">,</span> <span class="n">len2</span><span class="p">,</span> <span class="n">lenv1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len2</span><span class="p">):</span>
+        <span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len1</span><span class="p">):</span>
+        <span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len2</span><span class="p">):</span>
+            <span class="n">cost</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">else</span> <span class="mi">1</span>
+            <span class="n">v2</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">v1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">v1</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">v1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">cost</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lenv1</span><span class="p">):</span>
+            <span class="n">v1</span><span class="p">[</span><span class="n">_j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v2</span><span class="p">[</span><span class="n">_j</span><span class="p">]</span>
+
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">v2</span><span class="p">[</span><span class="n">len2</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Levenshtein distance of &quot;{}&quot; and &quot;{}&quot; is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">dist</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">dist</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Algorithms / coding theory - Levenshtein distance&#39;</span><span class="p">):</span>
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Levenshtein distance&#39;</span><span class="p">,</span> <span class="s">&#39;recursive&#39;</span><span class="p">)</span>
+        <span class="n">lev_recursive</span><span class="p">(</span><span class="s">&#39;mop&#39;</span><span class="p">,</span> <span class="s">&#39;pop&#39;</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Levenshtein distance&#39;</span><span class="p">,</span> <span class="s">&#39;iterative&#39;</span><span class="p">)</span>
+        <span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s">&#39;slaughter&#39;</span><span class="p">,</span> <span class="s">&#39;laughter&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;flower&#39;</span><span class="p">,</span> <span class="s">&#39;power&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">&#39;liliputian&#39;</span><span class="p">,</span> <span class="s">&#39;brobdingnagian&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">&#39;sitting&#39;</span><span class="p">,</span> <span class="s">&#39;kitten&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">&#39;gargantua&#39;</span><span class="p">,</span> <span class="s">&#39;pentagruel&#39;</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+            <span class="n">lev_iterative</span><span class="p">(</span><span class="o">*</span><span class="n">pair</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

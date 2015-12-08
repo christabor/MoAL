@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.abstract.map &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.abstract.map</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.abstract.map</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h2</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h3</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_info</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">divider</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">randchars</span>
+<span class="kn">from</span> <span class="nn">MOAL.data_structures.abstract.array_and_linked_lists</span> <span class="kn">import</span> <span class="n">AssociationList</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span> <span class="k">as</span> <span class="n">rr</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+<span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Factory</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="MapADT"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.MapADT">[docs]</a><span class="k">class</span> <span class="nc">MapADT</span><span class="p">(</span><span class="n">AssociationList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;From wikipedia.org/wiki/Associative_array:</span>
+
+<span class="sd">    &quot;Operations associated with this data type allow:</span>
+<span class="sd">        * The addition of pairs to the collection</span>
+<span class="sd">        * The removal of pairs from the collection</span>
+<span class="sd">        * The modification of the values of existing pairs</span>
+<span class="sd">        * The lookup of the value associated with a particular key&quot;</span>
+
+<span class="sd">    ----------------------------------------------------------------------</span>
+
+<span class="sd">    While we could just use a dictionary (cheating), it would make sense</span>
+<span class="sd">    to use a vanilla array and implement a custom &amp; importantly, internal,</span>
+<span class="sd">    function that does key lookups.</span>
+
+<span class="sd">    However, an associative array / map is purely abstract, and other data types</span>
+<span class="sd">    use it as a template, either concretely or conceptually. A linked list is</span>
+<span class="sd">    given as an example implementation, so we can use it here,</span>
+<span class="sd">    providing some basic methods that act as a facade pattern over the</span>
+<span class="sd">    internal implementation.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MapADT.__str__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.MapADT.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39; &quot;{}&quot;: &quot;{}&quot;,&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">cargo</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;}&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span></div></div>
+
+
+<div class="viewcode-block" id="MultiMap"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.MultiMap">[docs]</a><span class="k">class</span> <span class="nc">MultiMap</span><span class="p">(</span><span class="n">MapADT</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;From wikipedia.org/wiki/Multimap (paraphrased):</span>
+<span class="sd">    &quot;In computer science, a multimap (sometimes also multihash) is a</span>
+<span class="sd">    generalization of a map or associative array abstract data type in which</span>
+<span class="sd">    more than one value may be associated with and returned for a given key.</span>
+
+<span class="sd">    Often the multimap is implemented as a map with lists/sets as the values.&quot;</span>
+
+<span class="sd">    &quot;Both map and multimap are particular cases of containers&quot;</span>
+<span class="sd">    (See abstract/container for an example of this ADT.)</span>
+
+<span class="sd">    Since our MapADT uses a linked list, and the linked list implementation</span>
+<span class="sd">    does not prohibit certain types as values,</span>
+<span class="sd">    we can simply use a list as mentioned above for the value.</span>
+
+<span class="sd">    We could enforce certain types on the original linked list,</span>
+<span class="sd">    but that is arbitrary and unnecessary.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MultiMap.__setitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.MultiMap.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MultiMap</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Enrollment"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.Enrollment">[docs]</a><span class="k">class</span> <span class="nc">Enrollment</span><span class="p">(</span><span class="n">MultiMap</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">students</span><span class="o">=</span><span class="p">[],</span> <span class="n">classes</span><span class="o">=</span><span class="p">[],</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;Enrollment-MultiMap&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MAX_CLASSES</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="n">classes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span> <span class="o">=</span> <span class="n">students</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Enrollment</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">enroll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">,</span> <span class="n">klass</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Enrollment</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">enroll_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schedules</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">student</span><span class="p">,</span> <span class="n">classes</span> <span class="ow">in</span> <span class="n">schedules</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">enroll</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">divider</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MAX_CLASSES</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">schedules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedules</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="n">student</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_classes</span><span class="p">()}</span> <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedules</span>
+
+    <span class="k">def</span> <span class="nf">get_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Enrollment</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">cargo</span>
+        <span class="k">return</span> <span class="n">classes</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">,</span> <span class="n">klass</span><span class="p">):</span>
+        <span class="c"># Toss in a random class level (e.g 101, 302)</span>
+        <span class="n">klass</span> <span class="o">=</span> <span class="s">&#39;{}{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">choice</span><span class="p">([</span><span class="s">&#39;AP &#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">]),</span> <span class="n">klass</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">rr</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">999</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Enrolling {} into {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">klass</span><span class="p">))</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Enrollment</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="BidirectionalMap"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.BidirectionalMap">[docs]</a><span class="k">class</span> <span class="nc">BidirectionalMap</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The bi-directional map uses a dictionary rather than an associative</span>
+<span class="sd">    or linked list, since the main purposes is to stress the concept of</span>
+<span class="sd">    bi-directional mapping, not the actual implementation. Besides, a dict would</span>
+<span class="sd">    be a better implementation for real-world usage, at least in python.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BidirectionalMap.__str__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.BidirectionalMap.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;  {}: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+            <span class="c"># print(&#39;  {}: {} (or) {}: {}&#39;.format(key, val, val, key))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;}&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span></div>
+
+<div class="viewcode-block" id="BidirectionalMap.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.BidirectionalMap.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BidirectionalMap.__contains__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.BidirectionalMap.__contains__">[docs]</a>    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">_key</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="bp">False</span></div>
+
+<div class="viewcode-block" id="BidirectionalMap.__getitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.BidirectionalMap.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="BidirectionalMap.__setitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.map.BidirectionalMap.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The idea here is that a key and a value are interchangeable,</span>
+<span class="sd">        but either direction should still enforce the rules of a traditional</span>
+<span class="sd">        map (or dictionary, in this case.)&quot;&quot;&quot;</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="n">is_both_key</span> <span class="o">=</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">values</span>
+        <span class="n">is_both_val</span> <span class="o">=</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">keys</span> <span class="ow">and</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">values</span>
+        <span class="k">if</span> <span class="n">is_both_key</span> <span class="ow">or</span> <span class="n">is_both_val</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s">&#39;Item already exists in both key and value&#39;</span>
+                <span class="s">&#39; -- it can only exist in one!&#39;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BidirectionalMap</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Map Abstract Data Type&#39;</span><span class="p">):</span>
+        <span class="n">map_adt</span> <span class="o">=</span> <span class="n">MapADT</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;map_head&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s">&#39;map_item-{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">randchars</span><span class="p">(</span><span class="mi">8</span><span class="p">)))</span>
+            <span class="n">map_adt</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">randchars</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">map_adt</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Multi-Map Abstract Data Type&#39;</span><span class="p">):</span>
+        <span class="n">faker</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="n">multimap</span> <span class="o">=</span> <span class="n">MultiMap</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;multi-map_head&#39;</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Multimap&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;General abstract usage.&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s">&#39;map_item-{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">multimap</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">randchars</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">multimap</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">multimap</span><span class="p">[</span><span class="s">&#39;map_item-1&#39;</span><span class="p">])</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Multimap&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Used contextually for school enrollment.&#39;</span><span class="p">)</span>
+
+        <span class="n">classes_map</span> <span class="o">=</span> <span class="n">Enrollment</span><span class="p">(</span>
+            <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;English&#39;</span><span class="p">,</span> <span class="s">&#39;Comp Sci&#39;</span><span class="p">,</span> <span class="s">&#39;History&#39;</span><span class="p">,</span> <span class="s">&#39;Math&#39;</span><span class="p">,</span> <span class="s">&#39;Art&#39;</span><span class="p">],</span>
+            <span class="n">students</span><span class="o">=</span><span class="p">[</span><span class="n">faker</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;Ms. Ella Tabor&#39;</span><span class="p">])</span>
+
+        <span class="nb">map</span><span class="p">(</span><span class="n">classes_map</span><span class="o">.</span><span class="n">enroll_all</span><span class="p">,</span> <span class="n">classes_map</span><span class="o">.</span><span class="n">schedules</span><span class="p">())</span>
+        <span class="n">print_h3</span><span class="p">(</span><span class="s">&#39;All fields&#39;</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">classes_map</span><span class="p">)</span>
+
+        <span class="n">print_h3</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">Classes for Ella Tabor&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Classes: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">classes_map</span><span class="o">.</span><span class="n">get_classes</span><span class="p">(</span><span class="s">&#39;Ms. Ella Tabor&#39;</span><span class="p">)))</span>
+
+        <span class="k">del</span> <span class="n">classes_map</span><span class="p">[</span><span class="s">&#39;Ms. Ella Tabor&#39;</span><span class="p">]</span>
+
+        <span class="c"># Too young to be taking classes right now anyway.</span>
+        <span class="k">assert</span> <span class="n">classes_map</span><span class="p">[</span><span class="s">&#39;Ms. Ella Tabor&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">classes_map</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="s">&#39;Ms. Ella Tabor&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">classes_map</span>
+
+        <span class="n">print_h3</span><span class="p">(</span><span class="s">&#39;Bi-directional&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;A map ADT that maps to key OR value.&#39;</span><span class="p">)</span>
+
+        <span class="n">bdmap</span> <span class="o">=</span> <span class="n">BidirectionalMap</span><span class="p">(</span>
+            <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">&#39;Foo&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">&#39;Bar&#39;</span><span class="p">,</span> <span class="s">&#39;Foo&#39;</span><span class="p">:</span> <span class="s">&#39;Bar&#39;</span><span class="p">,</span> <span class="s">&#39;Bar&#39;</span><span class="p">:</span> <span class="s">&#39;Foo&#39;</span><span class="p">})</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">bdmap</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">bdmap</span><span class="p">[</span><span class="s">&#39;Bar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Foo&#39;</span>
+            <span class="n">bdmap</span><span class="p">[</span><span class="s">&#39;Foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Bar&#39;</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">print_info</span><span class="p">(</span><span class="s">&#39;Test raising error for duplicate values Foo and Bar&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">bdmap</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="s">&#39;Bar&#39;</span> <span class="ow">in</span> <span class="n">bdmap</span>
+        <span class="k">assert</span> <span class="s">&#39;Foo&#39;</span> <span class="ow">in</span> <span class="n">bdmap</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

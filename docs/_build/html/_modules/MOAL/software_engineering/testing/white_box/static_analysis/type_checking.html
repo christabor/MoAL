@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.testing.white_box.static_analysis.type_checking &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.testing.white_box.static_analysis.type_checking</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.testing.white_box.static_analysis.type_checking</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">divider</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="returns"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.testing.white_box.static_analysis.html#MOAL.software_engineering.testing.white_box.static_analysis.type_checking.returns">[docs]</a><span class="k">def</span> <span class="nf">returns</span><span class="p">(</span><span class="n">retval</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the specified return type with the functions return value to</span>
+<span class="sd">    make sure that its type matches.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">_retval</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_retval</span><span class="p">,</span> <span class="n">retval</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span></div>
+
+
+<div class="viewcode-block" id="types"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.testing.white_box.static_analysis.html#MOAL.software_engineering.testing.white_box.static_analysis.type_checking.types">[docs]</a><span class="k">def</span> <span class="nf">types</span><span class="p">(</span><span class="o">*</span><span class="n">args_types</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs_types</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loop over all args and kwargs passed to the function and check</span>
+<span class="sd">    the corresponding types to make sure they all match.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="c"># Check kwargs</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+                <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">kwargs_types</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="c"># Check args</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+                <span class="c"># Check if it&#39;s an *args situation, versus specified types.</span>
+                <span class="c"># If so, then use the single specified argument</span>
+                <span class="c"># for all *args here.</span>
+                <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">args_types</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span></div>
+
+
+<span class="nd">@types</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">three</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">four</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">retval</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<div class="viewcode-block" id="concat"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.testing.white_box.static_analysis.html#MOAL.software_engineering.testing.white_box.static_analysis.type_checking.concat">[docs]</a><span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">three</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">four</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">)</span></div>
+
+
+<span class="nd">@types</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">retval</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<div class="viewcode-block" id="add2"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.testing.white_box.static_analysis.html#MOAL.software_engineering.testing.white_box.static_analysis.type_checking.add2">[docs]</a><span class="k">def</span> <span class="nf">add2</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">one</span> <span class="o">+</span> <span class="n">two</span></div>
+
+
+<span class="nd">@types</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">retval</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+<div class="viewcode-block" id="combine_dict"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.testing.white_box.static_analysis.html#MOAL.software_engineering.testing.white_box.static_analysis.type_checking.combine_dict">[docs]</a><span class="k">def</span> <span class="nf">combine_dict</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
+    <span class="n">dict1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">dict2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dict1</span></div>
+
+
+<span class="nd">@returns</span><span class="p">(</span><span class="n">retval</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+<div class="viewcode-block" id="combine_lists"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.testing.white_box.static_analysis.html#MOAL.software_engineering.testing.white_box.static_analysis.type_checking.combine_lists">[docs]</a><span class="k">def</span> <span class="nf">combine_lists</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">+=</span> <span class="n">l</span>
+    <span class="k">return</span> <span class="n">f</span></div>
+
+
+<span class="nd">@returns</span><span class="p">(</span><span class="n">retval</span><span class="o">=</span><span class="nb">long</span><span class="p">)</span>
+<div class="viewcode-block" id="sum_square"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.testing.white_box.static_analysis.html#MOAL.software_engineering.testing.white_box.static_analysis.type_checking.sum_square">[docs]</a><span class="k">def</span> <span class="nf">sum_square</span><span class="p">(</span><span class="o">*</span><span class="n">nums</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">**</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">f</span></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Type checking via python decorators!&#39;</span><span class="p">):</span>
+        <span class="c"># Correct types</span>
+        <span class="n">concat</span><span class="p">(</span><span class="s">&#39;cat&#39;</span><span class="p">,</span> <span class="s">&#39;dog&#39;</span><span class="p">)</span>
+        <span class="n">add2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">combine_dict</span><span class="p">({</span><span class="s">&#39;dog&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;cat&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;cat&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+        <span class="n">combine_lists</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+        <span class="n">sum_square</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Type checking worked!&#39;</span><span class="p">)</span>
+        <span class="n">divider</span><span class="p">()</span>
+        <span class="c"># Incorrect types</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">concat</span><span class="p">(</span><span class="s">&#39;cat&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Type checking worked with failure!&#39;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">add2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Type checking worked with failure!&#39;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">combine_dict</span><span class="p">({},</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Type checking worked with failure!&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

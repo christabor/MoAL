@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.helpers.adts &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.helpers.adts</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.helpers.adts</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+
+
+<div class="viewcode-block" id="strictlist"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist">[docs]</a><span class="k">class</span> <span class="nc">strictlist</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A list that only allows certain primitive types</span>
+<span class="sd">    (when sub-classed), and adds some useful helper methods that are</span>
+<span class="sd">    applied to all members in the list, for that primitive.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="strictlist.__init__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">valid_type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Instantiate a new strictlist object</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            items (list): a list of potential items for to be filtered.</span>
+
+<span class="sd">        Kwargs:</span>
+<span class="sd">            valid_type (type): an example type this list must validate against.</span>
+
+<span class="sd">        &gt;&gt;&gt; print strictlist([1, 2, &#39;foo&#39;], valid_type=int)</span>
+<span class="sd">        [1, 2]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Bind this list to a valid type, so no other types can be added</span>
+        <span class="c"># or mutated within the context of this class.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="n">valid_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">member</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">items</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_valid</span><span class="p">(</span><span class="n">member</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="strictlist.__setitem__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set new items in the list.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (int) - the index to add/update an item for.</span>
+<span class="sd">            value (mixed) - the item to add; this will be checked against</span>
+<span class="sd">                the type specific upon class creation.</span>
+
+<span class="sd">        Don&#39;t allow incorrect types to be added, but do so gracefully</span>
+<span class="sd">        to allow for composition/flow operations.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_valid</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">strictlist</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="strictlist.__iter__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.__iter__">[docs]</a>    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns an iterator of the embedded items.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="strictlist.__getitem__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="strictlist.__len__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.__len__">[docs]</a>    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the length of the embedded items.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="strictlist.__repr__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.__repr__">[docs]</a>    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__str__</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="strictlist.__str__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="strictlist._valid"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist._valid">[docs]</a>    <span class="k">def</span> <span class="nf">_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Determines if the given value matches the type.</span>
+
+<span class="sd">        The correct type associated with this instance upon creation.</span>
+<span class="sd">        See __init__ for more.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            val (mixed) - the value to check</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="strictlist.do"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.do">[docs]</a>    <span class="k">def</span> <span class="nf">do</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span>
+                          <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_valid</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span>
+                          <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_valid</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="strictlist.funcmaker"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strictlist.funcmaker">[docs]</a>    <span class="k">def</span> <span class="nf">funcmaker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">baseval</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a closure that can be used</span>
+<span class="sd">        later with map()&#39;s value(s)&quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">new_func</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">baseval</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_func</span></div></div>
+
+
+<div class="viewcode-block" id="strlist"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.strlist">[docs]</a><span class="k">class</span> <span class="nc">strlist</span><span class="p">(</span><span class="n">strictlist</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">strlist</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">valid_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">times</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chars</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">chars</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_upper</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">_upper</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">lo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_lower</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">_lower</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_rev</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">item</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">_rev</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Take each key and convert its chars into a sub array for each key&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">_split</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">item</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">_split</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+
+<div class="viewcode-block" id="intlist"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.intlist">[docs]</a><span class="k">class</span> <span class="nc">intlist</span><span class="p">(</span><span class="n">strictlist</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">intlist</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">valid_type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">mod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mod</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">multiplicand</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">multiplicand</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addend</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">addend</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subtrahend</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">subtrahend</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">div</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">divisor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_fact</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="n">n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">_fact</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="list_fill"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.list_fill">[docs]</a><span class="k">def</span> <span class="nf">list_fill</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Fill a list with default values and a custom `fill` value.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">fill</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="dict_fill"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.dict_fill">[docs]</a><span class="k">def</span> <span class="nf">dict_fill</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Fill a dict with integer keys and a custom `fill` value.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">fill</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="matrix_fill"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.adts.matrix_fill">[docs]</a><span class="k">def</span> <span class="nf">matrix_fill</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generates a two-dimensional matrix of W x H,</span>
+<span class="sd">    filled with zeroes or a custom `fill` value.</span>
+
+<span class="sd">    e.g. [[0, 0, 0],</span>
+<span class="sd">          [0, 0, 0],</span>
+<span class="sd">          [0, 0, 0]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">fill</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">w</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Testing abstract data type extensions&#39;</span><span class="p">):</span>
+        <span class="c"># Testing</span>
+        <span class="n">il</span> <span class="o">=</span> <span class="n">intlist</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;ADT - int&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">il</span><span class="p">,</span> <span class="n">il</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">il</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+
+        <span class="n">strs</span> <span class="o">=</span> <span class="n">strlist</span><span class="p">([</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">])</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;ADT - str up, copy, add&#39;</span><span class="p">,</span> <span class="p">(</span>
+            <span class="n">strs</span><span class="p">,</span> <span class="n">strs</span><span class="o">.</span><span class="n">up</span><span class="p">(),</span> <span class="n">strs</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;!!&#39;</span><span class="p">)))</span>
+
+        <span class="n">strs2</span> <span class="o">=</span> <span class="n">strlist</span><span class="p">([</span><span class="s">&#39;cat&#39;</span><span class="p">,</span> <span class="s">&#39;dog&#39;</span><span class="p">,</span> <span class="s">&#39;monkey&#39;</span><span class="p">])</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;ADT - str up, shuffle, copy, reverse&#39;</span><span class="p">,</span> <span class="p">(</span>
+            <span class="n">strs2</span><span class="p">,</span> <span class="n">strs2</span><span class="o">.</span><span class="n">up</span><span class="p">(),</span> <span class="n">strs2</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()))</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;ADT - str add, copy, up, add, shuffle&#39;</span><span class="p">,</span> <span class="p">(</span>
+            <span class="n">strs2</span><span class="p">,</span> <span class="n">strs2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;:D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Testing strictness&#39;</span><span class="p">)</span>
+
+        <span class="n">strs3</span> <span class="o">=</span> <span class="n">strlist</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c"># Should be empty</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;ADT - str len 0&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">strs3</span><span class="p">))</span>  <span class="c"># 0</span>
+
+        <span class="n">strs3</span> <span class="o">=</span> <span class="n">strlist</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;bim&#39;</span><span class="p">])</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;ADT - str len 3&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">strs3</span><span class="p">))</span>  <span class="c"># 3</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

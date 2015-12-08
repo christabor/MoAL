@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.algorithms.utilities.luhn &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.algorithms.utilities.luhn</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.algorithms.utilities.luhn</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="Luhn"><a class="viewcode-back" href="../../../../MOAL.algorithms.utilities.html#MOAL.algorithms.utilities.luhn.Luhn">[docs]</a><span class="k">class</span> <span class="nc">Luhn</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Luhn.add_digits"><a class="viewcode-back" href="../../../../MOAL.algorithms.utilities.html#MOAL.algorithms.utilities.luhn.Luhn.add_digits">[docs]</a>    <span class="k">def</span> <span class="nf">add_digits</span><span class="p">(</span><span class="n">digits</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">multi</span><span class="p">(</span><span class="n">digit</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">digit</span><span class="p">)))</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">multi</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">digits</span><span class="p">)))</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Luhn.checkdigit"><a class="viewcode-back" href="../../../../MOAL.algorithms.utilities.html#MOAL.algorithms.utilities.luhn.Luhn.checkdigit">[docs]</a>    <span class="k">def</span> <span class="nf">checkdigit</span><span class="p">(</span><span class="n">digits</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">digits</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+                <span class="k">if</span> <span class="n">res</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                    <span class="c"># Sum the digits of the product if &gt; 10</span>
+                    <span class="c"># (e.g 9 * 2 = 18; 1 + 8 = 9)</span>
+                    <span class="n">digits</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">)))))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">digits</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">check_digit</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">digits</span><span class="p">))</span> <span class="o">*</span> <span class="mi">9</span>
+        <span class="n">digits</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">check_digit</span><span class="p">)</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">digits</span><span class="p">)[</span><span class="n">last</span><span class="p">])</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Luhn.test"><a class="viewcode-back" href="../../../../MOAL.algorithms.utilities.html#MOAL.algorithms.utilities.luhn.Luhn.test">[docs]</a>    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+        <span class="n">digits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+        <span class="n">check_digit</span> <span class="o">=</span> <span class="n">Luhn</span><span class="o">.</span><span class="n">checkdigit</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+        <span class="n">_digits</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">digits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">check_digit</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">digits</span><span class="p">):</span>
+            <span class="n">_digit</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">digit</span>
+            <span class="n">_digits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_digit</span><span class="p">)</span>
+        <span class="c"># 7 9 9 2 7 3 9 8 7 1 3</span>
+        <span class="c"># 3 1 7 8 9 3 7 2 9 9 7</span>
+        <span class="c"># 3 2 7 16 9 6 7 4 9 18 7</span>
+        <span class="c"># 67 + 3</span>
+        <span class="c"># 70</span>
+        <span class="k">return</span> <span class="n">Luhn</span><span class="o">.</span><span class="n">add_digits</span><span class="p">(</span><span class="n">_digits</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span></div></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Luhn Algorithm&#39;</span><span class="p">):</span>
+        <span class="c"># https://en.wikipedia.org/wiki/Luhn_algorithm</span>
+
+        <span class="n">test_nums</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mi">79927398710</span><span class="p">,</span>
+            <span class="mi">79927398711</span><span class="p">,</span>
+            <span class="mi">79927398712</span><span class="p">,</span>
+            <span class="mi">79927398713</span><span class="p">,</span>
+            <span class="mi">79927398714</span><span class="p">,</span>
+            <span class="mi">79927398715</span><span class="p">,</span>
+            <span class="mi">79927398716</span><span class="p">,</span>
+            <span class="mi">79927398717</span><span class="p">,</span>
+            <span class="mi">79927398718</span><span class="p">,</span>
+            <span class="mi">79927398719</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">test_nums</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Test: {} is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">Luhn</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">test</span><span class="p">)))</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

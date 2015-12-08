@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.unix.representation &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.unix.representation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.problem_solving.design_patterns.unix.representation</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Rule of Representation: Fold knowledge into data,</span>
+<span class="sd">so program logic can be stupid and robust.</span>
+
+<span class="sd">Source: http://www.catb.org/esr/writings/taoup/html/ch01s06.html</span>
+
+<span class="sd">&quot;Data is more tractable than program logic. It follows that where you see a</span>
+<span class="sd">choice between complexity in data structures and complexity in code,</span>
+<span class="sd">choose the former. More: in evolving a design, you should *actively* seek ways</span>
+<span class="sd">to shift complexity from code to data.&quot;</span>
+
+<span class="sd">Also see: http://www.catb.org/esr/writings/taoup/html/generationchapter.html</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="example_1_bad_method"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_1_bad_method">[docs]</a><span class="k">def</span> <span class="nf">example_1_bad_method</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is convoluted and hard to read. It is also potentially</span>
+<span class="sd">    less performant, since the logic branching must be generated and evaluated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">arg</span> <span class="ow">is</span> <span class="s">&#39;foo&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">arg</span> <span class="ow">is</span> <span class="s">&#39;bar&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">arg</span> <span class="ow">is</span> <span class="s">&#39;bim&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">3</span>
+    <span class="k">elif</span> <span class="n">arg</span> <span class="ow">is</span> <span class="s">&#39;bam&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">4</span>
+    <span class="k">elif</span> <span class="n">arg</span> <span class="ow">is</span> <span class="s">&#39;baz&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">5</span>
+    <span class="k">elif</span> <span class="n">arg</span> <span class="ow">is</span> <span class="s">&#39;quux&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">6</span></div>
+
+
+<div class="viewcode-block" id="example_1_good_method"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_1_good_method">[docs]</a><span class="k">def</span> <span class="nf">example_1_good_method</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This employees pure data, and is fast as it assumes a lookup, which is</span>
+<span class="sd">    always O(N). The failed assumption is caught and handled, and new lookups</span>
+<span class="sd">    can be quickly added, without adding much to the complexity.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">&#39;bim&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s">&#39;bam&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s">&#39;baz&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s">&#39;quux&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span></div>
+
+
+<div class="viewcode-block" id="example_2_bad_method"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_2_bad_method">[docs]</a><span class="k">def</span> <span class="nf">example_2_bad_method</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Continuing down this path of complicated conditional branching,</span>
+<span class="sd">    things get hairy very fast. Think about cognitive processing time when</span>
+<span class="sd">    reading this code -- it&#39;s easy to make a mistake here.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">arg1</span> <span class="ow">is</span> <span class="s">&#39;foo&#39;</span> <span class="ow">and</span> <span class="n">arg2</span> <span class="ow">is</span> <span class="s">&#39;bar&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">arg1</span> <span class="ow">is</span> <span class="s">&#39;bar&#39;</span> <span class="ow">and</span> <span class="n">arg2</span> <span class="ow">is</span> <span class="s">&#39;foo&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">3</span>
+    <span class="k">elif</span> <span class="n">arg1</span> <span class="ow">is</span> <span class="s">&#39;foo&#39;</span> <span class="ow">and</span> <span class="n">arg2</span> <span class="ow">is</span> <span class="s">&#39;quux&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">arg1</span> <span class="ow">is</span> <span class="s">&#39;bar&#39;</span> <span class="ow">and</span> <span class="n">arg2</span> <span class="ow">is</span> <span class="s">&#39;quux&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">4</span></div>
+
+
+<div class="viewcode-block" id="example_2_good_method"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_2_good_method">[docs]</a><span class="k">def</span> <span class="nf">example_2_good_method</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Mapping inputs to this nested dictionary is easy and intuitive, compared</span>
+<span class="sd">    to the more cognitively challenging task of parsing multiple levels of</span>
+<span class="sd">    conditional branching statements. It is obvious almost immediately to look</span>
+<span class="sd">    at the arguments and map them to the data and see what the result is.</span>
+
+<span class="sd">    This is exemplified in the below quote from catb.org:</span>
+
+<span class="sd">    &quot;In Chapter 1 we observed that human beings are better at</span>
+<span class="sd">    visualizing data than they are at reasoning about control flow.&quot;</span>
+
+<span class="sd">    More advanced examples of this concept are discussed within the context of</span>
+<span class="sd">    clojure s-expressions on the amazing &quot;macronomicon&quot; video by Michael Fogus:</span>
+<span class="sd">    https://www.youtube.com/watch?v=0JXhJyTo5V8 this is not surprising to me</span>
+<span class="sd">    because lisp-style languages are typically homoiconic, or nearly so, and so</span>
+<span class="sd">    the code-as-data paradigm is commonplace for them.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;quux&#39;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">},</span>
+        <span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s">&#39;quux&#39;</span><span class="p">:</span> <span class="mi">4</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">arg1</span><span class="p">][</span><span class="n">arg2</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

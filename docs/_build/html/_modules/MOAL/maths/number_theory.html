@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.maths.number_theory &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.maths.number_theory</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.maths.number_theory</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span> <span class="k">as</span> <span class="n">rr</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">ppr</span>
+<span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">getsource</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+
+<span class="c"># Theory references and exercises from</span>
+<span class="c"># http://www.math.brown.edu/~jhs/frint.html</span>
+<span class="c"># and http://www.math.utah.edu/~carlson/notes/python.pdf</span>
+
+
+<div class="viewcode-block" id="rand"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.rand">[docs]</a><span class="k">def</span> <span class="nf">rand</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">rr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="triangle"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.triangle">[docs]</a><span class="k">def</span> <span class="nf">triangle</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="square"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.square">[docs]</a><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="cube"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.cube">[docs]</a><span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="exp"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.exp">[docs]</a><span class="k">def</span> <span class="nf">exp</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">n</span> <span class="o">**</span> <span class="n">n</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="exp_custom"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.exp_custom">[docs]</a><span class="k">def</span> <span class="nf">exp_custom</span><span class="p">(</span><span class="n">max_nums</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">n</span> <span class="o">**</span> <span class="n">power</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="lg"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.lg">[docs]</a><span class="k">def</span> <span class="nf">lg</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="lg_custom"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.lg_custom">[docs]</a><span class="k">def</span> <span class="nf">lg_custom</span><span class="p">(</span><span class="n">max_nums</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="odd"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.odd">[docs]</a><span class="k">def</span> <span class="nf">odd</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">n</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="even"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.even">[docs]</a><span class="k">def</span> <span class="nf">even</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">n</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="factor"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.factor">[docs]</a><span class="k">def</span> <span class="nf">factor</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">div</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c"># Num is continually divided until it&#39;s LTE 1.</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c"># If no remainder, it&#39;s a factor, so append it.</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">div</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">div</span><span class="p">)</span>
+            <span class="c"># Update n be the next small number</span>
+            <span class="n">num</span> <span class="o">//=</span> <span class="n">div</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">div</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">yield</span> <span class="n">factors</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="factorial"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.factorial">[docs]</a><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="factorials"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.factorials">[docs]</a><span class="k">def</span> <span class="nf">factorials</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span></div>
+    <span class="c"># Recursive generator for each item.</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="factor_factorials"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.factor_factorials">[docs]</a><span class="k">def</span> <span class="nf">factor_factorials</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">factor</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">ppr</span><span class="p">({</span><span class="s">&#39;factors&#39;</span><span class="p">:</span> <span class="n">f</span><span class="p">,</span> <span class="s">&#39;num&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">,</span> <span class="s">&#39;factorial&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="lcm"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.lcm">[docs]</a><span class="k">def</span> <span class="nf">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span></div>
+    <span class="c"># http://en.wikipedia.org/wiki/</span>
+    <span class="c"># Least_common_multiple#Reduction_by_the_greatest_common_divisor</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">//</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="fibo"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.fibo">[docs]</a><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">prev</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">max_nums</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">current</span> <span class="o">+</span> <span class="n">prev</span>
+        <span class="k">yield</span> <span class="n">result</span>
+        <span class="n">current</span><span class="p">,</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">result</span><span class="p">,</span> <span class="n">current</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="gcd"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.gcd">[docs]</a><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span><span class="p">),</span> <span class="n">a</span><span class="p">)</span></div>
+
+
+<span class="c"># Misc. exercises</span>
+
+<div class="viewcode-block" id="exercise_1_2"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.exercise_1_2">[docs]</a><span class="k">def</span> <span class="nf">exercise_1_2</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span></div>
+    <span class="c"># http://www.math.brown.edu/~jhs/frint.html</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">summed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+            <span class="k">yield</span> <span class="n">n</span><span class="p">,</span> <span class="n">summed</span><span class="p">,</span> <span class="n">summed</span> <span class="o">//</span> <span class="n">n</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+
+<div class="viewcode-block" id="exercise_2_8"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.exercise_2_8">[docs]</a><span class="k">def</span> <span class="nf">exercise_2_8</span><span class="p">(</span><span class="n">max_nums</span><span class="p">):</span></div>
+    <span class="c"># http://www.math.brown.edu/~jhs/frint.html</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_nums</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+
+<span class="c"># Testing lattice theoretic identities</span>
+<span class="c"># http://en.wikipedia.org/wiki/Least_common_multiple#Lattice-theoretic</span>
+
+
+<div class="viewcode-block" id="commutative_lcm_laws"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.commutative_lcm_laws">[docs]</a><span class="k">def</span> <span class="nf">commutative_lcm_laws</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="n">lcm</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="associative_lcm_laws"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.associative_lcm_laws">[docs]</a><span class="k">def</span> <span class="nf">associative_lcm_laws</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">lcm</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span> <span class="o">==</span> <span class="n">lcm</span><span class="p">(</span><span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span> <span class="o">==</span> <span class="n">gcd</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="idempotent_lcm_laws"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.idempotent_lcm_laws">[docs]</a><span class="k">def</span> <span class="nf">idempotent_lcm_laws</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">a</span>
+    <span class="k">assert</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">a</span></div>
+
+
+<div class="viewcode-block" id="absorption_lcm_laws"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.absorption_lcm_laws">[docs]</a><span class="k">def</span> <span class="nf">absorption_lcm_laws</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="o">==</span> <span class="n">a</span>
+    <span class="k">assert</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="o">==</span> <span class="n">a</span></div>
+
+<span class="c"># Helper functions</span>
+
+
+<div class="viewcode-block" id="test_number"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.number_theory.test_number">[docs]</a><span class="k">def</span> <span class="nf">test_number</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">func</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">func_name</span><span class="p">,</span> <span class="p">[</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)])</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">func_name</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">))</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Number theory&#39;</span><span class="p">):</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">odd</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">even</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">test_number</span><span class="p">(</span><span class="n">exp_custom</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">lg</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">test_number</span><span class="p">(</span><span class="n">lg_custom</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">fibo</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">rand</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">triangle</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">test_number</span><span class="p">(</span><span class="n">gcd</span><span class="p">,</span> <span class="n">rr</span><span class="p">(</span><span class="mi">999</span><span class="p">,</span> <span class="mi">9999</span><span class="p">),</span> <span class="n">rr</span><span class="p">(</span><span class="mi">999</span><span class="p">,</span> <span class="mi">9999</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+
+        <span class="n">funcs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span> <span class="o">//</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="p">]</span>
+
+        <span class="p">[</span><span class="n">prnt</span><span class="p">(</span>
+            <span class="s">&#39;Series of series with: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">getsource</span><span class="p">(</span><span class="n">f</span><span class="p">)),</span>
+            <span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">_</span><span class="p">)))</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">fibo</span><span class="p">(</span><span class="mi">8</span><span class="p">)])</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">funcs</span><span class="p">]</span>
+
+        <span class="p">[</span><span class="n">prnt</span><span class="p">(</span>
+            <span class="s">&#39;Factor {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">),</span>
+            <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">factor</span><span class="p">(</span><span class="n">rr</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">9999</span><span class="p">))][</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Factorial&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">factorials</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+
+        <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">factor_factorials</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+        <span class="c"># Misc. exercises</span>
+
+        <span class="n">test_number</span><span class="p">(</span><span class="n">exercise_1_2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">test_number</span><span class="p">(</span><span class="n">exercise_2_8</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+        <span class="c"># Should raise no errors</span>
+        <span class="n">commutative_lcm_laws</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">320</span><span class="p">)</span>
+        <span class="n">associative_lcm_laws</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+        <span class="n">idempotent_lcm_laws</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">320</span><span class="p">)</span>
+        <span class="n">absorption_lcm_laws</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">320</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

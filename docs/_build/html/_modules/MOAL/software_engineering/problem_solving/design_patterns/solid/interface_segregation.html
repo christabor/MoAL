@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+<span class="c"># See https://en.wikipedia.org/wiki/Interface_segregation_principle for</span>
+<span class="c"># reference examples and definition.</span>
+
+<span class="c"># NOT SO SOLID</span>
+
+
+<div class="viewcode-block" id="MonsterATMClass"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass">[docs]</a><span class="k">class</span> <span class="nc">MonsterATMClass</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A bad example of a large class handling everything.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MonsterATMClass._validate"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass._validate">[docs]</a>    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Nonsense validation function&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+        <span class="k">return</span> <span class="bp">True</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.calculate_balance"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.calculate_balance">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Calculating balance&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.add_transaction_log"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.add_transaction_log">[docs]</a>    <span class="k">def</span> <span class="nf">add_transaction_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.handle_withdrawal"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.handle_withdrawal">[docs]</a>    <span class="k">def</span> <span class="nf">handle_withdrawal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account_total</span> <span class="o">-=</span> <span class="n">amt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transaction_log</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">,</span> <span class="s">&#39;Withdrew {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amt</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.handle_deposit"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.handle_deposit">[docs]</a>    <span class="k">def</span> <span class="nf">handle_deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account_total</span> <span class="o">+=</span> <span class="n">amt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transaction_log</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">,</span> <span class="s">&#39;Added {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amt</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.print_receipt"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.print_receipt">[docs]</a>    <span class="k">def</span> <span class="nf">print_receipt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Printing receipt...&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.clear_info"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.clear_info">[docs]</a>    <span class="k">def</span> <span class="nf">clear_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Clearing info...&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.add_fee"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.add_fee">[docs]</a>    <span class="k">def</span> <span class="nf">add_fee</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Adding fee... {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amt</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="MonsterATMClass.authorize_pin"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.authorize_pin">[docs]</a>    <span class="k">def</span> <span class="nf">authorize_pin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Authorizing...&#39;</span><span class="p">)</span></div></div>
+
+
+<span class="c"># SOLID</span>
+
+<div class="viewcode-block" id="ATMLogging"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging">[docs]</a><span class="k">class</span> <span class="nc">ATMLogging</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">add_transaction_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calculate_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Calculating balance&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ATMAuthentication"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMAuthentication">[docs]</a><span class="k">class</span> <span class="nc">ATMAuthentication</span><span class="p">(</span><span class="n">ATMLogging</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Nonsense validation function&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">authorize_pin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Authorizing...&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ATMWidthdrawl"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMWidthdrawl">[docs]</a><span class="k">class</span> <span class="nc">ATMWidthdrawl</span><span class="p">(</span><span class="n">ATMLogging</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">handle_withdrawal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account_total</span> <span class="o">-=</span> <span class="n">amt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transaction_log</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">,</span> <span class="s">&#39;Withdrew {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amt</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="ATMDeposit"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMDeposit">[docs]</a><span class="k">class</span> <span class="nc">ATMDeposit</span><span class="p">(</span><span class="n">ATMLogging</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">handle_deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account_total</span> <span class="o">+=</span> <span class="n">amt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transaction_log</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">amt</span><span class="p">,</span> <span class="s">&#39;Added {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amt</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="ATMUserEvents"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents">[docs]</a><span class="k">class</span> <span class="nc">ATMUserEvents</span><span class="p">(</span><span class="n">ATMLogging</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">process_button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button_event</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Handling button...&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clear_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Clearing info...&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">eject_card</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Please take card&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">print_receipt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Printing receipt...&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

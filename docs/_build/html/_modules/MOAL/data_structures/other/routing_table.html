@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.other.routing_table &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.other.routing_table</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.other.routing_table</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_simple</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.datamaker</span> <span class="kn">import</span> <span class="n">subnet_mask</span>
+<span class="kn">from</span> <span class="nn">MOAL.computer_organization</span> <span class="kn">import</span> <span class="n">numerical_encoding_basic</span> <span class="k">as</span> <span class="n">encoders</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span> <span class="k">as</span> <span class="n">rr</span>
+<span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Factory</span>
+<span class="kn">from</span> <span class="nn">faker.providers</span> <span class="kn">import</span> <span class="n">internet</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">ppr</span>
+
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+<span class="n">faker</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">add_provider</span><span class="p">(</span><span class="n">internet</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="RoutingTable"><a class="viewcode-back" href="../../../../MOAL.data_structures.other.html#MOAL.data_structures.other.routing_table.RoutingTable">[docs]</a><span class="k">class</span> <span class="nc">RoutingTable</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">routes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ppr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">routes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">route</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">routes</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">route</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">route</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">route</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">route</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">routes</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">route</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">get_networkid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Network ID is comprised of Network Destination and Netmask,</span>
+<span class="sd">        using CIDR notation. https://www.youtube.com/watch?v=t5xYI0jzOf4</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s">&#39;network_mask&#39;</span><span class="p">]</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c"># Add the octets as binary, then get the number of most significant</span>
+        <span class="c"># bits and add those to the end, to get the final CIDR encoded number.</span>
+        <span class="k">for</span> <span class="n">octet</span> <span class="ow">in</span> <span class="n">mask</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">octet</span> <span class="o">==</span> <span class="s">&#39;255&#39;</span><span class="p">:</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="mi">8</span>
+            <span class="k">elif</span> <span class="n">octet</span> <span class="o">!=</span> <span class="s">&#39;0&#39;</span><span class="p">:</span>
+                <span class="n">bits</span> <span class="o">=</span> <span class="n">encoders</span><span class="o">.</span><span class="n">dec_to_bin</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">octet</span><span class="p">))[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">bits</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">bit</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span><span class="p">:</span>
+                        <span class="n">offset</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="s">&#39;{}/{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s">&#39;destination&#39;</span><span class="p">],</span> <span class="n">offset</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Data structure - routing table&#39;</span><span class="p">):</span>
+        <span class="n">rt</span> <span class="o">=</span> <span class="n">RoutingTable</span><span class="p">()</span>
+
+        <span class="c"># Values are randomly seeded and will not describe a</span>
+        <span class="c"># network topology appropriately, but are used for</span>
+        <span class="c"># illustrating the general idea.</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="c"># Create a test ip + random ips for using in code below</span>
+            <span class="n">ip</span> <span class="o">=</span> <span class="n">faker</span><span class="o">.</span><span class="n">ipv4</span><span class="p">()</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">&#39;192.168.0.0&#39;</span>
+            <span class="n">rt</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+                <span class="s">&#39;destination&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">,</span>
+                <span class="s">&#39;network_mask&#39;</span><span class="p">:</span> <span class="n">subnet_mask</span><span class="p">(),</span>
+                <span class="s">&#39;gateway&#39;</span><span class="p">:</span> <span class="n">faker</span><span class="o">.</span><span class="n">ipv4</span><span class="p">(),</span>
+                <span class="s">&#39;interface&#39;</span><span class="p">:</span> <span class="n">faker</span><span class="o">.</span><span class="n">ipv4</span><span class="p">(),</span>
+                <span class="s">&#39;metric&#39;</span><span class="p">:</span> <span class="n">rr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="s">&#39;protocol&#39;</span><span class="p">:</span> <span class="s">u&#39;Local&#39;</span>
+            <span class="p">})</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Destinations&#39;</span><span class="p">,</span> <span class="n">rt</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="s">&#39;destination&#39;</span><span class="p">))</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Network Mask&#39;</span><span class="p">,</span> <span class="n">rt</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="s">&#39;network_mask&#39;</span><span class="p">))</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Gateway&#39;</span><span class="p">,</span> <span class="n">rt</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="s">&#39;gateway&#39;</span><span class="p">))</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Metrics&#39;</span><span class="p">,</span> <span class="n">rt</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="s">&#39;metric&#39;</span><span class="p">))</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Network ID&#39;</span><span class="p">,</span> <span class="n">rt</span><span class="o">.</span><span class="n">get_networkid</span><span class="p">(</span><span class="s">&#39;192.168.0.0&#39;</span><span class="p">))</span>
+
+        <span class="n">_bin</span> <span class="o">=</span> <span class="n">encoders</span><span class="o">.</span><span class="n">dec_to_bin</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} {} {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">_bin</span><span class="p">(</span><span class="mi">192</span><span class="p">),</span>
+            <span class="n">_bin</span><span class="p">(</span><span class="mi">168</span><span class="p">),</span>
+            <span class="n">_bin</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+            <span class="n">_bin</span><span class="p">(</span><span class="mi">41</span><span class="p">)))</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

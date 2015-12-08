@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.storage.modeling package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.storage package" href="MOAL.storage.html"/>
+        <link rel="next" title="MOAL.storage.search package" href="MOAL.storage.search.html"/>
+        <link rel="prev" title="MOAL.storage.databases.relational package" href="MOAL.storage.databases.relational.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.storage.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.storage.html">MOAL.storage package</a> &raquo;</li>
+      
+    <li>MOAL.storage.modeling package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.storage.modeling.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.storage.modeling">
+<span id="moal-storage-modeling-package"></span><h1>MOAL.storage.modeling package<a class="headerlink" href="#module-MOAL.storage.modeling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.storage.modeling.data_modeling">
+<span id="moal-storage-modeling-data-modeling-module"></span><h2>MOAL.storage.modeling.data_modeling module<a class="headerlink" href="#module-MOAL.storage.modeling.data_modeling" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="MOAL.storage.modeling.data_modeling.DEBUG">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">DEBUG</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>From <a class="reference external" href="https://www.coursera.org/learn/data-manipulation/home/welcome">https://www.coursera.org/learn/data-manipulation/home/welcome</a>
+A Data Model is defined as having three primary properties:</p>
+<ol class="arabic simple">
+<li>Structure</li>
+</ol>
+<blockquote>
+<div>rows and columns
+nodes and edges
+key-value pairs
+sequence of bytes (raw, block data, file data)</div></blockquote>
+<ol class="arabic" start="2">
+<li><dl class="first docutils">
+<dt>Constraints</dt>
+<dd><p class="first last">&#8220;all rows must have the same number of columns&#8221;
+&#8220;all values in one column must have the same type&#8221;
+&#8220;a child cannot have two parents&#8221;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Operations</dt>
+<dd><p class="first last">&#8220;find value of key x&#8221;
+&#8220;find rows where column <cite>lastname</cite> is <cite>jordan</cite>&#8221;
+&#8220;get the next N bytes&#8221;</p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.storage.modeling.data_modeling.Structure">
+<em class="property">class </em><code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">Structure</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#Structure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.Structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a somewhat arbitrary and meaningless class, but it
+signifies some of these concepts in real code.</p>
+<dl class="method">
+<dt id="MOAL.storage.modeling.data_modeling.Structure.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#Structure.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.Structure.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.storage.modeling.data_modeling.Structure.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#Structure.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.Structure.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.storage.modeling.data_modeling.Structure.constraint">
+<code class="descname">constraint</code><span class="sig-paren">(</span><em>constraint_name</em>, <em>field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#Structure.constraint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.Structure.constraint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.storage.modeling.data_modeling.Structure.operation">
+<code class="descname">operation</code><span class="sig-paren">(</span><em>operation_name</em>, <em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#Structure.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.Structure.operation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.storage.modeling.data_modeling.Structure.show_model">
+<code class="descname">show_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#Structure.show_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.Structure.show_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.create_field">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">create_field</code><span class="sig-paren">(</span><em>schema</em>, <em>field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#create_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.create_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.delete_field">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">delete_field</code><span class="sig-paren">(</span><em>schema</em>, <em>field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#delete_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.delete_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.greater_than">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">greater_than</code><span class="sig-paren">(</span><em>val1</em>, <em>val2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#greater_than"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.greater_than" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.less_than">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">less_than</code><span class="sig-paren">(</span><em>val1</em>, <em>val2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#less_than"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.less_than" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.longer">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">longer</code><span class="sig-paren">(</span><em>val1</em>, <em>val2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#longer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.longer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.read_field">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">read_field</code><span class="sig-paren">(</span><em>schema</em>, <em>field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#read_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.read_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.shorter">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">shorter</code><span class="sig-paren">(</span><em>val1</em>, <em>val2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#shorter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.shorter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.storage.modeling.data_modeling.update_field">
+<code class="descclassname">MOAL.storage.modeling.data_modeling.</code><code class="descname">update_field</code><span class="sig-paren">(</span><em>schema</em>, <em>field</em>, <em>replace</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/storage/modeling/data_modeling.html#update_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.storage.modeling.data_modeling.update_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.storage.search.html" class="btn btn-neutral float-right" title="MOAL.storage.search package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.storage.databases.relational.html" class="btn btn-neutral" title="MOAL.storage.databases.relational package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

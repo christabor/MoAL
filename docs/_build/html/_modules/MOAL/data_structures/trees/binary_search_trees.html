@@ -1,0 +1,577 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.trees.binary_search_trees &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.trees.binary_search_trees</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.trees.binary_search_trees</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">gibberish</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+
+<div class="viewcode-block" id="BinarySearchTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree">[docs]</a><span class="k">class</span> <span class="nc">BinarySearchTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;BST Code sample originally from interactivepython.org</span>
+<span class="sd">        /runestone/static/pythonds/Trees/bst.html#lst-bst1,</span>
+<span class="sd">        with some modifications.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BinarySearchTree.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+        <span class="c"># Default to no &quot;top/root&quot; root element</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="c"># This tree has no nodes by default</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c"># Keep track of leaves and nodes for fun/practice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leaves</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="BinarySearchTree.__len__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__len__">[docs]</a>    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+        <span class="c"># Allow native python len() on the object</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span>
+
+<div class="viewcode-block" id="BinarySearchTree.__iter__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__iter__">[docs]</a>    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+        <span class="c"># Allow native python iterables</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
+
+<div class="viewcode-block" id="BinarySearchTree.__setitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.__getitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.__contains__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__contains__">[docs]</a>    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.__delitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__delitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.length"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.length">[docs]</a>    <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.put"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span></div>
+        <span class="c"># This public method uses _put but always with self.root</span>
+        <span class="c"># as the current_node</span>
+
+        <span class="c"># If this is the root, then do some extra checks</span>
+        <span class="c"># to make sure the ordering is correct...</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># ...make this the new root otherwise</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="BinarySearchTree._put"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._put">[docs]</a>    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">current_node</span><span class="p">):</span></div>
+        <span class="c"># If the given key is greater than the given nodes key,</span>
+        <span class="c"># put it on right of that node, otherwise put it on the left.</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">current_node</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+            <span class="c"># If the child node already has a node, then</span>
+            <span class="c"># start again with this new child node as the current_node,</span>
+            <span class="c"># recursively working all the way down until the other condition</span>
+            <span class="c"># is true (no children exist for this node)</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># Finally, once the recursion above has eliminated all</span>
+                <span class="c"># child nodes from our selection, we create a new</span>
+                <span class="c"># node for this position, and make this node its parent.</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">current_node</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># Same thing, but for the right side.</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">has_right_child</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">current_node</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">current_node</span>
+
+<div class="viewcode-block" id="BinarySearchTree.get"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="k">else</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree._get"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._get">[docs]</a>    <span class="k">def</span> <span class="nf">_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">current_node</span><span class="p">):</span></div>
+        <span class="c"># Return nothing if no node was given.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">current_node</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="c"># If the keys match, we&#39;ve found our node.</span>
+        <span class="k">elif</span> <span class="n">current_node</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">current_node</span>
+        <span class="c"># If the key is less than the current node, return its left child.</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">current_node</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="p">)</span>
+        <span class="c"># If the key is greater than the current node, return its right child.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BinarySearchTree.delete"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c"># If nodes below the root exist,</span>
+            <span class="c"># delete the root node or its leaf (if any).</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s">&#39;No such key.&#39;</span><span class="p">)</span>
+        <span class="c"># If the only node that exists is the root, delete it.</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s">&#39;No such key&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.find_min"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.find_min">[docs]</a>    <span class="k">def</span> <span class="nf">find_min</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="c"># Keep working down the left side until the current</span>
+        <span class="c"># node no longer has a left child, which is accomplished</span>
+        <span class="c"># by continually re-assigning the left child.</span>
+        <span class="c"># e.g:</span>
+        <span class="c">#                     O</span>
+        <span class="c"># current:           /</span>
+        <span class="c"># new current:      /</span>
+        <span class="c"># new new current: / &lt;-- target</span>
+        <span class="k">while</span> <span class="n">current</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">():</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">left_child</span>
+        <span class="k">return</span> <span class="n">current</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.splice_out"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.splice_out">[docs]</a>    <span class="k">def</span> <span class="nf">splice_out</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">():</span>
+            <span class="c"># If this node is a leaf, prune either the left or right node</span>
+            <span class="c"># from its parent, depending on which side this node is on.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_any_children</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">():</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                    <span class="c"># If this node has AND is a left child,</span>
+                    <span class="c"># then the parents left child becomes this nodes&#39;</span>
+                    <span class="c"># left child node, thus splicing it out of the group.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c"># Same rule, but replace the right side instead.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span>
+                <span class="c"># Once spliced out, we also need to update the other</span>
+                <span class="c"># reference for each child node to point to the</span>
+                <span class="c"># current nodes parent, instead of this node.</span>
+                <span class="c"># That way, no dead references exist.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># If the node is a left child, but has no left children</span>
+                <span class="c"># of its own (instead having only right children),</span>
+                <span class="c"># then replace the parents left child with this right child</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c"># Otherwise, swap the behavior -- replace the</span>
+                    <span class="c"># parents right child with this right child.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span>
+                <span class="c"># Update these references as well, but for the opposite side.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.find_successor"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.find_successor">[docs]</a>    <span class="k">def</span> <span class="nf">find_successor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+        <span class="c"># There is no successor if the node has</span>
+        <span class="c"># no right child and has no parent.</span>
+        <span class="n">successor</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="c"># If this node has a right child, the successor is somewhere</span>
+        <span class="c"># to the right -- specifically the node with the</span>
+        <span class="c"># minimum value for the right subtree.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_right_child</span><span class="p">():</span>
+            <span class="n">successor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">find_min</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># If it has no right child and it has a parent.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="c"># If it has a parent and is to the left of it, then</span>
+                <span class="c"># the parent is the successor.</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                    <span class="n">successor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c"># Otherwise, it has a parent and is to the right of it.</span>
+                    <span class="c"># In that case, remove this node from the parent...</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="bp">None</span>
+                    <span class="c"># ...and keep searching the parent.</span>
+                    <span class="n">successor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">find_successor</span><span class="p">()</span>
+                    <span class="c"># Once the successor is found, re-assign the current node</span>
+                    <span class="c"># to be the parents&#39; right child.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">return</span> <span class="n">successor</span>
+
+<div class="viewcode-block" id="BinarySearchTree._swap_current"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._swap_current">[docs]</a>    <span class="k">def</span> <span class="nf">_swap_current</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_node</span><span class="p">,</span> <span class="n">side</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s">&#39;left&#39;</span><span class="p">:</span>
+            <span class="n">current_node</span><span class="o">.</span><span class="n">swap_node</span><span class="p">(</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">left_child</span><span class="p">,</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">current_node</span><span class="o">.</span><span class="n">swap_node</span><span class="p">(</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">left_child</span><span class="p">,</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinarySearchTree.remove"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_node</span><span class="p">):</span></div>
+        <span class="c"># If the current node is a leaf, check if it&#39;s</span>
+        <span class="c"># the left or the right node of the parent, and remove it accordingly.</span>
+        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">current_node</span> <span class="o">==</span> <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">elif</span> <span class="n">current_node</span><span class="o">.</span><span class="n">has_both_children</span><span class="p">():</span>
+            <span class="c"># If it has left and right children,</span>
+            <span class="c"># find the successor from either branch,</span>
+            <span class="c"># and then re-assign its values</span>
+            <span class="n">successor</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">find_successor</span><span class="p">()</span>
+            <span class="n">successor</span><span class="o">.</span><span class="n">splice_out</span><span class="p">()</span>
+            <span class="n">current_node</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">successor</span><span class="o">.</span><span class="n">key</span>
+            <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">successor</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">():</span>
+                <span class="c"># If the current node has and IS the left child,</span>
+                <span class="c"># promote it to up to the replace its parent.</span>
+                <span class="c"># Also promote the child (left or right) node up as well.</span>
+                <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span>
+                <span class="k">elif</span> <span class="n">current_node</span><span class="o">.</span><span class="n">is_right_child</span><span class="p">():</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span>
+                <span class="c"># If its neither the left or child, then make a new node</span>
+                <span class="c"># with the current_node grandchildren</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_swap_current</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s">&#39;left&#39;</span><span class="p">)</span>
+            <span class="c"># Deal with non leaf nodes</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># Do the same, but for the right side instead.</span>
+                <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span>
+                <span class="k">elif</span> <span class="n">current_node</span><span class="o">.</span><span class="n">is_right_child</span><span class="p">():</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span>
+                    <span class="n">current_node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_swap_current</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s">&#39;right&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Node"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.Node">[docs]</a><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="c"># Assign locally for reference by the entire object.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">right</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">key</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># This method seemingly iterates over one node only, but since</span>
+        <span class="c"># it is overriding the `for **in** x` behavior, it is called for each</span>
+        <span class="c"># node, which makes it recursive, thus covering all nodes.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="c"># Yield left nodes if they exist</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">node</span>
+            <span class="k">yield</span> <span class="bp">self</span>
+            <span class="c"># Yield right nodes if they exist.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_right_child</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">node</span>
+
+    <span class="k">def</span> <span class="nf">has_left_child</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">has_right_child</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">is_left_child</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># See if it has a parent, and if the parent&#39;s</span>
+        <span class="c"># left child is this node.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">==</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">is_right_child</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># See if it has a parent, and if the parent&#39;s</span>
+        <span class="c"># right child is this node.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">==</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">is_root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># See if it&#39;s the top node. By default, root is set to None.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">is_leaf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># See if this is the leaf (it has no child nodes below it)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span> <span class="ow">is</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">has_any_children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># See if it has any nodes below it - left or right.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">has_both_children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># See if it has both nodes below it - left and right.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">swap_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">left_child</span><span class="p">,</span> <span class="n">right_child</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="c"># Re-assign child nodes.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">left_child</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">right_child</span>
+        <span class="c"># Check that the new nodes actually exist, and</span>
+        <span class="c"># make this node the new parent.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_right_child</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span>
+
+
+<span class="c"># Testing/Experimenting</span>
+<div class="viewcode-block" id="recurse_bst"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.recurse_bst">[docs]</a><span class="k">def</span> <span class="nf">recurse_bst</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">lastkey</span><span class="p">):</span>
+    <span class="n">char</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">lastkey</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">char</span> <span class="o">=</span> <span class="s">&#39;|&#39;</span>
+    <span class="k">elif</span> <span class="n">lastkey</span> <span class="o">&gt;</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+        <span class="n">char</span> <span class="o">=</span> <span class="s">&#39; /&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">char</span> <span class="o">=</span> <span class="s">&#39;</span><span class="se">\\</span><span class="s">&#39;</span>
+
+    <span class="k">if</span> <span class="n">lastkey</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">lastkey</span> <span class="o">-</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">connector</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;.&#39;</span> <span class="o">*</span> <span class="n">diff</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">lastkey</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">offset</span> <span class="o">-</span> <span class="n">diff</span><span class="p">),</span> <span class="n">connector</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">offset</span> <span class="o">-</span> <span class="p">(</span><span class="n">diff</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="n">connector</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">offset</span><span class="p">),</span> <span class="n">char</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">offset</span><span class="p">),</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">recurse_bst</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left_child</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">right_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">recurse_bst</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right_child</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="populate_bst"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.binary_search_trees.populate_bst">[docs]</a><span class="k">def</span> <span class="nf">populate_bst</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">gibberish</span><span class="p">())</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Binary Search Trees&#39;</span><span class="p">):</span>
+        <span class="n">bst</span> <span class="o">=</span> <span class="n">BinarySearchTree</span><span class="p">()</span>
+        <span class="n">populate_bst</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="n">recurse_bst</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+        <span class="c"># Basic test assertions</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&#39;testing&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="mi">100</span> <span class="ow">in</span> <span class="n">bst</span>
+        <span class="k">del</span> <span class="n">bst</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="mi">100</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bst</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&#39;testing&#39;</span><span class="p">)</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s">&#39;testing&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="mi">101</span> <span class="ow">in</span> <span class="n">bst</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">bst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">f</span><span class="o">.</span><span class="n">has_right_child</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

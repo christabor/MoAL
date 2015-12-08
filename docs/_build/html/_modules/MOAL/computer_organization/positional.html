@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.computer_organization.positional &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.computer_organization.positional</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.computer_organization.positional</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h2</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h4</span>
+<span class="kn">from</span> <span class="nn">MOAL.computer_organization</span> <span class="kn">import</span> <span class="n">numerical_encoding_basic</span> <span class="k">as</span> <span class="n">encoders</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+<span class="c"># http://www.joelonsoftware.com/articles/Unicode.html</span>
+
+<span class="n">ALL_CHARS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="s">&#39;0123456789abcdefghijklmnopqrstuvwxyz&#39;</span>
+                         <span class="s">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>
+                         <span class="s">&#39;.-:+=^!/*?&amp;&lt;&gt;()[]{}@%$#&#39;</span>
+                         <span class="s">&#39;αβγδεζηθικλμνξóπϱστυφχψω&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+
+<span class="n">BASES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Binary&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Ternary&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Quaternary&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Quinary&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Senary&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Septenary&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Octal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Nonary&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Decimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Undecimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Duodecimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Tridecimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Tetradecimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Pentadecimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Hexadecimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Octodecimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Vigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Tetravigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Pentavigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Hexavigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Septemvigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Trigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Duotrigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Hexatrigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Sexagesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Duosexagesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Tetrasexagesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Pentaoctagesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Centovigesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">240</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Duocentoquadragesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">360</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Trecentosexagesimal&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;DNA - made up&#39;</span><span class="p">,</span> <span class="s">&#39;custom&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s">&#39;ATCG&#39;</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;RNA - made up&#39;</span><span class="p">,</span> <span class="s">&#39;custom&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s">&#39;AUCG&#39;</span><span class="p">)},</span>
+    <span class="c"># Novel examples from wikipedia.org/wiki/Binary_number#Representation</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;XO - made up&#39;</span><span class="p">,</span> <span class="s">&#39;custom&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s">&#39;XO&#39;</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Morsish - made up&#39;</span><span class="p">,</span> <span class="s">&#39;custom&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s">&#39;|-&#39;</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s">&#39;base&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;YesNo - made up&#39;</span><span class="p">,</span> <span class="s">&#39;custom&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s">&#39;yn&#39;</span><span class="p">)},</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="n_to_dec"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.positional.n_to_dec">[docs]</a><span class="k">def</span> <span class="nf">n_to_dec</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">alphabet</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert a number to decimal from any given base, using the</span>
+<span class="sd">        powers technique (e.g. 9203 = 9^3 + 2^2 + 0^1 + 3^0)</span>
+
+<span class="sd">        Research examples from:</span>
+<span class="sd">        www.cs.trincoll.edu/~ram/cpsc110/inclass/conversions.html&quot;&quot;&quot;</span>
+        <span class="c"># Reverse the digits and convert to list (e.g. 123 =&gt; [&#39;3&#39;, &#39;2&#39;, &#39;1&#39;])</span>
+        <span class="n">digits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">num</span><span class="p">)))</span>
+        <span class="c"># Get &#39;parallel&#39; indices for each digit.</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">)))</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+            <span class="c"># Get the current index of the number (e.g. 32[9]0)</span>
+            <span class="n">digit</span> <span class="o">=</span> <span class="n">digits</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="c"># Multiply by the current power (e.g. 9 * 2^3)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="o">*</span> <span class="n">base</span> <span class="o">**</span> <span class="n">index</span>
+            <span class="c"># Add to running total</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">result</span>
+            <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;B: {} I: {} Exp: {} * {} = {} Dec: {}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">digit</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">digit</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Result: Base {} with value {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">total</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">total</span></div>
+
+
+<div class="viewcode-block" id="dec_to_n"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.positional.dec_to_n">[docs]</a><span class="k">def</span> <span class="nf">dec_to_n</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">alphabet</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert a decimal to any base, using the divide by N technique.</span>
+<span class="sd">    See `divide_by` for details.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="n">divisisons</span> <span class="o">=</span> <span class="n">encoders</span><span class="o">.</span><span class="n">divide_by</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">divisisons</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c"># Use a custom alphabet if provided,</span>
+            <span class="c"># otherwise use the global set `ALL_CHARS`</span>
+            <span class="k">if</span> <span class="n">alphabet</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">alphabet</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">ALL_CHARS</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} base {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="test_base"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.positional.test_base">[docs]</a><span class="k">def</span> <span class="nf">test_base</span><span class="p">(</span><span class="n">base_info</span><span class="p">,</span> <span class="n">nums</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="mi">9999</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;Convert a base with a set of numbers, and display the results.&quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s">&#39;custom&#39;</span> <span class="ow">in</span> <span class="n">base_info</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dec_to_n</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">alphabet</span><span class="o">=</span><span class="n">base_info</span><span class="p">[</span><span class="s">&#39;custom&#39;</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dec_to_n</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+<div class="viewcode-block" id="dec_to_unary"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.positional.dec_to_unary">[docs]</a><span class="k">def</span> <span class="nf">dec_to_unary</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tally representation e.g. | = 1, / = 5&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="n">rounds</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="mi">5</span>
+    <span class="n">fives</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">rounds</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;|&#39;</span> <span class="o">*</span> <span class="n">num</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="nb">round</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rounds</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c"># Reset tally &quot;five&quot; marker every time it gets to five.</span>
+            <span class="k">if</span> <span class="n">fives</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="s">&#39;/&#39;</span>
+                <span class="n">fives</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="s">&#39;|&#39;</span>
+            <span class="n">fives</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Base 1&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;aka &quot;tally&quot;&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} base 1 = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Numerical encoding: &quot;N-ary&quot; (positional) - extended&#39;</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;I thought I had the extent of the positional number systems,</span>
+<span class="sd">        but much more exist, and many can be found at:</span>
+<span class="sd">        http://www.calculand.com/unit-converter/zahlen.php&quot;&quot;&quot;</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;N to Decimal&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Conversion to decimal from a given base&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Convert base {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+            <span class="n">n_to_dec</span><span class="p">(</span><span class="mi">999</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span>
+            <span class="s">&#39;Decimal to N&#39;</span><span class="p">,</span>
+            <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Conversion of numbers to any base with divide-by technique.&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">base_info</span> <span class="ow">in</span> <span class="n">BASES</span><span class="p">:</span>
+            <span class="n">base</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">base_info</span><span class="p">[</span><span class="s">&#39;base&#39;</span><span class="p">],</span> <span class="n">base_info</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+            <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Base {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;aka &quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+            <span class="n">test_base</span><span class="p">(</span><span class="n">base_info</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">]:</span>
+            <span class="n">dec_to_unary</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

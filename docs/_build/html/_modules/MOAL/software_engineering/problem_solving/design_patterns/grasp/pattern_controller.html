@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="DBConnectionError"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.DBConnectionError">[docs]</a><span class="k">class</span> <span class="nc">DBConnectionError</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="DBReadError"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.DBReadError">[docs]</a><span class="k">class</span> <span class="nc">DBReadError</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="MockDBAdapter"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter">[docs]</a><span class="k">class</span> <span class="nc">MockDBAdapter</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+            <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+            <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="bp">None</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">rollback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Rolling back!&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Committing...&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">DBConnectionError</span><span class="p">:</span>  <span class="c"># Not actually surfaced</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Could not commit!&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Writing... `{}`&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">kwarg</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;  |____ {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kwarg</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Reading... `{}`&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DBReadError</span>
+
+
+<div class="viewcode-block" id="Controller"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller">[docs]</a><span class="k">class</span> <span class="nc">Controller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Controller&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Controller.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s">&#39;model&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">MockDBAdapter</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;model&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">MockDBAdapter</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Controller.receive"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.receive">[docs]</a>    <span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eventname</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="Controller.send"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.send">[docs]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eventname</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+
+<div class="viewcode-block" id="InvalidEvent"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InvalidEvent">[docs]</a><span class="k">class</span> <span class="nc">InvalidEvent</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="CustomerController"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController">[docs]</a><span class="k">class</span> <span class="nc">CustomerController</span><span class="p">(</span><span class="n">Controller</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;MVC Style&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CustomerController.send"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController.send">[docs]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s">&#39;name&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Name and/or data missing.&#39;</span><span class="p">)</span>
+        <span class="n">ops</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;create&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_user</span><span class="p">,</span>
+            <span class="s">&#39;edit&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edit_user</span><span class="p">,</span>
+            <span class="s">&#39;read&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_user</span><span class="p">,</span>
+            <span class="s">&#39;delete&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete_user</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ops</span><span class="p">[</span><span class="n">event</span><span class="p">](</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidEvent</span></div>
+
+<div class="viewcode-block" id="CustomerController._read_user"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._read_user">[docs]</a>    <span class="k">def</span> <span class="nf">_read_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="CustomerController._create_user"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._create_user">[docs]</a>    <span class="k">def</span> <span class="nf">_create_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CustomerController._edit_user"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._edit_user">[docs]</a>    <span class="k">def</span> <span class="nf">_edit_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CustomerController._delete_user"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._delete_user">[docs]</a>    <span class="k">def</span> <span class="nf">_delete_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="InputController"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController">[docs]</a><span class="k">class</span> <span class="nc">InputController</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;up&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&#39;left&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&#39;right&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&#39;down&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Moving {}...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pos</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Another design principle here is indirection - the buttons</span>
+<span class="sd">        should not be mapped to their internal states, as we might want</span>
+<span class="sd">        to change button configurations for different users.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">button_name</span> <span class="ow">is</span> <span class="s">&#39;w&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="p">(</span><span class="s">&#39;up&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">button_name</span> <span class="ow">is</span> <span class="s">&#39;a&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="p">(</span><span class="s">&#39;left&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">button_name</span> <span class="ow">is</span> <span class="s">&#39;s&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="p">(</span><span class="s">&#39;down&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">button_name</span> <span class="ow">is</span> <span class="s">&#39;d&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="p">(</span><span class="s">&#39;right&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Invalid button! How did you manage that?!&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;GRASP Controller pattern - MVC Style&#39;</span><span class="p">):</span>
+        <span class="n">usermanager</span> <span class="o">=</span> <span class="n">CustomerController</span><span class="p">()</span>
+        <span class="n">usermanager</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;create&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;ctab&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span><span class="p">})</span>
+        <span class="k">assert</span> <span class="n">usermanager</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;read&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;ctab&#39;</span><span class="p">)[</span><span class="s">&#39;data&#39;</span><span class="p">][</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="s">&#39;bar&#39;</span>
+
+        <span class="n">usermanager</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;edit&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;ctab&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;bim&#39;</span><span class="p">})</span>
+        <span class="k">assert</span> <span class="n">usermanager</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;read&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;ctab&#39;</span><span class="p">)[</span><span class="s">&#39;data&#39;</span><span class="p">][</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="s">&#39;bim&#39;</span>
+
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;GRASP Controller pattern - Direct user behavior&#39;</span><span class="p">):</span>
+        <span class="n">controller</span> <span class="o">=</span> <span class="n">InputController</span><span class="p">()</span>
+        <span class="n">controller</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">controller</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+        <span class="n">controller</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">)</span>
+        <span class="n">controller</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">controller</span><span class="o">.</span><span class="n">get_position</span><span class="p">())</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

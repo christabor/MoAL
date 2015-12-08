@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.helpers.datamaker &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.helpers.datamaker</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.helpers.datamaker</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span> <span class="k">as</span> <span class="n">rr</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_uppercase</span>
+<span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Factory</span>
+
+<span class="n">faker</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="random_node"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_node">[docs]</a><span class="k">def</span> <span class="nf">random_node</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">max_edges</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s">&#39;edges&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">choice</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_edges</span><span class="p">))],</span>
+        <span class="s">&#39;val&#39;</span><span class="p">:</span> <span class="n">choice</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+    <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="random_graph"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_graph">[docs]</a><span class="k">def</span> <span class="nf">random_graph</span><span class="p">(</span><span class="n">max_edges</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="n">choice</span><span class="p">(</span><span class="n">ascii_uppercase</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_edges</span><span class="p">)]</span>
+    <span class="n">dag</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_edges</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">letters</span><span class="p">):</span>
+        <span class="n">dag</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_node</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">max_edges</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dag</span></div>
+
+
+<div class="viewcode-block" id="random_person"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_person">[docs]</a><span class="k">def</span> <span class="nf">random_person</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">faker</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span>
+        <span class="s">&#39;email&#39;</span><span class="p">:</span> <span class="n">faker</span><span class="o">.</span><span class="n">email</span><span class="p">(),</span>
+        <span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="n">faker</span><span class="o">.</span><span class="n">address</span><span class="p">(),</span>
+        <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="n">faker</span><span class="o">.</span><span class="n">url</span><span class="p">()</span>
+    <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="subnet_mask"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.subnet_mask">[docs]</a><span class="k">def</span> <span class="nf">subnet_mask</span><span class="p">():</span>
+    <span class="n">op1</span> <span class="o">=</span> <span class="s">&#39;255.255.255.255&#39;</span>
+    <span class="n">op2</span> <span class="o">=</span> <span class="s">&#39;255.0.0.0&#39;</span>
+    <span class="n">op3</span> <span class="o">=</span> <span class="s">&#39;255.255.255.{}{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)),</span> <span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">choice</span><span class="p">([</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">,</span> <span class="n">op3</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="random_dna"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_dna">[docs]</a><span class="k">def</span> <span class="nf">random_dna</span><span class="p">(</span><span class="nb">max</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate a random string of DNA.</span>
+
+<span class="sd">    Kwargs:</span>
+<span class="sd">        max (int) - The maximum length of the string.</span>
+
+<span class="sd">    &gt;&gt;&gt; random_dna(max=4)</span>
+<span class="sd">    &#39;TCGA&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dna</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="n">acids</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="s">&#39;G&#39;</span><span class="p">,</span> <span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+        <span class="n">dna</span> <span class="o">+=</span> <span class="n">choice</span><span class="p">(</span><span class="n">acids</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dna</span></div>
+
+
+<div class="viewcode-block" id="random_inverse_binary_matrix"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_inverse_binary_matrix">[docs]</a><span class="k">def</span> <span class="nf">random_inverse_binary_matrix</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate a matrix filled with random 0&#39;s, -1&#39;s or 1&#39;s.</span>
+
+<span class="sd">    &gt;&gt;&gt; random_binary_matrix(rows=2, columns=2)</span>
+<span class="sd">    [[0, 1, -1], [-1, 1, 0]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]})</span>
+    <span class="k">return</span> <span class="n">random_matrix</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="random_binary_matrix"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_binary_matrix">[docs]</a><span class="k">def</span> <span class="nf">random_binary_matrix</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate a matrix filled with random 0&#39;s or 1&#39;s.</span>
+
+<span class="sd">    &gt;&gt;&gt; random_binary_matrix(rows=2, columns=2)</span>
+<span class="sd">    [[0, 1], [1, 0]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+    <span class="k">return</span> <span class="n">random_matrix</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="random_matrix"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_matrix">[docs]</a><span class="k">def</span> <span class="nf">random_matrix</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate a matrix filled with random numbers.</span>
+
+<span class="sd">    Kwargs:</span>
+<span class="sd">        rows (int) - The number of rows.</span>
+<span class="sd">        columns (int) - The number of columns for each row.</span>
+<span class="sd">        min (int) - The minimum number to use in randrange</span>
+<span class="sd">        max (int) - The maximum number to use in randrange</span>
+<span class="sd">        choices (list) - The choices to choose from, if specified.</span>
+<span class="sd">            If none specified, randrange(min, max) will be used.</span>
+
+<span class="sd">    &gt;&gt;&gt; random_matrix(rows=3, columns=3, min=1, max=2)</span>
+<span class="sd">    [[94, 23, 50], [57, 28, 52], [94, 5, 45]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+        <span class="n">_row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">choices</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rr</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">))</span>
+        <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matrix</span></div>
+
+
+<div class="viewcode-block" id="random_uniform_matrix"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.random_uniform_matrix">[docs]</a><span class="k">def</span> <span class="nf">random_uniform_matrix</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">random_matrix</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="make_sparselist"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.make_sparselist">[docs]</a><span class="k">def</span> <span class="nf">make_sparselist</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">filler</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate a sparse list with a given set of values.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        vals (dict) - the list of indices and values,</span>
+<span class="sd">            where the key value represents the index to fill in</span>
+<span class="sd">        total (int) - the total length of the list. A length less than the</span>
+<span class="sd">            length of len(keys.values()) will throw a ValueError</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        sparselist (list) - the sparselist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s">&#39;Invalid length. Keys must be less than or equal to total.&#39;</span><span class="p">)</span>
+    <span class="n">_sparselist</span> <span class="o">=</span> <span class="p">[</span><span class="n">filler</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">vals</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="n">_sparselist</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">_sparselist</span></div>
+
+
+<div class="viewcode-block" id="make_sparsematrix"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.datamaker.make_sparsematrix">[docs]</a><span class="k">def</span> <span class="nf">make_sparsematrix</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">_sparsematrix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+        <span class="n">_sparsematrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">make_sparselist</span><span class="p">({},</span> <span class="n">cols</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">coords</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">vals</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">coords</span>
+        <span class="n">_sparsematrix</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="k">return</span> <span class="n">_sparsematrix</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

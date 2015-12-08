@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.trees.avl_trees &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.trees.avl_trees</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.trees.avl_trees</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="c"># Mostly taken from</span>
+<span class="c"># interactivepython.org/runestone/static/pythonds/Trees/balanced.html</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">import</span> <span class="nn">MOAL.data_structures.trees.binary_search_trees</span> <span class="kn">as</span> <span class="nn">bst</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+
+<div class="viewcode-block" id="AVLTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.avl_trees.AVLTree">[docs]</a><span class="k">class</span> <span class="nc">AVLTree</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">BinarySearchTree</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;AVL tree nodes all calculate a balance factor to determine rotations</span>
+<span class="sd">    and keep tree in balance for best performance:</span>
+
+<span class="sd">    bf = height(left_sub_tree) - height(right_sub_tree)</span>
+
+<span class="sd">    -1, 0, 1 balance factors are all considered to be within balanced range.</span>
+
+<span class="sd">    unbalanced tree</span>
+
+<span class="sd">        (-2)</span>
+<span class="sd">        /  \</span>
+<span class="sd">       /    \</span>
+<span class="sd">    (0)      (-1)</span>
+<span class="sd">             /  \</span>
+<span class="sd">            /    \</span>
+<span class="sd">          (0)    (-1)</span>
+<span class="sd">                   \</span>
+<span class="sd">                    \</span>
+<span class="sd">                    (0)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AVLTree._put"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.avl_trees.AVLTree._put">[docs]</a>    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">current_node</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;putting new node: {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">current_node</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+            <span class="c"># Recursively check the current node</span>
+            <span class="c"># for a child, until we get to an empty spot to a leaf</span>
+            <span class="c"># that we an add a node to.</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">has_left_child</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># Otherwise, create a brand new left node, making</span>
+                <span class="c"># this the parent, and then re-balance them.</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">bst</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span>
+                    <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">current_node</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update_balance</span><span class="p">(</span><span class="n">current_node</span><span class="o">.</span><span class="n">left_child</span><span class="p">)</span>
+        <span class="c"># Same as above, for the right side.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">has_right_child</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">bst</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span>
+                    <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">current_node</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update_balance</span><span class="p">(</span><span class="n">current_node</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AVLTree._update_balance"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.avl_trees.AVLTree._update_balance">[docs]</a>    <span class="k">def</span> <span class="nf">_update_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;updating balance...&#39;</span><span class="p">)</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">recurse_bst</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="c"># Updates the balance factor for all nodes if necessary</span>
+        <span class="n">bf</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">balance_factor</span>
+        <span class="c"># -1, 0 or 1 are considered balanced. Anything else needs a re-balance.</span>
+        <span class="k">if</span> <span class="n">bf</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">bf</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rebalance</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c"># Adjust balance factor for nodes that do not require re-balancing.</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c"># If this node has a parent and is a left child,</span>
+            <span class="c"># then increase its balance factor</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c"># If parent and right child, decrease its balance factor</span>
+            <span class="k">elif</span> <span class="n">node</span><span class="o">.</span><span class="n">is_right_child</span><span class="p">():</span>
+                <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="c"># Update BF for nodes with non-zero balance factors</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c"># Keep updating and checking balance until</span>
+                <span class="c"># re-balance has fixed all nodes.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update_balance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AVLTree._rotate_left"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.avl_trees.AVLTree._rotate_left">[docs]</a>    <span class="k">def</span> <span class="nf">_rotate_left</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rotation_root</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;rotating left...&#39;</span><span class="p">)</span>
+        <span class="c"># Rotation root is the node this transformation rotates about.</span>
+        <span class="n">new_root</span> <span class="o">=</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">right_child</span>
+        <span class="c"># Store a copy of the rotation root, make the rotation roots&#39; right</span>
+        <span class="c"># child the original copies left child.</span>
+        <span class="n">rotation_root</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">new_root</span><span class="o">.</span><span class="n">left_child</span>
+        <span class="c"># If the left child exists, make its parent the rotation root.</span>
+        <span class="k">if</span> <span class="n">new_root</span><span class="o">.</span><span class="n">left_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">new_root</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">rotation_root</span>
+        <span class="c"># Set the new roots&#39; parent to be the</span>
+        <span class="c"># rotation roots&#39; right child parent</span>
+        <span class="n">new_root</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span>
+        <span class="c"># If the rotation root was the root node for the entire tree,</span>
+        <span class="c"># set this node as the new root.</span>
+        <span class="k">if</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">is_root</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">new_root</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">is_left_child</span><span class="p">():</span>
+                <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">new_root</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">new_root</span>
+        <span class="c"># Swap the rotation root node with the new root and</span>
+        <span class="c"># update the parent reference</span>
+        <span class="n">new_root</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">rotation_root</span>
+        <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">new_root</span>
+        <span class="c"># Update all the balance factors:</span>
+        <span class="c"># rotation root should no longer be root, so its BF is subtracted</span>
+        <span class="c"># by the minimum balance factor of the new root.</span>
+        <span class="n">rotation_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">=</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span>
+            <span class="n">new_root</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c"># The new root is now the root node, so it should be updated to</span>
+        <span class="c"># account for all nodes now underneath it, by finding the maximum</span>
+        <span class="c"># of the rotation roots&#39; balance factor.</span>
+        <span class="n">new_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">=</span> <span class="n">new_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span>
+            <span class="n">rotation_root</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AVLTree._rotate_right"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.avl_trees.AVLTree._rotate_right">[docs]</a>    <span class="k">def</span> <span class="nf">_rotate_right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rotation_root</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;rotating right...&#39;</span><span class="p">)</span>
+        <span class="n">new_root</span> <span class="o">=</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">left_child</span>
+        <span class="n">rotation_root</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">new_root</span><span class="o">.</span><span class="n">right_child</span>
+        <span class="k">if</span> <span class="n">new_root</span><span class="o">.</span><span class="n">right_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">new_root</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">rotation_root</span>
+        <span class="n">new_root</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span>
+        <span class="k">if</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">is_root</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">new_root</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">is_right_child</span><span class="p">():</span>
+                <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">new_root</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">new_root</span>
+        <span class="n">new_root</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">rotation_root</span>
+        <span class="n">rotation_root</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">new_root</span>
+        <span class="n">rotation_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">=</span> <span class="n">rotation_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span>
+            <span class="n">new_root</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">new_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">=</span> <span class="n">new_root</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span>
+            <span class="n">rotation_root</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AVLTree._rebalance"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.avl_trees.AVLTree._rebalance">[docs]</a>    <span class="k">def</span> <span class="nf">_rebalance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;rebalancing... node with value {}, current BF = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">))</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">recurse_bst</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c"># If the current nodes balanace factor is &lt; 0, and its right</span>
+            <span class="c"># child&#39;s balance factor is &gt; 0, rotate both sides, right and left.</span>
+            <span class="c"># Otherwise, just rotate the left side, if the right child is</span>
+            <span class="c"># not unbalanced.</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">right_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rotate_right</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rotate_left</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rotate_left</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="c"># If the balance factor of this node is &gt; 0, then do the opposite</span>
+        <span class="c"># rotation for both child nodes.</span>
+        <span class="k">elif</span> <span class="n">node</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">balance_factor</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rotate_left</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left_child</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rotate_right</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rotate_right</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;New BF for node with value {} is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">))</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">recurse_bst</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;AVL Trees&#39;</span><span class="p">):</span>
+        <span class="n">avl</span> <span class="o">=</span> <span class="n">AVLTree</span><span class="p">()</span>
+        <span class="n">bst</span><span class="o">.</span><span class="n">populate_bst</span><span class="p">(</span><span class="n">avl</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

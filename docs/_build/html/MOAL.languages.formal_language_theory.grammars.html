@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.languages.formal_language_theory.grammars package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.languages.formal_language_theory package" href="MOAL.languages.formal_language_theory.html"/>
+        <link rel="next" title="MOAL.languages.formal_language_theory.modeling package" href="MOAL.languages.formal_language_theory.modeling.html"/>
+        <link rel="prev" title="MOAL.languages.formal_language_theory package" href="MOAL.languages.formal_language_theory.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.languages.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.languages.html">MOAL.languages package</a> &raquo;</li>
+      
+          <li><a href="MOAL.languages.formal_language_theory.html">MOAL.languages.formal_language_theory package</a> &raquo;</li>
+      
+    <li>MOAL.languages.formal_language_theory.grammars package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.languages.formal_language_theory.grammars.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.languages.formal_language_theory.grammars">
+<span id="moal-languages-formal-language-theory-grammars-package"></span><h1>MOAL.languages.formal_language_theory.grammars package<a class="headerlink" href="#module-MOAL.languages.formal_language_theory.grammars" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.languages.formal_language_theory.grammars.analytic_context_free">
+<span id="moal-languages-formal-language-theory-grammars-analytic-context-free-module"></span><h2>MOAL.languages.formal_language_theory.grammars.analytic_context_free module<a class="headerlink" href="#module-MOAL.languages.formal_language_theory.grammars.analytic_context_free" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.AnalyticContextFreeGrammar">
+<em class="property">class </em><code class="descclassname">MOAL.languages.formal_language_theory.grammars.analytic_context_free.</code><code class="descname">AnalyticContextFreeGrammar</code><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#AnalyticContextFreeGrammar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.AnalyticContextFreeGrammar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.InvalidStringLength">
+<em class="property">class </em><code class="descclassname">MOAL.languages.formal_language_theory.grammars.analytic_context_free.</code><code class="descname">InvalidStringLength</code><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#InvalidStringLength"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.InvalidStringLength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG">
+<em class="property">class </em><code class="descclassname">MOAL.languages.formal_language_theory.grammars.analytic_context_free.</code><code class="descname">TDPLAnalyticCFG</code><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#TDPLAnalyticCFG"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.AnalyticContextFreeGrammar" title="MOAL.languages.formal_language_theory.grammars.analytic_context_free.AnalyticContextFreeGrammar"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.formal_language_theory.grammars.analytic_context_free.AnalyticContextFreeGrammar</span></code></a></p>
+<p>For a formal definition and examples, see
+wikipedia.org/wiki/Top-down_parsing_language</p>
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG._evaluate_all">
+<em class="property">static </em><code class="descname">_evaluate_all</code><span class="sig-paren">(</span><em>start</em>, <em>rules=[]</em>, <em>terminals=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#TDPLAnalyticCFG._evaluate_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG._evaluate_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Non-recursive simple function, for first iteration.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.adjacent_intersection">
+<em class="property">static </em><code class="descname">adjacent_intersection</code><span class="sig-paren">(</span><em>str1</em>, <em>str2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#TDPLAnalyticCFG.adjacent_intersection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.adjacent_intersection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.evaluate">
+<em class="property">static </em><code class="descname">evaluate</code><span class="sig-paren">(</span><em>start</em>, <em>rules</em>, <em>terminals</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#TDPLAnalyticCFG.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.evaluate_with_defaults">
+<em class="property">static </em><code class="descname">evaluate_with_defaults</code><span class="sig-paren">(</span><em>start, nonterminals=['a', 'x', 'B', 'S', '#', 'b'], terminals=['!'], ruleset=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#TDPLAnalyticCFG.evaluate_with_defaults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.evaluate_with_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.intersection">
+<em class="property">static </em><code class="descname">intersection</code><span class="sig-paren">(</span><em>str1</em>, <em>str2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#TDPLAnalyticCFG.intersection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.intersection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.test_grammar">
+<em class="property">static </em><code class="descname">test_grammar</code><span class="sig-paren">(</span><em>times</em>, <em>start</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/analytic_context_free.html#TDPLAnalyticCFG.test_grammar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.analytic_context_free.TDPLAnalyticCFG.test_grammar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.languages.formal_language_theory.grammars.attribute_context_free">
+<span id="moal-languages-formal-language-theory-grammars-attribute-context-free-module"></span><h2>MOAL.languages.formal_language_theory.grammars.attribute_context_free module<a class="headerlink" href="#module-MOAL.languages.formal_language_theory.grammars.attribute_context_free" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar">
+<em class="property">class </em><code class="descclassname">MOAL.languages.formal_language_theory.grammars.attribute_context_free.</code><code class="descname">AttributeContextFreeGrammar</code><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar" title="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar</span></code></a></p>
+<p>An ACFG is effectively a CFG that allows attribute properties
+to be embedded in the ruleset for later evaluation &#8211; this is pedestrian
+to any programming language that supports data structures, but it all
+comes from these simple foundations.</p>
+<p>For a formal definition and examples, see
+wikipedia.org/wiki/Attribute_grammar</p>
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._attr">
+<code class="descname">_attr</code><span class="sig-paren">(</span><em>semantic_rule</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar._attr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._attr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the attribute name from the semantic rule.
+It comes in as a list of [object, attribute]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._chars">
+<code class="descname">_chars</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar._chars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._chars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._len">
+<code class="descname">_len</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar._len"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._len" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._parse_terminal">
+<code class="descname">_parse_terminal</code><span class="sig-paren">(</span><em>attr</em>, <em>token</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar._parse_terminal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._parse_terminal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a terminal value given a attribute and token.</p>
+<p>For this example, we won&#8217;t get too fancy,
+just force a string on all values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._prop">
+<code class="descname">_prop</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar._prop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._prop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._value">
+<code class="descname">_value</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar._value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar._value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em>tokens</em>, <em>evaluation=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/attribute_context_free.html#AttributeContextFreeGrammar.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.attribute_context_free.AttributeContextFreeGrammar.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A basic parser for a custom attribute grammar.</p>
+<p>One thing to note is that ambiguous grammars need to be iterated over,
+since the duplicate rules can&#8217;t be mapped via dictionary key.
+Unambiguous grammars are therefore more performant,
+because the lookup is O(1) vs. O(N).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.languages.formal_language_theory.grammars.backus_naur">
+<span id="moal-languages-formal-language-theory-grammars-backus-naur-module"></span><h2>MOAL.languages.formal_language_theory.grammars.backus_naur module<a class="headerlink" href="#module-MOAL.languages.formal_language_theory.grammars.backus_naur" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.languages.formal_language_theory.grammars.backus_naur.naive_bnf_parser">
+<code class="descclassname">MOAL.languages.formal_language_theory.grammars.backus_naur.</code><code class="descname">naive_bnf_parser</code><span class="sig-paren">(</span><em>grammar</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/backus_naur.html#naive_bnf_parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.backus_naur.naive_bnf_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parser for Backus Naur Form grammars, represented as a dictionaries.</p>
+<p>Traditional Grammar example:
+&lt;date&gt; ::= &lt;month&gt; &lt;day&gt; &lt;year&gt;
+&lt;month&gt; ::= &#8220;January&#8221; | &#8220;February | &#8220;March&#8221; | &#8220;April&#8221; | &#8220;May&#8221; | &#8220;June&#8221;</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">&#8220;July&#8221; | &#8220;August&#8221; | &#8220;September&#8221; | &#8220;November&#8221; | &#8220;December&#8221;</div>
+</div>
+</div></blockquote>
+<p>&lt;day&gt; ::= 1.. | ..31
+&lt;year&gt; ::= 100.. | ..9999</p>
+<p>Here we need something that is a bit more serializable &#8211; so we&#8217;ll
+make it JSON friendly. Each parseable tokens is either a &lt;rule&gt; or
+syntax; rules represent containers, and can even have other rules!</p>
+<p>&#8216;name&#8217;: {&#8216;date&#8217;, &#8216;is_rule&#8217;: True, &#8216;vals&#8217;: [&#8216;month&#8217;, &#8216;day&#8217;, &#8216;year&#8217;]},
+&#8216;name&#8217;: {&#8216;month&#8217;, &#8216;is_rule&#8217;: False, &#8216;vals&#8217;: &#8216;...&#8217;},
+&#8216;name&#8217;: {&#8216;day&#8217;, &#8216;is_rule&#8217;: False, &#8216;vals&#8217;: &#8216;...&#8217;},
+&#8216;name&#8217;: {&#8216;year&#8217;, &#8216;is_rule&#8217;: False, &#8216;vals&#8217;: &#8216;...&#8217;},</p>
+<p>&lt;name&gt; ::= &lt;firstname&gt; &lt;lastname&gt;
+&lt;firstname&gt; ::= &#8216;string&#8217;
+&lt;lastname&gt; ::= &#8216;string&#8217;</p>
+<p>&#8216;name&#8217;: {&#8216;name&#8217;, &#8216;is_rule&#8217;: True, &#8216;vals&#8217;: []},
+&#8216;name&#8217;: {&#8216;firstname&#8217;, &#8216;is_rule&#8217;: False, &#8216;vals&#8217;: &#8216;...&#8217;},
+&#8216;name&#8217;: {&#8216;lastname&#8217;, &#8216;is_rule&#8217;: False, &#8216;vals&#8217;: &#8216;...&#8217;},</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>grammar (dict) - the grammar and rules to use for evaluation.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.languages.formal_language_theory.grammars.backus_naur.rand_day">
+<code class="descclassname">MOAL.languages.formal_language_theory.grammars.backus_naur.</code><code class="descname">rand_day</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/backus_naur.html#rand_day"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.backus_naur.rand_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.languages.formal_language_theory.grammars.backus_naur.rand_fname">
+<code class="descclassname">MOAL.languages.formal_language_theory.grammars.backus_naur.</code><code class="descname">rand_fname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/backus_naur.html#rand_fname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.backus_naur.rand_fname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.languages.formal_language_theory.grammars.backus_naur.rand_lname">
+<code class="descclassname">MOAL.languages.formal_language_theory.grammars.backus_naur.</code><code class="descname">rand_lname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/backus_naur.html#rand_lname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.backus_naur.rand_lname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.languages.formal_language_theory.grammars.backus_naur.rand_year">
+<code class="descclassname">MOAL.languages.formal_language_theory.grammars.backus_naur.</code><code class="descname">rand_year</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/backus_naur.html#rand_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.backus_naur.rand_year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.languages.formal_language_theory.grammars.context_free">
+<span id="moal-languages-formal-language-theory-grammars-context-free-module"></span><h2>MOAL.languages.formal_language_theory.grammars.context_free module<a class="headerlink" href="#module-MOAL.languages.formal_language_theory.grammars.context_free" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar">
+<em class="property">class </em><code class="descclassname">MOAL.languages.formal_language_theory.grammars.context_free.</code><code class="descname">ContextFreeGrammar</code><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/context_free.html#ContextFreeGrammar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>word</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if a word can be created using the
+existing internal grammar and rules.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>rule</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar._get_rule">
+<code class="descname">_get_rule</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar._get_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar._is_terminal">
+<code class="descname">_is_terminal</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar._is_terminal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar._is_terminal_or">
+<code class="descname">_is_terminal_or</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar._is_terminal_or" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.add_rule">
+<code class="descname">add_rule</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.add_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.delete_rules">
+<code class="descname">delete_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.delete_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.delete_tokens">
+<code class="descname">delete_tokens</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.delete_tokens" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em>tokens=None</em>, <em>evaluation=''</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A basic parser for a custom attribute grammar.</p>
+<p>One thing to note is that ambiguous grammars need to be iterated over,
+since the duplicate rules can&#8217;t be mapped via dictionary key.
+Unambiguous grammars are therefore more performant,
+because the lookup is O(1) vs. O(N).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.evaluate_single">
+<code class="descname">evaluate_single</code><span class="sig-paren">(</span><em>token</em>, <em>nonterminals</em>, <em>evaluation=''</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.evaluate_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively evaluates a single rule with a token and a given
+set of non-terminals</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.set_rules">
+<code class="descname">set_rules</code><span class="sig-paren">(</span><em>rules</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.set_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.set_tokens">
+<code class="descname">set_tokens</code><span class="sig-paren">(</span><em>tokens</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar.set_tokens" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.InvalidTokenSet">
+<em class="property">exception </em><code class="descclassname">MOAL.languages.formal_language_theory.grammars.context_free.</code><code class="descname">InvalidTokenSet</code><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/context_free.html#InvalidTokenSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.InvalidTokenSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.cp">
+<code class="descclassname">MOAL.languages.formal_language_theory.grammars.context_free.</code><code class="descname">cp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/context_free.html#cp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.cp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_free.cu">
+<code class="descclassname">MOAL.languages.formal_language_theory.grammars.context_free.</code><code class="descname">cu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/context_free.html#cu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_free.cu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.languages.formal_language_theory.grammars.context_sensitive">
+<span id="moal-languages-formal-language-theory-grammars-context-sensitive-module"></span><h2>MOAL.languages.formal_language_theory.grammars.context_sensitive module<a class="headerlink" href="#module-MOAL.languages.formal_language_theory.grammars.context_sensitive" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar">
+<em class="property">class </em><code class="descclassname">MOAL.languages.formal_language_theory.grammars.context_sensitive.</code><code class="descname">ContextSensitiveGrammar</code><a class="reference internal" href="_modules/MOAL/languages/formal_language_theory/grammars/context_sensitive.html#ContextSensitiveGrammar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar" title="MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.formal_language_theory.grammars.context_free.ContextFreeGrammar</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.DEBUG">
+<code class="descname">DEBUG</code><em class="property"> = True</em><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar._evaluate">
+<code class="descname">_evaluate</code><span class="sig-paren">(</span><em>groups</em>, <em>evaluation=''</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar._evaluate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em>tokens=None</em>, <em>evaluation=''</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A basic parser for a custom attribute grammar.</p>
+<p>One thing to note is that ambiguous grammars need to be iterated over,
+since the duplicate rules can&#8217;t be mapped via dictionary key.
+Unambiguous grammars are therefore more performant,
+because the lookup is O(1) vs. O(N).</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.get_substr_match">
+<em class="property">static </em><code class="descname">get_substr_match</code><span class="sig-paren">(</span><em>rule</em>, <em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.get_substr_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the last matching item of the two strings.
+e.g. index = 1 for &#8216;[ab]cd&#8217; and &#8216;[ab]zd&#8217;. If the index is the
+same as the length then the strings simply match.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.simple_rule">
+<em class="property">static </em><code class="descname">simple_rule</code><span class="sig-paren">(</span><em>rule</em>, <em>string=''</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.formal_language_theory.grammars.context_sensitive.ContextSensitiveGrammar.simple_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.languages.formal_language_theory.modeling.html" class="btn btn-neutral float-right" title="MOAL.languages.formal_language_theory.modeling package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.languages.formal_language_theory.html" class="btn btn-neutral" title="MOAL.languages.formal_language_theory package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

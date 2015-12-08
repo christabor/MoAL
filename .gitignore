@@ -10,9 +10,6 @@ assets/build/
 *.exe
 *.o
 *.so
-/docs/MOAL.*rst
-/docs/_build/*
-tree-example.*
 
 # Packages #
 ############

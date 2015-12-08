@@ -1,0 +1,904 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.computer_organization package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL package" href="MOAL.html"/>
+        <link rel="next" title="MOAL.data_structures package" href="MOAL.data_structures.html"/>
+        <link rel="prev" title="MOAL.automata_theory.finite_state_machine package" href="MOAL.automata_theory.finite_state_machine.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">MOAL.computer_organization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.bcd">MOAL.computer_organization.bcd module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moal-computer-organization-bit-field-module">MOAL.computer_organization.bit_field module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.bitwise_operations">MOAL.computer_organization.bitwise_operations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.data_types">MOAL.computer_organization.data_types module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.endianness">MOAL.computer_organization.endianness module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.factoradic">MOAL.computer_organization.factoradic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.numerical_encoding_basic">MOAL.computer_organization.numerical_encoding_basic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.one_twos_complement">MOAL.computer_organization.one_twos_complement module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.positional">MOAL.computer_organization.positional module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.computer_organization.skew_binary">MOAL.computer_organization.skew_binary module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+    <li>MOAL.computer_organization package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.computer_organization.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.computer_organization">
+<span id="moal-computer-organization-package"></span><h1>MOAL.computer_organization package<a class="headerlink" href="#module-MOAL.computer_organization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.computer_organization.bcd">
+<span id="moal-computer-organization-bcd-module"></span><h2>MOAL.computer_organization.bcd module<a class="headerlink" href="#module-MOAL.computer_organization.bcd" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.computer_organization.bcd._show_bcd">
+<code class="descclassname">MOAL.computer_organization.bcd.</code><code class="descname">_show_bcd</code><span class="sig-paren">(</span><em>num</em>, <em>decimals</em>, <em>binary</em>, <em>bcd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bcd.html#_show_bcd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bcd._show_bcd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bcd.dec_to_bcd_8421">
+<code class="descclassname">MOAL.computer_organization.bcd.</code><code class="descname">dec_to_bcd_8421</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bcd.html#dec_to_bcd_8421"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bcd.dec_to_bcd_8421" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a decimal to binary, and decompress into Binary Coded Decimal.
+Adds trailing bits to the left to enforce a 4-bit &#8220;nibble&#8221; on all digits.
+Uses 8421 notation [see wikipedia.org/wiki/Binary-coded_decimal]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bcd.dec_to_bcd_excess3">
+<code class="descclassname">MOAL.computer_organization.bcd.</code><code class="descname">dec_to_bcd_excess3</code><span class="sig-paren">(</span><em>num</em>, <em>bias=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bcd.html#dec_to_bcd_excess3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bcd.dec_to_bcd_excess3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a binary to Binary Coded Decimal, then converts again to
+excess-3 BCD, which has a &#8216;bit bias&#8217; of <cite>bias</cite>, where bits are
+shifted by the given bias. See wikipedia.org/wiki/Excess-3 for more.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="moal-computer-organization-bit-field-module">
+<h2>MOAL.computer_organization.bit_field module<a class="headerlink" href="#moal-computer-organization-bit-field-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.computer_organization.bitwise_operations">
+<span id="moal-computer-organization-bitwise-operations-module"></span><h2>MOAL.computer_organization.bitwise_operations module<a class="headerlink" href="#module-MOAL.computer_organization.bitwise_operations" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="MOAL.computer_organization.bitwise_operations.DELAY">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">DELAY</code><em class="property"> = 0.4</em><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.DELAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>wikipedia.org/wiki/Bitwise_operation#Bitwise_operators</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div>(__)</div></blockquote>
+<p>/   &#8211;      __________/__</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line">/_|     |  BinaryToday |</div>
+<div class="line"><a href="#id1"><span class="problematic" id="id2">|</span></a>___     |   01101010   |</div>
+<div class="line-block">
+<div class="line">&#8212;&#64;    <a href="#id7"><span class="problematic" id="id8">|______________|</span></a></div>
+</div>
+<div class="line">|   &#8212;-   |          |</div>
+<div class="line"><a href="#id3"><span class="problematic" id="id4">|</span></a>_____</div>
+</div>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">*</span></a>____/<a href="#id9"><span class="problematic" id="id10">|________|</span></a>&gt;
+*</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._checkbits">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_checkbits</code><span class="sig-paren">(</span><em>bits1</em>, <em>bits2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_checkbits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._checkbits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._logical_shift_left">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_logical_shift_left</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_logical_shift_left"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._logical_shift_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._logical_shift_right">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_logical_shift_right</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_logical_shift_right"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._logical_shift_right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._shift_circular">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_shift_circular</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_shift_circular"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._shift_circular" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._shift_left">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_shift_left</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_shift_left"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._shift_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shift bits to the left &lt;&lt;&lt;, carrying the bit over to the right;
+e.g. 0100 &lt;&lt; 1000</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._shift_right">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_shift_right</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_shift_right"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._shift_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shift bits to the right &gt;&gt;&gt;, carrying the bit over to the left,
+which preserves the sign; e.g. 0100 &gt;&gt; 0010</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._show">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_show</code><span class="sig-paren">(</span><em>bits</em>, <em>op</em>, <em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations._show2">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">_show2</code><span class="sig-paren">(</span><em>bits1</em>, <em>bits2</em>, <em>op</em>, <em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#_show2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations._show2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.bitwise_and">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">bitwise_and</code><span class="sig-paren">(</span><em>bits1</em>, <em>bits2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#bitwise_and"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.bitwise_and" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a logical AND on each pair of bits, by way of multiplication:
+e.g. 1 x 1 = 1, 0 x 0 / 0 x 1 = 0</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.bitwise_not">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">bitwise_not</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#bitwise_not"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.bitwise_not" title="Permalink to this definition">¶</a></dt>
+<dd><p>NOT is straightforward -  a simple one&#8217;s complement will do,
+since the bits are merely flipped.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.bitwise_or">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">bitwise_or</code><span class="sig-paren">(</span><em>bits1</em>, <em>bits2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#bitwise_or"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.bitwise_or" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a logical OR on each pair of bits: e.g. 1/1 = 1, 0/1 = 1, 0/0 = 0</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.bitwise_xor">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">bitwise_xor</code><span class="sig-paren">(</span><em>bits1</em>, <em>bits2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#bitwise_xor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.bitwise_xor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a logical XOR on each pair of bits: e.g. 1/1 = 0, 0/1 = 1, 0/0 = 0</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.rotate_through_carry">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">rotate_through_carry</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#rotate_through_carry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.rotate_through_carry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like circular, but the end bits are stored as flags.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.shift_circular">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">shift_circular</code><span class="sig-paren">(</span><em>bits</em>, <em>count=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#shift_circular"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.shift_circular" title="Permalink to this definition">¶</a></dt>
+<dd><p>A circular shift, where the ends are rotated; e.g. [0]10[1] &gt; [1]10[0]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.shift_left">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">shift_left</code><span class="sig-paren">(</span><em>bits</em>, <em>count=1</em>, <em>logical=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#shift_left"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.shift_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.shift_right">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">shift_right</code><span class="sig-paren">(</span><em>bits</em>, <em>count=1</em>, <em>logical=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#shift_right"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.shift_right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.bitwise_operations.test_operator_pairs">
+<code class="descclassname">MOAL.computer_organization.bitwise_operations.</code><code class="descname">test_operator_pairs</code><span class="sig-paren">(</span><em>pairs</em>, <em>bitwise_op</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/bitwise_operations.html#test_operator_pairs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.bitwise_operations.test_operator_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test and assert two bit groups against the return value of given op</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.computer_organization.data_types">
+<span id="moal-computer-organization-data-types-module"></span><h2>MOAL.computer_organization.data_types module<a class="headerlink" href="#module-MOAL.computer_organization.data_types" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.computer_organization.data_types.BaseDataType">
+<em class="property">class </em><code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">BaseDataType</code><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The irony here is that these data types take up significantly
+more actual memory as a class representation in a bytecode interpreted
+language. The classing is merely for intuitive understanding and
+representing the hierarchy/operations.</p>
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.computer_organization.data_types.BaseDataType._alter">
+<em class="property">static </em><code class="descname">_alter</code><span class="sig-paren">(</span><em>old_bit</em>, <em>new_bit</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType._alter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType._alter" title="Permalink to this definition">¶</a></dt>
+<dd><p>An interesting visualization of flipping bits &#8211;
+not very robust; primarily meant as a basic learning exercise
+&#8211; see other relevant modules for more specific implementations.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.add">
+<em class="property">static </em><code class="descname">add</code><span class="sig-paren">(</span><em>binval</em>, <em>amount</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.decrement">
+<em class="property">static </em><code class="descname">decrement</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.decrement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.decrement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.divide">
+<em class="property">static </em><code class="descname">divide</code><span class="sig-paren">(</span><em>binval</em>, <em>amount</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.divide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.divide" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.get_least_significant">
+<code class="descname">get_least_significant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.get_least_significant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.get_least_significant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.get_max_binvals">
+<code class="descname">get_max_binvals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.get_max_binvals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.get_max_binvals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.get_most_significant">
+<code class="descname">get_most_significant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.get_most_significant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.get_most_significant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.increment">
+<em class="property">static </em><code class="descname">increment</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.increment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.increment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.multiply">
+<em class="property">static </em><code class="descname">multiply</code><span class="sig-paren">(</span><em>binval</em>, <em>amount</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.multiply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.multiply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.computer_organization.data_types.BaseDataType.subtract">
+<em class="property">static </em><code class="descname">subtract</code><span class="sig-paren">(</span><em>binval</em>, <em>amount</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#BaseDataType.subtract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.BaseDataType.subtract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.computer_organization.data_types.Bit">
+<em class="property">class </em><code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">Bit</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#Bit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.Bit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.computer_organization.data_types.BaseDataType" title="MOAL.computer_organization.data_types.BaseDataType"><code class="xref py py-class docutils literal"><span class="pre">MOAL.computer_organization.data_types.BaseDataType</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.Bit.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.Bit.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.Bit.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.Bit.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.computer_organization.data_types.Byte">
+<em class="property">class </em><code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">Byte</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#Byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.Byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.computer_organization.data_types.Nibble" title="MOAL.computer_organization.data_types.Nibble"><code class="xref py py-class docutils literal"><span class="pre">MOAL.computer_organization.data_types.Nibble</span></code></a></p>
+<p>Also sometimes referred to as an <cite>Octet</cite></p>
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.Byte.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.Byte.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.computer_organization.data_types.Halfword">
+<em class="property">class </em><code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">Halfword</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#Halfword"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.Halfword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.computer_organization.data_types.Nibble" title="MOAL.computer_organization.data_types.Nibble"><code class="xref py py-class docutils literal"><span class="pre">MOAL.computer_organization.data_types.Nibble</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.Halfword.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.Halfword.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.computer_organization.data_types.Nibble">
+<em class="property">class </em><code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">Nibble</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#Nibble"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.Nibble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.computer_organization.data_types.Bit" title="MOAL.computer_organization.data_types.Bit"><code class="xref py py-class docutils literal"><span class="pre">MOAL.computer_organization.data_types.Bit</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.Nibble.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.Nibble.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.computer_organization.data_types.Word">
+<em class="property">class </em><code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">Word</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#Word"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.Word" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.computer_organization.data_types.Nibble" title="MOAL.computer_organization.data_types.Nibble"><code class="xref py py-class docutils literal"><span class="pre">MOAL.computer_organization.data_types.Nibble</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.computer_organization.data_types.Word.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.Word.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.data_types.bin_dec">
+<code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">bin_dec</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.bin_dec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.data_types.bin_inc">
+<code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">bin_inc</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.computer_organization.data_types.bin_inc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.data_types.update_animation">
+<code class="descclassname">MOAL.computer_organization.data_types.</code><code class="descname">update_animation</code><span class="sig-paren">(</span><em>steps</em>, <em>func</em>, <em>instance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/data_types.html#update_animation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.data_types.update_animation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.computer_organization.endianness">
+<span id="moal-computer-organization-endianness-module"></span><h2>MOAL.computer_organization.endianness module<a class="headerlink" href="#module-MOAL.computer_organization.endianness" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="MOAL.computer_organization.endianness.DEBUG">
+<code class="descclassname">MOAL.computer_organization.endianness.</code><code class="descname">DEBUG</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.computer_organization.endianness.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8216;Endianness&#8217; represents byte ordering when memory is addressed in a computer
+- little endian stores the <em>smallest</em> byte first, whereas the <em>biggest</em>
+bit is stored first as big endian.</p>
+<dl class="docutils">
+<dt>See betterexplained.com/articles/</dt>
+<dd>understanding-big-and-little-endian-byte-order/ for a nice overview.</dd>
+</dl>
+<p>Also, see linux.die.net/man/3/&lt;function&gt; for real network conversion functions
+e.g. [htons, htons, ntohl, ntohs]</p>
+<p>And see linux.die.net/man/3/endian for base conversion functions
+e.g. [htobe16, htole16, be16toh, le16toh, htobe32, htole32, be32toh,
+le32toh, htobe64, htole64, be64toh, le64toh]</p>
+<p>Free online copy of Gulliver&#8217;s travels available here:
+literatureproject.com/gulliver-travel/</p>
+<p>Character list:
+cliffsnotes.com/literature/g/gullivers-travels/character-list</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.computer_organization.endianness.Endian">
+<em class="property">class </em><code class="descclassname">MOAL.computer_organization.endianness.</code><code class="descname">Endian</code><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian" title="Permalink to this definition">¶</a></dt>
+<dd><p>A machine would probably never MIX little AND big endian byte ordering,
+but this is an abstraction for practicing some concepts.</p>
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.__contains__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian._store">
+<code class="descname">_store</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian._store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian._store" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.add_bom">
+<code class="descname">add_bom</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.add_bom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.add_bom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.endian_adapter">
+<code class="descname">endian_adapter</code><span class="sig-paren">(</span><em>bits</em>, <em>order='big'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.endian_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.endian_adapter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.read_bom">
+<code class="descname">read_bom</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.read_bom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.read_bom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.store_big_endian">
+<code class="descname">store_big_endian</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.store_big_endian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.store_big_endian" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.computer_organization.endianness.Endian.store_little_endian">
+<code class="descname">store_little_endian</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/endianness.html#Endian.store_little_endian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.endianness.Endian.store_little_endian" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.computer_organization.factoradic">
+<span id="moal-computer-organization-factoradic-module"></span><h2>MOAL.computer_organization.factoradic module<a class="headerlink" href="#module-MOAL.computer_organization.factoradic" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="MOAL.computer_organization.factoradic.DEBUG">
+<code class="descclassname">MOAL.computer_organization.factoradic.</code><code class="descname">DEBUG</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.computer_organization.factoradic.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factoradic numeral system:
+en.wikipedia.org/wiki/Factorial_number_system</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.factoradic.decimal_to_factoradic">
+<code class="descclassname">MOAL.computer_organization.factoradic.</code><code class="descname">decimal_to_factoradic</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/factoradic.html#decimal_to_factoradic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.factoradic.decimal_to_factoradic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.factoradic.factoradic_to_decimal">
+<code class="descclassname">MOAL.computer_organization.factoradic.</code><code class="descname">factoradic_to_decimal</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/factoradic.html#factoradic_to_decimal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.factoradic.factoradic_to_decimal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a factoradic number to decimal form.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>factoradic (int) - the factoradic number to convert</dd>
+<dt>Returns:</dt>
+<dd>res (int) - the converted decimal</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">factoradic_to_decimal</span><span class="p">(</span><span class="s">&#39;341010&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">463</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.factoradic.factpos">
+<code class="descclassname">MOAL.computer_organization.factoradic.</code><code class="descname">factpos</code><span class="sig-paren">(</span><em>num</em>, <em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/factoradic.html#factpos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.factoradic.factpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a number and position and get the position
+factorial multiplied by the number.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>num (int) - the integer number to use
+pos (int) - the position to find the factorial over</dd>
+<dt>Returns:</dt>
+<dd>(int) - the integer result</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">factpos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.computer_organization.numerical_encoding_basic">
+<span id="moal-computer-organization-numerical-encoding-basic-module"></span><h2>MOAL.computer_organization.numerical_encoding_basic module<a class="headerlink" href="#module-MOAL.computer_organization.numerical_encoding_basic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic._scale">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">_scale</code><span class="sig-paren">(</span><em>base</em>, <em>maximum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#_scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic._scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a range of numbers up to <cite>maximum</cite>, given a base.
+The scale is used as an intuitive reference for visually converting numbers.</p>
+<p>See youtube.com/watch?v=e3mCABVEK88 for some good examples.</p>
+<p>e.g.</p>
+<p>Note: The visual order is reversed, but the returned list is not.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic._tostr_joined">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">_tostr_joined</code><span class="sig-paren">(</span><em>ints</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#_tostr_joined"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic._tostr_joined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic._tounicode">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">_tounicode</code><span class="sig-paren">(</span><em>ints</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#_tounicode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic._tounicode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.all_powers_n">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">all_powers_n</code><span class="sig-paren">(</span><em>num</em>, <em>power</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#all_powers_n"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.all_powers_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Powers of two check, extended to any exponent</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.all_powers_two">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">all_powers_two</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#all_powers_two"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.all_powers_two" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the various powers of two for a given <cite>num</cite> &#8211; often used
+for finding binary values of a num, since binary is base 2.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.bin_to_dec">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">bin_to_dec</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#bin_to_dec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.bin_to_dec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert binary to integer</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.bin_to_hex">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">bin_to_hex</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#bin_to_hex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.bin_to_hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert binary to hexadecimal.
+Uses integer conversion as an intermediate step.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.bin_to_oct">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">bin_to_oct</code><span class="sig-paren">(</span><em>binary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#bin_to_oct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.bin_to_oct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert binary to octal.
+Uses integer conversion as an intermediate step.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.bina">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">bina</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#bina"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.bina" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.compare_to_native">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">compare_to_native</code><span class="sig-paren">(</span><em>native</em>, <em>custom</em>, <em>count=20</em>, <em>assert_results=False</em>, <em>prefix=None</em>, <em>supress_other=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#compare_to_native"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.compare_to_native" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares custom numerical converter to the
+native python version with a list of nums.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.dec_to_bin">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">dec_to_bin</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#dec_to_bin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.dec_to_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert integer to binary. Only handles positive integers.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.dec_to_hex">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">dec_to_hex</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#dec_to_hex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.dec_to_hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert integer to hexadecimal</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.dec_to_oct">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">dec_to_oct</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#dec_to_oct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.dec_to_oct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an integer to an octal, using &#8216;divide by base&#8217; technique.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.deca">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">deca</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#deca"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.deca" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.divide_by">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">divide_by</code><span class="sig-paren">(</span><em>num</em>, <em>base</em>, <em>to_int=False</em>, <em>joined=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#divide_by"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.divide_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>General purpose numeral converter, using the divide-by N + modulo
+technique. Returns a list of integers, or optionally, a joined string,
+or a converted list of integers as strings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.genr">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">genr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#genr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.genr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.hex_to_bin">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">hex_to_bin</code><span class="sig-paren">(</span><em>hexnum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#hex_to_bin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.hex_to_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert hexadecimal to binary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.hex_to_dec">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">hex_to_dec</code><span class="sig-paren">(</span><em>hexnum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#hex_to_dec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.hex_to_dec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert hexadecimal to integer</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.hex_to_oct">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">hex_to_oct</code><span class="sig-paren">(</span><em>hexnum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#hex_to_oct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.hex_to_oct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert hexadecimal to octal</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.hexa">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">hexa</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#hexa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.hexa" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.make_groups">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">make_groups</code><span class="sig-paren">(</span><em>string</em>, <em>count</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#make_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.make_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a set of groups with a string.</p>
+<p>e.g. &gt;&gt;&gt; make_groups(&#8216;ABCDEFGH&#8217;, 2) = [[&#8216;AB&#8217;, &#8216;CD&#8217;, &#8216;EF&#8217;, &#8216;GH&#8217;]]
+Raises ValueError if modulus operation results in uneven group distribution.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.oct_to_bin">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">oct_to_bin</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#oct_to_bin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.oct_to_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert octal to binary
+instructions used for algorithm from:
+wikipedia.org/wiki/Octal#Octal_to_binary_conversion</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.oct_to_dec">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">oct_to_dec</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#oct_to_dec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.oct_to_dec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an octal to integer.
+algorithm/notes from robotroom.com/numSystems4.html</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.oct_to_hex">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">oct_to_hex</code><span class="sig-paren">(</span><em>octnum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#oct_to_hex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.oct_to_hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert octal to hexadecimal.
+Uses binary conversion as an intermediate step.
+Instructions used for algorithm from:
+wikipedia.org/wiki/Octal#Octal_to_hexadecimal_conversion</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.octa">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">octa</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#octa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.octa" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.powers_mult">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">powers_mult</code><span class="sig-paren">(</span><em>num</em>, <em>power</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#powers_mult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.powers_mult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualization of all values of given <cite>num</cite> raise up to a max power.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.numerical_encoding_basic.powers_ten">
+<code class="descclassname">MOAL.computer_organization.numerical_encoding_basic.</code><code class="descname">powers_ten</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/numerical_encoding_basic.html#powers_ten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.numerical_encoding_basic.powers_ten" title="Permalink to this definition">¶</a></dt>
+<dd><p>A visualization of the powers of ten technique for a given <cite>num</cite></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.computer_organization.one_twos_complement">
+<span id="moal-computer-organization-one-twos-complement-module"></span><h2>MOAL.computer_organization.one_twos_complement module<a class="headerlink" href="#module-MOAL.computer_organization.one_twos_complement" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.computer_organization.one_twos_complement.ones_complement">
+<code class="descclassname">MOAL.computer_organization.one_twos_complement.</code><code class="descname">ones_complement</code><span class="sig-paren">(</span><em>binary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/one_twos_complement.html#ones_complement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.one_twos_complement.ones_complement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.one_twos_complement.twos_complement">
+<code class="descclassname">MOAL.computer_organization.one_twos_complement.</code><code class="descname">twos_complement</code><span class="sig-paren">(</span><em>binary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/one_twos_complement.html#twos_complement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.one_twos_complement.twos_complement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conversion algorithm from
+cs.cornell.edu/~tomf/notes/cps104/twoscomp.html#twotwo</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.computer_organization.positional">
+<span id="moal-computer-organization-positional-module"></span><h2>MOAL.computer_organization.positional module<a class="headerlink" href="#module-MOAL.computer_organization.positional" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.computer_organization.positional.dec_to_n">
+<code class="descclassname">MOAL.computer_organization.positional.</code><code class="descname">dec_to_n</code><span class="sig-paren">(</span><em>num</em>, <em>base</em>, <em>alphabet=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/positional.html#dec_to_n"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.positional.dec_to_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a decimal to any base, using the divide by N technique.
+See <cite>divide_by</cite> for details.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.positional.dec_to_unary">
+<code class="descclassname">MOAL.computer_organization.positional.</code><code class="descname">dec_to_unary</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/positional.html#dec_to_unary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.positional.dec_to_unary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tally representation e.g. | = 1, / = 5</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.positional.n_to_dec">
+<code class="descclassname">MOAL.computer_organization.positional.</code><code class="descname">n_to_dec</code><span class="sig-paren">(</span><em>num</em>, <em>base</em>, <em>alphabet=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/positional.html#n_to_dec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.positional.n_to_dec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a number to decimal from any given base, using the
+powers technique (e.g. 9203 = 9^3 + 2^2 + 0^1 + 3^0)</p>
+<p>Research examples from:
+www.cs.trincoll.edu/~ram/cpsc110/inclass/conversions.html</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.computer_organization.positional.test_base">
+<code class="descclassname">MOAL.computer_organization.positional.</code><code class="descname">test_base</code><span class="sig-paren">(</span><em>base_info, nums=[4, 256, 512, 4096, 9999]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/positional.html#test_base"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.positional.test_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a base with a set of numbers, and display the results.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.computer_organization.skew_binary">
+<span id="moal-computer-organization-skew-binary-module"></span><h2>MOAL.computer_organization.skew_binary module<a class="headerlink" href="#module-MOAL.computer_organization.skew_binary" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.computer_organization.skew_binary.skew_to_dec">
+<code class="descclassname">MOAL.computer_organization.skew_binary.</code><code class="descname">skew_to_dec</code><span class="sig-paren">(</span><em>dec</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/computer_organization/skew_binary.html#skew_to_dec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.computer_organization.skew_binary.skew_to_dec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.data_structures.html" class="btn btn-neutral float-right" title="MOAL.data_structures package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.automata_theory.finite_state_machine.html" class="btn btn-neutral" title="MOAL.automata_theory.finite_state_machine package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

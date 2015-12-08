@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.computer_organization.numerical_encoding_basic &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.computer_organization.numerical_encoding_basic</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.computer_organization.numerical_encoding_basic</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h4</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_vars</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+<span class="n">hexvals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s">&#39;0123456789abcdef&#39;</span><span class="p">)</span>
+<span class="n">HEX_VALS</span> <span class="o">=</span> <span class="p">{</span><span class="n">hexval</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">hexval</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hexvals</span><span class="p">)}</span>
+<span class="n">HEX_INTEGERS</span> <span class="o">=</span> <span class="p">{</span><span class="nb">unicode</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">hexval</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">hexval</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hexvals</span><span class="p">)}</span>
+
+
+<div class="viewcode-block" id="_scale"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic._scale">[docs]</a><span class="k">def</span> <span class="nf">_scale</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates a range of numbers up to `maximum`, given a base.</span>
+<span class="sd">    The scale is used as an intuitive reference for visually converting numbers.</span>
+
+<span class="sd">    See youtube.com/watch?v=e3mCABVEK88 for some good examples.</span>
+
+<span class="sd">    e.g.</span>
+
+<span class="sd">    ... 128     64     32     16     8     4     2     1</span>
+<span class="sd">    ----------------------------------------------------</span>
+<span class="sd">    Note: The visual order is reversed, but the returned list is not.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">base</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maximum</span><span class="p">):</span>
+        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">*=</span> <span class="n">base</span>
+    <span class="k">return</span> <span class="n">values</span><span class="p">,</span> <span class="s">&#39;{}</span><span class="se">\n</span><span class="s">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;     &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="nb">map</span><span class="p">(</span><span class="nb">unicode</span><span class="p">,</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">values</span><span class="p">))),</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="make_groups"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.make_groups">[docs]</a><span class="k">def</span> <span class="nf">make_groups</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make a set of groups with a string.</span>
+
+<span class="sd">    e.g. &gt;&gt;&gt; make_groups(&#39;ABCDEFGH&#39;, 2) = [[&#39;AB&#39;, &#39;CD&#39;, &#39;EF&#39;, &#39;GH&#39;]]</span>
+<span class="sd">    Raises ValueError if modulus operation results in uneven group distribution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">string</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">%</span> <span class="n">count</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s">&#39;Modulus `{}` on string `{}` of length `{}` is not uniform.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">count</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">),</span> <span class="n">count</span><span class="p">):</span>
+            <span class="n">groups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="n">k</span><span class="p">:</span> <span class="n">k</span> <span class="o">+</span> <span class="n">count</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">print_vars</span><span class="p">([</span><span class="s">&#39;called via `make_groups`&#39;</span><span class="p">,</span> <span class="n">groups</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">groups</span></div>
+
+
+<span class="c"># ------------- CONVERTERS -----------------------------------------------------</span>
+
+<div class="viewcode-block" id="_tounicode"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic._tounicode">[docs]</a><span class="k">def</span> <span class="nf">_tounicode</span><span class="p">(</span><span class="n">ints</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="nb">unicode</span><span class="p">,</span> <span class="n">ints</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_tostr_joined"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic._tostr_joined">[docs]</a><span class="k">def</span> <span class="nf">_tostr_joined</span><span class="p">(</span><span class="n">ints</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_tounicode</span><span class="p">(</span><span class="n">ints</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="divide_by"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.divide_by">[docs]</a><span class="k">def</span> <span class="nf">divide_by</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">to_int</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">joined</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;General purpose numeral converter, using the divide-by N + modulo</span>
+<span class="sd">    technique. Returns a list of integers, or optionally, a joined string,</span>
+<span class="sd">    or a converted list of integers as strings.&quot;&quot;&quot;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">num</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c"># Remainder = least significant bit</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">num</span> <span class="o">%</span> <span class="n">base</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="n">base</span>
+        <span class="c"># Add a new bit at the beginning for each increment</span>
+        <span class="n">vals</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+    <span class="c"># Optionally format the results.</span>
+    <span class="k">if</span> <span class="n">joined</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_tostr_joined</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">to_int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_tounicode</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vals</span></div>
+
+
+<div class="viewcode-block" id="dec_to_hex"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.dec_to_hex">[docs]</a><span class="k">def</span> <span class="nf">dec_to_hex</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert integer to hexadecimal&quot;&quot;&quot;</span>
+    <span class="n">hexnum</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">divide_by</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">16</span><span class="p">):</span>
+        <span class="n">hexnum</span> <span class="o">+=</span> <span class="n">HEX_INTEGERS</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s">&#39;0x{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hexnum</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="dec_to_bin"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.dec_to_bin">[docs]</a><span class="k">def</span> <span class="nf">dec_to_bin</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert integer to binary. Only handles positive integers.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#39;0&#39;</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="n">divide_by</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">bit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+        <span class="c"># Pad digits if necessary</span>
+        <span class="n">bits</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">bit</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">print_vars</span><span class="p">([[</span><span class="s">&#39;dec&#39;</span><span class="p">,</span> <span class="n">num</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;dec =&gt; bin&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">]],</span> <span class="n">convert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="oct_to_dec"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.oct_to_dec">[docs]</a><span class="k">def</span> <span class="nf">oct_to_dec</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert an octal to integer.</span>
+<span class="sd">    algorithm/notes from robotroom.com/numSystems4.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">octal</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">powers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">))))</span>
+    <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">:</span>
+        <span class="n">power</span> <span class="o">=</span> <span class="n">powers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">**</span> <span class="n">power</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Octal to dec: {} * 8^{} = {} * {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">digit</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">digit</span><span class="p">,</span> <span class="mi">8</span> <span class="o">**</span> <span class="n">power</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
+        <span class="n">octal</span> <span class="o">+=</span> <span class="n">res</span>
+        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">octal</span></div>
+
+
+<div class="viewcode-block" id="oct_to_bin"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.oct_to_bin">[docs]</a><span class="k">def</span> <span class="nf">oct_to_bin</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert octal to binary</span>
+<span class="sd">    instructions used for algorithm from:</span>
+<span class="sd">    wikipedia.org/wiki/Octal#Octal_to_binary_conversion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">:</span>
+        <span class="n">print_vars</span><span class="p">([</span><span class="s">&#39;octal digit&#39;</span><span class="p">,</span> <span class="n">digit</span><span class="p">])</span>
+        <span class="n">binary</span> <span class="o">+=</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">))</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">print_vars</span><span class="p">([</span><span class="s">&#39;octal to binary&#39;</span><span class="p">,</span> <span class="n">binary</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">binary</span></div>
+
+
+<div class="viewcode-block" id="dec_to_oct"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.dec_to_oct">[docs]</a><span class="k">def</span> <span class="nf">dec_to_oct</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert an integer to an octal, using &#39;divide by base&#39; technique.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">divide_by</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">joined</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="bin_to_dec"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.bin_to_dec">[docs]</a><span class="k">def</span> <span class="nf">bin_to_dec</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert binary to integer&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;0b&#39;</span><span class="p">)):</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="c"># Reverse the bits to make right side comparison easier with the co-domain</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c"># Map the binary num and co-domain 1:1 to see if the bits are</span>
+    <span class="c"># on or off, and add the corresponding num if so.</span>
+    <span class="n">codomain</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_scale</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">+=</span> <span class="n">codomain</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="bin_to_oct"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.bin_to_oct">[docs]</a><span class="k">def</span> <span class="nf">bin_to_oct</span><span class="p">(</span><span class="n">binary</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert binary to octal.</span>
+<span class="sd">    Uses integer conversion as an intermediate step.&quot;&quot;&quot;</span>
+    <span class="n">octal</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="n">bin_groups</span> <span class="o">=</span> <span class="n">make_groups</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">bin_group</span> <span class="ow">in</span> <span class="n">bin_groups</span><span class="p">:</span>
+        <span class="n">octal</span> <span class="o">+=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">bin_to_dec</span><span class="p">(</span><span class="n">bin_group</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Binary {} to octal: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">octal</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">octal</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="bin_to_hex"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.bin_to_hex">[docs]</a><span class="k">def</span> <span class="nf">bin_to_hex</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert binary to hexadecimal.</span>
+<span class="sd">    Uses integer conversion as an intermediate step.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dec_to_hex</span><span class="p">(</span><span class="n">bin_to_dec</span><span class="p">(</span><span class="n">num</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="oct_to_hex"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.oct_to_hex">[docs]</a><span class="k">def</span> <span class="nf">oct_to_hex</span><span class="p">(</span><span class="n">octnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert octal to hexadecimal.</span>
+<span class="sd">    Uses binary conversion as an intermediate step.</span>
+<span class="sd">    Instructions used for algorithm from:</span>
+<span class="sd">    wikipedia.org/wiki/Octal#Octal_to_hexadecimal_conversion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hexnum</span><span class="p">,</span> <span class="n">binary</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">octnum</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">:</span>
+        <span class="c"># Convert decimal to binary, pad where appropriate.</span>
+        <span class="k">if</span> <span class="n">digit</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span><span class="p">:</span>
+            <span class="n">binnum</span> <span class="o">=</span> <span class="s">&#39;000&#39;</span>
+        <span class="k">elif</span> <span class="n">digit</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">binnum</span> <span class="o">=</span> <span class="s">&#39;001&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">binnum</span> <span class="o">=</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">))</span>
+        <span class="n">binnum</span> <span class="o">=</span> <span class="n">binnum</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">binary</span> <span class="o">+=</span> <span class="n">binnum</span>
+    <span class="c"># Group remainder by 4 digits</span>
+    <span class="n">bin_groups</span> <span class="o">=</span> <span class="n">make_groups</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">print_vars</span><span class="p">(</span>
+            <span class="p">[[</span><span class="s">&#39;bin group x 4&#39;</span><span class="p">,</span> <span class="n">bin_groups</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;oct =&gt; hex (bin)&#39;</span><span class="p">,</span> <span class="n">binary</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">bin_groups</span><span class="p">:</span>
+        <span class="c"># Add num, shave off individual 0x part from individual conversion.</span>
+        <span class="n">hexnum</span> <span class="o">+=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">bin_to_hex</span><span class="p">(</span><span class="n">group</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="s">&#39;0x{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hexnum</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="hex_to_dec"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.hex_to_dec">[docs]</a><span class="k">def</span> <span class="nf">hex_to_dec</span><span class="p">(</span><span class="n">hexnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert hexadecimal to integer&quot;&quot;&quot;</span>
+    <span class="n">hexnum</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">hexnum</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">hexnum</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;0x&#39;</span><span class="p">):</span>
+        <span class="n">hexnum</span> <span class="o">=</span> <span class="n">hexnum</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hexnum</span><span class="p">)</span>
+    <span class="n">codomain</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_scale</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">hexnum</span><span class="p">)):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">HEX_VALS</span><span class="p">[</span><span class="nb">unicode</span><span class="p">(</span><span class="n">val</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} * {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">codomain</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">val</span> <span class="o">*</span> <span class="n">codomain</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+        <span class="c"># Get the index that corresponds to the hex system</span>
+        <span class="n">value</span> <span class="o">+=</span> <span class="n">val</span> <span class="o">*</span> <span class="n">codomain</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Hex 0x{} to int = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hexnum</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="hex_to_bin"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.hex_to_bin">[docs]</a><span class="k">def</span> <span class="nf">hex_to_bin</span><span class="p">(</span><span class="n">hexnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert hexadecimal to binary&quot;&quot;&quot;</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="n">hex_to_dec</span><span class="p">(</span><span class="n">hexnum</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">print_vars</span><span class="p">([</span><span class="s">&#39;Hex to bin&#39;</span><span class="p">,</span> <span class="n">binary</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">binary</span></div>
+
+
+<div class="viewcode-block" id="hex_to_oct"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.hex_to_oct">[docs]</a><span class="k">def</span> <span class="nf">hex_to_oct</span><span class="p">(</span><span class="n">hexnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert hexadecimal to octal&quot;&quot;&quot;</span>
+    <span class="n">hexnum</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">hexnum</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">hexnum</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;0x&#39;</span><span class="p">):</span>
+        <span class="n">hexnum</span> <span class="o">=</span> <span class="n">hexnum</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">octal</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="s">&#39;0&#39;</span> <span class="o">+</span> <span class="n">hex_to_bin</span><span class="p">(</span><span class="n">hexnum</span><span class="p">)</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">make_groups</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">print_vars</span><span class="p">([</span><span class="s">&#39;Hex to octal&#39;</span><span class="p">,</span> <span class="n">binary</span><span class="p">])</span>
+        <span class="n">print_vars</span><span class="p">([</span><span class="s">&#39;Hex to octal (binary groups)&#39;</span><span class="p">,</span> <span class="n">groups</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="n">octal</span> <span class="o">+=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">bin_to_oct</span><span class="p">(</span><span class="n">group</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">octal</span><span class="p">)</span></div>
+
+
+<span class="c"># ------------- TESTING --------------------------------------------------------</span>
+
+<div class="viewcode-block" id="compare_to_native"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.compare_to_native">[docs]</a><span class="k">def</span> <span class="nf">compare_to_native</span><span class="p">(</span>
+        <span class="n">native</span><span class="p">,</span> <span class="n">custom</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">assert_results</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">prefix</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">supress_other</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compares custom numerical converter to the</span>
+<span class="sd">    native python version with a list of nums.&quot;&quot;&quot;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Running func: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">native</span><span class="p">))</span>
+    <span class="n">failures</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">supress_other</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">DEBUG</span>
+        <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="n">res_n</span><span class="p">,</span> <span class="n">res_c</span> <span class="o">=</span> <span class="n">native</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">custom</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">res_c</span> <span class="o">=</span> <span class="s">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">res_c</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;native {}, mine {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_n</span><span class="p">,</span> <span class="n">res_c</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">assert_results</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">res_n</span> <span class="o">==</span> <span class="n">res_c</span>
+            <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+                <span class="n">failures</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">res_n</span><span class="p">,</span> <span class="n">res_c</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">assert_results</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{}/{} failures&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">),</span> <span class="n">count</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">failures</span></div>
+
+
+<div class="viewcode-block" id="genr"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.genr">[docs]</a><span class="k">def</span> <span class="nf">genr</span><span class="p">():</span></div>
+    <span class="c"># General purpose conversion</span>
+    <span class="n">powers_mult</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="n">powers_mult</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">powers_ten</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+    <span class="n">powers_ten</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="n">powers_ten</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">all_powers_two</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">all_powers_two</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">all_powers_two</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">all_powers_two</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+    <span class="n">all_powers_n</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">all_powers_n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">all_powers_n</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">all_powers_n</span><span class="p">(</span><span class="mi">144</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Base: {} | {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">_scale</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="c"># utility</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">make_groups</span><span class="p">(</span><span class="s">&#39;001010111100&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+
+<div class="viewcode-block" id="bina"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.bina">[docs]</a><span class="k">def</span> <span class="nf">bina</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s">&#39;0b&#39;</span> <span class="o">+</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="mi">3029</span><span class="p">)</span> <span class="o">==</span> <span class="nb">unicode</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">3029</span><span class="p">))</span> <span class="o">==</span> <span class="s">&#39;0b101111010101&#39;</span>
+    <span class="k">assert</span> <span class="s">&#39;0b&#39;</span> <span class="o">+</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="nb">unicode</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span> <span class="o">==</span> <span class="s">&#39;0b1100&#39;</span>
+    <span class="k">assert</span> <span class="s">&#39;0b&#39;</span> <span class="o">+</span> <span class="n">hex_to_bin</span><span class="p">(</span><span class="s">&#39;0x13e&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bin</span><span class="p">(</span><span class="mh">0x13e</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0b100111110&#39;</span>
+    <span class="k">assert</span> <span class="s">&#39;0b&#39;</span> <span class="o">+</span> <span class="n">oct_to_bin</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0b101001&#39;</span>
+    <span class="n">compare_to_native</span><span class="p">(</span><span class="nb">bin</span><span class="p">,</span> <span class="n">dec_to_bin</span><span class="p">,</span> <span class="n">assert_results</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;0b&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="octa"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.octa">[docs]</a><span class="k">def</span> <span class="nf">octa</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">bin_to_oct</span><span class="p">(</span><span class="s">&#39;001010111100&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1274</span>
+    <span class="k">assert</span> <span class="n">hex_to_oct</span><span class="p">(</span><span class="s">&#39;3fa5&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">37645</span>
+    <span class="k">assert</span> <span class="n">dec_to_oct</span><span class="p">(</span><span class="mi">4635</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;11033&#39;</span>
+    <span class="k">assert</span> <span class="n">dec_to_oct</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;14&#39;</span>
+    <span class="k">assert</span> <span class="n">dec_to_oct</span><span class="p">(</span><span class="mi">390</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;606&#39;</span>
+    <span class="k">assert</span> <span class="n">dec_to_oct</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;764&#39;</span>
+    <span class="n">compare_to_native</span><span class="p">(</span><span class="nb">oct</span><span class="p">,</span> <span class="n">dec_to_oct</span><span class="p">,</span> <span class="n">assert_results</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;0&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="deca"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.deca">[docs]</a><span class="k">def</span> <span class="nf">deca</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">int</span><span class="p">(</span><span class="mh">0x13e</span><span class="p">)</span> <span class="o">==</span> <span class="n">hex_to_dec</span><span class="p">(</span><span class="s">&#39;0x13e&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">318</span>
+    <span class="k">assert</span> <span class="nb">int</span><span class="p">(</span><span class="mb">0b10110111</span><span class="p">)</span> <span class="o">==</span> <span class="n">bin_to_dec</span><span class="p">(</span><span class="s">&#39;10110111&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">183</span>
+    <span class="k">assert</span> <span class="n">oct_to_dec</span><span class="p">(</span><span class="mi">345</span><span class="p">)</span> <span class="o">==</span> <span class="mi">229</span>
+    <span class="k">assert</span> <span class="n">oct_to_dec</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span> <span class="o">==</span> <span class="mi">74</span></div>
+
+
+<div class="viewcode-block" id="hexa"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.hexa">[docs]</a><span class="k">def</span> <span class="nf">hexa</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">oct_to_hex</span><span class="p">(</span><span class="mi">345</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0xe5&#39;</span>
+    <span class="k">assert</span> <span class="n">oct_to_hex</span><span class="p">(</span><span class="mi">1057</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0x22f&#39;</span>
+    <span class="k">assert</span> <span class="n">dec_to_hex</span><span class="p">(</span><span class="mi">906</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0x38a&#39;</span>
+    <span class="k">assert</span> <span class="n">dec_to_hex</span><span class="p">(</span><span class="mi">1792</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0x700&#39;</span>
+    <span class="k">assert</span> <span class="n">bin_to_hex</span><span class="p">(</span><span class="s">&#39;01011110101101010010&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0x5eb52&#39;</span>
+    <span class="k">assert</span> <span class="n">bin_to_hex</span><span class="p">(</span><span class="s">&#39;11011001&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;0xd9&#39;</span>
+    <span class="n">compare_to_native</span><span class="p">(</span><span class="nb">hex</span><span class="p">,</span> <span class="n">dec_to_hex</span><span class="p">,</span> <span class="n">assert_results</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></div>
+
+
+<span class="c"># ------------- MISC. FUN STUFF ------------------------------------------------</span>
+
+
+<div class="viewcode-block" id="all_powers_n"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.all_powers_n">[docs]</a><span class="k">def</span> <span class="nf">all_powers_n</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Powers of two check, extended to any exponent&quot;&quot;&quot;</span>
+    <span class="n">powers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c"># Starting from largest to smallest is significantly faster</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)):</span>
+            <span class="n">product</span> <span class="o">=</span> <span class="n">power</span> <span class="o">**</span> <span class="n">n</span>
+            <span class="c"># 2^12 covers many cases, but doesn&#39;t cover a lot of larger nums;</span>
+            <span class="c"># this demonstration is just a basic primer on the algorithm.</span>
+            <span class="k">if</span> <span class="n">product</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;{}^{} ... |{} - {}| = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">power</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">num</span> <span class="o">-</span> <span class="n">product</span><span class="p">))</span>
+                <span class="n">num</span> <span class="o">-=</span> <span class="n">product</span>
+                <span class="n">powers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">powers</span></div>
+
+
+<div class="viewcode-block" id="all_powers_two"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.all_powers_two">[docs]</a><span class="k">def</span> <span class="nf">all_powers_two</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find the various powers of two for a given `num` -- often used</span>
+<span class="sd">    for finding binary values of a num, since binary is base 2.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">all_powers_n</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="powers_mult"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.powers_mult">[docs]</a><span class="k">def</span> <span class="nf">powers_mult</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Visualization of all values of given `num` raise up to a max power.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">power</span><span class="p">):</span>
+        <span class="n">mult_val</span> <span class="o">=</span> <span class="s">&#39; x &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">unicode</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{}^{} = {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mult_val</span><span class="p">,</span> <span class="n">num</span> <span class="o">**</span> <span class="n">n</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="powers_ten"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.numerical_encoding_basic.powers_ten">[docs]</a><span class="k">def</span> <span class="nf">powers_ten</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A visualization of the powers of ten technique for a given `num`&quot;&quot;&quot;</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">num</span><span class="p">)))</span>
+    <span class="n">places</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">places</span><span class="p">)):</span>
+        <span class="n">place_index</span> <span class="o">=</span> <span class="s">&#39;1{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;0&#39;</span> <span class="o">*</span> <span class="n">index</span><span class="p">)</span>
+        <span class="n">place</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="n">index</span><span class="p">])</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">place_index</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">+=</span> <span class="n">place</span>
+        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">place</span><span class="p">)</span>
+        <span class="n">mapping</span><span class="p">[</span><span class="n">place</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="n">index</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">place_index</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} * {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">place_index</span><span class="p">,</span> <span class="n">place</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39; + &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">unicode</span><span class="p">,</span> <span class="n">values</span><span class="p">)),</span> <span class="n">num</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mapping</span></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Computer organization - Numerical encoding&#39;</span><span class="p">):</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;General&#39;</span><span class="p">:</span> <span class="n">genr</span><span class="p">,</span>
+            <span class="s">&#39;Hexadecimal&#39;</span><span class="p">:</span> <span class="n">hexa</span><span class="p">,</span>
+            <span class="s">&#39;Octal&#39;</span><span class="p">:</span> <span class="n">octa</span><span class="p">,</span>
+            <span class="s">&#39;Binary&#39;</span><span class="p">:</span> <span class="n">bina</span><span class="p">,</span>
+            <span class="s">&#39;Decimal&#39;</span><span class="p">:</span> <span class="n">deca</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">print_h4</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;The {} encoding scheme.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+            <span class="n">func</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

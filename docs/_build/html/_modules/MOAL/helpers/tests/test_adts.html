@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.helpers.tests.test_adts &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.helpers.tests.test_adts</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.helpers.tests.test_adts</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers</span> <span class="kn">import</span> <span class="n">adts</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">MUTATION TESTING:</span>
+<span class="sd">Uses https://miketeo.net/wp/index.php/projects/python-mutant-testing-pymutester</span>
+<span class="sd">to inject mutant tests after nose runs the first batch.</span>
+
+<span class="sd">Runs with:</span>
+<span class="sd">`mutant-nosetests --mutant-path MOAL/helpers/tests`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="StrictListInitTest"><a class="viewcode-back" href="../../../../MOAL.helpers.tests.html#MOAL.helpers.tests.test_adts.StrictListInitTest">[docs]</a><span class="k">class</span> <span class="nc">StrictListInitTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">test_strlist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">])</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_strlist_extra</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_intlist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">intlist</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_intlist_extra</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">intlist</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;cats&#39;</span><span class="p">])</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_floatlist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strictlist</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span> <span class="n">valid_type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_floatlist_extra</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strictlist</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s">&#39;cats&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                                <span class="n">valid_type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="StrListMethodsTest"><a class="viewcode-back" href="../../../../MOAL.helpers.tests.html#MOAL.helpers.tests.test_adts.StrListMethodsTest">[docs]</a><span class="k">class</span> <span class="nc">StrListMethodsTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">test_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">])</span>
+        <span class="n">_list</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;foofoo&#39;</span><span class="p">,</span> <span class="s">&#39;barbar&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">])</span>
+        <span class="n">_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;foo2&#39;</span><span class="p">,</span> <span class="s">&#39;bar2&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">])</span>
+        <span class="n">_list</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;FOO&#39;</span><span class="p">,</span> <span class="s">&#39;BAR&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_down</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;FOO&#39;</span><span class="p">,</span> <span class="s">&#39;BAR&#39;</span><span class="p">])</span>
+        <span class="n">_list</span><span class="o">.</span><span class="n">lo</span><span class="p">()</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">])</span>
+        <span class="n">_list</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;oof&#39;</span><span class="p">,</span> <span class="s">&#39;rab&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">adts</span><span class="o">.</span><span class="n">strlist</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">])</span>
+        <span class="n">_list</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[[</span><span class="s">&#39;f&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">]]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">_list</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">expected</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="IntListMethodsTest"><a class="viewcode-back" href="../../../../MOAL.helpers.tests.html#MOAL.helpers.tests.test_adts.IntListMethodsTest">[docs]</a><span class="k">class</span> <span class="nc">IntListMethodsTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="OneOffTest"><a class="viewcode-back" href="../../../../MOAL.helpers.tests.html#MOAL.helpers.tests.test_adts.OneOffTest">[docs]</a><span class="k">class</span> <span class="nc">OneOffTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">test_list_fill</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">test_dict_fill</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">test_matrix_fill</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

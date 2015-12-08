@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.computer_organization.one_twos_complement &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.computer_organization.one_twos_complement</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.computer_organization.one_twos_complement</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">divider</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">random_binary</span>
+<span class="kn">from</span> <span class="nn">MOAL.computer_organization.numerical_encoding_basic</span> <span class="kn">import</span> <span class="n">bin_to_dec</span>
+<span class="kn">from</span> <span class="nn">MOAL.computer_organization.numerical_encoding_basic</span> <span class="kn">import</span> <span class="n">dec_to_bin</span>
+<span class="kn">from</span> <span class="nn">MOAL.computer_organization.data_types</span> <span class="kn">import</span> <span class="n">BaseDataType</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="ones_complement"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.one_twos_complement.ones_complement">[docs]</a><span class="k">def</span> <span class="nf">ones_complement</span><span class="p">(</span><span class="n">binary</span><span class="p">):</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">binary</span><span class="p">):</span>
+        <span class="n">binary</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;1&#39;</span> <span class="k">if</span> <span class="n">digit</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span> <span class="k">else</span> <span class="s">&#39;0&#39;</span>
+    <span class="k">return</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="twos_complement"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.one_twos_complement.twos_complement">[docs]</a><span class="k">def</span> <span class="nf">twos_complement</span><span class="p">(</span><span class="n">binary</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Conversion algorithm from</span>
+<span class="sd">    cs.cornell.edu/~tomf/notes/cps104/twoscomp.html#twotwo&quot;&quot;&quot;</span>
+    <span class="n">old</span> <span class="o">=</span> <span class="n">binary</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="n">ones_complement</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+    <span class="n">ones</span> <span class="o">=</span> <span class="n">binary</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">binary</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Complements: one: {}, two: {}, (original: {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ones</span><span class="p">),</span> <span class="n">binary</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">old</span><span class="p">)))</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="n">bin_to_dec</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+    <span class="n">sign</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;neg&#39;</span><span class="p">,</span> <span class="o">-</span><span class="n">dec</span><span class="p">)</span> <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">binary</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span> <span class="k">else</span> <span class="p">(</span><span class="s">&#39;pos&#39;</span><span class="p">,</span> <span class="n">dec</span><span class="p">,)</span>
+    <span class="n">res_bin</span> <span class="o">=</span> <span class="n">dec_to_bin</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Final decimal is {}: {} ({})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">res_bin</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res_bin</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Computer organization - one, two</span><span class="se">\&#39;</span><span class="s">s complement&#39;</span><span class="p">):</span>
+        <span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+            <span class="n">twos_complement</span><span class="p">(</span><span class="n">random_binary</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">evens</span><span class="p">)))</span>
+            <span class="n">divider</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

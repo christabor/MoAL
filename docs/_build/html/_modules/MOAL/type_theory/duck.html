@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.type_theory.duck &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.type_theory.duck</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.type_theory.duck</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="Cell"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.Cell">[docs]</a><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span></div>
+
+    <span class="n">programmed_cell_death</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">mitosis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span> <span class="nf">mutate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span> <span class="nf">copy_dna</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+
+<div class="viewcode-block" id="CancerCell"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.CancerCell">[docs]</a><span class="k">class</span> <span class="nc">CancerCell</span><span class="p">(</span><span class="n">Cell</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Duck Typing, with a twist - it looks like a cell, moves like a cell...</span>
+<span class="sd">    but it has a little surprise!&quot;&quot;&quot;</span>
+
+    <span class="n">programmed_cell_death</span> <span class="o">=</span> <span class="bp">False</span></div>
+
+
+<div class="viewcode-block" id="Skin"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.Skin">[docs]</a><span class="k">class</span> <span class="nc">Skin</span><span class="p">:</span></div>
+
+    <span class="n">tissue_type</span> <span class="o">=</span> <span class="s">&#39;skin&#39;</span>
+
+
+<div class="viewcode-block" id="Teratoma"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.Teratoma">[docs]</a><span class="k">class</span> <span class="nc">Teratoma</span><span class="p">(</span><span class="n">Skin</span><span class="p">):</span></div>
+
+    <span class="n">tissue_type</span> <span class="o">=</span> <span class="s">&#39;eyeball + teeth&#39;</span>
+
+
+<div class="viewcode-block" id="VitalOrgan"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.VitalOrgan">[docs]</a><span class="k">class</span> <span class="nc">VitalOrgan</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Fun side note - when an organ or part of the body is forming,</span>
+<span class="sd">    it uses cell apoptosis to effectively &#39;carve out&#39; the shape by killing</span>
+<span class="sd">    off cells in a programmatic process -- amazing!</span>
+
+<span class="sd">    See: https://en.wikipedia.org/wiki/Programmed_cell_death</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="VitalOrgan.__init__"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.VitalOrgan.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cells</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cells</span> <span class="o">=</span> <span class="n">cells</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">differentiation_pattern</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># This would contain data</span></div>
+
+<div class="viewcode-block" id="VitalOrgan.replenish"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.VitalOrgan.replenish">[docs]</a>    <span class="k">def</span> <span class="nf">replenish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cells</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cells</span> <span class="o">+=</span> <span class="n">cells</span></div>
+
+<div class="viewcode-block" id="VitalOrgan.differentiate"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.VitalOrgan.differentiate">[docs]</a>    <span class="k">def</span> <span class="nf">differentiate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Not to be confused with cell differentiation.&quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Differentiating!&#39;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ApoptosisManager"><a class="viewcode-back" href="../../../MOAL.type_theory.html#MOAL.type_theory.duck.ApoptosisManager">[docs]</a><span class="k">class</span> <span class="nc">ApoptosisManager</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">autophagy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tissue</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Autophagy: cleaning up old cells!&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">tissue</span><span class="o">.</span><span class="n">cells</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">programmed_cell_death</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;Killing off cell!&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;I AM A CANCER CELL - I WILL NOT DIE&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Type theory - Duck Typing&#39;</span><span class="p">):</span>
+        <span class="c"># Okay, so here&#39;s the rundown;</span>
+        <span class="c"># 1. New cells are created out of thin air, for something.</span>
+        <span class="c"># 2. They are associated with a vital organ -- that is to say,</span>
+        <span class="c"># they ARE the vital organ -- they make up the parts of it.</span>
+        <span class="c"># 3. An autophagy manager comes along as a process, to deal with cleanup</span>
+        <span class="c"># and delegation (a bit of a creative interpretation here).</span>
+        <span class="c"># 4. Manager attempts to clean up at the request of the organ,</span>
+        <span class="c"># only to find there is a hidden cancer cell hiding underneath.</span>
+        <span class="n">apoptos</span> <span class="o">=</span> <span class="n">ApoptosisManager</span><span class="p">()</span>
+        <span class="n">organ</span> <span class="o">=</span> <span class="n">VitalOrgan</span><span class="p">(</span><span class="n">cells</span><span class="o">=</span><span class="p">[</span><span class="n">Cell</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">CancerCell</span><span class="p">()])</span>
+        <span class="n">apoptos</span><span class="o">.</span><span class="n">autophagy</span><span class="p">(</span><span class="n">organ</span><span class="p">)</span>
+
+        <span class="n">some_skin</span> <span class="o">=</span> <span class="n">Skin</span><span class="p">()</span>
+        <span class="n">some_other_skin</span> <span class="o">=</span> <span class="n">Teratoma</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">some_skin</span><span class="o">.</span><span class="n">tissue_type</span><span class="p">)</span>
+        <span class="c"># Oh god, wtf!</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">some_other_skin</span><span class="o">.</span><span class="n">tissue_type</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

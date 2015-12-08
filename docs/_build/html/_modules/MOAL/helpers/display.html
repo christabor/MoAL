@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.helpers.display &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.helpers.display</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.helpers.display</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">blessings</span> <span class="kn">import</span> <span class="n">Terminal</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">ppr</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+
+<span class="n">term</span> <span class="o">=</span> <span class="n">Terminal</span><span class="p">()</span>
+
+<span class="c"># Display utilities</span>
+<span class="n">MAX_WIDTH</span> <span class="o">=</span> <span class="mi">80</span>
+
+
+<div class="viewcode-block" id="annotate"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.annotate">[docs]</a><span class="k">def</span> <span class="nf">annotate</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A decorate to annotate with the function name when it&#39;s called.&quot;&quot;&quot;</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Calling function: &quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_inner</span></div>
+
+
+<div class="viewcode-block" id="_func_or_print"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display._func_or_print">[docs]</a><span class="k">def</span> <span class="nf">_func_or_print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Private function to either print or call a function on result&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">func</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_uncase_x"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display._uncase_x">[docs]</a><span class="k">def</span> <span class="nf">_uncase_x</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">seperator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Split by `seperator` and join the string;</span>
+<span class="sd">    e.g. &#39;foo_bar&#39; =&gt; foo bar &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">seperator</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="uncase_period"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.uncase_period">[docs]</a><span class="k">def</span> <span class="nf">uncase_period</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_uncase_x</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="uncase_hyphen"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.uncase_hyphen">[docs]</a><span class="k">def</span> <span class="nf">uncase_hyphen</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_uncase_x</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="uncase_snake"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.uncase_snake">[docs]</a><span class="k">def</span> <span class="nf">uncase_snake</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_uncase_x</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s">&#39;_&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="uncase_snake_upper"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.uncase_snake_upper">[docs]</a><span class="k">def</span> <span class="nf">uncase_snake_upper</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">uncase_snake</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="firstcaps"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.firstcaps">[docs]</a><span class="k">def</span> <span class="nf">firstcaps</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">string</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="title_case"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.title_case">[docs]</a><span class="k">def</span> <span class="nf">title_case</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">seperator</span><span class="o">=</span><span class="s">&#39;_&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Format a string into title case - e.g. &#39;some_word&#39; =&gt; Some Word &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">firstcaps</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">seperator</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="divider"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.divider">[docs]</a><span class="k">def</span> <span class="nf">divider</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s">&#39;_&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a divider. Optionally override the unit of text to use</span>
+<span class="sd">    (e.g ---, ...., ###)&quot;&quot;&quot;</span>
+    <span class="c"># Correct for longer than 1 character atoms, since it will take up</span>
+    <span class="c"># more than 80 chars.</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">atom</span> <span class="o">*</span> <span class="p">(</span><span class="n">MAX_WIDTH</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">newline</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_subdued"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_subdued">[docs]</a><span class="k">def</span> <span class="nf">print_subdued</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print info-type text in dark.&quot;&quot;&quot;</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="s">&#39;{t.black}{}{t.normal}&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="print_info"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_info">[docs]</a><span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;[INFO]&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print info-type text in red with a prefix&quot;&quot;&quot;</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="s">&#39;{t.blue}{} {}{t.normal}&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="print_warning"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_warning">[docs]</a><span class="k">def</span> <span class="nf">print_warning</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;[WARN]&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print warning-type text in red with a prefix&quot;&quot;&quot;</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="s">&#39;{t.yellow}{} {}{t.normal}&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="print_success"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_success">[docs]</a><span class="k">def</span> <span class="nf">print_success</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;[YAY]&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print success-type text in red with a prefix&quot;&quot;&quot;</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="s">&#39;{t.green}{} {}{t.normal}&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="print_error"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_error">[docs]</a><span class="k">def</span> <span class="nf">print_error</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;[ERROR]&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print error-type text in red with a prefix&quot;&quot;&quot;</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="s">&#39;{t.red}{} {}{t.normal}&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="prnt"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.prnt">[docs]</a><span class="k">def</span> <span class="nf">prnt</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A more useful default print function for titles and accompanying</span>
+<span class="sd">    content. Shows stylized title, with content below, and newlines.</span>
+<span class="sd">    The content can optionally be formatted by a given `func`.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">newlines</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{t.green}{t.underline}{}{t.normal}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="n">_func_or_print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">newlines</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_make_padded_char"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display._make_padded_char">[docs]</a><span class="k">def</span> <span class="nf">_make_padded_char</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a string format token with padding based on the length</span>
+<span class="sd">    of the given `word` * `padding`;</span>
+<span class="sd">    e.g. &#39;cat&#39; -&gt; {:&lt;3}&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s">&#39;{:&lt;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">word</span><span class="p">))</span> <span class="o">+</span> <span class="n">padding</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;}&#39;</span></div>
+
+
+<div class="viewcode-block" id="make_padded_chars"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.make_padded_chars">[docs]</a><span class="k">def</span> <span class="nf">make_padded_chars</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">seperator</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Call `_make_padding_char` on a list of words.</span>
+<span class="sd">    For example, to create a new format string to pad a list of values.</span>
+<span class="sd">    (e.g. {:&lt;3} {&lt;:6} {&lt;:9}&quot;&quot;&quot;</span>
+    <span class="n">fmt_string</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">fmt_string</span> <span class="o">+=</span> <span class="n">_make_padded_char</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">+</span> <span class="n">seperator</span>
+    <span class="k">return</span> <span class="n">fmt_string</span></div>
+
+
+<div class="viewcode-block" id="print_table"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_table">[docs]</a><span class="k">def</span> <span class="nf">print_table</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">formatter</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">striped</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a table that is uniform and aligned.&quot;&quot;&quot;</span>
+    <span class="n">headings</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="c"># Optionally allow custom format functions for each heading</span>
+    <span class="k">if</span> <span class="n">formatter</span><span class="p">:</span>
+        <span class="n">headings</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">formatter</span><span class="p">,</span> <span class="n">headings</span><span class="p">)</span>
+    <span class="c"># This is where it shines - we make a format string template based on</span>
+    <span class="c"># each heading token, which can be used for both headings and rows.</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="n">make_padded_chars</span><span class="p">(</span><span class="n">headings</span><span class="p">)</span>
+    <span class="c"># Print headings first</span>
+    <span class="n">print_success</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">headings</span><span class="p">),</span> <span class="n">prefix</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">divider</span><span class="p">(</span><span class="n">newline</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">num_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="c"># Apply the unique values to the template</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">striped</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">num_rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">divider</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">divider</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="print_vars"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_vars">[docs]</a><span class="k">def</span> <span class="nf">print_vars</span><span class="p">(</span><span class="nb">vars</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Single line print with variable and a title, as well</span>
+<span class="sd">    as some optional kwargs to transform the data.&quot;&quot;&quot;</span>
+    <span class="c"># Allow passing in of single or multiple lists</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="nb">vars</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">is_single</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="c"># Format the list appropriately</span>
+        <span class="nb">vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">vars</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">is_single</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_single</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;Need both title and variable.&#39;</span><span class="p">)</span>
+        <span class="n">title</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">var</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">convert</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">upper</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{}: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="print_nl"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_nl">[docs]</a><span class="k">def</span> <span class="nf">print_nl</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s">&#39;top&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a title with a newline.</span>
+<span class="sd">    The newline can be either on bottom (default) or top, if specified.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="s">&#39;top&#39;</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="_heading"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display._heading">[docs]</a><span class="k">def</span> <span class="nf">_heading</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">divider</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="n">hyphen</span> <span class="o">=</span> <span class="s">&#39;&#39;</span> <span class="k">if</span> <span class="n">desc</span> <span class="o">==</span> <span class="s">&#39;&#39;</span> <span class="k">else</span> <span class="s">&#39; - &#39;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s"> {} {} {}</span><span class="se">\n</span><span class="s">&#39;</span> <span class="s">&#39;|{}|</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">hyphen</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">divider</span> <span class="o">*</span> <span class="n">MAX_WIDTH</span><span class="p">)</span>
+    <span class="n">print_nl</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_h1"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_h1">[docs]</a><span class="k">def</span> <span class="nf">print_h1</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a heading with a very bold underline&quot;&quot;&quot;</span>
+    <span class="n">_heading</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="s">&#39;#&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_h2"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_h2">[docs]</a><span class="k">def</span> <span class="nf">print_h2</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a heading with a bold underline&quot;&quot;&quot;</span>
+    <span class="n">_heading</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="s">&#39;=&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_h3"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_h3">[docs]</a><span class="k">def</span> <span class="nf">print_h3</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a heading with a moderate underline&quot;&quot;&quot;</span>
+    <span class="n">_heading</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_h4"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_h4">[docs]</a><span class="k">def</span> <span class="nf">print_h4</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a heading with a subdued underline&quot;&quot;&quot;</span>
+    <span class="n">_heading</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_simple"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.print_simple">[docs]</a><span class="k">def</span> <span class="nf">print_simple</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">ppr</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a heading with data. The content can optionally be formatted by</span>
+<span class="sd">    a given `func`. No styling is done to the text.&quot;&quot;&quot;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="n">_func_or_print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">newline</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="cmd_title"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.cmd_title">[docs]</a><span class="k">def</span> <span class="nf">cmd_title</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a command type message (e.g [COMMAND]) in red.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">newlines</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{t.red}[{msg}]{t.normal}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">newlines</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Section"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.Section">[docs]</a><span class="k">class</span> <span class="nc">Section</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Provides a context manager for printing &#39;sections&#39; of text.</span>
+<span class="sd">    Prints a top and bottom section to visually separate different blocks</span>
+<span class="sd">    of code/results.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Section.__init__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.Section.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span></div>
+
+<div class="viewcode-block" id="Section.prnt"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.Section.prnt">[docs]</a>    <span class="k">def</span> <span class="nf">prnt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="n">nl</span> <span class="o">=</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="k">if</span> <span class="n">newlines</span> <span class="k">else</span> <span class="s">&#39;&#39;</span>
+        <span class="c"># Make alignment perfectly match the 80 character</span>
+        <span class="c"># mark for all display helpers.</span>
+        <span class="n">spaces</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">seperator</span> <span class="o">=</span> <span class="s">&#39;=&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">MAX_WIDTH</span> <span class="o">-</span> <span class="n">offset</span> <span class="o">-</span> <span class="n">spaces</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;{t.cyan}{nl}[{}]: {t.bold} {} {sep} {nl}{t.normal}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">prefix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">term</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">seperator</span><span class="p">,</span> <span class="n">nl</span><span class="o">=</span><span class="n">nl</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Section.__enter__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.Section.__enter__">[docs]</a>    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prnt</span><span class="p">(</span><span class="s">&#39;BEGIN&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Section.__exit__"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.display.Section.__exit__">[docs]</a>    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_type</span><span class="p">,</span> <span class="n">exception_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prnt</span><span class="p">(</span><span class="s">&#39;END&#39;</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">print_info</span><span class="p">(</span><span class="s">&#39;Testing Info&#39;</span><span class="p">)</span>
+    <span class="n">print_warning</span><span class="p">(</span><span class="s">&#39;Testing Warning&#39;</span><span class="p">)</span>
+    <span class="n">print_success</span><span class="p">(</span><span class="s">&#39;Testing Success&#39;</span><span class="p">)</span>
+    <span class="n">print_error</span><span class="p">(</span><span class="s">&#39;Testing Error&#39;</span><span class="p">)</span>
+
+    <span class="n">cmd_title</span><span class="p">(</span><span class="s">&#39;DANGER WILL ROBINSON&#39;</span><span class="p">)</span>
+
+    <span class="n">print_h1</span><span class="p">(</span><span class="s">&#39;Heading 1...&#39;</span><span class="p">)</span>
+    <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Heading 2...&#39;</span><span class="p">)</span>
+    <span class="n">print_h3</span><span class="p">(</span><span class="s">&#39;Heading 3...&#39;</span><span class="p">)</span>
+    <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Heading 4...&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

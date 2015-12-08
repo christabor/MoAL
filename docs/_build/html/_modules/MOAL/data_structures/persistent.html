@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.persistent &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.persistent</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.persistent</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h2</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_simple</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">gibberish2</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">dt</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="MutableAccessException"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.MutableAccessException">[docs]</a><span class="k">class</span> <span class="nc">MutableAccessException</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="PersistentDataStructure"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PersistentDataStructure">[docs]</a><span class="k">class</span> <span class="nc">PersistentDataStructure</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="PartiallyPersistentNode"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode">[docs]</a><span class="k">class</span> <span class="nc">PartiallyPersistentNode</span><span class="p">(</span><span class="n">PersistentDataStructure</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;From Wikipedia:</span>
+
+<span class="sd">    &quot;In computing, a persistent data structure is a data structure that always</span>
+<span class="sd">    preserves the previous version of itself when it is modified.</span>
+<span class="sd">    Such data structures are effectively immutable, as their operations do not</span>
+<span class="sd">    (visibly) update the structure in-place,</span>
+<span class="sd">    but instead always yield a new updated structure.</span>
+
+<span class="sd">    A data structure is partially persistent if all versions can be accessed</span>
+<span class="sd">    but only the newest version can be modified.&quot; &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.__init__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">versions</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.__str__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;All data: {}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Current data: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span></div>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.__delitem__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.__delitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deleting an item is not allowed, as the data structure</span>
+<span class="sd">        should be immutable.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="n">MutableAccessException</span></div>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.__setattr__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.__setattr__">[docs]</a>    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;versions&#39;</span><span class="p">,</span> <span class="s">&#39;data&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">MutableAccessException</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PartiallyPersistentNode</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.__setitem__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span></div>
+        <span class="c"># Allow first value to be added, but do not allow subsequent overrides.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">key</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MutableAccessException</span>
+        <span class="c"># Add to history, then update.</span>
+        <span class="c"># If it is the current one, update the value.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">data</span><span class="p">})</span>
+        <span class="c"># Keep reference to key only.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">key</span>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.view_all"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.view_all">[docs]</a>    <span class="k">def</span> <span class="nf">view_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.get_current"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.get_current">[docs]</a>    <span class="k">def</span> <span class="nf">get_current</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span></div>
+
+<div class="viewcode-block" id="PartiallyPersistentNode.get_all"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.PartiallyPersistentNode.get_all">[docs]</a>    <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">versions</span></div></div>
+
+
+<div class="viewcode-block" id="FullyPersistentNode"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.FullyPersistentNode">[docs]</a><span class="k">class</span> <span class="nc">FullyPersistentNode</span><span class="p">(</span><span class="n">PartiallyPersistentNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;From Wikipedia:</span>
+<span class="sd">    &quot;The data structure is fully persistent if every version can be both</span>
+<span class="sd">    accessed and modified.&quot; &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FullyPersistentNode.__setitem__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.FullyPersistentNode.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span>
+        <span class="c"># Store a reference only, to the last modified element</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">key</span></div>
+
+<div class="viewcode-block" id="FullyPersistentNode.__getitem__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.FullyPersistentNode.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="FullyPersistentNode.get_current"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.FullyPersistentNode.get_current">[docs]</a>    <span class="k">def</span> <span class="nf">get_current</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="ConfluentlyPersistentNode"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.ConfluentlyPersistentNode">[docs]</a><span class="k">class</span> <span class="nc">ConfluentlyPersistentNode</span><span class="p">(</span><span class="n">FullyPersistentNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;From Wikipedia:</span>
+<span class="sd">    &quot;If there is also a meld or merge operation that</span>
+<span class="sd">    can create a new version from two previous versions,</span>
+<span class="sd">    the data structure is called confluently persistent.&quot;  &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConfluentlyPersistentNode.meld"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.ConfluentlyPersistentNode.meld">[docs]</a>    <span class="k">def</span> <span class="nf">meld</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">versions</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Melding versions {versions} under key &quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">key</span><span class="p">,</span> <span class="n">versions</span><span class="o">=</span><span class="n">versions</span><span class="p">))</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">versions</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="n">version</span><span class="p">)[</span><span class="s">&#39;data&#39;</span><span class="p">]</span>
+            <span class="n">new</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ConfluentlyPersistentFatNode"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode">[docs]</a><span class="k">class</span> <span class="nc">ConfluentlyPersistentFatNode</span><span class="p">(</span><span class="n">ConfluentlyPersistentNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;From Wikipedia:</span>
+
+<span class="sd">    &quot;Fat node method is to record all changes made to node fields in the nodes</span>
+<span class="sd">    themselves, without erasing old values of the fields. This requires</span>
+<span class="sd">    that we allow nodes to become arbitrarily &#39;fat&#39;.</span>
+
+<span class="sd">    Each extra field value has an associated field name and a version stamp</span>
+<span class="sd">    which indicates the version in which the named field was changed to</span>
+<span class="sd">    have the specified value.</span>
+
+<span class="sd">    Besides, each fat node has its own version stamp, indicating the version</span>
+<span class="sd">    in which the node was created. In order to navigate through the structure,</span>
+<span class="sd">    each original field value in a node has a version stamp of zero.&quot; &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConfluentlyPersistentFatNode.__setitem__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">versions</span> <span class="k">else</span> <span class="n">dt</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;date_modified&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span>
+        <span class="c"># Add new key and versions container if it has never existed.</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;versions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">_data</span><span class="p">]}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># Update current version inside of the specific node.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s">&#39;versions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_data</span><span class="p">)</span>
+        <span class="c"># Store a reference only, to the last modified element</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">key</span></div>
+
+<div class="viewcode-block" id="ConfluentlyPersistentFatNode.__getitem__"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">versions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="ConfluentlyPersistentPathCopyingNode"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingNode">[docs]</a><span class="k">class</span> <span class="nc">ConfluentlyPersistentPathCopyingNode</span><span class="p">(</span><span class="n">ConfluentlyPersistentNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;TODO&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="ConfluentlyPersistentPathCopyingFatNode"><a class="viewcode-back" href="../../../MOAL.data_structures.html#MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingFatNode">[docs]</a><span class="k">class</span> <span class="nc">ConfluentlyPersistentPathCopyingFatNode</span><span class="p">(</span>
+        <span class="n">ConfluentlyPersistentFatNode</span><span class="p">,</span> <span class="n">ConfluentlyPersistentPathCopyingNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;TODO&quot;&quot;&quot;</span></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Persistent data structures&#39;</span><span class="p">):</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Persistent partial node&#39;</span><span class="p">)</span>
+        <span class="n">pnode</span> <span class="o">=</span> <span class="n">PartiallyPersistentNode</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">pnode</span><span class="p">)</span>
+        <span class="n">pnode</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;bim&#39;</span><span class="p">:</span> <span class="s">&#39;baz&#39;</span><span class="p">}</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">pnode</span><span class="p">)</span>
+        <span class="n">pnode</span><span class="o">.</span><span class="n">view_all</span><span class="p">()</span>
+        <span class="c"># Should work, as it&#39;s the single item and current.</span>
+        <span class="n">pnode</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+        <span class="c"># Should work, since it&#39;s new</span>
+        <span class="n">pnode</span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">pnode</span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="n">MutableAccessException</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c"># Should not work, since it exists,</span>
+            <span class="c"># and is no longer the current item.</span>
+            <span class="n">pnode</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span><span class="p">}</span>
+        <span class="k">except</span> <span class="n">MutableAccessException</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Successfully blocked write of existing version.&#39;</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Persistent full node&#39;</span><span class="p">)</span>
+        <span class="n">pfatnode</span> <span class="o">=</span> <span class="n">FullyPersistentNode</span><span class="p">()</span>
+        <span class="c"># Updating and overriding existing data</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">pfatnode</span><span class="p">)</span>
+        <span class="n">pfatnode</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="s">&#39;baz&#39;</span><span class="p">}</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">pfatnode</span><span class="p">)</span>
+        <span class="n">pfatnode</span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;baz&#39;</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span><span class="p">}</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">pfatnode</span><span class="p">)</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Current fat node data&#39;</span><span class="p">,</span> <span class="n">pfatnode</span><span class="o">.</span><span class="n">get_current</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">pfatnode</span><span class="p">[</span><span class="n">gibberish2</span><span class="p">()]</span> <span class="o">=</span> <span class="p">{</span><span class="n">gibberish2</span><span class="p">():</span> <span class="n">gibberish2</span><span class="p">()}</span>
+            <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Fat node data&#39;</span><span class="p">,</span> <span class="n">pfatnode</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Persistent confluent&#39;</span><span class="p">)</span>
+        <span class="n">confluent</span> <span class="o">=</span> <span class="n">ConfluentlyPersistentNode</span><span class="p">()</span>
+        <span class="n">confluent</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">gibberish2</span><span class="p">():</span> <span class="n">gibberish2</span><span class="p">()}</span>
+        <span class="n">confluent</span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">gibberish2</span><span class="p">():</span> <span class="n">gibberish2</span><span class="p">()}</span>
+        <span class="n">confluent</span><span class="p">[</span><span class="s">&#39;bim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">gibberish2</span><span class="p">():</span> <span class="n">gibberish2</span><span class="p">()}</span>
+        <span class="n">confluent</span><span class="p">[</span><span class="s">&#39;baz&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">gibberish2</span><span class="p">():</span> <span class="n">gibberish2</span><span class="p">()}</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Confluent node data&#39;</span><span class="p">,</span> <span class="n">confluent</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+
+        <span class="n">confluent</span><span class="o">.</span><span class="n">meld</span><span class="p">(</span><span class="s">&#39;melded_example&#39;</span><span class="p">,</span> <span class="n">versions</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">,</span> <span class="s">&#39;bim&#39;</span><span class="p">])</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Confluent node data&#39;</span><span class="p">,</span> <span class="n">confluent</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Persistent partial Fat Node&#39;</span><span class="p">)</span>
+        <span class="n">confluentfat</span> <span class="o">=</span> <span class="n">ConfluentlyPersistentFatNode</span><span class="p">()</span>
+        <span class="n">confluentfat</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;_version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+        <span class="n">confluentfat</span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;_version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+        <span class="n">confluentfat</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;_version&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+        <span class="n">confluentfat</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;_version&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Confluent fat node data&#39;</span><span class="p">,</span> <span class="n">confluentfat</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">confluentfat</span><span class="o">.</span><span class="n">versions</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">][</span><span class="s">&#39;versions&#39;</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">ref</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;data&#39;</span><span class="p">][</span><span class="s">&#39;_version&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">ref</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;data&#39;</span><span class="p">][</span><span class="s">&#39;_version&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+        <span class="k">assert</span> <span class="n">ref</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s">&#39;data&#39;</span><span class="p">][</span><span class="s">&#39;_version&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

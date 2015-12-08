@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.unix.robustness &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.unix.robustness</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.problem_solving.design_patterns.unix.robustness</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="BasicCalculator"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator">[docs]</a><span class="k">class</span> <span class="nc">BasicCalculator</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;All methods here have type checking in place so that bad inputs</span>
+<span class="sd">    are automatically handled without throwing an error. This allows</span>
+<span class="sd">    the behavior to be piped, etc, without any fatal error in behavior.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BasicCalculator.div"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.div">[docs]</a>    <span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">/=</span> <span class="n">num</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="BasicCalculator.mult"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.mult">[docs]</a>    <span class="k">def</span> <span class="nf">mult</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">*=</span> <span class="n">num</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="BasicCalculator.sub"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.sub">[docs]</a>    <span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">subtrahend</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">subtrahend</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">num</span> <span class="o">-</span> <span class="n">subtrahend</span></div>
+
+<div class="viewcode-block" id="BasicCalculator.add"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="BasicCalculatorAlternate"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate">[docs]</a><span class="k">class</span> <span class="nc">BasicCalculatorAlternate</span><span class="p">(</span><span class="n">BasicCalculator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Another way to achieve this is to use kwargs with expected defaults,</span>
+<span class="sd">    but this uses required args as kwargs, which are typically optional, and</span>
+<span class="sd">    therefore not recommended.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BasicCalculatorAlternate.div"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.div">[docs]</a>    <span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BasicCalculatorAlternate</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BasicCalculatorAlternate.mult"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.mult">[docs]</a>    <span class="k">def</span> <span class="nf">mult</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BasicCalculatorAlternate</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">mult</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BasicCalculatorAlternate.sub"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.sub">[docs]</a>    <span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">subtrahend</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BasicCalculatorAlternate</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">subtrahend</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BasicCalculatorAlternate.add"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.unix.html#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BasicCalculatorAlternate</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

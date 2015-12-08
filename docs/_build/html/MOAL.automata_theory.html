@@ -1,0 +1,625 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.automata_theory package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL package" href="MOAL.html"/>
+        <link rel="next" title="MOAL.automata_theory.finite_state_machine package" href="MOAL.automata_theory.finite_state_machine.html"/>
+        <link rel="prev" title="MOAL.artificial_intelligence.machine_learning.topic_modeling package" href="MOAL.artificial_intelligence.machine_learning.topic_modeling.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">MOAL.automata_theory package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.automata_theory.counter_machine">MOAL.automata_theory.counter_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moal-automata-theory-pointer-machine-module">MOAL.automata_theory.pointer_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.automata_theory.turing_machine">MOAL.automata_theory.turing_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.automata_theory.universal_turing_machine">MOAL.automata_theory.universal_turing_machine module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+    <li>MOAL.automata_theory package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.automata_theory.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.automata_theory">
+<span id="moal-automata-theory-package"></span><h1>MOAL.automata_theory package<a class="headerlink" href="#module-MOAL.automata_theory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.automata_theory.finite_state_machine.html">MOAL.automata_theory.finite_state_machine package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.automata_theory.finite_state_machine.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.automata_theory.finite_state_machine.html#module-MOAL.automata_theory.finite_state_machine.fsm">MOAL.automata_theory.finite_state_machine.fsm module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.automata_theory.finite_state_machine.html#moal-automata-theory-finite-state-machine-markov-chain-module">MOAL.automata_theory.finite_state_machine.markov_chain module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.automata_theory.finite_state_machine.html#module-MOAL.automata_theory.finite_state_machine.recognizer">MOAL.automata_theory.finite_state_machine.recognizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.automata_theory.finite_state_machine.html#module-MOAL.automata_theory.finite_state_machine.transducer">MOAL.automata_theory.finite_state_machine.transducer module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.automata_theory.counter_machine">
+<span id="moal-automata-theory-counter-machine-module"></span><h2>MOAL.automata_theory.counter_machine module<a class="headerlink" href="#module-MOAL.automata_theory.counter_machine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.Abacus">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">Abacus</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#Abacus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Abacus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.Abacus.inc">
+<code class="descname">inc</code><span class="sig-paren">(</span><em>c=2</em>, <em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Abacus.inc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">CounterMachine</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#CounterMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.MAX_STEPS">
+<code class="descname">MAX_STEPS</code><em class="property"> = 20</em><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.MAX_STEPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup initial conditions</p>
+<p>Register #2 contains &#8220;2&#8221;, (initially)
+Registers #0, #1 and #3 are empty (contain &#8220;0&#8221;).
+Register #0 remains unchanged throughout calculations</p>
+<blockquote>
+<div>because it is used for the unconditional jump.</div></blockquote>
+<p>Register #1 is a scratch pad.</p>
+<p>4 registers, plus &#8216;scratch pad register&#8217;&#8221;</p>
+<p><cite>z</cite> = [z]ero aka, jump register (0)
+<cite>s</cite> = [s]cratch register (1)
+<cite>c</cite> = [c]urrent register (2)
+<cite>d</cite> = [d]estination register (3)</p>
+<p>1   2   3   4   5   6   7   8   9   10  &lt;- Instruction (address)
+JZ  DEC INC INC JZ  JZ  DEC INC JZ  H   &lt;- Instruction
+2   2   3   1   0   1   1   2   0       &lt;- Register
+6               1   10          6       &lt;- Jump-to instruction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine._generate_program">
+<code class="descname">_generate_program</code><span class="sig-paren">(</span><em>instructions=10</em>, <em>registers=4</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine._generate_program" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.clr">
+<code class="descname">clr</code><span class="sig-paren">(</span><em>c=2</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.clr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.cpy">
+<code class="descname">cpy</code><span class="sig-paren">(</span><em>c=2</em>, <em>d=3</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.cpy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.dec">
+<code class="descname">dec</code><span class="sig-paren">(</span><em>c=2</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.dec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.halt">
+<code class="descname">halt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.halt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.inc">
+<code class="descname">inc</code><span class="sig-paren">(</span><em>c=2</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.inc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.j">
+<code class="descname">j</code><span class="sig-paren">(</span><em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.j" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.je">
+<code class="descname">je</code><span class="sig-paren">(</span><em>r_j</em>, <em>r_k</em>, <em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.je" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.jnz">
+<code class="descname">jnz</code><span class="sig-paren">(</span><em>c=2</em>, <em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.jnz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.jz">
+<code class="descname">jz</code><span class="sig-paren">(</span><em>c=2</em>, <em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.jz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.jzdec">
+<code class="descname">jzdec</code><span class="sig-paren">(</span><em>c=2</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.jzdec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.CounterMachine.run_instruction">
+<code class="descname">run_instruction</code><span class="sig-paren">(</span><em>instruction</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.CounterMachine.run_instruction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.ElgotRobinsonRASP">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">ElgotRobinsonRASP</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#ElgotRobinsonRASP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.ElgotRobinsonRASP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.Lambek">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">Lambek</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#Lambek"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Lambek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.Minsky">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">Minsky</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#Minsky"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Minsky" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.Minsky.inc">
+<code class="descname">inc</code><span class="sig-paren">(</span><em>c=2</em>, <em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Minsky.inc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.Minsky.jzdec">
+<code class="descname">jzdec</code><span class="sig-paren">(</span><em>c=2</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Minsky.jzdec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.Program">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">Program</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#Program"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Program" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.RandomAccessMachine">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">RandomAccessMachine</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#RandomAccessMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.RandomAccessMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+<p>From Wikipedia:
+&#8220;A random-access machine (RAM) is an abstract computational-machine model
+identical to a multiple-register counter machine with the addition of
+indirect addressing. At the discretion of an instruction from its
+finite state machine&#8217;s TABLE, the machine derives a &#8220;target&#8221; register&#8217;s
+address either (i) directly from the instruction itself, or (ii) indirectly
+from the contents (e.g. number, label) of the &#8220;pointer&#8221; register specified
+in the instruction.</p>
+<p>By definition: A register is a location with both an address
+(a unique, distinguishable designation/locator equivalent to a
+natural number) and a content - a single natural number.</p>
+<p>For precision we will use the quasi-formal symbolism from
+Boolos-Burgess-Jeffrey (2002) to specify a register, its contents, and an
+operation on a register&#8221;</p>
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.RandomAccessMachine.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#RandomAccessMachine.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.RandomAccessMachine.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.RandomAccessMachine.cpy">
+<code class="descname">cpy</code><span class="sig-paren">(</span><em>reg</em>, <em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#RandomAccessMachine.cpy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.RandomAccessMachine.cpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlike the cpy in the counter machine above, the random access
+machine allows for directly accessing an arbitrary register, instead
+of only being able to use the preset register, for copy/updates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.RandomAccessMachine.reg">
+<code class="descname">reg</code><span class="sig-paren">(</span><em>reg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#RandomAccessMachine.reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.RandomAccessMachine.reg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.SheperdsonSturgis">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">SheperdsonSturgis</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#SheperdsonSturgis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.SheperdsonSturgis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.counter_machine.SheperdsonSturgis.jnz">
+<code class="descname">jnz</code><span class="sig-paren">(</span><em>c=2</em>, <em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.counter_machine.SheperdsonSturgis.jnz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.Successor">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">Successor</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#Successor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.Successor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.counter_machine.SuccessorRAM">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.counter_machine.</code><code class="descname">SuccessorRAM</code><span class="sig-paren">(</span><em>program=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/counter_machine.html#SuccessorRAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.counter_machine.SuccessorRAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.counter_machine.CounterMachine" title="MOAL.automata_theory.counter_machine.CounterMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.counter_machine.CounterMachine</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="moal-automata-theory-pointer-machine-module">
+<h2>MOAL.automata_theory.pointer_machine module<a class="headerlink" href="#moal-automata-theory-pointer-machine-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.automata_theory.turing_machine">
+<span id="moal-automata-theory-turing-machine-module"></span><h2>MOAL.automata_theory.turing_machine module<a class="headerlink" href="#module-MOAL.automata_theory.turing_machine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.automata_theory.turing_machine.Decider">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.turing_machine.</code><code class="descname">Decider</code><span class="sig-paren">(</span><em>program=None</em>, <em>max_states=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/turing_machine.html#Decider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.turing_machine.Decider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.turing_machine.TuringMachine" title="MOAL.automata_theory.turing_machine.TuringMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.turing_machine.TuringMachine</span></code></a></p>
+<p>See wikipedia.org/wiki/Machine_that_always_halts</p>
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.Decider.transition">
+<code class="descname">transition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/turing_machine.html#Decider.transition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.turing_machine.Decider.transition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.turing_machine.DummyProgramGenerator">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.turing_machine.</code><code class="descname">DummyProgramGenerator</code><a class="reference internal" href="_modules/MOAL/automata_theory/turing_machine.html#DummyProgramGenerator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.turing_machine.DummyProgramGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper to generate programs for use in the Turing Machine
+&#8211; useful for testing a Universal Turing Machine.</p>
+<dl class="staticmethod">
+<dt id="MOAL.automata_theory.turing_machine.DummyProgramGenerator._transition">
+<em class="property">static </em><code class="descname">_transition</code><span class="sig-paren">(</span><em>next, symbols=[0, 1]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/turing_machine.html#DummyProgramGenerator._transition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.turing_machine.DummyProgramGenerator._transition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a single transition pair with a random 0, 1
+write symbol (or provided symbol set.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.automata_theory.turing_machine.DummyProgramGenerator.make">
+<em class="property">static </em><code class="descname">make</code><span class="sig-paren">(</span><em>max_states=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/turing_machine.html#DummyProgramGenerator.make"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.turing_machine.DummyProgramGenerator.make" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a program to run in the machine.</p>
+<p>Transitions are made up of key/value pairs,
+so it&#8217;s important to shuffle the value beforehand.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.turing_machine.</code><code class="descname">TuringMachine</code><span class="sig-paren">(</span><em>program=None</em>, <em>max_states=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/turing_machine.html#TuringMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>program=None</em>, <em>max_states=10</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine._get_tape_visualization">
+<code class="descname">_get_tape_visualization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine._get_tape_visualization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine._run">
+<code class="descname">_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine._run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine._setup">
+<code class="descname">_setup</code><span class="sig-paren">(</span><em>program</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine._setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine._show_program">
+<code class="descname">_show_program</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine._show_program" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine.halt">
+<code class="descname">halt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine.halt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not this machine actually does halt,
+this method must be called to prevent stack overflow
+(for infinite examples).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.turing_machine.TuringMachine.transition">
+<code class="descname">transition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.turing_machine.TuringMachine.transition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.automata_theory.universal_turing_machine">
+<span id="moal-automata-theory-universal-turing-machine-module"></span><h2>MOAL.automata_theory.universal_turing_machine module<a class="headerlink" href="#module-MOAL.automata_theory.universal_turing_machine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.universal_turing_machine.</code><code class="descname">UniversalTuringMachine</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/universal_turing_machine.html#UniversalTuringMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.turing_machine.TuringMachine" title="MOAL.automata_theory.turing_machine.TuringMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.turing_machine.TuringMachine</span></code></a></p>
+<dl class="docutils">
+<dt>wikipedia.org/wiki/Universal_Turing_machine</dt>
+<dd>#Example_of_universal-machine_coding</dd>
+</dl>
+<p>&#8221;
+TS = Tape symbol
+TM = Tape-motion
+MC = M-configuration (instruction, state)
+P = Print-op</p>
+<p>q1   blank    P0  R    q2
+q2   blank    E   R    q3
+q3   blank    P1  R    q4
+q4   blank    E   R    q1</p>
+<p>DA        D         DC       R         DAA             DADDCRDAA
+DAA       D         D        R         DAAA            DAADDRDAAA
+DAAA      D         DCC      R         DAAAA           DAAADDCCRDAAAA
+DAAAA     D         D        R         DA              DAAAADDRDA</p>
+<p>Finally, the codes for all four 5-tuples are strung together into a code
+started by &#8221;;&#8221; and separated by &#8221;;&#8221; i.e.:
+;DADDCRDAA;DAADDRDAAA;DAAADDCCRDAAAA;DAAAADDRDA
+&#8220;</p>
+<p>...for our experiment, we&#8217;ll just encode one string directly, and skip the
+table mapping, since they both represent the same thing,
+albeit with different string values.</p>
+<dl class="method">
+<dt id="MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/universal_turing_machine.html#UniversalTuringMachine.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.add_program">
+<code class="descname">add_program</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/universal_turing_machine.html#UniversalTuringMachine.add_program"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.add_program" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/universal_turing_machine.html#UniversalTuringMachine.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-assemble the string sequence into a real data structure
+&#8211; not part of the typical UTM behavior, but signifies the need to
+decode the values into something usable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.encode">
+<code class="descname">encode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/universal_turing_machine.html#UniversalTuringMachine.encode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not really necessary, but to emulate the behavior we translate
+our generated program into a single long string of values that
+can be decoded.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/universal_turing_machine.html#UniversalTuringMachine.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.universal_turing_machine.UniversalTuringMachine.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="MOAL.automata_theory.universal_turing_machine.UnknownProgram">
+<em class="property">exception </em><code class="descclassname">MOAL.automata_theory.universal_turing_machine.</code><code class="descname">UnknownProgram</code><a class="reference internal" href="_modules/MOAL/automata_theory/universal_turing_machine.html#UnknownProgram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.universal_turing_machine.UnknownProgram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.automata_theory.finite_state_machine.html" class="btn btn-neutral float-right" title="MOAL.automata_theory.finite_state_machine package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.artificial_intelligence.machine_learning.topic_modeling.html" class="btn btn-neutral" title="MOAL.artificial_intelligence.machine_learning.topic_modeling package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

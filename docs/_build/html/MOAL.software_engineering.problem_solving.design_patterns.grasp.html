@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.grasp package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.software_engineering.problem_solving.design_patterns package" href="MOAL.software_engineering.problem_solving.design_patterns.html"/>
+        <link rel="next" title="MOAL.software_engineering.problem_solving.design_patterns.solid package" href="MOAL.software_engineering.problem_solving.design_patterns.solid.html"/>
+        <link rel="prev" title="MOAL.software_engineering.problem_solving.design_patterns package" href="MOAL.software_engineering.problem_solving.design_patterns.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.software_engineering.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.html">MOAL.software_engineering package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.problem_solving.html">MOAL.software_engineering.problem_solving package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.problem_solving.design_patterns.html">MOAL.software_engineering.problem_solving.design_patterns package</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.grasp package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.software_engineering.problem_solving.design_patterns.grasp.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-package"></span><h1>MOAL.software_engineering.problem_solving.design_patterns.grasp package<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-cohesion-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.DEBUG">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">DEBUG</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>en.wikipedia.org/wiki/Cohesion_(computer_science)
+For these examples, &#8216;module&#8217; is actually considered a class.</p>
+<p>NOTE: some of these classes access properties or methods that do not exist.
+Making it fully compliant is irrelevant to the scope of this project.
+In some cases, the examples will work 100%, but some don&#8217;t.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">FileOpener</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#FileOpener"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grouping based on procedure: open -&gt; check perms -&gt; read | error</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#FileOpener.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener._can_read">
+<code class="descname">_can_read</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#FileOpener._can_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener._can_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener._can_write">
+<code class="descname">_can_write</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#FileOpener._can_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener._can_write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener.open">
+<code class="descname">open</code><span class="sig-paren">(</span><em>user</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#FileOpener.open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener.open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">HandleUser</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#HandleUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grouping based on operating on the same piece or type of data.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>user_id</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#HandleUser.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#HandleUser.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>user_id</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#HandleUser.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>user_id</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#HandleUser.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">InputsController</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#InputsController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grouping based on logical category of functionality or type</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_keyboard">
+<code class="descname">handle_keyboard</code><span class="sig-paren">(</span><em>character</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#InputsController.handle_keyboard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_keyboard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_mouse">
+<code class="descname">handle_mouse</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#InputsController.handle_mouse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_mouse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_other">
+<code class="descname">handle_other</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#InputsController.handle_other"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_other" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.register_input">
+<code class="descname">register_input</code><span class="sig-paren">(</span><em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#InputsController.register_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.register_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">Lexer</code><span class="sig-paren">(</span><em>wrapper_start</em>, <em>wrapper_end</em>, <em>token_start</em>, <em>token_end</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Lexer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Grouping based on specific functions that contribute
+to a single, well-defined goal.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>wrapper_start</em>, <em>wrapper_end</em>, <em>token_start</em>, <em>token_end</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Lexer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer._fmt">
+<code class="descname">_fmt</code><span class="sig-paren">(</span><em>token</em>, <em>k</em>, <em>count</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Lexer._fmt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer._fmt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer._fmt_wrapper">
+<code class="descname">_fmt_wrapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Lexer._fmt_wrapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer._fmt_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer.tokenize">
+<code class="descname">tokenize</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Lexer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer.tokenize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.NaiveXMLLexer">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">NaiveXMLLexer</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#NaiveXMLLexer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.NaiveXMLLexer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.NaiveXMLLexer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.NaiveXMLLexer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">ProcessUserData</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#ProcessUserData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grouping based on procedural and temporal:
+process -&gt; _process -&gt; handle -&gt; error | success</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.add_error">
+<code class="descname">add_error</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#ProcessUserData.add_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.add_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.handle_file">
+<code class="descname">handle_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#ProcessUserData.handle_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.handle_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#ProcessUserData.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.process_data">
+<code class="descname">process_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#ProcessUserData.process_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.process_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.success">
+<code class="descname">success</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#ProcessUserData.success"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.SExpressionLexer">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">SExpressionLexer</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#SExpressionLexer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.SExpressionLexer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.SExpressionLexer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.SExpressionLexer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">UnixPipe</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#UnixPipe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grouping based on the notion that outputs to one function become
+the input to another, when combined in sequence.
+This is the crux of the UNIX philosophy.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#UnixPipe.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.grep">
+<code class="descname">grep</code><span class="sig-paren">(</span><em>keyword</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#UnixPipe.grep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.grep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.ls">
+<code class="descname">ls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#UnixPipe.ls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.ls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#UnixPipe.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">Utilities</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Utilities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>BAD, BAD, BAD! Grouping based on circumstance or coincidence.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.add_numbers">
+<code class="descname">add_numbers</code><span class="sig-paren">(</span><em>nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Utilities.add_numbers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.add_numbers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.format_thing">
+<code class="descname">format_thing</code><span class="sig-paren">(</span><em>stuff</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Utilities.format_thing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.format_thing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.get_fullname">
+<code class="descname">get_fullname</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#Utilities.get_fullname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.get_fullname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion._print">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.</code><code class="descname">_print</code><span class="sig-paren">(</span><em>text</em>, <em>title</em>, <em>thing</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_cohesion.html#_print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion._print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-controller-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.</code><code class="descname">Controller</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#Controller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Controller</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#Controller.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.receive">
+<code class="descname">receive</code><span class="sig-paren">(</span><em>eventname</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#Controller.receive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>eventname</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#Controller.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.</code><code class="descname">CustomerController</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#CustomerController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.Controller</span></code></a></p>
+<p>MVC Style</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._create_user">
+<code class="descname">_create_user</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#CustomerController._create_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._create_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._delete_user">
+<code class="descname">_delete_user</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#CustomerController._delete_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._delete_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._edit_user">
+<code class="descname">_edit_user</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#CustomerController._edit_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._edit_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._read_user">
+<code class="descname">_read_user</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#CustomerController._read_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController._read_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>event</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#CustomerController.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.CustomerController.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.DBConnectionError">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.</code><code class="descname">DBConnectionError</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#DBConnectionError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.DBConnectionError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.DBReadError">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.</code><code class="descname">DBReadError</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#DBReadError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.DBReadError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.</code><code class="descname">InputController</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#InputController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController._event">
+<code class="descname">_event</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController._event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController.get_position">
+<code class="descname">get_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController.get_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController.push">
+<code class="descname">push</code><span class="sig-paren">(</span><em>button_name</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InputController.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Another design principle here is indirection - the buttons
+should not be mapped to their internal states, as we might want
+to change button configurations for different users.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InvalidEvent">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.</code><code class="descname">InvalidEvent</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#InvalidEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.InvalidEvent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.</code><code class="descname">MockDBAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_controller.html#MockDBAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.commit">
+<code class="descname">commit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.rollback">
+<code class="descname">rollback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.rollback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>key</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_controller.MockDBAdapter.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-creator-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.</code><code class="descname">AbstractVehicle</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.html#AbstractVehicle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.html#AbstractVehicle.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.html#AbstractVehicle.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.Automobile">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.</code><code class="descname">Automobile</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.html#Automobile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.Automobile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.ClassFactory">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.</code><code class="descname">ClassFactory</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.html#ClassFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.ClassFactory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="staticmethod">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.ClassFactory.make">
+<em class="property">static </em><code class="descname">make</code><span class="sig-paren">(</span><em>name</em>, <em>instantiate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.ClassFactory.make" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.Plane">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.</code><code class="descname">Plane</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.html#Plane"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.Plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.Train">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.</code><code class="descname">Train</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_creator.html#Train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.Train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_creator.AbstractVehicle</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-indirection-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.Customer">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.</code><code class="descname">Customer</code><span class="sig-paren">(</span><em>name</em>, <em>details</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#Customer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.Customer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.Customer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name</em>, <em>details</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.Customer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.</code><code class="descname">CustomerManager</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>The customer manager acts as a layer of indirection to common
+operations that should not be cluttering up the actual customer object.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager.__delitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>name</em>, <em>details</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>customer</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.add_balance">
+<code class="descname">add_balance</code><span class="sig-paren">(</span><em>customer</em>, <em>amount</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager.add_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.add_balance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.get_invoices">
+<code class="descname">get_invoices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager.get_invoices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.get_invoices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.process_balances">
+<code class="descname">process_balances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#CustomerManager.process_balances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.process_balances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.</code><code class="descname">InvoiceManager</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#InvoiceManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>The invoice manager is another potential source of indirection.
+The customer manager should not know much about invoices, except
+how to delegate them via indirection, to the invoice manager.
+Simply operations like adding and retrieving,
+should be all the users of this manager should know.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#InvoiceManager.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>customer</em>, <em>amount</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#InvoiceManager.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_indirection.html#InvoiceManager.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-infohiding-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.</code><code class="descname">Person</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_infohiding.html#Person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person._get_prop">
+<code class="descname">_get_prop</code><span class="sig-paren">(</span><em>prop</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person._get_prop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information for accessing properties directly is hidden under
+the private method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person.get_full_name">
+<code class="descname">get_full_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_infohiding.Person.get_full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The public &#8216;interface&#8217; to getting name values.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-polymorphism-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BlobOfMatter">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.</code><code class="descname">BlobOfMatter</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.html#BlobOfMatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BlobOfMatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BlobOfMatter.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BlobOfMatter.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BrainCell">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.</code><code class="descname">BrainCell</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.html#BrainCell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BrainCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BrainCell.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BrainCell.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.NerveCell">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.</code><code class="descname">NerveCell</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.html#NerveCell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.NerveCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.NerveCell.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.NerveCell.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.SkinCell">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.</code><code class="descname">SkinCell</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.html#SkinCell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.SkinCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.SkinCell.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.SkinCell.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.</code><code class="descname">UndifferentiatedCell</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.html#UndifferentiatedCell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BlobOfMatter" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BlobOfMatter"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.BlobOfMatter</span></code></a></p>
+<p>Each child class implements a __str__ method (beyond the native python)
+version, so each name is the same, but there are many different versions.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_polymorphism.html#UndifferentiatedCell.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_polymorphism.UndifferentiatedCell.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-protected-variation-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.</code><code class="descname">ConnectionMixin</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.html#ConnectionMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstracts the notion of a document across all database types.
+This ones&#8217; is a weird experimentation.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.html#ConnectionMixin.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>pk</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.html#ConnectionMixin.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin.set_adapter">
+<code class="descname">set_adapter</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.html#ConnectionMixin.set_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin.set_adapter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.DEBUG">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.</code><code class="descname">DEBUG</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Protected variation sounds a lot like indirection and information hiding,
+but it is tied to the idea of consolidating disparate objects/resources.</p>
+<p>In this sense, it acts more like the general idea of abstraction,
+because A. it does not necessarily (though often may, tangentially) provide
+mechanisms for pluggable behavior, and B. it does not necessarily
+hide all access to information. What it does do, is group disparate systems
+into one single entity, to protect the variation and thus remove coupling
+to specific implementations.</p>
+<p>In this sense, it feels a lot like an adapter, but it&#8217;s more like a
+multi-adapter in that sense, so it&#8217;s not quite the same.</p>
+<p>My ultimate conclusion is that these other similar design patterns are
+effectively subclasses of this idea, which is the most abstract version.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.Document">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.</code><code class="descname">Document</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.html#Document"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.Document" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.ConnectionMixin</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.MongoAdapter">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.</code><code class="descname">MongoAdapter</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.html#MongoAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.MongoAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.MongoAdapter.collections">
+<code class="descname">collections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.MongoAdapter.collections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.</code><code class="descname">PostgresSQLAdapter</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_protected_variation.html#PostgresSQLAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.commit">
+<code class="descname">commit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.conn">
+<code class="descname">conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.cursor">
+<code class="descname">cursor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.cursor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>sql</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_protected_variation.PostgresSQLAdapter.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication">
+<span id="moal-software-engineering-problem-solving-design-patterns-grasp-pattern-pure-fabrication-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.GridMonitorService">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.</code><code class="descname">GridMonitorService</code><span class="sig-paren">(</span><em>grid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.html#GridMonitorService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.GridMonitorService" title="Permalink to this definition">¶</a></dt>
+<dd><p>This monitor service acts as an intermediary for handling db and object
+related functionality, and can be used to continually add more utilities
+that are related to the single entity, but that shouldn&#8217;t be stored
+directly on it.</p>
+<p>It can be though of as a service-like layer of indirection:</p>
+<p>entity &lt;&#8212;&#8212;&gt; entity_service &lt;&#8212;&#8212;&gt; data_store</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.GridMonitorService.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>grid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.html#GridMonitorService.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.GridMonitorService.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.GridMonitorService.check_status">
+<code class="descname">check_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.html#GridMonitorService.check_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.GridMonitorService.check_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightGrid">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.</code><code class="descname">LightGrid</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.html#LightGrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightGrid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightGrid.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightGrid.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightGrid.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>id</em>, <em>coords</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightGrid.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightMonitor">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.</code><code class="descname">LightMonitor</code><span class="sig-paren">(</span><em>coords</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.html#LightMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightMonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor" title="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightMonitor.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>coords</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.LightMonitor.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.</code><code class="descname">Monitor</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.html#Monitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor.off">
+<code class="descname">off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor.off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor.on">
+<code class="descname">on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor.on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor.status">
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.Monitor.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.MonitorDB">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.</code><code class="descname">MonitorDB</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/grasp/pattern_pure_fabrication.html#MonitorDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.MonitorDB" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.MonitorDB.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.MonitorDB.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.MonitorDB.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>id</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_pure_fabrication.MonitorDB.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.software_engineering.problem_solving.design_patterns.solid.html" class="btn btn-neutral float-right" title="MOAL.software_engineering.problem_solving.design_patterns.solid package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.software_engineering.problem_solving.design_patterns.html" class="btn btn-neutral" title="MOAL.software_engineering.problem_solving.design_patterns package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

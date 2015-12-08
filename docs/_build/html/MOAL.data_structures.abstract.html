@@ -1,0 +1,1343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.abstract package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.data_structures package" href="MOAL.data_structures.html"/>
+        <link rel="next" title="MOAL.data_structures.graphs package" href="MOAL.data_structures.graphs.html"/>
+        <link rel="prev" title="MOAL.data_structures package" href="MOAL.data_structures.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.data_structures.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.persistent">MOAL.data_structures.persistent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.retroactive">MOAL.data_structures.retroactive module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.data_structures.html">MOAL.data_structures package</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.abstract package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.data_structures.abstract.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.data_structures.abstract">
+<span id="moal-data-structures-abstract-package"></span><h1>MOAL.data_structures.abstract package<a class="headerlink" href="#module-MOAL.data_structures.abstract" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.array_and_linked_lists">
+<span id="moal-data-structures-abstract-array-and-linked-lists-module"></span><h2>MOAL.data_structures.abstract.array_and_linked_lists module<a class="headerlink" href="#module-MOAL.data_structures.abstract.array_and_linked_lists" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.AssociationList">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.array_and_linked_lists.</code><code class="descname">AssociationList</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#AssociationList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.AssociationList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode" title="MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode</span></code></a></p>
+<p>Our linked list already encapsulates all the behavior necessary.
+The required <cite>key</cite> and <cite>value</cite> properties are named <cite>title</cite> and <cite>cargo</cite>
+respectively. The association (lookup) can be evaluated by traversing the
+linked list and comparing the key, then returning the matching nodes value.</p>
+<p>This behavior is already done with the setter,
+so we don&#8217;t need to re-define it here.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.AssociationList.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#AssociationList.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.AssociationList.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an existing node, returning only the value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.AssociationList.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#AssociationList.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.AssociationList.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.array_and_linked_lists.</code><code class="descname">DoubleNode</code><span class="sig-paren">(</span><em>title</em>, <em>cargo=None</em>, <em>prev=None</em>, <em>next=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#DoubleNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode" title="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.array_and_linked_lists.SingleNode</span></code></a></p>
+<p>A node represents a connection in the linked list. This extends
+the single node (linked list) to become a doubly-linked list - a list with
+connections going in both directions (forward and backwards).</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#DoubleNode.__delitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a node, purge any references, and update the adjacent links</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>title</em>, <em>cargo=None</em>, <em>prev=None</em>, <em>next=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#DoubleNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#DoubleNode.append"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new node to the very end of the list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.first">
+<code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#DoubleNode.first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move backward in the list until the first node is found
+e.g. [N - 2] &lt;&#8211; [N - 1] &lt;&#8211; [N]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.prepend">
+<code class="descname">prepend</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#DoubleNode.prepend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.prepend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new node to the very beginning of the list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.array_and_linked_lists.</code><code class="descname">SingleNode</code><span class="sig-paren">(</span><em>title</em>, <em>cargo=None</em>, <em>next=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#SingleNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an existing node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>title</em>, <em>cargo=None</em>, <em>next=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over linked nodes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the values of an existing node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.last">
+<code class="descname">last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode.last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move forward in the list until the last node is found
+e.g. [N] &#8211;&gt; [N + 1] &#8211;&gt; [N + 2]</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.build_list">
+<code class="descclassname">MOAL.data_structures.abstract.array_and_linked_lists.</code><code class="descname">build_list</code><span class="sig-paren">(</span><em>length</em>, <em>head=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#build_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.build_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.abstract.array_and_linked_lists.print_nodes">
+<code class="descclassname">MOAL.data_structures.abstract.array_and_linked_lists.</code><code class="descname">print_nodes</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/array_and_linked_lists.html#print_nodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.array_and_linked_lists.print_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.container">
+<span id="moal-data-structures-abstract-container-module"></span><h2>MOAL.data_structures.abstract.container module<a class="headerlink" href="#module-MOAL.data_structures.abstract.container" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.container.</code><code class="descname">ContainerADT</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>From wikipedia.org/wiki/Container_%28abstract_data_type%29:
+&#8221;
+Container classes are expected to implement methods to do the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>create a new empty container,</li>
+<li>report the number of objects it stores (size),</li>
+<li>delete all the objects in the container (clear),</li>
+<li>insert new objects into the container,</li>
+<li>remove objects from it,</li>
+<li>provide access to the stored objects.</li>
+<li>containers are sometimes implemented in conjunction with iterators.</li>
+</ul>
+</div></blockquote>
+<p>&#8220;</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__contains__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__delitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__len__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.access">
+<code class="descname">access</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.access"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.access" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.new">
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.ContainerADT.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ContainerADT.size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ContainerADT.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.container.ReferenceContainer">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.container.</code><code class="descname">ReferenceContainer</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ReferenceContainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ReferenceContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.container.ContainerADT" title="MOAL.data_structures.abstract.container.ContainerADT"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.container.ContainerADT</span></code></a></p>
+<p>[Wikipedia]
+&#8221;
+Store pointers or references to the object.
+If we access an object, the object returns a reference to it.
+If an external object is changed after it has been inserted in
+the container, it affects the content of the container.
+&#8220;</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.container.ValueContainer">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.container.</code><code class="descname">ValueContainer</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#ValueContainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.ValueContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.container.ContainerADT" title="MOAL.data_structures.abstract.container.ContainerADT"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.container.ContainerADT</span></code></a></p>
+<p>[Wikipedia]
+&#8220;Store copies of objects. If we access an object, the object returns
+a copy of it. If an external object is changed after it has been inserted
+in the container it will not affect the content of the container.&#8221;</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.container.WindowWidget">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.container.</code><code class="descname">WindowWidget</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#WindowWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.WindowWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.container.ReferenceContainer" title="MOAL.data_structures.abstract.container.ReferenceContainer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.container.ReferenceContainer</span></code></a></p>
+<p>See wikipedia.org/wiki/Container_%28abstract_data_type%29
+... &#8220;Graphic containers&#8221; as inspiration.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.WindowWidget.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#WindowWidget.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.WindowWidget.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.WindowWidget.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#WindowWidget.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.WindowWidget.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.WindowWidget.attach">
+<code class="descname">attach</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#WindowWidget.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.WindowWidget.attach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.WindowWidget.detach">
+<code class="descname">detach</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#WindowWidget.detach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.WindowWidget.detach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.WindowWidget.retrieve">
+<code class="descname">retrieve</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#WindowWidget.retrieve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.WindowWidget.retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.container.WindowWidget.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/container.html#WindowWidget.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.container.WindowWidget.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.list">
+<span id="moal-data-structures-abstract-list-module"></span><h2>MOAL.data_structures.abstract.list module<a class="headerlink" href="#module-MOAL.data_structures.abstract.list" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.list.ListADT">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.list.</code><code class="descname">ListADT</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>From wikipedia.org/wiki/List_%28abstract_data_type%29#Operations
+&#8221;
+Implementation of the list data structure may
+provide some of the following operations:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">a constructor for creating an empty list;</p>
+</li>
+<li><p class="first">an operation for testing whether or not a list is empty;</p>
+</li>
+<li><p class="first">an operation for prepending an entity to a list</p>
+</li>
+<li><p class="first">an operation for appending an entity to a list</p>
+</li>
+<li><dl class="first docutils">
+<dt>an operation for determining the first component</dt>
+<dd><p class="first last">(or the &#8220;head&#8221;) of a list</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>an operation for referring to the list consisting of all the</dt>
+<dd><p class="first last">components of a list except for its first
+(this is called the &#8220;tail&#8221; of the list.)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>&#8220;</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.append"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.data_structures.abstract.list.ListADT.create">
+<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.empty">
+<code class="descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.empty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.head">
+<code class="descname">head</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.head"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.prepend">
+<code class="descname">prepend</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.prepend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.prepend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.list.ListADT.tail">
+<code class="descname">tail</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/list.html#ListADT.tail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.list.ListADT.tail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.map">
+<span id="moal-data-structures-abstract-map-module"></span><h2>MOAL.data_structures.abstract.map module<a class="headerlink" href="#module-MOAL.data_structures.abstract.map" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.map.BidirectionalMap">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.map.</code><code class="descname">BidirectionalMap</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#BidirectionalMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.BidirectionalMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>The bi-directional map uses a dictionary rather than an associative
+or linked list, since the main purposes is to stress the concept of
+bi-directional mapping, not the actual implementation. Besides, a dict would
+be a better implementation for real-world usage, at least in python.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.BidirectionalMap.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#BidirectionalMap.__contains__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.BidirectionalMap.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.BidirectionalMap.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#BidirectionalMap.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.BidirectionalMap.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.BidirectionalMap.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#BidirectionalMap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.BidirectionalMap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.BidirectionalMap.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#BidirectionalMap.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.BidirectionalMap.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>The idea here is that a key and a value are interchangeable,
+but either direction should still enforce the rules of a traditional
+map (or dictionary, in this case.)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.BidirectionalMap.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#BidirectionalMap.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.BidirectionalMap.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.map.Enrollment">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.map.</code><code class="descname">Enrollment</code><span class="sig-paren">(</span><em>students=[]</em>, <em>classes=[]</em>, <em>title='Enrollment-MultiMap'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#Enrollment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.map.MultiMap" title="MOAL.data_structures.abstract.map.MultiMap"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.map.MultiMap</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.Enrollment.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>students=[]</em>, <em>classes=[]</em>, <em>title='Enrollment-MultiMap'</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.Enrollment.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>student</em>, <em>klass</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.Enrollment._classes">
+<code class="descname">_classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment._classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.Enrollment.enroll">
+<code class="descname">enroll</code><span class="sig-paren">(</span><em>student</em>, <em>klass</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment.enroll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.Enrollment.enroll_all">
+<code class="descname">enroll_all</code><span class="sig-paren">(</span><em>schedules</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment.enroll_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.Enrollment.get_classes">
+<code class="descname">get_classes</code><span class="sig-paren">(</span><em>student</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment.get_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.Enrollment.schedules">
+<code class="descname">schedules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.map.Enrollment.schedules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.map.MapADT">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.map.</code><code class="descname">MapADT</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#MapADT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.MapADT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.array_and_linked_lists.AssociationList" title="MOAL.data_structures.abstract.array_and_linked_lists.AssociationList"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.array_and_linked_lists.AssociationList</span></code></a></p>
+<p>From wikipedia.org/wiki/Associative_array:</p>
+<dl class="docutils">
+<dt>&#8220;Operations associated with this data type allow:</dt>
+<dd><ul class="first last simple">
+<li>The addition of pairs to the collection</li>
+<li>The removal of pairs from the collection</li>
+<li>The modification of the values of existing pairs</li>
+<li>The lookup of the value associated with a particular key&#8221;</li>
+</ul>
+</dd>
+</dl>
+<p>While we could just use a dictionary (cheating), it would make sense
+to use a vanilla array and implement a custom &amp; importantly, internal,
+function that does key lookups.</p>
+<p>However, an associative array / map is purely abstract, and other data types
+use it as a template, either concretely or conceptually. A linked list is
+given as an example implementation, so we can use it here,
+providing some basic methods that act as a facade pattern over the
+internal implementation.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.MapADT.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#MapADT.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.MapADT.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.map.MultiMap">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.map.</code><code class="descname">MultiMap</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#MultiMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.MultiMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.map.MapADT" title="MOAL.data_structures.abstract.map.MapADT"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.map.MapADT</span></code></a></p>
+<p>From wikipedia.org/wiki/Multimap (paraphrased):
+&#8220;In computer science, a multimap (sometimes also multihash) is a
+generalization of a map or associative array abstract data type in which
+more than one value may be associated with and returned for a given key.</p>
+<p>Often the multimap is implemented as a map with lists/sets as the values.&#8221;</p>
+<p>&#8220;Both map and multimap are particular cases of containers&#8221;
+(See abstract/container for an example of this ADT.)</p>
+<p>Since our MapADT uses a linked list, and the linked list implementation
+does not prohibit certain types as values,
+we can simply use a list as mentioned above for the value.</p>
+<p>We could enforce certain types on the original linked list,
+but that is arbitrary and unnecessary.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.map.MultiMap.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/map.html#MultiMap.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.map.MultiMap.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.priority_queue">
+<span id="moal-data-structures-abstract-priority-queue-module"></span><h2>MOAL.data_structures.abstract.priority_queue module<a class="headerlink" href="#module-MOAL.data_structures.abstract.priority_queue" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.priority_queue.PriorityQueue">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.priority_queue.</code><code class="descname">PriorityQueue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/priority_queue.html#PriorityQueue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.priority_queue.PriorityQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.queues.Queue" title="MOAL.data_structures.abstract.queues.Queue"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.queues.Queue</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.priority_queue.PriorityQueue.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.priority_queue.PriorityQueue.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.priority_queue.PriorityQueue.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.priority_queue.PriorityQueue.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.priority_queue.PriorityQueue.enqueue">
+<code class="descname">enqueue</code><span class="sig-paren">(</span><em>item</em>, <em>priority=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.priority_queue.PriorityQueue.enqueue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.priority_queue.PriorityQueue.get_priority">
+<code class="descname">get_priority</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.priority_queue.PriorityQueue.get_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Naive implementation - does not consider duplicate priority levels</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.priority_queue.PriorityQueue.pull_highest_priority_element">
+<code class="descname">pull_highest_priority_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.priority_queue.PriorityQueue.pull_highest_priority_element" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.queues">
+<span id="moal-data-structures-abstract-queues-module"></span><h2>MOAL.data_structures.abstract.queues module<a class="headerlink" href="#module-MOAL.data_structures.abstract.queues" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.queues.Dequeue">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.queues.</code><code class="descname">Dequeue</code><span class="sig-paren">(</span><em>direction</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/queues.html#Dequeue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Dequeue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.queues.Queue" title="MOAL.data_structures.abstract.queues.Queue"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.queues.Queue</span></code></a></p>
+<p>Represents a &#8216;double ended&#8217; queue &#8211; a queue that can use either
+direction as the head/tail, but works the same way.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Dequeue.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>direction</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Dequeue.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Dequeue.dequeue">
+<code class="descname">dequeue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Dequeue.dequeue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Dequeue.enqueue">
+<code class="descname">enqueue</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Dequeue.enqueue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.queues.HotPotatoSimulator">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.queues.</code><code class="descname">HotPotatoSimulator</code><span class="sig-paren">(</span><em>names</em>, <em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/queues.html#HotPotatoSimulator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.queues.HotPotatoSimulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.queues.Queue" title="MOAL.data_structures.abstract.queues.Queue"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.queues.Queue</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.HotPotatoSimulator.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>names</em>, <em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.HotPotatoSimulator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.HotPotatoSimulator.adjust_position">
+<code class="descname">adjust_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.HotPotatoSimulator.adjust_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.HotPotatoSimulator.move">
+<code class="descname">move</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.HotPotatoSimulator.move" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.queues.PrinterQueue">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.queues.</code><code class="descname">PrinterQueue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/queues.html#PrinterQueue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.queues.PrinterQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.queues.Queue" title="MOAL.data_structures.abstract.queues.Queue"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.queues.Queue</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.PrinterQueue.add_job">
+<code class="descname">add_job</code><span class="sig-paren">(</span><em>name</em>, <em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.PrinterQueue.add_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.PrinterQueue.print_job">
+<code class="descname">print_job</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.PrinterQueue.print_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.queues.Queue">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.queues.</code><code class="descname">Queue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/queues.html#Queue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.stack.Stack" title="MOAL.data_structures.abstract.stack.Stack"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.stack.Stack</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Queue.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Queue.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Queue.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Queue.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Queue.dequeue">
+<code class="descname">dequeue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Queue.dequeue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Queue.enqueue">
+<code class="descname">enqueue</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Queue.enqueue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Queue.move_to_end">
+<code class="descname">move_to_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Queue.move_to_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues.Queue.out_of_range">
+<code class="descname">out_of_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues.Queue.out_of_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.queues_stdlib">
+<span id="moal-data-structures-abstract-queues-stdlib-module"></span><h2>MOAL.data_structures.abstract.queues_stdlib module<a class="headerlink" href="#module-MOAL.data_structures.abstract.queues_stdlib" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.CountThread">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.queues_stdlib.</code><code class="descname">CountThread</code><span class="sig-paren">(</span><em>group=None</em>, <em>target=None</em>, <em>name=None</em>, <em>args=()</em>, <em>kwargs=None</em>, <em>verbose=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/queues_stdlib.html#CountThread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.CountThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></code></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.CountThread.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.CountThread.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.CountThread.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.CountThread.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Producer">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.queues_stdlib.</code><code class="descname">Producer</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/queues_stdlib.html#Producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Producer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Producer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Producer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Producer.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Producer.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Producer.add">
+<code class="descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Producer.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Producer.make">
+<code class="descname">make</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Producer.make" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Worker">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.queues_stdlib.</code><code class="descname">Worker</code><span class="sig-paren">(</span><em>queue</em>, <em>num_threads=2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/queues_stdlib.html#Worker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Worker" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Worker.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>queue</em>, <em>num_threads=2</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Worker.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Worker.do_work">
+<code class="descname">do_work</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Worker.do_work" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Worker.process_all">
+<code class="descname">process_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Worker.process_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.queues_stdlib.Worker.worker">
+<code class="descname">worker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.queues_stdlib.Worker.worker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.set">
+<span id="moal-data-structures-abstract-set-module"></span><h2>MOAL.data_structures.abstract.set module<a class="headerlink" href="#module-MOAL.data_structures.abstract.set" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.set.DynamicSet">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.set.</code><code class="descname">DynamicSet</code><span class="sig-paren">(</span><em>items=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#DynamicSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.DynamicSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.set.SetADT" title="MOAL.data_structures.abstract.set.SetADT"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.set.SetADT</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.DynamicSet.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.DynamicSet.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.DynamicSet.capacity">
+<code class="descname">capacity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.DynamicSet.capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.data_structures.abstract.set.DynamicSet.create">
+<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>args</em>, <em>capacity=100</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.DynamicSet.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.DynamicSet.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.DynamicSet.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.DynamicSet.room_left">
+<code class="descname">room_left</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.DynamicSet.room_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.DynamicSet.set_capacity">
+<code class="descname">set_capacity</code><span class="sig-paren">(</span><em>capacity</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.DynamicSet.set_capacity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.set.FrozenSetADT">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.set.</code><code class="descname">FrozenSetADT</code><span class="sig-paren">(</span><em>items</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#FrozenSetADT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.FrozenSetADT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.set.SetADT" title="MOAL.data_structures.abstract.set.SetADT"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.set.SetADT</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.FrozenSetADT.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>items</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.FrozenSetADT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.FrozenSetADT.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.FrozenSetADT.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="MOAL.data_structures.abstract.set.ImmutableSetError">
+<em class="property">exception </em><code class="descclassname">MOAL.data_structures.abstract.set.</code><code class="descname">ImmutableSetError</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#ImmutableSetError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.ImmutableSetError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.set.MultiSet">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.set.</code><code class="descname">MultiSet</code><span class="sig-paren">(</span><em>items=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#MultiSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.MultiSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.set.DynamicSet" title="MOAL.data_structures.abstract.set.DynamicSet"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.set.DynamicSet</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.MultiSet.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>group</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.MultiSet.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a single item in a multi-set group. Each group can be queried
+by individual values, but multiple values can be stored.
+e.g. mymset[&#8216;foo&#8217;] = {&#8216;bar&#8217;: 2, &#8216;bim&#8217;: True} ... myset.count(&#8216;bar&#8217;) == 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.MultiSet.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>prop</em>, <em>key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.MultiSet.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the count of any given value or key (either scenario works
+seamlessly for ease-of-use) and user simplicity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.MultiSet.count_multi">
+<code class="descname">count_multi</code><span class="sig-paren">(</span><em>props</em>, <em>key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.MultiSet.count_multi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count multiple properties.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.set.SetADT">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.set.</code><code class="descname">SetADT</code><span class="sig-paren">(</span><em>items=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#SetADT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.SetADT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>From wikipedia.org/wiki/Set_%28abstract_data_type%29</p>
+<p>&#8220;The data may be booleans, numbers, characters, or other data structures.
+If one considers the structure yielded by packaging or
+indexing, there are four basic data structures:</p>
+<blockquote>
+<div><ul class="simple">
+<li>unpackaged, unindexed: bunch</li>
+<li>packaged, unindexed: set</li>
+<li>unpackaged, indexed: string (sequence)</li>
+<li>packaged, indexed: list (array)</li>
+</ul>
+</div></blockquote>
+<p>In this view, the contents of a set are a bunch,
+and isolated data items are elementary bunches (elements).
+Whereas sets contain elements, bunches consist of elements.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.SetADT.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#SetADT.__contains__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.SetADT.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.SetADT.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>items=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#SetADT.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.SetADT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.SetADT.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#SetADT.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.SetADT.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.SetADT.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#SetADT.__len__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.SetADT.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.SetADT.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>_</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#SetADT.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.SetADT.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.SetADT.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#SetADT.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.SetADT.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.set.StaticSet">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.set.</code><code class="descname">StaticSet</code><span class="sig-paren">(</span><em>items=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/set.html#StaticSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.set.SetADT" title="MOAL.data_structures.abstract.set.SetADT"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.set.SetADT</span></code></a></p>
+<dl class="staticmethod">
+<dt id="MOAL.data_structures.abstract.set.StaticSet.build">
+<em class="property">static </em><code class="descname">build</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet.build" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.StaticSet.cardinality">
+<code class="descname">cardinality</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet.cardinality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.data_structures.abstract.set.StaticSet.create_from">
+<em class="property">static </em><code class="descname">create_from</code><span class="sig-paren">(</span><em>collection</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet.create_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.StaticSet.enumerate">
+<code class="descname">enumerate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet.enumerate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.StaticSet.is_element_of">
+<code class="descname">is_element_of</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet.is_element_of" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.StaticSet.is_empty">
+<code class="descname">is_empty</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet.is_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.set.StaticSet.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.set.StaticSet.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.stack">
+<span id="moal-data-structures-abstract-stack-module"></span><h2>MOAL.data_structures.abstract.stack module<a class="headerlink" href="#module-MOAL.data_structures.abstract.stack" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.stack.Logger">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.stack.</code><code class="descname">Logger</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stack.html#Logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.stack.Stack" title="MOAL.data_structures.abstract.stack.Stack"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.stack.Stack</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Logger.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Logger.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Logger.add_message">
+<code class="descname">add_message</code><span class="sig-paren">(</span><em>message</em>, <em>priority=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Logger.add_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Logger.get_by_priority">
+<code class="descname">get_by_priority</code><span class="sig-paren">(</span><em>priority</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Logger.get_by_priority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Logger.get_first_message">
+<code class="descname">get_first_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Logger.get_first_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Logger.get_last_message">
+<code class="descname">get_last_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Logger.get_last_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Logger.view_messages">
+<code class="descname">view_messages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Logger.view_messages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.stack.NetworkLogger">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.stack.</code><code class="descname">NetworkLogger</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stack.html#NetworkLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stack.NetworkLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.stack.Logger" title="MOAL.data_structures.abstract.stack.Logger"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.stack.Logger</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.NetworkLogger.add_message">
+<code class="descname">add_message</code><span class="sig-paren">(</span><em>message</em>, <em>priority=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.NetworkLogger.add_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.stack.Stack">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.stack.</code><code class="descname">Stack</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stack.html#Stack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.head">
+<code class="descname">head</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.is_empty">
+<code class="descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.is_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.peek">
+<code class="descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.peek" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.pop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.push">
+<code class="descname">push</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.push" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.tail">
+<code class="descname">tail</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.tail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.Stack.view">
+<code class="descname">view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.Stack.view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.stack.WebLogger">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.stack.</code><code class="descname">WebLogger</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stack.html#WebLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stack.WebLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.stack.Logger" title="MOAL.data_structures.abstract.stack.Logger"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.stack.Logger</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack.WebLogger.add_message">
+<code class="descname">add_message</code><span class="sig-paren">(</span><em>message</em>, <em>priority=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack.WebLogger.add_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.stack_frame">
+<span id="moal-data-structures-abstract-stack-frame-module"></span><h2>MOAL.data_structures.abstract.stack_frame module<a class="headerlink" href="#module-MOAL.data_structures.abstract.stack_frame" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.stack_frame.StackFrame">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.stack_frame.</code><code class="descname">StackFrame</code><span class="sig-paren">(</span><em>func</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stack_frame.html#StackFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stack_frame.StackFrame" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.abstract.stack_frame.StackFrame.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>func</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack_frame.StackFrame.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.stack_frame.StackTrace">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.stack_frame.</code><code class="descname">StackTrace</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stack_frame.html#StackTrace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stack_frame.StackTrace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.stack.Stack" title="MOAL.data_structures.abstract.stack.Stack"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.stack.Stack</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack_frame.StackTrace.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack_frame.StackTrace.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack_frame.StackTrace.call">
+<code class="descname">call</code><span class="sig-paren">(</span><em>func</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack_frame.StackTrace.call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stack_frame.StackTrace.view">
+<code class="descname">view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stack_frame.StackTrace.view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.abstract.stack_frame.init">
+<code class="descclassname">MOAL.data_structures.abstract.stack_frame.</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stack_frame.html#init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stack_frame.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.stream">
+<span id="moal-data-structures-abstract-stream-module"></span><h2>MOAL.data_structures.abstract.stream module<a class="headerlink" href="#module-MOAL.data_structures.abstract.stream" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.stream.Stream">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.stream.</code><code class="descname">Stream</code><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stream.html#Stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stream.Stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Queue.Queue</span></code></p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stream.Stream.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stream.Stream.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stream.Stream.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stream.Stream.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stream.Stream.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stream.Stream.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stream.Stream.not_empty">
+<code class="descname">not_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stream.Stream.not_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Report if the stream still has items - this is nonsensical in some
+cases since a stream by definition is potentially infinite.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.stream.Stream.read">
+<code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.abstract.stream.Stream.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.abstract.stream.process_with_lock">
+<code class="descclassname">MOAL.data_structures.abstract.stream.</code><code class="descname">process_with_lock</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/stream.html#process_with_lock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.stream.process_with_lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.abstract.string_adt">
+<span id="moal-data-structures-abstract-string-adt-module"></span><h2>MOAL.data_structures.abstract.string_adt module<a class="headerlink" href="#module-MOAL.data_structures.abstract.string_adt" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.abstract.string_adt.StringADT">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.abstract.string_adt.</code><code class="descname">StringADT</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/string_adt.html#StringADT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.string_adt.StringADT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.abstract.list.ListADT" title="MOAL.data_structures.abstract.list.ListADT"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.abstract.list.ListADT</span></code></a></p>
+<p>&#8220;Implements the conceptual notion of a string; a list of characters.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.string_adt.StringADT.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/string_adt.html#StringADT.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.string_adt.StringADT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.string_adt.StringADT.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>value</em>, <em>_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/string_adt.html#StringADT.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.string_adt.StringADT.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.abstract.string_adt.StringADT.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/abstract/string_adt.html#StringADT.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.abstract.string_adt.StringADT.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="moal-data-structures-abstract-tree-module">
+<h2>MOAL.data_structures.abstract.tree module<a class="headerlink" href="#moal-data-structures-abstract-tree-module" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.data_structures.graphs.html" class="btn btn-neutral float-right" title="MOAL.data_structures.graphs package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.data_structures.html" class="btn btn-neutral" title="MOAL.data_structures package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

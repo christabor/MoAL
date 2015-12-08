@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.trees.suffix_tree &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.trees.suffix_tree</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.trees.suffix_tree</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.generic</span> <span class="kn">import</span> <span class="n">powerset_tree</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.generic</span> <span class="kn">import</span> <span class="n">substring_list</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.trials</span> <span class="kn">import</span> <span class="n">test_speed</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">ppr</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+
+
+<div class="viewcode-block" id="BaseSuffixTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree">[docs]</a><span class="k">class</span> <span class="nc">BaseSuffixTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span></div>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [From Wikipedia:]</span>
+
+<span class="sd">    &quot;A suffix tree is a compressed Trie containing all the</span>
+<span class="sd">    suffixes of the given text as their keys and positions</span>
+<span class="sd">    in the text as their values.&quot;</span>
+
+<span class="sd">    &quot;...The suffix tree for the string S of length n is</span>
+<span class="sd">    defined as a tree such that:</span>
+
+<span class="sd">    1. The tree has exactly n leaves numbered from 1 to n.</span>
+<span class="sd">    2. Except for the root, every internal node has at least two children.</span>
+<span class="sd">    3. Each edge is labeled with a non-empty substring of S.</span>
+<span class="sd">    4. No two edges starting out of a node can have string-labels beginning</span>
+<span class="sd">        with the same character.</span>
+<span class="sd">    5. The string obtained by concatenating all the string-labels</span>
+<span class="sd">        found on the path from the root to leaf i spells out</span>
+<span class="sd">        suffix S[i..n], for i from 1 to n.</span>
+
+<span class="sd">    -- CONSTRUCTION --</span>
+
+<span class="sd">    `banana` seems to be the canonical example, so we&#39;ll keep with tradition.</span>
+
+<span class="sd">    First, let&#39;s get some information about the string.</span>
+
+<span class="sd">    &gt;&gt;&gt; l, s = len(banana), &#39;banana&#39;</span>
+
+<span class="sd">    Now we can use this data to construct our tree. Note: there are some</span>
+<span class="sd">    implementations that seem to omit the sub-substrings, but we&#39;ll cover</span>
+<span class="sd">    both as two different classes, which we&#39;ll call shallow, and deep.</span>
+<span class="sd">    The required storage for the deep one is significantly greater.</span>
+
+<span class="sd">    Either version could be easily represented using a list or dictionary.</span>
+<span class="sd">    See the individual classes for details.</span>
+
+<span class="sd">    --- FUN FACTS (Wikipedia): ---</span>
+<span class="sd">        &quot;...there have been practical works for constructing disk-based</span>
+<span class="sd">        suffix trees which scale to **(few) GB/hours.**</span>
+<span class="sd">        The state of the art methods are TDD, TRELLIS, DiGeST, B2ST...</span>
+
+<span class="sd">        ...ERA can index the entire human genome in 19 minutes on an</span>
+<span class="sd">        8-core desktop computer with 16GB RAM. On a simple Linux cluster</span>
+<span class="sd">        with 16 nodes (4GB RAM per node), ERA can index the entire</span>
+<span class="sd">        human genome in less than 9 minutes.&quot;</span>
+<span class="sd">        &quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Init function.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MAX_LENGTH</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="c"># Create initial substrings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">word</span> <span class="o">=</span> <span class="n">word</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="c"># Generate the tree on creation.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_populate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ppr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">_populate</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+
+<div class="viewcode-block" id="ShallowSuffixTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.suffix_tree.ShallowSuffixTree">[docs]</a><span class="k">class</span> <span class="nc">ShallowSuffixTree</span><span class="p">(</span><span class="n">BaseSuffixTree</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Shallow:</span>
+<span class="sd">    substrings(string) = [</span>
+<span class="sd">        &#39;banana&#39;, # s[0:]</span>
+<span class="sd">        &#39;anana&#39;, # s[1:]</span>
+<span class="sd">        &#39;nana&#39;, # s[2:]</span>
+<span class="sd">        &#39;ana&#39;, # s[3:]</span>
+<span class="sd">        &#39;na&#39;, # s[4:]</span>
+<span class="sd">        &#39;a&#39;, # s[5:]</span>
+<span class="sd">    ]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@test_speed</span>
+<div class="viewcode-block" id="ShallowSuffixTree._populate"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.suffix_tree.ShallowSuffixTree._populate">[docs]</a>    <span class="k">def</span> <span class="nf">_populate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">substring_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">word</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="DeepSuffixTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.suffix_tree.DeepSuffixTree">[docs]</a><span class="k">class</span> <span class="nc">DeepSuffixTree</span><span class="p">(</span><span class="n">BaseSuffixTree</span><span class="p">):</span></div>
+
+    <span class="sd">&quot;&quot;&quot;The deeper tree can be up to `l` levels deep and `l` levels wide</span>
+<span class="sd">    -- where l is the length of the initial string.&quot;&quot;&quot;</span>
+
+    <span class="nd">@test_speed</span>
+    <span class="k">def</span> <span class="nf">_populate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Example: banana_tree = {</span>
+<span class="sd">            # [banana]</span>
+<span class="sd">            0: {</span>
+<span class="sd">            ....</span>
+<span class="sd">            ...........</span>
+<span class="sd">            .....................</span>
+<span class="sd">                                    0: &#39;ana&#39;,  # You get the idea...</span>
+<span class="sd">                                    1: {</span>
+<span class="sd">                                        1: &#39;na&#39;,</span>
+<span class="sd">                                        2: &#39;n&#39;</span>
+<span class="sd">                                    },</span>
+<span class="sd">                                    2: &#39;n&#39;</span>
+<span class="sd">                                },</span>
+<span class="sd">                                1: &#39;na&#39;,</span>
+<span class="sd">                                2: &#39;n&#39;</span>
+<span class="sd">                            },</span>
+<span class="sd">                            ...</span>
+<span class="sd">                            ..</span>
+<span class="sd">                            .</span>
+<span class="sd">                        },</span>
+<span class="sd">                        ..</span>
+
+<span class="sd">        Lookups:</span>
+<span class="sd">            &quot;banana&quot; -&gt; banana_tree[0][0]</span>
+<span class="sd">            &quot;ana&quot; -&gt; banana_tree[0][1][2],</span>
+<span class="sd">                     banana_tree[0][2][1],</span>
+<span class="sd">                     banana_tree[0][3][0],</span>
+<span class="sd">                     ..</span>
+<span class="sd">                     .</span>
+
+<span class="sd">        I&#39;m not sure what the use of the above, (what I might call the</span>
+<span class="sd">        &quot;Recursive SuperSet(TM)&quot;) is, but I&#39;m sure it has some interesting</span>
+<span class="sd">        mathematical properties, like the fact that each subset has exactly</span>
+<span class="sd">        1 less number of values than the previous sublist -- but I suppose that</span>
+<span class="sd">        is a pedestrian fact for many recursive structures.</span>
+
+<span class="sd">        Another (preferably) visual way to represent this,</span>
+<span class="sd">        is reminiscent of the example suffix tree generated</span>
+<span class="sd">        with Ukkonen&#39;s algorithm, given in the link.</span>
+
+<span class="sd">        I think it&#39;s a bit clearer and easier to understand.</span>
+<span class="sd">        Also, interestingly enough, you can get a normal looking tree by</span>
+<span class="sd">        tilting this one 45 degrees clockwise around the top corner - (1, 6)</span>
+
+<span class="sd">        In this representation, each node is spaced by the len(subst) + 4)</span>
+<span class="sd">        ... and the &#39;dimensions&#39; for each node are = (depth, breadth)</span>
+
+<span class="sd">        (B, D) represents the breadth, and depth.</span>
+
+<span class="sd">        (1, 6)   (5, 5)  (4, 4)  (3, 3)  (2, 2)(1, 1)</span>
+<span class="sd">        banana    anana    nana    ana    na   n$</span>
+<span class="sd">        0 --------|--------|-------|------|----|</span>
+<span class="sd">        |         |        ....    ...    ..   .</span>
+<span class="sd">        $         (4, 4)  (3, 3) (2, 2) (1, 1)</span>
+<span class="sd">                  nana    ana    na    n$</span>
+<span class="sd">                  |-------|------|-----|</span>
+<span class="sd">                  |       ...    ..    .</span>
+<span class="sd">                  (3, 3) (2, 2)(1, 1)</span>
+<span class="sd">                  ana    na    n$</span>
+<span class="sd">                  |------|-----|</span>
+<span class="sd">                  |      |     $</span>
+<span class="sd">                  (2, 2) (1, 1)</span>
+<span class="sd">                  an     n$</span>
+<span class="sd">                  |</span>
+<span class="sd">                 (0, 0) # This gives us another way to represent sentinels</span>
+<span class="sd">                  a$</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Defer to a reusable function.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">powerset_tree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">word</span><span class="p">,</span> <span class="n">terminator</span><span class="o">=</span><span class="s">&#39;$&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="GeneralizedSuffixTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.suffix_tree.GeneralizedSuffixTree">[docs]</a><span class="k">class</span> <span class="nc">GeneralizedSuffixTree</span><span class="p">(</span><span class="n">DeepSuffixTree</span><span class="p">):</span></div>
+
+    <span class="sd">&quot;&quot;&quot;A tree of suffix subtrees -- a suffix forest?&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">forest</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">forest</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeepSuffixTree</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">tree</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">forest</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">forest</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span>
+
+
+<div class="viewcode-block" id="UkkonenSuffixTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.suffix_tree.UkkonenSuffixTree">[docs]</a><span class="k">class</span> <span class="nc">UkkonenSuffixTree</span><span class="p">(</span><span class="n">BaseSuffixTree</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A more efficient algorithm.</span>
+<span class="sd">    See programmerspatch.blogspot.com.au</span>
+<span class="sd">        /2013/02/ukkonens-suffix-tree-algorithm.html for more information.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="UkkonenSuffixTree.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.suffix_tree.UkkonenSuffixTree.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Suffix Tree&#39;</span><span class="p">):</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;peanut&#39;</span><span class="p">,</span> <span class="s">&#39;butter&#39;</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">,</span> <span class="s">&#39;hotdog&#39;</span><span class="p">]</span>
+
+        <span class="n">shallow</span> <span class="o">=</span> <span class="n">ShallowSuffixTree</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">deep</span> <span class="o">=</span> <span class="n">DeepSuffixTree</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">forest</span> <span class="o">=</span> <span class="n">GeneralizedSuffixTree</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Shallow suffix tree&#39;</span><span class="p">,</span> <span class="n">shallow</span><span class="p">)</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Deep suffix tree&#39;</span><span class="p">,</span> <span class="n">deep</span><span class="p">)</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Generalized suffix tree aka &quot;suffix forest&quot;&#39;</span><span class="p">,</span> <span class="n">forest</span><span class="p">)</span>
+
+        <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+                <span class="n">keys</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+                <span class="k">def</span> <span class="nf">_rc</span><span class="p">(</span><span class="n">choices</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">subset</span> <span class="o">=</span> <span class="n">deep</span><span class="p">[</span><span class="n">_rc</span><span class="p">(</span><span class="n">keys</span><span class="p">)][</span><span class="n">_rc</span><span class="p">(</span><span class="n">keys</span><span class="p">)]</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Random choice...&#39;</span><span class="p">,</span> <span class="n">subset</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="k">continue</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

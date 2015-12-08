@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.trees.splay_trees &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.trees.splay_trees</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.trees.splay_trees</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.data_structures.trees.avl_trees</span> <span class="kn">import</span> <span class="n">AVLTree</span>
+<span class="kn">from</span> <span class="nn">MOAL.data_structures.trees.binary_search_trees</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">MOAL.data_structures.trees.binary_search_trees</span> <span class="kn">import</span> <span class="n">recurse_bst</span>
+<span class="kn">from</span> <span class="nn">MOAL.data_structures.trees.binary_search_trees</span> <span class="kn">import</span> <span class="n">populate_bst</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c"># Code based off of C++ implementation at</span>
+<span class="c"># http://en.wikipedia.org/wiki/Splay_tree</span>
+
+
+<div class="viewcode-block" id="SplayNode"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.splay_trees.SplayNode">[docs]</a><span class="k">class</span> <span class="nc">SplayNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="SplayTree"><a class="viewcode-back" href="../../../../MOAL.data_structures.trees.html#MOAL.data_structures.trees.splay_trees.SplayTree">[docs]</a><span class="k">class</span> <span class="nc">SplayTree</span><span class="p">(</span><span class="n">AVLTree</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">subtree_minimum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find the subtree minimum by checking for the smallest left child</span>
+<span class="sd">        -- keep traversing downward until no left_child is left.&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left_child</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+    <span class="k">def</span> <span class="nf">subtree_maximum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find the subtree maximum by checking for the largest right child</span>
+<span class="sd">        -- keep traversing downward until no right_child is left.&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">right_child</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right_child</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+    <span class="k">def</span> <span class="nf">has_grandparent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">left_rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Left rotation along a node&quot;&quot;&quot;</span>
+        <span class="n">node_right_child</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right_child</span>
+        <span class="k">if</span> <span class="n">node_right_child</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">node_right_child</span><span class="o">.</span><span class="n">left_child</span>
+            <span class="k">if</span> <span class="n">node_right_child</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+                <span class="n">node_right_child</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node</span>
+            <span class="n">node_right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">node_right_child</span>
+        <span class="k">elif</span> <span class="n">node</span> <span class="o">==</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">node_right_child</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">node_right_child</span>
+        <span class="k">if</span> <span class="n">node_right_child</span><span class="p">:</span>
+            <span class="n">node_right_child</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node_right_child</span>
+
+    <span class="k">def</span> <span class="nf">right_rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Right rotation along a node&quot;&quot;&quot;</span>
+        <span class="n">node_left_child</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left_child</span>
+        <span class="k">if</span> <span class="n">node_left_child</span><span class="p">:</span>
+            <span class="c"># If node has a left child, move its right child up</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">node_left_child</span><span class="o">.</span><span class="n">right_child</span>
+            <span class="k">if</span> <span class="n">node_left_child</span><span class="o">.</span><span class="n">right_child</span><span class="p">:</span>
+                <span class="n">node_left_child</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node</span>
+            <span class="n">node_left_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span>
+        <span class="c"># If the node has no parent, rotate it&#39;s child up to the root.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">node_left_child</span>
+        <span class="k">elif</span> <span class="n">node</span> <span class="o">==</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">node_left_child</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">node_left_child</span>
+        <span class="c"># Rotate the node below its left child to the right</span>
+        <span class="k">if</span> <span class="n">node_left_child</span><span class="p">:</span>
+            <span class="n">node_left_child</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node_left_child</span>
+
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Inserts an item into the tree, and then splays</span>
+<span class="sd">        the value all the way back up to the root (if applicable).&quot;&quot;&quot;</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="c"># Traverse up the tree and check if a key exists. If not,</span>
+        <span class="c"># put it to the left, otherwise add it to the right.</span>
+        <span class="k">while</span> <span class="n">root</span><span class="p">:</span>
+            <span class="n">parent</span> <span class="o">=</span> <span class="n">root</span>
+            <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right_child</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">left_child</span>
+        <span class="c"># Create a new node and set the parent to the new root</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">SplayNode</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="c"># If it&#39;s still none, then make this the root.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="c"># Otherwise, make the right or left child the root.</span>
+        <span class="k">elif</span> <span class="n">parent</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">root</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="c"># Splay again with the root.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">splay</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+        <span class="c"># Track all node counts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find an item by key&quot;&quot;&quot;</span>
+        <span class="c"># Start at the root.</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+        <span class="c"># While it&#39;s not None, check if the key matches, return if so.</span>
+        <span class="c"># Otherwise, keep traversing down until the key matches,</span>
+        <span class="c"># or no nodes exist; return nothing otherwise.</span>
+        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right_child</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left_child</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">node</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Removes an item (if found), from the tree.&quot;&quot;&quot;</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">splay</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+        <span class="c"># If the root has no left child, swap the root out with its</span>
+        <span class="c"># right child, otherwise do the opposite.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">right_child</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">left_child</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># If it has children, find the right minimum.</span>
+            <span class="c"># Rotate the root and below all the way around this node.</span>
+            <span class="n">node_min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtree_minimum</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">node_min</span><span class="o">.</span><span class="n">parent</span> <span class="o">!=</span> <span class="n">root</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">node_min</span><span class="p">,</span> <span class="n">node_min</span><span class="o">.</span><span class="n">right_child</span><span class="p">)</span>
+                <span class="n">node_min</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right_child</span>
+                <span class="n">node_min</span><span class="o">.</span><span class="n">right_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node_min</span>
+            <span class="c"># swap the root and minimum node, and its children/parents</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">node_min</span><span class="p">)</span>
+            <span class="n">node_min</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">left_child</span>
+            <span class="n">node_min</span><span class="o">.</span><span class="n">left_child</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node_min</span>
+            <span class="c"># Perform actual deletion</span>
+            <span class="k">del</span> <span class="n">root</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">swap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_u</span><span class="p">,</span> <span class="n">node_v</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Swap two nodes.&quot;&quot;&quot;</span>
+        <span class="c"># Make the second node the root if this node has no parent.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node_u</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">node_v</span>
+        <span class="c"># Swap the nodes, depending on if the node is a left or right child.</span>
+        <span class="k">elif</span> <span class="n">node_u</span> <span class="o">==</span> <span class="n">node_u</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span><span class="p">:</span>
+            <span class="n">node_u</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">=</span> <span class="n">node_v</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">node_u</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">=</span> <span class="n">node_v</span>
+        <span class="c"># Swap the nodes&#39; parents, thus &quot;unhooking&quot; the branch</span>
+        <span class="k">if</span> <span class="n">node_v</span><span class="p">:</span>
+            <span class="n">node_v</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">node_u</span><span class="o">.</span><span class="n">parent</span>
+
+    <span class="k">def</span> <span class="nf">splay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The primary splay operation. Splaying happens all the way</span>
+<span class="sd">        up the tree (until `node` no longer has a parent).</span>
+<span class="sd">        Three methods are available when splaying:</span>
+<span class="sd">            1. zig step:</span>
+
+<span class="sd">                (1)</span>
+<span class="sd">                /</span>
+<span class="sd">              (0)</span>
+
+<span class="sd">            2. zig-zig step:</span>
+
+<span class="sd">                (2)</span>
+<span class="sd">                /</span>
+<span class="sd">              (1)</span>
+<span class="sd">              /</span>
+<span class="sd">            (0)</span>
+
+<span class="sd">            3. zig-zag step:</span>
+
+<span class="sd">            (0)</span>
+<span class="sd">              \</span>
+<span class="sd">              (1)</span>
+<span class="sd">                \</span>
+<span class="sd">                (2)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Splaying node with value: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="n">recurse_bst</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_grandparent</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">==</span> <span class="n">node</span><span class="p">:</span>
+                    <span class="c"># Zig right</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c"># Zig left</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">==</span> <span class="n">node</span> <span class="ow">and</span> \
+                    <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">==</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="c"># Zig-zig right</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">==</span> <span class="n">node</span> <span class="ow">and</span> \
+                    <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">==</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="c"># Zig-zig left</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">left_child</span> <span class="o">==</span> <span class="n">node</span> <span class="ow">and</span> \
+                    <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">right_child</span> <span class="o">==</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="c"># Zig-zag right</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c"># Zig-zag left</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Splay Tree&#39;</span><span class="p">):</span>
+        <span class="n">splay</span> <span class="o">=</span> <span class="n">SplayTree</span><span class="p">()</span>
+        <span class="n">populate_bst</span><span class="p">(</span><span class="n">splay</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

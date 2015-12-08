@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.type_theory package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL package" href="MOAL.html"/>
+        <link rel="prev" title="MOAL.systems_engineering.performance.caching package" href="MOAL.systems_engineering.performance.caching.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">MOAL.type_theory package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.type_theory.duck">MOAL.type_theory.duck module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.type_theory.nominal_structural">MOAL.type_theory.nominal_structural module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+    <li>MOAL.type_theory package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.type_theory.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.type_theory">
+<span id="moal-type-theory-package"></span><h1>MOAL.type_theory package<a class="headerlink" href="#module-MOAL.type_theory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.type_theory.duck">
+<span id="moal-type-theory-duck-module"></span><h2>MOAL.type_theory.duck module<a class="headerlink" href="#module-MOAL.type_theory.duck" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.type_theory.duck.ApoptosisManager">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.duck.</code><code class="descname">ApoptosisManager</code><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#ApoptosisManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.ApoptosisManager" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.type_theory.duck.ApoptosisManager.autophagy">
+<code class="descname">autophagy</code><span class="sig-paren">(</span><em>tissue</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.duck.ApoptosisManager.autophagy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.duck.CancerCell">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.duck.</code><code class="descname">CancerCell</code><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#CancerCell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.CancerCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.type_theory.duck.Cell" title="MOAL.type_theory.duck.Cell"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.duck.Cell</span></code></a></p>
+<p>Duck Typing, with a twist - it looks like a cell, moves like a cell...
+but it has a little surprise!</p>
+<dl class="attribute">
+<dt id="MOAL.type_theory.duck.CancerCell.programmed_cell_death">
+<code class="descname">programmed_cell_death</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.type_theory.duck.CancerCell.programmed_cell_death" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.duck.Cell">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.duck.</code><code class="descname">Cell</code><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#Cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.Cell" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.type_theory.duck.Cell.copy_dna">
+<code class="descname">copy_dna</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.duck.Cell.copy_dna" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.type_theory.duck.Cell.mitosis">
+<code class="descname">mitosis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.duck.Cell.mitosis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.type_theory.duck.Cell.mutate">
+<code class="descname">mutate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.duck.Cell.mutate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.duck.Cell.programmed_cell_death">
+<code class="descname">programmed_cell_death</code><em class="property"> = True</em><a class="headerlink" href="#MOAL.type_theory.duck.Cell.programmed_cell_death" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.duck.Skin">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.duck.</code><code class="descname">Skin</code><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#Skin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.Skin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="MOAL.type_theory.duck.Skin.tissue_type">
+<code class="descname">tissue_type</code><em class="property"> = 'skin'</em><a class="headerlink" href="#MOAL.type_theory.duck.Skin.tissue_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.duck.Teratoma">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.duck.</code><code class="descname">Teratoma</code><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#Teratoma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.Teratoma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.type_theory.duck.Skin" title="MOAL.type_theory.duck.Skin"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.duck.Skin</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.type_theory.duck.Teratoma.tissue_type">
+<code class="descname">tissue_type</code><em class="property"> = 'eyeball + teeth'</em><a class="headerlink" href="#MOAL.type_theory.duck.Teratoma.tissue_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.duck.VitalOrgan">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.duck.</code><code class="descname">VitalOrgan</code><span class="sig-paren">(</span><em>cells=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#VitalOrgan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.VitalOrgan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fun side note - when an organ or part of the body is forming,
+it uses cell apoptosis to effectively &#8216;carve out&#8217; the shape by killing
+off cells in a programmatic process &#8211; amazing!</p>
+<p>See: <a class="reference external" href="https://en.wikipedia.org/wiki/Programmed_cell_death">https://en.wikipedia.org/wiki/Programmed_cell_death</a></p>
+<dl class="method">
+<dt id="MOAL.type_theory.duck.VitalOrgan.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>cells=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#VitalOrgan.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.VitalOrgan.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.type_theory.duck.VitalOrgan.differentiate">
+<code class="descname">differentiate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#VitalOrgan.differentiate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.VitalOrgan.differentiate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not to be confused with cell differentiation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.type_theory.duck.VitalOrgan.replenish">
+<code class="descname">replenish</code><span class="sig-paren">(</span><em>cells</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/type_theory/duck.html#VitalOrgan.replenish"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.duck.VitalOrgan.replenish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.type_theory.nominal_structural">
+<span id="moal-type-theory-nominal-structural-module"></span><h2>MOAL.type_theory.nominal_structural module<a class="headerlink" href="#module-MOAL.type_theory.nominal_structural" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.nominal_structural.</code><code class="descname">InvalidSubstructuralType</code><a class="reference internal" href="_modules/MOAL/type_theory/nominal_structural.html#InvalidSubstructuralType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.type_theory.nominal_structural.StructuralType" title="MOAL.type_theory.nominal_structural.StructuralType"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.nominal_structural.StructuralType</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType.random_other_prop">
+<code class="descname">random_other_prop</code><em class="property"> = 'Foobar'</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType.random_other_prop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.type_theory.nominal_structural.InvalidSubstructuralType.test_method_2">
+<code class="descname">test_method_2</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.InvalidSubstructuralType.test_method_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.nominal_structural.PrimaryNominal">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.nominal_structural.</code><code class="descname">PrimaryNominal</code><a class="reference internal" href="_modules/MOAL/type_theory/nominal_structural.html#PrimaryNominal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.nominal_structural.PrimaryNominal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code>, <a class="reference internal" href="#MOAL.type_theory.nominal_structural.TesterMixin" title="MOAL.type_theory.nominal_structural.TesterMixin"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.nominal_structural.TesterMixin</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.nominal_structural.</code><code class="descname">StructuralType</code><a class="reference internal" href="_modules/MOAL/type_theory/nominal_structural.html#StructuralType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code>, <a class="reference internal" href="#MOAL.type_theory.nominal_structural.TesterMixin" title="MOAL.type_theory.nominal_structural.TesterMixin"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.nominal_structural.TesterMixin</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType.__metaclass__">
+<code class="descname">__metaclass__</code><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType.__metaclass__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></code></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType.__subclasshook__">
+<em class="property">classmethod </em><code class="descname">__subclasshook__</code><span class="sig-paren">(</span><em>subclass</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType.__subclasshook__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use an abc and override subclass hook by looking
+over all the methods and properties of the class. This allows for
+structural comparison, instead of the typical inheritance pattern.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType._extract_members">
+<em class="property">static </em><code class="descname">_extract_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType._extract_members" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType._extract_props">
+<em class="property">static </em><code class="descname">_extract_props</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType._extract_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType.compare">
+<em class="property">static </em><code class="descname">compare</code><span class="sig-paren">(</span><em>self_methods</em>, <em>self_props</em>, <em>other_methods</em>, <em>other_props</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType.compare" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType.debug">
+<code class="descname">debug</code><em class="property"> = True</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.type_theory.nominal_structural.StructuralType.test_method">
+<code class="descname">test_method</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.StructuralType.test_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.nominal_structural.SubNominal">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.nominal_structural.</code><code class="descname">SubNominal</code><a class="reference internal" href="_modules/MOAL/type_theory/nominal_structural.html#SubNominal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.nominal_structural.SubNominal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.type_theory.nominal_structural.PrimaryNominal" title="MOAL.type_theory.nominal_structural.PrimaryNominal"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.nominal_structural.PrimaryNominal</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.nominal_structural.TesterMixin">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.nominal_structural.</code><code class="descname">TesterMixin</code><a class="reference internal" href="_modules/MOAL/type_theory/nominal_structural.html#TesterMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.nominal_structural.TesterMixin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.type_theory.nominal_structural.TesterMixin.show_class">
+<code class="descname">show_class</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.TesterMixin.show_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.type_theory.nominal_structural.ValidSubStructuralType">
+<em class="property">class </em><code class="descclassname">MOAL.type_theory.nominal_structural.</code><code class="descname">ValidSubStructuralType</code><a class="reference internal" href="_modules/MOAL/type_theory/nominal_structural.html#ValidSubStructuralType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.type_theory.nominal_structural.ValidSubStructuralType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.type_theory.nominal_structural.StructuralType" title="MOAL.type_theory.nominal_structural.StructuralType"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.nominal_structural.StructuralType</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.ValidSubStructuralType.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.ValidSubStructuralType.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.type_theory.nominal_structural.ValidSubStructuralType._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.type_theory.nominal_structural.ValidSubStructuralType.test_method">
+<code class="descname">test_method</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.type_theory.nominal_structural.ValidSubStructuralType.test_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="MOAL.systems_engineering.performance.caching.html" class="btn btn-neutral" title="MOAL.systems_engineering.performance.caching package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

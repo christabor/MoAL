@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_simple</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid1</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="InvoiceManager"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager">[docs]</a><span class="k">class</span> <span class="nc">InvoiceManager</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The invoice manager is another potential source of indirection.</span>
+<span class="sd">    The customer manager should not know much about invoices, except</span>
+<span class="sd">    how to delegate them via indirection, to the invoice manager.</span>
+<span class="sd">    Simply operations like adding and retrieving,</span>
+<span class="sd">    should be all the users of this manager should know.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="InvoiceManager.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="InvoiceManager.get_all"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.get_all">[docs]</a>    <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span></div>
+
+<div class="viewcode-block" id="InvoiceManager.create"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.InvoiceManager.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">customer</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="n">invoice</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;customer&#39;</span><span class="p">:</span> <span class="n">customer</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span>
+            <span class="s">&#39;amount&#39;</span><span class="p">:</span> <span class="n">amount</span><span class="p">,</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;TX{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uuid1</span><span class="p">())</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">customer</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">invoice</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span><span class="p">[</span><span class="n">customer</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">invoice</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="CustomerManager"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager">[docs]</a><span class="k">class</span> <span class="nc">CustomerManager</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The customer manager acts as a layer of indirection to common</span>
+<span class="sd">    operations that should not be cluttering up the actual customer object.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CustomerManager.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span> <span class="o">=</span> <span class="n">InvoiceManager</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CustomerManager.__delitem__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__delitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">customers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="CustomerManager.add_balance"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.add_balance">[docs]</a>    <span class="k">def</span> <span class="nf">add_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">customer</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">cust</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">customers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">cust</span><span class="p">[</span><span class="s">&#39;balance_due&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">amount</span></div>
+
+<div class="viewcode-block" id="CustomerManager.add"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">customer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">customer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">customer</span><span class="o">.</span><span class="n">details</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CustomerManager.__setitem__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;CU{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uuid1</span><span class="p">()),</span>
+            <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;details&#39;</span><span class="p">:</span> <span class="n">details</span><span class="p">,</span> <span class="s">&#39;balance_due&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="CustomerManager.process_balances"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.process_balances">[docs]</a>    <span class="k">def</span> <span class="nf">process_balances</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">customer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">customers</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Processing customer: #{} ({})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">customer</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">],</span> <span class="n">name</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">customer</span><span class="p">[</span><span class="s">&#39;balance_due&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;Invoicing... {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">customer</span><span class="p">[</span><span class="s">&#39;balance_due&#39;</span><span class="p">]))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">customer</span><span class="p">[</span><span class="s">&#39;balance_due&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;No balance due.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CustomerManager.get_invoices"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.CustomerManager.get_invoices">[docs]</a>    <span class="k">def</span> <span class="nf">get_invoices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;All invoices&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">invoices</span><span class="o">.</span><span class="n">get_all</span><span class="p">())</span></div></div>
+
+
+<div class="viewcode-block" id="Customer"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_indirection.Customer">[docs]</a><span class="k">class</span> <span class="nc">Customer</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">details</span> <span class="o">=</span> <span class="n">details</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;GRASP indirection/delegation pattern&#39;</span><span class="p">):</span>
+        <span class="n">mgr</span> <span class="o">=</span> <span class="n">CustomerManager</span><span class="p">()</span>
+        <span class="n">bob</span> <span class="o">=</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&#39;bob&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;age&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">})</span>
+        <span class="n">jane</span> <span class="o">=</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&#39;jane&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;age&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">})</span>
+        <span class="n">eras</span> <span class="o">=</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&#39;erasmus&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;age&#39;</span><span class="p">:</span> <span class="mi">1010</span><span class="p">})</span>
+
+        <span class="n">mgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">bob</span><span class="p">)</span>
+        <span class="n">mgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">jane</span><span class="p">)</span>
+        <span class="n">mgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">eras</span><span class="p">)</span>
+
+        <span class="n">mgr</span><span class="o">.</span><span class="n">add_balance</span><span class="p">(</span><span class="n">eras</span><span class="p">,</span> <span class="mf">9000.01</span><span class="p">)</span>
+        <span class="n">mgr</span><span class="o">.</span><span class="n">add_balance</span><span class="p">(</span><span class="n">bob</span><span class="p">,</span> <span class="mf">120.00</span><span class="p">)</span>
+        <span class="n">mgr</span><span class="o">.</span><span class="n">process_balances</span><span class="p">()</span>
+
+        <span class="n">mgr</span><span class="o">.</span><span class="n">get_invoices</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

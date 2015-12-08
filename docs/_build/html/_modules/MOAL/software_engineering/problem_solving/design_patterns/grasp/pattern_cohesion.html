@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_simple</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    en.wikipedia.org/wiki/Cohesion_(computer_science)</span>
+<span class="sd">    For these examples, &#39;module&#39; is actually considered a class.</span>
+
+<span class="sd">    NOTE: some of these classes access properties or methods that do not exist.</span>
+<span class="sd">    Making it fully compliant is irrelevant to the scope of this project.</span>
+<span class="sd">    In some cases, the examples will work 100%, but some don&#39;t.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="Utilities"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities">[docs]</a><span class="k">class</span> <span class="nc">Utilities</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;BAD, BAD, BAD! Grouping based on circumstance or coincidence.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Utilities.add_numbers"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.add_numbers">[docs]</a>    <span class="k">def</span> <span class="nf">add_numbers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Utilities.get_fullname"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.get_fullname">[docs]</a>    <span class="k">def</span> <span class="nf">get_fullname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;{}. {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">prefix</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">firstname</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">lastname</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Utilities.format_thing"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Utilities.format_thing">[docs]</a>    <span class="k">def</span> <span class="nf">format_thing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stuff</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;Formatted: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stuff</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="InputsController"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController">[docs]</a><span class="k">class</span> <span class="nc">InputsController</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Grouping based on logical category of functionality or type&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="InputsController.handle_keyboard"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_keyboard">[docs]</a>    <span class="k">def</span> <span class="nf">handle_keyboard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">character</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="InputsController.handle_mouse"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_mouse">[docs]</a>    <span class="k">def</span> <span class="nf">handle_mouse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="InputsController.handle_other"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.handle_other">[docs]</a>    <span class="k">def</span> <span class="nf">handle_other</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="InputsController.register_input"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.InputsController.register_input">[docs]</a>    <span class="k">def</span> <span class="nf">register_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="ProcessUserData"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData">[docs]</a><span class="k">class</span> <span class="nc">ProcessUserData</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Grouping based on procedural and temporal:</span>
+<span class="sd">    process -&gt; _process -&gt; handle -&gt; error | success&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ProcessUserData.process"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_file</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s">&#39;yay!&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_error</span><span class="p">(</span><span class="s">&#39;Some error!&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ProcessUserData.handle_file"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.handle_file">[docs]</a>    <span class="k">def</span> <span class="nf">handle_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ProcessUserData.process_data"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.process_data">[docs]</a>    <span class="k">def</span> <span class="nf">process_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ProcessUserData.success"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.success">[docs]</a>    <span class="k">def</span> <span class="nf">success</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ProcessUserData.add_error"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.ProcessUserData.add_error">[docs]</a>    <span class="k">def</span> <span class="nf">add_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="FileOpener"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener">[docs]</a><span class="k">class</span> <span class="nc">FileOpener</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Grouping based on procedure: open -&gt; check perms -&gt; read | error&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FileOpener.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">access_permissions</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;read&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;bob&#39;</span><span class="p">,</span> <span class="s">&#39;tim&#39;</span><span class="p">,</span> <span class="s">&#39;angie&#39;</span><span class="p">,</span> <span class="s">&#39;linda&#39;</span><span class="p">],</span>
+            <span class="s">&#39;write&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;linda&#39;</span><span class="p">,</span> <span class="s">&#39;angie&#39;</span><span class="p">,</span> <span class="s">&#39;bob&#39;</span><span class="p">],</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="FileOpener.open"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener.open">[docs]</a>    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_read</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">readfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_error</span><span class="p">(</span><span class="s">&#39;Cannot read this file!&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileOpener._can_read"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener._can_read">[docs]</a>    <span class="k">def</span> <span class="nf">_can_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_permissions</span><span class="p">(</span><span class="s">&#39;read&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileOpener._can_write"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.FileOpener._can_write">[docs]</a>    <span class="k">def</span> <span class="nf">_can_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_permissions</span><span class="p">(</span><span class="s">&#39;write&#39;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="HandleUser"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser">[docs]</a><span class="k">class</span> <span class="nc">HandleUser</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Grouping based on operating on the same piece or type of data.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="HandleUser.create"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="HandleUser.read"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HandleUser.update"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="HandleUser.delete"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.HandleUser.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="UnixPipe"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe">[docs]</a><span class="k">class</span> <span class="nc">UnixPipe</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Grouping based on the notion that outputs to one function become</span>
+<span class="sd">    the input to another, when combined in sequence.</span>
+<span class="sd">    This is the crux of the UNIX philosophy.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="UnixPipe.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="UnixPipe.ls"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.ls">[docs]</a>    <span class="k">def</span> <span class="nf">ls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="UnixPipe.grep"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.grep">[docs]</a>    <span class="k">def</span> <span class="nf">grep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">chunk</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">chunk</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="UnixPipe.save"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.UnixPipe.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;wb+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">newfile</span><span class="p">:</span>
+            <span class="n">newfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&gt;&gt;&gt; {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+
+
+<div class="viewcode-block" id="Lexer"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer">[docs]</a><span class="k">class</span> <span class="nc">Lexer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Grouping based on specific functions that contribute</span>
+<span class="sd">    to a single, well-defined goal.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Lexer.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrapper_start</span><span class="p">,</span> <span class="n">wrapper_end</span><span class="p">,</span> <span class="n">token_start</span><span class="p">,</span> <span class="n">token_end</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrapper_start</span> <span class="o">=</span> <span class="n">wrapper_start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrapper_end</span> <span class="o">=</span> <span class="n">wrapper_end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">token_start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">token_end</span></div>
+
+<div class="viewcode-block" id="Lexer._fmt"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer._fmt">[docs]</a>    <span class="k">def</span> <span class="nf">_fmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;  {}{}{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">count</span> <span class="k">else</span> <span class="s">&#39;&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Lexer._fmt_wrapper"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer._fmt_wrapper">[docs]</a>    <span class="k">def</span> <span class="nf">_fmt_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapper_start</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">{}</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapper_end</span></div>
+
+<div class="viewcode-block" id="Lexer.tokenize"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.Lexer.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">wrapper</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fmt_wrapper</span><span class="p">()</span>
+        <span class="n">_tokens</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">token</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+            <span class="n">_tokens</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fmt</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_tokens</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="NaiveXMLLexer"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.NaiveXMLLexer">[docs]</a><span class="k">class</span> <span class="nc">NaiveXMLLexer</span><span class="p">(</span><span class="n">Lexer</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NaiveXMLLexer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span>
+            <span class="s">&#39;&lt;item&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&lt;/item&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&lt;token&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&lt;/token&gt;&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="SExpressionLexer"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion.SExpressionLexer">[docs]</a><span class="k">class</span> <span class="nc">SExpressionLexer</span><span class="p">(</span><span class="n">Lexer</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SExpressionLexer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;)&#39;</span><span class="p">,</span> <span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;)&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="_print"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.grasp.html#MOAL.software_engineering.problem_solving.design_patterns.grasp.pattern_cohesion._print">[docs]</a><span class="k">def</span> <span class="nf">_print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">thing</span><span class="p">):</span>
+    <span class="n">members</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+               <span class="k">if</span> <span class="ow">not</span> <span class="n">ref</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ref</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">)]</span>
+    <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;{} &lt;&lt; {} &gt;&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">text</span><span class="p">,</span> <span class="n">title</span><span class="p">),</span> <span class="p">[</span><span class="n">thing</span><span class="p">]</span> <span class="o">+</span> <span class="n">members</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;GRASP High cohesion pattern&#39;</span><span class="p">):</span>
+        <span class="n">_print</span><span class="p">(</span><span class="s">&#39;Bad!&#39;</span><span class="p">,</span> <span class="s">&#39;Utilities (coincidental)&#39;</span><span class="p">,</span> <span class="n">Utilities</span><span class="p">)</span>
+        <span class="n">_print</span><span class="p">(</span><span class="s">&#39;Inferior...&#39;</span><span class="p">,</span> <span class="s">&#39;Inputs (logical)&#39;</span><span class="p">,</span> <span class="n">InputsController</span><span class="p">)</span>
+        <span class="n">_print</span><span class="p">(</span><span class="s">&#39;Okay...&#39;</span><span class="p">,</span> <span class="s">&#39;Processor (temporal)&#39;</span><span class="p">,</span> <span class="n">ProcessUserData</span><span class="p">)</span>
+        <span class="n">_print</span><span class="p">(</span><span class="s">&#39;Okay...&#39;</span><span class="p">,</span> <span class="s">&#39;File opener (procedural)&#39;</span><span class="p">,</span> <span class="n">FileOpener</span><span class="p">)</span>
+        <span class="n">_print</span><span class="p">(</span><span class="s">&#39;Very good...&#39;</span><span class="p">,</span> <span class="s">&#39;User (informational)&#39;</span><span class="p">,</span> <span class="n">HandleUser</span><span class="p">)</span>
+        <span class="n">_print</span><span class="p">(</span><span class="s">&#39;Very good...&#39;</span><span class="p">,</span> <span class="s">&#39;Pipe (sequental)&#39;</span><span class="p">,</span> <span class="n">UnixPipe</span><span class="p">)</span>
+        <span class="n">_print</span><span class="p">(</span><span class="s">&#39;Best!&#39;</span><span class="p">,</span> <span class="s">&#39;Parser (functional)&#39;</span><span class="p">,</span> <span class="n">Lexer</span><span class="p">)</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        # Example usage of pipe...</span>
+<span class="sd">        &gt;&gt;&gt; pipe = UnixPipe()</span>
+<span class="sd">        &gt;&gt;&gt; pipe.ls().grep(&#39;TASKS.md&#39;).save(&#39;pipetest-123.txt&#39;)</span>
+
+<span class="sd">        # Example usage of token...</span>
+<span class="sd">        luther = SExpressionLexer()</span>
+<span class="sd">        luther = NaiveXMLLexer()</span>
+<span class="sd">        t = luther.tokenize(&#39;Do you know the story of Prometheus? No, of &#39;</span>
+<span class="sd">                            &#39;course you don\&#39;t. Prometheus was a god who stole &#39;</span>
+<span class="sd">                            &#39;the power of fire from the other gods and gave &#39;</span>
+<span class="sd">                            &#39;control of it to the mortals. In essence, he gave &#39;</span>
+<span class="sd">                            &#39;us technology, he gave us power.&#39;)</span>
+<span class="sd">        print(t)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

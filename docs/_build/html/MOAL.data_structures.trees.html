@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.trees package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.data_structures package" href="MOAL.data_structures.html"/>
+        <link rel="next" title="MOAL.execution package" href="MOAL.execution.html"/>
+        <link rel="prev" title="MOAL.data_structures.other package" href="MOAL.data_structures.other.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.data_structures.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.persistent">MOAL.data_structures.persistent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.retroactive">MOAL.data_structures.retroactive module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.data_structures.html">MOAL.data_structures package</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.trees package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.data_structures.trees.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.data_structures.trees">
+<span id="moal-data-structures-trees-package"></span><h1>MOAL.data_structures.trees package<a class="headerlink" href="#module-MOAL.data_structures.trees" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.avl_trees">
+<span id="moal-data-structures-trees-avl-trees-module"></span><h2>MOAL.data_structures.trees.avl_trees module<a class="headerlink" href="#module-MOAL.data_structures.trees.avl_trees" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.avl_trees.AVLTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.avl_trees.</code><code class="descname">AVLTree</code><a class="reference internal" href="_modules/MOAL/data_structures/trees/avl_trees.html#AVLTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.avl_trees.AVLTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree" title="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.binary_search_trees.BinarySearchTree</span></code></a></p>
+<p>AVL tree nodes all calculate a balance factor to determine rotations
+and keep tree in balance for best performance:</p>
+<p>bf = height(left_sub_tree) - height(right_sub_tree)</p>
+<p>-1, 0, 1 balance factors are all considered to be within balanced range.</p>
+<p>unbalanced tree</p>
+<blockquote>
+<div><p>(-2)
+/         /        (0)      (-1)</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>/              /              (0)    (-1)</dt>
+<dd><ol class="first last arabic simple" start="0">
+<li></li>
+</ol>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.avl_trees.AVLTree._put">
+<code class="descname">_put</code><span class="sig-paren">(</span><em>key</em>, <em>val</em>, <em>current_node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/avl_trees.html#AVLTree._put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.avl_trees.AVLTree._put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.avl_trees.AVLTree._rebalance">
+<code class="descname">_rebalance</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/avl_trees.html#AVLTree._rebalance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.avl_trees.AVLTree._rebalance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.avl_trees.AVLTree._rotate_left">
+<code class="descname">_rotate_left</code><span class="sig-paren">(</span><em>rotation_root</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/avl_trees.html#AVLTree._rotate_left"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.avl_trees.AVLTree._rotate_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.avl_trees.AVLTree._rotate_right">
+<code class="descname">_rotate_right</code><span class="sig-paren">(</span><em>rotation_root</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/avl_trees.html#AVLTree._rotate_right"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.avl_trees.AVLTree._rotate_right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.avl_trees.AVLTree._update_balance">
+<code class="descname">_update_balance</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/avl_trees.html#AVLTree._update_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.avl_trees.AVLTree._update_balance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.binary_search_trees">
+<span id="moal-data-structures-trees-binary-search-trees-module"></span><h2>MOAL.data_structures.trees.binary_search_trees module<a class="headerlink" href="#module-MOAL.data_structures.trees.binary_search_trees" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.binary_search_trees.</code><code class="descname">BinarySearchTree</code><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>BST Code sample originally from interactivepython.org
+/runestone/static/pythonds/Trees/bst.html#lst-bst1,
+with some modifications.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.__contains__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.__delitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.__len__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._get">
+<code class="descname">_get</code><span class="sig-paren">(</span><em>key</em>, <em>current_node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree._get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._put">
+<code class="descname">_put</code><span class="sig-paren">(</span><em>key</em>, <em>val</em>, <em>current_node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree._put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._swap_current">
+<code class="descname">_swap_current</code><span class="sig-paren">(</span><em>current_node</em>, <em>side</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree._swap_current"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree._swap_current" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.find_min">
+<code class="descname">find_min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.find_min"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.find_min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.find_successor">
+<code class="descname">find_successor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.find_successor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.find_successor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.length">
+<code class="descname">length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.put">
+<code class="descname">put</code><span class="sig-paren">(</span><em>key</em>, <em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>current_node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.splice_out">
+<code class="descname">splice_out</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#BinarySearchTree.splice_out"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree.splice_out" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.binary_search_trees.</code><code class="descname">Node</code><span class="sig-paren">(</span><em>key</em>, <em>val</em>, <em>left=None</em>, <em>right=None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>key</em>, <em>val</em>, <em>left=None</em>, <em>right=None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.has_any_children">
+<code class="descname">has_any_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.has_any_children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.has_both_children">
+<code class="descname">has_both_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.has_both_children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.has_left_child">
+<code class="descname">has_left_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.has_left_child" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.has_right_child">
+<code class="descname">has_right_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.has_right_child" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.is_leaf">
+<code class="descname">is_leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.is_leaf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.is_left_child">
+<code class="descname">is_left_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.is_left_child" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.is_right_child">
+<code class="descname">is_right_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.is_right_child" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.is_root">
+<code class="descname">is_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.is_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.binary_search_trees.Node.swap_node">
+<code class="descname">swap_node</code><span class="sig-paren">(</span><em>key</em>, <em>value</em>, <em>left_child</em>, <em>right_child</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.Node.swap_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.trees.binary_search_trees.populate_bst">
+<code class="descclassname">MOAL.data_structures.trees.binary_search_trees.</code><code class="descname">populate_bst</code><span class="sig-paren">(</span><em>bst</em>, <em>count=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#populate_bst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.populate_bst" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.trees.binary_search_trees.recurse_bst">
+<code class="descclassname">MOAL.data_structures.trees.binary_search_trees.</code><code class="descname">recurse_bst</code><span class="sig-paren">(</span><em>node</em>, <em>lastkey</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/binary_search_trees.html#recurse_bst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.binary_search_trees.recurse_bst" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="moal-data-structures-trees-binary-trees-module">
+<h2>MOAL.data_structures.trees.binary_trees module<a class="headerlink" href="#moal-data-structures-trees-binary-trees-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="moal-data-structures-trees-cartesian-trees-module">
+<h2>MOAL.data_structures.trees.cartesian_trees module<a class="headerlink" href="#moal-data-structures-trees-cartesian-trees-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.heaps">
+<span id="moal-data-structures-trees-heaps-module"></span><h2>MOAL.data_structures.trees.heaps module<a class="headerlink" href="#module-MOAL.data_structures.trees.heaps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.heaps.BinHeap">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.heaps.</code><code class="descname">BinHeap</code><span class="sig-paren">(</span><em>new_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/heaps.html#BinHeap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.heaps.BinHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree" title="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.binary_search_trees.BinarySearchTree</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.heaps.BinHeap.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>new_list</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.heaps.BinHeap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.heaps.BinHeap.del_min">
+<code class="descname">del_min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.heaps.BinHeap.del_min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.heaps.BinHeap.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.heaps.BinHeap.insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.heaps.BinHeap.min_child_index">
+<code class="descname">min_child_index</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.heaps.BinHeap.min_child_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.heaps.BinHeap.swap_down">
+<code class="descname">swap_down</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.heaps.BinHeap.swap_down" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.heaps.BinHeap.swap_up">
+<code class="descname">swap_up</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.heaps.BinHeap.swap_up" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.trees.heaps.PriorityQueue">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.heaps.</code><code class="descname">PriorityQueue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/heaps.html#PriorityQueue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.heaps.PriorityQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.heaps.BinHeap" title="MOAL.data_structures.trees.heaps.BinHeap"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.heaps.BinHeap</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.heaps.PriorityQueue.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.heaps.PriorityQueue.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="moal-data-structures-trees-merkle-tree-module">
+<h2>MOAL.data_structures.trees.merkle_tree module<a class="headerlink" href="#moal-data-structures-trees-merkle-tree-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.order_statistic_bst">
+<span id="moal-data-structures-trees-order-statistic-bst-module"></span><h2>MOAL.data_structures.trees.order_statistic_bst module<a class="headerlink" href="#module-MOAL.data_structures.trees.order_statistic_bst" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.order_statistic_bst.</code><code class="descname">OrderStatisticBST</code><a class="reference internal" href="_modules/MOAL/data_structures/trees/order_statistic_bst.html#OrderStatisticBST"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree" title="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.binary_search_trees.BinarySearchTree</span></code></a></p>
+<p>[From Wikipedia]</p>
+<blockquote>
+<div><p>&#8220;In computer science, an order statistic tree is a variant of the binary
+search tree, that supports two additional operations beyond
+insertion, lookup and deletion:</p>
+<ul>
+<li><p class="first">Select(i) - find the &#8216;i&#8217;th&#8217; smallest element stored in the tree</p>
+</li>
+<li><dl class="first docutils">
+<dt>Rank(x) - find the rank of element x in the tree, i.e. its index in</dt>
+<dd><p class="first last">the sorted list of elements of the tree</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Both operations can be performed in O(log n) time in the average case;
+when a self-balancing tree is used as the base data structure,
+this bound also applies in the worst case.&#8221;</p>
+</div></blockquote>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST._put">
+<code class="descname">_put</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/order_statistic_bst.html#OrderStatisticBST._put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST._put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override default behavior to augment size property.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST.rank">
+<code class="descname">rank</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/order_statistic_bst.html#OrderStatisticBST.rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST.rank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/order_statistic_bst.html#OrderStatisticBST.select"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.order_statistic_bst.OrderStatisticBST.select" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.radix_tree">
+<span id="moal-data-structures-trees-radix-tree-module"></span><h2>MOAL.data_structures.trees.radix_tree module<a class="headerlink" href="#module-MOAL.data_structures.trees.radix_tree" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.radix_tree.NaiveRadixTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.radix_tree.</code><code class="descname">NaiveRadixTree</code><span class="sig-paren">(</span><em>is_root=False</em>, <em>alphabet=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/radix_tree.html#NaiveRadixTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.radix_tree.NaiveRadixTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.trie.NaiveTrie" title="MOAL.data_structures.trees.trie.NaiveTrie"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.trie.NaiveTrie</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.radix_tree.NaiveRadixTree._get_offset">
+<code class="descname">_get_offset</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.radix_tree.NaiveRadixTree._get_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the offset of self value and a string.
+e.g. pot / potato = ato, position = 3 (used like [3:])</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.radix_tree.NaiveRadixTree.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.radix_tree.NaiveRadixTree.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a node to this path, or augment it by updating the substring.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.radix_tree.NaiveRadixTree.view">
+<code class="descname">view</code><span class="sig-paren">(</span><em>indent=0</em>, <em>divider=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.radix_tree.NaiveRadixTree.view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.splay_trees">
+<span id="moal-data-structures-trees-splay-trees-module"></span><h2>MOAL.data_structures.trees.splay_trees module<a class="headerlink" href="#module-MOAL.data_structures.trees.splay_trees" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.splay_trees.</code><code class="descname">SplayNode</code><span class="sig-paren">(</span><em>key</em>, <em>val</em>, <em>left=None</em>, <em>right=None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/splay_trees.html#SplayNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.binary_search_trees.Node" title="MOAL.data_structures.trees.binary_search_trees.Node"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.binary_search_trees.Node</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.splay_trees.</code><code class="descname">SplayTree</code><a class="reference internal" href="_modules/MOAL/data_structures/trees/splay_trees.html#SplayTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.avl_trees.AVLTree" title="MOAL.data_structures.trees.avl_trees.AVLTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.avl_trees.AVLTree</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree._put">
+<code class="descname">_put</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree._put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find an item by key</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.has_grandparent">
+<code class="descname">has_grandparent</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.has_grandparent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.left_rotate">
+<code class="descname">left_rotate</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.left_rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Left rotation along a node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.put">
+<code class="descname">put</code><span class="sig-paren">(</span><em>key</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts an item into the tree, and then splays
+the value all the way back up to the root (if applicable).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an item (if found), from the tree.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.right_rotate">
+<code class="descname">right_rotate</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.right_rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Right rotation along a node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.splay">
+<code class="descname">splay</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.splay" title="Permalink to this definition">¶</a></dt>
+<dd><p>The primary splay operation. Splaying happens all the way
+up the tree (until <cite>node</cite> no longer has a parent).
+Three methods are available when splaying:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">zig step:</p>
+<blockquote>
+<div><p>(1)
+/</p>
+</div></blockquote>
+</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li></li>
+</ol>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">zig-zig step:</p>
+<blockquote>
+<div><p>(2)
+/</p>
+</div></blockquote>
+</li>
+</ol>
+<blockquote>
+<div>(1)
+/</div></blockquote>
+<ol class="arabic simple" start="0">
+<li></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li>zig-zag step:</li>
+</ol>
+<ol class="arabic simple" start="0">
+<li><ol class="first arabic">
+<li><ol class="first arabic" start="2">
+<li></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.subtree_maximum">
+<code class="descname">subtree_maximum</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.subtree_maximum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the subtree maximum by checking for the largest right child
+&#8211; keep traversing downward until no right_child is left.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.subtree_minimum">
+<code class="descname">subtree_minimum</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.subtree_minimum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the subtree minimum by checking for the smallest left child
+&#8211; keep traversing downward until no left_child is left.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.splay_trees.SplayTree.swap">
+<code class="descname">swap</code><span class="sig-paren">(</span><em>node_u</em>, <em>node_v</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.splay_trees.SplayTree.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap two nodes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.suffix_tree">
+<span id="moal-data-structures-trees-suffix-tree-module"></span><h2>MOAL.data_structures.trees.suffix_tree module<a class="headerlink" href="#module-MOAL.data_structures.trees.suffix_tree" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.suffix_tree.</code><code class="descname">BaseSuffixTree</code><span class="sig-paren">(</span><em>word</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/suffix_tree.html#BaseSuffixTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>[From Wikipedia:]</p>
+<p>&#8220;A suffix tree is a compressed Trie containing all the
+suffixes of the given text as their keys and positions
+in the text as their values.&#8221;</p>
+<p>&#8221;...The suffix tree for the string S of length n is
+defined as a tree such that:</p>
+<ol class="arabic">
+<li><p class="first">The tree has exactly n leaves numbered from 1 to n.</p>
+</li>
+<li><p class="first">Except for the root, every internal node has at least two children.</p>
+</li>
+<li><p class="first">Each edge is labeled with a non-empty substring of S.</p>
+</li>
+<li><dl class="first docutils">
+<dt>No two edges starting out of a node can have string-labels beginning</dt>
+<dd><p class="first last">with the same character.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The string obtained by concatenating all the string-labels</dt>
+<dd><p class="first last">found on the path from the root to leaf i spells out
+suffix S[i..n], for i from 1 to n.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>&#8211; CONSTRUCTION &#8211;</p>
+<p><cite>banana</cite> seems to be the canonical example, so we&#8217;ll keep with tradition.</p>
+<p>First, let&#8217;s get some information about the string.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">banana</span><span class="p">),</span> <span class="s">&#39;banana&#39;</span>
+</pre></div>
+</div>
+<p>Now we can use this data to construct our tree. Note: there are some
+implementations that seem to omit the sub-substrings, but we&#8217;ll cover
+both as two different classes, which we&#8217;ll call shallow, and deep.
+The required storage for the deep one is significantly greater.</p>
+<p>Either version could be easily represented using a list or dictionary.
+See the individual classes for details.</p>
+<dl class="docutils">
+<dt>&#8212; FUN FACTS (Wikipedia): &#8212;</dt>
+<dd><p class="first">&#8221;...there have been practical works for constructing disk-based
+suffix trees which scale to <strong>(few) GB/hours.</strong>
+The state of the art methods are TDD, TRELLIS, DiGeST, B2ST...</p>
+<p class="last">...ERA can index the entire human genome in 19 minutes on an
+8-core desktop computer with 16GB RAM. On a simple Linux cluster
+with 16 nodes (4GB RAM per node), ERA can index the entire
+human genome in less than 9 minutes.&#8221;
+&#8220;</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>word</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree._populate">
+<code class="descname">_populate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree._populate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.trees.suffix_tree.DeepSuffixTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.suffix_tree.</code><code class="descname">DeepSuffixTree</code><span class="sig-paren">(</span><em>word</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/suffix_tree.html#DeepSuffixTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.DeepSuffixTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree" title="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.suffix_tree.BaseSuffixTree</span></code></a></p>
+<p>The deeper tree can be up to <cite>l</cite> levels deep and <cite>l</cite> levels wide
+&#8211; where l is the length of the initial string.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.DeepSuffixTree._populate">
+<code class="descname">_populate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.DeepSuffixTree._populate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Example: banana_tree = {</dt>
+<dd><p class="first"># [banana]
+0: {
+....
+...........
+.....................</p>
+<blockquote class="last">
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>0: &#8216;ana&#8217;,  # You get the idea...
+1: {</p>
+<blockquote>
+<div>1: &#8216;na&#8217;,
+2: &#8216;n&#8217;</div></blockquote>
+<p>},
+2: &#8216;n&#8217;</p>
+</div></blockquote>
+<p>},
+1: &#8216;na&#8217;,
+2: &#8216;n&#8217;</p>
+</div></blockquote>
+<p>.</p>
+</div></blockquote>
+</div></blockquote>
+</dd>
+<dt>Lookups:</dt>
+<dd><p class="first">&#8220;banana&#8221; -&gt; banana_tree[0][0]
+&#8220;ana&#8221; -&gt; banana_tree[0][1][2],</p>
+<blockquote class="last">
+<div>banana_tree[0][2][1],
+banana_tree[0][3][0],
+..
+.</div></blockquote>
+</dd>
+</dl>
+<p>I&#8217;m not sure what the use of the above, (what I might call the
+&#8220;Recursive SuperSet(TM)&#8221;) is, but I&#8217;m sure it has some interesting
+mathematical properties, like the fact that each subset has exactly
+1 less number of values than the previous sublist &#8211; but I suppose that
+is a pedestrian fact for many recursive structures.</p>
+<p>Another (preferably) visual way to represent this,
+is reminiscent of the example suffix tree generated
+with Ukkonen&#8217;s algorithm, given in the link.</p>
+<p>I think it&#8217;s a bit clearer and easier to understand.
+Also, interestingly enough, you can get a normal looking tree by
+tilting this one 45 degrees clockwise around the top corner - (1, 6)</p>
+<p>In this representation, each node is spaced by the len(subst) + 4)
+... and the &#8216;dimensions&#8217; for each node are = (depth, breadth)</p>
+<p>(B, D) represents the breadth, and depth.</p>
+<p>(1, 6)   (5, 5)  (4, 4)  (3, 3)  (2, 2)(1, 1)
+banana    anana    nana    ana    na   n$
+0 &#8212;&#8212;&#8211;<a href="#id1"><span class="problematic" id="id2">|&#8212;&#8212;&#8211;|</span></a>&#8212;&#8212;-<a href="#id3"><span class="problematic" id="id4">|&#8212;&#8212;|</span></a>&#8212;-|
+|         |        ....    ...    ..   .
+$         (4, 4)  (3, 3) (2, 2) (1, 1)</p>
+<blockquote>
+<div><blockquote>
+<div>nana    ana    na    n$
+<a href="#id5"><span class="problematic" id="id6">|&#8212;&#8212;-|</span></a>&#8212;&#8212;<a href="#id7"><span class="problematic" id="id8">|&#8212;&#8211;|</span></a>
+|       ...    ..    .
+(3, 3) (2, 2)(1, 1)
+ana    na    n$
+<a href="#id9"><span class="problematic" id="id10">|&#8212;&#8212;|</span></a>&#8212;&#8211;|
+|      |     $
+(2, 2) (1, 1)
+an     n$
+|</div></blockquote>
+<dl class="docutils">
+<dt>(0, 0) # This gives us another way to represent sentinels</dt>
+<dd>a$</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.trees.suffix_tree.GeneralizedSuffixTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.suffix_tree.</code><code class="descname">GeneralizedSuffixTree</code><span class="sig-paren">(</span><em>words</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/suffix_tree.html#GeneralizedSuffixTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.GeneralizedSuffixTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.suffix_tree.DeepSuffixTree" title="MOAL.data_structures.trees.suffix_tree.DeepSuffixTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.suffix_tree.DeepSuffixTree</span></code></a></p>
+<p>A tree of suffix subtrees &#8211; a suffix forest?</p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.GeneralizedSuffixTree.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>words</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.GeneralizedSuffixTree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.GeneralizedSuffixTree.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.GeneralizedSuffixTree.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.trees.suffix_tree.ShallowSuffixTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.suffix_tree.</code><code class="descname">ShallowSuffixTree</code><span class="sig-paren">(</span><em>word</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/suffix_tree.html#ShallowSuffixTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.ShallowSuffixTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree" title="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.suffix_tree.BaseSuffixTree</span></code></a></p>
+<p>Shallow:
+substrings(string) = [</p>
+<blockquote>
+<div>&#8216;banana&#8217;, # s[0:]
+&#8216;anana&#8217;, # s[1:]
+&#8216;nana&#8217;, # s[2:]
+&#8216;ana&#8217;, # s[3:]
+&#8216;na&#8217;, # s[4:]
+&#8216;a&#8217;, # s[5:]</div></blockquote>
+<p>]</p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.ShallowSuffixTree._populate">
+<code class="descname">_populate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/suffix_tree.html#ShallowSuffixTree._populate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.ShallowSuffixTree._populate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.trees.suffix_tree.UkkonenSuffixTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.suffix_tree.</code><code class="descname">UkkonenSuffixTree</code><a class="reference internal" href="_modules/MOAL/data_structures/trees/suffix_tree.html#UkkonenSuffixTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.UkkonenSuffixTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.suffix_tree.BaseSuffixTree" title="MOAL.data_structures.trees.suffix_tree.BaseSuffixTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.suffix_tree.BaseSuffixTree</span></code></a></p>
+<p>A more efficient algorithm.
+See programmerspatch.blogspot.com.au</p>
+<blockquote>
+<div>/2013/02/ukkonens-suffix-tree-algorithm.html for more information.</div></blockquote>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.suffix_tree.UkkonenSuffixTree.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/suffix_tree.html#UkkonenSuffixTree.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.suffix_tree.UkkonenSuffixTree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.trees.trie">
+<span id="moal-data-structures-trees-trie-module"></span><h2>MOAL.data_structures.trees.trie module<a class="headerlink" href="#module-MOAL.data_structures.trees.trie" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.trees.trie.NaiveTrie">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.trees.trie.</code><code class="descname">NaiveTrie</code><span class="sig-paren">(</span><em>is_root=False</em>, <em>alphabet=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/trees/trie.html#NaiveTrie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.trees.trie.NaiveTrie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.trees.binary_search_trees.BinarySearchTree" title="MOAL.data_structures.trees.binary_search_trees.BinarySearchTree"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.trees.binary_search_trees.BinarySearchTree</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.trees.trie.NaiveTrie.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>is_root=False</em>, <em>alphabet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.trie.NaiveTrie.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.trie.NaiveTrie.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.trie.NaiveTrie.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.trees.trie.NaiveTrie.view">
+<code class="descname">view</code><span class="sig-paren">(</span><em>node=None</em>, <em>spacer=1</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.trees.trie.NaiveTrie.view" title="Permalink to this definition">¶</a></dt>
+<dd><p>A quick and dirty way to view the nested nature of the tree</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.execution.html" class="btn btn-neutral float-right" title="MOAL.execution package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.data_structures.other.html" class="btn btn-neutral" title="MOAL.data_structures.other package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

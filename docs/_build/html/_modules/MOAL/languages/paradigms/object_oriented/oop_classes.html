@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.languages.paradigms.object_oriented.oop_classes &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../index.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.languages.paradigms.object_oriented.oop_classes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.languages.paradigms.object_oriented.oop_classes</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+
+
+<div class="viewcode-block" id="Life"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Life">[docs]</a><span class="k">class</span> <span class="nc">Life</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The new-style base class for all living things.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Domain"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Domain">[docs]</a><span class="k">class</span> <span class="nc">Domain</span><span class="p">(</span><span class="n">Life</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Domain</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Kingdom"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom">[docs]</a><span class="k">class</span> <span class="nc">Kingdom</span><span class="p">(</span><span class="n">Domain</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Kingdom</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Phylum"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Phylum">[docs]</a><span class="k">class</span> <span class="nc">Phylum</span><span class="p">(</span><span class="n">Kingdom</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Phylum</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Class"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Class">[docs]</a><span class="k">class</span> <span class="nc">Class</span><span class="p">(</span><span class="n">Phylum</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Class</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Order"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Order">[docs]</a><span class="k">class</span> <span class="nc">Order</span><span class="p">(</span><span class="n">Class</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Order</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Family"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Family">[docs]</a><span class="k">class</span> <span class="nc">Family</span><span class="p">(</span><span class="n">Order</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Family</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Genus"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Genus">[docs]</a><span class="k">class</span> <span class="nc">Genus</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Genus</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Species"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Species">[docs]</a><span class="k">class</span> <span class="nc">Species</span><span class="p">(</span><span class="n">Genus</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Species</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extensions beyond the global biological classification</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="AbstractCat"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat">[docs]</a><span class="k">class</span> <span class="nc">AbstractCat</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span></div>
+
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span>
+
+    <span class="nd">@abc.abstractmethod</span>
+    <span class="k">def</span> <span class="nf">custom_abstractmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This is an abstract method.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="AbstractCatTwo"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo">[docs]</a><span class="k">class</span> <span class="nc">AbstractCatTwo</span><span class="p">(</span><span class="n">Family</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">custom_abstractmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+
+<div class="viewcode-block" id="Cat"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Cat">[docs]</a><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">AbstractCat</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;My name is `{}`&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">custom_abstractmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;Abstract method override&#39;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">custom_staticmethod</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">&#39;I am a static method with no instance.&#39;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">custom_classmethod</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;I am a class method.&#39;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">meow</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;Meowwwww&#39;</span>
+
+
+<div class="viewcode-block" id="CatTwo"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.CatTwo">[docs]</a><span class="k">class</span> <span class="nc">CatTwo</span><span class="p">(</span><span class="n">AbstractCatTwo</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Second derived classes from first derived</span>
+<span class="sd">    biological classification classes.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="HouseCat"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat">[docs]</a><span class="k">class</span> <span class="nc">HouseCat</span><span class="p">(</span><span class="n">Cat</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HouseCat</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="InernetHouseCats"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats">[docs]</a><span class="k">class</span> <span class="nc">InernetHouseCats</span><span class="p">(</span><span class="n">HouseCat</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Maru"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Maru">[docs]</a><span class="k">class</span> <span class="nc">Maru</span><span class="p">(</span><span class="n">InernetHouseCats</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">box_attack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="Grumpy"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy">[docs]</a><span class="k">class</span> <span class="nc">Grumpy</span><span class="p">(</span><span class="n">InernetHouseCats</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">frown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="ColonelMeow"><a class="viewcode-back" href="../../../../../MOAL.languages.paradigms.object_oriented.html#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow">[docs]</a><span class="k">class</span> <span class="nc">ColonelMeow</span><span class="p">(</span><span class="n">InernetHouseCats</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class methods example</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;OOP Class types / examples&#39;</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">meow</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">custom_classmethod</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">custom_classmethod</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Examples of actual usage of class instances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">classes</span> <span class="o">=</span> <span class="s">&#39; &lt;= &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">__name__</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="n">Species</span><span class="p">)])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Classes for most derived class {} are: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">Species</span><span class="p">,</span> <span class="n">classes</span><span class="p">))</span>
+
+        <span class="n">leopard</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="s">&#39;leopard&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">leopard</span><span class="p">))</span>
+
+        <span class="n">calico</span> <span class="o">=</span> <span class="n">HouseCat</span><span class="p">(</span><span class="s">&#39;calico&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">calico</span><span class="o">.</span><span class="n">meow</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">calico</span><span class="p">))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Classmethod: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">custom_classmethod</span><span class="p">()))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">custom_classmethod</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Staticmethod: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">custom_staticmethod</span><span class="p">()))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">custom_staticmethod</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Staticmethod instance: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">leopard</span><span class="o">.</span><span class="n">custom_staticmethod</span><span class="p">()))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Comparison: {} {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">leopard</span><span class="p">,</span> <span class="n">calico</span><span class="p">,</span> <span class="p">(</span><span class="nb">hash</span><span class="p">(</span><span class="n">leopard</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="n">calico</span><span class="p">))))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="n">abstract_leopard</span> <span class="o">=</span> <span class="n">CatTwo</span><span class="p">()</span>
+
+        <span class="c"># Not implement error</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">abstract_leopard</span><span class="o">.</span><span class="n">custom_abstractmethod</span><span class="p">)</span>
+            <span class="n">abstract_leopard</span><span class="o">.</span><span class="n">custom_abstractmethod</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;This exception is an example of the second &#39;</span>
+                  <span class="s">&#39;abstract method strategy: simply raising a NotImplemented&#39;</span>
+                  <span class="s">&#39;exception rather than going through the rigamorale of &#39;</span>
+                  <span class="s">&#39;using a traditional ABC decorator.&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

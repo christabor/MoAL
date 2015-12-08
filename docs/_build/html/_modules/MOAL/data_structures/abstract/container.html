@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.abstract.container &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.abstract.container</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.abstract.container</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">randchars</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">ppr</span>
+
+
+<div class="viewcode-block" id="ContainerADT"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT">[docs]</a><span class="k">class</span> <span class="nc">ContainerADT</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    From wikipedia.org/wiki/Container_%28abstract_data_type%29:</span>
+<span class="sd">    &quot;</span>
+<span class="sd">    Container classes are expected to implement methods to do the following:</span>
+<span class="sd">        * create a new empty container,</span>
+<span class="sd">        * report the number of objects it stores (size),</span>
+<span class="sd">        * delete all the objects in the container (clear),</span>
+<span class="sd">        * insert new objects into the container,</span>
+<span class="sd">        * remove objects from it,</span>
+<span class="sd">        * provide access to the stored objects.</span>
+<span class="sd">        * containers are sometimes implemented in conjunction with iterators.</span>
+<span class="sd">    &quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ContainerADT.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;&lt;Constructor for container&gt;&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerADT.__len__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__len__">[docs]</a>    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerADT.__str__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;el&#39;</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="bp">self</span><span class="p">[</span><span class="n">el</span><span class="p">])</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span></div>
+
+<div class="viewcode-block" id="ContainerADT.__contains__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__contains__">[docs]</a>    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span></div>
+
+<div class="viewcode-block" id="ContainerADT.__iter__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__iter__">[docs]</a>    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerADT.__delitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__delitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ContainerADT.__setitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="ContainerADT.__getitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerADT.new"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.new">[docs]</a>    <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerADT.size"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.size">[docs]</a>    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__len__</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ContainerADT.clear"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="ContainerADT.insert"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerADT.remove"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerADT.access"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ContainerADT.access">[docs]</a>    <span class="k">def</span> <span class="nf">access</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ValueContainer"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ValueContainer">[docs]</a><span class="k">class</span> <span class="nc">ValueContainer</span><span class="p">(</span><span class="n">ContainerADT</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [Wikipedia]</span>
+<span class="sd">    &quot;Store copies of objects. If we access an object, the object returns</span>
+<span class="sd">    a copy of it. If an external object is changed after it has been inserted</span>
+<span class="sd">    in the container it will not affect the content of the container.&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="ReferenceContainer"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.ReferenceContainer">[docs]</a><span class="k">class</span> <span class="nc">ReferenceContainer</span><span class="p">(</span><span class="n">ContainerADT</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [Wikipedia]</span>
+<span class="sd">    &quot;</span>
+<span class="sd">    Store pointers or references to the object.</span>
+<span class="sd">    If we access an object, the object returns a reference to it.</span>
+<span class="sd">    If an external object is changed after it has been inserted in</span>
+<span class="sd">    the container, it affects the content of the container.</span>
+<span class="sd">    &quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="WindowWidget"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.WindowWidget">[docs]</a><span class="k">class</span> <span class="nc">WindowWidget</span><span class="p">(</span><span class="n">ReferenceContainer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;See wikipedia.org/wiki/Container_%28abstract_data_type%29</span>
+<span class="sd">    ... &quot;Graphic containers&quot; as inspiration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WindowWidget.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.WindowWidget.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WindowWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+<div class="viewcode-block" id="WindowWidget.__str__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.WindowWidget.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;======== Viewing the widget &quot;{}&quot; =========</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;[Widget {} -----&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span></div>
+
+<div class="viewcode-block" id="WindowWidget.attach"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.WindowWidget.attach">[docs]</a>    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WindowWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WindowWidget.detach"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.WindowWidget.detach">[docs]</a>    <span class="k">def</span> <span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WindowWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__delitem__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WindowWidget.retrieve"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.WindowWidget.retrieve">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">WindowWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WindowWidget.show"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.container.WindowWidget.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__str__</span><span class="p">()</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Container Abstract Data Type&#39;</span><span class="p">):</span>
+        <span class="n">val_cont</span> <span class="o">=</span> <span class="n">ContainerADT</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">val_cont</span><span class="p">[</span><span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">randchars</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">val_cont</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">randchars</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">val_cont</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">val_cont</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s">&#39;fooo&#39;</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">val_cont</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Iterator: {}, membership check ({}) =&gt; {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">val_cont</span><span class="p">[</span><span class="n">el</span><span class="p">],</span> <span class="n">el</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">val_cont</span><span class="p">))</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Value Container&#39;</span><span class="p">,</span> <span class="n">val_cont</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">val_cont</span><span class="o">.</span><span class="n">clear</span><span class="p">())</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Empty Container&#39;</span><span class="p">,</span> <span class="n">val_cont</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">val_cont</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+        <span class="n">ref_cont</span> <span class="o">=</span> <span class="n">ReferenceContainer</span><span class="p">()</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Reference Container...&#39;</span><span class="p">,</span> <span class="n">ref_cont</span><span class="p">)</span>
+
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">ReferenceContainer</span><span class="p">()</span>
+        <span class="n">ref_cont</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s">&#39;meta&#39;</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
+        <span class="n">ppr</span><span class="p">(</span><span class="n">ref_cont</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+
+        <span class="c"># Change original instance</span>
+        <span class="n">meta</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;bar&#39;</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">ref_cont</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="s">&#39;meta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">ref_cont</span><span class="p">)</span>
+        <span class="c"># Reference is also updated.</span>
+        <span class="n">ppr</span><span class="p">(</span><span class="n">ref_cont</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="s">&#39;meta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">elements</span> <span class="o">==</span> <span class="n">meta</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+
+        <span class="c"># Examples of usage/extension</span>
+        <span class="n">desktop</span> <span class="o">=</span> <span class="n">WindowWidget</span><span class="p">(</span><span class="s">&#39;MyComputer&#39;</span><span class="p">)</span>
+        <span class="n">desktop</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s">&#39;Toolbar&#39;</span><span class="p">,</span> <span class="n">WindowWidget</span><span class="p">(</span><span class="s">&#39;toolbar-01&#39;</span><span class="p">))</span>
+        <span class="n">desktop</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s">&#39;Navigation&#39;</span><span class="p">,</span> <span class="n">WindowWidget</span><span class="p">(</span><span class="s">&#39;navbar-01&#39;</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">desktop</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">&#39;Toolbar&#39;</span><span class="p">))</span>
+        <span class="n">desktop</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

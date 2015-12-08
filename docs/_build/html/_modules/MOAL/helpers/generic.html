@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.helpers.generic &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.helpers.generic</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.helpers.generic</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span> <span class="k">as</span> <span class="n">rr</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">izip</span>
+
+
+<div class="viewcode-block" id="subdivide_groups"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.subdivide_groups">[docs]</a><span class="k">def</span> <span class="nf">subdivide_groups</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">divisions</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Divides a list of items up into subdivisions based on `divisions`.</span>
+<span class="sd">    For example, [1, 2, 3, 4] with 2 divisions</span>
+<span class="sd">        becomes [[1, 2], [3, 4]]</span>
+<span class="sd">    or, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] with 5 divisions</span>
+<span class="sd">        becomes [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]].</span>
+
+<span class="sd">    Numbers that cannot be distributed equally will</span>
+<span class="sd">    have the remainder added to the last group.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">num_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+    <span class="n">last_offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c"># Determine the length of each subdivision</span>
+    <span class="n">sections</span> <span class="o">=</span> <span class="n">num_items</span> <span class="o">//</span> <span class="n">divisions</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_items</span><span class="p">):</span>
+        <span class="c"># Append based on current range, shift, repeat.</span>
+        <span class="n">sub_group</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">last_offset</span><span class="p">:</span><span class="n">last_offset</span> <span class="o">+</span> <span class="n">sections</span><span class="p">]</span>
+        <span class="c"># Any uneven offsets will simply be empty -- don&#39;t include them.</span>
+        <span class="k">if</span> <span class="n">sub_group</span><span class="p">:</span>
+            <span class="n">groups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_group</span><span class="p">)</span>
+        <span class="c"># Update the last offset for the next index.</span>
+        <span class="n">last_offset</span> <span class="o">+=</span> <span class="n">sections</span>
+    <span class="k">return</span> <span class="n">groups</span></div>
+
+
+<div class="viewcode-block" id="swap_item"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.swap_item">[docs]</a><span class="k">def</span> <span class="nf">swap_item</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Swap an item a with b, in a list.</span>
+<span class="sd">    Used primarily for sorting algorithms.&quot;&quot;&quot;</span>
+    <span class="n">copy</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span>
+    <span class="k">return</span> <span class="n">items</span></div>
+
+
+<div class="viewcode-block" id="slice_dict"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.slice_dict">[docs]</a><span class="k">def</span> <span class="nf">slice_dict</span><span class="p">(</span><span class="n">ref_dict</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a subsection (slice) of a dictionary, like a list.&quot;&quot;&quot;</span>
+    <span class="n">sliced</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ref_dict</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">start</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sliced</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="n">sliced</span></div>
+
+
+<div class="viewcode-block" id="powerset_list"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.powerset_list">[docs]</a><span class="k">def</span> <span class="nf">powerset_list</span><span class="p">(</span><span class="n">main_list</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s">&#39;left&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return staggered offsets  of lists of a given list.</span>
+<span class="sd">    e.g. [1, 2, 3] =&gt; [[1, 2, 3], [1, 2], [1]]</span>
+<span class="sd">    `side` determines which way to offset: left, or right.</span>
+
+<span class="sd">    Switching sides would be the same as reversing the list beforehand.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">side</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;left&#39;</span><span class="p">,</span> <span class="s">&#39;right&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">main_list</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span> <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s">&#39;left&#39;</span> <span class="k">else</span> <span class="n">main_list</span><span class="p">[:</span><span class="n">k</span><span class="p">]]</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">main_list</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="substring_list"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.substring_list">[docs]</a><span class="k">def</span> <span class="nf">substring_list</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return all substrings of a given string as a list.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">string</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">string</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="substring_dict"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.substring_dict">[docs]</a><span class="k">def</span> <span class="nf">substring_dict</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return all substrings of a given string as a dict.&quot;&quot;&quot;</span>
+    <span class="n">sub_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)):</span>
+        <span class="n">sub_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">string</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">string</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">sub_dict</span></div>
+
+
+<div class="viewcode-block" id="powerset_tree"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.powerset_tree">[docs]</a><span class="k">def</span> <span class="nf">powerset_tree</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">terminator</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates nested powersets of the word list for each key</span>
+<span class="sd">    -- the result is effectively a suffix tree.</span>
+<span class="sd">    `terminator` is a string value that can be passed in to terminate</span>
+<span class="sd">    each parent element in a list -- indices can be used to denote</span>
+<span class="sd">    the same thing, but it gives a visual option if you prefer.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c"># If it happens to be a list, convert it first.</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">substring_list</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="c"># Go over each item in the list...</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">substr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+        <span class="c"># If it&#39;s the very first item in the **top outer most list**,</span>
+        <span class="c"># just make it a singleton list, since it&#39;s the full string</span>
+        <span class="c"># and we don&#39;t want to subdivide it.</span>
+        <span class="k">if</span> <span class="n">initial</span><span class="p">:</span>
+            <span class="n">lst</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">substr</span> <span class="o">+</span> <span class="n">terminator</span><span class="p">]</span>
+            <span class="c"># Make sure to set this to false so it **never runs again**.</span>
+            <span class="n">initial</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># If the substring is a singleton list, continue,</span>
+            <span class="c"># as it&#39;s the last item in the substring sublist.</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">substr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c"># Otherwise, recursively travel down into this list,</span>
+            <span class="c"># repeating the process with a string one character</span>
+            <span class="c"># smaller than the last -- but nest it inside</span>
+            <span class="c"># this list so the parent is referenced as the first key</span>
+            <span class="c"># and the children elements are</span>
+            <span class="c"># inside the second key, as a list.</span>
+            <span class="n">lst</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">substr</span> <span class="o">+</span> <span class="n">terminator</span><span class="p">,</span> <span class="n">powerset_tree</span><span class="p">(</span>
+                <span class="n">substring_list</span><span class="p">(</span><span class="n">substr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">initial</span><span class="o">=</span><span class="n">initial</span><span class="p">)]</span>
+    <span class="c"># Return the final list.</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+
+<div class="viewcode-block" id="take_choice"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.take_choice">[docs]</a><span class="k">def</span> <span class="nf">take_choice</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return an array of random choices.</span>
+<span class="sd">    Choices are seeded from `options` from 0 until `maximum`.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">choice</span><span class="p">(</span><span class="n">options</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maximum</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="random_number_set"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.random_number_set">[docs]</a><span class="k">def</span> <span class="nf">random_number_set</span><span class="p">(</span><span class="n">min_rand</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_rand</span><span class="o">=</span><span class="mi">9999</span><span class="p">,</span> <span class="n">max_range</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generated a list of random number sets.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">rr</span><span class="p">(</span><span class="n">min_rand</span><span class="p">,</span> <span class="n">max_rand</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_range</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="random_number_sets"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.random_number_sets">[docs]</a><span class="k">def</span> <span class="nf">random_number_sets</span><span class="p">(</span><span class="n">sets</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_random</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A mutli-valued version of `random_number_set`&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">random_number_set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9999</span><span class="p">,</span> <span class="n">max_random</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sets</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="interleave"><a class="viewcode-back" href="../../../MOAL.helpers.html#MOAL.helpers.generic.interleave">[docs]</a><span class="k">def</span> <span class="nf">interleave</span><span class="p">(</span><span class="o">*</span><span class="n">lists</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Interleave N lists into each other;</span>
+<span class="sd">    e.g. [1, 2], [&#39;A&#39; &#39;B&#39;] =&gt; [1, &#39;A&#39;, 2, &#39;B&#39;]&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">izip</span><span class="p">(</span><span class="o">*</span><span class="n">lists</span><span class="p">)))</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.algorithms.coding_theory package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.algorithms package" href="MOAL.algorithms.html"/>
+        <link rel="next" title="MOAL.algorithms.cryptography package" href="MOAL.algorithms.cryptography.html"/>
+        <link rel="prev" title="MOAL.algorithms package" href="MOAL.algorithms.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.algorithms.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.algorithms.html">MOAL.algorithms package</a> &raquo;</li>
+      
+    <li>MOAL.algorithms.coding_theory package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.algorithms.coding_theory.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.algorithms.coding_theory">
+<span id="moal-algorithms-coding-theory-package"></span><h1>MOAL.algorithms.coding_theory package<a class="headerlink" href="#module-MOAL.algorithms.coding_theory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.algorithms.coding_theory.hamming_distance">
+<span id="moal-algorithms-coding-theory-hamming-distance-module"></span><h2>MOAL.algorithms.coding_theory.hamming_distance module<a class="headerlink" href="#module-MOAL.algorithms.coding_theory.hamming_distance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.hamming_distance.hamming">
+<code class="descclassname">MOAL.algorithms.coding_theory.hamming_distance.</code><code class="descname">hamming</code><span class="sig-paren">(</span><em>str1</em>, <em>str2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/hamming_distance.html#hamming"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.hamming_distance.hamming" title="Permalink to this definition">¶</a></dt>
+<dd><p>Algorithm based on an old project of mine, ported from yavascript:
+christabor.github.io/etude/09-02-2014/.</p>
+<p>A superior algorithm exists at
+wikipedia.org/wiki/Hamming_distance#Algorithm_example,
+but copying it would defeat the purpose.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.algorithms.coding_theory.lee_distance">
+<span id="moal-algorithms-coding-theory-lee-distance-module"></span><h2>MOAL.algorithms.coding_theory.lee_distance module<a class="headerlink" href="#module-MOAL.algorithms.coding_theory.lee_distance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.lee_distance.lee_distance">
+<code class="descclassname">MOAL.algorithms.coding_theory.lee_distance.</code><code class="descname">lee_distance</code><span class="sig-paren">(</span><em>str1</em>, <em>str2</em>, <em>q=6</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/lee_distance.html#lee_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.lee_distance.lee_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Lee_distance">https://en.wikipedia.org/wiki/Lee_distance</a> for definition.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.algorithms.coding_theory.levenshtein_distance">
+<span id="moal-algorithms-coding-theory-levenshtein-distance-module"></span><h2>MOAL.algorithms.coding_theory.levenshtein_distance module<a class="headerlink" href="#module-MOAL.algorithms.coding_theory.levenshtein_distance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.levenshtein_distance._branch">
+<code class="descclassname">MOAL.algorithms.coding_theory.levenshtein_distance.</code><code class="descname">_branch</code><span class="sig-paren">(</span><em>word</em>, <em>dist</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/levenshtein_distance.html#_branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.levenshtein_distance._branch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.levenshtein_distance._check_degenerates">
+<code class="descclassname">MOAL.algorithms.coding_theory.levenshtein_distance.</code><code class="descname">_check_degenerates</code><span class="sig-paren">(</span><em>s1</em>, <em>s2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/levenshtein_distance.html#_check_degenerates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.levenshtein_distance._check_degenerates" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8220;In mathematics, a degenerate case is a limiting case in which an element
+of a class of objects is qualitatively different from the rest of the class
+and hence belongs to another, usually simpler, class.&#8221;
+-Wikipedia</p>
+<p>The degenerates here are strings that are equal; these are not in the class
+of strings that need comparison by Levenshtein distance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.levenshtein_distance.lev_iterative">
+<code class="descclassname">MOAL.algorithms.coding_theory.levenshtein_distance.</code><code class="descname">lev_iterative</code><span class="sig-paren">(</span><em>s1</em>, <em>s2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/levenshtein_distance.html#lev_iterative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.levenshtein_distance.lev_iterative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The iterative approach to the Levenshtein algorithm.
+Code is ported from (pseudo-code? c?) example on Wikipedia:
+wikipedia.org/wiki/Levenshtein_distance#Iterative_with_two_matrix_rows</p>
+<p>One important thing to note: the Levenshtein function is NOT transitive,
+so order matters! That is, lev(s1, s2) != lev(s2, s1).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.levenshtein_distance.lev_recursive">
+<code class="descclassname">MOAL.algorithms.coding_theory.levenshtein_distance.</code><code class="descname">lev_recursive</code><span class="sig-paren">(</span><em>s1</em>, <em>s2</em>, <em>l1=None</em>, <em>l2=None</em>, <em>ct=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/levenshtein_distance.html#lev_recursive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.levenshtein_distance.lev_recursive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive implementation of the Levenshtein distance algorithm.
+Algorithm from Wikipedia pseudocode:
+wikipedia.org/wiki/Levenshtein_distance#Computing_Levenshtein_distance
+Canonical math example, but not useful for real implementations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.algorithms.coding_theory.minhash">
+<span id="moal-algorithms-coding-theory-minhash-module"></span><h2>MOAL.algorithms.coding_theory.minhash module<a class="headerlink" href="#module-MOAL.algorithms.coding_theory.minhash" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="MOAL.algorithms.coding_theory.minhash.DEBUG">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">DEBUG</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="http://matthewcasperson.blogspot.com/2013/11/minhash-for-dummies.html">http://matthewcasperson.blogspot.com/2013/11/minhash-for-dummies.html</a>
+for a description of the steps required.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.hash_fnv1a">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">hash_fnv1a</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#hash_fnv1a"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.hash_fnv1a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.hash_shingles">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">hash_shingles</code><span class="sig-paren">(</span><em>shingles</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#hash_shingles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.hash_shingles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.jaccard_coefficient">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">jaccard_coefficient</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#jaccard_coefficient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.jaccard_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.jaccard_coefficient_naive">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">jaccard_coefficient_naive</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#jaccard_coefficient_naive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.jaccard_coefficient_naive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.min_hash">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">min_hash</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#min_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.min_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.randoms">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">randoms</code><span class="sig-paren">(</span><em>total</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#randoms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.randoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.rehash">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">rehash</code><span class="sig-paren">(</span><em>hash</em>, <em>randoms</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#rehash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.rehash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.algorithms.coding_theory.minhash.shingleify">
+<code class="descclassname">MOAL.algorithms.coding_theory.minhash.</code><code class="descname">shingleify</code><span class="sig-paren">(</span><em>pieces</em>, <em>offset=4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/algorithms/coding_theory/minhash.html#shingleify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.algorithms.coding_theory.minhash.shingleify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a sentence into &#8220;shingles&#8221; of length <cite>offset</cite></p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.algorithms.cryptography.html" class="btn btn-neutral float-right" title="MOAL.algorithms.cryptography package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.algorithms.html" class="btn btn-neutral" title="MOAL.algorithms package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

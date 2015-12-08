@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.graphs.adjacency_matrix &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.graphs.adjacency_matrix</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.graphs.adjacency_matrix</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+<span class="c"># See mathworld.wolfram.com/AdjacencyMatrix.html for a nice explanation.</span>
+
+
+<div class="viewcode-block" id="GraphMatrix"><a class="viewcode-back" href="../../../../MOAL.data_structures.graphs.html#MOAL.data_structures.graphs.adjacency_matrix.GraphMatrix">[docs]</a><span class="k">class</span> <span class="nc">GraphMatrix</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The matrix structure is just a list of lists,</span>
+<span class="sd">        where each sublist represents a row. A separate nodes dictionary</span>
+<span class="sd">        is used for fast lookups to reference which row/column to look at</span>
+<span class="sd">        when doing operations.</span>
+<span class="sd">            e.g.</span>
+<span class="sd">            &gt;&gt;&gt; nodes = {&#39;A&#39;: 0, &#39;B&#39;: 1, ... },</span>
+<span class="sd">            &gt;&gt;&gt; matrix = [[0, 1], [1, 0], ...]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertex_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_vertex</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds a new vertex, and adds any connections that may not exist.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">new_vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="c"># Defer to helper for non-edge cases</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="n">new_vertex</span><span class="p">)</span>
+        <span class="c"># Update the actual values with connections</span>
+        <span class="k">for</span> <span class="n">connection</span> <span class="ow">in</span> <span class="n">connections</span><span class="p">:</span>
+            <span class="c"># Add this new vertex if it&#39;s not in the set already.</span>
+            <span class="k">if</span> <span class="n">connection</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+            <span class="c"># Add edge connections.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_add_edge</span><span class="p">(</span><span class="n">new_vertex</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes a vertex and flips all adjacent connections to off.&quot;&quot;&quot;</span>
+        <span class="c"># Store a reference to the row/col before deleting</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span>
+        <span class="c"># Delete entire row.</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">row</span><span class="p">]</span>
+        <span class="c"># Reorder is only necessary for deletions.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reorder_vertices</span><span class="p">()</span>
+        <span class="c"># Decrement current count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertex_count</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="c"># Remove the matching column for each row</span>
+        <span class="k">for</span> <span class="n">row_list</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">:</span>
+            <span class="n">row_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Visualize the matrix as a table&quot;&quot;&quot;</span>
+        <span class="c"># Top row - just print the keys + space</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  &#39;</span> <span class="o">+</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="c"># Subsequent rows - get label for first col, then the remainder cols</span>
+        <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_zeros</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">_new_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_zeros</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">degree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Another interesting feature of Adjacency matrices is the</span>
+<span class="sd">        fact that any row or column summed is automatically</span>
+<span class="sd">        the degree of that vertex -- magical!&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">row</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">has_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span> <span class="ow">or</span> <span class="n">end</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="c"># Start, end corresponds to row, col</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">end</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">get_row_vals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the range slice of a given label, representing the row.&quot;&quot;&quot;</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">row</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_fill_previous_rows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fill previous rows to ensure the row length is always equal.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">):</span>
+            <span class="n">row_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="c"># If there is any discrepancy in length, update the rows.</span>
+            <span class="k">if</span> <span class="n">row_len</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">:</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="n">count</span> <span class="o">-</span> <span class="n">row_len</span>
+                <span class="c"># Fill with zeros</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zeros</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_vertex</span><span class="p">):</span>
+        <span class="c"># Set the new vertex value to the **current** count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">new_vertex</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertex_count</span>
+        <span class="c"># Add new row, filled with zeros.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_new_row</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertex_count</span><span class="p">)</span>
+        <span class="c"># Increment, before filling is done, but after setting of new vertex.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertex_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c"># Since matrix has expanded,</span>
+        <span class="c"># fill in the missing columns in previous rows</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fill_previous_rows</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertex_count</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_reorder_vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Using a dictionary for the label lookup makes setting/getting items</span>
+<span class="sd">        very fast, but the downside is that the indices must be re-ordered</span>
+<span class="sd">        if any items are deleted. The flip-side then, would be to use a list</span>
+<span class="sd">        -- but lookups would suffer the same problem -- so, the problem is</span>
+<span class="sd">        reversed. It could however, be tuned to work either way,</span>
+<span class="sd">        depending on access patterns, but that is well beyond the scope here.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reorder_dict_indices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_reorder_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reorder_dict_indices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_reorder_dict_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generic reordering function for resetting</span>
+<span class="sd">        indices of a given dictionary.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">new_index</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
+            <span class="n">vals</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_index</span>
+        <span class="k">return</span> <span class="n">vals</span>
+
+    <span class="k">def</span> <span class="nf">_remove_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Removes an edge&quot;&quot;&quot;</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">end</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">_add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds an edge&quot;&quot;&quot;</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">end</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">get_column_vals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of values representing the given</span>
+<span class="sd">        labels column values.&quot;&quot;&quot;</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="AdjacencyMatrix"><a class="viewcode-back" href="../../../../MOAL.data_structures.graphs.html#MOAL.data_structures.graphs.adjacency_matrix.AdjacencyMatrix">[docs]</a><span class="k">class</span> <span class="nc">AdjacencyMatrix</span><span class="p">(</span><span class="n">GraphMatrix</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [Wikipedia]</span>
+<span class="sd">    &quot;In mathematics and computer science, an adjacency matrix</span>
+<span class="sd">    is a means of representing which vertices of a graph are</span>
+<span class="sd">    adjacent to which other vertices.&quot;</span>
+
+<span class="sd">    ...In other words, it&#39;s another way to represent a graph, very compactly</span>
+<span class="sd">    (and thus efficiently), by using a matrix that represents the connections</span>
+<span class="sd">    -- by mapping the row and column to a specific node (similar technique</span>
+<span class="sd">    as a Cayley or multiplication table).</span>
+
+<span class="sd">       A  B  C  D</span>
+<span class="sd">    A  0  1  1  0     might correspond to:</span>
+<span class="sd">    B  1  0  1  1     (row A, col A) = 0,</span>
+<span class="sd">    C  1  1  0  0     (row B, col A) = 1, etc...</span>
+<span class="sd">    D  1  0  0  0     generally, self referencing nodes are not</span>
+<span class="sd">                      represented, but if they are, their value is 2.</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Adjacency Matrix&#39;</span><span class="p">):</span>
+        <span class="n">amatrix</span> <span class="o">=</span> <span class="n">AdjacencyMatrix</span><span class="p">()</span>
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;B&#39;</span><span class="p">]</span>
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">amatrix</span><span class="p">)</span>
+
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">]</span>
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;C&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;A&#39;</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">amatrix</span><span class="p">)</span>
+
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;A&#39;</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">amatrix</span><span class="p">)</span>
+
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;E&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;A&#39;</span><span class="p">]</span>
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;F&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">]</span>
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;E&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">]</span>  <span class="c"># Add more connections</span>
+        <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;F&#39;</span><span class="p">]</span>  <span class="c"># Add incoming connection for F</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">amatrix</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">)</span>  <span class="c"># True</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">)</span>  <span class="c"># False</span>
+
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">vertices</span> <span class="o">==</span> <span class="p">{</span>
+            <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>  <span class="c"># True (B, F)</span>
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>  <span class="c"># True (B, A)</span>
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="s">&#39;F&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>  <span class="c"># True (A, B, C, D, E)</span>
+
+        <span class="k">del</span> <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">amatrix</span><span class="p">[</span><span class="s">&#39;B&#39;</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">amatrix</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">vertices</span> <span class="o">==</span> <span class="p">{</span>
+            <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">)</span>  <span class="c"># False, deleted</span>
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>  <span class="c"># True, deleted</span>
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>  <span class="c"># True</span>
+        <span class="k">assert</span> <span class="n">amatrix</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>  <span class="c"># True, B, C deleted</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

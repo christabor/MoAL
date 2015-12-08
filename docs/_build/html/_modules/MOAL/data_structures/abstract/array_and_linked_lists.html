@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.abstract.array_and_linked_lists &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.abstract.array_and_linked_lists</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.abstract.array_and_linked_lists</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">gibberish</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">cmd_title</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h2</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_simple</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers</span> <span class="kn">import</span> <span class="n">datamaker</span> <span class="k">as</span> <span class="n">dm</span>
+<span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Factory</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+<span class="n">faker</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+<span class="c"># Arrays are simple: []. Nothing special here.</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c"># Python doesn&#39;t expose Linked Lists as usable data structures,</span>
+<span class="c"># so you can manually recreate the idea behind them using classes.</span>
+
+
+<div class="viewcode-block" id="SingleNode"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.SingleNode">[docs]</a><span class="k">class</span> <span class="nc">SingleNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">cargo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cargo</span> <span class="o">=</span> <span class="n">cargo</span> <span class="ow">or</span> <span class="n">gibberish</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;Node: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__repr__</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;&lt;_{title}_._{cargo}_&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">cargo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cargo</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Iterate over linked nodes&quot;&quot;&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">yield</span> <span class="n">node</span>
+        <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+            <span class="k">yield</span> <span class="n">node</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update the values of an existing node&quot;&quot;&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">cargo</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get an existing node&quot;&quot;&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">while</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">node</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Move forward in the list until the last node is found</span>
+<span class="sd">            e.g. [N] --&gt; [N + 1] --&gt; [N + 2]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">while</span> <span class="nb">next</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">next</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">next</span>
+            <span class="nb">next</span> <span class="o">=</span> <span class="nb">next</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="nb">next</span>
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c"># Inclusive, head is 0</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="n">count</span>
+
+
+<div class="viewcode-block" id="DoubleNode"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode">[docs]</a><span class="k">class</span> <span class="nc">DoubleNode</span><span class="p">(</span><span class="n">SingleNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A node represents a connection in the linked list. This extends</span>
+<span class="sd">    the single node (linked list) to become a doubly-linked list - a list with</span>
+<span class="sd">    connections going in both directions (forward and backwards).&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DoubleNode.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">cargo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DoubleNode</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">cargo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span></div>
+
+<div class="viewcode-block" id="DoubleNode.__delitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.__delitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a node, purge any references, and update the adjacent links&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c"># Update linkage, e.g. (1) &lt;-&gt; 2 &lt;-&gt; (3) ... (1) &lt;-&gt; (3)</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">prev</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">prev</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">prev</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">DELETING... {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">cargo</span><span class="p">))</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">title</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="DoubleNode.first"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.first">[docs]</a>    <span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Move backward in the list until the first node is found</span>
+<span class="sd">            e.g. [N - 2] &lt;-- [N - 1] &lt;-- [N]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">while</span> <span class="n">prev</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">prev</span><span class="o">.</span><span class="n">prev</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">prev</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">prev</span>
+        <span class="k">return</span> <span class="n">prev</span></div>
+
+<div class="viewcode-block" id="DoubleNode.prepend"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.prepend">[docs]</a>    <span class="k">def</span> <span class="nf">prepend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a new node to the very beginning of the list.&quot;&quot;&quot;</span>
+        <span class="n">curr_begin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="n">curr_begin</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">cargo</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">curr_begin</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">curr_begin</span></div>
+
+<div class="viewcode-block" id="DoubleNode.append"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.DoubleNode.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a new node to the very end of the list.&quot;&quot;&quot;</span>
+        <span class="n">curr_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+        <span class="n">curr_end</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">cargo</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">curr_end</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">curr_end</span></div></div>
+
+
+<div class="viewcode-block" id="print_nodes"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.print_nodes">[docs]</a><span class="k">def</span> <span class="nf">print_nodes</span><span class="p">(</span><span class="n">node</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">_fmt</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;[&lt;{}.{}&gt;] {divider} &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">cargo</span><span class="p">,</span>
+            <span class="n">divider</span><span class="o">=</span><span class="s">&#39;....&#39;</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="s">&#39;&#39;</span><span class="p">)</span> \
+            <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="s">&#39;&#39;</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="n">cmd_title</span><span class="p">(</span><span class="s">&#39;Printing Nodes&#39;</span><span class="p">)</span>
+    <span class="c"># Follows a node along it&#39;s next target, until next is None.</span>
+    <span class="k">while</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">+=</span> <span class="n">_fmt</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+    <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Linked List</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="build_list"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.build_list">[docs]</a><span class="k">def</span> <span class="nf">build_list</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">head</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c"># Start from the beginning with a new node.</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="s">&#39;head&#39;</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">curr_node</span> <span class="o">=</span> <span class="n">head</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c"># Head starts at 0</span>
+    <span class="k">while</span> <span class="n">curr_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">curr</span> <span class="o">==</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s">&#39;tail&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s">&#39;node-{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">curr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">curr_node</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">curr_node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">None</span> <span class="k">if</span> <span class="p">(</span><span class="n">curr</span> <span class="o">==</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> \
+            <span class="k">else</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="n">curr_node</span><span class="p">)</span>
+        <span class="c"># Advance to the next node, for the next iteration</span>
+        <span class="n">curr_node</span> <span class="o">=</span> <span class="n">curr_node</span><span class="o">.</span><span class="n">next</span>
+        <span class="n">curr</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">head</span></div>
+
+
+<div class="viewcode-block" id="AssociationList"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.AssociationList">[docs]</a><span class="k">class</span> <span class="nc">AssociationList</span><span class="p">(</span><span class="n">DoubleNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Our linked list already encapsulates all the behavior necessary.</span>
+<span class="sd">    The required `key` and `value` properties are named `title` and `cargo`</span>
+<span class="sd">    respectively. The association (lookup) can be evaluated by traversing the</span>
+<span class="sd">    linked list and comparing the key, then returning the matching nodes value.</span>
+
+<span class="sd">    This behavior is already done with the setter,</span>
+<span class="sd">    so we don&#39;t need to re-define it here.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AssociationList.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.AssociationList.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AssociationList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AssociationList.__getitem__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.array_and_linked_lists.AssociationList.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get an existing node, returning only the value.&quot;&quot;&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">while</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">node</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="bp">None</span></div></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Arrays &amp; Linked Lists&#39;</span><span class="p">):</span>
+        <span class="n">MAX_NODES</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">single</span> <span class="o">=</span> <span class="n">SingleNode</span><span class="p">(</span><span class="s">&#39;head&#39;</span><span class="p">)</span>
+        <span class="n">single</span><span class="p">[</span><span class="s">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SingleNode</span><span class="p">(</span><span class="s">&#39;next-1&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">single</span><span class="p">)</span>
+
+        <span class="n">linked_list</span> <span class="o">=</span> <span class="n">build_list</span><span class="p">(</span><span class="n">MAX_NODES</span><span class="p">)</span>
+        <span class="n">print_nodes</span><span class="p">(</span><span class="n">linked_list</span><span class="p">)</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Length of linked list:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">linked_list</span><span class="p">),</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Testing iteration&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">linked_list</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">del</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-1&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-4&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-2&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-6&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;tail&#39;</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;tail&#39;</span><span class="p">]</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Testing iteration - post delete:&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">linked_list</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;head&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;FOO&#39;</span>
+        <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;BAR&#39;</span>
+        <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;BIM&#39;</span>
+
+        <span class="k">assert</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cargo</span> <span class="o">==</span> <span class="s">&#39;FOO&#39;</span>
+        <span class="k">assert</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cargo</span> <span class="o">==</span> <span class="s">&#39;BAR&#39;</span>
+        <span class="k">assert</span> <span class="n">linked_list</span><span class="p">[</span><span class="s">&#39;node-5&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cargo</span> <span class="o">==</span> <span class="s">&#39;BIM&#39;</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Testing value update&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">newlines</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">linked_list</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">node</span><span class="o">.</span><span class="n">cargo</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Parallel arrays&#39;</span><span class="p">)</span>
+        <span class="c"># &quot;Parallel&quot; arrays</span>
+        <span class="n">MAX_ITEMS</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">faker</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_ITEMS</span><span class="p">)]</span>
+        <span class="n">emails</span> <span class="o">=</span> <span class="p">[</span><span class="n">faker</span><span class="o">.</span><span class="n">email</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_ITEMS</span><span class="p">)]</span>
+        <span class="n">parallel</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">,</span> <span class="n">emails</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_ITEMS</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;Name: {}, Email: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">emails</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Matrix/Vector arrays&#39;</span><span class="p">)</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">random_matrix</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Matrix&#39;</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Sorted array&#39;</span><span class="p">)</span>
+        <span class="c"># Props to John Neumann for &quot;inventing&quot; it</span>
+        <span class="n">orig</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">shuffle</span><span class="p">(</span><span class="n">orig</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Shuffled: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">orig</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Sorted: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">orig</span><span class="p">)))</span>
+
+        <span class="c"># Wikipedia glossary practice</span>
+        <span class="n">singleton</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">not_singleton</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

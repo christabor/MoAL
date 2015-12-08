@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<span class="c"># http://www.codeproject.com</span>
+<span class="c"># /Articles/615139/An-Absolute-Beginners-Tutorial-on-Dependency-Inver</span>
+
+<span class="c"># From</span>
+<span class="c"># http://programmers.stackexchange.com/questions/274459</span>
+<span class="c"># /when-not-to-apply-dependency-inversion</span>
+<span class="c">#   &quot;Part of the art of software development is having a good sense of what is</span>
+<span class="c">#   likely to change as time goes on, and what isn&#39;t. For the stuff that is</span>
+<span class="c">#   likely to change, use the interfaces and other SOLID concepts.</span>
+<span class="c">#   For the stuff that won&#39;t, use YAGNI and just pass concrete types,</span>
+<span class="c">#   forget the factory classes, forget all the runtime hooking up and</span>
+<span class="c">#   configuration, etc, and forget a lot of the SOLID abstractions.</span>
+<span class="c">#   In my experience, the YAGNI approach has proven to be correct</span>
+<span class="c">#   far more often than it is not.&quot;</span>
+
+
+<div class="viewcode-block" id="Messenger"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger">[docs]</a><span class="k">class</span> <span class="nc">Messenger</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;This class acts as a layer of indirection and inverts</span>
+<span class="sd">    the dependency of the higher-level modules that use it,</span>
+<span class="sd">    by provide a more abstract messaging mechanism.</span>
+<span class="sd">    This makes any messenger that subclasses this class &quot;pluggable&quot;.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Messenger.message_action"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger.message_action">[docs]</a>    <span class="k">def</span> <span class="nf">message_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;[Message]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SMSMessenger"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.SMSMessenger">[docs]</a><span class="k">class</span> <span class="nc">SMSMessenger</span><span class="p">(</span><span class="n">Messenger</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">message_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;[SMS Message]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="EMailMessenger"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.EMailMessenger">[docs]</a><span class="k">class</span> <span class="nc">EMailMessenger</span><span class="p">(</span><span class="n">Messenger</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">message_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;[Email Message]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="LoggingMessenger"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.LoggingMessenger">[docs]</a><span class="k">class</span> <span class="nc">LoggingMessenger</span><span class="p">(</span><span class="n">Messenger</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">message_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;[Logging Message]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="StillCoupledApplication"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication">[docs]</a><span class="k">class</span> <span class="nc">StillCoupledApplication</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;This is the highest level class, and requires</span>
+<span class="sd">    some kind of logging mechanism. It&#39;s easy to plug new loggers</span>
+<span class="sd">    into this class because they all reside in front of a common class.</span>
+<span class="sd">    The problem is, they still require knowledge of which logger to use.&quot;&quot;&quot;</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="bp">None</span>
+
+<div class="viewcode-block" id="StillCoupledApplication.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span></div>
+        <span class="c"># Map a concrete messenger type to the class, but everywhere else</span>
+        <span class="c"># in the class it doesn&#39;t know the difference between email, sms, etc...</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">Messenger</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StillCoupledApplication.log"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">message_action</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Application"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application">[docs]</a><span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;This class no longer requires any knowledge of the logger type,</span>
+<span class="sd">    because it&#39;s passed in. So long as the methods match, it will</span>
+<span class="sd">    just work. This is called dependency injection.&quot;&quot;&quot;</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="bp">None</span>
+
+<div class="viewcode-block" id="Application.__init__"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s">&#39;logger&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">Messenger</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;logger&#39;</span><span class="p">)()</span></div>
+
+<div class="viewcode-block" id="Application.log"><a class="viewcode-back" href="../../../../../../MOAL.software_engineering.problem_solving.design_patterns.solid.html#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">message_action</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">msg</span></div></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;SOLID - Dependency Inversion Principle&#39;</span><span class="p">):</span>
+        <span class="c"># It seems that DIP is a concept, and the mechanism to achieve it</span>
+        <span class="c"># is actually Dependency Injection (e.g. Class/Method/Prop injection).</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;Foobar&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;[Message]: Foobar&#39;</span>
+
+        <span class="n">app_email</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">EMailMessenger</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">app_email</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;Foobar&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;[Email Message]: Foobar&#39;</span>
+
+        <span class="n">app_sms</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">SMSMessenger</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">app_sms</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;Foobar&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;[SMS Message]: Foobar&#39;</span>
+
+        <span class="n">app_log</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">LoggingMessenger</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">app_log</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;Foobar&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;[Logging Message]: Foobar&#39;</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

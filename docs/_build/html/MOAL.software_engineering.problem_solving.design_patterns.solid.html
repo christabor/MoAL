@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.solid package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.software_engineering.problem_solving.design_patterns package" href="MOAL.software_engineering.problem_solving.design_patterns.html"/>
+        <link rel="next" title="MOAL.software_engineering.problem_solving.design_patterns.unix package" href="MOAL.software_engineering.problem_solving.design_patterns.unix.html"/>
+        <link rel="prev" title="MOAL.software_engineering.problem_solving.design_patterns.grasp package" href="MOAL.software_engineering.problem_solving.design_patterns.grasp.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.software_engineering.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.html">MOAL.software_engineering package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.problem_solving.html">MOAL.software_engineering.problem_solving package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.problem_solving.design_patterns.html">MOAL.software_engineering.problem_solving.design_patterns package</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.solid package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.software_engineering.problem_solving.design_patterns.solid.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.solid">
+<span id="moal-software-engineering-problem-solving-design-patterns-solid-package"></span><h1>MOAL.software_engineering.problem_solving.design_patterns.solid package<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.solid" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion">
+<span id="moal-software-engineering-problem-solving-design-patterns-solid-dependency-inversion-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.</code><code class="descname">Application</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#Application"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class no longer requires any knowledge of the logger type,
+because it&#8217;s passed in. So long as the methods match, it will
+just work. This is called dependency injection.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#Application.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.log">
+<code class="descname">log</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#Application.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.logger">
+<code class="descname">logger</code><em class="property"> = None</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Application.logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.EMailMessenger">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.</code><code class="descname">EMailMessenger</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#EMailMessenger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.EMailMessenger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger" title="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.EMailMessenger.message_action">
+<code class="descname">message_action</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.EMailMessenger.message_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.LoggingMessenger">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.</code><code class="descname">LoggingMessenger</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#LoggingMessenger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.LoggingMessenger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger" title="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.LoggingMessenger.message_action">
+<code class="descname">message_action</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.LoggingMessenger.message_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.</code><code class="descname">Messenger</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#Messenger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class acts as a layer of indirection and inverts
+the dependency of the higher-level modules that use it,
+by provide a more abstract messaging mechanism.
+This makes any messenger that subclasses this class &#8220;pluggable&#8221;.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger.message_action">
+<code class="descname">message_action</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#Messenger.message_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger.message_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.SMSMessenger">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.</code><code class="descname">SMSMessenger</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#SMSMessenger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.SMSMessenger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger" title="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.Messenger</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.SMSMessenger.message_action">
+<code class="descname">message_action</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.SMSMessenger.message_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.</code><code class="descname">StillCoupledApplication</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#StillCoupledApplication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the highest level class, and requires
+some kind of logging mechanism. It&#8217;s easy to plug new loggers
+into this class because they all reside in front of a common class.
+The problem is, they still require knowledge of which logger to use.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#StillCoupledApplication.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.log">
+<code class="descname">log</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/dependency_inversion.html#StillCoupledApplication.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.logger">
+<code class="descname">logger</code><em class="property"> = None</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.dependency_inversion.StillCoupledApplication.logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation">
+<span id="moal-software-engineering-problem-solving-design-patterns-solid-interface-segregation-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMAuthentication">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.</code><code class="descname">ATMAuthentication</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#ATMAuthentication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMAuthentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging" title="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMAuthentication._validate">
+<code class="descname">_validate</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMAuthentication._validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nonsense validation function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMAuthentication.authorize_pin">
+<code class="descname">authorize_pin</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMAuthentication.authorize_pin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMDeposit">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.</code><code class="descname">ATMDeposit</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#ATMDeposit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMDeposit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging" title="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMDeposit.handle_deposit">
+<code class="descname">handle_deposit</code><span class="sig-paren">(</span><em>info</em>, <em>amt</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMDeposit.handle_deposit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.</code><code class="descname">ATMLogging</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#ATMLogging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging.add_transaction_log">
+<code class="descname">add_transaction_log</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging.add_transaction_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging.calculate_balance">
+<code class="descname">calculate_balance</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging.calculate_balance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.</code><code class="descname">ATMUserEvents</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#ATMUserEvents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging" title="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.clear_info">
+<code class="descname">clear_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.clear_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.eject_card">
+<code class="descname">eject_card</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.eject_card" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.print_receipt">
+<code class="descname">print_receipt</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.print_receipt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.process_button">
+<code class="descname">process_button</code><span class="sig-paren">(</span><em>button_event</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMUserEvents.process_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMWidthdrawl">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.</code><code class="descname">ATMWidthdrawl</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#ATMWidthdrawl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMWidthdrawl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging" title="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMLogging</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMWidthdrawl.handle_withdrawal">
+<code class="descname">handle_withdrawal</code><span class="sig-paren">(</span><em>info</em>, <em>amt</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.ATMWidthdrawl.handle_withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.</code><code class="descname">MonsterATMClass</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>A bad example of a large class handling everything.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass._validate">
+<code class="descname">_validate</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass._validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass._validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nonsense validation function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.add_fee">
+<code class="descname">add_fee</code><span class="sig-paren">(</span><em>info</em>, <em>amt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.add_fee"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.add_fee" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.add_transaction_log">
+<code class="descname">add_transaction_log</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.add_transaction_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.add_transaction_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.authorize_pin">
+<code class="descname">authorize_pin</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.authorize_pin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.authorize_pin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.calculate_balance">
+<code class="descname">calculate_balance</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.calculate_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.calculate_balance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.clear_info">
+<code class="descname">clear_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.clear_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.clear_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.handle_deposit">
+<code class="descname">handle_deposit</code><span class="sig-paren">(</span><em>info</em>, <em>amt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.handle_deposit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.handle_deposit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.handle_withdrawal">
+<code class="descname">handle_withdrawal</code><span class="sig-paren">(</span><em>info</em>, <em>amt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.handle_withdrawal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.handle_withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.print_receipt">
+<code class="descname">print_receipt</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/interface_segregation.html#MonsterATMClass.print_receipt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.interface_segregation.MonsterATMClass.print_receipt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution">
+<span id="moal-software-engineering-problem-solving-design-patterns-solid-liskov-substitution-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.</code><code class="descname">ColoredSquare</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/liskov_substitution.html#ColoredSquare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square" title="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.ColoredSquare._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.</code><code class="descname">Rectangle</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/liskov_substitution.html#Rectangle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square" title="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle.set_height">
+<code class="descname">set_height</code><span class="sig-paren">(</span><em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle.set_height" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle.set_width">
+<code class="descname">set_width</code><span class="sig-paren">(</span><em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Rectangle.set_width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.</code><code class="descname">Square</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/liskov_substitution.html#Square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="MOAL.type_theory.html#MOAL.type_theory.nominal_structural.StructuralType" title="MOAL.type_theory.nominal_structural.StructuralType"><code class="xref py py-class docutils literal"><span class="pre">MOAL.type_theory.nominal_structural.StructuralType</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>prop</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.set_size">
+<code class="descname">set_size</code><span class="sig-paren">(</span><em>h</em>, <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.liskov_substitution.Square.set_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed">
+<span id="moal-software-engineering-problem-solving-design-patterns-solid-open-closed-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.</code><code class="descname">ConnectionManager</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.html#ConnectionManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC" title="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC</span></code></a></p>
+<p>Valid, since it extends the methods.</p>
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>ip</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.html#ConnectionManager.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager.drop">
+<code class="descname">drop</code><span class="sig-paren">(</span><em>ip</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.html#ConnectionManager.drop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManager.drop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.</code><code class="descname">ConnectionManagerABC</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.html#ConnectionManagerABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The essence of the Open/Closed principle is that objects should be
+open for extension but closed for modification. This is effectively
+what an abstract base class (or virtual interface) provides, because
+it requires anything that uses it to extend from it, rather than
+changing it directly. In Python the ABC module will enforce this
+principle by checking that all subclassed methods provide an overriding
+method if the deriving class has an abstractmethod set.</p>
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset(['add', 'drop'])</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.__metaclass__">
+<code class="descname">__metaclass__</code><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.__metaclass__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.add">
+<code class="descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.html#ConnectionManagerABC.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.drop">
+<code class="descname">drop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.html#ConnectionManagerABC.drop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.drop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.ips">
+<code class="descname">ips</code><em class="property"> = {}</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC.ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.</code><code class="descname">DistributedConnectionManager</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/open_closed.html#DistributedConnectionManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC" title="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.ConnectionManagerABC</span></code></a></p>
+<p>Invalid, since it doesn&#8217;t extend the methods.</p>
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset(['add', 'drop'])</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.open_closed.DistributedConnectionManager._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility">
+<span id="moal-software-engineering-problem-solving-design-patterns-solid-single-responsibility-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">Blade</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#Blade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade.cut">
+<code class="descname">cut</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade.cut" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Corkscrew">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">Corkscrew</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#Corkscrew"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Corkscrew" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Corkscrew.open_wine">
+<code class="descname">open_wine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Corkscrew.open_wine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.FlatHead">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">FlatHead</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#FlatHead"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.FlatHead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver" title="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Hex">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">Hex</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#Hex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver" title="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.LargeBlade">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">LargeBlade</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#LargeBlade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.LargeBlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade" title="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Phillips">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">Phillips</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#Phillips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Phillips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver" title="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Saw">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">Saw</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#Saw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Saw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Scissor">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">Scissor</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#Scissor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Scissor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">ScrewDriver</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#ScrewDriver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver.screw">
+<code class="descname">screw</code><span class="sig-paren">(</span><em>degrees=90</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver.screw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver.unscrew">
+<code class="descname">unscrew</code><span class="sig-paren">(</span><em>degrees=90</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.ScrewDriver.unscrew" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SerratedKnife">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">SerratedKnife</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SerratedKnife"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SerratedKnife" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade" title="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SmallBlade">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">SmallBlade</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SmallBlade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SmallBlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade" title="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.Blade</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.</code><code class="descname">SwissArmyKnife</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife" title="Permalink to this definition">¶</a></dt>
+<dd><p>...What exactly is this for, again?</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.cut">
+<code class="descname">cut</code><span class="sig-paren">(</span><em>blade='medium'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.cut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.cut" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.file">
+<code class="descname">file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.magnify">
+<code class="descname">magnify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.magnify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.magnify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.open_wine">
+<code class="descname">open_wine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.open_wine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.open_wine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.saw">
+<code class="descname">saw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.saw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.saw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.scissor">
+<code class="descname">scissor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.scissor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.scissor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.screw">
+<code class="descname">screw</code><span class="sig-paren">(</span><em>type='phillips'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.screw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.screw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.tweeze">
+<code class="descname">tweeze</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.tweeze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.tweeze" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.unscrew">
+<code class="descname">unscrew</code><span class="sig-paren">(</span><em>type='phillips'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/solid/single_responsibility.html#SwissArmyKnife.unscrew"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.solid.single_responsibility.SwissArmyKnife.unscrew" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.software_engineering.problem_solving.design_patterns.unix.html" class="btn btn-neutral float-right" title="MOAL.software_engineering.problem_solving.design_patterns.unix package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.software_engineering.problem_solving.design_patterns.grasp.html" class="btn btn-neutral" title="MOAL.software_engineering.problem_solving.design_patterns.grasp package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

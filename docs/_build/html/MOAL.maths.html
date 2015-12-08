@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.maths package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL package" href="MOAL.html"/>
+        <link rel="next" title="MOAL.maths.applied package" href="MOAL.maths.applied.html"/>
+        <link rel="prev" title="MOAL.languages.paradigms.object_oriented package" href="MOAL.languages.paradigms.object_oriented.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">MOAL.maths package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.maths.big_o">MOAL.maths.big_o module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.maths.fuzzy_sets">MOAL.maths.fuzzy_sets module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.maths.number_theory">MOAL.maths.number_theory module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.maths.probability">MOAL.maths.probability module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.maths.set_theory">MOAL.maths.set_theory module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+    <li>MOAL.maths package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.maths.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.maths">
+<span id="moal-maths-package"></span><h1>MOAL.maths package<a class="headerlink" href="#module-MOAL.maths" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.maths.applied.html">MOAL.maths.applied package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.applied.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.applied.computational.html">MOAL.maths.applied.computational package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.maths.applied.computational.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.html">MOAL.maths.applied.computational.cryptography package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.html">MOAL.maths.applied.computational.cryptography.ciphers package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.html">MOAL.maths.applied.computational.cryptography.ciphers.historical package</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l11"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.substitution.html">MOAL.maths.applied.computational.cryptography.ciphers.historical.substitution package</a><ul>
+<li class="toctree-l12"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.substitution.html#submodules">Submodules</a></li>
+<li class="toctree-l12"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.substitution.html#module-MOAL.maths.applied.computational.cryptography.ciphers.historical.substitution.rot13">MOAL.maths.applied.computational.cryptography.ciphers.historical.substitution.rot13 module</a></li>
+</ul>
+</li>
+<li class="toctree-l11"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.transposition.html">MOAL.maths.applied.computational.cryptography.ciphers.historical.transposition package</a><ul>
+<li class="toctree-l12"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.transposition.html#submodules">Submodules</a></li>
+<li class="toctree-l12"><a class="reference internal" href="MOAL.maths.applied.computational.cryptography.ciphers.historical.transposition.html#module-MOAL.maths.applied.computational.cryptography.ciphers.historical.transposition.railfence">MOAL.maths.applied.computational.cryptography.ciphers.historical.transposition.railfence module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.applied.optimization.html">MOAL.maths.applied.optimization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.maths.applied.optimization.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.maths.applied.optimization.html#module-MOAL.maths.applied.optimization.memoization">MOAL.maths.applied.optimization.memoization module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.maths.applied.optimization.html#module-MOAL.maths.applied.optimization.strength_reduction">MOAL.maths.applied.optimization.strength_reduction module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.maths.category_theory.html">MOAL.maths.category_theory package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.category_theory.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.category_theory.html#module-MOAL.maths.category_theory.cat_basics">MOAL.maths.category_theory.cat_basics module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.maths.combinatorics.html">MOAL.maths.combinatorics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.combinatorics.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.combinatorics.html#module-MOAL.maths.combinatorics.basic">MOAL.maths.combinatorics.basic module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.maths.numbers.html">MOAL.maths.numbers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.numbers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.numbers.html#module-MOAL.maths.numbers.basic">MOAL.maths.numbers.basic module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.maths.space.html">MOAL.maths.space package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.space.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.maths.space.html#module-MOAL.maths.space.fractal_geometry">MOAL.maths.space.fractal_geometry module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.maths.big_o">
+<span id="moal-maths-big-o-module"></span><h2>MOAL.maths.big_o module<a class="headerlink" href="#module-MOAL.maths.big_o" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_1">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_1</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_2n">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_2n</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_2n"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_2n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_log_n">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_log_n</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_log_n"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_log_n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_n">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_n</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_n"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_n2">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_n2</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_n2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_n2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_n3">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_n3</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_n3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_n3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_n_comprehension">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_n_comprehension</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_n_comprehension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_n_comprehension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.big_o.o_n_factorial">
+<code class="descclassname">MOAL.maths.big_o.</code><code class="descname">o_n_factorial</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/big_o.html#o_n_factorial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.big_o.o_n_factorial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.maths.fuzzy_sets">
+<span id="moal-maths-fuzzy-sets-module"></span><h2>MOAL.maths.fuzzy_sets module<a class="headerlink" href="#module-MOAL.maths.fuzzy_sets" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.maths.number_theory">
+<span id="moal-maths-number-theory-module"></span><h2>MOAL.maths.number_theory module<a class="headerlink" href="#module-MOAL.maths.number_theory" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.maths.number_theory.absorption_lcm_laws">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">absorption_lcm_laws</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#absorption_lcm_laws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.absorption_lcm_laws" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.associative_lcm_laws">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">associative_lcm_laws</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#associative_lcm_laws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.associative_lcm_laws" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.commutative_lcm_laws">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">commutative_lcm_laws</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#commutative_lcm_laws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.commutative_lcm_laws" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.cube">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">cube</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#cube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.cube" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.even">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">even</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#even"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.even" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.exercise_1_2">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">exercise_1_2</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#exercise_1_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.exercise_1_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.exercise_2_8">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">exercise_2_8</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#exercise_2_8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.exercise_2_8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.exp">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">exp</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#exp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.exp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.exp_custom">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">exp_custom</code><span class="sig-paren">(</span><em>max_nums</em>, <em>power</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#exp_custom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.exp_custom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.factor">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">factor</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#factor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.factor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.factor_factorials">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">factor_factorials</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#factor_factorials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.factor_factorials" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.factorial">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">factorial</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#factorial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.factorial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.factorials">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">factorials</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#factorials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.factorials" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.fibo">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">fibo</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#fibo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.fibo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.gcd">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">gcd</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#gcd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.gcd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.idempotent_lcm_laws">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">idempotent_lcm_laws</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#idempotent_lcm_laws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.idempotent_lcm_laws" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.lcm">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">lcm</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#lcm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.lcm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.lg">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">lg</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#lg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.lg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.lg_custom">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">lg_custom</code><span class="sig-paren">(</span><em>max_nums</em>, <em>base</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#lg_custom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.lg_custom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.odd">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">odd</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#odd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.odd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.rand">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">rand</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#rand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.rand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.square">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">square</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.square" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.test_number">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">test_number</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#test_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.test_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.number_theory.triangle">
+<code class="descclassname">MOAL.maths.number_theory.</code><code class="descname">triangle</code><span class="sig-paren">(</span><em>max_nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/number_theory.html#triangle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.number_theory.triangle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.maths.probability">
+<span id="moal-maths-probability-module"></span><h2>MOAL.maths.probability module<a class="headerlink" href="#module-MOAL.maths.probability" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="MOAL.maths.probability.NotInGroupException">
+<em class="property">exception </em><code class="descclassname">MOAL.maths.probability.</code><code class="descname">NotInGroupException</code><a class="reference internal" href="_modules/MOAL/maths/probability.html#NotInGroupException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.probability.NotInGroupException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.probability.Probability">
+<em class="property">class </em><code class="descclassname">MOAL.maths.probability.</code><code class="descname">Probability</code><a class="reference internal" href="_modules/MOAL/maths/probability.html#Probability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.probability.Probability" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="staticmethod">
+<dt id="MOAL.maths.probability.Probability._fmt">
+<em class="property">static </em><code class="descname">_fmt</code><span class="sig-paren">(</span><em>res</em>, <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.probability.Probability._fmt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.maths.probability.Probability._percentages">
+<em class="property">static </em><code class="descname">_percentages</code><span class="sig-paren">(</span><em>count</em>, <em>divisor</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.probability.Probability._percentages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.maths.probability.Probability.of_group">
+<em class="property">static </em><code class="descname">of_group</code><span class="sig-paren">(</span><em>values</em>, <em>subset</em>, <em>are_equal=True</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.probability.Probability.of_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.maths.probability.Probability.of_single">
+<em class="property">static </em><code class="descname">of_single</code><span class="sig-paren">(</span><em>values</em>, <em>are_equal=True</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.probability.Probability.of_single" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.probability._test">
+<code class="descclassname">MOAL.maths.probability.</code><code class="descname">_test</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/probability.html#_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.probability._test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.probability.coin_flip">
+<code class="descclassname">MOAL.maths.probability.</code><code class="descname">coin_flip</code><span class="sig-paren">(</span><em>count=1000</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/probability.html#coin_flip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.probability.coin_flip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.probability.get_results">
+<code class="descclassname">MOAL.maths.probability.</code><code class="descname">get_results</code><span class="sig-paren">(</span><em>values</em>, <em>runs=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/probability.html#get_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.probability.get_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.maths.probability.test_coin_flip">
+<code class="descclassname">MOAL.maths.probability.</code><code class="descname">test_coin_flip</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/probability.html#test_coin_flip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.probability.test_coin_flip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.maths.set_theory">
+<span id="moal-maths-set-theory-module"></span><h2>MOAL.maths.set_theory module<a class="headerlink" href="#module-MOAL.maths.set_theory" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.maths.set_theory.Aleph">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">Aleph</code><span class="sig-paren">(</span><em>cardinality</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#Aleph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.Aleph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.maths.set_theory.Set" title="MOAL.maths.set_theory.Set"><code class="xref py py-class docutils literal"><span class="pre">MOAL.maths.set_theory.Set</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Aleph.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>cardinality</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Aleph.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Aleph.run_until">
+<code class="descname">run_until</code><span class="sig-paren">(</span><em>maximum</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Aleph.run_until" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.set_theory.AlephNull">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">AlephNull</code><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#AlephNull"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.AlephNull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.maths.set_theory.Aleph" title="MOAL.maths.set_theory.Aleph"><code class="xref py py-class docutils literal"><span class="pre">MOAL.maths.set_theory.Aleph</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AlephNull.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AlephNull.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AlephNull.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AlephNull.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.set_theory.AlephOmega">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">AlephOmega</code><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#AlephOmega"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.AlephOmega" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.maths.set_theory.Aleph" title="MOAL.maths.set_theory.Aleph"><code class="xref py py-class docutils literal"><span class="pre">MOAL.maths.set_theory.Aleph</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AlephOmega.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AlephOmega.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.set_theory.AlephOne">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">AlephOne</code><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#AlephOne"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.AlephOne" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.maths.set_theory.Aleph" title="MOAL.maths.set_theory.Aleph"><code class="xref py py-class docutils literal"><span class="pre">MOAL.maths.set_theory.Aleph</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AlephOne.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AlephOne.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.set_theory.AllOdds">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">AllOdds</code><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#AllOdds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.AllOdds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.maths.set_theory.AlephNull" title="MOAL.maths.set_theory.AlephNull"><code class="xref py py-class docutils literal"><span class="pre">MOAL.maths.set_theory.AlephNull</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AllOdds.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AllOdds.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AllOdds.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AllOdds.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.set_theory.AllSquares">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">AllSquares</code><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#AllSquares"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.AllSquares" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.maths.set_theory.AlephNull" title="MOAL.maths.set_theory.AlephNull"><code class="xref py py-class docutils literal"><span class="pre">MOAL.maths.set_theory.AlephNull</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AllSquares.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AllSquares.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.AllSquares.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.AllSquares.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.set_theory.BethOne">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">BethOne</code><span class="sig-paren">(</span><em>cardinality</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#BethOne"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.BethOne" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.maths.set_theory.Aleph" title="MOAL.maths.set_theory.Aleph"><code class="xref py py-class docutils literal"><span class="pre">MOAL.maths.set_theory.Aleph</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.maths.set_theory.Set">
+<em class="property">class </em><code class="descclassname">MOAL.maths.set_theory.</code><code class="descname">Set</code><span class="sig-paren">(</span><em>items</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/maths/set_theory.html#Set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.maths.set_theory.Set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>items</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.cardinality">
+<code class="descname">cardinality</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.cardinality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.is_series">
+<code class="descname">is_series</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.is_series" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.maths.set_theory.Set.is_successor">
+<code class="descname">is_successor</code><span class="sig-paren">(</span><em>prev</em>, <em>next</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.maths.set_theory.Set.is_successor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.maths.applied.html" class="btn btn-neutral float-right" title="MOAL.maths.applied package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.languages.paradigms.object_oriented.html" class="btn btn-neutral" title="MOAL.languages.paradigms.object_oriented package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

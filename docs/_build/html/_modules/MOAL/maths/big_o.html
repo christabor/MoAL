@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.maths.big_o &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.maths.big_o</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.maths.big_o</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">gibberish</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.trials</span> <span class="kn">import</span> <span class="n">test_speed</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.trials</span> <span class="kn">import</span> <span class="n">run_trials</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+
+
+<span class="n">dict_test</span> <span class="o">=</span> <span class="p">{</span><span class="n">gibberish</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)}</span>
+<span class="n">dict_test</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;bar&#39;</span>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_1"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_1">[docs]</a><span class="k">def</span> <span class="nf">o_1</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am a O(1) function&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dict_test</span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">])</span></div>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_n"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_n">[docs]</a><span class="k">def</span> <span class="nf">o_n</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am a O(n) function&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span></div>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_n2"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_n2">[docs]</a><span class="k">def</span> <span class="nf">o_n2</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am a O(n^2) function&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} + {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">))</span></div>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_n_comprehension"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_n_comprehension">[docs]</a><span class="k">def</span> <span class="nf">o_n_comprehension</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am a O(n) comprehension function&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">([</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)])</span></div>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_n3"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_n3">[docs]</a><span class="k">def</span> <span class="nf">o_n3</span><span class="p">(</span><span class="n">max_amt</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am a O(n^3) function&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_amt</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_amt</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_amt</span><span class="p">):</span>
+                <span class="n">_</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+                <span class="c"># print(&#39;{} + {} + {} = {}&#39;.format(x, y, z, x + y + z))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Result: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_</span><span class="p">))</span></div>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_2n"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_2n">[docs]</a><span class="k">def</span> <span class="nf">o_2n</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am a O(2^n) function&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">num</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="n">num</span><span class="p">))</span></div>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_log_n"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_log_n">[docs]</a><span class="k">def</span> <span class="nf">o_log_n</span><span class="p">(</span><span class="n">max_amt</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">foo</span> <span class="o">=</span> <span class="n">max_amt</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am a O(log n) function&#39;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">foo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">foo</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+<span class="nd">@test_speed</span>
+<div class="viewcode-block" id="o_n_factorial"><a class="viewcode-back" href="../../../MOAL.maths.html#MOAL.maths.big_o.o_n_factorial">[docs]</a><span class="k">def</span> <span class="nf">o_n_factorial</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span></div>
+    <span class="c"># Basically a for loop nested `factor` times.</span>
+    <span class="k">pass</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;BIG O Notation&#39;</span><span class="p">):</span>
+        <span class="n">o_1</span><span class="p">()</span>
+        <span class="n">o_n</span><span class="p">()</span>
+        <span class="n">o_n2</span><span class="p">()</span>
+        <span class="n">o_n_comprehension</span><span class="p">()</span>
+        <span class="n">run_trials</span><span class="p">(</span><span class="n">o_n3</span><span class="p">,</span> <span class="n">trials</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">run_trials</span><span class="p">(</span><span class="n">o_log_n</span><span class="p">,</span> <span class="n">trials</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">o_n_factorial</span><span class="p">()</span>
+        <span class="n">o_2n</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

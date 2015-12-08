@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.languages.paradigms.object_oriented package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.languages.paradigms package" href="MOAL.languages.paradigms.html"/>
+        <link rel="next" title="MOAL.maths package" href="MOAL.maths.html"/>
+        <link rel="prev" title="MOAL.languages.paradigms.functional package" href="MOAL.languages.paradigms.functional.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.languages.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.languages.html">MOAL.languages package</a> &raquo;</li>
+      
+          <li><a href="MOAL.languages.paradigms.html">MOAL.languages.paradigms package</a> &raquo;</li>
+      
+    <li>MOAL.languages.paradigms.object_oriented package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.languages.paradigms.object_oriented.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.languages.paradigms.object_oriented">
+<span id="moal-languages-paradigms-object-oriented-package"></span><h1>MOAL.languages.paradigms.object_oriented package<a class="headerlink" href="#module-MOAL.languages.paradigms.object_oriented" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.languages.paradigms.object_oriented.abstract_baseclass">
+<span id="moal-languages-paradigms-object-oriented-abstract-baseclass-module"></span><h2>MOAL.languages.paradigms.object_oriented.abstract_baseclass module<a class="headerlink" href="#module-MOAL.languages.paradigms.object_oriented.abstract_baseclass" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.abstract_baseclass.</code><code class="descname">MyAbstractThing</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/abstract_baseclass.html#MyAbstractThing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset(['get_items', 'get_user'])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.__metaclass__">
+<code class="descname">__metaclass__</code><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.__metaclass__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.get_items">
+<code class="descname">get_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/abstract_baseclass.html#MyAbstractThing.get_items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.get_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.get_user">
+<code class="descname">get_user</code><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user properties.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.abstract_baseclass.</code><code class="descname">MyBrokenConcreteThing</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/abstract_baseclass.html#MyBrokenConcreteThing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing" title="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset(['get_items', 'get_user'])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._get_items">
+<code class="descname">_get_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyBrokenConcreteThing._get_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is named slightly different, meaning it won&#8217;t override
+the abstract base class, which will cause a failure.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.abstract_baseclass.</code><code class="descname">MyConcreteThing</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/abstract_baseclass.html#MyConcreteThing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing" title="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyAbstractThing</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.get_items">
+<code class="descname">get_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.get_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.get_some_stuff">
+<em class="property">classmethod </em><code class="descname">get_some_stuff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.get_some_stuff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.get_user">
+<code class="descname">get_user</code><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.abstract_baseclass.MyConcreteThing.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user properties.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.languages.paradigms.object_oriented.oop_classes">
+<span id="moal-languages-paradigms-object-oriented-oop-classes-module"></span><h2>MOAL.languages.paradigms.object_oriented.oop_classes module<a class="headerlink" href="#module-MOAL.languages.paradigms.object_oriented.oop_classes" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">AbstractCat</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#AbstractCat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Family" title="MOAL.languages.paradigms.object_oriented.oop_classes.Family"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Family</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset(['custom_abstractmethod'])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat.__metaclass__">
+<code class="descname">__metaclass__</code><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat.__metaclass__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat.custom_abstractmethod">
+<code class="descname">custom_abstractmethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat.custom_abstractmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an abstract method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">AbstractCatTwo</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#AbstractCatTwo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Family" title="MOAL.languages.paradigms.object_oriented.oop_classes.Family"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Family</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo.custom_abstractmethod">
+<code class="descname">custom_abstractmethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo.custom_abstractmethod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Cat</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Cat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat" title="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCat</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__hash__">
+<code class="descname">__hash__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.custom_abstractmethod">
+<code class="descname">custom_abstractmethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.custom_abstractmethod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.custom_classmethod">
+<em class="property">classmethod </em><code class="descname">custom_classmethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.custom_classmethod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.custom_staticmethod">
+<em class="property">static </em><code class="descname">custom_staticmethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.custom_staticmethod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Cat.meow">
+<em class="property">classmethod </em><code class="descname">meow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat.meow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.CatTwo">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">CatTwo</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#CatTwo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.CatTwo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo" title="MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.AbstractCatTwo</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Class">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Class</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Phylum" title="MOAL.languages.paradigms.object_oriented.oop_classes.Phylum"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Phylum</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Class.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Class.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">ColonelMeow</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#ColonelMeow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats" title="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow.attack">
+<code class="descname">attack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.ColonelMeow.attack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Domain">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Domain</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Life" title="MOAL.languages.paradigms.object_oriented.oop_classes.Life"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Life</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Domain.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Domain.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Family">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Family</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Family"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Family" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Order" title="MOAL.languages.paradigms.object_oriented.oop_classes.Order"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Order</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Family.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Family.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Genus">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Genus</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Genus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Genus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Family" title="MOAL.languages.paradigms.object_oriented.oop_classes.Family"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Family</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Genus.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Genus.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Grumpy</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Grumpy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats" title="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy.frown">
+<code class="descname">frown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Grumpy.frown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">HouseCat</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#HouseCat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Cat" title="MOAL.languages.paradigms.object_oriented.oop_classes.Cat"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Cat</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">InernetHouseCats</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#InernetHouseCats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat" title="MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.HouseCat</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Kingdom</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Kingdom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Domain" title="MOAL.languages.paradigms.object_oriented.oop_classes.Domain"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Domain</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Life">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Life</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Life"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Life" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The new-style base class for all living things.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Maru">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Maru</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Maru"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Maru" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats" title="MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.InernetHouseCats</span></code></a></p>
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Maru.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset([])</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Maru.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_cache">
+<code class="descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_negative_cache">
+<code class="descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_negative_cache_version">
+<code class="descname">_abc_negative_cache_version</code><em class="property"> = 26</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_registry">
+<code class="descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Maru._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Maru.box_attack">
+<code class="descname">box_attack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Maru.box_attack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Order">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Order</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Order"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Class" title="MOAL.languages.paradigms.object_oriented.oop_classes.Class"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Class</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Order.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Order.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Phylum">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Phylum</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Phylum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Phylum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom" title="MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Kingdom</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Phylum.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Phylum.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Species">
+<em class="property">class </em><code class="descclassname">MOAL.languages.paradigms.object_oriented.oop_classes.</code><code class="descname">Species</code><a class="reference internal" href="_modules/MOAL/languages/paradigms/object_oriented/oop_classes.html#Species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Genus" title="MOAL.languages.paradigms.object_oriented.oop_classes.Genus"><code class="xref py py-class docutils literal"><span class="pre">MOAL.languages.paradigms.object_oriented.oop_classes.Genus</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.languages.paradigms.object_oriented.oop_classes.Species.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.languages.paradigms.object_oriented.oop_classes.Species.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.maths.html" class="btn btn-neutral float-right" title="MOAL.maths package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.languages.paradigms.functional.html" class="btn btn-neutral" title="MOAL.languages.paradigms.functional package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

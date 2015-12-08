@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.maths.category_theory.cat_basics &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.maths.category_theory.cat_basics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.maths.category_theory.cat_basics</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h4</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">annotate</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_simple</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.datamaker</span> <span class="kn">import</span> <span class="n">random_dna</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<span class="nd">@annotate</span>
+<div class="viewcode-block" id="dictify"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.dictify">[docs]</a><span class="k">def</span> <span class="nf">dictify</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert arg to a dict.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arg (mixed) - the thing to convert to a dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">&#39;arg&#39;</span><span class="p">:</span> <span class="n">arg</span><span class="p">}</span></div>
+
+
+<span class="nd">@annotate</span>
+<div class="viewcode-block" id="listify"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.listify">[docs]</a><span class="k">def</span> <span class="nf">listify</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert arg to a list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arg (mixed) - the thing to convert to a list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">arg</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="fooify"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.fooify">[docs]</a><span class="k">def</span> <span class="nf">fooify</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;FOO_{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="bazify"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.bazify">[docs]</a><span class="k">def</span> <span class="nf">bazify</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;{}_BAZ&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="prefix"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.prefix">[docs]</a><span class="k">def</span> <span class="nf">prefix</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;_:&#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">thing</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="delimit"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.delimit">[docs]</a><span class="k">def</span> <span class="nf">delimit</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="compose_hybrid"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.compose_hybrid">[docs]</a><span class="k">def</span> <span class="nf">compose_hybrid</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;f&#39;</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="compose_hybrid_hof"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.compose_hybrid_hof">[docs]</a><span class="k">def</span> <span class="nf">compose_hybrid_hof</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;f&#39;</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_compose</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">_compose</span></div>
+
+
+<div class="viewcode-block" id="id"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.id">[docs]</a><span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Identity function.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        thing (mixed) - the thing to return.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">thing</span></div>
+
+<span class="sd">&quot;&quot;&quot;Closer to canonical functions.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="f"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.f">[docs]</a><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">**</span> <span class="n">a</span></div>
+
+
+<div class="viewcode-block" id="g"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.g">[docs]</a><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">b</span> <span class="o">*</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="f_g"><a class="viewcode-back" href="../../../../MOAL.maths.category_theory.html#MOAL.maths.category_theory.cat_basics.f_g">[docs]</a><span class="k">def</span> <span class="nf">f_g</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Category Theory basics&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Challenge ideas taken from bartoszmilewski.com/2014/11/04</span>
+<span class="sd">            /category-the-essence-of-composition/ &quot;Challenges&quot; section.&quot;&quot;&quot;</span>
+        <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Identity function&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;cat&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;dog&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mf">0.03</span><span class="p">]:</span>
+            <span class="k">assert</span> <span class="n">thing</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">thing</span><span class="p">))</span>
+        <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Function composition&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">compose_hybrid</span><span class="p">(</span><span class="s">&#39;composition is neat!&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">dictify</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">listify</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Random funcs&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">listify</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">dictify</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+
+        <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Higher order function composition&#39;</span><span class="p">)</span>
+        <span class="n">f2</span> <span class="o">=</span> <span class="n">compose_hybrid_hof</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">listify</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">dictify</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="s">&#39;composition yay!&#39;</span><span class="p">))</span>
+
+        <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Function composition on a &quot;stream&quot; or incoming set&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">compose_hybrid</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">f</span><span class="o">=</span><span class="n">fooify</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">bazify</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Messing around...&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">compose_hybrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">fooify</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">bazify</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="c"># Just to make things interesting...</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">compose_hybrid</span><span class="p">(</span><span class="n">random_dna</span><span class="p">(),</span> <span class="n">f</span><span class="o">=</span><span class="n">delimit</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+        <span class="n">composed</span> <span class="o">=</span> <span class="n">f_g</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="n">print_simple</span><span class="p">(</span><span class="s">&#39;Traditional composed example:&#39;</span><span class="p">,</span> <span class="n">composed</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

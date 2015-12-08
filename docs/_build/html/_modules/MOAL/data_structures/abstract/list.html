@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.abstract.list &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.abstract.list</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.abstract.list</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">randchars</span>
+
+
+<div class="viewcode-block" id="ListADT"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT">[docs]</a><span class="k">class</span> <span class="nc">ListADT</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    From wikipedia.org/wiki/List_%28abstract_data_type%29#Operations</span>
+<span class="sd">    &quot;</span>
+<span class="sd">    Implementation of the list data structure may</span>
+<span class="sd">    provide some of the following operations:</span>
+
+<span class="sd">        * a constructor for creating an empty list;</span>
+<span class="sd">        * an operation for testing whether or not a list is empty;</span>
+<span class="sd">        * an operation for prepending an entity to a list</span>
+<span class="sd">        * an operation for appending an entity to a list</span>
+<span class="sd">        * an operation for determining the first component</span>
+<span class="sd">            (or the &quot;head&quot;) of a list</span>
+<span class="sd">        * an operation for referring to the list consisting of all the</span>
+<span class="sd">            components of a list except for its first</span>
+<span class="sd">            (this is called the &quot;tail&quot; of the list.)</span>
+<span class="sd">    &quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ListADT.__init__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;&lt;Constructor for list&gt;&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListADT.__iter__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.__iter__">[docs]</a>    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListADT.__str__"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;item&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ListADT.create"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListADT.tail"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.tail">[docs]</a>    <span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div>
+
+<div class="viewcode-block" id="ListADT.head"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.head">[docs]</a>    <span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ListADT.empty"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.empty">[docs]</a>    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="ListADT.prepend"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.prepend">[docs]</a>    <span class="k">def</span> <span class="nf">prepend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListADT.append"><a class="viewcode-back" href="../../../../MOAL.data_structures.abstract.html#MOAL.data_structures.abstract.list.ListADT.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;List Abstract Data Type&#39;</span><span class="p">):</span>
+        <span class="n">list_adt</span> <span class="o">=</span> <span class="n">ListADT</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">list_adt</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">randchars</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+            <span class="n">list_adt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">randchars</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">list_adt</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;List ADT head&#39;</span><span class="p">,</span> <span class="n">list_adt</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;List ADT tail&#39;</span><span class="p">,</span> <span class="n">list_adt</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;List ADT empty?&#39;</span><span class="p">,</span> <span class="n">list_adt</span><span class="o">.</span><span class="n">empty</span><span class="p">())</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

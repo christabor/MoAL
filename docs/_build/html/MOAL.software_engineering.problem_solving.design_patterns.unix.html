@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.software_engineering.problem_solving.design_patterns.unix package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.software_engineering.problem_solving.design_patterns package" href="MOAL.software_engineering.problem_solving.design_patterns.html"/>
+        <link rel="next" title="MOAL.software_engineering.reification package" href="MOAL.software_engineering.reification.html"/>
+        <link rel="prev" title="MOAL.software_engineering.problem_solving.design_patterns.solid package" href="MOAL.software_engineering.problem_solving.design_patterns.solid.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.software_engineering.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.html">MOAL.software_engineering package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.problem_solving.html">MOAL.software_engineering.problem_solving package</a> &raquo;</li>
+      
+          <li><a href="MOAL.software_engineering.problem_solving.design_patterns.html">MOAL.software_engineering.problem_solving.design_patterns package</a> &raquo;</li>
+      
+    <li>MOAL.software_engineering.problem_solving.design_patterns.unix package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.software_engineering.problem_solving.design_patterns.unix.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.unix">
+<span id="moal-software-engineering-problem-solving-design-patterns-unix-package"></span><h1>MOAL.software_engineering.problem_solving.design_patterns.unix package<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.unix" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.unix.modularity">
+<span id="moal-software-engineering-problem-solving-design-patterns-unix-modularity-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.unix.modularity module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.unix.modularity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">AppAuthentication</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppAuthentication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.authenticate">
+<code class="descname">authenticate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.new_user">
+<code class="descname">new_user</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.new_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.send_auth_link">
+<code class="descname">send_auth_link</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.send_auth_link" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.update_password">
+<code class="descname">update_password</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppAuthentication.update_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">AppModel</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppModel.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">AppRenderer</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppRenderer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.get_static">
+<code class="descname">get_static</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.get_static" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.parse_template">
+<code class="descname">parse_template</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.parse_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.render_to_json">
+<code class="descname">render_to_json</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer.render_to_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">AppRouter</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppRouter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.get_params">
+<code class="descname">get_params</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.get_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.get_post">
+<code class="descname">get_post</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.get_post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.parse_route">
+<code class="descname">parse_route</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.parse_route" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.route">
+<code class="descname">route</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRouter.route" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">AppView</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the application request/response cycle</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView.request">
+<code class="descname">request</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppView.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView.request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView.respond">
+<code class="descname">respond</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppView.respond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView.respond" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView.stream">
+<code class="descname">stream</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#AppView.stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView.stream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">BigBloatedAppClass</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#BigBloatedAppClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.authenticate">
+<code class="descname">authenticate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.create_model">
+<code class="descname">create_model</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.create_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.delete_model">
+<code class="descname">delete_model</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.delete_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.get_params">
+<code class="descname">get_params</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.get_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.get_static">
+<code class="descname">get_static</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.get_static" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.new_user">
+<code class="descname">new_user</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.new_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.parse_route">
+<code class="descname">parse_route</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.parse_route" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.parse_template">
+<code class="descname">parse_template</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.parse_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.read_model">
+<code class="descname">read_model</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.read_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.render_to_json">
+<code class="descname">render_to_json</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.render_to_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.request">
+<code class="descname">request</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.respond">
+<code class="descname">respond</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.respond" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.route">
+<code class="descname">route</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.route" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.update_model">
+<code class="descname">update_model</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.update_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.upload">
+<code class="descname">upload</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.BigBloatedAppClass.upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.FtpView">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">FtpView</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#FtpView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.FtpView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView" title="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.HttpView">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">HttpView</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#HttpView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.HttpView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView" title="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.JsonView">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">JsonView</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#JsonView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.JsonView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView" title="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppView</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.TemplateRenderer">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.</code><code class="descname">TemplateRenderer</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.html#TemplateRenderer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.TemplateRenderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer" title="MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.unix.modularity.AppRenderer</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.unix.representation">
+<span id="moal-software-engineering-problem-solving-design-patterns-unix-representation-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.unix.representation module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.unix.representation" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.representation.DEBUG">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.representation.</code><code class="descname">DEBUG</code><em class="property"> = False</em><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rule of Representation: Fold knowledge into data,
+so program logic can be stupid and robust.</p>
+<p>Source: <a class="reference external" href="http://www.catb.org/esr/writings/taoup/html/ch01s06.html">http://www.catb.org/esr/writings/taoup/html/ch01s06.html</a></p>
+<p>&#8220;Data is more tractable than program logic. It follows that where you see a
+choice between complexity in data structures and complexity in code,
+choose the former. More: in evolving a design, you should <em>actively</em> seek ways
+to shift complexity from code to data.&#8221;</p>
+<p>Also see: <a class="reference external" href="http://www.catb.org/esr/writings/taoup/html/generationchapter.html">http://www.catb.org/esr/writings/taoup/html/generationchapter.html</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_1_bad_method">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.representation.</code><code class="descname">example_1_bad_method</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/representation.html#example_1_bad_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_1_bad_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is convoluted and hard to read. It is also potentially
+less performant, since the logic branching must be generated and evaluated.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_1_good_method">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.representation.</code><code class="descname">example_1_good_method</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/representation.html#example_1_good_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_1_good_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>This employees pure data, and is fast as it assumes a lookup, which is
+always O(N). The failed assumption is caught and handled, and new lookups
+can be quickly added, without adding much to the complexity.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_2_bad_method">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.representation.</code><code class="descname">example_2_bad_method</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/representation.html#example_2_bad_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_2_bad_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Continuing down this path of complicated conditional branching,
+things get hairy very fast. Think about cognitive processing time when
+reading this code &#8211; it&#8217;s easy to make a mistake here.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_2_good_method">
+<code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.representation.</code><code class="descname">example_2_good_method</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/representation.html#example_2_good_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.representation.example_2_good_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mapping inputs to this nested dictionary is easy and intuitive, compared
+to the more cognitively challenging task of parsing multiple levels of
+conditional branching statements. It is obvious almost immediately to look
+at the arguments and map them to the data and see what the result is.</p>
+<p>This is exemplified in the below quote from catb.org:</p>
+<p>&#8220;In Chapter 1 we observed that human beings are better at
+visualizing data than they are at reasoning about control flow.&#8221;</p>
+<p>More advanced examples of this concept are discussed within the context of
+clojure s-expressions on the amazing &#8220;macronomicon&#8221; video by Michael Fogus:
+<a class="reference external" href="https://www.youtube.com/watch?v=0JXhJyTo5V8">https://www.youtube.com/watch?v=0JXhJyTo5V8</a> this is not surprising to me
+because lisp-style languages are typically homoiconic, or nearly so, and so
+the code-as-data paradigm is commonplace for them.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.software_engineering.problem_solving.design_patterns.unix.robustness">
+<span id="moal-software-engineering-problem-solving-design-patterns-unix-robustness-module"></span><h2>MOAL.software_engineering.problem_solving.design_patterns.unix.robustness module<a class="headerlink" href="#module-MOAL.software_engineering.problem_solving.design_patterns.unix.robustness" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.</code><code class="descname">BasicCalculator</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>All methods here have type checking in place so that bad inputs
+are automatically handled without throwing an error. This allows
+the behavior to be piped, etc, without any fatal error in behavior.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculator.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.div">
+<code class="descname">div</code><span class="sig-paren">(</span><em>nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculator.div"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.div" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.mult">
+<code class="descname">mult</code><span class="sig-paren">(</span><em>nums</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculator.mult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.mult" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.sub">
+<code class="descname">sub</code><span class="sig-paren">(</span><em>num</em>, <em>subtrahend</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculator.sub"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator.sub" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate">
+<em class="property">class </em><code class="descclassname">MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.</code><code class="descname">BasicCalculatorAlternate</code><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculatorAlternate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator" title="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator"><code class="xref py py-class docutils literal"><span class="pre">MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculator</span></code></a></p>
+<p>Another way to achieve this is to use kwargs with expected defaults,
+but this uses required args as kwargs, which are typically optional, and
+therefore not recommended.</p>
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>nums=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculatorAlternate.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.div">
+<code class="descname">div</code><span class="sig-paren">(</span><em>nums=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculatorAlternate.div"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.div" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.mult">
+<code class="descname">mult</code><span class="sig-paren">(</span><em>nums=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculatorAlternate.mult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.mult" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.sub">
+<code class="descname">sub</code><span class="sig-paren">(</span><em>num=1</em>, <em>subtrahend=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.html#BasicCalculatorAlternate.sub"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.software_engineering.problem_solving.design_patterns.unix.robustness.BasicCalculatorAlternate.sub" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.software_engineering.reification.html" class="btn btn-neutral float-right" title="MOAL.software_engineering.reification package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.software_engineering.problem_solving.design_patterns.solid.html" class="btn btn-neutral" title="MOAL.software_engineering.problem_solving.design_patterns.solid package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

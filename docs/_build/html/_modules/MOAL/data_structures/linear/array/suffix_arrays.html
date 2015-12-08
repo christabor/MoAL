@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.linear.array.suffix_arrays &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../../index.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.linear.array.suffix_arrays</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.data_structures.linear.array.suffix_arrays</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">words_unix_dict</span>
+
+
+<div class="viewcode-block" id="SuffixArray"><a class="viewcode-back" href="../../../../../MOAL.data_structures.linear.array.html#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray">[docs]</a><span class="k">class</span> <span class="nc">SuffixArray</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strings</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strings</span> <span class="o">=</span> <span class="n">strings</span> <span class="k">if</span> <span class="n">strings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">string</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">string</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_substring</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">string</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span> <span class="o">+</span> <span class="s">&#39;$&#39;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">string</span><span class="p">))]</span>
+
+    <span class="k">def</span> <span class="nf">make_superstring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strings</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">strings</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">strings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strings</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">self</span><span class="o">.</span><span class="n">make_substring</span><span class="p">(</span><span class="n">string</span><span class="p">)]</span> <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="PrefixArray"><a class="viewcode-back" href="../../../../../MOAL.data_structures.linear.array.html#MOAL.data_structures.linear.array.suffix_arrays.PrefixArray">[docs]</a><span class="k">class</span> <span class="nc">PrefixArray</span><span class="p">(</span><span class="n">SuffixArray</span><span class="p">):</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_substring</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">string</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span> <span class="o">+</span> <span class="s">&#39;$&#39;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">string</span><span class="p">)]</span>
+
+
+<div class="viewcode-block" id="InfixArray"><a class="viewcode-back" href="../../../../../MOAL.data_structures.linear.array.html#MOAL.data_structures.linear.array.suffix_arrays.InfixArray">[docs]</a><span class="k">class</span> <span class="nc">InfixArray</span><span class="p">(</span><span class="n">SuffixArray</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is a weird experiment, not totally relevant.&quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="InfixArray.make_substring"><a class="viewcode-back" href="../../../../../MOAL.data_structures.linear.array.html#MOAL.data_structures.linear.array.suffix_arrays.InfixArray.make_substring">[docs]</a>    <span class="k">def</span> <span class="nf">make_substring</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">bisector</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns something like</span>
+<span class="sd">            [[ca], [t], [do], [g], [bi], [rd]]</span>
+<span class="sd">            where the first list is the bisector slice from the left,</span>
+<span class="sd">            and the second from the right</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ia</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">bisector</span><span class="p">:</span>
+            <span class="n">bisector</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+            <span class="n">ia</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">string</span><span class="p">[</span><span class="n">bisector</span><span class="p">:]</span> <span class="o">+</span> <span class="s">&#39;$&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">[:</span><span class="n">bisector</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">ia</span></div></div>
+
+
+<div class="viewcode-block" id="SuperSuffixArray"><a class="viewcode-back" href="../../../../../MOAL.data_structures.linear.array.html#MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray">[docs]</a><span class="k">class</span> <span class="nc">SuperSuffixArray</span><span class="p">(</span><span class="n">SuffixArray</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">suffixes</span><span class="p">):</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="n">suffixes</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">substr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">suffixes</span><span class="p">):</span>
+            <span class="n">max_width</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">suffixes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">30</span><span class="p">)</span>
+            <span class="n">spaces</span> <span class="o">=</span> <span class="s">&#39;~&#39;</span> <span class="o">*</span> <span class="n">max_width</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">spaces</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39; {}{} {}... k={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">substr</span><span class="p">,</span> <span class="s">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_width</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">substr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">12</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">substr</span><span class="p">),</span> <span class="n">k</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">suffix_group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">suffixes</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">suffix_group</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="p">(</span><span class="n">suffixes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">suffix_group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">suffixes</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">suffix_group</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Suffix Array&#39;</span><span class="p">):</span>
+        <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="n">word_gen</span> <span class="o">=</span> <span class="n">words_unix_dict</span><span class="p">()</span>
+
+        <span class="n">iarray</span> <span class="o">=</span> <span class="n">InfixArray</span><span class="p">()</span>
+        <span class="n">iarray</span><span class="o">.</span><span class="n">make_superstring</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="p">[</span><span class="n">word_gen</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Weird infix style substring&#39;</span><span class="p">,</span> <span class="n">iarray</span><span class="p">)</span>
+
+        <span class="n">ssarray</span> <span class="o">=</span> <span class="n">SuperSuffixArray</span><span class="p">()</span>
+        <span class="n">ssarray</span><span class="o">.</span><span class="n">make_superstring</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="p">[</span><span class="n">word_gen</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Superstring suffix array&#39;</span><span class="p">,</span> <span class="n">ssarray</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="nb">repr</span><span class="p">)</span>
+
+        <span class="n">ssarray</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;SORTED Superstring suffix array&#39;</span><span class="p">,</span> <span class="n">ssarray</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="nb">repr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">ssarray2</span> <span class="o">=</span> <span class="n">SuperSuffixArray</span><span class="p">()</span>
+            <span class="n">ssarray2</span><span class="o">.</span><span class="n">make_superstring</span><span class="p">(</span>
+                <span class="n">strings</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;pneumonoultramicroscopicsilicovolcanoconiosis&#39;</span><span class="p">])</span>
+
+            <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Superstring suffix array - long&#39;</span><span class="p">,</span> <span class="n">ssarray2</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="nb">repr</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

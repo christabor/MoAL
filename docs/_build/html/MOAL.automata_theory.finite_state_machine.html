@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.automata_theory.finite_state_machine package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.automata_theory package" href="MOAL.automata_theory.html"/>
+        <link rel="next" title="MOAL.computer_organization package" href="MOAL.computer_organization.html"/>
+        <link rel="prev" title="MOAL.automata_theory package" href="MOAL.automata_theory.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.automata_theory.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.automata_theory.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.automata_theory.html#module-MOAL.automata_theory.counter_machine">MOAL.automata_theory.counter_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.automata_theory.html#moal-automata-theory-pointer-machine-module">MOAL.automata_theory.pointer_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.automata_theory.html#module-MOAL.automata_theory.turing_machine">MOAL.automata_theory.turing_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.automata_theory.html#module-MOAL.automata_theory.universal_turing_machine">MOAL.automata_theory.universal_turing_machine module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.automata_theory.html">MOAL.automata_theory package</a> &raquo;</li>
+      
+    <li>MOAL.automata_theory.finite_state_machine package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.automata_theory.finite_state_machine.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.automata_theory.finite_state_machine">
+<span id="moal-automata-theory-finite-state-machine-package"></span><h1>MOAL.automata_theory.finite_state_machine package<a class="headerlink" href="#module-MOAL.automata_theory.finite_state_machine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.automata_theory.finite_state_machine.fsm">
+<span id="moal-automata-theory-finite-state-machine-fsm-module"></span><h2>MOAL.automata_theory.finite_state_machine.fsm module<a class="headerlink" href="#module-MOAL.automata_theory.finite_state_machine.fsm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.Acceptor">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.fsm.</code><code class="descname">Acceptor</code><span class="sig-paren">(</span><em>states={}</em>, <em>default=None</em>, <em>debug=False</em>, <em>max=20</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/fsm.html#Acceptor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.Acceptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine" title="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.Acceptor.test">
+<code class="descname">test</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.Acceptor.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.Classifier">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.fsm.</code><code class="descname">Classifier</code><span class="sig-paren">(</span><em>states={}</em>, <em>default=None</em>, <em>debug=False</em>, <em>max=20</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/fsm.html#Classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.Classifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.fsm.Acceptor" title="MOAL.automata_theory.finite_state_machine.fsm.Acceptor"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.fsm.Acceptor</span></code></a></p>
+<p>From Wikipedia:
+&#8220;Classifier is a generalization that, similar to acceptor,
+produces single output when terminates but has more
+than two terminal states.&#8221;</p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.Classifier.classify">
+<code class="descname">classify</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/fsm.html#Classifier.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.Classifier.classify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.fsm.</code><code class="descname">FiniteStateMachine</code><span class="sig-paren">(</span><em>states={}</em>, <em>default=None</em>, <em>debug=False</em>, <em>max=20</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/fsm.html#FiniteStateMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>states={}</em>, <em>default=None</em>, <em>debug=False</em>, <em>max=20</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>state</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._get_current">
+<code class="descname">_get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._get_current" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._get_transition">
+<code class="descname">_get_transition</code><span class="sig-paren">(</span><em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._get_transition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._print">
+<code class="descname">_print</code><span class="sig-paren">(</span><em>edge</em>, <em>old</em>, <em>new</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._set_current">
+<code class="descname">_set_current</code><span class="sig-paren">(</span><em>node_label</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._set_current" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._xform">
+<code class="descname">_xform</code><span class="sig-paren">(</span><em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine._xform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows customization of coercion function, for the transition
+key type, and/or index naming convention - some require ints,
+some strings, multiple nested indices, etc... This removes the
+requirement to override _get_transition with a lot more code.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.get_next_value">
+<code class="descname">get_next_value</code><span class="sig-paren">(</span><em>node</em>, <em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.get_next_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.transition">
+<code class="descname">transition</code><span class="sig-paren">(</span><em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine.transition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.fsm.InvalidTransition">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.fsm.</code><code class="descname">InvalidTransition</code><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/fsm.html#InvalidTransition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.fsm.InvalidTransition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="moal-automata-theory-finite-state-machine-markov-chain-module">
+<h2>MOAL.automata_theory.finite_state_machine.markov_chain module<a class="headerlink" href="#moal-automata-theory-finite-state-machine-markov-chain-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.automata_theory.finite_state_machine.recognizer">
+<span id="moal-automata-theory-finite-state-machine-recognizer-module"></span><h2>MOAL.automata_theory.finite_state_machine.recognizer module<a class="headerlink" href="#module-MOAL.automata_theory.finite_state_machine.recognizer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.recognizer.Recognizer">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.recognizer.</code><code class="descname">Recognizer</code><span class="sig-paren">(</span><em>states={}</em>, <em>default=None</em>, <em>debug=False</em>, <em>max=20</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/recognizer.html#Recognizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.recognizer.Recognizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.fsm.Acceptor" title="MOAL.automata_theory.finite_state_machine.fsm.Acceptor"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.fsm.Acceptor</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.recognizer.Recognizer._xform">
+<code class="descname">_xform</code><span class="sig-paren">(</span><em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.recognizer.Recognizer._xform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.recognizer.Recognizer.recognize">
+<code class="descname">recognize</code><span class="sig-paren">(</span><em>digits</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.recognizer.Recognizer.recognize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.recognizer.RegularExpression">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.recognizer.</code><code class="descname">RegularExpression</code><span class="sig-paren">(</span><em>states={}</em>, <em>default=None</em>, <em>debug=False</em>, <em>max=20</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/recognizer.html#RegularExpression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.recognizer.RegularExpression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.recognizer.Recognizer" title="MOAL.automata_theory.finite_state_machine.recognizer.Recognizer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.recognizer.Recognizer</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.automata_theory.finite_state_machine.transducer">
+<span id="moal-automata-theory-finite-state-machine-transducer-module"></span><h2>MOAL.automata_theory.finite_state_machine.transducer module<a class="headerlink" href="#module-MOAL.automata_theory.finite_state_machine.transducer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">ControlApplicationTransducer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#ControlApplicationTransducer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.transducer.Transducer" title="MOAL.automata_theory.finite_state_machine.transducer.Transducer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.transducer.Transducer</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.MealyMachine">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">MealyMachine</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#MealyMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.MealyMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer" title="MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.MooreMachine">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">MooreMachine</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#MooreMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.MooreMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer" title="MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.transducer.ControlApplicationTransducer</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.MooreMachine.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.MooreMachine.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moore Machines signal to the outside world (or other FSMs)
+the current state of the machine
+(based on the last run transition path, in this case.)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.RichardsController">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">RichardsController</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#RichardsController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.RichardsController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.transducer.MealyMachine" title="MOAL.automata_theory.finite_state_machine.transducer.MealyMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.transducer.MealyMachine</span></code></a></p>
+<p>From Wikipedia:
+&#8220;Each state is represented as a transfer condition on the flowchart.
+Each condition has two control paths leading out of it, a YES or a NO.&#8221;</p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.RichardsController.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>state</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#RichardsController.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.RichardsController.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Sequencer">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">Sequencer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#Sequencer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Sequencer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.transducer.Transducer" title="MOAL.automata_theory.finite_state_machine.transducer.Transducer"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.transducer.Transducer</span></code></a></p>
+<p>From Wikipedia:
+&#8220;The sequencers or generators are a subclass of aforementioned types that
+have a single-letter input alphabet. They produce only one sequence, which
+can be interpreted as output sequence of transducer or classifier outputs.&#8221;</p>
+<p>e.g. Seq-0 = S1 -&gt; S2, Seq-1 = S2 -&gt; S3, Seq-N = SN -&gt; SN + 1, etc...</p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Sequencer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#Sequencer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Sequencer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Sequencer.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>node</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#Sequencer.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Sequencer.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Sequencer._check_valid_sequence">
+<code class="descname">_check_valid_sequence</code><span class="sig-paren">(</span><em>node</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#Sequencer._check_valid_sequence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Sequencer._check_valid_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.SequencerAlphabetError">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">SequencerAlphabetError</code><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#SequencerAlphabetError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.SequencerAlphabetError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Transducer">
+<em class="property">class </em><code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">Transducer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#Transducer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Transducer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine" title="MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine"><code class="xref py py-class docutils literal"><span class="pre">MOAL.automata_theory.finite_state_machine.fsm.FiniteStateMachine</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Transducer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Transducer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Transducer._run">
+<code class="descname">_run</code><span class="sig-paren">(</span><em>node=None</em>, <em>edge=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Transducer._run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Transducer.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Transducer.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.Transducer.run_all">
+<code class="descname">run_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.Transducer.run_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.generate_transducer">
+<code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">generate_transducer</code><span class="sig-paren">(</span><em>nodes=10</em>, <em>alphabet=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#generate_transducer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.generate_transducer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.automata_theory.finite_state_machine.transducer.run_random_transducer">
+<code class="descclassname">MOAL.automata_theory.finite_state_machine.transducer.</code><code class="descname">run_random_transducer</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/automata_theory/finite_state_machine/transducer.html#run_random_transducer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.automata_theory.finite_state_machine.transducer.run_random_transducer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.computer_organization.html" class="btn btn-neutral float-right" title="MOAL.computer_organization package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.automata_theory.html" class="btn btn-neutral" title="MOAL.automata_theory package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

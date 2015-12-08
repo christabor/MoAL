@@ -1,0 +1,937 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.helpers package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL package" href="MOAL.html"/>
+        <link rel="next" title="MOAL.helpers.tests package" href="MOAL.helpers.tests.html"/>
+        <link rel="prev" title="MOAL.execution.virtual_machine package" href="MOAL.execution.virtual_machine.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">MOAL.helpers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.helpers.adts">MOAL.helpers.adts module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.helpers.datamaker">MOAL.helpers.datamaker module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.helpers.display">MOAL.helpers.display module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.helpers.generic">MOAL.helpers.generic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.helpers.text">MOAL.helpers.text module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.helpers.trials">MOAL.helpers.trials module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+    <li>MOAL.helpers package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.helpers.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.helpers">
+<span id="moal-helpers-package"></span><h1>MOAL.helpers package<a class="headerlink" href="#module-MOAL.helpers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.helpers.tests.html">MOAL.helpers.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.helpers.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.helpers.tests.html#module-MOAL.helpers.tests.test_adts">MOAL.helpers.tests.test_adts module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.helpers.adts">
+<span id="moal-helpers-adts-module"></span><h2>MOAL.helpers.adts module<a class="headerlink" href="#module-MOAL.helpers.adts" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.helpers.adts.dict_fill">
+<code class="descclassname">MOAL.helpers.adts.</code><code class="descname">dict_fill</code><span class="sig-paren">(</span><em>length</em>, <em>fill=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#dict_fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.dict_fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill a dict with integer keys and a custom <cite>fill</cite> value.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.helpers.adts.intlist">
+<em class="property">class </em><code class="descclassname">MOAL.helpers.adts.</code><code class="descname">intlist</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#intlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.intlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.helpers.adts.strictlist" title="MOAL.helpers.adts.strictlist"><code class="xref py py-class docutils literal"><span class="pre">MOAL.helpers.adts.strictlist</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.helpers.adts.intlist.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.intlist.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.intlist.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>addend</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.intlist.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.intlist.div">
+<code class="descname">div</code><span class="sig-paren">(</span><em>divisor</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.intlist.div" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.intlist.fact">
+<code class="descname">fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.intlist.fact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.intlist.mod">
+<code class="descname">mod</code><span class="sig-paren">(</span><em>base</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.intlist.mod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.intlist.mul">
+<code class="descname">mul</code><span class="sig-paren">(</span><em>multiplicand</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.intlist.mul" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.intlist.sub">
+<code class="descname">sub</code><span class="sig-paren">(</span><em>subtrahend</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.intlist.sub" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.adts.list_fill">
+<code class="descclassname">MOAL.helpers.adts.</code><code class="descname">list_fill</code><span class="sig-paren">(</span><em>length</em>, <em>fill=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#list_fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.list_fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill a list with default values and a custom <cite>fill</cite> value.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.adts.matrix_fill">
+<code class="descclassname">MOAL.helpers.adts.</code><code class="descname">matrix_fill</code><span class="sig-paren">(</span><em>w</em>, <em>h</em>, <em>fill=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#matrix_fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.matrix_fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a two-dimensional matrix of W x H,
+filled with zeroes or a custom <cite>fill</cite> value.</p>
+<dl class="docutils">
+<dt>e.g. [[0, 0, 0],</dt>
+<dd>[0, 0, 0],
+[0, 0, 0]]</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.helpers.adts.strictlist">
+<em class="property">class </em><code class="descclassname">MOAL.helpers.adts.</code><code class="descname">strictlist</code><span class="sig-paren">(</span><em>items</em>, <em>valid_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+<p>A list that only allows certain primitive types
+(when sub-classed), and adds some useful helper methods that are
+applied to all members in the list, for that primitive.</p>
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>items</em>, <em>valid_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a new strictlist object</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>items (list): a list of potential items for to be filtered.</dd>
+<dt>Kwargs:</dt>
+<dd>valid_type (type): an example type this list must validate against.</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">strictlist</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;foo&#39;</span><span class="p">],</span> <span class="n">valid_type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">[1, 2]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an iterator of the embedded items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.__len__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.__len__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the length of the embedded items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>index</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set new items in the list.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">index (int) - the index to add/update an item for.
+value (mixed) - the item to add; this will be checked against</p>
+<blockquote class="last">
+<div>the type specific upon class creation.</div></blockquote>
+</dd>
+</dl>
+<p>Don&#8217;t allow incorrect types to be added, but do so gracefully
+to allow for composition/flow operations.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist._valid">
+<code class="descname">_valid</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist._valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist._valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if the given value matches the type.</p>
+<p>The correct type associated with this instance upon creation.
+See __init__ for more.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>val (mixed) - the value to check</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.do">
+<code class="descname">do</code><span class="sig-paren">(</span><em>func</em>, <em>val=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.do" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strictlist.funcmaker">
+<code class="descname">funcmaker</code><span class="sig-paren">(</span><em>func</em>, <em>baseval</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strictlist.funcmaker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strictlist.funcmaker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a closure that can be used
+later with map()&#8217;s value(s)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.helpers.adts.strlist">
+<em class="property">class </em><code class="descclassname">MOAL.helpers.adts.</code><code class="descname">strlist</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/adts.html#strlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.adts.strlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.helpers.adts.strictlist" title="MOAL.helpers.adts.strictlist"><code class="xref py py-class docutils literal"><span class="pre">MOAL.helpers.adts.strictlist</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>chars</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><em>times</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.lo">
+<code class="descname">lo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.lo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.reverse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.shuffle">
+<code class="descname">shuffle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.split">
+<code class="descname">split</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take each key and convert its chars into a sub array for each key</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.adts.strlist.up">
+<code class="descname">up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.helpers.adts.strlist.up" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.helpers.datamaker">
+<span id="moal-helpers-datamaker-module"></span><h2>MOAL.helpers.datamaker module<a class="headerlink" href="#module-MOAL.helpers.datamaker" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.make_sparselist">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">make_sparselist</code><span class="sig-paren">(</span><em>vals</em>, <em>total</em>, <em>filler=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#make_sparselist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.make_sparselist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a sparse list with a given set of values.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>vals (dict) - the list of indices and values,</dt>
+<dd>where the key value represents the index to fill in</dd>
+<dt>total (int) - the total length of the list. A length less than the</dt>
+<dd>length of len(keys.values()) will throw a ValueError</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>sparselist (list) - the sparselist.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.make_sparsematrix">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">make_sparsematrix</code><span class="sig-paren">(</span><em>vals</em>, <em>total</em>, <em>rows=4</em>, <em>cols=4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#make_sparsematrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.make_sparsematrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_binary_matrix">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_binary_matrix</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_binary_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_binary_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a matrix filled with random 0&#8217;s or 1&#8217;s.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">random_binary_matrix</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[[0, 1], [1, 0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_dna">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_dna</code><span class="sig-paren">(</span><em>max=4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_dna"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_dna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a random string of DNA.</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd>max (int) - The maximum length of the string.</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">random_dna</span><span class="p">(</span><span class="nb">max</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">&#39;TCGA&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_graph">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_graph</code><span class="sig-paren">(</span><em>max_edges=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_inverse_binary_matrix">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_inverse_binary_matrix</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_inverse_binary_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_inverse_binary_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a matrix filled with random 0&#8217;s, -1&#8217;s or 1&#8217;s.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">random_binary_matrix</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[[0, 1, -1], [-1, 1, 0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_matrix">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_matrix</code><span class="sig-paren">(</span><em>rows=4</em>, <em>columns=4</em>, <em>min=1</em>, <em>max=100</em>, <em>choices=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a matrix filled with random numbers.</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">rows (int) - The number of rows.
+columns (int) - The number of columns for each row.
+min (int) - The minimum number to use in randrange
+max (int) - The maximum number to use in randrange
+choices (list) - The choices to choose from, if specified.</p>
+<blockquote class="last">
+<div>If none specified, randrange(min, max) will be used.</div></blockquote>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">random_matrix</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[[94, 23, 50], [57, 28, 52], [94, 5, 45]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_node">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_node</code><span class="sig-paren">(</span><em>vals</em>, <em>nums</em>, <em>max_edges</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_person">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_person</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_person" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.random_uniform_matrix">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">random_uniform_matrix</code><span class="sig-paren">(</span><em>size</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#random_uniform_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.random_uniform_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.datamaker.subnet_mask">
+<code class="descclassname">MOAL.helpers.datamaker.</code><code class="descname">subnet_mask</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/datamaker.html#subnet_mask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.datamaker.subnet_mask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.helpers.display">
+<span id="moal-helpers-display-module"></span><h2>MOAL.helpers.display module<a class="headerlink" href="#module-MOAL.helpers.display" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.helpers.display.Section">
+<em class="property">class </em><code class="descclassname">MOAL.helpers.display.</code><code class="descname">Section</code><span class="sig-paren">(</span><em>content</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#Section"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.Section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a context manager for printing &#8216;sections&#8217; of text.
+Prints a top and bottom section to visually separate different blocks
+of code/results.</p>
+<dl class="method">
+<dt id="MOAL.helpers.display.Section.__enter__">
+<code class="descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#Section.__enter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.Section.__enter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.display.Section.__exit__">
+<code class="descname">__exit__</code><span class="sig-paren">(</span><em>exception_type</em>, <em>exception_value</em>, <em>traceback</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#Section.__exit__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.Section.__exit__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.display.Section.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>content</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#Section.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.Section.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.helpers.display.Section.prnt">
+<code class="descname">prnt</code><span class="sig-paren">(</span><em>prefix</em>, <em>newlines=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#Section.prnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.Section.prnt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display._func_or_print">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">_func_or_print</code><span class="sig-paren">(</span><em>result</em>, <em>func</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#_func_or_print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display._func_or_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>Private function to either print or call a function on result</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display._heading">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">_heading</code><span class="sig-paren">(</span><em>title</em>, <em>divider</em>, <em>desc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#_heading"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display._heading" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display._make_padded_char">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">_make_padded_char</code><span class="sig-paren">(</span><em>word</em>, <em>padding=5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#_make_padded_char"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display._make_padded_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a string format token with padding based on the length
+of the given <cite>word</cite> * <cite>padding</cite>;
+e.g. &#8216;cat&#8217; -&gt; {:&lt;3}</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display._uncase_x">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">_uncase_x</code><span class="sig-paren">(</span><em>string</em>, <em>seperator</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#_uncase_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display._uncase_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split by <cite>seperator</cite> and join the string;
+e.g. &#8216;foo_bar&#8217; =&gt; foo bar</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.annotate">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">annotate</code><span class="sig-paren">(</span><em>func</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#annotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.annotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorate to annotate with the function name when it&#8217;s called.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.cmd_title">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">cmd_title</code><span class="sig-paren">(</span><em>msg</em>, <em>newlines=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#cmd_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.cmd_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a command type message (e.g [COMMAND]) in red.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.divider">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">divider</code><span class="sig-paren">(</span><em>atom='_'</em>, <em>newline=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#divider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.divider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a divider. Optionally override the unit of text to use
+(e.g &#8212;, ...., ###)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.firstcaps">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">firstcaps</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#firstcaps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.firstcaps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.make_padded_chars">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">make_padded_chars</code><span class="sig-paren">(</span><em>words</em>, <em>seperator=' '</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#make_padded_chars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.make_padded_chars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call <cite>_make_padding_char</cite> on a list of words.
+For example, to create a new format string to pad a list of values.
+(e.g. {:&lt;3} {&lt;:6} {&lt;:9}</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_error">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_error</code><span class="sig-paren">(</span><em>msg</em>, <em>prefix='[ERROR]'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print error-type text in red with a prefix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_h1">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_h1</code><span class="sig-paren">(</span><em>title</em>, <em>desc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_h1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_h1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a heading with a very bold underline</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_h2">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_h2</code><span class="sig-paren">(</span><em>title</em>, <em>desc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_h2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_h2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a heading with a bold underline</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_h3">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_h3</code><span class="sig-paren">(</span><em>title</em>, <em>desc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_h3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_h3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a heading with a moderate underline</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_h4">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_h4</code><span class="sig-paren">(</span><em>title</em>, <em>desc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_h4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_h4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a heading with a subdued underline</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_info">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_info</code><span class="sig-paren">(</span><em>msg</em>, <em>prefix='[INFO]'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print info-type text in red with a prefix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_nl">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_nl</code><span class="sig-paren">(</span><em>title</em>, <em>pos='top'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_nl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_nl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a title with a newline.
+The newline can be either on bottom (default) or top, if specified.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_simple">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_simple</code><span class="sig-paren">(</span><em>words</em>, <em>result</em>, <em>func=&lt;function pprint&gt;</em>, <em>newline=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a heading with data. The content can optionally be formatted by
+a given <cite>func</cite>. No styling is done to the text.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_subdued">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_subdued</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_subdued"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_subdued" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print info-type text in dark.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_success">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_success</code><span class="sig-paren">(</span><em>msg</em>, <em>prefix='[YAY]'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_success"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print success-type text in red with a prefix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_table">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_table</code><span class="sig-paren">(</span><em>rows</em>, <em>formatter=None</em>, <em>striped=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a table that is uniform and aligned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_vars">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_vars</code><span class="sig-paren">(</span><em>vars</em>, <em>upper=False</em>, <em>convert=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_vars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_vars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single line print with variable and a title, as well
+as some optional kwargs to transform the data.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.print_warning">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">print_warning</code><span class="sig-paren">(</span><em>msg</em>, <em>prefix='[WARN]'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#print_warning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.print_warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print warning-type text in red with a prefix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.prnt">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">prnt</code><span class="sig-paren">(</span><em>title</em>, <em>result</em>, <em>func=None</em>, <em>newlines=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#prnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.prnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A more useful default print function for titles and accompanying
+content. Shows stylized title, with content below, and newlines.
+The content can optionally be formatted by a given <cite>func</cite>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.title_case">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">title_case</code><span class="sig-paren">(</span><em>string</em>, <em>seperator='_'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#title_case"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.title_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format a string into title case - e.g. &#8216;some_word&#8217; =&gt; Some Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.uncase_hyphen">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">uncase_hyphen</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#uncase_hyphen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.uncase_hyphen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.uncase_period">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">uncase_period</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#uncase_period"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.uncase_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.uncase_snake">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">uncase_snake</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#uncase_snake"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.uncase_snake" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.display.uncase_snake_upper">
+<code class="descclassname">MOAL.helpers.display.</code><code class="descname">uncase_snake_upper</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/display.html#uncase_snake_upper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.display.uncase_snake_upper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.helpers.generic">
+<span id="moal-helpers-generic-module"></span><h2>MOAL.helpers.generic module<a class="headerlink" href="#module-MOAL.helpers.generic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.helpers.generic.interleave">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">interleave</code><span class="sig-paren">(</span><em>*lists</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#interleave"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.interleave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interleave N lists into each other;
+e.g. [1, 2], [&#8216;A&#8217; &#8216;B&#8217;] =&gt; [1, &#8216;A&#8217;, 2, &#8216;B&#8217;]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.powerset_list">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">powerset_list</code><span class="sig-paren">(</span><em>main_list</em>, <em>side='left'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#powerset_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.powerset_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return staggered offsets  of lists of a given list.
+e.g. [1, 2, 3] =&gt; [[1, 2, 3], [1, 2], [1]]
+<cite>side</cite> determines which way to offset: left, or right.</p>
+<p>Switching sides would be the same as reversing the list beforehand.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.powerset_tree">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">powerset_tree</code><span class="sig-paren">(</span><em>lst</em>, <em>initial=True</em>, <em>terminator=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#powerset_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.powerset_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates nested powersets of the word list for each key
+&#8211; the result is effectively a suffix tree.
+<cite>terminator</cite> is a string value that can be passed in to terminate
+each parent element in a list &#8211; indices can be used to denote
+the same thing, but it gives a visual option if you prefer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.random_number_set">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">random_number_set</code><span class="sig-paren">(</span><em>min_rand=0</em>, <em>max_rand=9999</em>, <em>max_range=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#random_number_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.random_number_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generated a list of random number sets.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.random_number_sets">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">random_number_sets</code><span class="sig-paren">(</span><em>sets=2</em>, <em>max_random=50</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#random_number_sets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.random_number_sets" title="Permalink to this definition">¶</a></dt>
+<dd><p>A mutli-valued version of <cite>random_number_set</cite></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.slice_dict">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">slice_dict</code><span class="sig-paren">(</span><em>ref_dict</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#slice_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.slice_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a subsection (slice) of a dictionary, like a list.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.subdivide_groups">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">subdivide_groups</code><span class="sig-paren">(</span><em>items</em>, <em>divisions=2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#subdivide_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.subdivide_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divides a list of items up into subdivisions based on <cite>divisions</cite>.
+For example, [1, 2, 3, 4] with 2 divisions</p>
+<blockquote>
+<div>becomes [[1, 2], [3, 4]]</div></blockquote>
+<dl class="docutils">
+<dt>or, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] with 5 divisions</dt>
+<dd>becomes [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]].</dd>
+</dl>
+<p>Numbers that cannot be distributed equally will
+have the remainder added to the last group.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.substring_dict">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">substring_dict</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#substring_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.substring_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all substrings of a given string as a dict.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.substring_list">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">substring_list</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#substring_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.substring_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all substrings of a given string as a list.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.swap_item">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">swap_item</code><span class="sig-paren">(</span><em>items</em>, <em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#swap_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.swap_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap an item a with b, in a list.
+Used primarily for sorting algorithms.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.generic.take_choice">
+<code class="descclassname">MOAL.helpers.generic.</code><code class="descname">take_choice</code><span class="sig-paren">(</span><em>options</em>, <em>maximum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/generic.html#take_choice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.generic.take_choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array of random choices.
+Choices are seeded from <cite>options</cite> from 0 until <cite>maximum</cite>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.helpers.text">
+<span id="moal-helpers-text-module"></span><h2>MOAL.helpers.text module<a class="headerlink" href="#module-MOAL.helpers.text" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.helpers.text._rand_bitstring">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">_rand_bitstring</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#_rand_bitstring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text._rand_bitstring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.gibberish">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">gibberish</code><span class="sig-paren">(</span><em>length=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#gibberish"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.gibberish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.gibberish2">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">gibberish2</code><span class="sig-paren">(</span><em>length=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#gibberish2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.gibberish2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns somewhat normal looking gibberish</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.gibberish3">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">gibberish3</code><span class="sig-paren">(</span><em>length=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#gibberish3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.gibberish3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns somewhat normal looking gibberish</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.randchars">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">randchars</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#randchars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.randchars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.random_binary">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">random_binary</code><span class="sig-paren">(</span><em>bits</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#random_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.random_binary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.random_byte">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">random_byte</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#random_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.random_byte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.random_nibble">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">random_nibble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#random_nibble"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.random_nibble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.uniqchars">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">uniqchars</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#uniqchars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.uniqchars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.text.words_unix_dict">
+<code class="descclassname">MOAL.helpers.text.</code><code class="descname">words_unix_dict</code><span class="sig-paren">(</span><em>min_length=8</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/text.html#words_unix_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.text.words_unix_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.helpers.trials">
+<span id="moal-helpers-trials-module"></span><h2>MOAL.helpers.trials module<a class="headerlink" href="#module-MOAL.helpers.trials" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="MOAL.helpers.trials.run_sorting_trials">
+<code class="descclassname">MOAL.helpers.trials.</code><code class="descname">run_sorting_trials</code><span class="sig-paren">(</span><em>sorting_func, magnitudes=[10, 100, 1000], test_output=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/trials.html#run_sorting_trials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.trials.run_sorting_trials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs a bunch of trials of various magnitudes with a given
+func, using randomly generated numbers.
+Returns a dict of results for later inspection.
+Tailored specifically for sorting functions, by
+generating randomly mixed sequences of numbers.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.trials.run_trials">
+<code class="descclassname">MOAL.helpers.trials.</code><code class="descname">run_trials</code><span class="sig-paren">(</span><em>func</em>, <em>trials=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/trials.html#run_trials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.trials.run_trials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs a set of trials given a function and trial number.
+The <cite>func</cite> in question is expected to use the test_speed decorator
+to do the actual profiling.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.helpers.trials.test_speed">
+<code class="descclassname">MOAL.helpers.trials.</code><code class="descname">test_speed</code><span class="sig-paren">(</span><em>func</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/helpers/trials.html#test_speed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.helpers.trials.test_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator that wraps a function and provides a timer
++ results output for execution profiling.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.helpers.tests.html" class="btn btn-neutral float-right" title="MOAL.helpers.tests package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.execution.virtual_machine.html" class="btn btn-neutral" title="MOAL.execution.virtual_machine package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

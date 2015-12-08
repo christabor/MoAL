@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL package" href="MOAL.html"/>
+        <link rel="next" title="MOAL.data_structures.abstract package" href="MOAL.data_structures.abstract.html"/>
+        <link rel="prev" title="MOAL.computer_organization package" href="MOAL.computer_organization.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">MOAL.data_structures package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.data_structures.persistent">MOAL.data_structures.persistent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-MOAL.data_structures.retroactive">MOAL.data_structures.retroactive module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+    <li>MOAL.data_structures package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.data_structures.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.data_structures">
+<span id="moal-data-structures-package"></span><h1>MOAL.data_structures package<a class="headerlink" href="#module-MOAL.data_structures" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.data_structures.abstract.html">MOAL.data_structures.abstract package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.array_and_linked_lists">MOAL.data_structures.abstract.array_and_linked_lists module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.container">MOAL.data_structures.abstract.container module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.list">MOAL.data_structures.abstract.list module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.map">MOAL.data_structures.abstract.map module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.priority_queue">MOAL.data_structures.abstract.priority_queue module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.queues">MOAL.data_structures.abstract.queues module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.queues_stdlib">MOAL.data_structures.abstract.queues_stdlib module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.set">MOAL.data_structures.abstract.set module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.stack">MOAL.data_structures.abstract.stack module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.stack_frame">MOAL.data_structures.abstract.stack_frame module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.stream">MOAL.data_structures.abstract.stream module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#module-MOAL.data_structures.abstract.string_adt">MOAL.data_structures.abstract.string_adt module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.abstract.html#moal-data-structures-abstract-tree-module">MOAL.data_structures.abstract.tree module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.data_structures.graphs.html">MOAL.data_structures.graphs package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#module-MOAL.data_structures.graphs.adjacency_list">MOAL.data_structures.graphs.adjacency_list module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#module-MOAL.data_structures.graphs.adjacency_matrix">MOAL.data_structures.graphs.adjacency_matrix module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#moal-data-structures-graphs-binary-decision-diagram-module">MOAL.data_structures.graphs.binary_decision_diagram module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#moal-data-structures-graphs-graph-structured-stack-module">MOAL.data_structures.graphs.graph_structured_stack module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#moal-data-structures-graphs-graphs-module">MOAL.data_structures.graphs.graphs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#moal-data-structures-graphs-hypergraph-module">MOAL.data_structures.graphs.hypergraph module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#module-MOAL.data_structures.graphs.incidence_matrix">MOAL.data_structures.graphs.incidence_matrix module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#moal-data-structures-graphs-multigraph-module">MOAL.data_structures.graphs.multigraph module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.graphs.html#moal-data-structures-graphs-scene-graph-module">MOAL.data_structures.graphs.scene_graph module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.data_structures.hashes.html">MOAL.data_structures.hashes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.hashes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.hashes.html#module-MOAL.data_structures.hashes.hash_list">MOAL.data_structures.hashes.hash_list module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.hashes.html#module-MOAL.data_structures.hashes.hashtable">MOAL.data_structures.hashes.hashtable module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.hashes.html#module-MOAL.data_structures.hashes.rolling_hash">MOAL.data_structures.hashes.rolling_hash module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.data_structures.linear.html">MOAL.data_structures.linear package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.linear.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.linear.array.html">MOAL.data_structures.linear.array package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.circular_buffer">MOAL.data_structures.linear.array.circular_buffer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.control_table">MOAL.data_structures.linear.array.control_table module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.gap_buffer">MOAL.data_structures.linear.array.gap_buffer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.hashed_array_tree">MOAL.data_structures.linear.array.hashed_array_tree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.image_array">MOAL.data_structures.linear.array.image_array module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.linear_trees">MOAL.data_structures.linear.array.linear_trees module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.sparse">MOAL.data_structures.linear.array.sparse module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.array.html#module-MOAL.data_structures.linear.array.suffix_arrays">MOAL.data_structures.linear.array.suffix_arrays module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.linear.bitarray.html">MOAL.data_structures.linear.bitarray package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.bitarray.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.bitarray.html#moal-data-structures-linear-bitarray-bitboard-module">MOAL.data_structures.linear.bitarray.bitboard module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.data_structures.linear.lists.html">MOAL.data_structures.linear.lists package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.lists.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.lists.html#module-MOAL.data_structures.linear.lists.free_list">MOAL.data_structures.linear.lists.free_list module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.linear.lists.html#module-MOAL.data_structures.linear.lists.skip_lists">MOAL.data_structures.linear.lists.skip_lists module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.data_structures.other.html">MOAL.data_structures.other package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.other.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.other.html#module-MOAL.data_structures.other.heightmap">MOAL.data_structures.other.heightmap module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.other.html#module-MOAL.data_structures.other.lightmap">MOAL.data_structures.other.lightmap module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.other.html#module-MOAL.data_structures.other.routing_table">MOAL.data_structures.other.routing_table module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.other.html#module-MOAL.data_structures.other.symbol_table">MOAL.data_structures.other.symbol_table module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.other.html#module-MOAL.data_structures.other.winged_edge">MOAL.data_structures.other.winged_edge module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MOAL.data_structures.trees.html">MOAL.data_structures.trees package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.avl_trees">MOAL.data_structures.trees.avl_trees module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.binary_search_trees">MOAL.data_structures.trees.binary_search_trees module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#moal-data-structures-trees-binary-trees-module">MOAL.data_structures.trees.binary_trees module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#moal-data-structures-trees-cartesian-trees-module">MOAL.data_structures.trees.cartesian_trees module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.heaps">MOAL.data_structures.trees.heaps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#moal-data-structures-trees-merkle-tree-module">MOAL.data_structures.trees.merkle_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.order_statistic_bst">MOAL.data_structures.trees.order_statistic_bst module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.radix_tree">MOAL.data_structures.trees.radix_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.splay_trees">MOAL.data_structures.trees.splay_trees module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.suffix_tree">MOAL.data_structures.trees.suffix_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.data_structures.trees.html#module-MOAL.data_structures.trees.trie">MOAL.data_structures.trees.trie module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.persistent">
+<span id="moal-data-structures-persistent-module"></span><h2>MOAL.data_structures.persistent module<a class="headerlink" href="#module-MOAL.data_structures.persistent" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.ConfluentlyPersistentFatNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">ConfluentlyPersistentFatNode</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#ConfluentlyPersistentFatNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.persistent.ConfluentlyPersistentNode" title="MOAL.data_structures.persistent.ConfluentlyPersistentNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.ConfluentlyPersistentNode</span></code></a></p>
+<p>From Wikipedia:</p>
+<p>&#8220;Fat node method is to record all changes made to node fields in the nodes
+themselves, without erasing old values of the fields. This requires
+that we allow nodes to become arbitrarily &#8216;fat&#8217;.</p>
+<p>Each extra field value has an associated field name and a version stamp
+which indicates the version in which the named field was changed to
+have the specified value.</p>
+<p>Besides, each fat node has its own version stamp, indicating the version
+in which the node was created. In order to navigate through the structure,
+each original field value in a node has a version stamp of zero.&#8221;</p>
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.ConfluentlyPersistentFatNode.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#ConfluentlyPersistentFatNode.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.ConfluentlyPersistentFatNode.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#ConfluentlyPersistentFatNode.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.ConfluentlyPersistentNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">ConfluentlyPersistentNode</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#ConfluentlyPersistentNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.ConfluentlyPersistentNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.persistent.FullyPersistentNode" title="MOAL.data_structures.persistent.FullyPersistentNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.FullyPersistentNode</span></code></a></p>
+<p>From Wikipedia:
+&#8220;If there is also a meld or merge operation that
+can create a new version from two previous versions,
+the data structure is called confluently persistent.&#8221;</p>
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.ConfluentlyPersistentNode.meld">
+<code class="descname">meld</code><span class="sig-paren">(</span><em>key</em>, <em>versions=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#ConfluentlyPersistentNode.meld"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.ConfluentlyPersistentNode.meld" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingFatNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">ConfluentlyPersistentPathCopyingFatNode</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#ConfluentlyPersistentPathCopyingFatNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingFatNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode" title="MOAL.data_structures.persistent.ConfluentlyPersistentFatNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.ConfluentlyPersistentFatNode</span></code></a>, <a class="reference internal" href="#MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingNode" title="MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingNode</span></code></a></p>
+<p>TODO</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">ConfluentlyPersistentPathCopyingNode</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#ConfluentlyPersistentPathCopyingNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.ConfluentlyPersistentPathCopyingNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.persistent.ConfluentlyPersistentNode" title="MOAL.data_structures.persistent.ConfluentlyPersistentNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.ConfluentlyPersistentNode</span></code></a></p>
+<p>TODO</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.FullyPersistentNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">FullyPersistentNode</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#FullyPersistentNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.FullyPersistentNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.persistent.PartiallyPersistentNode" title="MOAL.data_structures.persistent.PartiallyPersistentNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.PartiallyPersistentNode</span></code></a></p>
+<p>From Wikipedia:
+&#8220;The data structure is fully persistent if every version can be both
+accessed and modified.&#8221;</p>
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.FullyPersistentNode.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#FullyPersistentNode.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.FullyPersistentNode.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.FullyPersistentNode.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#FullyPersistentNode.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.FullyPersistentNode.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.FullyPersistentNode.get_current">
+<code class="descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#FullyPersistentNode.get_current"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.FullyPersistentNode.get_current" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.MutableAccessException">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">MutableAccessException</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#MutableAccessException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.MutableAccessException" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">PartiallyPersistentNode</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.persistent.PersistentDataStructure" title="MOAL.data_structures.persistent.PersistentDataStructure"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.PersistentDataStructure</span></code></a></p>
+<p>From Wikipedia:</p>
+<p>&#8220;In computing, a persistent data structure is a data structure that always
+preserves the previous version of itself when it is modified.
+Such data structures are effectively immutable, as their operations do not
+(visibly) update the structure in-place,
+but instead always yield a new updated structure.</p>
+<p>A data structure is partially persistent if all versions can be accessed
+but only the newest version can be modified.&#8221;</p>
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.__delitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deleting an item is not allowed, as the data structure
+should be immutable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.__setattr__">
+<code class="descname">__setattr__</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.__setattr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.__setattr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.get_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.get_current">
+<code class="descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.get_current"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.get_current" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.persistent.PartiallyPersistentNode.view_all">
+<code class="descname">view_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PartiallyPersistentNode.view_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PartiallyPersistentNode.view_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.persistent.PersistentDataStructure">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.persistent.</code><code class="descname">PersistentDataStructure</code><a class="reference internal" href="_modules/MOAL/data_structures/persistent.html#PersistentDataStructure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.persistent.PersistentDataStructure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.retroactive">
+<span id="moal-data-structures-retroactive-module"></span><h2>MOAL.data_structures.retroactive module<a class="headerlink" href="#module-MOAL.data_structures.retroactive" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.retroactive.FullyRetroactiveNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.retroactive.</code><code class="descname">FullyRetroactiveNode</code><a class="reference internal" href="_modules/MOAL/data_structures/retroactive.html#FullyRetroactiveNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.retroactive.FullyRetroactiveNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.retroactive.RetroactiveNode" title="MOAL.data_structures.retroactive.RetroactiveNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.retroactive.RetroactiveNode</span></code></a>, <a class="reference internal" href="#MOAL.data_structures.persistent.ConfluentlyPersistentFatNode" title="MOAL.data_structures.persistent.ConfluentlyPersistentFatNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.ConfluentlyPersistentFatNode</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.retroactive.FullyRetroactiveNode._update_retroactive">
+<code class="descname">_update_retroactive</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.retroactive.FullyRetroactiveNode._update_retroactive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.retroactive.PartiallyRetroactiveNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.retroactive.</code><code class="descname">PartiallyRetroactiveNode</code><a class="reference internal" href="_modules/MOAL/data_structures/retroactive.html#PartiallyRetroactiveNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.retroactive.PartiallyRetroactiveNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.retroactive.RetroactiveNode" title="MOAL.data_structures.retroactive.RetroactiveNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.retroactive.RetroactiveNode</span></code></a></p>
+<p>From Wikipedia:</p>
+<p>&#8220;In computer science a retroactive data structure is data structure which
+supports efficient modifications to a sequence of operations that have been
+performed on the structure. These modifications can take the form of
+retroactive insertion, deletion or updating an operation that was
+performed at some time in the past.&#8221;</p>
+<p>The notion of temporal updates is probably intuitive, especially the idea
+of cascading changes, but what is probably confusing (at least was for me)
+is how this translates into something real.</p>
+<p>For example, if one element changes, and the rest are also supposed to
+change as a result, what exactly should these other elements change to?
+It&#8217;s one thing to say &#8220;update node X[0]&#8217;s value with y&#8221;, but how does that
+translate for X[1], X[2], etc...? I think the point here is that it depends
+on your own personal use-case and context.</p>
+<p>For example, if you are using something like git, and you need to update
+the references when something changes, you can implement your own method
+of temporal updates on the data structure.</p>
+<p>Or, let&#8217;s say you are maintaining some numerical values that have special
+properties, you can go back and recalculate each one.</p>
+<p>Or apply a hash function, or some other modifier for each element.
+Or just update the time-stamp.</p>
+<p>Hopefully that makes sense!</p>
+<dl class="method">
+<dt id="MOAL.data_structures.retroactive.PartiallyRetroactiveNode._update_retroactive">
+<code class="descname">_update_retroactive</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/retroactive.html#PartiallyRetroactiveNode._update_retroactive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.retroactive.PartiallyRetroactiveNode._update_retroactive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.retroactive.RetroactiveNode">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.retroactive.</code><code class="descname">RetroactiveNode</code><a class="reference internal" href="_modules/MOAL/data_structures/retroactive.html#RetroactiveNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.retroactive.RetroactiveNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.persistent.FullyPersistentNode" title="MOAL.data_structures.persistent.FullyPersistentNode"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.persistent.FullyPersistentNode</span></code></a></p>
+<p>Piggybacking on the existing classes from previous examples,
+we just use the Partial/Full persistent classes for each of these.
+The only difference is the addition of temporal updates across all nodes.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.retroactive.RetroactiveNode.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/retroactive.html#RetroactiveNode.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.retroactive.RetroactiveNode.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.retroactive.RetroactiveNode._handlenode">
+<code class="descname">_handlenode</code><span class="sig-paren">(</span><em>nodeval</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/retroactive.html#RetroactiveNode._handlenode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.retroactive.RetroactiveNode._handlenode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle updating individual node values - throws in gibberish
+for each type, just for debugging/visualizing.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.data_structures.abstract.html" class="btn btn-neutral float-right" title="MOAL.data_structures.abstract package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.computer_organization.html" class="btn btn-neutral" title="MOAL.computer_organization package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

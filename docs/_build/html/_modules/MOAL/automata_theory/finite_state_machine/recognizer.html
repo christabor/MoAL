@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.automata_theory.finite_state_machine.recognizer &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.automata_theory.finite_state_machine.recognizer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.automata_theory.finite_state_machine.recognizer</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.automata_theory.finite_state_machine</span> <span class="kn">import</span> <span class="n">fsm</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="Recognizer"><a class="viewcode-back" href="../../../../MOAL.automata_theory.finite_state_machine.html#MOAL.automata_theory.finite_state_machine.recognizer.Recognizer">[docs]</a><span class="k">class</span> <span class="nc">Recognizer</span><span class="p">(</span><span class="n">fsm</span><span class="o">.</span><span class="n">Acceptor</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">_xform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edge</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">edge</span>
+
+    <span class="k">def</span> <span class="nf">recognize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digits</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;Yes&#39;</span> <span class="k">if</span> <span class="nb">super</span><span class="p">(</span><span class="n">Recognizer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span> <span class="k">else</span> <span class="s">&#39;No&#39;</span>
+
+
+<div class="viewcode-block" id="RegularExpression"><a class="viewcode-back" href="../../../../MOAL.automata_theory.finite_state_machine.html#MOAL.automata_theory.finite_state_machine.recognizer.RegularExpression">[docs]</a><span class="k">class</span> <span class="nc">RegularExpression</span><span class="p">(</span><span class="n">Recognizer</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Finite State Machine - Recognizer&#39;</span><span class="p">):</span>
+        <span class="c"># From example:</span>
+        <span class="c"># en.wikipedia.org/wiki/Finite-state_machine#</span>
+        <span class="c">#     /media/File:Fsm_parsing_word_nice.svg</span>
+        <span class="n">stringrec</span> <span class="o">=</span> <span class="n">Recognizer</span><span class="p">(</span><span class="n">states</span><span class="o">=</span><span class="p">{</span>
+            <span class="s">&#39;S1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;n&#39;</span><span class="p">:</span> <span class="s">&#39;S2&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">:</span> <span class="s">&#39;Error&#39;</span><span class="p">}},</span>
+            <span class="s">&#39;S2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;i&#39;</span><span class="p">:</span> <span class="s">&#39;S3&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">:</span> <span class="s">&#39;Error&#39;</span><span class="p">}},</span>
+            <span class="s">&#39;S3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="s">&#39;S4&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">:</span> <span class="s">&#39;Error&#39;</span><span class="p">}},</span>
+            <span class="s">&#39;S4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;e&#39;</span><span class="p">:</span> <span class="s">&#39;Accept&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">:</span> <span class="s">&#39;Error&#39;</span><span class="p">}},</span>
+            <span class="s">&#39;Error&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;rejecting&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+            <span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;accepting&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+        <span class="p">},</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;S1&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">stringrec</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="s">&#39;nice&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;Yes&#39;</span>
+        <span class="k">assert</span> <span class="n">stringrec</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="s">&#39;nic3&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;No&#39;</span>
+        <span class="k">assert</span> <span class="n">stringrec</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="s">&#39;nicee&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;No&#39;</span>
+        <span class="k">assert</span> <span class="n">stringrec</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="s">&#39;_nice&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;No&#39;</span>
+        <span class="c"># Delete a node</span>
+        <span class="k">del</span> <span class="n">stringrec</span><span class="p">[</span><span class="s">&#39;S4&#39;</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">stringrec</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="s">&#39;nice&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;No&#39;</span>
+
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Finite State Machine - Regular Expression&#39;</span><span class="p">):</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;0&#39;</span><span class="p">:</span> <span class="s">&#39;S1&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="s">&#39;S2&#39;</span><span class="p">,</span>
+            <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="s">&#39;S3&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">:</span> <span class="s">&#39;S4&#39;</span><span class="p">,</span>
+            <span class="s">&#39;4&#39;</span><span class="p">:</span> <span class="s">&#39;S5&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">:</span> <span class="s">&#39;S6&#39;</span><span class="p">,</span>
+            <span class="s">&#39;6&#39;</span><span class="p">:</span> <span class="s">&#39;S7&#39;</span><span class="p">,</span> <span class="s">&#39;7&#39;</span><span class="p">:</span> <span class="s">&#39;S8&#39;</span><span class="p">,</span>
+            <span class="s">&#39;8&#39;</span><span class="p">:</span> <span class="s">&#39;S9&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">:</span> <span class="s">&#39;S10&#39;</span><span class="p">,</span>
+            <span class="s">&#39;&#39;</span><span class="p">:</span> <span class="s">&#39;A&#39;</span><span class="p">,</span>
+            <span class="bp">None</span><span class="p">:</span> <span class="s">&#39;Error&#39;</span>
+        <span class="p">}</span>
+        <span class="n">re_digits</span> <span class="o">=</span> <span class="n">RegularExpression</span><span class="p">(</span><span class="n">states</span><span class="o">=</span><span class="p">{</span>
+            <span class="s">&#39;S0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S5&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S6&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S7&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S8&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S9&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;S10&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="n">base</span><span class="p">},</span>
+            <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;accepting&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+            <span class="s">&#39;Error&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;transitions&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;rejecting&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+        <span class="p">},</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;S0&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">re_digits</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">re_digits</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">re_digits</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s">&#39;9999&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">re_digits</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s">&#39;1234567890&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">re_digits</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s">&#39;0987654321&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">re_digits</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s">&#39;qwerty&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">re_digits</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s">&#39;!@#$%^&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.data_structures.linear.array package &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="index.html"/>
+        <link rel="up" title="MOAL.data_structures.linear package" href="MOAL.data_structures.linear.html"/>
+        <link rel="next" title="MOAL.data_structures.linear.bitarray package" href="MOAL.data_structures.linear.bitarray.html"/>
+        <link rel="prev" title="MOAL.data_structures.linear package" href="MOAL.data_structures.linear.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="MOAL.html">MOAL package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="MOAL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MOAL.algorithms.html">MOAL.algorithms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.artificial_intelligence.html">MOAL.artificial_intelligence package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.automata_theory.html">MOAL.automata_theory package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.computer_organization.html">MOAL.computer_organization package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="MOAL.data_structures.html">MOAL.data_structures package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="MOAL.data_structures.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.persistent">MOAL.data_structures.persistent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MOAL.data_structures.html#module-MOAL.data_structures.retroactive">MOAL.data_structures.retroactive module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.execution.html">MOAL.execution package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.helpers.html">MOAL.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.languages.html">MOAL.languages package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.maths.html">MOAL.maths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.operating_systems.html">MOAL.operating_systems package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.software_engineering.html">MOAL.software_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.storage.html">MOAL.storage package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.systems_engineering.html">MOAL.systems_engineering package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOAL.type_theory.html">MOAL.type_theory package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.get_file_tree">MOAL.get_file_tree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.modulify">MOAL.modulify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MOAL.html#module-MOAL.test_files">MOAL.test_files module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="MOAL.html">MOAL package</a> &raquo;</li>
+      
+          <li><a href="MOAL.data_structures.html">MOAL.data_structures package</a> &raquo;</li>
+      
+          <li><a href="MOAL.data_structures.linear.html">MOAL.data_structures.linear package</a> &raquo;</li>
+      
+    <li>MOAL.data_structures.linear.array package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/MOAL.data_structures.linear.array.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MOAL.data_structures.linear.array">
+<span id="moal-data-structures-linear-array-package"></span><h1>MOAL.data_structures.linear.array package<a class="headerlink" href="#module-MOAL.data_structures.linear.array" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.circular_buffer">
+<span id="moal-data-structures-linear-array-circular-buffer-module"></span><h2>MOAL.data_structures.linear.array.circular_buffer module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.circular_buffer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.CircularBuffer">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.circular_buffer.</code><code class="descname">CircularBuffer</code><span class="sig-paren">(</span><em>items</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/circular_buffer.html#CircularBuffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.CircularBuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>items</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>index</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.CircularBuffer.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="MOAL.data_structures.linear.array.circular_buffer.InvalidBufferLength">
+<em class="property">exception </em><code class="descclassname">MOAL.data_structures.linear.array.circular_buffer.</code><code class="descname">InvalidBufferLength</code><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/circular_buffer.html#InvalidBufferLength"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.circular_buffer.InvalidBufferLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.control_table">
+<span id="moal-data-structures-linear-array-control-table-module"></span><h2>MOAL.data_structures.linear.array.control_table module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.control_table" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.control_table.ControlTableNaive">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.control_table.</code><code class="descname">ControlTableNaive</code><span class="sig-paren">(</span><em>table1</em>, <em>table2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/control_table.html#ControlTableNaive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.control_table.ControlTableNaive" title="Permalink to this definition">¶</a></dt>
+<dd><p>A control table is effectively any number of lists/arrays
+that allow mapping one set of items to another. In this way, their
+lengths must be the same.</p>
+<p>A dictionary would be more appropriate in many cases, except when
+you want to decouple the input from the output, by using separate data
+structures to store each column of information.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.control_table.ControlTableNaive.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>table1</em>, <em>table2</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.control_table.ControlTableNaive.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.control_table.ControlTableNaive.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.control_table.ControlTableNaive.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.gap_buffer">
+<span id="moal-data-structures-linear-array-gap-buffer-module"></span><h2>MOAL.data_structures.linear.array.gap_buffer module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.gap_buffer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.gap_buffer.GapBuffer">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.gap_buffer.</code><code class="descname">GapBuffer</code><span class="sig-paren">(</span><em>string</em>, <em>gap_size=8</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/gap_buffer.html#GapBuffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.gap_buffer.GapBuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.gap_buffer.GapBuffer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>string</em>, <em>gap_size=8</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.gap_buffer.GapBuffer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.gap_buffer.GapBuffer.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.gap_buffer.GapBuffer.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.gap_buffer.GapBuffer.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.gap_buffer.GapBuffer.move" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.hashed_array_tree">
+<span id="moal-data-structures-linear-array-hashed-array-tree-module"></span><h2>MOAL.data_structures.linear.array.hashed_array_tree module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.hashed_array_tree" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.hashed_array_tree.</code><code class="descname">HashedArrayTree</code><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/hashed_array_tree.html#HashedArrayTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>leaf</em>, <em>items</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.add_leaf">
+<code class="descname">add_leaf</code><span class="sig-paren">(</span><em>leaves</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.hashed_array_tree.HashedArrayTree.add_leaf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.image_array">
+<span id="moal-data-structures-linear-array-image-array-module"></span><h2>MOAL.data_structures.linear.array.image_array module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.image_array" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.image_array.ImageArray">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.image_array.</code><code class="descname">ImageArray</code><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/image_array.html#ImageArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.image_array.ImageArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+<p>Using an array as a means to represent an image - a nested array
+of RGBA values.</p>
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.image_array.ImageArray.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>pixel_data</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.image_array.ImageArray.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.linear.array.image_array.random">
+<code class="descclassname">MOAL.data_structures.linear.array.image_array.</code><code class="descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; x in the interval [0, 1).<a class="headerlink" href="#MOAL.data_structures.linear.array.image_array.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="MOAL.data_structures.linear.array.image_array.random_pixel">
+<code class="descclassname">MOAL.data_structures.linear.array.image_array.</code><code class="descname">random_pixel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/image_array.html#random_pixel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.image_array.random_pixel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.linear_trees">
+<span id="moal-data-structures-linear-array-linear-trees-module"></span><h2>MOAL.data_structures.linear.array.linear_trees module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.linear_trees" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.linear_trees.NTree">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.linear_trees.</code><code class="descname">NTree</code><span class="sig-paren">(</span><em>npg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/linear_trees.html#NTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.linear_trees.NTree" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.linear.array.linear_trees.NTree.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>npg</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.linear_trees.NTree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.linear_trees.NTree.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.linear_trees.NTree.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.linear_trees.NTree.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.linear_trees.NTree.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.sparse">
+<span id="moal-data-structures-linear-array-sparse-module"></span><h2>MOAL.data_structures.linear.array.sparse module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.sparse" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-MOAL.data_structures.linear.array.suffix_arrays">
+<span id="moal-data-structures-linear-array-suffix-arrays-module"></span><h2>MOAL.data_structures.linear.array.suffix_arrays module<a class="headerlink" href="#module-MOAL.data_structures.linear.array.suffix_arrays" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.InfixArray">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.suffix_arrays.</code><code class="descname">InfixArray</code><span class="sig-paren">(</span><em>strings=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/suffix_arrays.html#InfixArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.InfixArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray" title="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.linear.array.suffix_arrays.SuffixArray</span></code></a></p>
+<p>This is a weird experiment, not totally relevant.</p>
+<dl class="classmethod">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.InfixArray.make_substring">
+<em class="property">classmethod </em><code class="descname">make_substring</code><span class="sig-paren">(</span><em>string</em>, <em>bisector=2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/suffix_arrays.html#InfixArray.make_substring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.InfixArray.make_substring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns something like
+[[ca], [t], [do], [g], [bi], [rd]]
+where the first list is the bisector slice from the left,
+and the second from the right</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.PrefixArray">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.suffix_arrays.</code><code class="descname">PrefixArray</code><span class="sig-paren">(</span><em>strings=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/suffix_arrays.html#PrefixArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.PrefixArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray" title="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.linear.array.suffix_arrays.SuffixArray</span></code></a></p>
+<dl class="classmethod">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.PrefixArray.make_substring">
+<em class="property">classmethod </em><code class="descname">make_substring</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.PrefixArray.make_substring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.suffix_arrays.</code><code class="descname">SuffixArray</code><span class="sig-paren">(</span><em>strings=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/suffix_arrays.html#SuffixArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__delitem__">
+<code class="descname">__delitem__</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>strings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>string</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.make_substring">
+<em class="property">classmethod </em><code class="descname">make_substring</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.make_substring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.make_superstring">
+<code class="descname">make_superstring</code><span class="sig-paren">(</span><em>strings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray.make_superstring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray">
+<em class="property">class </em><code class="descclassname">MOAL.data_structures.linear.array.suffix_arrays.</code><code class="descname">SuperSuffixArray</code><span class="sig-paren">(</span><em>strings=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MOAL/data_structures/linear/array/suffix_arrays.html#SuperSuffixArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#MOAL.data_structures.linear.array.suffix_arrays.SuffixArray" title="MOAL.data_structures.linear.array.suffix_arrays.SuffixArray"><code class="xref py py-class docutils literal"><span class="pre">MOAL.data_structures.linear.array.suffix_arrays.SuffixArray</span></code></a></p>
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray._view">
+<code class="descname">_view</code><span class="sig-paren">(</span><em>suffixes</em><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray._view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray.sort">
+<code class="descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MOAL.data_structures.linear.array.suffix_arrays.SuperSuffixArray.sort" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MOAL.data_structures.linear.bitarray.html" class="btn btn-neutral float-right" title="MOAL.data_structures.linear.bitarray package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MOAL.data_structures.linear.html" class="btn btn-neutral" title="MOAL.data_structures.linear package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

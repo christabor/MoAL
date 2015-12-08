@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.execution.machine.opcodes &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.execution.machine.opcodes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.execution.machine.opcodes</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_success</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">prnt</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">divider</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="OpCode"><a class="viewcode-back" href="../../../../MOAL.execution.machine.html#MOAL.execution.machine.opcodes.OpCode">[docs]</a><span class="k">class</span> <span class="nc">OpCode</span><span class="p">:</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">assembly</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a code with typical metadata, and the actual</span>
+<span class="sd">        assembly code to run it.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            code (string): the opcode</span>
+<span class="sd">            name (string): the nice (semantic) name, e.g. STOP, POP_TOP, etc...</span>
+<span class="sd">            description (string): an informal detailed description</span>
+<span class="sd">            assembly (list): a list of each instruction in</span>
+<span class="sd">                sequence when this opcode is called.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assembly</span> <span class="o">=</span> <span class="n">assembly</span>
+
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">prnt</span><span class="p">(</span><span class="s">&#39;Calling opcode: &quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">assembly</span><span class="p">:</span>
+            <span class="n">print_success</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;[ASSEMBLY]&#39;</span><span class="p">)</span>
+        <span class="n">divider</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_external</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="sd">&quot;&quot;&quot;Reads an &#39;external&#39; Python implementation specific opcode.</span>
+<span class="sd">        Try loading a pyc file in!</span>
+<span class="sd">        Args:</span>
+<span class="sd">            code (string): a real python opcode.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Machine OpCodes&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        From Wikipedia:</span>
+
+<span class="sd">        &quot;In computing, an opcode (abbreviated from operation code)</span>
+<span class="sd">        is the portion of a machine language instruction that specifies</span>
+<span class="sd">        the operation to be performed. Beside the opcode itself,</span>
+<span class="sd">        instructions usually specify the data they will process,</span>
+<span class="sd">        in form of operands. In addition to opcodes used in instruction set</span>
+<span class="sd">        architectures of various CPUs, which are hardware devices, they can</span>
+<span class="sd">        also be used in abstract computing machines as part of their</span>
+<span class="sd">        byte code specifications.&quot;</span>
+
+<span class="sd">        Example opcodes used here taken from: unpyc.sourceforge.net/Opcodes.html</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">program</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">OpCode</span><span class="p">(</span>
+                <span class="s">&#39;00h&#39;</span><span class="p">,</span> <span class="s">&#39;STOP_CODE&#39;</span><span class="p">,</span>
+                <span class="s">&#39;Indicates end-of-code to the compiler, &#39;</span>
+                <span class="s">&#39;not used by the interpreter.&#39;</span><span class="p">,</span> <span class="p">[]),</span>
+            <span class="n">OpCode</span><span class="p">(</span>
+                <span class="s">&#39;01h&#39;</span><span class="p">,</span> <span class="s">&#39;POP_TOP&#39;</span><span class="p">,</span> <span class="s">&#39;Removes the top-of-stack (TOS) item.&#39;</span><span class="p">,</span>
+                <span class="p">[</span><span class="s">&#39;&lt;module&gt;:&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000000 64 (00 00 = 00000031 CODE()) - LOAD_CONST&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000003 84 (00 00) - MAKE_FUNCTION&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000006 83 (00 00) - CALL_FUNCTION&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000009 01 - POP_TOP&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;0000000A 64 (01 00 = 00000096 None (4E)) - LOAD_CONST&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;0000000D 53 - RETURN_VALUE&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;&lt;lambda&gt;:&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000000 64 (00 00 = 00000050 INT: 1 (01 00 00 00))&#39;</span>
+                    <span class="s">&#39; - LOAD_CONST&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000003 53 - RETURN_VALUE&#39;</span><span class="p">]),</span>
+            <span class="n">OpCode</span><span class="p">(</span>
+                <span class="s">&#39;47h&#39;</span><span class="p">,</span> <span class="s">&#39;PRINT_ITEM&#39;</span><span class="p">,</span>
+                <span class="s">&#39;Prints TOS to the file-like object bound to sys.stdout. &#39;</span>
+                <span class="s">&#39;There is one such instruction for each item in the &#39;</span>
+                <span class="s">&#39;print statement.&#39;</span><span class="p">,</span>
+                <span class="p">[</span><span class="s">&#39;00000000 64 (00 00 = 0000002C STR: </span><span class="se">\&#39;</span><span class="s">hello world!</span><span class="se">\&#39;</span><span class="s"> &#39;</span>
+                    <span class="s">&#39;(0C 00...) - LOAD_CONST&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000003 47 - PRINT_ITEM&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000004 48 - PRINT_NEWLINE&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000005 64 (01 00 = 0000003D None (4E)) - LOAD_CONST&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000008 53 - RETURN_VALUE&#39;</span><span class="p">]),</span>
+            <span class="n">OpCode</span><span class="p">(</span>
+                <span class="s">&#39;48h&#39;</span><span class="p">,</span> <span class="s">&#39;PRINT_NEWLINE&#39;</span><span class="p">,</span> <span class="s">&#39;Prints a new line on sys.stdout.&#39;</span>
+                <span class="s">&#39; This is generated as the last operation of a print statement,&#39;</span>
+                <span class="s">&#39; unless the statement ends with a comma.&#39;</span><span class="p">,</span>
+                <span class="p">[</span><span class="s">&#39;00000000 48 - PRINT_NEWLINE&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000001 64 (00 00 = 00000028 None (4E)) - LOAD_CONST&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;00000004 53 - RETURN_VALUE&#39;</span><span class="p">]),</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">opcode</span> <span class="ow">in</span> <span class="n">program</span><span class="p">:</span>
+            <span class="n">opcode</span><span class="o">.</span><span class="n">call</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

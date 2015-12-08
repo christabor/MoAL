@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.computer_organization.data_types &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.computer_organization.data_types</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.computer_organization.data_types</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h3</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h4</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+
+
+<div class="viewcode-block" id="BaseDataType"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType">[docs]</a><span class="k">class</span> <span class="nc">BaseDataType</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The irony here is that these data types take up significantly</span>
+<span class="sd">    more actual memory as a class representation in a bytecode interpreted</span>
+<span class="sd">    language. The classing is merely for intuitive understanding and</span>
+<span class="sd">    representing the hierarchy/operations.&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BaseDataType._alter"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType._alter">[docs]</a>    <span class="k">def</span> <span class="nf">_alter</span><span class="p">(</span><span class="n">old_bit</span><span class="p">,</span> <span class="n">new_bit</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;An interesting visualization of flipping bits --</span>
+<span class="sd">        not very robust; primarily meant as a basic learning exercise</span>
+<span class="sd">        -- see other relevant modules for more specific implementations.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;Requires a string version to prevent coercion.&#39;</span><span class="p">)</span>
+        <span class="n">curr_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c"># Convert the binary values to a list for operating on</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="c"># Store a copy string representation for visual comparisons</span>
+        <span class="n">old</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+        <span class="c"># Keep moving right until we get to the next on/off bit</span>
+        <span class="c"># (depending on whether we&#39;re incrementing or decrementing)</span>
+        <span class="k">while</span> <span class="n">new</span><span class="p">[</span><span class="n">curr_index</span><span class="p">]</span> <span class="o">==</span> <span class="n">old_bit</span><span class="p">:</span>
+            <span class="n">curr_index</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">new</span><span class="p">[</span><span class="n">curr_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_bit</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">new</span><span class="p">[</span><span class="n">curr_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_bit</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">new</span>
+        <span class="k">return</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BaseDataType.decrement"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.decrement">[docs]</a>    <span class="k">def</span> <span class="nf">decrement</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="n">old</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">_alter</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">decrement: </span><span class="se">\n</span><span class="s">{}</span><span class="se">\n</span><span class="s">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">new</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BaseDataType.increment"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.increment">[docs]</a>    <span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="n">old</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">_alter</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">increment: </span><span class="se">\n</span><span class="s">{}</span><span class="se">\n</span><span class="s">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">new</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BaseDataType.add"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">binval</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+            <span class="n">binval</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">binval</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BaseDataType.subtract"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.subtract">[docs]</a>    <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">binval</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+            <span class="n">binval</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">decrement</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">binval</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BaseDataType.multiply"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.multiply">[docs]</a>    <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">binval</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span></div>
+        <span class="c"># Just defer to increment,</span>
+        <span class="c"># e.g. 10 * 2 = 20, |10 - 20| = 10 ... inc. 10</span>
+        <span class="n">product</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span> <span class="o">*</span> <span class="n">amount</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span> <span class="o">-</span> <span class="n">product</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">diff</span><span class="p">):</span>
+            <span class="n">binval</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">binval</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BaseDataType.divide"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.divide">[docs]</a>    <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">binval</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span></div>
+        <span class="c"># Just defer to decrement,</span>
+        <span class="c"># e.g. 10 / 2 = 5, 10 - 5 = 5 ... dec. 5</span>
+        <span class="n">quotient</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span> <span class="o">//</span> <span class="n">amount</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span> <span class="o">-</span> <span class="n">quotient</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">diff</span><span class="p">):</span>
+            <span class="n">binval</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">decrement</span><span class="p">(</span><span class="n">binval</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">binval</span>
+
+<div class="viewcode-block" id="BaseDataType.get_least_significant"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.get_least_significant">[docs]</a>    <span class="k">def</span> <span class="nf">get_least_significant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseDataType.get_most_significant"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.get_most_significant">[docs]</a>    <span class="k">def</span> <span class="nf">get_most_significant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseDataType.get_max_binvals"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.get_max_binvals">[docs]</a>    <span class="k">def</span> <span class="nf">get_max_binvals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;value&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">factorial</span><span class="p">(</span><span class="n">val</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseDataType.__str__"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.BaseDataType.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&#39;[{}]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&#39;&#39;</span></div></div>
+
+
+<div class="viewcode-block" id="Bit"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.Bit">[docs]</a><span class="k">class</span> <span class="nc">Bit</span><span class="p">(</span><span class="n">BaseDataType</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;[{}]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;] [&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bits</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+
+<div class="viewcode-block" id="Nibble"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.Nibble">[docs]</a><span class="k">class</span> <span class="nc">Nibble</span><span class="p">(</span><span class="n">Bit</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Nibble</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Bit</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="Byte"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.Byte">[docs]</a><span class="k">class</span> <span class="nc">Byte</span><span class="p">(</span><span class="n">Nibble</span><span class="p">):</span></div>
+
+    <span class="sd">&quot;&quot;&quot;Also sometimes referred to as an `Octet`&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Byte</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Halfword"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.Halfword">[docs]</a><span class="k">class</span> <span class="nc">Halfword</span><span class="p">(</span><span class="n">Nibble</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">16</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Halfword</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Word"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.Word">[docs]</a><span class="k">class</span> <span class="nc">Word</span><span class="p">(</span><span class="n">Nibble</span><span class="p">):</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">32</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Word</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="update_animation"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.data_types.update_animation">[docs]</a><span class="k">def</span> <span class="nf">update_animation</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<span class="n">bin_inc</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">increment</span>
+<span class="n">bin_dec</span> <span class="o">=</span> <span class="n">BaseDataType</span><span class="o">.</span><span class="n">decrement</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Computer organization - Data types&#39;</span><span class="p">):</span>
+        <span class="n">print_h4</span><span class="p">(</span><span class="s">&#39;Bit&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;The simplest unit of information.&#39;</span><span class="p">)</span>
+        <span class="n">bit</span> <span class="o">=</span> <span class="n">Bit</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">bit</span><span class="o">.</span><span class="n">get_max_binvals</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
+
+        <span class="n">print_h3</span><span class="p">(</span><span class="s">&#39;Nibble&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;4 bits = 1/2 byte.&#39;</span><span class="p">)</span>
+        <span class="n">nibble</span> <span class="o">=</span> <span class="n">Nibble</span><span class="p">(</span><span class="s">&#39;0000&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">nibble</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">nibble</span><span class="o">.</span><span class="n">get_max_binvals</span><span class="p">()</span> <span class="o">==</span> <span class="mi">24</span>
+
+        <span class="n">print_h3</span><span class="p">(</span><span class="s">&#39;Byte&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;8 bits = one byte.&#39;</span><span class="p">)</span>
+        <span class="n">byte</span> <span class="o">=</span> <span class="n">Byte</span><span class="p">(</span><span class="s">&#39;00000000&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">byte</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">byte</span><span class="o">.</span><span class="n">get_max_binvals</span><span class="p">()</span> <span class="o">==</span> <span class="mi">40320</span>
+
+        <span class="n">orig</span> <span class="o">=</span> <span class="n">byte</span><span class="o">.</span><span class="n">value</span>
+        <span class="c"># Flip bits then reverse and check the value to test things</span>
+        <span class="c"># are working correctly.</span>
+        <span class="n">update_animation</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">byte</span><span class="o">.</span><span class="n">increment</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span>
+        <span class="n">update_animation</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">byte</span><span class="o">.</span><span class="n">decrement</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">byte</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">orig</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

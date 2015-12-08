@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOAL.computer_organization.bitwise_operations &mdash; MoAL  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MoAL  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MoAL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MOAL.html">MOAL package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">MoAL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>MOAL.computer_organization.bitwise_operations</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for MOAL.computer_organization.bitwise_operations</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;Chris Tabor (dxdstudio@gmail.com)&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+    <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">Section</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">print_h2</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.display</span> <span class="kn">import</span> <span class="n">divider</span>
+<span class="kn">from</span> <span class="nn">MOAL.helpers.text</span> <span class="kn">import</span> <span class="n">random_byte</span> <span class="k">as</span> <span class="n">rand_byte</span>
+<span class="kn">from</span> <span class="nn">MOAL.computer_organization.one_twos_complement</span> <span class="kn">import</span> <span class="n">ones_complement</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">False</span>
+<span class="n">DELAY</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+<span class="sd">&quot;&quot;&quot;wikipedia.org/wiki/Bitwise_operation#Bitwise_operators</span>
+
+<span class="sd">         (__)</span>
+<span class="sd">       /   --      __\________/__</span>
+<span class="sd">      |  /\_|     |  BinaryToday |</span>
+<span class="sd">      |  |___     |   01101010   |</span>
+<span class="sd">      |   ---@    |______________|</span>
+<span class="sd">      |  |   ----   |          |</span>
+<span class="sd">      |  |_____</span>
+<span class="sd">*____/|________|&gt;</span>
+<span class="sd">*&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="_show"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._show">[docs]</a><span class="k">def</span> <span class="nf">_show</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="_show2"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._show2">[docs]</a><span class="k">def</span> <span class="nf">_show2</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{}/{} {} = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="_checkbits"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._checkbits">[docs]</a><span class="k">def</span> <span class="nf">_checkbits</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits2</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Bit groups must be the same length!&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="bitwise_not"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.bitwise_not">[docs]</a><span class="k">def</span> <span class="nf">bitwise_not</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;NOT is straightforward -  a simple one&#39;s complement will do,</span>
+<span class="sd">    since the bits are merely flipped.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_show</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="s">&#39;NOT&#39;</span><span class="p">,</span> <span class="n">ones_complement</span><span class="p">(</span><span class="n">bits</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="bitwise_and"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.bitwise_and">[docs]</a><span class="k">def</span> <span class="nf">bitwise_and</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Do a logical AND on each pair of bits, by way of multiplication:</span>
+<span class="sd">    e.g. 1 x 1 = 1, 0 x 0 / 0 x 1 = 0&quot;&quot;&quot;</span>
+    <span class="n">_checkbits</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">)</span>
+    <span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits1</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits2</span><span class="p">)</span>
+    <span class="n">before1</span><span class="p">,</span> <span class="n">before2</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits1</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits2</span><span class="p">),</span> <span class="s">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">bit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bits1</span><span class="p">):</span>
+        <span class="c"># Compare the bit indices</span>
+        <span class="n">bit1</span><span class="p">,</span> <span class="n">bit2</span> <span class="o">=</span> <span class="n">bits1</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">bits2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">bit1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">bit2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">_show2</span><span class="p">(</span><span class="n">before1</span><span class="p">,</span> <span class="n">before2</span><span class="p">,</span> <span class="s">&#39;AND&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="bitwise_or"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.bitwise_or">[docs]</a><span class="k">def</span> <span class="nf">bitwise_or</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Do a logical OR on each pair of bits: e.g. 1/1 = 1, 0/1 = 1, 0/0 = 0&quot;&quot;&quot;</span>
+    <span class="n">_checkbits</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">)</span>
+    <span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits1</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits2</span><span class="p">)</span>
+    <span class="n">before1</span><span class="p">,</span> <span class="n">before2</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits1</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits2</span><span class="p">),</span> <span class="s">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">bit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bits1</span><span class="p">):</span>
+        <span class="n">bit1</span><span class="p">,</span> <span class="n">bit2</span> <span class="o">=</span> <span class="n">bits1</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">bits2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">+=</span> <span class="s">&#39;0&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">bit1</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span> <span class="ow">and</span> <span class="n">bit2</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s">&#39;1&#39;</span>
+    <span class="k">return</span> <span class="n">_show2</span><span class="p">(</span><span class="n">before1</span><span class="p">,</span> <span class="n">before2</span><span class="p">,</span> <span class="s">&#39;OR&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="bitwise_xor"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.bitwise_xor">[docs]</a><span class="k">def</span> <span class="nf">bitwise_xor</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Do a logical XOR on each pair of bits: e.g. 1/1 = 0, 0/1 = 1, 0/0 = 0&quot;&quot;&quot;</span>
+    <span class="n">_checkbits</span><span class="p">(</span><span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span><span class="p">)</span>
+    <span class="n">bits1</span><span class="p">,</span> <span class="n">bits2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits1</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits2</span><span class="p">)</span>
+    <span class="n">before1</span><span class="p">,</span> <span class="n">before2</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits1</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits2</span><span class="p">),</span> <span class="s">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">bit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bits1</span><span class="p">):</span>
+        <span class="n">bit1</span><span class="p">,</span> <span class="n">bit2</span> <span class="o">=</span> <span class="n">bits1</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">bits2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">+=</span> <span class="s">&#39;1&#39;</span> <span class="k">if</span> <span class="n">bit1</span> <span class="o">!=</span> <span class="n">bit2</span> <span class="k">else</span> <span class="s">&#39;0&#39;</span>
+    <span class="k">return</span> <span class="n">_show2</span><span class="p">(</span><span class="n">before1</span><span class="p">,</span> <span class="n">before2</span><span class="p">,</span> <span class="s">&#39;XOR&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="test_operator_pairs"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.test_operator_pairs">[docs]</a><span class="k">def</span> <span class="nf">test_operator_pairs</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">bitwise_op</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test and assert two bit groups against the return value of given op&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+        <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">pair</span>
+        <span class="k">assert</span> <span class="n">bitwise_op</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span> <span class="o">==</span> <span class="n">res</span></div>
+
+
+<span class="sd">&quot;&quot;&quot;wikipedia.org/wiki/Bitwise_operation#Bit_shifts&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="_shift_left"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._shift_left">[docs]</a><span class="k">def</span> <span class="nf">_shift_left</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Shift bits to the left &lt;&lt;&lt;, carrying the bit over to the right;</span>
+<span class="sd">    e.g. 0100 &lt;&lt; 1000</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="c"># Append the least significant bit to the end.</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">_show</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">),</span> <span class="s">&#39;LEFT-SHIFT&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="_shift_right"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._shift_right">[docs]</a><span class="k">def</span> <span class="nf">_shift_right</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Shift bits to the right &gt;&gt;&gt;, carrying the bit over to the left,</span>
+<span class="sd">    which preserves the sign; e.g. 0100 &gt;&gt; 0010</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="n">lsb</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c"># Append the most significant bit to the beginning.</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">lsb</span> <span class="o">+</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">_show</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">),</span> <span class="s">&#39;RIGHT-SHIFT&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="_logical_shift_left"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._logical_shift_left">[docs]</a><span class="k">def</span> <span class="nf">_logical_shift_left</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="s">&#39;0&#39;</span>
+    <span class="n">_show</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">),</span> <span class="s">&#39;LOGICAL LEFT SHIFT&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="_logical_shift_right"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._logical_shift_right">[docs]</a><span class="k">def</span> <span class="nf">_logical_shift_right</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;0&#39;</span> <span class="o">+</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">_show</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">),</span> <span class="s">&#39;LOGICAL RIGHT SHIFT&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="shift_right"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.shift_right">[docs]</a><span class="k">def</span> <span class="nf">shift_right</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">logical</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
+        <span class="n">bits</span> <span class="o">=</span> <span class="n">_logical_shift_right</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="k">if</span> <span class="n">logical</span> <span class="k">else</span> <span class="n">_shift_right</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bits</span></div>
+
+
+<div class="viewcode-block" id="shift_left"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.shift_left">[docs]</a><span class="k">def</span> <span class="nf">shift_left</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">logical</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
+        <span class="n">bits</span> <span class="o">=</span> <span class="n">_logical_shift_left</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="k">if</span> <span class="n">logical</span> <span class="k">else</span> <span class="n">_shift_left</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bits</span></div>
+
+
+<div class="viewcode-block" id="_shift_circular"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations._shift_circular">[docs]</a><span class="k">def</span> <span class="nf">_shift_circular</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">_show</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">),</span> <span class="s">&#39;CIRCULAR SHIFT&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="shift_circular"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.shift_circular">[docs]</a><span class="k">def</span> <span class="nf">shift_circular</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A circular shift, where the ends are rotated; e.g. [0]10[1] &gt; [1]10[0]&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
+        <span class="n">bits</span> <span class="o">=</span> <span class="n">_shift_circular</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bits</span></div>
+
+
+<div class="viewcode-block" id="rotate_through_carry"><a class="viewcode-back" href="../../../MOAL.computer_organization.html#MOAL.computer_organization.bitwise_operations.rotate_through_carry">[docs]</a><span class="k">def</span> <span class="nf">rotate_through_carry</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Like circular, but the end bits are stored as flags.&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Section</span><span class="p">(</span><span class="s">&#39;Computer organization - Bitwise operations&#39;</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">bitwise_not</span><span class="p">(</span><span class="s">&#39;0111&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;1000&#39;</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Bitwise operations&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Wikipedia testing&#39;</span><span class="p">)</span>
+        <span class="c"># Testing examples from Wikipedia</span>
+        <span class="n">and_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;0110&#39;</span><span class="p">,</span> <span class="s">&#39;1101&#39;</span><span class="p">,</span> <span class="s">&#39;0100&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;0101&#39;</span><span class="p">,</span> <span class="s">&#39;0011&#39;</span><span class="p">,</span> <span class="s">&#39;0001&#39;</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s">&#39;0011&#39;</span><span class="p">,</span> <span class="s">&#39;0010&#39;</span><span class="p">,</span> <span class="s">&#39;0010&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;0110&#39;</span><span class="p">,</span> <span class="s">&#39;0001&#39;</span><span class="p">,</span> <span class="s">&#39;0000&#39;</span><span class="p">)]</span>
+        <span class="n">or_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;0101&#39;</span><span class="p">,</span> <span class="s">&#39;0011&#39;</span><span class="p">,</span> <span class="s">&#39;0111&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;0010&#39;</span><span class="p">,</span> <span class="s">&#39;1000&#39;</span><span class="p">,</span> <span class="s">&#39;1010&#39;</span><span class="p">)]</span>
+        <span class="n">xor_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;0101&#39;</span><span class="p">,</span> <span class="s">&#39;0011&#39;</span><span class="p">,</span> <span class="s">&#39;0110&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;0010&#39;</span><span class="p">,</span> <span class="s">&#39;1010&#39;</span><span class="p">,</span> <span class="s">&#39;1000&#39;</span><span class="p">)]</span>
+
+        <span class="n">test_operator_pairs</span><span class="p">(</span><span class="n">and_pairs</span><span class="p">,</span> <span class="n">bitwise_and</span><span class="p">)</span>
+        <span class="n">test_operator_pairs</span><span class="p">(</span><span class="n">or_pairs</span><span class="p">,</span> <span class="n">bitwise_or</span><span class="p">)</span>
+        <span class="n">test_operator_pairs</span><span class="p">(</span><span class="n">xor_pairs</span><span class="p">,</span> <span class="n">bitwise_xor</span><span class="p">)</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Bitwise operations&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Randomly generated&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="n">pair</span> <span class="o">=</span> <span class="p">(</span><span class="n">rand_byte</span><span class="p">(),</span> <span class="n">rand_byte</span><span class="p">())</span>
+            <span class="n">bitwise_not</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">bitwise_and</span><span class="p">(</span><span class="o">*</span><span class="n">pair</span><span class="p">)</span>
+            <span class="n">bitwise_or</span><span class="p">(</span><span class="o">*</span><span class="n">pair</span><span class="p">)</span>
+            <span class="n">bitwise_xor</span><span class="p">(</span><span class="o">*</span><span class="n">pair</span><span class="p">)</span>
+            <span class="n">divider</span><span class="p">()</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Bit-shifting&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Left shifts&#39;</span><span class="p">)</span>
+
+        <span class="n">left_shits</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;00010111&#39;</span><span class="p">,</span> <span class="s">&#39;00101110&#39;</span><span class="p">)]</span>
+
+        <span class="k">for</span> <span class="n">shift</span> <span class="ow">in</span> <span class="n">left_shits</span><span class="p">:</span>
+            <span class="n">bits</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">shift</span>
+            <span class="k">assert</span> <span class="n">shift_left</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">==</span> <span class="n">res</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Bit-shifting&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Right shifts&#39;</span><span class="p">)</span>
+
+        <span class="n">right_shifts</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;10010111&#39;</span><span class="p">,</span> <span class="s">&#39;11001011&#39;</span><span class="p">)]</span>
+
+        <span class="k">for</span> <span class="n">shift</span> <span class="ow">in</span> <span class="n">right_shifts</span><span class="p">:</span>
+            <span class="n">bits</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">shift</span>
+            <span class="k">assert</span> <span class="n">shift_right</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">==</span> <span class="n">res</span>
+
+        <span class="c"># Multiple shifts</span>
+        <span class="k">assert</span> <span class="n">shift_left</span><span class="p">(</span><span class="s">&#39;00010111&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;01011100&#39;</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Bit-shifting&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Logical shifts&#39;</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">shift_left</span><span class="p">(</span><span class="s">&#39;00010111&#39;</span><span class="p">,</span> <span class="n">logical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;00101110&#39;</span>
+        <span class="k">assert</span> <span class="n">shift_right</span><span class="p">(</span><span class="s">&#39;00010111&#39;</span><span class="p">,</span> <span class="n">logical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;00001011&#39;</span>
+
+        <span class="n">print_h2</span><span class="p">(</span><span class="s">&#39;Bit-shifting&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Other shifts&#39;</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">shift_circular</span><span class="p">(</span><span class="s">&#39;00010111&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;00101110&#39;</span>
+
+        <span class="n">shift_circular</span><span class="p">(</span><span class="s">&#39;00000101&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Chris Tabor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
