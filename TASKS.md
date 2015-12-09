@@ -128,16 +128,15 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + Top
     + [Treap](MOAL/data_structures/trees/cartesian_trees.py)
     + Weight-balanced
-    + Binary data structure
     + Stern–Brocot (mathematical)
   + B
-    + B
+    + [B](MOAL/data_structures/trees/btree.py)
     + B+
     + B*
     + B sharp
     + Dancing
-    + 2-3
-    + 2-3-4
+    + [2-3](MOAL/data_structures/trees/234_tree.py)
+    + [2-3-4](MOAL/data_structures/trees/234_tree.py)
     + Queap
     + Fusion
     + Bx

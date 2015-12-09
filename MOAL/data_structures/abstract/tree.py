@@ -111,6 +111,18 @@ class Tree(Graph):
             node = self.__getitem__(node.get('parent'))
         return height
 
+    def is_internal(self, node_name):
+        node = self.__getitem__(node_name)
+        if node is None:
+            return False
+        return 'is_root' not in node and len(node['edges']) != 0
+
+    def is_leaf(self, node_name):
+        node = self.__getitem__(node_name)
+        if node is None:
+            return False
+        return 'is_root' not in node and len(node['edges']) == 0
+
     def node_height(self, node_name, height=1, use_root=False):
         """Determine the height of a node - which is the number of nodes
         between this node and a terminal (leaf) node. If `use_root` is set,
