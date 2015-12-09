@@ -22,18 +22,18 @@ class TwoThreeFourTree(BTree):
     """From Wikipedia:
     "The numbers mean a tree where every node with children (internal node)
     has either two, three, or four child nodes:
-    a 2-node has one data element, and if internal has two child nodes;
-    a 3-node has two data elements, and if internal has three child nodes;
-    a 4-node has three data elements, and if internal has four child nodes."
+    a 2-node has 1 data element, and if internal has two child nodes;
+    a 3-node has 2 data elements, and if internal has three child nodes;
+    a 4-node has 3 data elements, and if internal has four child nodes."
 
     Here, "N-node" is determined by the count of `keys` in a node.
     """
 
     def __setitem__(self, key, node):
-        valid = [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
-        keys_nodes = (len(node['edges']), len(node['keys']))
+        valid = [(0, 0, 0), (1, 1, 1), (2, 1, 2), (3, 2, 3), (4, 3, 4)]
+        children = self.children_count(key)
+        keys_nodes = (len(node['edges']), len(node['keys']), children)
         if keys_nodes not in valid:
-            print(node)
             raise InvalidNodeCount(
                 '{} is not a valid number of nodes/keys. '
                 'Must be one of: {}.'.format(keys_nodes, valid))
@@ -59,8 +59,8 @@ if DEBUG:
 
         graph = {
             0: {'edges': [1], 'is_root': True, 'keys': ['A']},
-            1: {'edges': [2, 3], 'parent': 0, 'keys': ['B', 'C']},
-            2: {'edges': [4, 5, 6], 'parent': 1, 'keys': ['C', 'Z', 'E']},
+            1: {'edges': [2, 3], 'parent': 0, 'keys': ['B']},
+            2: {'edges': [4, 5, 6], 'parent': 1, 'keys': ['C', 'E']},
             3: {'edges': [], 'keys': []},
             4: {'edges': [], 'keys': []},
             5: {'edges': [], 'keys': []},
