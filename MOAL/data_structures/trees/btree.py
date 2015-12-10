@@ -31,7 +31,7 @@ class BTree(Tree):
             raise InvalidNodeKeys(
                 'Each node must have keys totalling 1 less'
                 ' than the total children keys')
-        return super(Tree, self).__setitem__(key, node)
+        return super(BTree, self).__setitem__(key, node)
 
     def __str__(self):
         display = []
