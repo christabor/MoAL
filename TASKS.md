@@ -135,8 +135,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + B*
     + B sharp
     + Dancing
-    + [2-3](MOAL/data_structures/trees/234_tree.py)
-    + [2-3-4](MOAL/data_structures/trees/234_tree.py)
+    + [2-3](MOAL/data_structures/trees/two_three_four_tree.py)
+    + [2-3-4](MOAL/data_structures/trees/two_three_four_tree.py)
     + Queap
     + Fusion
     + Bx
