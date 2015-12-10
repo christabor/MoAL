@@ -12,10 +12,6 @@ from MOAL.helpers.display import Section
 DEBUG = True if __name__ == '__main__' else False
 
 
-class InvalidNode(Exception):
-    pass
-
-
 class SpaghettiStack:
     """From Wikipedia:
     "In computer science, an in-tree or parent pointer tree is an N-ary tree
@@ -53,7 +49,7 @@ class SpaghettiNode:
 
 
 if DEBUG:
-    with Section('BTree Trees'):
+    with Section('Spaghetti Stack (trees)'):
         """
             0
             |
