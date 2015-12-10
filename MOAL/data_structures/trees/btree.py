@@ -31,10 +31,23 @@ class BTree(Tree):
             raise InvalidNodeKeys(
                 'Each node must have keys totalling 1 less'
                 ' than the total children keys')
-        return super(BTree, self).__setitem__(key, node)
+        return super(Tree, self).__setitem__(key, node)
+
+    def __str__(self):
+        display = []
+        for vertex, data in self.vertices.iteritems():
+            f = '({vertex}) --> {outbound}'.format(
+                vertex=vertex, outbound=data['edges'])
+            f += '\n |______<{}>\n'.format(data['keys'])
+            display.append(f)
+        return '\n'.join(display)
 
     def get_keys(self, node_name):
         return self.__getitem__(node_name).get('keys')
+
+    def add_key(self, node_name, key):
+        node = self.__getitem__(node_name)
+        node['keys'].append(key)
 
 
 if DEBUG:
@@ -50,3 +63,6 @@ if DEBUG:
         }
         btree = BTree(graph)
         assert btree.get_keys(2) == ['E', 'F']
+        btree.add_key(4, {'key': 'Z'})
+        print(btree)
+        assert btree.get_keys(4) == ['H', {'key': 'Z'}]

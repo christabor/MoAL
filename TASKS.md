@@ -144,6 +144,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Heaps](MOAL/data_structures/trees/heaps.py)
     + [Binary](MOAL/data_structures/trees/heaps.py)
     + Weak
+    + Relaxed
     + Binomial
     + Fibonacci
       + AF
@@ -158,6 +159,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + D-ary
     + Brodal queue
   + Fractal
+  + Buffered Repository Tree
   + Interval tree
   + Binary indexed tree
   + vEB tree
