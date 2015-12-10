@@ -166,6 +166,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Red-black tree
   + [Trie](MOAL/data_structures/trees/trie.py)
     + [Radix tree](MOAL/data_structures/trees/radix_tree.py)
+    + [Patricia tree](MOAL/data_structures/trees/radix_tree.py)
     + [Suffix tree](MOAL/data_structures/trees/suffix_tree.py)
       + [Generalized](MOAL/data_structures/trees/suffix_tree.py)
       + Ukkonen's
@@ -210,7 +211,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + (a,b)
     + Link/cut
     + SPQR
-    + Spaghetti stack
+    + [Spaghetti stack](MOAL/data_structures/trees/multiway/spaghetti_stack.py)
     + Disjoint-set / union-find / merge-find ADT
     + Fusion
     + Enfilade
