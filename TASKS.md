@@ -1610,7 +1610,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Dynamic
       + Static
   + Inferred
-  + Manifest
+  + [Manifest](MOAL/type_theory/manifest.c)
   + [Nominal](MOAL/type_theory/nominal_structural.py)
   + [Structural](MOAL/type_theory/nominal_structural.py)
   + Dependent
@@ -1705,7 +1705,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + Lexer generator
 + Interpreter
   + Bytecode interpreters
-  + Abstract Syntax Tree interpreters
+  + [Abstract Syntax Tree interpreters](MOAL/execution/compiler/abstract_syntax_tree.py)
   + Just-in-time compilation
   + Self-interpreter
 + Virtual machine
