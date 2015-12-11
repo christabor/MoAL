@@ -8,6 +8,29 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 
 # Tasks
 
+**Table of Contents**
+
+<!-- MarkdownTOC -->
+
+- Data structures / types
+- Software Engineering / Software Development
+- Mathematics
+- Algorithms
+- Computer Organization
+- Operating Systems
+- Networking
+- Data Storage / Transmission
+- Systems Engineering
+- Artificial Intelligence
+- Robotics & Electronics
+- Graphics
+- Theory of Computation
+- Languages
+- Type theory
+- Program Execution
+
+<!-- /MarkdownTOC -->
+
 ## Data structures / types
 
 + [Persistent](MOAL/data_structures/persistent.py)
@@ -1261,6 +1284,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
 + Architecture
   + Model driven (MDA)
   + MVC / N-Tier
+  + Hexagonal
   + Aspect oriented system
   + Middleware
     * Application
@@ -1268,7 +1292,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
         - DEIS
     * Distributed
   + SOA
-    + Micro-services
+    + API Gateway
+    + [Micro-services](MOAL/systems_engineering/architecture/soa/microservice/)
   + [RESTful API](MOAL/systems_engineering/architecture/restful/)
     + [Basic](MOAL/systems_engineering/architecture/restful/)
     + [Complex](MOAL/systems_engineering/architecture/restful/restclient)
