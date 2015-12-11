@@ -1,3 +1,9 @@
+// Some articles indicate Javscript as a strongly typed language,
+// but with the level of coercion and implicit type conversion,
+// it is hard to see that as "strong" to any useful degree.
+
+// The term strong and weak are pretty ambiguous and not all that helpful
+// - see https://en.wikipedia.org/wiki/Strong_and_weak_typing for more.
 var aNumber = 1;
 var aString = '1';
 // Weak comparisons -- 1st = value, 2nd = value and type

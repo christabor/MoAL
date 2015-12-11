@@ -1605,21 +1605,20 @@ Note: some encoding schemes are not really used in computer organization, but ar
 ## Type theory
 
 + Type systems
-  + Type safety
-  + Type checking
-      + Dynamic
-      + Static
-  + Inferred
+  + [Type checking](MOAL/type_theory/)
+      + [Dynamic](MOAL/type_theory/gradual.py)
+      + [Static](MOAL/type_theory/manifest.c)
+  + [Inferred](MOAL/type_theory/weak_typing.js)
   + [Manifest](MOAL/type_theory/manifest.c)
   + [Nominal](MOAL/type_theory/nominal_structural.py)
   + [Structural](MOAL/type_theory/nominal_structural.py)
   + Dependent
   + [Duck](MOAL/type_theory/duck.py)
-  + Gradual
+  + [Gradual](MOAL/type_theory/gradual.py)
   + Latent
   + Sub-structural
   + Uniqueness
-  + Strong
+  + [Strong](MOAL/type_theory/gradual.py)
   + [Weak](MOAL/type_theory/weak_typing.js)
 
 ## Program Execution
