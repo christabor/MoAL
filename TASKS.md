@@ -1617,7 +1617,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + [Gradual](MOAL/type_theory/gradual.py)
   + Latent
   + Sub-structural
-  + Uniqueness
+  + [Uniqueness](MOAL/type_theory/unique_type.py)
   + [Strong](MOAL/type_theory/gradual.py)
   + [Weak](MOAL/type_theory/weak_typing.js)
 
