@@ -1615,7 +1615,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Dependent
   + [Duck](MOAL/type_theory/duck.py)
   + [Gradual](MOAL/type_theory/gradual.py)
-  + Latent
+  + [Latent](MOAL/type_theory/gradual.py)
   + Sub-structural
   + [Uniqueness](MOAL/type_theory/unique_type.py)
   + [Strong](MOAL/type_theory/gradual.py)

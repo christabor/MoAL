@@ -137,3 +137,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + http://www.dcs.gla.ac.uk/~marks/
 + https://www.quora.com/What-are-some-good-fuzzy-logic-libraries-in-Python
 + https://en.wikipedia.org/wiki/Fuzzy_logic
++ http://pauillac.inria.fr/~fpottier/slides/fpottier-2007-05-linear-bestiary.pdf

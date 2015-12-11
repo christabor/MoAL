@@ -17,7 +17,10 @@ DEBUG = True if __name__ == '__main__' else False
 # (http://mypy.readthedocs.org) module and run it from that executable;
 # e.g. `mypy ./gradual.py`
 # Issues that might arise with mypy: https://github.com/JukkaL/mypy/issues/975
-# OR, use Python 3
+# OR, use Python 3:
+# [OSX]
+# `brew install python3`
+# `python3 ./gradual.py`
 
 
 def greet_normal(name):
