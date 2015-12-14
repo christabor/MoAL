@@ -1618,7 +1618,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Mozart
   + Extensible
   + Domain Specific (DSL)
-    + Metalinguistic abstraction
+    + [Metalinguistic abstraction](MOAL/languages/domain_specific/metalinguistic_abstraction.py)
     + [Embeddable](MOAL/languages/domain_specific/embedded_dsl.py)
     + Macros
       + Hygienic
