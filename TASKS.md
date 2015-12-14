@@ -1583,7 +1583,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + [Abstract Base Classes](MOAL/languages/paradigms/object_oriented/abstract_baseclass.py)
       + Overloading
       + Polymorphism
-        + Operator overloading
+        + [Operator overloading](MOAL/languages/paradigms/object_oriented/overloading.py)
         + Function overloading/ad-hoc polymorphism
         + Parametric polymorphism
         + Single / Dynamic dispatch
@@ -1629,7 +1629,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
 
 ## Type theory
 
-+ Type systems
++ [Type systems](MOAL/type_theory/)
   + [Type checking](MOAL/type_theory/)
       + [Dynamic](MOAL/type_theory/gradual.py)
       + [Static](MOAL/type_theory/manifest.c)
