@@ -2,6 +2,17 @@ from random import choice
 from random import randrange as rr
 from itertools import chain
 from itertools import izip
+from functools import wraps
+
+
+def verbose(func, *args, **kwargs):
+    """A decorator that prints the args and kwargs of a decorated function."""
+    @wraps(func)
+    def _inner(*args, **kwargs):
+        print('Calling `{}` with args: {} and kwargs: {}'.format(
+            func.__name__, args, kwargs))
+        return func(*args, **kwargs)
+    return _inner
 
 
 def subdivide_groups(items, divisions=2):

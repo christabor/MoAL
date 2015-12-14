@@ -139,3 +139,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://en.wikipedia.org/wiki/Fuzzy_logic
 + http://pauillac.inria.fr/~fpottier/slides/fpottier-2007-05-linear-bestiary.pdf
 + https://www.youtube.com/watch?v=vz03dB6iMSo
++ http://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial.html

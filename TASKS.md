@@ -1594,7 +1594,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         + Sub-typing
         + Static / Dynamic binding
   + Array programming
-    + J
+    + [NumPy](MOAL/languages/paradigms/array/array.py)
   + Meta-programming
     + Languages
       + Racket
