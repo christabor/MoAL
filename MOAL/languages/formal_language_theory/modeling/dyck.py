@@ -78,3 +78,5 @@ if DEBUG:
         assert dycklang.is_balanced()
         assert dycklang.show_equation(
             '(2x - 3 + (7 / 2)) + ((3x x (4 - 2)) + (4x - (1 * (3 + 5))))')
+        dycklang = Dyck(12, left='[', right=']')
+        dycklang.run()
