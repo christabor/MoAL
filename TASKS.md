@@ -1361,7 +1361,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Inference engine
       * PyKE
     + [Decision tree](MOAL/artificial_intelligence/machine_learning/supervised/decision_trees.py)
-    + Perceptrons
+    + [Perceptrons](MOAL/artificial_intelligence/machine_learning/supervised/perceptron.py)
     + Support vector machines
     + Relevance vector machines
     + K-means clustering
@@ -1497,6 +1497,9 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Python - generator
     + recursive
     + expression
+  + Magic methods
+    * PHP
+    * Python
   + Python - Metaclasses
   + [Python - decorator](MOAL/languages/features/python/)
     * [Class](MOAL/languages/features/python/class_decorators.py)
