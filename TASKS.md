@@ -1413,6 +1413,10 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Analog
   + Digital circuit
     + Verilog
++ Programmatic Hardware access
+  * PySerial
++ CAM/CAD/CNC
+  * PyCAM
 
 ## Graphics
 
