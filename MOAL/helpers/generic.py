@@ -3,6 +3,14 @@ from random import randrange as rr
 from itertools import chain
 from itertools import izip
 from functools import wraps
+from string import punctuation
+
+
+def strip_punctuation(string):
+    """Credit: http://stackoverflow.com/questions/265960/
+        best-way-to-strip-punctuation-from-a-string-in-python"""
+    exclude = set(punctuation)
+    return ''.join(ch for ch in string if ch not in exclude)
 
 
 def verbose(func, *args, **kwargs):

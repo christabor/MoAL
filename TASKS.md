@@ -1245,7 +1245,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + HBase
       + BigTable
     + Data structures
-      + Inverted Index
+      + [Inverted Index](MOAL/storage/databases/structures/inverted_index.py)
     + Services
       * BigQuery
       * Datomic
