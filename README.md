@@ -15,13 +15,13 @@ This approach also embodies the Unix philosophy of "combining small, discrete to
 __Enough talk! See [the tasks](TASKS.md) for more details__
 
 ## Motivations
-The very first list was originally taken from: https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1, but it has been greatly expanded and re-organized. This will probably continue to change, which is why the atomic, containerization approach for each task is so important.
+The very first list was originally taken from [this quora article](https://www.quora.com/What-is-the-best-way-to-self-teach-the-skills-and-knowledge-gained-in-a-typical-computer-science-degree/answer/Sam-Park-1?srid=dDmF&share=1), but it has been greatly expanded and re-organized. This will probably continue to change, which is why the atomic, containerization approach for each task is so important.
 
 **To that end,** my goal is to do as much as can be done in python, except for specific language requirements. Things that are math, theory, or concept oriented should still be done in Python -- utilizing tools like numpy, scipy to do different types of computation.
 
 Some examples are taken and/or recreated from other sites. In these cases, they are not copy-pasted verbatim; they are re-typed, character-by-character, modified, and heavily commented; the goal is not rote memorization. The goal is a genuine understanding and better intuition of how it works and how to do it. You may find it useful to recreate, modify, or start from scratch -- it is recommended to start from scratch when possible, but if you are honest with yourself, you will "know" when you comprehend it.
 
-As mentioned before, in some cases, direct programming makes little sense since a given subject may be high level. However, to better understand and cement the idea, **it's important to try and recreate it in code**. For example, you can /learn/ about memory, but to **grok** it, you could write an actual module that acts as if it was memory - with the same kind of properties and functionality, albeit higher level.
+As mentioned before, in some cases, direct programming makes little sense since a given subject may be high level. However, to better understand and cement the idea, **it's important to try and recreate it in code**. For example, you can *learn* about memory, but to **grok** it, you could write an actual module that acts as if it was memory - with the same kind of properties and functionality, albeit higher level.
 
 ## Accomplishing these tasks
 
