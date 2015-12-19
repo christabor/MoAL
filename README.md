@@ -1,3 +1,5 @@
+![moal logo](moal-logo.png)
+
 # MoAL
 
 ### aka "Mother of All Learning"
