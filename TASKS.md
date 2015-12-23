@@ -1346,6 +1346,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
 + Message queuing
   + [RabbitMQ](MOAL/systems_engineering/message_queues/rabbitmq/)
   + ZeroMQ
+  + Celery
 + Performance
   + [Caching](MOAL/systems_engineering/performance/caching/)
     + Varnish
