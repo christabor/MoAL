@@ -1119,7 +1119,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
 + System on a chip (SoC)
 + Inter-process communication
   * File
-  * Signal
+  * [Signal](MOAL/operating_systems/interprocess_communication/signals.sh)
   * Socket
   * Message Queue
   * Pipe
