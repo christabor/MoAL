@@ -1148,6 +1148,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
     * HTTP/HTTPS
       - HTTP/2
       * HTTP Servers
+        * Apache Tomcat
+        * NGINX
         * G-Unicorn
         * uWSGI
         * Tornado
@@ -1190,8 +1192,6 @@ Note: some encoding schemes are not really used in computer organization, but ar
   * Load balancing
     + HAProxy
   + Web server
-    * NGINX
-    * Apache Tomcat
     * Server Side Protocols
       - CGI
       - FastCGI
@@ -1303,7 +1303,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + [Fluent interface](MOAL/systems_engineering/architecture/api_design/fluent_interface.py)
     + Webhooks
 + Configuration management
-  * SaltStack
+  * Salt
+  * Fabric
 + Parallel Computing
   * High performance computing
     - Symmetric Multiprocessing
@@ -1326,6 +1327,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Unstructured
   + CAP Theorem
   + "Big Data" processing
+    * NSQ
     * Hadoop ecosystem
       * Hadoop (HDFS/MapReduce)
       * YARN
@@ -1336,7 +1338,6 @@ Note: some encoding schemes are not really used in computer organization, but ar
       * Flume
       * Mahout
       * [Kafka](MOAL/systems_engineering/distributed/big_data/kafka_test.py)
-      * NSQ
       * PIG
       * Spark
       * ZooKeeper
