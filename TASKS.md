@@ -166,7 +166,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + AList
   + [Heaps](MOAL/data_structures/trees/heaps.py)
     + [Binary](MOAL/data_structures/trees/heaps.py)
-    + Weak
+    + [Weak](MOAL/data_structures/trees/heaps.py)
     + Relaxed
     + Binomial
     + Fibonacci

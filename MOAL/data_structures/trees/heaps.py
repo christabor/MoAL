@@ -30,6 +30,10 @@ class BinHeap(bst.BinarySearchTree):
             self.swap_down(i)
             i -= 1
         print('New list: {}'.format(self.heap_list))
+        super(BinHeap, self).__init__()
+
+    def get_root(self):
+        return self.root
 
     def insert(self, item):
         # This is just a normal insert, except it re-balances
@@ -91,6 +95,30 @@ class BinHeap(bst.BinarySearchTree):
             i = min_child_index
 
 
+class InvalidHeapError(Exception):
+    pass
+
+
+class WeakHeap(BinHeap):
+
+    def __str__(self):
+        return 'HELLO'
+
+    def put(self, key, val):
+        """From https://xlinux.nist.gov/dads//HTML/weakheap.html:
+        Definition: A relaxed heap satisfying the following three conditions:
+        (1) every key in the right subtree of a node is greater than the key
+            stored in the node itself,
+        (2) the root has no left child, and
+        (3) leaves are only found on the last two levels of the tree.
+        """
+        root = self.get_root()
+        if root is not None:
+            if root.has_left_child():
+                raise InvalidHeapError
+        super(BinHeap, self).put(key, val)
+
+
 # Example implementations
 
 class PriorityQueue(BinHeap, object):
@@ -109,3 +137,8 @@ if __name__ == '__main__':
         print('\n')
         for _ in range(10):
             pq.insert(rr(1, 100))
+
+    with Section('Weak Heaps'):
+        weak = WeakHeap([rr(1, 100) for _ in range(10)])
+        weak.put(10, 'A')
+        print(weak.get(10).key, weak.get(10).data)
