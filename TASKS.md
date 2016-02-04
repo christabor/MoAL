@@ -1576,7 +1576,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Python
         * [PyMonad](MOAL/languages/paradigms/functional/pymonad_examples.py)
         * Functools
-        * RxPY
+        * [RxPY](MOAL/languages/paradigms/functional/rxpy_examples.py)
     + Features
       + Functional Parametric polymorphism
   + Logic
