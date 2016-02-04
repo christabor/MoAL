@@ -1615,7 +1615,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Dataflow
     + Flow based
     + Cell-oriented
-    + Reactive
+    + [Reactive](MOAL/languages/paradigms/functional/rxpy_examples.py)
     + Pipeline
       + Hartmann
       + [UNIX](MOAL/languages/paradigms/dataflow/pipelines/unix_cmds.sh)
