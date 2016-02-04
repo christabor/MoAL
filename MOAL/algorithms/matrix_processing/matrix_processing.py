@@ -51,7 +51,7 @@ def exp_by_convential(x, n):
     return x ** n
 
 
-@trials._test_speed
+@trials.test_speed
 def trial_exp(func, max=10):
     print('Testing function: "{}"'.format(func.__name__))
     rounds = []
