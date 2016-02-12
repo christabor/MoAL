@@ -348,7 +348,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rule of Separation
       + Rule of Simplicity
       + Rule of Parsimony
-      + [Rule of Transparency]MOAL/software_engineering/problem_solving/design_patterns/unix/transparency.py
+      + [Rule of Transparency](MOAL/software_engineering/problem_solving/design_patterns/unix/transparency.py)
       + [Rule of Robustness](MOAL/software_engineering/problem_solving/design_patterns/unix/robustness.py)
       + [Rule of Representation](MOAL/software_engineering/problem_solving/design_patterns/unix/representation.py)
       + [Rule of Least Surprise](MOAL/software_engineering/problem_solving/design_patterns/unix/least_surprise.py)
