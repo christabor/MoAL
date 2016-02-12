@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
 DEBUG = True if __name__ == '__main__' else False
 
-# Surprising (and bad) ---------------------------------------------------------
+# Surprising (and bad) --------------------------------------------------------
 
 
 def open_file(filename):
@@ -39,7 +39,7 @@ def add2(x, y):
     return x + y
 
 
-# Not surprising (and good) ----------------------------------------------------
+# Not surprising (and good) ---------------------------------------------------
 
 def _open_file(filename):
     with open(filename, 'r') as newfile:
