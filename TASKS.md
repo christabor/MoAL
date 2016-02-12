@@ -356,7 +356,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
       + Rule of Repair
       + Rule of Economy
       + Rule of Generation
-      + Rule of Optimization
+      + [Rule of Optimization](MOAL/software_engineering/problem_solving/design_patterns/unix/optimization.py)
       + Rule of Diversity
       + Rule of Extensibility
     + [SOLID](MOAL/software_engineering/problem_solving/design_patterns/solid/)
