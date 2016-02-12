@@ -294,6 +294,27 @@ class DirectedGraph(Graph):
             self.vertices = graph_copy
         return is_acyclic
 
+    def _dfs(self, start, target):
+        """Same as above, but we consider outgoing and ingoing connections.
+        Any node with no outgoing connections automatically stops traversal."""
+        stack = []
+        seen = []
+        stack.append(start)
+        while len(stack) > 0:
+            vertex = stack.pop()
+            outgoing = self[vertex]['edges']
+            # If no outgoing edges exist, stop.
+            if len(outgoing) == 0:
+                return stack
+            if vertex == target:
+                return self[vertex]
+            if vertex not in seen:
+                seen.append(vertex)
+                stack += self[vertex]['edges']
+        if DEBUG:
+            print(seen)
+        return []
+
 
 class CyclicGraph(Graph):
     pass
@@ -406,6 +427,7 @@ if DEBUG:
             10: {'edges': [], 'val': 'G'},
             11: {'edges': [2, 9, 10], 'val': 'H'},
         })
+        assert dcg_wikipedia._dfs(8, 5) == []
         assert 'A' in dcg_wikipedia
         assert 'H' in dcg_wikipedia
         assert 'h' not in dcg_wikipedia
