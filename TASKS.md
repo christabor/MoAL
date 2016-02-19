@@ -125,7 +125,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Koorde
   + Prefix hash tree
   + [Rolling hash](MOAL/data_structures/hashes/rolling_hash.py)
-  + MinHash
+  + [MinHash](MOAL/algorithms/coding_theory/minhash.py)
   + Quotient filter
 + Trees
   + [Hash tree](MOAL/data_structures/trees/)
@@ -344,7 +344,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     - Unix Rules
       + [Rule of modularity](MOAL/software_engineering/problem_solving/design_patterns/unix/modularity.py)
       + Rule of Clarity
-      + Rule of Composition
+      + [Rule of Composition](MOAL/software_engineering/problem_solving/design_patterns/unix/composition.py)
       + Rule of Separation
       + Rule of Simplicity
       + Rule of Parsimony
