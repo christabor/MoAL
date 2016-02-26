@@ -963,7 +963,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 Note: some encoding schemes are not really used in computer organization, but are grouped as such because there is some crossover. In most cases, many of the numeral systems below can be seen as simply pure mathematical notation in the context of a writing system.
 
 + Transistors
-+ Logic gates
++ [Logic gates](MOAL/computer_organization/logic_gates.py)
 + [Data-types & representation](MOAL/computer_organization/data_types.py)
   + [Bit](MOAL/computer_organization/data_types.py)
   + [Nibble](MOAL/computer_organization/data_types.py)
