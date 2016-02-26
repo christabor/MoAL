@@ -940,7 +940,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + A* tree search
   + 3D Surface Tracker Technolog
   + Bellman-Ford
-  + Graph canonization
+  + [Graph canonization](MOAL/algorithms/graph_traversal/canonization.py)
   + Perturbation methods
   + Floyd-Warshall
   + Floyd's cycle-finding

@@ -61,6 +61,7 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://en.wikipedia.org/wiki/Aspect-oriented_software_development
 + https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)
 + https://en.wikipedia.org/wiki/Comparison_of_web_server_software
++ https://en.wikipedia.org/wiki/Graph_canonization
 
 *Misc*
 + fullstackpython.com/table-of-contents.html
