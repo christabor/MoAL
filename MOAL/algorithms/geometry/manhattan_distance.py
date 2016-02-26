@@ -36,7 +36,7 @@ def rand_coords(max_width=100, max_height=100):
 
 
 if DEBUG:
-    with Section('SOME MODULE TITLE'):
+    with Section('Manhattan Distance algorithm'):
         c1 = [rand_coords() for _ in range(10)]
         c2 = [rand_coords() for _ in range(10)]
         for p1, p2 in zip(c1, c2):
