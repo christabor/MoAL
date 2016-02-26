@@ -1,19 +1,17 @@
-"""Module docstring.
-
-This talks about the module."""
+"""Module docstring. This talks about the module."""
 
 # -*- coding: utf-8 -*-
 
 __author__ = """Chris Tabor (dxdstudio@gmail.com)"""
 
-if __name__ == '__main__':
+DEBUG = True if __name__ == '__main__' else False
+
+if DEBUG:
     from os import getcwd
     from os import sys
     sys.path.append(getcwd())
 
 from MOAL.helpers.display import Section
-
-DEBUG = True if __name__ == '__main__' else False
 
 
 class MyClass(object):
