@@ -930,7 +930,6 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + [Manhattan distance](MOAL/algorithms/geometry/manhattan_distance.py)
   + Euclidean distance
 + Graph traversal
-  + Shortest Path Problems
   + Dijkstra's Algorithm
   + Knight's Tour Problem
   + The Word Ladder Problem
