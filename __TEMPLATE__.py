@@ -1,3 +1,7 @@
+"""Module docstring.
+
+This talks about the module."""
+
 # -*- coding: utf-8 -*-
 
 __author__ = """Chris Tabor (dxdstudio@gmail.com)"""
@@ -13,6 +17,8 @@ DEBUG = True if __name__ == '__main__' else False
 
 
 class MyClass(object):
+    """Class docstring."""
+
     raise NotImplementedError
 
 
