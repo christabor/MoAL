@@ -927,7 +927,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
 + [Time series analysis](MOAL/algorithms/time_series/dynamic_timewarping.py)
   + [Dynamic time warping](MOAL/algorithms/time_series/dynamic_timewarping.py)
 + Geometry
-  + Manhattan distance
+  + [Manhattan distance](MOAL/algorithms/geometry/manhattan_distance.py)
   + Euclidean distance
 + Graph traversal
   + Shortest Path Problems
