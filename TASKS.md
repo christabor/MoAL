@@ -1274,9 +1274,13 @@ Note: some encoding schemes are not really used in computer organization, but ar
 + Transformation
   + Migration
   + Conversion
+    * Patch theory
   + Metadata
     + Descriptive
     + Structural
++ Structure
+  + Ontology (information science)
+  + Taxonomy
 
 ## Systems Engineering
 
@@ -1563,6 +1567,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + [Backus-Naur Form (BFN)](MOAL/languages/formal_language_theory/grammars/backus_naur.py)
         + Extended
 + Paradigms
+  * Supercomputing
+    - Quasi-opportunistic
   * Parallel
     - Languages
       - Chapel (language)
@@ -1578,6 +1584,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         * [RxPY](MOAL/languages/paradigms/functional/rxpy_examples.py)
     + Features
       + Functional Parametric polymorphism
+      + Referential transparency
   + Logic
     + Abductive
     + Answer set
@@ -1625,6 +1632,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Rust
       + Nimrod
       + Mozart
+    + Actor model
+      * Pykka
   + Extensible
   + Domain Specific (DSL)
     + [Metalinguistic abstraction](MOAL/languages/domain_specific/metalinguistic_abstraction.py)
