@@ -1267,7 +1267,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + ER model
   + Function model
   + Information model
-  + Meta modeling
+  + [Meta modeling](MOAL/storage/modeling/metamodel.py)
   + Object model
   + Systems model
   + View model
