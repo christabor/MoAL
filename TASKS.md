@@ -1637,7 +1637,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Nimrod
       + Mozart
     + Actor model
-      * Pykka
+      * [Pykka](MOAL/languages/concurrent/actor_model.py)
   + Extensible
   + Domain Specific (DSL)
     + [Metalinguistic abstraction](MOAL/languages/domain_specific/metalinguistic_abstraction.py)
