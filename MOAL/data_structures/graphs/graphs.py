@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""Base Abstract Graph implementation."""
+
 __author__ = """Chris Tabor (dxdstudio@gmail.com)"""
 
 if __name__ == '__main__':
