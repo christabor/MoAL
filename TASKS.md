@@ -1137,11 +1137,11 @@ Note: some encoding schemes are not really used in computer organization, but ar
       * JSONRPC
       * XMLRPC
     * Bluetooth
+    * SNMP
     * Fibre channel
     * RTPS
     * SSH
-    * FTP/sFTP
-      * Twisted FTP
+    * [FTP/sFTP](MOAL/networking/protocols/application/ftp/)
     * SMTP
     * Telnet
     * HTTP/HTTPS

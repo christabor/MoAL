@@ -1,7 +1,7 @@
 clean:
 	@echo "Deleting docs/"
-	# rm -rf docs || true
-	# rm tree-example.* || true
+	rm -rf docs || true
+	rm tree-example.* || true
 docs: clean
 	@echo "Building Sphinx API Docs..."
 	# http://sphinx-doc.org/man/sphinx-apidoc.html
