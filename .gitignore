@@ -10,6 +10,7 @@ assets/build/
 *.exe
 *.o
 *.so
+.tox/
 
 # Packages #
 ############
