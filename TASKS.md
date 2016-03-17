@@ -1143,7 +1143,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     * SSH
     * [FTP/sFTP](MOAL/networking/protocols/application/ftp/)
     * SMTP
-    * Telnet
+    * [Telnet](MOAL/networking/protocols/application/telnet/)
     * HTTP/HTTPS
       - HTTP/2
       * HTTP Servers
