@@ -51,6 +51,19 @@ One thing I have come to realize is that it is easy to simply "research and impl
 
 So with that understanding, I would explicitly state here that when working on a project like this, it is important to allow the particular task at hand to envelop you, and infuse the idea into your knowledge. Each one will resonate with your own interests and understanding to a different degree, and that's fine; it's a matter of allowing yourself to grow by ingesting and transforming this knowledge, and not just memorizing a specific algorithm, data structure or concept.
 
+#### A note on fluid vs. crystallized intelligence
+
+Another specific goal of MOAL is to strengthen both fluid *and* crystallized intelligence. These are defined roughly as the following:
+
+1. Fluid intelligence is the ability to learn new things
+2. Crystallized intelligence is the ability to recall deep understanding, attained from long term practice in a specific area.
+
+*for more info, see [Wikipedia](https://en.wikipedia.org/wiki/Fluid_and_crystallized_intelligence)*
+
+MOAL works on both of these, because the overarching theme is depth (e.g. crystallized), but many new concepts are touched upon, which requires a fluid intelligence to quickly pick up a multitude of categories.
+
+While one or both of these types may seem hard at first, consistent practice in both areas will yield stronger capability over time.
+
 ### Documentation / Other visual formats
 
 Documentation exists solely for understanding and as a different way to navigate the complex categories -- it's not meant to be a source of reference for actual development. [Click here to check out all documentation](http://christabor.github.io/MoAL/)
