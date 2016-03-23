@@ -1380,6 +1380,9 @@ Note: some encoding schemes are not really used in computer organization, but ar
     + Neural networks
       * Deep learning
         - Pylearn2
+        - Keras
+        - Theano
+        - TensorFlow
       * Wavelet
       * Hierarchical Temporal Memory
       + Self-organizing map (Kohonen map)
