@@ -1144,6 +1144,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
     * SSH
     * [FTP/sFTP](MOAL/networking/protocols/application/ftp/)
     * SMTP
+    * XMPP
     * [Telnet](MOAL/networking/protocols/application/telnet/)
     * HTTP/HTTPS
       - [HTTP/2](MOAL/networking/protocols/application/http2/)
@@ -1154,6 +1155,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         * uWSGI
         * Tornado
         * Twisted
+        * [Flask](MOAL/systems_engineering/architecture/soa/microservice/)
       * JSON-WSP
         - Ladon
     * SSL
