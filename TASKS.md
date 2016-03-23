@@ -1135,6 +1135,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + LDAP
     * RPC
       * JSONRPC
+        - Spyne
       * XMLRPC
     * Bluetooth
     * SNMP
@@ -1153,6 +1154,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
         * uWSGI
         * Tornado
         * Twisted
+      * JSON-WSP
+        - Ladon
     * SSL
     * TLS
     * POP
