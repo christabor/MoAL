@@ -63,24 +63,29 @@ class AlternatingDecisionTree(Tree):
         Evaluations start from the top if no fromkey is specified.
         A sum is returned for the total of all resulting path evaluations."""
         total = 0
+
+        def _eval(node):
+            print('func', node['func'](value))
+            res = node['func'](value)
+            # Update based on evaluation function results.
+            path = 0 if res else 1
+            total = node['next'][path]
+            print('took path: {} with val {}'.format(path, value))
+            return total
+
         for k, v in self.vertices.items():
             divider()
             cmd_title('NODE: {}'.format(k))
             node = self.vertices[k]['fork']
             if fromkey is not None:
                 if k == fromkey:
-                    print('TODO...!')
+                    total += _eval(node)
+                    print('new total: ', total)
                 else:
                     continue
             else:
-                print('func', node['func'](value))
-                res = node['func'](value)
-                # Update based on evaluation function results.
-                path = 0 if res else 1
-                total += node['next'][path]
-                print('took path: {} with val {}'.format(path, value))
+                total += _eval(node)
                 print('new total: ', total)
-
         print('FINAL value ', total)
 
     def predict(self, value, fromkey=None):
