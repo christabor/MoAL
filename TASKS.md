@@ -425,6 +425,8 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
   + Vector calculus
   + Differential equations
   + Dynamical systems
+    * Complex dynamic systems
+      - PyCX
   + Chaos theory
   + Complex analysis
 + Applied
