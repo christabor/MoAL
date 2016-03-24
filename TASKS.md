@@ -246,7 +246,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + [Abstract syntax](MOAL/execution/compiler/abstract_syntax_tree.py)
     + Parse
     + Decision
-    + Alternating decision
+    + [Alternating decision](MOAL/data_structures/trees/application_specific/alternating_decision_tree.py)
     + Minimax
     + Expectiminimax
     + Finger
