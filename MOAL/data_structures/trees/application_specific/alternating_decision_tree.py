@@ -129,7 +129,7 @@ if DEBUG:
         })
 
         adt.add_rule(1, is_gt_10, [0.1, 0.4])
-        adt.add_rule(2, is_gt_10, [3.1, 0.4])
+        adt.add_rule(2, is_lt_10, [3.1, 0.4])
         adt.add_rule(3, iseven, [2.0, 10])
         adt.add_rule(4, isodd, [12.0, 10])
         adt.evaluate(20)
