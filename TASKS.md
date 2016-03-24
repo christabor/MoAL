@@ -332,6 +332,7 @@ _Note:_ *completed tasks are [linked](#)*. Tasks are generally structured to be 
     + /TBD/
 + Deployment
   * Docker
+  * Vagrant
 + Formal verification
   + Theorem provers
     + Automated
@@ -1300,7 +1301,6 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Middleware
     * Application
       - 12-Factor
-        - DEIS
     * Distributed
   + SOA
     + API Gateway
