@@ -5,11 +5,11 @@ clean:
 docs: clean
 	@echo "Building Sphinx API Docs..."
 	# http://sphinx-doc.org/man/sphinx-apidoc.html
-	sphinx-apidoc --private -M -A 'Chris Tabor' -H 'MoAL' -o docs MOAL
-	@echo "Built all docs."
-build: docs
+	sphinx-apidoc -e --private -F -s 'md' -A 'Chris Tabor' -H 'MOAL' -o docs MOAL
+	cp _sphinx_conf.py docs/conf.py
 	cd docs && make html -j 4
-serve: build
+	@echo "Built all docs."
+serve: docs
 	cd docs/_build/html && python -m SimpleHTTPServer 8001
 cleancoverage:
 	@echo "Cleaning up coverage report leftovers..."
