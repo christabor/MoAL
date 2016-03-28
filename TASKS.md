@@ -1595,7 +1595,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Clojure
       + Python
         * [PyMonad](MOAL/languages/paradigms/functional/pymonad_examples.py)
-        * Functools
+        * [Functools](MOAL/languages/paradigms/functional/functools_examples.py)
         * [RxPY](MOAL/languages/paradigms/functional/rxpy_examples.py)
     + Features
       + Functional Parametric polymorphism

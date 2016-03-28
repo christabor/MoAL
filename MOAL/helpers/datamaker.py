@@ -31,6 +31,16 @@ def random_person():
     }
 
 
+def random_person_full():
+    return {
+        'fname': faker.first_name(),
+        'lname': faker.last_name(),
+        'email': faker.email(),
+        'address': faker.address(),
+        'url': faker.url()
+    }
+
+
 def subnet_mask():
     op1 = '255.255.255.255'
     op2 = '255.0.0.0'
