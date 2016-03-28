@@ -1314,7 +1314,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + API design
     * [JSONAPI (jsonapi.org)](MOAL/systems_engineering/architecture/restful/restclient)
     + [Fluent interface](MOAL/systems_engineering/architecture/api_design/fluent_interface.py)
-    + [Webhooks](MOAL/systems_engineering/architecture/api_design/webhooks/app1.py)
+    + [Webhooks](MOAL/systems_engineering/architecture/api_design/webhooks/)
 + Configuration management
   * Salt
   * Fabric
