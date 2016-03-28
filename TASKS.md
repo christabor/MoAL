@@ -1387,6 +1387,8 @@ Note: some encoding schemes are not really used in computer organization, but ar
         - Keras
         - Theano
         - TensorFlow
+        - Blocks
+        - Lasagne
       * Wavelet
       * Hierarchical Temporal Memory
       + Self-organizing map (Kohonen map)
