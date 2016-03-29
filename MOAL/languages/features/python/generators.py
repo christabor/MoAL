@@ -35,6 +35,9 @@ def product():
     i = 1
     while True:
         yield i
+        # This is never seen since i is always yielded first,
+        # and this generator loops FOREVER.
+        yield prod
         print('Product is: {} | current `i` is: {}'.format(prod, i))
         prod *= i
         i += 1
