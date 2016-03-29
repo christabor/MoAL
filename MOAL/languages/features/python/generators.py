@@ -72,6 +72,17 @@ def gen_largefile(filename='file.gz', size=1024):
                   'count={size} bs=1024'.format(filename=filename, size=size))
 
 
+def rec_get_nums(current=1, maxcase=10):
+    """A recursive generator."""
+    while current < maxcase:
+        print('current = {}'.format(current))
+        for i in rec_get_nums(current + 1, maxcase=maxcase):
+            print(i)
+            yield i
+        current += 1
+        print('Recursive iteration {}: Done with generator.'.format(current))
+    raise StopIteration
+
 if DEBUG:
     with Section('Language features - generators (lazy evaluation)'):
         numgen = get_nums()
@@ -90,7 +101,7 @@ if DEBUG:
         print(reader)
         next(reader)
         next(reader)
-        for _ in range(5):
+        for _ in range(3):
             next(reader)
 
         prodgen = product()
@@ -112,3 +123,8 @@ if DEBUG:
         next(genexpr)
         # Even get the value
         assert next(genexpr) == 12
+
+        print_h2('Recursive generators')
+
+        genrec = rec_get_nums()
+        next(genrec)

@@ -1519,7 +1519,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
 
 + Interesting language features / syntactic sugar (format: Language - feature)
   + [Python - generator](MOAL/languages/features/python/generators.py)
-    * recursive
+    * [recursive](MOAL/languages/features/python/generators.py)
     * [basic](MOAL/languages/features/python/generators.py)
     * [expression](MOAL/languages/features/python/generators.py)
   + Magic methods

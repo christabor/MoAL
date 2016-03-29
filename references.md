@@ -142,3 +142,4 @@ wikipedia.org/wiki/Bachelor_of_Computer_Science
 + https://www.youtube.com/watch?v=vz03dB6iMSo
 + http://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial.html
 + http://labs.hoffmanlabs.com/node/1690
++ https://www.python.org/dev/peps/pep-0380/
