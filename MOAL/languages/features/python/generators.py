@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-"""Python generators examples."""
+"""Python generators examples.
+
+A generator is an implementation using the lazy evaluation strategy.
+"""
 
 __author__ = """Chris Tabor (dxdstudio@gmail.com)"""
 
@@ -85,6 +88,10 @@ def rec_get_nums(current=1, maxcase=10):
 
 if DEBUG:
     with Section('Language features - generators (lazy evaluation)'):
+        # "Eager evaluation strategy -- the opposite of lazy."
+        nums = [i * i for i in xrange(10000)]
+
+        # All operations below are lazy evaluations.
         numgen = get_nums()
         for _ in range(10):
             next(numgen)
@@ -127,4 +134,7 @@ if DEBUG:
         print_h2('Recursive generators')
 
         genrec = rec_get_nums()
-        next(genrec)
+        try:
+            next(genrec)
+        except StopIteration:
+            print('generator exhausted.')

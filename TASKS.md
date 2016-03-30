@@ -1541,7 +1541,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
   + Haskell - comprehensions
   + Haskell - refinement types
 + Evaluation strategies
-  + Eager
+  + [Eager](MOAL/languages/features/python/generators.py)
   + [Lazy](MOAL/languages/features/python/generators.py)
   + Partial
   + Remote
