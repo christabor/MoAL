@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
+"""Automatically adds all __init__.py files to all subdirectories
+that do not already have it."""
 
+__author__ = """Chris Tabor (dxdstudio@gmail.com)"""
 
 import os
 import sys
@@ -9,16 +11,15 @@ from glob import glob
 
 sys.path.append(os.getcwd())
 
-"""Automatically adds all __init__.py files to all subdirectories
-that do not already have it."""
-
 
 def write_init(newpath):
+    """Write an empty __init__ file to a path."""
     with open(newpath, 'wb+') as initfile:
         initfile.write('\n')
 
 
 def modulify():
+    """Make __init__ files in all directories and subdirectories."""
     paths = []
     start_dir = os.getcwd()
     pattern = "*.py"
@@ -31,4 +32,5 @@ def modulify():
     return paths
 
 
-modulify()
+if __name__ == '__main__':
+    modulify()
