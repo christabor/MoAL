@@ -1466,6 +1466,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + Multi-tape
       + Multi-track
     + Stack machine
+    + Belt machine
     + Register machine / Wang-b machine
       + [Pointer](MOAL/automata_theory/pointer_machine.py)
         + [Schonhage Storage Modification](MOAL/automata_theory/pointer_machine.py)
