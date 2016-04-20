@@ -4,9 +4,9 @@
 
 __author__ = """Chris Tabor (dxdstudio@gmail.com)"""
 
-DEBUG = True if __name__ == '__main__' else False
+IS_MAIN = True if __name__ == '__main__' else False
 
-if DEBUG:
+if IS_MAIN:
     from os import getcwd
     from os import sys
     sys.path.append(getcwd())
@@ -20,6 +20,6 @@ class MyClass(object):
     raise NotImplementedError
 
 
-if DEBUG:
+if IS_MAIN:
     with Section('SOME MODULE TITLE'):
         pass
