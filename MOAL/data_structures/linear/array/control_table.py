@@ -15,7 +15,6 @@ DEBUG = True if __name__ == '__main__' else False
 
 
 class ControlTableNaive:
-
     """A control table is effectively any number of lists/arrays
     that allow mapping one set of items to another. In this way, their
     lengths must be the same.
