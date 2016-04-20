@@ -1742,7 +1742,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       + GCC
       + Clang
     + Custom (make one!)
-    + Symbol table
+    + [Symbol table](MOAL/data_structures/other/symbol_table.py)
     + [Abstract Syntax Tree (AST)](MOAL/execution/compiler/abstract_syntax_tree.py)
     + Abstract semantic graph
     + Components
