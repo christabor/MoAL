@@ -1602,7 +1602,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
         * [RxPY](MOAL/languages/paradigms/functional/rxpy_examples.py)
     + Features
       + Functional Parametric polymorphism
-      + Referential transparency
+      + [Referential transparency](MOAL/languages/paradigms/functional/referential_transparency.py)
   + Logic
     + Abductive
     + Answer set
