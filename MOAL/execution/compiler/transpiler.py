@@ -44,7 +44,7 @@ def transpile_md_to_python(markdown):
             yield Tag('href', line, 'a')
 
 if IS_MAIN:
-    with Section('Bytecode interpreter'):
+    with Section('Transpilation example - Markdown to Python Objects'):
         markdown = """
         # Hello
         I am a paragraph of text
