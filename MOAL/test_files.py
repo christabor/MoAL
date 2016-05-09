@@ -1,23 +1,30 @@
+"""Module for testing the entire project in various ways."""
+
 import os
-import sys
 import subprocess
-from pprint import pprint as ppr
+import sys
+
 from glob import glob
+from pprint import pprint as ppr
 
 args = sys.argv
 
-ADD_COVERAGE = '--cover' in args
-ADD_STATIC_ANALYSIS = '--static' in args
-TEST_FILES = '--test' in args
-TEST_CFG = '--cfg' in args
-
-BAD_FOLDERS = ['.git']
-# BOGO sort is too slow to be worth testing.
+ADD_COVERAGE = '--cover' in args or '-c' in args
+ADD_STATIC_ANALYSIS = '--static' in args or '-s' in args
+TEST_FILES = '--test' in args or '-t' in args
+TEST_CFG = '--cfg' in args or '-g' in args
+BAD_FOLDERS = [
+    '.git', 'bin', 'lib', 'python2.7',
+    'docs', 'include', 'site-packages'
+]
 BAD_FILES = [
-    '__init__.py', 'bogo_sort.py', 'test_files.py',
+    '__init__.py',
+    'get_file_tree.py',
+    'bogo_sort.py',  # BOGO sort is too slow to be worth testing.
+    'test_files.py',
     'queues_stdlib.py'  # Ignore multi-threaded files
 ]
-EXPECTED_EXCEPTIONS = (NotImplementedError)
+EXPECTED_EXCEPTIONS = (NotImplementedError,)
 
 
 def _get_all_files():
@@ -25,7 +32,8 @@ def _get_all_files():
     start_dir = os.getcwd()
     pattern = "*.py"
     for root, dirs, files in os.walk(start_dir):
-        paths.extend(glob(os.path.join(root, pattern)))
+        globbed = glob(os.path.join(root, pattern))
+        paths.extend(globbed)
     return paths
 
 
@@ -44,14 +52,12 @@ def _view_output_suppressed(popen_args=[]):
 
 def _result(filepath, exception_info):
     exception, desc, _ = exception_info
-    exception = hasattr(exception, '__name__')
-    return {
-        'file': filepath, 'desc': desc,
-        'exception': exception.__name__ if hasattr(
-            exception, '__name__') else ''}
+    exception = exception.__name__ if hasattr(exception, '__name__') else ''
+    return dict(file=filepath, desc=desc, exception=exception)
 
 
 def fmt_filename(path):
+    """Format a filename from a given path."""
     parts = path.split('/')
     pyfile = parts[len(parts) - 1]
     pyfile = pyfile.replace('.py', '')
@@ -64,6 +70,7 @@ if __name__ == '__main__':
     test_results = []
     dir = os.getcwd()
     for filepath in _get_all_files():
+        print('========== [TESTING] Filepath: {}'.format(filepath))
         filename = filepath.split('/')[-1]
         if filename not in BAD_FILES:
             try:
