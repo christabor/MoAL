@@ -21,5 +21,5 @@ class MyClass(object):
 
 
 if IS_MAIN:
-    with Section('SOME MODULE TITLE'):
+    with Section(__doc__):
         pass
