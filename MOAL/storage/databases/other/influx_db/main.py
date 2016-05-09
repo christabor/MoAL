@@ -18,7 +18,7 @@ from influxdb import InfluxDBClient
 from MOAL.helpers.display import Section
 
 
-def make_data():
+def make_data(client):
     i = 0
     while True:
         json_body = [
@@ -58,7 +58,7 @@ if IS_MAIN:
     with Section(__doc__):
         client = InfluxDBClient('localhost', 8086, 'root', 'root', 'moaltest')
         client.create_database('moaltest')
-        d = make_data()
+        d = make_data(client)
         for _ in range(100):
             next(d)
 
