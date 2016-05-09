@@ -1257,7 +1257,7 @@ Note: some encoding schemes are not really used in computer organization, but ar
       * BigQuery
       * Datomic
     * Other
-      - InfluxDB
+      - [InfluxDB](MOAL/storage/databases/other/influx_db/main.py)
       * hustle
 + Serialization
   + Avro
