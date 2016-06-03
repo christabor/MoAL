@@ -1150,6 +1150,10 @@ Note: some encoding schemes are not really used in computer organization, but ar
     * XMPP
     * [Telnet](MOAL/networking/protocols/application/telnet/)
     * HTTP/HTTPS
+      - Atom
+      - RSS
+      - PubSubHubbub
+      - Comet
       - [HTTP/2](MOAL/networking/protocols/application/http2/)
       * HTTP Servers
         * Apache Tomcat
