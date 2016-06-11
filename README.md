@@ -85,3 +85,10 @@ There are a bunch of utilities for both demonstration of MOAL tasks and for actu
 * Code coverage generation (coverage.py)
 * Linting
 
+To get started, setup a virtualenv and then run the basic tests:
+
+`
+virtualenv .
+source bin/activate
+python MOAL/test_files.py --test
+`
