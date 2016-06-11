@@ -70,9 +70,9 @@ if __name__ == '__main__':
     test_results = []
     dir = os.getcwd()
     for filepath in _get_all_files():
-        print('========== [TESTING] Filepath: {}'.format(filepath))
         filename = filepath.split('/')[-1]
         if filename not in BAD_FILES:
+            print('========== [TESTING] Filepath: {}'.format(filepath))
             try:
                 if TEST_CFG:
                     output = '{}/cfgs/{}.png'.format(
