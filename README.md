@@ -73,3 +73,15 @@ While one or both of these types may seem hard at first, consistent practice in 
 ### Documentation / Other visual formats
 
 Documentation exists solely for understanding and as a different way to navigate the complex categories -- it's not meant to be a source of reference for actual development. [Click here to check out all documentation](http://christabor.github.io/MoAL/)
+
+### Testing / analysis
+
+There are a bunch of utilities for both demonstration of MOAL tasks and for actual testing of the code. These all live in [test_files.py](MOAL/test_files.py). Example operations include:
+
+* Static analysis
+* Call graph visualization
+* Automatic testing of ALL files
+* Documentation generation
+* Code coverage generation (coverage.py)
+* Linting
+
