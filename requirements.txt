@@ -76,4 +76,4 @@ traceback2==1.4.0
 umsgpack==0.1.0
 unittest2==1.1.0
 urllib3==1.15.1
-Werkzeug==0.11.3
+Werkzeug==0.15.3
