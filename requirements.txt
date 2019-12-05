@@ -57,7 +57,7 @@ python-subunit==1.2.0
 pytz==2016.4
 redis==2.10.5
 Redis-DB==0.1.5
-requests==2.8.1
+requests==2.20.0
 Rx==1.2.6
 RXPY==0.1.0
 scikit-learn==0.17.1
